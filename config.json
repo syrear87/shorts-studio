@@ -1,0 +1,6 @@
+{
+  "channel_name": "1일 1지식 (가칭)",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "upload_mode": "phase0_telegram",
+  "note": "YouTube API 감사 통과 후 upload_mode를 api_public으로 변경하면 완전 자동 전환"
+}

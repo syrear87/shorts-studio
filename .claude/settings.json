@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Read", "Write", "Edit", "Grep", "Glob", "WebSearch", "WebFetch", "Agent",
+      "Bash(python3:*)", "Bash(python3 *)",
+      "Bash(bash bin/tg-send.sh:*)", "Bash(bash bin/tg-send.sh *)",
+      "Bash(ffmpeg:*)", "Bash(ffmpeg *)", "Bash(ffprobe:*)", "Bash(ffprobe *)",
+      "Bash(git:*)", "Bash(git *)",
+      "Bash(ls:*)", "Bash(cat:*)", "Bash(head:*)", "Bash(tail:*)", "Bash(wc:*)",
+      "Bash(grep:*)", "Bash(find:*)", "Bash(mkdir:*)", "Bash(cp:*)", "Bash(mv:*)",
+      "Bash(chmod:*)", "Bash(echo:*)", "Bash(date:*)"
+    ],
+    "deny": [
+      "Bash(git push:*)", "Bash(git push *)",
+      "Bash(git reset --hard:*)", "Bash(git reset --hard *)",
+      "Bash(git clean:*)", "Bash(git clean *)",
+      "Bash(rm -rf:*)", "Bash(rm -rf *)", "Bash(sudo *)",
+      "Bash(launchctl *)", "Bash(brew *)", "Bash(security *)", "Bash(defaults write *)",
+      "Read(./credentials.json)", "Read(./token.json)", "Read(./telegram.env)",
+      "Read(//Users/kimminsoo/Dev/coin/**)"
+    ]
+  }
+}

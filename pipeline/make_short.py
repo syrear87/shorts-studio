@@ -1,0 +1,282 @@
+#!/usr/bin/env python3
+# 숏츠 제작 파이프라인: 스크립트 JSON → edge-tts(단어 타이밍) → 1080x1920 키네틱 자막 → BGM 믹스 → mp4
+# 사용: python3 pipeline/make_short.py content/2026-07-29.json --out out/2026-07-29.mp4
+# macOS python3.9 호환. 의존: edge-tts, pillow, numpy, ffmpeg(brew).
+import argparse, asyncio, json, math, os, re, subprocess, sys, wave
+import numpy as np
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
+
+W, H, FPS = 1080, 1920, 30
+ACCENT = (255, 182, 39)
+TEXT = (245, 246, 250)
+DIM = (150, 156, 175)
+VOICE = "ko-KR-SunHiNeural"
+RATE = "+8%"
+SCENE_GAP = 0.35   # 씬 사이 무음
+LEAD_IN = 0.30     # 첫 발화 전 여유
+TAIL = 0.9         # 마지막 씬 후 여유
+
+def font_path():
+    cands = [
+        os.path.join(os.path.dirname(__file__), "..", "assets", "fonts", "NotoSansKR-Black.ttf"),
+        os.path.join(os.path.dirname(__file__), "..", "assets", "fonts", "NotoSansCJKkr-Black.otf"),
+        "/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc",   # linux (개발용)
+        "/System/Library/Fonts/AppleSDGothicNeo.ttc",             # macOS 폴백
+    ]
+    for c in cands:
+        if os.path.exists(c):
+            return c
+    sys.exit("한글 폰트를 찾을 수 없습니다 — setup.sh를 먼저 실행하세요")
+
+FONT = font_path()
+TTC_IDX = 1 if FONT.endswith("NotoSansCJK-Black.ttc") else 0
+
+def load_font(size):
+    try:
+        return ImageFont.truetype(FONT, size, index=TTC_IDX)
+    except Exception:
+        return ImageFont.truetype(FONT, size, index=0)
+
+# ---------- TTS ----------
+async def tts_scene(text, mp3_path):
+    """씬 하나를 합성하고 (mp3, [단어별 시작초]) 반환."""
+    import edge_tts
+    comm = edge_tts.Communicate(text, VOICE, rate=RATE)
+    boundaries = []
+    with open(mp3_path, "wb") as f:
+        async for chunk in comm.stream():
+            if chunk["type"] == "audio":
+                f.write(chunk["data"])
+            elif chunk["type"] == "WordBoundary":
+                boundaries.append((chunk["offset"] / 1e7, chunk["text"]))
+    return boundaries
+
+def media_duration(path):
+    out = subprocess.run(["ffprobe", "-v", "quiet", "-show_entries", "format=duration",
+                          "-of", "csv=p=0", path], capture_output=True, text=True)
+    return float(out.stdout.strip())
+
+# ---------- 타이밍 매핑 ----------
+def display_words(scene):
+    ws = []
+    for li, (line, hl) in enumerate(scene["lines"]):
+        for w in line.split(" "):
+            ws.append({"line": li, "word": w, "hl": any(h in w for h in hl)})
+    return ws
+
+def norm(s):
+    return re.sub(r"[^\w가-힣%]", "", s)
+
+def assign_times(dwords, boundaries, dur):
+    """TTS 단어 경계 → 화면 단어 등장 시각. 개수 일치 시 1:1, 아니면 근사 매칭 후 비례 보간."""
+    if boundaries and len(boundaries) == len(dwords):
+        return [b[0] for b in boundaries]
+    times, bi = [], 0
+    for dw in dwords:
+        t_norm = norm(dw["word"])
+        matched = None
+        for j in range(bi, min(bi + 3, len(boundaries))):
+            if norm(boundaries[j][1]) and (norm(boundaries[j][1]) in t_norm or t_norm in norm(boundaries[j][1])):
+                matched = j
+                break
+        if matched is not None:
+            times.append(boundaries[matched][0])
+            bi = matched + 1
+        else:
+            times.append(None)
+    # None은 이웃 사이 선형 보간
+    known = [(i, t) for i, t in enumerate(times) if t is not None]
+    if not known:
+        return [i * dur / max(len(dwords), 1) for i in range(len(dwords))]
+    for i in range(len(times)):
+        if times[i] is None:
+            prev = max([k for k in known if k[0] < i], default=known[0], key=lambda x: x[0])
+            nxt = min([k for k in known if k[0] > i], default=known[-1], key=lambda x: x[0])
+            if prev[0] == nxt[0]:
+                times[i] = prev[1]
+            else:
+                f = (i - prev[0]) / (nxt[0] - prev[0])
+                times[i] = prev[1] + f * (nxt[1] - prev[1])
+    return times
+
+# ---------- 렌더 ----------
+def ease_out_back(t, s=1.35):
+    t -= 1
+    return 1 + (s + 1) * t ** 3 + s * t ** 2
+
+def clamp(x, a, b):
+    return max(a, min(b, x))
+
+def make_bg():
+    g = Image.new("RGB", (W, H))
+    top, bot = (11, 16, 32), (24, 28, 54)
+    px = g.load()
+    for y in range(H):
+        f = y / H
+        row = tuple(int(top[i] + (bot[i] - top[i]) * f) for i in range(3))
+        for x in range(W):
+            px[x, y] = row
+    return g
+
+def make_glow(r, color, alpha):
+    s = r * 2
+    im = Image.new("RGBA", (s, s), (0, 0, 0, 0))
+    ImageDraw.Draw(im).ellipse([r * 0.3, r * 0.3, s - r * 0.3, s - r * 0.3], fill=color + (alpha,))
+    return im.filter(ImageFilter.GaussianBlur(r * 0.35))
+
+def render(script, timeline, out_dir, total_dur, channel_chip):
+    BG = make_bg()
+    GA = make_glow(520, ACCENT, 26)
+    GB = make_glow(640, (90, 110, 220), 22)
+    F_BIG, F_MED = load_font(92), load_font(78)
+    F_CHIP, F_NUM, F_SUB = load_font(34), load_font(140), load_font(40)
+    os.makedirs(os.path.join(out_dir, "frames"), exist_ok=True)
+    total = int(total_dur * FPS)
+    fact_counter = 0
+    fact_nums = {}
+    for i, sc in enumerate(script["scenes"]):
+        if sc.get("kind") == "fact":
+            fact_counter += 1
+            fact_nums[i] = "%02d" % fact_counter
+
+    for fi in range(total):
+        t = fi / FPS
+        im = BG.copy().convert("RGBA")
+        ax = int(W * 0.75 + 60 * math.sin(t * 0.35)); ay = int(H * 0.20 + 40 * math.cos(t * 0.28))
+        bx = int(W * 0.12 + 50 * math.sin(t * 0.22 + 2)); by = int(H * 0.78 + 55 * math.cos(t * 0.30 + 1))
+        im.alpha_composite(GA, (ax - 520, ay - 520))
+        im.alpha_composite(GB, (bx - 640, by - 640))
+        d = ImageDraw.Draw(im)
+        tw = d.textlength(channel_chip, font=F_CHIP)
+        cx0 = (W - tw) / 2 - 34
+        d.rounded_rectangle([cx0, 150, cx0 + tw + 68, 224], radius=37,
+                            fill=(255, 255, 255, 18), outline=ACCENT + (160,), width=2)
+        d.text(((W - tw) / 2, 165), channel_chip, font=F_CHIP, fill=ACCENT)
+
+        si = None
+        for idx, tl in enumerate(timeline):
+            if tl["start"] <= t < tl["end"]:
+                si = idx
+                break
+        if si is not None:
+            sc, tl = script["scenes"][si], timeline[si]
+            local = t - tl["start"]
+            fade = clamp((tl["end"] - t) / 0.35, 0, 1) if tl["end"] - t < 0.35 else 1.0
+            font = F_BIG if sc.get("kind") in ("hook", "cta") else F_MED
+            y_cursor = H * 0.40
+            if si in fact_nums:
+                a = clamp(local / 0.3, 0, 1)
+                num = fact_nums[si]
+                d.text((W / 2 - d.textlength(num, font=F_NUM) / 2, H * 0.26),
+                       num, font=F_NUM, fill=ACCENT + (int(80 * a * fade),))
+                y_cursor = H * 0.42
+            line_h = int(font.size * 1.42)
+            wi = 0
+            for li, (line, hl) in enumerate(sc["lines"]):
+                lw = d.textlength(line, font=font)
+                x = (W - lw) / 2
+                y = y_cursor + li * line_h
+                for w_ in line.split(" "):
+                    t_in = tl["word_times"][wi] - tl["start"]
+                    a = clamp((local - t_in) / 0.22, 0, 1)
+                    if a > 0:
+                        s = ease_out_back(a)
+                        col = ACCENT if tl["dwords"][wi]["hl"] else TEXT
+                        alpha = int(255 * a * fade)
+                        fs = load_font(int(font.size * (0.7 + 0.3 * s))) if abs(s - 1) > 0.01 else font
+                        yo = (1 - a) * 26
+                        d.text((x, y + yo + (font.size - fs.size) / 2), w_, font=fs, fill=col + (alpha,))
+                    x += d.textlength(w_ + " ", font=font)
+                    wi += 1
+            if sc.get("kind") == "cta" and sc.get("sub"):
+                a = clamp((local - 0.9) / 0.4, 0, 1)
+                d.text(((W - d.textlength(sc["sub"], font=F_SUB)) / 2, H * 0.56),
+                       sc["sub"], font=F_SUB, fill=DIM + (int(255 * a * fade),))
+        d.rectangle([0, H - 14, W * (t / total_dur), H], fill=ACCENT + (230,))
+        im.convert("RGB").save(os.path.join(out_dir, "frames", "f%05d.jpg" % fi), quality=92)
+        if fi % 150 == 0:
+            print("frame %d/%d" % (fi, total), flush=True)
+
+# ---------- BGM ----------
+def make_bgm(dur, path):
+    SR = 44100
+    prog = [[220.0, 261.63, 329.63], [174.61, 220.0, 261.63],
+            [130.81, 164.81, 196.0, 261.63], [196.0, 246.94, 293.66]]
+    bar = 3.4
+    audio = np.zeros(int(SR * dur))
+    for bi in range(int(dur / bar) + 1):
+        chord = prog[bi % 4]
+        n = int(SR * bar)
+        tt = np.arange(n) / SR
+        seg = np.zeros(n)
+        for f0 in chord:
+            for mult, amp in [(1, 1.0), (2, 0.25), (0.5, 0.5)]:
+                seg += amp * np.sin(2 * np.pi * f0 * mult * tt + 0.7 * np.sin(2 * np.pi * 0.15 * tt))
+        env = np.minimum(tt / 0.8, 1.0) * np.clip((bar - tt) / 1.2, 0.25, 1)
+        seg *= env
+        i0 = int(bi * bar * SR)
+        i1 = min(i0 + n, len(audio))
+        audio[i0:i1] += seg[: i1 - i0]
+    audio /= max(np.abs(audio).max(), 1e-9)
+    fo = int(SR * 1.5)
+    fade = np.ones(len(audio)); fade[-fo:] = np.linspace(1, 0, fo)
+    pcm = (audio * fade * 32767).astype(np.int16)
+    with wave.open(path, "wb") as wf:
+        wf.setnchannels(1); wf.setsampwidth(2); wf.setframerate(SR)
+        wf.writeframes(pcm.tobytes())
+
+# ---------- main ----------
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("script_json")
+    ap.add_argument("--out", default=None)
+    args = ap.parse_args()
+    with open(args.script_json, encoding="utf-8") as f:
+        script = json.load(f)
+    base = os.path.splitext(os.path.basename(args.script_json))[0]
+    out_mp4 = args.out or os.path.join("out", base + ".mp4")
+    work = os.path.join("out", "work_" + base)
+    os.makedirs(work, exist_ok=True)
+
+    # 1) 씬별 TTS
+    timeline = []
+    cursor = LEAD_IN
+    for i, sc in enumerate(script["scenes"]):
+        mp3 = os.path.join(work, "s%02d.mp3" % i)
+        boundaries = asyncio.run(tts_scene(sc["voice"], mp3))
+        dur = media_duration(mp3)
+        dws = display_words(sc)
+        times = assign_times(dws, boundaries, dur)
+        timeline.append({
+            "start": cursor, "end": cursor + dur + SCENE_GAP, "mp3": mp3,
+            "dwords": dws, "word_times": [cursor + t for t in times],
+        })
+        cursor += dur + SCENE_GAP
+        print("scene %d: %.2fs, words=%d, boundaries=%d" % (i, dur, len(dws), len(boundaries)), flush=True)
+    total_dur = cursor + TAIL
+    if not (15 <= total_dur <= 55):
+        print("경고: 총 길이 %.1fs — 목표 20~50s 밖" % total_dur, flush=True)
+
+    # 2) 렌더 + BGM
+    render(script, timeline, work, total_dur, script.get("chip", "오늘의 지식 · 1일 1지식"))
+    bgm = os.path.join(work, "bgm.wav")
+    make_bgm(total_dur, bgm)
+
+    # 3) 오디오 믹스 + 인코딩
+    cmd = ["ffmpeg", "-y", "-framerate", str(FPS), "-i", os.path.join(work, "frames", "f%05d.jpg"),
+           "-i", bgm]
+    fl = ["[1:a]volume=0.14[bg]"]
+    amix_in = "[bg]"
+    for i, tl in enumerate(timeline):
+        cmd += ["-i", tl["mp3"]]
+        fl.append("[%d:a]adelay=%d:all=1,volume=1.0[v%d]" % (i + 2, int(tl["start"] * 1000), i))
+        amix_in += "[v%d]" % i
+    fl.append("%samix=inputs=%d:normalize=0[aout]" % (amix_in, len(timeline) + 1))
+    cmd += ["-filter_complex", ";".join(fl), "-map", "0:v", "-map", "[aout]",
+            "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
+            "-c:a", "aac", "-b:a", "160k", "-t", str(total_dur), out_mp4]
+    subprocess.run(cmd, check=True, capture_output=True)
+    print("완료: %s (%.1fs)" % (out_mp4, total_dur))
+
+if __name__ == "__main__":
+    main()

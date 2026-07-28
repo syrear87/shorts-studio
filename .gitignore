@@ -1,0 +1,14 @@
+# 비밀 — 절대 커밋 금지
+credentials.json
+token.json
+telegram.env
+
+# 산출물·런타임
+out/
+logs/
+*.log
+.daily.lock
+.DS_Store
+
+# 로컬 설정
+.claude/settings.local.json
