@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "오늘 숏츠 렌더+발송 (수동 실행 전용)",
+      "type": "shell",
+      "command": "bash ${workspaceFolder}/run_today.sh",
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": []
+    }
+  ]
+}
