@@ -241,7 +241,12 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
             line_h = int(font.size * 1.42)
             wi = 0
             for li, (line, hl) in enumerate(sc["lines"]):
-                lw = d.textlength(line, font=font)
+                # 긴 줄은 화면 폭(여백 90px)에 맞게 폰트 자동 축소
+                line_font = font
+                lw = d.textlength(line, font=line_font)
+                if lw > W - 90:
+                    line_font = load_font(max(44, int(font.size * (W - 90) / lw)))
+                    lw = d.textlength(line, font=line_font)
                 x = (W - lw) / 2
                 y = y_cursor + li * line_h
                 for w_ in line.split(" "):
@@ -251,10 +256,10 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
                         s = ease_out_back(a)
                         col = ACCENT if tl["dwords"][wi]["hl"] else TEXT
                         alpha = int(255 * a * fade)
-                        fs = load_font(int(font.size * (0.7 + 0.3 * s))) if abs(s - 1) > 0.01 else font
+                        fs = load_font(int(line_font.size * (0.7 + 0.3 * s))) if abs(s - 1) > 0.01 else line_font
                         yo = (1 - a) * 26
-                        text_sh(d, (x, y + yo + (font.size - fs.size) / 2), w_, fs, col + (alpha,))
-                    x += d.textlength(w_ + " ", font=font)
+                        text_sh(d, (x, y + yo + (line_font.size - fs.size) / 2), w_, fs, col + (alpha,))
+                    x += d.textlength(w_ + " ", font=line_font)
                     wi += 1
             if sc.get("kind") == "cta" and sc.get("sub"):
                 a = clamp((local - 0.9) / 0.4, 0, 1)

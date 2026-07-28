@@ -12,13 +12,19 @@ def load(p):
         return json.load(f)
 
 def phase0(video, meta):
-    msg = ("🎬 오늘의 숏츠 완성 (감사 통과 전 — 수동 업로드 필요)\n\n"
-           "제목: %s\n\n설명:\n%s\n\n태그: %s\n\n"
-           "파일: %s\n폰 YouTube 앱 → + → Shorts 업로드로 1분이면 됩니다."
-           % (meta["title"], meta["description"], ", ".join(meta.get("tags", [])),
-              os.path.abspath(video)))
+    # 1) 영상 파일 자체를 텔레그램으로 발송 (봇 API 한도 50MB)
+    size_mb = os.path.getsize(video) / 1e6
+    caption = "🎬 오늘의 숏츠 완성 — 이 영상을 저장해서 YouTube 앱 → + → Shorts로 올려주세요\n\n제목: %s" % meta["title"]
+    if size_mb < 49:
+        subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send-video.sh"), video, caption], check=True)
+    else:
+        subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
+                        "⚠️ 영상이 %dMB로 텔레그램 한도 초과 — 파일: %s" % (size_mb, os.path.abspath(video))], check=True)
+    # 2) 제목·설명·태그는 복사하기 좋게 별도 메시지로
+    msg = ("복사용 메타데이터 👇\n\n%s\n\n%s\n\n태그: %s"
+           % (meta["title"], meta["description"], ", ".join(meta.get("tags", []))))
     subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), msg], check=True)
-    print("phase0: 텔레그램 발송 완료 (API 업로드 안 함)")
+    print("phase0: 텔레그램으로 영상+메타데이터 발송 완료 (API 업로드 안 함)")
 
 def api_public(video, meta):
     from google.oauth2.credentials import Credentials
