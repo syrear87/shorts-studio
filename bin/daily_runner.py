@@ -11,6 +11,27 @@ LOG = ROOT / "logs" / ("daily-%s.log" % datetime.now().strftime("%Y%m%d-%H%M"))
 TIMEOUT = 100 * 60
 STALE = 110 * 60
 
+
+def find_claude():
+    c = shutil.which("claude")
+    if c:
+        return c
+    home = Path.home()
+    for p in ["/opt/homebrew/bin/claude", "/usr/local/bin/claude",
+              str(home / ".local/bin/claude"), str(home / ".claude/local/claude"),
+              str(home / ".npm-global/bin/claude"), str(home / "bin/claude")]:
+        if Path(p).exists():
+            return p
+    try:
+        out = subprocess.run(["/bin/zsh", "-l", "-c", "which claude"],
+                             capture_output=True, text=True, timeout=20)
+        cand = out.stdout.strip().splitlines()
+        if out.returncode == 0 and cand:
+            return cand[-1].strip()
+    except Exception:
+        pass
+    return None
+
 def tg(msg):
     try:
         subprocess.run(["bash", str(ROOT / "bin" / "tg-send.sh"), msg], timeout=30)
@@ -26,9 +47,9 @@ def main():
             tg("⏳ 숏츠 데일리: 이전 세션이 아직 실행 중 — 오늘 기동 건너뜀")
             return
         LOCK.unlink()
-    claude = shutil.which("claude") or str(Path.home() / ".claude/local/claude")
-    if not Path(claude).exists() and not shutil.which("claude"):
-        tg("⚠️ 숏츠 데일리: claude CLI를 찾지 못해 기동 실패")
+    claude = find_claude()
+    if not claude:
+        tg("⚠️ 숏츠 데일리: claude CLI를 찾지 못해 기동 실패 (zsh 로그인셸 탐색 포함)")
         sys.exit(1)
     prompt = (ROOT / "DAILY_PROMPT.md").read_text(encoding="utf-8")
     LOCK.write_text(str(os.getpid()))
