@@ -47,16 +47,18 @@ def main():
             tg("⏳ 숏츠 데일리: 이전 세션이 아직 실행 중 — 오늘 기동 건너뜀")
             return
         LOCK.unlink()
-    claude = find_claude()
-    if not claude:
-        tg("⚠️ 숏츠 데일리: claude CLI를 찾지 못해 기동 실패 (zsh 로그인셸 탐색 포함)")
+    # claude는 node 기반 → launchd의 빈 PATH에서 죽는다(2026-07-29 실사고: env: node not found).
+    # 로그인 셸(zsh -l)을 통째로 경유해 사용자 PATH(node·claude 포함)를 복원한다.
+    chk = subprocess.run(["/bin/zsh", "-l", "-c", "which claude"], capture_output=True, text=True, timeout=30)
+    if chk.returncode != 0 or not chk.stdout.strip():
+        tg("⚠️ 숏츠 데일리: 로그인 셸에서도 claude CLI를 찾지 못해 기동 실패")
         sys.exit(1)
-    prompt = (ROOT / "DAILY_PROMPT.md").read_text(encoding="utf-8")
     LOCK.write_text(str(os.getpid()))
     try:
         with open(LOG, "w") as lf:
             r = subprocess.run(
-                [claude, "-p", prompt, "--model", "opus", "--permission-mode", "acceptEdits"],
+                ["/bin/zsh", "-l", "-c",
+                 'claude -p "$(cat DAILY_PROMPT.md)" --model opus --permission-mode acceptEdits'],
                 stdout=lf, stderr=subprocess.STDOUT, timeout=TIMEOUT, cwd=str(ROOT))
         if r.returncode != 0:
             tg("⚠️ 숏츠 데일리 세션 비정상 종료 (코드 %d) — %s 확인" % (r.returncode, LOG.name))

@@ -4,7 +4,7 @@ set -e
 cd /Users/kimminsoo/Dev/shorts-studio
 mkdir -p logs
 {
-  .venv/bin/python3 pipeline/make_short.py content/2026-07-28-chickengame.json --out out/2026-07-28-chickengame.mp4
-  .venv/bin/python3 pipeline/upload_youtube.py out/2026-07-28-chickengame.mp4 content/2026-07-28-chickengame.meta.json
+  .venv/bin/python3 pipeline/make_short.py content/2026-07-29-ostrich.json --out out/2026-07-29-ostrich.mp4
+  .venv/bin/python3 pipeline/upload_youtube.py out/2026-07-29-ostrich.mp4 content/2026-07-29-ostrich.meta.json
 } > logs/manual-render.log 2>&1
 echo "done"
