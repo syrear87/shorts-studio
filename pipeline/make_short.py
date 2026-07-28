@@ -95,7 +95,11 @@ def fetch_bg(query, need_dur):
 # ---------- TTS ----------
 async def tts_scene(text, mp3_path):
     import edge_tts
-    comm = edge_tts.Communicate(text, VOICE, rate=RATE)
+    try:
+        # edge-tts 7.x: 기본이 SentenceBoundary라 단어 타이밍을 명시 요청해야 함
+        comm = edge_tts.Communicate(text, VOICE, rate=RATE, boundary="WordBoundary")
+    except TypeError:
+        comm = edge_tts.Communicate(text, VOICE, rate=RATE)
     boundaries = []
     with open(mp3_path, "wb") as f:
         async for chunk in comm.stream():
