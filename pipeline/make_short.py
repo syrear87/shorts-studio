@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# 숏츠 제작 파이프라인: 스크립트 JSON → edge-tts(단어 타이밍) → 1080x1920 키네틱 자막 → BGM 믹스 → mp4
-# 사용: python3 pipeline/make_short.py content/2026-07-29.json --out out/2026-07-29.mp4
-# macOS python3.9 호환. 의존: edge-tts, pillow, numpy, ffmpeg(brew).
+# 숏츠 제작 파이프라인: 스크립트 JSON → edge-tts(단어 타이밍) → 배경영상(Pexels)+키네틱 자막 → BGM 믹스 → mp4
+# 사용: .venv/bin/python3 pipeline/make_short.py content/2026-07-29.json --out out/2026-07-29.mp4
+# 배경: script JSON의 "bg_query"(예: "eiffel tower")로 Pexels에서 세로 영상 검색.
+#       keys.env에 PEXELS_API_KEY 필요. 없거나 실패하면 그라데이션 배경으로 폴백.
 import argparse, asyncio, json, math, os, re, subprocess, sys, wave
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -9,19 +10,20 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 W, H, FPS = 1080, 1920, 30
 ACCENT = (255, 182, 39)
 TEXT = (245, 246, 250)
-DIM = (150, 156, 175)
+DIM = (170, 176, 195)
 VOICE = "ko-KR-SunHiNeural"
 RATE = "+8%"
-SCENE_GAP = 0.35   # 씬 사이 무음
-LEAD_IN = 0.30     # 첫 발화 전 여유
-TAIL = 0.9         # 마지막 씬 후 여유
+SCENE_GAP = 0.35
+LEAD_IN = 0.30
+TAIL = 0.9
+SCRIM = 130           # 배경영상 위 어두운 막 (0~255)
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def font_path():
     cands = [
-        os.path.join(os.path.dirname(__file__), "..", "assets", "fonts", "NotoSansKR-Black.ttf"),
-        os.path.join(os.path.dirname(__file__), "..", "assets", "fonts", "NotoSansCJKkr-Black.otf"),
-        "/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc",   # linux (개발용)
-        "/System/Library/Fonts/AppleSDGothicNeo.ttc",             # macOS 폴백
+        os.path.join(ROOT, "assets", "fonts", "NotoSansCJKkr-Black.otf"),
+        "/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc",
+        "/System/Library/Fonts/AppleSDGothicNeo.ttc",
     ]
     for c in cands:
         if os.path.exists(c):
@@ -37,9 +39,61 @@ def load_font(size):
     except Exception:
         return ImageFont.truetype(FONT, size, index=0)
 
+def load_keys():
+    env = {}
+    p = os.path.join(ROOT, "keys.env")
+    if os.path.exists(p):
+        for line in open(p, encoding="utf-8"):
+            line = line.strip()
+            if "=" in line and not line.startswith("#"):
+                k, v = line.split("=", 1)
+                env[k.strip()] = v.strip()
+    return env
+
+# ---------- Pexels 배경 영상 ----------
+def fetch_bg(query, need_dur):
+    """Pexels에서 세로 영상 검색·다운로드 → 로컬 경로 (실패 시 None)."""
+    key = load_keys().get("PEXELS_API_KEY") or os.environ.get("PEXELS_API_KEY")
+    if not key or not query:
+        return None
+    cache = os.path.join(ROOT, "assets", "bg_cache")
+    os.makedirs(cache, exist_ok=True)
+    try:
+        import requests
+        r = requests.get("https://api.pexels.com/videos/search",
+                         params={"query": query, "orientation": "portrait", "per_page": 20},
+                         headers={"Authorization": key}, timeout=20)
+        r.raise_for_status()
+        vids = r.json().get("videos", [])
+        # 세로 HD 이상, 길이 내림차순(루프 최소화) 정렬 후 최선 선택
+        best, best_file = None, None
+        for v in sorted(vids, key=lambda x: -min(x.get("duration", 0), 60)):
+            for f in v.get("video_files", []):
+                w_, h_ = f.get("width") or 0, f.get("height") or 0
+                if h_ >= 1600 and h_ > w_ and f.get("link"):
+                    best, best_file = v, f
+                    break
+            if best:
+                break
+        if not best:
+            return None
+        dst = os.path.join(cache, "pexels_%d.mp4" % best["id"])
+        if not os.path.exists(dst):
+            with requests.get(best_file["link"], stream=True, timeout=120) as resp:
+                resp.raise_for_status()
+                with open(dst, "wb") as f:
+                    for chunk in resp.iter_content(1 << 20):
+                        f.write(chunk)
+        print("배경 영상: pexels id=%s (%ds, %dx%d) — Pexels License (자유 사용)"
+              % (best["id"], best.get("duration", 0), best_file.get("width", 0), best_file.get("height", 0)),
+              flush=True)
+        return dst
+    except Exception as e:
+        print("배경 영상 실패(%s) → 그라데이션 폴백" % e, flush=True)
+        return None
+
 # ---------- TTS ----------
 async def tts_scene(text, mp3_path):
-    """씬 하나를 합성하고 (mp3, [단어별 시작초]) 반환."""
     import edge_tts
     comm = edge_tts.Communicate(text, VOICE, rate=RATE)
     boundaries = []
@@ -68,7 +122,6 @@ def norm(s):
     return re.sub(r"[^\w가-힣%]", "", s)
 
 def assign_times(dwords, boundaries, dur):
-    """TTS 단어 경계 → 화면 단어 등장 시각. 개수 일치 시 1:1, 아니면 근사 매칭 후 비례 보간."""
     if boundaries and len(boundaries) == len(dwords):
         return [b[0] for b in boundaries]
     times, bi = [], 0
@@ -84,7 +137,6 @@ def assign_times(dwords, boundaries, dur):
             bi = matched + 1
         else:
             times.append(None)
-    # None은 이웃 사이 선형 보간
     known = [(i, t) for i, t in enumerate(times) if t is not None]
     if not known:
         return [i * dur / max(len(dwords), 1) for i in range(len(dwords))]
@@ -124,33 +176,45 @@ def make_glow(r, color, alpha):
     ImageDraw.Draw(im).ellipse([r * 0.3, r * 0.3, s - r * 0.3, s - r * 0.3], fill=color + (alpha,))
     return im.filter(ImageFilter.GaussianBlur(r * 0.35))
 
-def render(script, timeline, out_dir, total_dur, channel_chip):
-    BG = make_bg()
-    GA = make_glow(520, ACCENT, 26)
-    GB = make_glow(640, (90, 110, 220), 22)
+def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
+    """video_bg=True → 투명 오버레이 PNG(+스크림), False → 그라데이션 JPG."""
+    if not video_bg:
+        BG = make_bg()
+        GA = make_glow(520, ACCENT, 26)
+        GB = make_glow(640, (90, 110, 220), 22)
     F_BIG, F_MED = load_font(92), load_font(78)
     F_CHIP, F_NUM, F_SUB = load_font(34), load_font(140), load_font(40)
     os.makedirs(os.path.join(out_dir, "frames"), exist_ok=True)
     total = int(total_dur * FPS)
-    fact_counter = 0
-    fact_nums = {}
+    fact_counter, fact_nums = 0, {}
     for i, sc in enumerate(script["scenes"]):
         if sc.get("kind") == "fact":
             fact_counter += 1
             fact_nums[i] = "%02d" % fact_counter
 
+    # 텍스트 그림자용 헬퍼
+    def text_sh(d, xy, s, font, fill):
+        x, y = xy
+        if video_bg:
+            d.text((x + 3, y + 3), s, font=font, fill=(0, 0, 0, min(200, fill[3] if len(fill) > 3 else 255)))
+        d.text(xy, s, font=font, fill=fill)
+
     for fi in range(total):
         t = fi / FPS
-        im = BG.copy().convert("RGBA")
-        ax = int(W * 0.75 + 60 * math.sin(t * 0.35)); ay = int(H * 0.20 + 40 * math.cos(t * 0.28))
-        bx = int(W * 0.12 + 50 * math.sin(t * 0.22 + 2)); by = int(H * 0.78 + 55 * math.cos(t * 0.30 + 1))
-        im.alpha_composite(GA, (ax - 520, ay - 520))
-        im.alpha_composite(GB, (bx - 640, by - 640))
+        if video_bg:
+            im = Image.new("RGBA", (W, H), (0, 0, 0, SCRIM))   # 어두운 스크림 + 투명 텍스트층
+        else:
+            im = BG.copy().convert("RGBA")
+            ax = int(W * 0.75 + 60 * math.sin(t * 0.35)); ay = int(H * 0.20 + 40 * math.cos(t * 0.28))
+            bx = int(W * 0.12 + 50 * math.sin(t * 0.22 + 2)); by = int(H * 0.78 + 55 * math.cos(t * 0.30 + 1))
+            im.alpha_composite(GA, (ax - 520, ay - 520))
+            im.alpha_composite(GB, (bx - 640, by - 640))
         d = ImageDraw.Draw(im)
         tw = d.textlength(channel_chip, font=F_CHIP)
         cx0 = (W - tw) / 2 - 34
         d.rounded_rectangle([cx0, 150, cx0 + tw + 68, 224], radius=37,
-                            fill=(255, 255, 255, 18), outline=ACCENT + (160,), width=2)
+                            fill=(0, 0, 0, 110) if video_bg else (255, 255, 255, 18),
+                            outline=ACCENT + (180,), width=2)
         d.text(((W - tw) / 2, 165), channel_chip, font=F_CHIP, fill=ACCENT)
 
         si = None
@@ -168,7 +232,7 @@ def render(script, timeline, out_dir, total_dur, channel_chip):
                 a = clamp(local / 0.3, 0, 1)
                 num = fact_nums[si]
                 d.text((W / 2 - d.textlength(num, font=F_NUM) / 2, H * 0.26),
-                       num, font=F_NUM, fill=ACCENT + (int(80 * a * fade),))
+                       num, font=F_NUM, fill=ACCENT + (int((140 if video_bg else 80) * a * fade),))
                 y_cursor = H * 0.42
             line_h = int(font.size * 1.42)
             wi = 0
@@ -185,15 +249,18 @@ def render(script, timeline, out_dir, total_dur, channel_chip):
                         alpha = int(255 * a * fade)
                         fs = load_font(int(font.size * (0.7 + 0.3 * s))) if abs(s - 1) > 0.01 else font
                         yo = (1 - a) * 26
-                        d.text((x, y + yo + (font.size - fs.size) / 2), w_, font=fs, fill=col + (alpha,))
+                        text_sh(d, (x, y + yo + (font.size - fs.size) / 2), w_, fs, col + (alpha,))
                     x += d.textlength(w_ + " ", font=font)
                     wi += 1
             if sc.get("kind") == "cta" and sc.get("sub"):
                 a = clamp((local - 0.9) / 0.4, 0, 1)
-                d.text(((W - d.textlength(sc["sub"], font=F_SUB)) / 2, H * 0.56),
-                       sc["sub"], font=F_SUB, fill=DIM + (int(255 * a * fade),))
+                text_sh(d, ((W - d.textlength(sc["sub"], font=F_SUB)) / 2, H * 0.56),
+                        sc["sub"], F_SUB, DIM + (int(255 * a * fade),))
         d.rectangle([0, H - 14, W * (t / total_dur), H], fill=ACCENT + (230,))
-        im.convert("RGB").save(os.path.join(out_dir, "frames", "f%05d.jpg" % fi), quality=92)
+        if video_bg:
+            im.save(os.path.join(out_dir, "frames", "f%05d.png" % fi))
+        else:
+            im.convert("RGB").save(os.path.join(out_dir, "frames", "f%05d.jpg" % fi), quality=92)
         if fi % 150 == 0:
             print("frame %d/%d" % (fi, total), flush=True)
 
@@ -230,6 +297,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("script_json")
     ap.add_argument("--out", default=None)
+    ap.add_argument("--no-bg-video", action="store_true", help="배경영상 없이 그라데이션")
     args = ap.parse_args()
     with open(args.script_json, encoding="utf-8") as f:
         script = json.load(f)
@@ -247,36 +315,50 @@ def main():
         dur = media_duration(mp3)
         dws = display_words(sc)
         times = assign_times(dws, boundaries, dur)
-        timeline.append({
-            "start": cursor, "end": cursor + dur + SCENE_GAP, "mp3": mp3,
-            "dwords": dws, "word_times": [cursor + t for t in times],
-        })
+        timeline.append({"start": cursor, "end": cursor + dur + SCENE_GAP, "mp3": mp3,
+                         "dwords": dws, "word_times": [cursor + t for t in times]})
         cursor += dur + SCENE_GAP
         print("scene %d: %.2fs, words=%d, boundaries=%d" % (i, dur, len(dws), len(boundaries)), flush=True)
     total_dur = cursor + TAIL
     if not (15 <= total_dur <= 55):
         print("경고: 총 길이 %.1fs — 목표 20~50s 밖" % total_dur, flush=True)
 
-    # 2) 렌더 + BGM
-    render(script, timeline, work, total_dur, script.get("chip", "오늘의 지식 · 1일 1지식"))
+    # 2) 배경 영상
+    bg_path = None
+    if not args.no_bg_video:
+        bg_path = fetch_bg(script.get("bg_query", ""), total_dur)
+    video_bg = bg_path is not None
+
+    # 3) 렌더 + BGM
+    render(script, timeline, work, total_dur, script.get("chip", "오늘의 지식 · 1일 1지식"), video_bg)
     bgm = os.path.join(work, "bgm.wav")
     make_bgm(total_dur, bgm)
 
-    # 3) 오디오 믹스 + 인코딩
-    cmd = ["ffmpeg", "-y", "-framerate", str(FPS), "-i", os.path.join(work, "frames", "f%05d.jpg"),
-           "-i", bgm]
-    fl = ["[1:a]volume=0.14[bg]"]
+    # 4) 합성·인코딩
+    cmd = ["ffmpeg", "-y"]
+    if video_bg:
+        cmd += ["-stream_loop", "-1", "-i", bg_path,
+                "-framerate", str(FPS), "-i", os.path.join(work, "frames", "f%05d.png"),
+                "-i", bgm]
+        vf = ("[0:v]scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d,setsar=1,fps=%d[bgv];"
+              "[bgv][1:v]overlay=format=auto[vout]" % (W, H, W, H, FPS))
+        a_base = 2
+    else:
+        cmd += ["-framerate", str(FPS), "-i", os.path.join(work, "frames", "f%05d.jpg"), "-i", bgm]
+        vf = "[0:v]copy[vout]"
+        a_base = 1
+    fl = [vf, "[%d:a]volume=0.14[bg]" % a_base]
     amix_in = "[bg]"
     for i, tl in enumerate(timeline):
         cmd += ["-i", tl["mp3"]]
-        fl.append("[%d:a]adelay=%d:all=1,volume=1.0[v%d]" % (i + 2, int(tl["start"] * 1000), i))
+        fl.append("[%d:a]adelay=%d:all=1,volume=1.0[v%d]" % (a_base + 1 + i, int(tl["start"] * 1000), i))
         amix_in += "[v%d]" % i
     fl.append("%samix=inputs=%d:normalize=0[aout]" % (amix_in, len(timeline) + 1))
-    cmd += ["-filter_complex", ";".join(fl), "-map", "0:v", "-map", "[aout]",
+    cmd += ["-filter_complex", ";".join(fl), "-map", "[vout]", "-map", "[aout]",
             "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
             "-c:a", "aac", "-b:a", "160k", "-t", str(total_dur), out_mp4]
     subprocess.run(cmd, check=True, capture_output=True)
-    print("완료: %s (%.1fs)" % (out_mp4, total_dur))
+    print("완료: %s (%.1fs, 배경=%s)" % (out_mp4, total_dur, "영상" if video_bg else "그라데이션"))
 
 if __name__ == "__main__":
     main()

@@ -2,8 +2,11 @@
 credentials.json
 token.json
 telegram.env
+keys.env
+assets/bg_cache/
 
 # 산출물·런타임
+.venv/
 out/
 logs/
 *.log
