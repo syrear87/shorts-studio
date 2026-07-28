@@ -52,45 +52,51 @@ def load_keys():
 
 # ---------- Pexels 배경 영상 ----------
 def fetch_bg(query, need_dur):
-    """Pexels에서 세로 영상 검색·다운로드 → 로컬 경로 (실패 시 None)."""
+    """Pexels에서 배경 영상 검색·다운로드 → 로컬 경로 (실패 시 None).
+    query: 문자열 또는 문자열 리스트(우선순위 순 폴백).
+    소재 적합성이 우선 — 세로가 없으면 가로 HD를 받아 크롭한다."""
     key = load_keys().get("PEXELS_API_KEY") or os.environ.get("PEXELS_API_KEY")
-    if not key or not query:
+    queries = query if isinstance(query, list) else [query]
+    queries = [q for q in queries if q]
+    if not key or not queries:
         return None
     cache = os.path.join(ROOT, "assets", "bg_cache")
     os.makedirs(cache, exist_ok=True)
-    try:
-        import requests
-        r = requests.get("https://api.pexels.com/videos/search",
-                         params={"query": query, "orientation": "portrait", "per_page": 20},
-                         headers={"Authorization": key}, timeout=20)
-        r.raise_for_status()
-        vids = r.json().get("videos", [])
-        # 세로 HD 이상, 길이 내림차순(루프 최소화) 정렬 후 최선 선택
-        best, best_file = None, None
-        for v in sorted(vids, key=lambda x: -min(x.get("duration", 0), 60)):
-            for f in v.get("video_files", []):
-                w_, h_ = f.get("width") or 0, f.get("height") or 0
-                if h_ >= 1600 and h_ > w_ and f.get("link"):
-                    best, best_file = v, f
-                    break
-            if best:
-                break
-        if not best:
-            return None
-        dst = os.path.join(cache, "pexels_%d.mp4" % best["id"])
-        if not os.path.exists(dst):
-            with requests.get(best_file["link"], stream=True, timeout=120) as resp:
-                resp.raise_for_status()
-                with open(dst, "wb") as f:
-                    for chunk in resp.iter_content(1 << 20):
-                        f.write(chunk)
-        print("배경 영상: pexels id=%s (%ds, %dx%d) — Pexels License (자유 사용)"
-              % (best["id"], best.get("duration", 0), best_file.get("width", 0), best_file.get("height", 0)),
-              flush=True)
-        return dst
-    except Exception as e:
-        print("배경 영상 실패(%s) → 그라데이션 폴백" % e, flush=True)
-        return None
+    import requests
+    for q in queries:
+        try:
+            r = requests.get("https://api.pexels.com/videos/search",
+                             params={"query": q, "per_page": 25},
+                             headers={"Authorization": key}, timeout=20)
+            r.raise_for_status()
+            vids = r.json().get("videos", [])
+            best, best_file, best_score = None, None, -1
+            for v in sorted(vids, key=lambda x: -min(x.get("duration", 0), 60)):
+                for f in v.get("video_files", []):
+                    w_, h_ = f.get("width") or 0, f.get("height") or 0
+                    if not f.get("link") or min(w_, h_) < 1080:
+                        continue
+                    portrait = h_ > w_
+                    score = (2000 if portrait else 0) + min(h_, 2200) + min(v.get("duration", 0), 60) * 5
+                    if score > best_score:
+                        best, best_file, best_score = v, f, score
+            if not best:
+                continue
+            dst = os.path.join(cache, "pexels_%d.mp4" % best["id"])
+            if not os.path.exists(dst):
+                with requests.get(best_file["link"], stream=True, timeout=120) as resp:
+                    resp.raise_for_status()
+                    with open(dst, "wb") as fh:
+                        for chunk in resp.iter_content(1 << 20):
+                            fh.write(chunk)
+            print("배경 영상: query=%r → pexels id=%s (%ds, %dx%d) — Pexels License"
+                  % (q, best["id"], best.get("duration", 0), best_file.get("width", 0), best_file.get("height", 0)),
+                  flush=True)
+            return dst
+        except Exception as e:
+            print("배경 검색 실패(%s: %s) → 다음 검색어" % (q, e), flush=True)
+    print("배경 영상 없음 → 그라데이션 폴백", flush=True)
+    return None
 
 # ---------- TTS ----------
 async def tts_scene(text, mp3_path):
@@ -187,7 +193,21 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
         GA = make_glow(520, ACCENT, 26)
         GB = make_glow(640, (90, 110, 220), 22)
     F_BIG, F_MED = load_font(92), load_font(78)
-    F_CHIP, F_NUM, F_SUB = load_font(34), load_font(140), load_font(40)
+    F_CHIP, F_NUM, F_SUB = load_font(36), load_font(140), load_font(40)
+
+    # 채널 배너: 1회 프리렌더 (불투명 필 + 정중앙 정렬 → 압축·움직임에도 또렷)
+    def make_chip(text):
+        tmp = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
+        bb = tmp.textbbox((0, 0), text, font=F_CHIP)
+        tw = bb[2] - bb[0]
+        pw, ph = int(tw + 76), 80
+        c = Image.new("RGBA", (pw, ph), (0, 0, 0, 0))
+        dc = ImageDraw.Draw(c)
+        dc.rounded_rectangle([0, 0, pw - 1, ph - 1], radius=ph // 2, fill=(14, 18, 33, 232))
+        dc.text((pw / 2, ph / 2 - 2), text, font=F_CHIP, fill=ACCENT, anchor="mm")
+        return c
+
+    CHIP = make_chip(channel_chip)
     os.makedirs(os.path.join(out_dir, "frames"), exist_ok=True)
     total = int(total_dur * FPS)
     fact_counter, fact_nums = 0, {}
@@ -214,12 +234,7 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
             im.alpha_composite(GA, (ax - 520, ay - 520))
             im.alpha_composite(GB, (bx - 640, by - 640))
         d = ImageDraw.Draw(im)
-        tw = d.textlength(channel_chip, font=F_CHIP)
-        cx0 = (W - tw) / 2 - 34
-        d.rounded_rectangle([cx0, 150, cx0 + tw + 68, 224], radius=37,
-                            fill=(0, 0, 0, 110) if video_bg else (255, 255, 255, 18),
-                            outline=ACCENT + (180,), width=2)
-        d.text(((W - tw) / 2, 165), channel_chip, font=F_CHIP, fill=ACCENT)
+        im.alpha_composite(CHIP, ((W - CHIP.width) // 2, 150))
 
         si = None
         for idx, tl in enumerate(timeline):
