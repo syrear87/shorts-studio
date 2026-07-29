@@ -11,6 +11,16 @@ def load(p):
     with open(p, encoding="utf-8") as f:
         return json.load(f)
 
+# 디렉터 지정 포맷(2026-07-29): 제목엔 #shorts 금지, 태그는 채널 공통 태그 제외한 소재 태그만
+COMMON_TAGS = {"지식", "상식", "1일1지식", "쇼츠"}
+
+def clean_title(meta):
+    return meta["title"].replace("#shorts", "").replace("#Shorts", "").strip()
+
+def topic_tags(meta, limit=None):
+    tags = [t for t in meta.get("tags", []) if t not in COMMON_TAGS]
+    return tags[:limit] if limit else tags
+
 def phase0(video, meta):
     # 1) 영상 파일 자체를 텔레그램으로 발송 (봇 API 한도 50MB)
     size_mb = os.path.getsize(video) / 1e6
@@ -20,12 +30,8 @@ def phase0(video, meta):
     else:
         subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
                         "⚠️ 영상이 %dMB로 텔레그램 한도 초과 — 파일: %s" % (size_mb, os.path.abspath(video))], check=True)
-    # 2) 제목·설명·태그는 복사하기 좋게 별도 메시지로 (2026-07-29 디렉터 지정 포맷:
-    #    헤더 없음, 제목에서 #shorts 제거, 태그는 채널 공통 태그 빼고 소재 태그만)
-    title = meta["title"].replace("#shorts", "").replace("#Shorts", "").strip()
-    common = {"지식", "상식", "1일1지식", "쇼츠"}
-    tags = [t for t in meta.get("tags", []) if t not in common]
-    msg = "%s\n\n%s\n\n태그: %s" % (title, meta["description"], ", ".join(tags))
+    # 2) 제목·설명·태그는 복사하기 좋게 별도 메시지로 (헤더 없음)
+    msg = "%s\n\n%s\n\n태그: %s" % (clean_title(meta), meta["description"], ", ".join(topic_tags(meta)))
     subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), msg], check=True)
     print("phase0: 텔레그램으로 영상+메타데이터 발송 완료 (API 업로드 안 함)")
 
@@ -43,17 +49,20 @@ def api_public(video, meta):
         with open(token, "w") as f:
             f.write(creds.to_json())
     yt = build("youtube", "v3", credentials=creds)
+    # 디렉터 지정 매핑(2026-07-29): 제목=#shorts 없는 제목 / 설명=제목+본문 / 태그=소재 태그 5개
+    #                             / 아동용 아님 / 공개
+    title = clean_title(meta)
     body = {
         "snippet": {
-            "title": meta["title"][:100],
-            "description": meta["description"][:4900],
-            "tags": meta.get("tags", [])[:30],
+            "title": title[:100],
+            "description": ("%s\n\n%s" % (title, meta["description"]))[:4900],
+            "tags": topic_tags(meta, 5),
             "categoryId": "27",  # 교육
             "defaultLanguage": "ko",
         },
         "status": {
-            "privacyStatus": meta.get("privacy", "public"),
-            "selfDeclaredMadeForKids": False,
+            "privacyStatus": meta.get("privacy", "public"),   # 기본 "공개"
+            "selfDeclaredMadeForKids": False,                 # "아니요, 아동용이 아닙니다"
         },
     }
     media = MediaFileUpload(video, chunksize=8 * 1024 * 1024, resumable=True, mimetype="video/mp4")
@@ -67,7 +76,7 @@ def api_public(video, meta):
     url = "https://youtube.com/shorts/" + vid
     print("업로드 완료:", url)
     subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
-                    "✅ 오늘의 숏츠 게시 완료\n%s\n%s" % (meta["title"], url)], check=False)
+                    "✅ 오늘의 숏츠 게시 완료\n%s\n%s" % (title, url)], check=False)
     return vid
 
 def main():
