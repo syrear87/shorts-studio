@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.shorts-studio.watchdog</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/kimminsoo/Dev/shorts-studio/bin/watchdog.py</string>
+    </array>
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Hour</key><integer>22</integer><key>Minute</key><integer>30</integer></dict>
+    </array>
+    <key>StandardOutPath</key>
+    <string>/Users/kimminsoo/Dev/shorts-studio/logs/watchdog.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/kimminsoo/Dev/shorts-studio/logs/watchdog.err.log</string>
+</dict>
+</plist>

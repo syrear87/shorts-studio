@@ -62,22 +62,42 @@ def refresh_token_if_due(token):
                    params={"grant_type": "ig_refresh_token", "access_token": token})
         new = resp.get("access_token")
         if new and new != token:
-            text = open(KEYS, encoding="utf-8").read()
-            text = re.sub(r"^IG_ACCESS_TOKEN=.*$", "IG_ACCESS_TOKEN=" + new, text, flags=re.M)
-            with open(KEYS, "w", encoding="utf-8") as f:
-                f.write(text)
+            # 원자적 재작성 (임시파일→rename) + re.sub 이스케이프 함정 회피 (2026-07-29 감사)
+            lines = open(KEYS, encoding="utf-8").read().splitlines(keepends=True)
+            out_lines, replaced = [], False
+            for line in lines:
+                if line.strip().startswith("IG_ACCESS_TOKEN="):
+                    out_lines.append("IG_ACCESS_TOKEN=%s\n" % new)
+                    replaced = True
+                else:
+                    out_lines.append(line)
+            if not replaced:
+                out_lines.append("IG_ACCESS_TOKEN=%s\n" % new)
+            tmp = KEYS + ".tmp"
+            with open(tmp, "w", encoding="utf-8") as f:
+                f.write("".join(out_lines))
+            os.replace(tmp, KEYS)
             token = new
         os.makedirs(os.path.dirname(STATE), exist_ok=True)
         open(STATE, "w").write(str(int(time.time())))
         print("IG 토큰 갱신 완료 (유효기간 %d일)" % (resp.get("expires_in", 0) // 86400))
     except Exception as e:
         print("IG 토큰 갱신 실패(기존 토큰으로 계속): %s" % e)
+        try:
+            age_days = (time.time() - os.path.getmtime(STATE)) / 86400
+        except OSError:
+            age_days = 999
+        if age_days > 40:   # 60일 만료 임박인데 갱신이 계속 실패 → 무증상 방지 경보
+            tg("⚠️ 인스타 토큰 갱신이 %d일째 실패 중 — 60일 만료 전에 재발급 필요" % int(age_days))
     return token
 
 
 def build_caption(meta):
     title = meta["title"].replace("#shorts", "").replace("#Shorts", "").strip()
-    return ("%s\n\n%s" % (title, meta["description"]))[:2200]
+    desc = meta["description"]
+    if "Pexels" not in desc:
+        desc += "\n\n배경 영상: Pexels (www.pexels.com)"
+    return ("%s\n\n%s" % (title, desc))[:2200]
 
 
 def upload(video, meta):

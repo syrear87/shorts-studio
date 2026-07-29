@@ -21,17 +21,44 @@ def topic_tags(meta, limit=None):
     tags = [t for t in meta.get("tags", []) if t not in COMMON_TAGS]
     return tags[:limit] if limit else tags
 
+def full_description(meta):
+    # Pexels API 가이드라인: 출처 표기 의무 (2026-07-29 감사 지적)
+    desc = meta["description"]
+    if "Pexels" not in desc:
+        desc += "\n\n배경 영상: Pexels (www.pexels.com)"
+    return desc
+
+def preflight(video):
+    """게시 전 기계 검증 — QA 자기채점 보완 (2026-07-29 감사: 코드 게이트 0개 지적)."""
+    out = subprocess.run(["ffprobe", "-v", "quiet", "-show_entries", "format=duration:stream=width,height",
+                          "-of", "json", video], capture_output=True, text=True)
+    info = json.loads(out.stdout)
+    dur = float(info["format"]["duration"])
+    streams = [s for s in info.get("streams", []) if s.get("width")]
+    w, h = (streams[0]["width"], streams[0]["height"]) if streams else (0, 0)
+    problems = []
+    if not (15 <= dur <= 55):
+        problems.append("길이 %.1fs (허용 15~55s)" % dur)
+    if (w, h) != (1080, 1920):
+        problems.append("해상도 %dx%d (요구 1080x1920)" % (w, h))
+    if problems:
+        subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
+                        "⛔ 게시 차단(preflight): %s — %s" % (os.path.basename(video), ", ".join(problems))], check=False)
+        sys.exit("preflight 실패: " + ", ".join(problems))
+    print("preflight 통과: %.1fs, %dx%d" % (dur, w, h))
+
 def phase0(video, meta):
     # 1) 영상 파일 자체를 텔레그램으로 발송 (봇 API 한도 50MB)
     size_mb = os.path.getsize(video) / 1e6
-    caption = "🎬 오늘의 숏츠 완성 — 이 영상을 저장해서 YouTube 앱 → + → Shorts로 올려주세요\n\n제목: %s" % meta["title"]
+    caption = ("🎬 오늘의 숏츠 완성 — 이 영상을 저장해서 YouTube 앱 → + → Shorts로 올려주세요\n"
+               "· 시청자층: \"아니요, 아동용이 아닙니다\" 선택\n· 공개 상태: 공개\n\n제목: %s" % clean_title(meta))
     if size_mb < 49:
         subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send-video.sh"), video, caption], check=True)
     else:
         subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
                         "⚠️ 영상이 %dMB로 텔레그램 한도 초과 — 파일: %s" % (size_mb, os.path.abspath(video))], check=True)
     # 2) 제목·설명·태그는 복사하기 좋게 별도 메시지로 (헤더 없음)
-    msg = "%s\n\n%s\n\n태그: %s" % (clean_title(meta), meta["description"], ", ".join(topic_tags(meta)))
+    msg = "%s\n\n%s\n\n태그: %s" % (clean_title(meta), full_description(meta), ", ".join(topic_tags(meta)))
     subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), msg], check=True)
     print("phase0: 텔레그램으로 영상+메타데이터 발송 완료 (API 업로드 안 함)")
 
@@ -55,7 +82,7 @@ def api_public(video, meta):
     body = {
         "snippet": {
             "title": title[:100],
-            "description": ("%s\n\n%s" % (title, meta["description"]))[:4900],
+            "description": ("%s\n\n%s" % (title, full_description(meta)))[:4900],
             "tags": topic_tags(meta, 5),
             "categoryId": "27",  # 교육
             "defaultLanguage": "ko",
@@ -84,6 +111,7 @@ def main():
         sys.exit("사용: upload_youtube.py <video.mp4> <meta.json>")
     video, meta_p = sys.argv[1], sys.argv[2]
     meta = load(meta_p)
+    preflight(video)
     cfg = load(os.path.join(ROOT, "config.json"))
     mode = cfg.get("upload_mode", "phase0_telegram")
     if mode == "api_public":

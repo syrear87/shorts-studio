@@ -1,10 +1,10 @@
 # 인수인계 — 클라우드 세션 → 로컬 Claude Code (2026-07-29 오전)
 
-## 0. 지금 당장 (우선순위 순)
-1. **[블로커] claude CLI 재로그인** — 07-29 11:00 점심 슬롯이 `OAuth access token has expired`로 사망 (`logs/daily-20260729-1100.log`). 사용자가 `claude` 실행해 재인증하면 해결.
-2. 재인증 직후 **점심 슬롯 재실행**: `/usr/bin/python3 bin/daily_runner.py` (약 20~40분, 끝나면 텔레그램으로 영상 감)
-3. 오늘 18:00 저녁 슬롯 자동 기동 확인 (`logs/daily-*.log`)
-4. (여유 시) YouTube API 감사 폼 제출 마무리 — 아래 §4
+## 0. 지금 당장 (2026-07-29 밤 갱신 — 과거 항목은 전부 해결됨)
+1. **평시 운영**: 슬롯은 launchd가 자동 기동(평일 08/11/17/20 · 주말 09/12/15/18/21). 수동 재실행은 슬롯이 실제로 죽었을 때만 `/usr/bin/python3 bin/daily_runner.py` — **실행 전 logs/daily-오늘*.log와 텔레그램으로 이미 성공했는지 반드시 확인(중복 게시 방지)**.
+2. YouTube API 감사: **제출 완료, 심사 대기** — syrear87@gmail.com 회신 감시. 통과 시 config.json `upload_mode: api_public`.
+3. 인스타 릴스 자동화: 코드 완성, 디렉터의 Meta 토큰 투입 대기(keys.env에 IG_ACCESS_TOKEN/IG_USER_ID → config.json `instagram: on`).
+4. 매일 22:30 워치독 하트비트가 텔레그램으로 와야 정상 — 안 오면 스케줄러/채널 장애.
 
 ## 1. 프로젝트 연혁 (요약)
 - **07-28**: 게임 스튜디오 프로젝트(~/Dev/indie-ios-game) 폐기 → 숏츠 스튜디오로 전환. 스캐폴드 구축, OAuth·Pexels 셋업, 1편 제작("반도체 치킨게임" — 코스피 -10.84% 폭락일 소재). 디렉터 피드백 3건(배너 찌그러짐/배경 미스매치/결론 밋밋) → 렌더러 수정 완료.

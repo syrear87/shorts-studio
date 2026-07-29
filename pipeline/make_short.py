@@ -376,12 +376,21 @@ def main():
     work = os.path.join("out", "work_" + base)
     os.makedirs(work, exist_ok=True)
 
+    # 0) 자막 구조 하드게이트 (2026-07-29 실사고: CTA 3줄이 구독 문구와 겹침)
+    for i, sc in enumerate(script["scenes"]):
+        limit = 2 if sc.get("kind") == "cta" else 3
+        if len(sc.get("lines", [])) > limit:
+            sys.exit("기각: scene %d(%s) 자막 %d줄 — %s 씬은 최대 %d줄 (구독 문구 겹침 방지)"
+                     % (i, sc.get("kind"), len(sc["lines"]), sc.get("kind"), limit))
+
     # 1) 씬별 TTS
     timeline = []
     cursor = LEAD_IN
     for i, sc in enumerate(script["scenes"]):
         mp3 = os.path.join(work, "s%02d.mp3" % i)
         boundaries = asyncio.run(tts_scene(sc["voice"], mp3))
+        if not boundaries:
+            sys.exit("기각: scene %d WordBoundary 0개 — 자막 동기 불가 (edge-tts 응답 이상, 재시도 필요)" % i)
         dur = media_duration(mp3)
         dws = display_words(sc)
         times = assign_times(dws, boundaries, dur)
@@ -390,13 +399,21 @@ def main():
         cursor += dur + SCENE_GAP
         print("scene %d: %.2fs, words=%d, boundaries=%d" % (i, dur, len(dws), len(boundaries)), flush=True)
     total_dur = cursor + TAIL
-    if not (15 <= total_dur <= 55):
-        print("경고: 총 길이 %.1fs — 목표 20~50s 밖" % total_dur, flush=True)
+    # 길이 하드게이트 (2026-07-29 감사: '경고만'은 QA 자기채점과 함께 51.5초 발송을 통과시킴)
+    if total_dur > 55 or total_dur < 15:
+        sys.exit("기각: 총 길이 %.1fs — 허용 범위(15~55s) 밖. 대본을 압축/보강해 재렌더하라" % total_dur)
+    if not (20 <= total_dur <= 50):
+        print("경고: 총 길이 %.1fs — 목표 20~50s 밖 (55s 초과 시 기각됨)" % total_dur, flush=True)
 
-    # 2) 배경 영상
+    # 2) 배경 영상 — bg_id가 명시됐는데 실패하면 무선별 폴백 금지 (시각 선별 게이트 우회 방지)
     bg_path = None
     if not args.no_bg_video:
-        bg_path = fetch_bg_by_id(script.get("bg_id")) or fetch_bg(script.get("bg_query", ""), total_dur)
+        if script.get("bg_id"):
+            bg_path = fetch_bg_by_id(script["bg_id"])
+            if bg_path is None:
+                sys.exit("기각: 지정 bg_id=%s 다운로드 실패 — pick_bg.py로 다시 고르거나 bg_id를 제거하라" % script["bg_id"])
+        else:
+            bg_path = fetch_bg(script.get("bg_query", ""), total_dur)
     video_bg = bg_path is not None
 
     # 3) 렌더 + BGM
@@ -425,9 +442,15 @@ def main():
         amix_in += "[v%d]" % i
     fl.append("%samix=inputs=%d:normalize=0[aout]" % (amix_in, len(timeline) + 1))
     cmd += ["-filter_complex", ";".join(fl), "-map", "[vout]", "-map", "[aout]",
+            "-map_metadata", "-1",   # 스톡 원본 메타데이터(GPS 등) 상속 차단 (2026-07-29 두바이 좌표 실사고)
             "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
             "-c:a", "aac", "-b:a", "160k", "-t", str(total_dur), out_mp4]
-    subprocess.run(cmd, check=True, capture_output=True)
+    try:
+        subprocess.run(cmd, check=True, capture_output=True, timeout=900)
+    except subprocess.CalledProcessError as e:
+        sys.exit("ffmpeg 인코딩 실패:\n%s" % e.stderr.decode(errors="ignore")[-2000:])
+    except subprocess.TimeoutExpired:
+        sys.exit("ffmpeg 인코딩 타임아웃(15분)")
     print("완료: %s (%.1fs, 배경=%s)" % (out_mp4, total_dur, "영상" if video_bg else "그라데이션"))
 
 if __name__ == "__main__":

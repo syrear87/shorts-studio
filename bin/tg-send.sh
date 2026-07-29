@@ -5,8 +5,8 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$DIR/../telegram.env"
 
 if [[ -z "${STUDIO_TG_TOKEN:-}" ]]; then
-  echo "STUDIO_TG_TOKEN 미설정 — 발송 생략: $1" >&2
-  exit 0
+  echo "STUDIO_TG_TOKEN 미설정 — 발송 실패: $1" >&2
+  exit 3   # 성공 흉내 금지 (2026-07-29 감사: 미전달이 exit 0으로 은폐되던 문제)
 fi
 
 TEXT="${1:0:4000}"

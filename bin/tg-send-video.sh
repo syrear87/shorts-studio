@@ -5,8 +5,8 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$DIR/../telegram.env"
 
 if [[ -z "${STUDIO_TG_TOKEN:-}" ]]; then
-  echo "STUDIO_TG_TOKEN 미설정 — 발송 생략" >&2
-  exit 0
+  echo "STUDIO_TG_TOKEN 미설정 — 발송 실패" >&2
+  exit 3   # 성공 흉내 금지
 fi
 
 VIDEO="$1"

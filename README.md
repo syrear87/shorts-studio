@@ -1,8 +1,9 @@
 # shorts-studio
 
 A personal, non-commercial automation pipeline that produces and uploads
-one 30-second Korean educational "knowledge" Short per day to the
-developer's own YouTube channel.
+short (30–50s) Korean educational "knowledge" Shorts to the developer's
+own YouTube channel — currently 4 videos/day on weekdays and 5/day on
+weekends, one per scheduled slot.
 
 ## How it works
 1. **Script** — a daily studio session drafts a fact-checked 35-second
@@ -13,9 +14,10 @@ developer's own YouTube channel.
    (edge-tts), fetches licensed background footage (Pexels API, Pexels
    License), and renders 1080×1920 kinetic subtitles synced to the
    narration, mixed with self-generated BGM.
-3. **Upload** — `pipeline/upload_youtube.py` uploads the finished video
+3. **Upload** — `pipeline/upload_youtube.py` uploads each finished video
    to the developer's own channel via the YouTube Data API
-   (`videos.insert`), one video per day (~1600 quota units/day).
+   (`videos.insert`), at most 5 videos/day (~8,000 quota units — within
+   the default 10,000-unit quota; no quota increase requested).
 4. **Analytics** — `pipeline/fetch_analytics.py` reads the developer's
    own channel statistics (YouTube Analytics API) to inform the next
    day's topic selection.

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# launchd가 매일 07:30 KST에 실행 — 헤드리스 스튜디오 데이 세션 기동.
-# 락으로 중복 방지, 100분 타임아웃, 로그 저장, 실패 시 텔레그램 통보.
+# launchd가 평일 08/11/17/20시·주말 09/12/15/18/21시(KST)에 실행 — 헤드리스 스튜디오 세션 기동.
+# 락으로 중복 방지, 100분 타임아웃, 로그 저장, 실패·무산출 시 텔레그램 통보.
 import os, shutil, subprocess, sys, time
 from datetime import datetime
 from pathlib import Path
@@ -64,6 +64,7 @@ def main():
         tg("⚠️ 숏츠 데일리: 로그인 셸에서도 claude CLI를 찾지 못해 기동 실패")
         sys.exit(1)
     LOCK.write_text(str(os.getpid()))
+    start_ts = time.time()
     try:
         with open(LOG, "w") as lf:
             r = subprocess.run(
@@ -79,10 +80,33 @@ def main():
                 reason = None
             if reason:
                 tg("⚠️ 숏츠 데일리: 종료코드는 0인데 %s — %s 확인" % (reason, LOG.name))
+            else:
+                check_artifacts(start_ts)
     except subprocess.TimeoutExpired:
         tg("⚠️ 숏츠 데일리 세션 타임아웃(100분) — %s 확인" % LOG.name)
     finally:
         LOCK.unlink(missing_ok=True)
 
+
+def check_artifacts(start_ts):
+    """세션의 자기 성공 보고를 산출물 실측으로 대조 (2026-07-29 감사: 자기채점 누수 지적).
+    세션 시작 이후 갱신된 out/*.mp4가 없고, 로그에 게시 중단 사유도 없으면 경보."""
+    try:
+        logtext = LOG.read_text(errors="ignore")
+        if any(k in logtext for k in ("게시 중단", "게시 보류", "기각")):
+            return  # 의도된 미게시 — 세션이 사유를 보고했음
+        new_mp4 = [p for p in (ROOT / "out").glob("*.mp4") if p.stat().st_mtime >= start_ts]
+        if not new_mp4:
+            tg("⚠️ 숏츠 데일리: 세션은 정상 종료했지만 새 영상 산출물이 없음 — %s 확인" % LOG.name)
+        elif "발송 완료" not in logtext and "phase0" not in logtext:
+            tg("⚠️ 숏츠 데일리: 영상은 있는데 발송 기록이 로그에 없음 — 게시 단계 누락 의심, %s 확인" % LOG.name)
+    except Exception:
+        pass
+
+
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:  # 러너 자체가 죽으면 경보자가 죽는 문제 방지 (2026-07-29 감사)
+        tg("🔥 숏츠 데일리 러너 자체 오류: %s" % str(e)[:300])
+        raise
