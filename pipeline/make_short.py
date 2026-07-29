@@ -13,7 +13,9 @@ TEXT = (245, 246, 250)
 DIM = (170, 176, 195)
 VOICES = {"female": "ko-KR-SunHiNeural", "male": "ko-KR-InJoonNeural"}
 VOICE = VOICES["female"]
-RATE = "+8%"
+# InJoon(남)은 SunHi(여)+8%보다 실측 ~10%p 느림 → 성우별 기본 속도로 페이스 통일 (2026-07-29 실측)
+RATES = {"female": "+8%", "male": "+18%"}
+RATE = RATES["female"]
 SCENE_GAP = 0.35
 LEAD_IN = 0.30
 TAIL = 0.9
@@ -326,10 +328,11 @@ def main():
     args = ap.parse_args()
     with open(args.script_json, encoding="utf-8") as f:
         script = json.load(f)
-    global VOICE
+    global VOICE, RATE
     nar = script.get("narrator", "female")
     VOICE = VOICES.get(nar, nar if "Neural" in str(nar) else VOICES["female"])
-    print("성우: %s (%s)" % (VOICE, nar), flush=True)
+    RATE = script.get("rate") or RATES.get(nar, RATES["female"])
+    print("성우: %s (%s, rate=%s)" % (VOICE, nar, RATE), flush=True)
     base = os.path.splitext(os.path.basename(args.script_json))[0]
     out_mp4 = args.out or os.path.join("out", base + ".mp4")
     work = os.path.join("out", "work_" + base)
