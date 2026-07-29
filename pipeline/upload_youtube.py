@@ -20,9 +20,12 @@ def phase0(video, meta):
     else:
         subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
                         "⚠️ 영상이 %dMB로 텔레그램 한도 초과 — 파일: %s" % (size_mb, os.path.abspath(video))], check=True)
-    # 2) 제목·설명·태그는 복사하기 좋게 별도 메시지로
-    msg = ("복사용 메타데이터 👇\n\n%s\n\n%s\n\n태그: %s"
-           % (meta["title"], meta["description"], ", ".join(meta.get("tags", []))))
+    # 2) 제목·설명·태그는 복사하기 좋게 별도 메시지로 (2026-07-29 디렉터 지정 포맷:
+    #    헤더 없음, 제목에서 #shorts 제거, 태그는 채널 공통 태그 빼고 소재 태그만)
+    title = meta["title"].replace("#shorts", "").replace("#Shorts", "").strip()
+    common = {"지식", "상식", "1일1지식", "쇼츠"}
+    tags = [t for t in meta.get("tags", []) if t not in common]
+    msg = "%s\n\n%s\n\n태그: %s" % (title, meta["description"], ", ".join(tags))
     subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), msg], check=True)
     print("phase0: 텔레그램으로 영상+메타데이터 발송 완료 (API 업로드 안 함)")
 
