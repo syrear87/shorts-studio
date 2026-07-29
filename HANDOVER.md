@@ -27,11 +27,11 @@
 - 텔레그램: 봇 발신 정상(영상 파일+메타 자동 발송). 게임 repo의 수신 브리지(tg_bridge)는 구코드로 상주 중 — 재시작되면 수정본 적용되지만 현재 용도 없음.
 - 성과 수집: 채널에 영상이 쌓이면 `pipeline/fetch_analytics.py` — 아직 미가동. DAILY_PROMPT가 analytics를 읽어 기획에 반영하는 루프는 데이터 생기면 자동 작동.
 
-## 4. YouTube API 감사 (완전 자동 업로드의 관문)
-- **왜**: 미감사 프로젝트는 API 업로드가 전부 private 잠금(공개 전환 불가). 통과 후 `config.json`의 `upload_mode`를 `api_public`으로 바꾸면 텔레그램 수동 업로드가 사라짐.
-- 폼: https://support.google.com/youtube/contact/yt_api_form — Section 1~3은 디렉터가 이미 입력 진행했었음(개인/self/부산 주소/Internal Users/Free service/No representative).
-- 준비된 것: GCP 프로젝트 번호 `929626965532`(shorts-studio-503807), 저장소에 PRIVACY.md·TERMS.md·README.md 존재. **원격 push 여부 미확인** — `git push -u origin master:main` 필요할 수 있음(사용자 승인 후).
-- 남은 것: 저장소 push → PRIVACY/TERMS/저장소 첫페이지 스크린샷 3장 + OAuth 동의화면·터미널 실행 화면 스크린샷(Conditional Evidence, 이미지 합쳐 1파일) → Section 5(프로젝트 번호, Use Case = Video Uploading & Account Management, quota = No change/Default) → 제출.
+## 4. YouTube API 감사 — **제출 완료 (2026-07-29 오후), 심사 대기**
+- 폼 제출 완료("이메일이 발송됨" 확인 화면). 상세는 DECISIONS.md S-002 참조.
+- **다음 액션**: syrear87@gmail.com으로 오는 구글 회신 감시(수일~수주). 추가 자료 요구가 올 수 있음 — 증빙 원본은 `~/Desktop/shorts-studio-audit/`에 보관됨.
+- **통과 시**: `config.json`의 `upload_mode`를 `phase0_telegram` → `api_public`으로 변경하면 텔레그램 수동 업로드가 사라지고 완전 자동 전환.
+- 저장소는 public으로 push됨(github.com/syrear87/shorts-studio, 시크릿 무검출 검증 완료). 이후 커밋도 push 가능(민감정보만 주의).
 
 ## 5. 디렉터(사용자) 성향 메모
 - 터미널 명령 부탁을 싫어함 — 가능한 한 직접 실행하고, 부탁할 땐 복붙 한 줄로.

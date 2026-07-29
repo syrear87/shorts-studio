@@ -9,10 +9,13 @@
 - 현재 가칭 "1일 1지식" (템플릿 칩·CTA에 반영돼 있음). 확정되면 config.json과 템플릿에 반영.
 - 후보 제안: ① 1일 1지식 ② 30초 상식 ③ 알고보면 (디렉터 답변 대기)
 
-### S-002 · YouTube API 감사 신청 (완전 자동의 전제)
-- 미감사 프로젝트는 API 업로드가 전부 private 잠금(공개 전환 불가) — 실측 조사 확인.
-- 감사 통과 전: phase0(완성본 텔레그램 발송 → 수동 업로드 1분). 통과 후: config.json의 upload_mode를 api_public으로 바꾸면 완전 자동.
-- 신청: https://support.google.com/youtube/contact/yt_api_form (YouTube API 준수 감사 폼)
+### S-002 · YouTube API 감사 신청 — **제출 완료 (2026-07-29), 구글 심사 대기**
+- 2026-07-29 오후 디렉터+클라우드 세션 공동 작업으로 감사 폼 제출 완료 ("이메일이 발송됨" 확인).
+  제출 내용: 개인/본인, 프로젝트 929626965532, Use Case = 동영상 업로드·계정 관리 + 분석·보고, videos.insert만,
+  기본 할당량(변경 없음), 증빙 5종(개인정보방침·약관·홈페이지·OAuth+터미널 병합본·아키텍처 다이어그램).
+  증빙 원본: ~/Desktop/shorts-studio-audit/ + 저장소 public push(github.com/syrear87/shorts-studio).
+- 회신은 syrear87@gmail.com으로 옴(보통 수일~수주). **통과 시: config.json의 upload_mode를 api_public으로 변경하면 완전 자동.**
+- 미감사 프로젝트는 API 업로드가 전부 private 잠금(공개 전환 불가) — 실측 조사 확인. 통과 전까지 phase0 유지.
 
 ## 자율 결정 (통보 대상)
 
