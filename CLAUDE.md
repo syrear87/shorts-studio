@@ -12,8 +12,7 @@
 - `pipeline/fetch_analytics.py` — 채널 성과 수집 (아직 자동 배선 없음 — 수동 실행)
 - `bin/daily_runner.py` — launchd가 슬롯마다 실행. **반드시 로그인 셸(zsh -l) 경유로 claude를 띄운다** (launchd 빈 PATH 사고 이력). 조용한 죽음 경보 + 산출물 실측 대조 내장
 - `bin/watchdog.py` — 매일 22:30 슬롯 누락 대조 + 텔레그램 하트비트 (메시지 부재 = 장애 신호)
-- `bin/ondemand_runner.py` — 1분마다 `logs/.run_request` 폴링, 화이트리스트 작업 실행 (로컬에서는 그냥 직접 실행하면 됨)
-- `launchd/` — daily(요일분기 스케줄)·ondemand·watchdog. 수정 시 `~/Library/LaunchAgents`에 복사 후 unload/load
+- `launchd/` — daily(요일분기 스케줄)·watchdog. 수정 시 `~/Library/LaunchAgents`에 복사 후 unload/load (온디맨드 러너는 2026-07-29 감사에서 보안 통로로 판정되어 폐지)
 - `content/` — 대본 JSON(형식은 `sample_honey.json`), `BACKLOG.md`(탈락했지만 좋은 소재), `topics_used.md` 중복 방지
 - `assets/brand/` — 프로필·배너·워터마크 (다크 네이비 #0B1020~#181C36 + 앰버 #FFB627 + 화이트, Noto Sans CJK Black)
 - 비밀(커밋 금지, .gitignore 처리됨): `credentials.json`, `token.json`(YouTube OAuth), `telegram.env`(봇 토큰), `keys.env`(PEXELS_API_KEY, IG 토큰)

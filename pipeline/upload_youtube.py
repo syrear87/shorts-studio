@@ -118,8 +118,9 @@ def main():
         api_public(video, meta)
     else:
         phase0(video, meta)
-    # 인스타 릴스는 감사 관문이 없어 config만 켜면 즉시 완전 자동 (실패해도 유튜브 게시는 유지)
-    if cfg.get("instagram") == "on":
+    # 인스타 릴스: 디렉터 결정(2026-07-29) — phase0 기간엔 인간 검수를 우회하므로 끔.
+    # 유튜브 감사 통과로 api_public 전환 시에만 함께 자동 게시.
+    if cfg.get("instagram") == "on" and mode == "api_public":
         try:
             import upload_instagram
             upload_instagram.upload(video, meta)

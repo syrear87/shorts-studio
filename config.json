@@ -3,5 +3,5 @@
   "chip": "오늘의 지식 · 1일 1지식",
   "upload_mode": "phase0_telegram",
   "instagram": "off",
-  "note": "YouTube: 감사 통과 후 upload_mode를 api_public으로 변경. Instagram: keys.env에 IG 토큰 넣고 instagram을 on으로 바꾸면 릴스 완전 자동"
+  "note": "YouTube: 감사 통과 후 upload_mode를 api_public으로 변경. Instagram: keys.env에 IG 토큰 + instagram=on이어도 api_public 모드에서만 게시됨(디렉터 결정 2026-07-29 — phase0 검수 우회 방지)"
 }

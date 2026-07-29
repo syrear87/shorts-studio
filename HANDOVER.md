@@ -23,7 +23,7 @@
 
 ## 3. 현재 상태
 - 게시: 2편 (치킨게임 52초·타조 52초, 둘 다 Shorts+릴스). `out/`에 원본.
-- 스케줄: launchd 3회/일 등록·검증됨. 온디맨드 폴링(1분)도 상주 — 로컬 운영에선 불필요하면 `launchctl unload ~/Library/LaunchAgents/com.shorts-studio.ondemand.plist`로 꺼도 무방.
+- 스케줄: launchd 평일4·주말5 + 22:30 워치독 등록. 온디맨드 러너는 2026-07-29 감사에서 임의코드 실행 통로로 판정되어 **폐지됨** (스케줄 변경은 plist 수정 후 사람이 launchctl unload/load 두 줄).
 - 텔레그램: 봇 발신 정상(영상 파일+메타 자동 발송). 게임 repo의 수신 브리지(tg_bridge)는 구코드로 상주 중 — 재시작되면 수정본 적용되지만 현재 용도 없음.
 - 성과 수집: 채널에 영상이 쌓이면 `pipeline/fetch_analytics.py` — 아직 미가동. DAILY_PROMPT가 analytics를 읽어 기획에 반영하는 루프는 데이터 생기면 자동 작동.
 
