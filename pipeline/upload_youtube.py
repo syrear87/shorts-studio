@@ -90,6 +90,15 @@ def main():
         api_public(video, meta)
     else:
         phase0(video, meta)
+    # 인스타 릴스는 감사 관문이 없어 config만 켜면 즉시 완전 자동 (실패해도 유튜브 게시는 유지)
+    if cfg.get("instagram") == "on":
+        try:
+            import upload_instagram
+            upload_instagram.upload(video, meta)
+        except Exception as e:
+            print("릴스 업로드 실패: %s" % e)
+            subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
+                            "⚠️ 인스타 릴스 자동 업로드 실패 — 수동 업로드 필요\n%s" % str(e)[:300]], check=False)
 
 if __name__ == "__main__":
     main()
