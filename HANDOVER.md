@@ -1,0 +1,39 @@
+# 인수인계 — 클라우드 세션 → 로컬 Claude Code (2026-07-29 오전)
+
+## 0. 지금 당장 (우선순위 순)
+1. **[블로커] claude CLI 재로그인** — 07-29 11:00 점심 슬롯이 `OAuth access token has expired`로 사망 (`logs/daily-20260729-1100.log`). 사용자가 `claude` 실행해 재인증하면 해결.
+2. 재인증 직후 **점심 슬롯 재실행**: `/usr/bin/python3 bin/daily_runner.py` (약 20~40분, 끝나면 텔레그램으로 영상 감)
+3. 오늘 18:00 저녁 슬롯 자동 기동 확인 (`logs/daily-*.log`)
+4. (여유 시) YouTube API 감사 폼 제출 마무리 — 아래 §4
+
+## 1. 프로젝트 연혁 (요약)
+- **07-28**: 게임 스튜디오 프로젝트(~/Dev/indie-ios-game) 폐기 → 숏츠 스튜디오로 전환. 스캐폴드 구축, OAuth·Pexels 셋업, 1편 제작("반도체 치킨게임" — 코스피 -10.84% 폭락일 소재). 디렉터 피드백 3건(배너 찌그러짐/배경 미스매치/결론 밋밋) → 렌더러 수정 완료.
+- **07-29**: 2편 제작("타조 효과" — 폭락 이튿날 심리). 디렉터가 Shorts+릴스에 2편 게시. 하루 3회 체제(7:30/11:00/18:00) + 성우 자동 선택 도입. 브랜드 세트 제작(`assets/brand/`). 채널명 "1일 1지식", 핸들 추천: **@1day1know** (플랜B: @1day1know_kr → @harujisik).
+
+## 2. 사고 이력과 교훈 (같은 함정에 빠지지 말 것)
+| 사고 | 원인 | 수정 |
+|---|---|---|
+| 07-29 07:30 즉사 | launchd 최소 PATH → claude(node 스크립트)가 node를 못 찾음 | daily_runner가 `zsh -l -c` 로그인 셸 경유로 실행 (적용됨) |
+| 07-29 11:00 즉사 | claude CLI OAuth 만료 | 사용자 재로그인 필요 (블로커) |
+| 무인 세션 권한 정지 | `.claude/settings.json` allow에 없는 명령 실행 시 프롬프트에 걸려 세션이 영원히 멈춤 (전 게임 프로젝트를 3회 죽인 패턴) | allow 목록 정비됨. **새 명령 추가 시 allow에 먼저 등록할 것. 복합 셸 명령(&&·파이프) 금지** |
+| 배경 영상 미스매치(재봉틀 사고) | Pexels 세로 전용 검색 → 니치 소재는 엉뚱한 영상 | bg_query 배열 다중검색 + 가로 HD 폴백 (적용됨) |
+| 대본 58초 초과 | 발화 길이 미통제 | 90~110단어 강제 + QA 길이 검사 (DAILY_PROMPT) |
+| (참고) 원격 세션의 git index.lock 잔류 | 원격 마운트는 파일 삭제 불가 | 로컬에서는 발생 안 함. `_to_delete/` 폴더는 원격 세션 찌꺼기 — 통째로 삭제해도 됨 |
+
+## 3. 현재 상태
+- 게시: 2편 (치킨게임 52초·타조 52초, 둘 다 Shorts+릴스). `out/`에 원본.
+- 스케줄: launchd 3회/일 등록·검증됨. 온디맨드 폴링(1분)도 상주 — 로컬 운영에선 불필요하면 `launchctl unload ~/Library/LaunchAgents/com.shorts-studio.ondemand.plist`로 꺼도 무방.
+- 텔레그램: 봇 발신 정상(영상 파일+메타 자동 발송). 게임 repo의 수신 브리지(tg_bridge)는 구코드로 상주 중 — 재시작되면 수정본 적용되지만 현재 용도 없음.
+- 성과 수집: 채널에 영상이 쌓이면 `pipeline/fetch_analytics.py` — 아직 미가동. DAILY_PROMPT가 analytics를 읽어 기획에 반영하는 루프는 데이터 생기면 자동 작동.
+
+## 4. YouTube API 감사 (완전 자동 업로드의 관문)
+- **왜**: 미감사 프로젝트는 API 업로드가 전부 private 잠금(공개 전환 불가). 통과 후 `config.json`의 `upload_mode`를 `api_public`으로 바꾸면 텔레그램 수동 업로드가 사라짐.
+- 폼: https://support.google.com/youtube/contact/yt_api_form — Section 1~3은 디렉터가 이미 입력 진행했었음(개인/self/부산 주소/Internal Users/Free service/No representative).
+- 준비된 것: GCP 프로젝트 번호 `929626965532`(shorts-studio-503807), 저장소에 PRIVACY.md·TERMS.md·README.md 존재. **원격 push 여부 미확인** — `git push -u origin master:main` 필요할 수 있음(사용자 승인 후).
+- 남은 것: 저장소 push → PRIVACY/TERMS/저장소 첫페이지 스크린샷 3장 + OAuth 동의화면·터미널 실행 화면 스크린샷(Conditional Evidence, 이미지 합쳐 1파일) → Section 5(프로젝트 번호, Use Case = Video Uploading & Account Management, quota = No change/Default) → 제출.
+
+## 5. 디렉터(사용자) 성향 메모
+- 터미널 명령 부탁을 싫어함 — 가능한 한 직접 실행하고, 부탁할 땐 복붙 한 줄로.
+- 품질 피드백이 구체적이고 정확함(배너 픽셀 결함까지 잡아냄). 피드백은 즉시 파이프라인 규칙으로 영구 반영할 것.
+- 소재 취향: "오늘 사람들이 실제로 이야기하는 것"에서 출발하는 지식. 밋밋한 결론 싫어함.
+- 보고는 간결하게, 결과 중심으로.
