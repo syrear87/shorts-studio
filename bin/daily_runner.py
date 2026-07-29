@@ -38,6 +38,16 @@ def tg(msg):
     except Exception:
         pass
 
+def log_looks_dead(text):
+    # claude -p는 인증 만료(401)로 죽어도 종료코드 0 — 2026-07-29 11:00 슬롯이 경보 없이 증발한 원인.
+    t = text.strip()
+    for marker in ("Failed to authenticate", "authentication_error", "OAuth access token"):
+        if marker in t:
+            return "인증 오류 감지"
+    if len(t) < 200:
+        return "출력이 %d자뿐 (세션 즉사 의심)" % len(t)
+    return None
+
 def main():
     os.chdir(str(ROOT))
     (ROOT / "logs").mkdir(exist_ok=True)
@@ -62,6 +72,13 @@ def main():
                 stdout=lf, stderr=subprocess.STDOUT, timeout=TIMEOUT, cwd=str(ROOT))
         if r.returncode != 0:
             tg("⚠️ 숏츠 데일리 세션 비정상 종료 (코드 %d) — %s 확인" % (r.returncode, LOG.name))
+        else:
+            try:
+                reason = log_looks_dead(LOG.read_text(errors="ignore"))
+            except Exception:
+                reason = None
+            if reason:
+                tg("⚠️ 숏츠 데일리: 종료코드는 0인데 %s — %s 확인" % (reason, LOG.name))
     except subprocess.TimeoutExpired:
         tg("⚠️ 숏츠 데일리 세션 타임아웃(100분) — %s 확인" % LOG.name)
     finally:
