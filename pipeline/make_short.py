@@ -11,7 +11,8 @@ W, H, FPS = 1080, 1920, 30
 ACCENT = (255, 182, 39)
 TEXT = (245, 246, 250)
 DIM = (170, 176, 195)
-VOICE = "ko-KR-SunHiNeural"
+VOICES = {"female": "ko-KR-SunHiNeural", "male": "ko-KR-InJoonNeural"}
+VOICE = VOICES["female"]
 RATE = "+8%"
 SCENE_GAP = 0.35
 LEAD_IN = 0.30
@@ -325,6 +326,10 @@ def main():
     args = ap.parse_args()
     with open(args.script_json, encoding="utf-8") as f:
         script = json.load(f)
+    global VOICE
+    nar = script.get("narrator", "female")
+    VOICE = VOICES.get(nar, nar if "Neural" in str(nar) else VOICES["female"])
+    print("성우: %s (%s)" % (VOICE, nar), flush=True)
     base = os.path.splitext(os.path.basename(args.script_json))[0]
     out_mp4 = args.out or os.path.join("out", base + ".mp4")
     work = os.path.join("out", "work_" + base)

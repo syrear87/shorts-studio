@@ -14,6 +14,7 @@ LOG = ROOT / "logs" / "ondemand.log"
 JOBS = {
     "run_today": 'bash run_today.sh',
     "daily": '/usr/bin/python3 bin/daily_runner.py',
+    "reload_daily": 'cp launchd/com.shorts-studio.daily.plist ~/Library/LaunchAgents/ ; launchctl unload ~/Library/LaunchAgents/com.shorts-studio.daily.plist ; launchctl load ~/Library/LaunchAgents/com.shorts-studio.daily.plist',
 }
 
 def log(msg):
