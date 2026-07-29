@@ -101,6 +101,44 @@ def fetch_bg(query, need_dur):
     print("배경 영상 없음 → 그라데이션 폴백", flush=True)
     return None
 
+def fetch_bg_by_id(vid_id):
+    """Pexels 영상 id를 직접 지정해 다운로드 (pick_bg.py로 눈으로 고른 뒤 사용).
+    2026-07-29 디렉터 피드백: 검색 1순위 자동 사용은 소재 연관성이 떨어짐 → 시각 선별 도입."""
+    key = load_keys().get("PEXELS_API_KEY") or os.environ.get("PEXELS_API_KEY")
+    if not key or not vid_id:
+        return None
+    cache = os.path.join(ROOT, "assets", "bg_cache")
+    os.makedirs(cache, exist_ok=True)
+    import requests
+    try:
+        r = requests.get("https://api.pexels.com/videos/videos/%s" % vid_id,
+                         headers={"Authorization": key}, timeout=20)
+        r.raise_for_status()
+        v = r.json()
+        best_file, best_score = None, -1
+        for f in v.get("video_files", []):
+            w_, h_ = f.get("width") or 0, f.get("height") or 0
+            if not f.get("link") or min(w_, h_) < 1080:
+                continue
+            score = (2000 if h_ > w_ else 0) + min(h_, 2200)
+            if score > best_score:
+                best_file, best_score = f, score
+        if not best_file:
+            return None
+        dst = os.path.join(cache, "pexels_%d.mp4" % v["id"])
+        if not os.path.exists(dst):
+            with requests.get(best_file["link"], stream=True, timeout=120) as resp:
+                resp.raise_for_status()
+                with open(dst, "wb") as fh:
+                    for chunk in resp.iter_content(1 << 20):
+                        fh.write(chunk)
+        print("배경 영상(지정): pexels id=%s (%ds, %dx%d) — Pexels License"
+              % (v["id"], v.get("duration", 0), best_file.get("width", 0), best_file.get("height", 0)), flush=True)
+        return dst
+    except Exception as e:
+        print("배경 id 다운로드 실패(%s) → bg_query 폴백" % e, flush=True)
+        return None
+
 # ---------- TTS ----------
 async def tts_scene(text, mp3_path):
     import edge_tts
@@ -358,7 +396,7 @@ def main():
     # 2) 배경 영상
     bg_path = None
     if not args.no_bg_video:
-        bg_path = fetch_bg(script.get("bg_query", ""), total_dur)
+        bg_path = fetch_bg_by_id(script.get("bg_id")) or fetch_bg(script.get("bg_query", ""), total_dur)
     video_bg = bg_path is not None
 
     # 3) 렌더 + BGM

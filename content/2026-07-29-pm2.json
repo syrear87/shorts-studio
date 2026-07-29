@@ -3,6 +3,7 @@
   "chip": "오늘의 지식 · 1일 1지식",
   "narrator": "male",
   "rate": "+24%",
+  "bg_id": 10409075,
   "bg_query": ["typhoon satellite view space", "storm clouds dark sky timelapse", "ocean big waves storm"],
   "scenes": [
     {
