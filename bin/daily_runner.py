@@ -10,6 +10,12 @@ LOCK = ROOT / "logs" / ".daily.lock"
 LOG = ROOT / "logs" / ("daily-%s.log" % datetime.now().strftime("%Y%m%d-%H%M"))
 TIMEOUT = 100 * 60
 STALE = 110 * 60
+# 일시적 API 장애(529 과부하·429 한도·연결 오류)는 몇 분이면 풀린다 → 재시도로 슬롯을 구한다.
+# 2026-07-30 17:00 실사고: 529 Overloaded로 즉사, 재시도가 없어 슬롯 하나가 통째로 증발.
+RETRY_MARKERS = ("529", "overloaded", "rate_limit", "429", "Connection error",
+                 "ECONNRESET", "ETIMEDOUT", "socket hang up", "500 Internal")
+RETRY_DELAYS = (180, 420)     # 3분 → 7분 (최대 2회 재시도)
+SAFE_RETRY_MAX_LEN = 800      # 이보다 로그가 길면 세션이 실제 작업을 했을 수 있으므로 재시도 금지(중복 게시 방지)
 
 
 def find_claude():
@@ -66,18 +72,28 @@ def main():
     LOCK.write_text(str(os.getpid()))
     start_ts = time.time()
     try:
-        with open(LOG, "w") as lf:
-            r = subprocess.run(
-                ["/bin/zsh", "-l", "-c",
-                 'claude -p "$(cat DAILY_PROMPT.md)" --model opus --permission-mode acceptEdits'],
-                stdout=lf, stderr=subprocess.STDOUT, timeout=TIMEOUT, cwd=str(ROOT))
+        for attempt in range(len(RETRY_DELAYS) + 1):
+            with open(LOG, "w") as lf:
+                r = subprocess.run(
+                    ["/bin/zsh", "-l", "-c",
+                     'claude -p "$(cat DAILY_PROMPT.md)" --model opus --permission-mode acceptEdits'],
+                    stdout=lf, stderr=subprocess.STDOUT, timeout=TIMEOUT, cwd=str(ROOT))
+            text = LOG.read_text(errors="ignore")
+            transient = (r.returncode != 0 and len(text.strip()) <= SAFE_RETRY_MAX_LEN
+                         and any(m.lower() in text.lower() for m in RETRY_MARKERS))
+            if not transient or attempt >= len(RETRY_DELAYS):
+                break
+            delay = RETRY_DELAYS[attempt]
+            tg("🔁 숏츠 데일리: 일시적 API 장애로 즉사 — %d분 후 재시도 (%d/%d)"
+               % (delay // 60, attempt + 1, len(RETRY_DELAYS)))
+            LOCK.write_text(str(os.getpid()))   # 스테일 판정 방지용 갱신
+            time.sleep(delay)
+
         if r.returncode != 0:
-            tg("⚠️ 숏츠 데일리 세션 비정상 종료 (코드 %d) — %s 확인" % (r.returncode, LOG.name))
+            tg("⚠️ 숏츠 데일리 세션 비정상 종료 (코드 %d, 재시도 %d회) — %s 확인"
+               % (r.returncode, attempt, LOG.name))
         else:
-            try:
-                reason = log_looks_dead(LOG.read_text(errors="ignore"))
-            except Exception:
-                reason = None
+            reason = log_looks_dead(text)
             if reason:
                 tg("⚠️ 숏츠 데일리: 종료코드는 0인데 %s — %s 확인" % (reason, LOG.name))
             else:
