@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# launchd가 평일 08/11/17/20시·주말 09/12/15/18/21시(KST)에 실행 — 헤드리스 스튜디오 세션 기동.
+# launchd가 평일 07/11/16/19시·주말 08/11/14/17/20시(KST)에 실행 — 헤드리스 스튜디오 세션 기동.
 # 락으로 중복 방지, 100분 타임아웃, 로그 저장, 실패·무산출 시 텔레그램 통보.
 import os, shutil, subprocess, sys, time
 from datetime import datetime

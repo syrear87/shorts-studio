@@ -6,8 +6,8 @@ import glob, os, subprocess, sys
 from datetime import datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-WEEKDAY_SLOTS = ["08", "11", "17", "20"]
-WEEKEND_SLOTS = ["09", "12", "15", "18", "21"]
+WEEKDAY_SLOTS = ["07", "11", "16", "19"]
+WEEKEND_SLOTS = ["08", "11", "14", "17", "20"]
 
 
 def main():

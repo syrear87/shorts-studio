@@ -1,7 +1,7 @@
 # 인수인계 — 클라우드 세션 → 로컬 Claude Code (2026-07-29 오전)
 
 ## 0. 지금 당장 (2026-07-29 밤 갱신 — 과거 항목은 전부 해결됨)
-1. **평시 운영**: 슬롯은 launchd가 자동 기동(평일 08/11/17/20 · 주말 09/12/15/18/21). 수동 재실행은 슬롯이 실제로 죽었을 때만 `/usr/bin/python3 bin/daily_runner.py` — **실행 전 logs/daily-오늘*.log와 텔레그램으로 이미 성공했는지 반드시 확인(중복 게시 방지)**.
+1. **평시 운영**: 슬롯은 launchd가 자동 기동(평일 07/11/16/19 · 주말 08/11/14/17/20). 수동 재실행은 슬롯이 실제로 죽었을 때만 `/usr/bin/python3 bin/daily_runner.py` — **실행 전 logs/daily-오늘*.log와 텔레그램으로 이미 성공했는지 반드시 확인(중복 게시 방지)**.
 2. YouTube API 감사: **제출 완료, 심사 대기** — syrear87@gmail.com 회신 감시. 통과 시 config.json `upload_mode: api_public`.
 3. 인스타 릴스 자동화: 코드 완성, 디렉터의 Meta 토큰 투입 대기(keys.env에 IG_ACCESS_TOKEN/IG_USER_ID → config.json `instagram: on`).
 4. 매일 22:30 워치독 하트비트가 텔레그램으로 와야 정상 — 안 오면 스케줄러/채널 장애.
