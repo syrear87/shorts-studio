@@ -393,6 +393,9 @@ def main():
         sys.exit("기각: cta 씬에 sub 없음 — 화면 하단 '1일 1지식 · 구독' 표시 누락")
     if "1일 1지식" not in last.get("voice", ""):
         sys.exit("기각: cta 발화에 '1일 1지식' 마무리 멘트 없음 — 채널 아이덴티티 필수")
+    # 2026-07-31 디렉터 확정: 전 슬롯 '오늘도'로 통일 (하루 4~5편이라 '내일도'는 어색)
+    if "내일도" in last.get("voice", "") or any("내일도" in l[0] for l in last.get("lines", [])):
+        sys.exit("기각: cta에 '내일도' 사용 — 전 슬롯 '오늘도 1일 1지식, 구독으로 받아보세요.'로 통일")
 
     # 1) 씬별 TTS
     timeline = []
