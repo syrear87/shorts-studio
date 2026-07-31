@@ -383,6 +383,17 @@ def main():
             sys.exit("기각: scene %d(%s) 자막 %d줄 — %s 씬은 최대 %d줄 (구독 문구 겹침 방지)"
                      % (i, sc.get("kind"), len(sc["lines"]), sc.get("kind"), limit))
 
+    # 0-2) 채널 아이덴티티 하드게이트 (2026-07-31 실사고: 마지막 씬을 twist로 만들어
+    #      음성 마무리 멘트와 화면 '1일 1지식 · 구독' 표시가 둘 다 누락된 채 발송됨)
+    last = script["scenes"][-1]
+    if last.get("kind") != "cta":
+        sys.exit("기각: 마지막 씬 kind가 '%s' — 반드시 'cta'여야 화면 하단 구독 표시가 렌더된다"
+                 % last.get("kind"))
+    if not last.get("sub"):
+        sys.exit("기각: cta 씬에 sub 없음 — 화면 하단 '1일 1지식 · 구독' 표시 누락")
+    if "1일 1지식" not in last.get("voice", ""):
+        sys.exit("기각: cta 발화에 '1일 1지식' 마무리 멘트 없음 — 채널 아이덴티티 필수")
+
     # 1) 씬별 TTS
     timeline = []
     cursor = LEAD_IN
