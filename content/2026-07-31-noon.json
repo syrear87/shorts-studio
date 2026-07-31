@@ -1,0 +1,136 @@
+{
+  "title": "목 없는 너구리가 도시를 뒤집었다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "이 너구리는 목이 없습니다.",
+      "lines": [
+        [
+          "이 너구리는",
+          [
+            "너구리는"
+          ]
+        ],
+        [
+          "목이 없습니다",
+          [
+            "없습니다"
+          ]
+        ]
+      ]
+    },
+    {
+      "kind": "body",
+      "voice": "시애틀에 사는 야생 너구리 지모시. 척추가 짧아지는 희귀 질환으로 목이 거의 없습니다. 세계적으로 거의 전무한 사례입니다.",
+      "lines": [
+        [
+          "시애틀의 야생 너구리 지모시",
+          [
+            "지모시"
+          ]
+        ],
+        [
+          "척추가 짧아지는 희귀 질환 —",
+          [
+            "희귀"
+          ]
+        ],
+        [
+          "이런 사례, 전 세계 거의 전무",
+          [
+            "전무"
+          ]
+        ]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "7월에 영상이 퍼지자 일주일 만에 수천만 뷰. 구글이 전용 애니메이션을 만들 정도였습니다.",
+      "lines": [
+        [
+          "일주일 만에 수천만 뷰",
+          [
+            "수천만"
+          ]
+        ],
+        [
+          "구글이 전용 애니메이션 제작",
+          [
+            "구글이"
+          ]
+        ]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "시의원 두 명이 공식으로 '지모시의 여름'을 선포했고, 미국 하원의원까지 시장에게 이 너구리를 보호해달라고 서한을 보냈습니다.",
+      "lines": [
+        [
+          "시의원이 '지모시의 여름' 선포",
+          [
+            "선포"
+          ]
+        ],
+        [
+          "하원의원까지 보호 서한 발송",
+          [
+            "하원의원까지"
+          ]
+        ]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "그런데 정작 지모시는 아프지 않습니다. 뛰어다니고 쓰레기통을 뒤지며 건강하게 삽니다. 목이 없는 너구리가, 도시 전체의 마스코트가 된 겁니다.",
+      "lines": [
+        [
+          "그런데 지모시는 아프지 않다",
+          [
+            "아프지"
+          ]
+        ],
+        [
+          "건강하게 잘 살고 있다",
+          [
+            "건강하게"
+          ]
+        ],
+        [
+          "목 없는 너구리가 도시의 마스코트",
+          [
+            "마스코트"
+          ]
+        ]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "내일도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "매일 30초 지식",
+      "lines": [
+        [
+          "내일도 1일 1지식,",
+          [
+            "1일",
+            "1지식,"
+          ]
+        ],
+        [
+          "구독으로 받아보세요",
+          [
+            "구독으로"
+          ]
+        ]
+      ]
+    }
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Jimothy_(raccoon)",
+    "https://komonews.com/news/local/photos-seattle-officially-declares-jimothy-summer-to-honor-internet-famous-raccoon-raccoon-short-spine-syndrome-viral-ballard-art-celebration-government-travel-tourism-parade-weekend",
+    "https://thenationaldesk.com/news/americas-news-now/supporting-jimothy-members-of-congress-rally-behind-seattles-short-spined-raccoon-wild-animals-short-spine-syndrome-birth-defect-deformity-seattle-washington-ballard-neighborhood"
+  ],
+  "bg_query": ["raccoon wildlife night urban", "raccoon cute foraging closeup"],
+  "bg_id": 27027232
+}
