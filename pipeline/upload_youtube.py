@@ -28,6 +28,25 @@ def full_description(meta):
         desc += "\n\n배경 영상: Pexels (www.pexels.com)"
     return desc
 
+def check_meta(meta):
+    """설명 규격 검증 (2026-08-01 실사고: 99자·해시태그 0개로 발송돼 '너무 빈약하다' 지적)."""
+    desc = meta.get("description", "")
+    problems = []
+    if desc.count("#") < 5:
+        problems.append("해시태그 %d개 (5개 필요, 설명 맨 끝에)" % desc.count("#"))
+    if len(desc) < 300:
+        problems.append("설명 %d자 (최소 300자 — 영상에 못 넣은 정보를 채울 것)" % len(desc))
+    if "·" not in desc:
+        problems.append("핵심 사실 불릿(·) 없음")
+    if "출처" not in desc:
+        problems.append("출처 줄 없음")
+    if problems:
+        subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
+                        "⛔ 게시 차단(설명 규격): %s" % ", ".join(problems)], check=False)
+        sys.exit("설명 규격 미달: " + ", ".join(problems))
+    print("설명 규격 통과: %d자, 해시태그 %d개" % (len(desc), desc.count("#")))
+
+
 def preflight(video):
     """게시 전 기계 검증 — QA 자기채점 보완 (2026-07-29 감사: 코드 게이트 0개 지적)."""
     out = subprocess.run(["ffprobe", "-v", "quiet", "-show_entries", "format=duration:stream=width,height",
@@ -111,6 +130,7 @@ def main():
         sys.exit("사용: upload_youtube.py <video.mp4> <meta.json>")
     video, meta_p = sys.argv[1], sys.argv[2]
     meta = load(meta_p)
+    check_meta(meta)
     preflight(video)
     cfg = load(os.path.join(ROOT, "config.json"))
     mode = cfg.get("upload_mode", "phase0_telegram")
