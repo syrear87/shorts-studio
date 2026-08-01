@@ -460,9 +460,12 @@ def main():
         fl.append("[%d:a]adelay=%d:all=1,volume=1.0[v%d]" % (a_base + 1 + i, int(tl["start"] * 1000), i))
         amix_in += "[v%d]" % i
     fl.append("%samix=inputs=%d:normalize=0[aout]" % (amix_in, len(timeline) + 1))
+    # 텔레그램 봇 전송 한도 50MB — 배경 영상이 고디테일이면 CRF 20에서 12Mbps까지 튄다.
+    # 2026-08-01 실사고: 49초짜리가 78MB로 나와 발송 실패. maxrate로 상한을 걸어 원천 차단한다.
     cmd += ["-filter_complex", ";".join(fl), "-map", "[vout]", "-map", "[aout]",
             "-map_metadata", "-1",   # 스톡 원본 메타데이터(GPS 등) 상속 차단 (2026-07-29 두바이 좌표 실사고)
-            "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
+            "-c:v", "libx264", "-preset", "medium", "-crf", "22",
+            "-maxrate", "6M", "-bufsize", "12M", "-pix_fmt", "yuv420p",
             "-c:a", "aac", "-b:a", "160k", "-t", str(total_dur), out_mp4]
     try:
         subprocess.run(cmd, check=True, capture_output=True, timeout=900)
@@ -470,7 +473,30 @@ def main():
         sys.exit("ffmpeg 인코딩 실패:\n%s" % e.stderr.decode(errors="ignore")[-2000:])
     except subprocess.TimeoutExpired:
         sys.exit("ffmpeg 인코딩 타임아웃(15분)")
-    print("완료: %s (%.1fs, 배경=%s)" % (out_mp4, total_dur, "영상" if video_bg else "그라데이션"))
+
+    # 그래도 한도를 넘으면 CRF를 올려 가며 자동 재인코딩 (발송 실패 원천 차단)
+    TG_LIMIT_MB = 45
+    for crf in (26, 30):
+        size_mb = os.path.getsize(out_mp4) / 1048576
+        if size_mb <= TG_LIMIT_MB:
+            break
+        print("경고: %.1fMB — 텔레그램 한도 초과, crf %d로 재인코딩" % (size_mb, crf), flush=True)
+        tmp = out_mp4 + ".shrink.mp4"
+        try:
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", out_mp4,
+                            "-c:v", "libx264", "-preset", "medium", "-crf", str(crf),
+                            "-maxrate", "4M", "-bufsize", "8M", "-pix_fmt", "yuv420p",
+                            "-c:a", "copy", "-map_metadata", "-1", tmp],
+                           check=True, capture_output=True, timeout=900)
+            os.replace(tmp, out_mp4)
+        except Exception as e:
+            print("재인코딩 실패: %s" % e, flush=True)
+            break
+    final_mb = os.path.getsize(out_mp4) / 1048576
+    if final_mb > TG_LIMIT_MB:
+        print("경고: 최종 %.1fMB — 여전히 한도 초과, 발송 시 파일 경로만 전달됨" % final_mb, flush=True)
+    print("완료: %s (%.1fs, %.1fMB, 배경=%s)"
+          % (out_mp4, total_dur, final_mb, "영상" if video_bg else "그라데이션"))
 
 if __name__ == "__main__":
     main()
