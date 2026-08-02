@@ -87,8 +87,10 @@ def ig_caption(meta):
     릴스 캡션은 첫 125자만 접히기 전에 노출되므로 요약 1줄 + 해시태그로 짧게.
     해시태그는 릴스 관심사 그래프 분배의 재료 — 소재 태그를 그대로 쓴다."""
     first = meta["description"].strip().split("\n")[0]
-    tags = " ".join("#" + t.replace(" ", "") for t in topic_tags(meta, 5))
-    return "📸 인스타 릴스 캡션 (복사용):\n\n%s\n\n%s" % (first, tags)
+    # 소재 태그 3 + 브랜드·광역 태그 2 믹스 — 릴스 발견성은 니치+광역 조합이 정석.
+    # (유튜브의 공통 태그 금지 규칙은 유튜브 태그란에만 해당 — IG 캡션은 별개 채널)
+    tags = ["#" + t.replace(" ", "") for t in topic_tags(meta, 3)] + ["#1일1지식", "#오늘의상식"]
+    return "📸 인스타 릴스 캡션 (복사용):\n\n%s\n\n%s" % (first, " ".join(tags))
 
 def phase0(video, meta):
     # 1) 영상 파일 자체를 텔레그램으로 발송 (봇 API 한도 50MB)
