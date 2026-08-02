@@ -21,6 +21,7 @@ LEAD_IN = 0.30
 TAIL = 0.9
 SCRIM = 130           # 배경영상 위 어두운 막 (0~255)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))  # pitch_graphic 임포트용
 
 def font_path():
     cands = [
@@ -285,6 +286,13 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
         if si is not None:
             sc, tl = script["scenes"][si], timeline[si]
             local = t - tl["start"]
+            # 골 장면 그래픽 (2026-08-02 신설) — 중계 화면을 못 쓰므로 직접 그린다
+            if sc.get("pitch"):
+                import pitch_graphic
+                dur = max(tl["end"] - tl["start"], 1e-6)
+                pitch_graphic.draw_pitch(im, (90, int(H * 0.15), W - 90, int(H * 0.37)),
+                                         sc["pitch"], clamp(local / dur, 0, 1), F_SUB)
+                d = ImageDraw.Draw(im)
             fade = clamp((tl["end"] - t) / 0.35, 0, 1) if tl["end"] - t < 0.35 else 1.0
             font = F_BIG if sc.get("kind") in ("hook", "cta") else F_MED
             y_cursor = H * 0.40
