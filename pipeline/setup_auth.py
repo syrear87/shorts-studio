@@ -29,6 +29,7 @@ def main():
     tmp = os.path.join(ROOT, "token.json.tmp")
     with open(tmp, "w") as f:
         f.write(creds.to_json())
+    os.chmod(tmp, 0o600)  # 2026-08-02 리뷰 [A13]: 0644로 남던 토큰 퍼미션을 발급 시점에 봉인
     os.replace(tmp, os.path.join(ROOT, "token.json"))
     print("token.json 갱신 완료. 스코프:")
     for s in creds.scopes or SCOPES:

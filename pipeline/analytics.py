@@ -24,22 +24,12 @@ import datetime, json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-from google.oauth2.credentials import Credentials
-from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
-
-
-def creds():
-    c = Credentials.from_authorized_user_file(os.path.join(ROOT, "token.json"))
-    if c.expired and c.refresh_token:
-        c.refresh(Request())
-        with open(os.path.join(ROOT, "token.json"), "w") as f:
-            f.write(c.to_json())
-    return c
+from google_creds import load_creds  # 2026-08-02 리뷰 [A13]: 토큰 취급 공용 헬퍼로 통일
 
 
 def main():
-    cr = creds()
+    cr = load_creds()
     yt = build("youtube", "v3", credentials=cr)
     ya = build("youtubeAnalytics", "v2", credentials=cr)
 

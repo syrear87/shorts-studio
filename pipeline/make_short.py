@@ -3,7 +3,7 @@
 # 사용: .venv/bin/python3 pipeline/make_short.py content/2026-07-29.json --out out/2026-07-29.mp4
 # 배경: script JSON의 "bg_query"(예: "eiffel tower")로 Pexels에서 세로 영상 검색.
 #       keys.env에 PEXELS_API_KEY 필요. 없거나 실패하면 그라데이션 배경으로 폴백.
-import argparse, asyncio, json, math, os, re, subprocess, sys, wave
+import argparse, asyncio, glob, json, math, os, re, shutil, subprocess, sys, wave
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
@@ -54,6 +54,24 @@ def load_keys():
     return env
 
 # ---------- Pexels 배경 영상 ----------
+def _download(url, dst):
+    """스트리밍 다운로드: dst+'.part'에 받고 완료 시에만 원자 교체 (2026-08-02 리뷰).
+    다운로드 중 타임아웃·세션 킬로 잘린 파일이 최종 경로에 남아 캐시 히트로
+    영구 재사용되는 오염을 차단한다. 진입 시 이전 런의 잔존 *.part도 청소."""
+    import requests
+    for stale in glob.glob(os.path.join(os.path.dirname(dst), "*.part")):
+        try:
+            os.remove(stale)
+        except OSError:
+            pass
+    part = dst + ".part"
+    with requests.get(url, stream=True, timeout=120) as resp:
+        resp.raise_for_status()
+        with open(part, "wb") as fh:
+            for chunk in resp.iter_content(1 << 20):
+                fh.write(chunk)
+    os.replace(part, dst)
+
 def fetch_bg(query, need_dur):
     """Pexels에서 배경 영상 검색·다운로드 → 로컬 경로 (실패 시 None).
     query: 문자열 또는 문자열 리스트(우선순위 순 폴백).
@@ -87,11 +105,7 @@ def fetch_bg(query, need_dur):
                 continue
             dst = os.path.join(cache, "pexels_%d.mp4" % best["id"])
             if not os.path.exists(dst):
-                with requests.get(best_file["link"], stream=True, timeout=120) as resp:
-                    resp.raise_for_status()
-                    with open(dst, "wb") as fh:
-                        for chunk in resp.iter_content(1 << 20):
-                            fh.write(chunk)
+                _download(best_file["link"], dst)   # 2026-08-02 리뷰: .part+원자 교체
             print("배경 영상: query=%r → pexels id=%s (%ds, %dx%d) — Pexels License"
                   % (q, best["id"], best.get("duration", 0), best_file.get("width", 0), best_file.get("height", 0)),
                   flush=True)
@@ -127,16 +141,13 @@ def fetch_bg_by_id(vid_id):
             return None
         dst = os.path.join(cache, "pexels_%d.mp4" % v["id"])
         if not os.path.exists(dst):
-            with requests.get(best_file["link"], stream=True, timeout=120) as resp:
-                resp.raise_for_status()
-                with open(dst, "wb") as fh:
-                    for chunk in resp.iter_content(1 << 20):
-                        fh.write(chunk)
+            _download(best_file["link"], dst)   # 2026-08-02 리뷰: .part+원자 교체
         print("배경 영상(지정): pexels id=%s (%ds, %dx%d) — Pexels License"
               % (v["id"], v.get("duration", 0), best_file.get("width", 0), best_file.get("height", 0)), flush=True)
         return dst
     except Exception as e:
-        print("배경 id 다운로드 실패(%s) → bg_query 폴백" % e, flush=True)
+        # 2026-08-02 리뷰: bg_id 실패는 main에서 즉시 기각되므로 '폴백' 문구는 모순 — 로그 정정
+        print("배경 id 다운로드 실패(%s) — 기각 예정" % e, flush=True)
         return None
 
 # ---------- TTS ----------
@@ -191,13 +202,20 @@ def assign_times(dwords, boundaries, dur):
     known = [(i, t) for i, t in enumerate(times) if t is not None]
     if not known:
         return [i * dur / max(len(dwords), 1) for i in range(len(dwords))]
+    # 2026-08-02 리뷰: 머리·꼬리 미매칭 단어가 한 시각에 뭉텅이 팝업되던 것을 균등 분할 외삽으로 교정
+    #                 (voice 구어 ≠ lines 압축 자막이 기본 스타일이라 퍼지 매칭 실패는 일상적)
+    first, last = known[0], known[-1]
     for i in range(len(times)):
         if times[i] is None:
-            prev = max([k for k in known if k[0] < i], default=known[0], key=lambda x: x[0])
-            nxt = min([k for k in known if k[0] > i], default=known[-1], key=lambda x: x[0])
-            if prev[0] == nxt[0]:
-                times[i] = prev[1]
+            if i < first[0]:
+                # 첫 매칭 이전: [0, first[1]] 균등 분할
+                times[i] = first[1] * (i + 1) / (first[0] + 1)
+            elif i > last[0]:
+                # 마지막 매칭 이후: [last[1], dur] 균등 분할
+                times[i] = last[1] + (dur - last[1]) * (i - last[0]) / (len(times) - last[0])
             else:
+                prev = max([k for k in known if k[0] < i], key=lambda x: x[0])
+                nxt = min([k for k in known if k[0] > i], key=lambda x: x[0])
                 f = (i - prev[0]) / (nxt[0] - prev[0])
                 times[i] = prev[1] + f * (nxt[1] - prev[1])
     return times
@@ -249,7 +267,10 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
         return c
 
     CHIP = make_chip(channel_chip)
-    os.makedirs(os.path.join(out_dir, "frames"), exist_ok=True)
+    frames_dir = os.path.join(out_dir, "frames")
+    # 이전 런 잔여 고번호 프레임(f01500+)이 ffmpeg 입력에 섞이지 않게 비우고 시작 (2026-08-02 리뷰)
+    shutil.rmtree(frames_dir, ignore_errors=True)
+    os.makedirs(frames_dir, exist_ok=True)
     total = int(total_dur * FPS)
     fact_counter, fact_nums = 0, {}
     for i, sc in enumerate(script["scenes"]):
@@ -303,6 +324,10 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
                 if lw > W - 90:
                     line_font = load_font(max(44, int(font.size * (W - 90) / lw)))
                     lw = d.textlength(line, font=line_font)
+                    if lw > W - 90:
+                        # 2026-08-02 리뷰: 44px 클램프 후에도 초과면 좌우 잘린 채 게시됨 — 명시 기각
+                        sys.exit("기각: scene %d 줄 %d 폭 초과(%.0fpx > %dpx) — 줄을 나눠라"
+                                 % (si, li, lw, W - 90))
                 x = (W - lw) / 2
                 y = y_cursor + li * line_h
                 for w_ in line.split(" "):
@@ -363,6 +388,8 @@ def main():
     ap.add_argument("script_json")
     ap.add_argument("--out", default=None)
     ap.add_argument("--no-bg-video", action="store_true", help="배경영상 없이 그라데이션")
+    ap.add_argument("--keep-work", action="store_true",
+                    help="work 디렉터리 보존 (디버깅용, 2026-08-02 리뷰)")
     args = ap.parse_args()
     with open(args.script_json, encoding="utf-8") as f:
         script = json.load(f)
@@ -377,7 +404,13 @@ def main():
     os.makedirs(work, exist_ok=True)
 
     # 0) 자막 구조 하드게이트 (2026-07-29 실사고: CTA 3줄이 구독 문구와 겹침)
+    # 2026-08-02 리뷰: 스키마 누락은 KeyError 원시 traceback 대신 명시적 '기각:'으로 —
+    #                 헤드리스 세션이 로그만 보고 자가 수정하는 유일한 피드백 채널
+    if not script.get("scenes"):
+        sys.exit("기각: scenes 없음")
     for i, sc in enumerate(script["scenes"]):
+        if not sc.get("lines") or not sc.get("voice"):
+            sys.exit("기각: scene %d lines/voice 누락" % i)
         limit = 2 if sc.get("kind") == "cta" else 3
         if len(sc.get("lines", [])) > limit:
             sys.exit("기각: scene %d(%s) 자막 %d줄 — %s 씬은 최대 %d줄 (구독 문구 겹침 방지)"
@@ -394,7 +427,9 @@ def main():
     if "1일 1지식" not in last.get("voice", ""):
         sys.exit("기각: cta 발화에 '1일 1지식' 마무리 멘트 없음 — 채널 아이덴티티 필수")
     # 2026-07-31 디렉터 확정: 전 슬롯 '오늘도'로 통일 (하루 4~5편이라 '내일도'는 어색)
-    if "내일도" in last.get("voice", "") or any("내일도" in l[0] for l in last.get("lines", [])):
+    # 2026-08-02 리뷰: sub도 실제 렌더되므로(하단 구독 표시) 검사 대상에 포함
+    if "내일도" in last.get("voice", "") or "내일도" in last.get("sub", "") \
+            or any("내일도" in l[0] for l in last.get("lines", [])):
         sys.exit("기각: cta에 '내일도' 사용 — 전 슬롯 '오늘도 1일 1지식, 구독으로 받아보세요.'로 통일")
     # 2026-07-31 실사고: 음성은 '구독으로 받아보세요'인데 자막 줄이 없어 화면에 안 나옴
     cta_text = " ".join(l[0] for l in last.get("lines", []))
@@ -491,10 +526,15 @@ def main():
             os.replace(tmp, out_mp4)
         except Exception as e:
             print("재인코딩 실패: %s" % e, flush=True)
+            if os.path.exists(tmp):   # 실패한 .shrink.mp4 잔여물 제거 (2026-08-02 리뷰)
+                os.remove(tmp)
             break
     final_mb = os.path.getsize(out_mp4) / 1048576
     if final_mb > TG_LIMIT_MB:
         print("경고: 최종 %.1fMB — 여전히 한도 초과, 발송 시 파일 경로만 전달됨" % final_mb, flush=True)
+    # 인코딩·크기검사까지 끝난 뒤 중간 산출물 정리 — 무인 반복 실행의 디스크 무한 누적 차단 (2026-08-02 리뷰)
+    if not args.keep_work:
+        shutil.rmtree(work, ignore_errors=True)
     print("완료: %s (%.1fs, %.1fMB, 배경=%s)"
           % (out_mp4, total_dur, final_mb, "영상" if video_bg else "그라데이션"))
 

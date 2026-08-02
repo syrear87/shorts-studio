@@ -5,13 +5,13 @@
 #  - 캡션 = 제목 + 본문 (유튜브 설명과 동일 포맷, 디렉터 지정 2026-07-29)
 #  - 장기 토큰(60일)은 마지막 갱신 7일 경과 시 자동 갱신해 keys.env를 업데이트
 # 사용: python3 pipeline/upload_instagram.py out/영상.mp4 content/영상.meta.json
-import json, os, re, subprocess, sys, time
+import json, os, subprocess, sys, time  # 2026-08-02 리뷰 [A18]: 미사용 re 제거
 import urllib.request, urllib.parse, urllib.error
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KEYS = os.path.join(ROOT, "keys.env")
-STATE = os.path.join(ROOT, "logs", ".ig_token_refreshed")
-GRAPH = "https://graph.instagram.com"
+STATE = os.path.join(ROOT, "logs", ".ig_token_refreshed")   # 새 토큰 투입 시 touch logs/.ig_token_refreshed 병행 (2026-08-02 리뷰 [A18])
+GRAPH = "https://graph.instagram.com/v23.0"   # 2026-08-02 리뷰 [A18]: RUPLOAD와 버전 일치 고정 — 무버전 호출은 Meta 버전 폐기 시 무예고 파손
 RUPLOAD = "https://rupload.facebook.com/ig-api-upload/v23.0"
 REFRESH_AFTER = 7 * 86400          # 7일마다 토큰 갱신
 POLL_INTERVAL, POLL_MAX = 10, 30   # 처리 대기 최대 5분
@@ -86,8 +86,10 @@ def refresh_token_if_due(token):
         try:
             age_days = (time.time() - os.path.getmtime(STATE)) / 86400
         except OSError:
-            age_days = 999
-        if age_days > 40:   # 60일 만료 임박인데 갱신이 계속 실패 → 무증상 방지 경보
+            # 2026-08-02 리뷰 [A18]: STATE 부재(첫 가동 — IG는 발급 24h 미만 토큰 갱신 거부)와
+            #                        '장기 연속 실패'를 구분 — 999일 가짜 경보 방지
+            age_days = None
+        if age_days is not None and age_days > 40:   # 60일 만료 임박인데 갱신이 계속 실패 → 무증상 방지 경보
             tg("⚠️ 인스타 토큰 갱신이 %d일째 실패 중 — 60일 만료 전에 재발급 필요" % int(age_days))
     return token
 

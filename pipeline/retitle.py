@@ -24,17 +24,11 @@ def main():
     if "#shorts" in new_title.lower():
         sys.exit("제목에 #shorts 금지 (채널 규약)")
 
-    from google.oauth2.credentials import Credentials
-    from google.auth.transport.requests import Request
     from googleapiclient.discovery import build
+    from google_creds import load_creds
 
-    creds = Credentials.from_authorized_user_file(os.path.join(ROOT, "token.json"))
-    if "https://www.googleapis.com/auth/youtube.force-ssl" not in (creds.scopes or []):
-        sys.exit("토큰에 force-ssl 스코프 없음 — setup_auth.py로 재인증하라")
-    if creds.expired and creds.refresh_token:
-        creds.refresh(Request())
-        with open(os.path.join(ROOT, "token.json"), "w") as f:
-            f.write(creds.to_json())
+    # 2026-08-02 리뷰 [A13]: 토큰 로드+스코프 검사+refresh 원자 저장 — 공용 헬퍼로 통일
+    creds = load_creds(require_scope="https://www.googleapis.com/auth/youtube.force-ssl")
     yt = build("youtube", "v3", credentials=creds)
 
     r = yt.videos().list(part="snippet,statistics", id=vid).execute()
@@ -57,7 +51,9 @@ def main():
                     "| 교체 시각 | video_id | 교체시점 조회 | 구제목 | 신제목 | 교체 +48h 조회(추후 기입) |\n"
                     "|---|---|---|---|---|---|\n")
     with open(LOG, "a", encoding="utf-8") as f:
-        f.write("| %s | %s | %s | %s | %s |  |\n" % (now, vid, views, old_title, new_title))
+        # 2026-08-02 리뷰 [A17]: 제목 속 '|'가 마크다운 표 열을 깨는 것 방지
+        f.write("| %s | %s | %s | %s | %s |  |\n" % (
+            now, vid, views, old_title.replace("|", "\\|"), new_title.replace("|", "\\|")))
 
     print("교체 완료: %s\n  구: %s\n  신: %s (교체시점 조회 %s)" % (vid, old_title, new_title, views))
     subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),

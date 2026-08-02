@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 LOCK = ROOT / "logs" / ".daily.lock"
 LOG = ROOT / "logs" / ("daily-%s.log" % datetime.now().strftime("%Y%m%d-%H%M"))
 TIMEOUT = 100 * 60
-STALE = 110 * 60
+STALE = TIMEOUT + 10 * 60   # 2026-08-02 리뷰(OPS-7): 타임아웃과의 결합(실여유 10분)을 파생 정의로 명시
 # 일시적 API 장애(529 과부하·429 한도·연결 오류)는 몇 분이면 풀린다 → 재시도로 슬롯을 구한다.
 # 2026-07-30 17:00 실사고: 529 Overloaded로 즉사, 재시도가 없어 슬롯 하나가 통째로 증발.
 RETRY_MARKERS = ("529", "overloaded", "rate_limit", "429", "Connection error",
@@ -39,18 +39,33 @@ def find_claude():
     return None
 
 def tg(msg):
+    # 2026-08-02 리뷰(OPS-1): 경보 발송 실패를 침묵시키지 않는다 — watchdog.py와 동일하게 로컬 파일에 기록.
     try:
-        subprocess.run(["bash", str(ROOT / "bin" / "tg-send.sh"), msg], timeout=30)
+        r = subprocess.run(["bash", str(ROOT / "bin" / "tg-send.sh"), msg], timeout=30)
+        if r.returncode != 0:
+            _alert_fail("rc=%d" % r.returncode, msg)
+    except Exception as e:
+        _alert_fail("예외 %s" % e, msg)
+
+def _alert_fail(why, msg):
+    # 경보 채널 자체가 죽음 — 로컬 파일에라도 남긴다 (watchdog.py:34와 동일 패턴, 2026-08-02 리뷰)
+    try:
+        with open(ROOT / "logs" / "alert-fail.log", "a") as f:
+            f.write("%s 텔레그램 발송 실패(%s): %s\n" % (datetime.now().isoformat(), why, msg))
     except Exception:
         pass
 
 def log_looks_dead(text):
     # claude -p는 인증 만료(401)로 죽어도 종료코드 0 — 2026-07-29 11:00 슬롯이 경보 없이 증발한 원인.
     t = text.strip()
-    for marker in ("Failed to authenticate", "authentication_error", "OAuth access token"):
-        if marker in t:
+    for marker in ("failed to authenticate", "authentication_error", "oauth access token"):
+        if marker in t.lower():   # 2026-08-02 리뷰: 재시도 판정과 동일하게 소문자 비교로 통일
             return "인증 오류 감지"
-    if len(t) < 200:
+    # 2026-08-02 리뷰(OPS-4): 성공 로그 최솟값 205자 vs 임계 200자(여유 19자) — 길이 대신
+    # DAILY_PROMPT 12단계가 의무화한 마감 센티널(SLOT-DONE)의 부재를 1차 판정으로 쓴다.
+    if "SLOT-DONE" not in t:
+        return "마감 센티널(SLOT-DONE) 부재 (세션 미완주 의심)"
+    if len(t) < 200:   # 길이 검사는 보조로 격하
         return "출력이 %d자뿐 (세션 즉사 의심)" % len(t)
     return None
 
@@ -73,13 +88,21 @@ def main():
     start_ts = time.time()
     try:
         for attempt in range(len(RETRY_DELAYS) + 1):
-            with open(LOG, "w") as lf:
+            # 2026-08-02 리뷰(OPS-8): "w"→"a" — 재시도가 직전 시도의 에러 증거(529 본문 등)를 덮어쓰지 않게 보존.
+            with open(LOG, "a") as lf:
+                lf.write("=== attempt %d ===\n" % (attempt + 1))
+                lf.flush()
                 r = subprocess.run(
                     ["/bin/zsh", "-l", "-c",
                      'claude -p "$(cat DAILY_PROMPT.md)" --model opus --permission-mode acceptEdits'],
                     stdout=lf, stderr=subprocess.STDOUT, timeout=TIMEOUT, cwd=str(ROOT))
-            text = LOG.read_text(errors="ignore")
+            # 판정은 마지막 attempt 구간만 읽는다 — 이전 시도의 마커·본문과 섞임 방지 (2026-08-02 리뷰)
+            text = LOG.read_text(errors="ignore").split("=== attempt ")[-1]
+            # 2026-08-02 리뷰(OPS-2): 이번 슬롯에서 새 mp4가 이미 나왔으면 렌더+발송을 마쳤을 수 있으므로
+            # 재시도 금지(중복 게시 방지) — 아래 rc!=0 분기의 경보만 발송된다. 길이 가드는 보조로 유지.
+            new_mp4_made = any(p.stat().st_mtime >= start_ts for p in (ROOT / "out").glob("*.mp4"))
             transient = (r.returncode != 0 and len(text.strip()) <= SAFE_RETRY_MAX_LEN
+                         and not new_mp4_made
                          and any(m.lower() in text.lower() for m in RETRY_MARKERS))
             if not transient or attempt >= len(RETRY_DELAYS):
                 break
@@ -106,7 +129,9 @@ def main():
 
 def check_artifacts(start_ts):
     """세션의 자기 성공 보고를 산출물 실측으로 대조 (2026-07-29 감사: 자기채점 누수 지적).
-    세션 시작 이후 갱신된 out/*.mp4가 없고, 로그에 게시 중단 사유도 없으면 경보."""
+    세션 시작 이후 갱신된 out/*.mp4가 없고, 로그에 게시 중단 사유도 없으면 경보.
+    2026-08-02 리뷰(OPS-3): 발송 판정을 로그 문구(모델의 자기 보고)에서 logs/sent.log 실측으로 교체 —
+    tg-send-video.sh·upload_youtube.py가 성공 시에만 "시각 파일명" 한 줄을 append한다."""
     try:
         logtext = LOG.read_text(errors="ignore")
         if any(k in logtext for k in ("게시 중단", "게시 보류", "기각")):
@@ -114,8 +139,17 @@ def check_artifacts(start_ts):
         new_mp4 = [p for p in (ROOT / "out").glob("*.mp4") if p.stat().st_mtime >= start_ts]
         if not new_mp4:
             tg("⚠️ 숏츠 데일리: 세션은 정상 종료했지만 새 영상 산출물이 없음 — %s 확인" % LOG.name)
-        elif "발송 완료" not in logtext and "phase0" not in logtext:
-            tg("⚠️ 숏츠 데일리: 영상은 있는데 발송 기록이 로그에 없음 — 게시 단계 누락 의심, %s 확인" % LOG.name)
+            return
+        sent = ROOT / "logs" / "sent.log"
+        sent_ok = sent.exists() and sent.stat().st_mtime >= start_ts
+        if sent_ok:
+            lines = sent.read_text(errors="ignore").strip().splitlines()
+            sent_ok = bool(lines) and any(p.name in lines[-1] for p in new_mp4)
+        if not sent_ok:
+            # 기존 문자열 검사는 보조로 강등 — 경보 문면의 진단 정보로만 쓴다
+            note = " (로그엔 발송 문구가 있음 — 자기 보고 불일치)" if ("발송 완료" in logtext or "phase0" in logtext) else ""
+            tg("⚠️ 숏츠 데일리: 영상은 있는데 sent.log 발송 실측 기록이 없음%s — 게시 단계 누락 의심, %s 확인"
+               % (note, LOG.name))
     except Exception:
         pass
 
