@@ -72,8 +72,8 @@ def preflight(video):
                         "⛔ preflight 검사 불능: %s" % str(e)[:300]], check=False)
         sys.exit("preflight 검사 불능: %s" % e)
     problems = []
-    if not (15 <= dur <= 55):
-        problems.append("길이 %.1fs (허용 15~55s)" % dur)
+    if not (20 <= dur <= 55):   # 2026-08-02 디렉터 확정: 렌더러 게이트와 동일 수치로 통일
+        problems.append("길이 %.1fs (허용 20~55s)" % dur)
     if (w, h) != (1080, 1920):
         problems.append("해상도 %dx%d (요구 1080x1920)" % (w, h))
     if problems:

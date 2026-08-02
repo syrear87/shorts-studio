@@ -50,12 +50,35 @@ def main():
             msg += " (지연 기동: %s)" % ", ".join(delayed)
         if extra:
             msg += " (예정 외 실행: %s)" % ", ".join(extra)
+    removed = cleanup_out(now)
+    if removed:
+        msg += "\n🧹 보관 만료 정리: %s" % removed
     r = subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), msg], timeout=30)
     if r.returncode != 0:
         # 경보 채널 자체가 죽음 — 로컬 파일에라도 남긴다
         with open(os.path.join(ROOT, "logs", "watchdog-fail.log"), "a") as f:
             f.write("%s 텔레그램 발송 실패(rc=%d): %s\n" % (now.isoformat(), r.returncode, msg))
         sys.exit(1)
+
+
+def cleanup_out(now):
+    """보관 정책 (2026-08-02 디렉터 승인): 게시 원본 mp4는 14일, 배경 후보 미리보기는 7일 뒤 삭제.
+    유튜브에 이미 올라간 원본의 로컬 사본이므로 비가역 아님 — 채널이 원본 보관소다."""
+    import time
+    removed = []
+    ts = time.time()
+    for pattern, days in (("out/*.mp4", 14), ("out/bg_candidates/*", 7)):
+        for p in glob.glob(os.path.join(ROOT, pattern)):
+            try:
+                if ts - os.path.getmtime(p) > days * 86400:
+                    os.remove(p)
+                    removed.append(os.path.basename(p))
+            except OSError:
+                pass
+    if not removed:
+        return ""
+    return "%d개 삭제 (%s%s)" % (len(removed), ", ".join(removed[:3]),
+                               " 외" if len(removed) > 3 else "")
 
 
 if __name__ == "__main__":

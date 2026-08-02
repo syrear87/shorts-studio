@@ -403,6 +403,13 @@ def main():
     work = os.path.join("out", "work_" + base)
     os.makedirs(work, exist_ok=True)
 
+    # 0-0) 기각 소재 기계 대조 (2026-08-02 디렉터 승인 — 프롬프트 전용 규칙 3회 실패로 기계화)
+    import check_topic
+    hits = check_topic.check_script(args.script_json)
+    if hits:
+        sys.exit("기각: 영구금지 소재 키워드 일치(%s) — content/REJECTED.md 참조. "
+                 "각도를 바꿔도 금지다, 소재를 교체하라" % ", ".join(hits))
+
     # 0) 자막 구조 하드게이트 (2026-07-29 실사고: CTA 3줄이 구독 문구와 겹침)
     # 2026-08-02 리뷰: 스키마 누락은 KeyError 원시 traceback 대신 명시적 '기각:'으로 —
     #                 헤드리스 세션이 로그만 보고 자가 수정하는 유일한 피드백 채널
@@ -454,10 +461,11 @@ def main():
         print("scene %d: %.2fs, words=%d, boundaries=%d" % (i, dur, len(dws), len(boundaries)), flush=True)
     total_dur = cursor + TAIL
     # 길이 하드게이트 (2026-07-29 감사: '경고만'은 QA 자기채점과 함께 51.5초 발송을 통과시킴)
-    if total_dur > 55 or total_dur < 15:
-        sys.exit("기각: 총 길이 %.1fs — 허용 범위(15~55s) 밖. 대본을 압축/보강해 재렌더하라" % total_dur)
-    if not (20 <= total_dur <= 50):
-        print("경고: 총 길이 %.1fs — 목표 20~50s 밖 (55s 초과 시 기각됨)" % total_dur, flush=True)
+    # 2026-08-02 디렉터 확정: 하드 게이트 20~55s로 통일 (문서마다 다르던 수치 일원화)
+    if total_dur > 55 or total_dur < 20:
+        sys.exit("기각: 총 길이 %.1fs — 허용 범위(20~55s) 밖. 대본을 압축/보강해 재렌더하라" % total_dur)
+    if total_dur > 50:
+        print("경고: 총 길이 %.1fs — 50s 초과분은 리포트에 사유 한 줄 기록" % total_dur, flush=True)
 
     # 2) 배경 영상 — bg_id가 명시됐는데 실패하면 무선별 폴백 금지 (시각 선별 게이트 우회 방지)
     bg_path = None

@@ -25,7 +25,7 @@
 - 게시: 공개 17편+ (매 슬롯 자동 누적). 성과 실측 체계는 `content/PERFORMANCE.md` + `pipeline/analytics.py`, 무긴장 제목 구제는 `pipeline/retitle.py`(RETITLES.md 기록).
 - 스케줄: launchd 평일4·주말5 + 22:30 워치독 등록. 온디맨드 러너는 2026-07-29 감사에서 임의코드 실행 통로로 판정되어 **폐지됨** (스케줄 변경은 plist 수정 후 사람이 launchctl unload/load 두 줄).
 - 텔레그램: 봇 발신 정상(영상 파일+메타 자동 발송). 게임 repo의 수신 브리지(tg_bridge)는 구코드로 상주 중 — 재시작되면 수정본 적용되지만 현재 용도 없음.
-- 성과 수집: 채널에 영상이 쌓이면 `pipeline/fetch_analytics.py` — 아직 미가동. DAILY_PROMPT가 analytics를 읽어 기획에 반영하는 루프는 데이터 생기면 자동 작동.
+- 성과 수집: `pipeline/analytics.py`(읽기 전용, eng%·subs/1kE KPI) + `content/PERFORMANCE.md` 누적 — 매 세션 필독 루프 가동 중 (fetch_analytics.py는 2026-08-02 데드코드로 삭제).
 
 ## 4. YouTube API 감사 — **제출 완료 (2026-07-29 오후), 심사 대기**
 - 폼 제출 완료("이메일이 발송됨" 확인 화면). 상세는 DECISIONS.md S-002 참조.
