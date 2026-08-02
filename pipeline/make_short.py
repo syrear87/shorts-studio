@@ -423,6 +423,19 @@ def main():
             sys.exit("기각: scene %d(%s) 자막 %d줄 — %s 씬은 최대 %d줄 (구독 문구 겹침 방지)"
                      % (i, sc.get("kind"), len(sc["lines"]), sc.get("kind"), limit))
 
+    # 0-1b) 씬 문법 하드게이트 (2026-08-03 실사고: 지식 3비트를 body에 넣고 fact 씬이
+    #       마무리 문장 1개뿐인 편이 게시됨 — 번호 카드는 fact 씬에만 붙으므로 시청자에겐
+    #       '핵심 사실 1개짜리 영상'으로 보였고 디렉터가 규칙 위반으로 지적)
+    kinds = [sc.get("kind") for sc in script["scenes"]]
+    n_fact = kinds.count("fact")
+    if not (2 <= n_fact <= 3):
+        sys.exit("기각: fact 씬 %d개 — 핵심 사실 카드는 2~3개여야 한다. "
+                 "지식 비트를 body에 숨기지 마라(번호 카드는 fact 씬에만 렌더된다)" % n_fact)
+    if "twist" in kinds:
+        first_twist = kinds.index("twist")
+        if sum(1 for k in kinds[:first_twist] if k == "fact") < 2:
+            sys.exit("기각: 반전(twist) 앞에 fact 씬이 2개 미만 — 사실을 쌓은 뒤 뒤집어야 반전이 성립한다")
+
     # 0-2) 채널 아이덴티티 하드게이트 (2026-07-31 실사고: 마지막 씬을 twist로 만들어
     #      음성 마무리 멘트와 화면 '1일 1지식 · 구독' 표시가 둘 다 누락된 채 발송됨)
     last = script["scenes"][-1]
