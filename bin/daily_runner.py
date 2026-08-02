@@ -61,13 +61,14 @@ def log_looks_dead(text):
     for marker in ("failed to authenticate", "authentication_error", "oauth access token"):
         if marker in t.lower():   # 2026-08-02 리뷰: 재시도 판정과 동일하게 소문자 비교로 통일
             return "인증 오류 감지"
-    # 2026-08-02 리뷰(OPS-4): 성공 로그 최솟값 205자 vs 임계 200자(여유 19자) — 길이 대신
-    # DAILY_PROMPT 12단계가 의무화한 마감 센티널(SLOT-DONE)의 부재를 1차 판정으로 쓴다.
-    if "SLOT-DONE" not in t:
-        return "마감 센티널(SLOT-DONE) 부재 (세션 미완주 의심)"
-    if len(t) < 200:   # 길이 검사는 보조로 격하
-        return "출력이 %d자뿐 (세션 즉사 의심)" % len(t)
-    return None
+    # 2026-08-02 리뷰(OPS-4): 마감 센티널(SLOT-DONE)의 존재가 완주의 1차 근거다.
+    # 센티널이 있으면 길이는 보지 않는다 — 첫 야간 슬롯 실사고: 규칙대로 간결하게
+    # 마감한 82자 응답(센티널 포함)을 길이 검사가 '즉사'로 오판해 허위 경보 발송.
+    if "SLOT-DONE" in t:
+        return None
+    if len(t) < 200:
+        return "출력 %d자 + 센티널 부재 (세션 즉사 의심)" % len(t)
+    return "마감 센티널(SLOT-DONE) 부재 (세션 미완주 의심)"
 
 def main():
     os.chdir(str(ROOT))
