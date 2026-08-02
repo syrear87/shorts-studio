@@ -1,8 +1,9 @@
-# 비밀 — 절대 커밋 금지
-credentials.json
-token.json
-telegram.env
-keys.env
+# 비밀 — 절대 커밋 금지 (패턴형: token.json.tmp 같은 임시본까지 봉쇄)
+credentials.json*
+token.json*
+telegram.env*
+keys.env*
+*.env
 assets/bg_cache/
 
 # 산출물·런타임
@@ -10,8 +11,10 @@ assets/bg_cache/
 out/
 logs/
 *.log
+*.tmp
 .daily.lock
 .DS_Store
+tmp_*.py
 
 # 로컬 설정
 .claude/settings.local.json

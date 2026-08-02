@@ -39,7 +39,7 @@ if [ ! -f assets/fonts/NotoSansCJKkr-Black.otf ]; then
 fi
 
 echo "== 4/5 유튜브 OAuth 인증 (브라우저 창이 뜹니다) =="
-.venv/bin/python3 setup_auth.py
+.venv/bin/python3 pipeline/setup_auth.py
 
 echo "== 5/5 데모 렌더 (TTS 포함 전체 파이프라인 검증) =="
 .venv/bin/python3 pipeline/make_short.py content/sample_honey.json --out out/demo_honey.mp4

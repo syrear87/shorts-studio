@@ -6,7 +6,7 @@ own YouTube channel — currently 4 videos/day on weekdays and 5/day on
 weekends, one per scheduled slot.
 
 ## How it works
-1. **Script** — a daily studio session drafts a fact-checked 35-second
+1. **Script** — a daily studio session drafts a fact-checked 40–50-second
    script (hook → 3 facts → twist → CTA). Every factual claim requires
    two independent sources before production (see
    `SHORTS_STUDIO_PROTOCOL.md`).
@@ -18,9 +18,11 @@ weekends, one per scheduled slot.
    to the developer's own channel via the YouTube Data API
    (`videos.insert`), at most 5 videos/day (~8,000 quota units — within
    the default 10,000-unit quota; no quota increase requested).
-4. **Analytics** — `pipeline/fetch_analytics.py` reads the developer's
-   own channel statistics (YouTube Analytics API) to inform the next
-   day's topic selection.
+   While the API audit is pending, uploads are delivered via Telegram
+   and posted manually by the developer (phase0 mode).
+4. **Analytics** — `pipeline/analytics.py` reads the developer's
+   own channel statistics (YouTube Analytics API, read-only) to inform
+   the next day's topic selection.
 
 ## Scope & privacy
 - Single user: the developer. No third-party users, no monetization of
