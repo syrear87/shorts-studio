@@ -82,11 +82,21 @@ def preflight(video):
         sys.exit("preflight 실패: " + ", ".join(problems))
     print("preflight 통과: %.1fs, %dx%d" % (dur, w, h))
 
+def ig_caption(meta):
+    """인스타 릴스 붙여넣기용 캡션 (2026-08-02 디렉터 지시 — 보너스 프로그램 겨냥).
+    릴스 캡션은 첫 125자만 접히기 전에 노출되므로 요약 1줄 + 해시태그로 짧게.
+    해시태그는 릴스 관심사 그래프 분배의 재료 — 소재 태그를 그대로 쓴다."""
+    first = meta["description"].strip().split("\n")[0]
+    tags = " ".join("#" + t.replace(" ", "") for t in topic_tags(meta, 5))
+    return "📸 인스타 릴스 캡션 (복사용):\n\n%s\n\n%s" % (first, tags)
+
 def phase0(video, meta):
     # 1) 영상 파일 자체를 텔레그램으로 발송 (봇 API 한도 50MB)
     size_mb = os.path.getsize(video) / 1e6
-    caption = ("🎬 오늘의 숏츠 완성 — 이 영상을 저장해서 YouTube 앱 → + → Shorts로 올려주세요\n"
-               "· 시청자층: \"아니요, 아동용이 아닙니다\" 선택\n· 공개 상태: 공개\n\n제목: %s" % clean_title(meta))
+    caption = ("🎬 오늘의 숏츠 완성 — 저장해서 ①YouTube Shorts ②인스타 릴스에 올려주세요\n"
+               "· YouTube: 시청자층 \"아니요, 아동용이 아닙니다\" · 공개\n"
+               "· 인스타: 다음다음 메시지의 릴스 캡션을 붙여넣기 (릴스 조회량이 보너스 프로그램 초대 조건)\n\n"
+               "제목: %s" % clean_title(meta))
     # 2026-08-02 리뷰 [A1]: 네트워크 스톨 시 러너 100분 타임아웃까지 슬롯이 통째로 잠기는 것 방지
     if size_mb < 49:
         subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send-video.sh"), video, caption],
@@ -98,7 +108,9 @@ def phase0(video, meta):
     # 2) 제목·설명·태그는 복사하기 좋게 별도 메시지로 (헤더 없음)
     msg = "%s\n\n%s\n\n태그: %s" % (clean_title(meta), full_description(meta), ", ".join(topic_tags(meta)))
     subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), msg], check=True, timeout=90)
-    print("phase0: 텔레그램으로 영상+메타데이터 발송 완료 (API 업로드 안 함)")
+    # 3) 인스타 릴스 캡션 별도 발송 (2026-08-02 디렉터 지시 — 릴스는 짧은 캡션이 정석)
+    subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), ig_caption(meta)], check=True, timeout=90)
+    print("phase0: 텔레그램으로 영상+메타데이터+IG캡션 발송 완료 (API 업로드 안 함)")
 
 def api_public(video, meta):
     from googleapiclient.discovery import build
