@@ -1,0 +1,56 @@
+{
+  "title": "오늘 밤 침실이 24도 넘으면, 심장이 야근합니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "bg_id": 9615483,
+  "bg_query": [
+    "bedroom night fan summer sleeping dark",
+    "air conditioner remote control hand",
+    "person sleeping summer heat night"
+  ],
+  "sources": [
+    "https://link.springer.com/article/10.1186/s12916-025-04513-0",
+    "https://www.sciencedaily.com/releases/2026/02/260210040625.htm",
+    "https://en.sedaily.com/finance/2026/07/03/bedroom-above-24c-strains-the-heart-during-sleep-study-warns"
+  ],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "오늘 밤 에어컨 끄고 자면, 당신 심장은 쉬지 못합니다.",
+      "lines": [
+        ["에어컨 끄고 자면", ["에어컨"]],
+        ["심장은 쉬지 못합니다", ["심장"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "침실이 24도를 넘으면, 몸은 체온을 낮추려고 피부로 혈액을 더 보냅니다. 심장 박동이 빨라지는 겁니다.",
+      "lines": [
+        ["24도 넘으면", ["24도"]],
+        ["심장 박동이 빨라집니다", ["심장"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "호주 연구팀이 65세 이상을 한 여름 추적했습니다. 24도 이상에서 심장 부담이 40퍼센트 올라갔고, 28도가 넘으면 3배였습니다.",
+      "lines": [
+        ["24도 이상, 심장 부담 40%↑", ["40%"]],
+        ["28도 이상이면 3배", ["3배"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "오늘 밤도 열대야입니다. 에어컨을 끄는 순간, 심장의 야근이 시작됩니다.",
+      "lines": [
+        ["오늘 밤도 열대야", ["열대야"]],
+        ["심장의 야근이 시작됩니다", ["야근"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ]
+}
