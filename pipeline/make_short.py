@@ -428,8 +428,10 @@ def main():
     #       '핵심 사실 1개짜리 영상'으로 보였고 디렉터가 규칙 위반으로 지적)
     kinds = [sc.get("kind") for sc in script["scenes"]]
     n_fact = kinds.count("fact")
-    if not (2 <= n_fact <= 3):
-        sys.exit("기각: fact 씬 %d개 — 핵심 사실 카드는 2~3개여야 한다. "
+    # 2026-08-03 디렉터 재확정: 규약 원문 '훅 하나, 핵심 사실 셋' — 3개 고정
+    # (신설 당시 과거 관행에 맞춰 2~3으로 느슨하게 잡았다가 2개짜리가 통과해 지적받음)
+    if n_fact != 3:
+        sys.exit("기각: fact 씬 %d개 — 핵심 사실 카드는 정확히 3개여야 한다(훅 하나·사실 셋·반전). "
                  "지식 비트를 body에 숨기지 마라(번호 카드는 fact 씬에만 렌더된다)" % n_fact)
     if "twist" in kinds:
         first_twist = kinds.index("twist")
