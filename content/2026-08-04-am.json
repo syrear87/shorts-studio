@@ -1,0 +1,73 @@
+{
+  "title": "뉴스가 '매미'를 다시 꺼냈습니다 — 23년 전에 퇴출된 이름입니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "bg_id": 10234379,
+  "bg_query": [
+    "typhoon ocean waves dark sky aerial",
+    "hurricane storm surge coastal damage",
+    "severe storm wind rain dark clouds"
+  ],
+  "sources": [
+    "https://www.archives.go.kr/next/newsearch/listSubjectDescription.do?id=001911",
+    "https://www.hankyung.com/article/2026080326117",
+    "https://www.sisajournal.com/news/articleView.html?idxno=269877",
+    "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=01256246645543384"
+  ],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "태풍 이름은 영구 퇴출당할 수 있습니다. 피해가 너무 크면.",
+      "lines": [
+        ["태풍 이름은 퇴출당할 수 있습니다", ["퇴출"]],
+        ["피해가 너무 크면", ["너무 크면"]]
+      ]
+    },
+    {
+      "kind": "body",
+      "voice": "지금 태풍 돌핀이 올라오고 있습니다. 뉴스가 붙인 수식어는 — 매미급.",
+      "lines": [
+        ["태풍 돌핀이 올라오고 있습니다", ["돌핀"]],
+        ["수식어는 — 매미급", ["매미급"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "2003년 태풍 매미. 최대순간풍속 초속 60미터, 사망·실종 132명, 피해 4조 8천억 원.",
+      "lines": [
+        ["2003년 태풍 매미", ["매미"]],
+        ["초속 60m · 132명 · 4.8조", ["132명"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "피해가 크면 그 이름은 퇴출됩니다. 한국이 퇴출시킨 이름 — 루사, 매미, 힌남노.",
+      "lines": [
+        ["피해가 크면 이름은 영구 퇴출", ["영구 퇴출"]],
+        ["한국이 퇴출시킨 이름 — 세 개", ["세 개"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "매미의 대체 이름은 무지개. 무지개도 퇴출됐습니다. 한 자리에서 이름이 두 번 죽었습니다.",
+      "lines": [
+        ["대체 이름 '무지개'도 퇴출", ["무지개"]],
+        ["같은 자리에서 두 번 죽었습니다", ["두 번"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "매미급이라는 말은 기상 용어가 아닙니다. 퇴출된 이름이 23년 뒤에도 공포의 단위로 쓰인다는 뜻입니다.",
+      "lines": [
+        ["'매미급'은 기상 용어가 아닙니다", ["기상 용어"]],
+        ["공포의 단위입니다", ["공포"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ]
+}
