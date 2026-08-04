@@ -8,6 +8,7 @@
 #      → out/voice_test.mp3 생성 (들어보고 승인/재녹음 판단)
 # 본편 연동(make_long) 은 테스트 승인 후 별도 커밋으로.
 import json
+import re
 import os
 import sys
 
@@ -65,15 +66,54 @@ def create(samples):
     print("클론 생성 완료 — voice_id=%s (keys.env에 기록)" % vid)
 
 
+_D = "영일이삼사오육칠팔구"
+
+
+def _sino(n):
+    """정수 → 한자어 수사 (조 단위까지). 42→사십이, 122→백이십이, 2026→이천이십육."""
+    if n == 0:
+        return "영"
+    groups, out = ["", "만", "억", "조"], []
+    gi = 0
+    while n > 0:
+        g, n = n % 10000, n // 10000
+        if g:
+            s = ""
+            for unit, div in (("천", 1000), ("백", 100), ("십", 10)):
+                q, g = g // div, g % div
+                if q:
+                    s += ("" if q == 1 else _D[q]) + unit
+            if g:
+                s += _D[g]
+            out.append(s + groups[gi])
+        gi += 1
+    return "".join(reversed(out))
+
+
+def normalize_numbers(text):
+    """숫자를 한글 발음으로 (TTS 입력 전용 — 자막은 원문 유지).
+    42.5도 → 사십이 점 오 도, 122년 → 백이십이년, 40% → 사십 퍼센트 (2026-08-04 디렉터: '42.5도' 발음 어색)"""
+    def repl(m):
+        whole, dec = m.group(1), m.group(2)
+        s = _sino(int(whole))
+        if dec:
+            s += " 점 " + " ".join(_D[int(c)] for c in dec)
+        return s
+    text = re.sub(r"(\d+)(?:\.(\d+))?", repl, text)
+    return text.replace("%", " 퍼센트")
+
+
 def tts(text, out_path, with_timestamps=False):
     """클론 목소리로 합성. with_timestamps=True면 (mp3경로, 어절 경계 리스트) 반환 — 렌더러 자막 동기용."""
     keys = load_keys()
     vid = keys.get("ELEVEN_VOICE_ID")
     if not vid:
         sys.exit("ELEVEN_VOICE_ID 없음 — 먼저 create를 실행")
+    text = normalize_numbers(text)
     url = API + "/text-to-speech/%s%s" % (vid, "/with-timestamps" if with_timestamps else "")
+    # 2026-08-04 디렉터 A/B/C 청음: B 채택 (자연스러움-또렷함 균형)
     body = {"text": text, "model_id": "eleven_multilingual_v2",
-            "voice_settings": {"stability": 0.5, "similarity_boost": 0.8}}
+            "voice_settings": {"stability": 0.45, "similarity_boost": 0.85, "style": 0.15}}
     r = requests.post(url, headers={"xi-api-key": keys["ELEVENLABS_API_KEY"]}, json=body, timeout=300)
     if r.status_code != 200:
         sys.exit("합성 실패 (%d): %s" % (r.status_code, r.text[:500]))
