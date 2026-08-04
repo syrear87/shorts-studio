@@ -38,6 +38,21 @@ def main():
     import requests, shutil
     shutil.rmtree(OUT, ignore_errors=True)
     os.makedirs(OUT, exist_ok=True)
+    # 이미 다른 편에서 쓴 배경 표시 (2026-08-05 실사고: 배경 재탕 — 렌더러가 기계 기각하므로 여기서 미리 보여줌)
+    import re as _re, glob as _glob
+    def _norm(p):
+        return _re.sub(r"\d+$", "", os.path.splitext(os.path.basename(p))[0])
+    me = _norm(sys.argv[1])
+    used = set()
+    for p in _glob.glob(os.path.join(ROOT, "content", "2026-*.json")):
+        if p.endswith(".meta.json") or _norm(p) == me:
+            continue
+        try:
+            s = json.load(open(p, encoding="utf-8"))
+        except Exception:
+            continue
+        ids = s.get("bg_ids") or ([s["bg_id"]] if s.get("bg_id") else [])
+        used.update(int(v) for v in ids)
     seen, rows = set(), []
     for qi, q in enumerate(queries):
         try:
@@ -63,11 +78,12 @@ def main():
                     fh.write(img.content)
                 portrait = any((f.get("height") or 0) > (f.get("width") or 0)
                                for f in v.get("video_files", []))
-                rows.append((name, q, v.get("duration", 0), "세로" if portrait else "가로"))
+                mark = "  ⚠️ 이미 사용된 배경 — 선택 금지(렌더러가 기각함)" if v["id"] in used else ""
+                rows.append((name, q, v.get("duration", 0), "세로" if portrait else "가로", mark))
             except Exception:
                 continue
-    for name, q, dur, ori in rows:
-        print("%s  | query=%s | %ds | %s" % (name, q, dur, ori))
+    for name, q, dur, ori, mark in rows:
+        print("%s  | query=%s | %ds | %s%s" % (name, q, dur, ori, mark))
     print("후보 %d개 저장 → %s" % (len(rows), OUT))
     print("다음 단계: 미리보기를 Read로 보고, 소재가 실제로 보이는 영상의 id를 content json에 \"bg_id\": <숫자> 로 기록 후 렌더")
 

@@ -115,6 +115,26 @@ def fetch_bg(query, need_dur):
     print("배경 영상 없음 → 그라데이션 폴백", flush=True)
     return None
 
+def used_bg_ids(exclude_script=None):
+    """이미 다른 편에서 쓴 배경 id 집합 (2026-08-05 실사고: 에어컨 유래 편이
+    한전 편과 같은 배경을 써서 피드에서 재탕처럼 보임 — 디렉터가 커버를 수동 교체).
+    대체본(같은 날짜-슬롯의 재제작, 예: am ↔ am2)끼리는 공유를 허용한다."""
+    def norm(p):
+        return re.sub(r"\d+$", "", os.path.splitext(os.path.basename(p))[0])
+    me = norm(exclude_script) if exclude_script else None
+    used = set()
+    for p in glob.glob(os.path.join(ROOT, "content", "2026-*.json")):
+        if p.endswith(".meta.json") or (me and norm(p) == me):
+            continue
+        try:
+            s = json.load(open(p, encoding="utf-8"))
+        except Exception:
+            continue
+        ids = s.get("bg_ids") or ([s["bg_id"]] if s.get("bg_id") else [])
+        used.update(int(v) for v in ids)
+    return used
+
+
 def fetch_bg_by_id(vid_id):
     """Pexels 영상 id를 직접 지정해 다운로드 (pick_bg.py로 눈으로 고른 뒤 사용).
     2026-07-29 디렉터 피드백: 검색 1순위 자동 사용은 소재 연관성이 떨어짐 → 시각 선별 도입."""
@@ -561,6 +581,11 @@ def main():
     if not args.no_bg_video:
         ids = script.get("bg_ids") or ([script["bg_id"]] if script.get("bg_id") else [])
         if ids:
+            # 배경 재사용 하드게이트 (2026-08-05): 다른 편에서 쓴 배경이면 기각
+            dup = [v for v in ids[:3] if int(v) in used_bg_ids(exclude_script=args.script_json)]
+            if dup:
+                sys.exit("기각: 배경 id %s 는 이미 다른 게시본에서 사용됨 — 피드에서 재탕처럼 보인다. "
+                         "pick_bg.py 출력의 ⚠️ 표시를 피해 다른 배경을 골라라" % dup)
             for vid_ in ids[:3]:
                 p = fetch_bg_by_id(vid_)
                 if p is None:
