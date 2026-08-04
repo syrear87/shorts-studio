@@ -612,6 +612,15 @@ def main():
             if p is None:
                 sys.exit("기각: 지정 사진 %s 다운로드 실패" % entry)
             return {"kind": "photo", "path": p}
+        if isinstance(entry, str) and entry.startswith("file:"):
+            # 자체 제작 그래픽(열돔 구조도 등, 2026-08-04 디렉터 지시) — 저장소 상대 경로 mp4
+            p = entry.split(":", 1)[1]
+            if not os.path.isabs(p):
+                p = os.path.join(ROOT, p)
+            if not os.path.exists(p):
+                sys.exit("기각: 지정 로컬 배경 %s 없음" % p)
+            print("배경 영상(자체 제작): %s" % os.path.basename(p), flush=True)
+            return {"kind": "video", "path": p}
         p = fetch_bg_by_id(entry)
         if p is None:
             sys.exit("기각: 지정 bg_id=%s 다운로드 실패" % entry)
