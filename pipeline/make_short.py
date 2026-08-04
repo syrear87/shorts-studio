@@ -131,8 +131,35 @@ def used_bg_ids(exclude_script=None):
         except Exception:
             continue
         ids = s.get("bg_ids") or ([s["bg_id"]] if s.get("bg_id") else [])
-        used.update(int(v) for v in ids)
+        used.update(str(v) for v in ids)   # 영상은 "123", 사진은 "photo:123" 문자열로 통일
     return used
+
+
+def fetch_bg_photo(photo_id):
+    """Pexels '사진'을 받아 켄 번즈 배경으로 쓴다 (2026-08-05 디렉터 승인 —
+    역사·유래 장면은 영상 스톡이 없어도 사진은 존재한다. 다큐의 표준 기법)."""
+    key = load_keys().get("PEXELS_API_KEY") or os.environ.get("PEXELS_API_KEY")
+    if not key or not photo_id:
+        return None
+    cache = os.path.join(ROOT, "assets", "bg_cache")
+    os.makedirs(cache, exist_ok=True)
+    dst = os.path.join(cache, "pexels_photo_%s.jpg" % photo_id)
+    import requests
+    try:
+        if not os.path.exists(dst):
+            r = requests.get("https://api.pexels.com/v1/photos/%s" % photo_id,
+                             headers={"Authorization": key}, timeout=20)
+            r.raise_for_status()
+            src = r.json().get("src", {})
+            url = src.get("large2x") or src.get("original")
+            if not url:
+                return None
+            _download(url, dst)
+        print("배경 사진(켄 번즈): pexels photo id=%s — Pexels License" % photo_id, flush=True)
+        return dst
+    except Exception as e:
+        print("배경 사진 다운로드 실패(%s) — 기각 예정" % e, flush=True)
+        return None
 
 
 def fetch_bg_by_id(vid_id):
@@ -577,35 +604,41 @@ def main():
 
     # 2) 배경 영상 — bg_id가 명시됐는데 실패하면 무선별 폴백 금지 (시각 선별 게이트 우회 방지)
     # 2026-08-04 디렉터 지시: 배경 1개는 지루하다 → bg_ids(2~3개)로 씬 경계에서 배경 전환
-    bg_paths = []
+    bg_items = []   # {"kind": "video"|"photo", "path": ...}
     if not args.no_bg_video:
         ids = script.get("bg_ids") or ([script["bg_id"]] if script.get("bg_id") else [])
         if ids:
-            # 배경 재사용 하드게이트 (2026-08-05): 다른 편에서 쓴 배경이면 기각
-            dup = [v for v in ids[:3] if int(v) in used_bg_ids(exclude_script=args.script_json)]
+            # 배경 재사용 하드게이트 (2026-08-05): 다른 편에서 쓴 배경이면 기각 (사진 포함)
+            dup = [v for v in ids[:3] if str(v) in used_bg_ids(exclude_script=args.script_json)]
             if dup:
-                sys.exit("기각: 배경 id %s 는 이미 다른 게시본에서 사용됨 — 피드에서 재탕처럼 보인다. "
+                sys.exit("기각: 배경 %s 는 이미 다른 게시본에서 사용됨 — 피드에서 재탕처럼 보인다. "
                          "pick_bg.py 출력의 ⚠️ 표시를 피해 다른 배경을 골라라" % dup)
-            for vid_ in ids[:3]:
-                p = fetch_bg_by_id(vid_)
-                if p is None:
-                    sys.exit("기각: 지정 bg_id=%s 다운로드 실패 — pick_bg.py로 다시 고르거나 목록에서 제거하라" % vid_)
-                bg_paths.append(p)
+            for entry in ids[:3]:
+                if isinstance(entry, str) and entry.startswith("photo:"):
+                    p = fetch_bg_photo(entry.split(":", 1)[1])
+                    if p is None:
+                        sys.exit("기각: 지정 사진 %s 다운로드 실패 — pick_bg.py로 다시 고르거나 목록에서 제거하라" % entry)
+                    bg_items.append({"kind": "photo", "path": p})
+                else:
+                    p = fetch_bg_by_id(entry)
+                    if p is None:
+                        sys.exit("기각: 지정 bg_id=%s 다운로드 실패 — pick_bg.py로 다시 고르거나 목록에서 제거하라" % entry)
+                    bg_items.append({"kind": "video", "path": p})
         else:
             p = fetch_bg(script.get("bg_query", ""), total_dur)
             if p:
-                bg_paths = [p]
-    video_bg = bool(bg_paths)
+                bg_items = [{"kind": "video", "path": p}]
+    video_bg = bool(bg_items)
 
     # 배경 전환 지점: 총 길이를 배경 수로 등분한 목표 시각에 가장 가까운 씬 경계로 스냅
     bg_segs = [total_dur]
-    if len(bg_paths) > 1:
+    if len(bg_items) > 1:
         ends = [tl["end"] for tl in timeline[:-1]]
-        cuts = sorted(set(min(ends, key=lambda e: abs(e - total_dur * k / len(bg_paths)))
-                          for k in range(1, len(bg_paths))))
+        cuts = sorted(set(min(ends, key=lambda e: abs(e - total_dur * k / len(bg_items)))
+                          for k in range(1, len(bg_items))))
         bounds = [0.0] + cuts + [total_dur]
         bg_segs = [bounds[i + 1] - bounds[i] for i in range(len(bounds) - 1)]
-        bg_paths = bg_paths[:len(bg_segs)]   # 경계가 겹쳐 줄었으면 배경 수도 맞춤
+        bg_items = bg_items[:len(bg_segs)]   # 경계가 겹쳐 줄었으면 배경 수도 맞춤
 
     # 3) 렌더 + BGM
     render(script, timeline, work, total_dur, script.get("chip", "오늘의 지식 · 1일 1지식"), video_bg)
@@ -615,20 +648,37 @@ def main():
     # 4) 합성·인코딩
     cmd = ["ffmpeg", "-y"]
     if video_bg:
-        for p in bg_paths:
-            cmd += ["-stream_loop", "-1", "-i", p]
-        nb = len(bg_paths)
+        nb = len(bg_items)
+        for it in bg_items:
+            if it["kind"] == "photo":
+                cmd += ["-loop", "1", "-i", it["path"]]
+            else:
+                cmd += ["-stream_loop", "-1", "-i", it["path"]]
         cmd += ["-framerate", str(FPS), "-i", os.path.join(work, "frames", "f%05d.png"),
                 "-i", bgm]
         scale = "scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d,setsar=1,fps=%d" % (W, H, W, H, FPS)
-        if nb == 1:
-            vf = "[0:v]%s[bgv];[bgv][1:v]overlay=format=auto[vout]" % scale
-        else:
-            parts = ["[%d:v]%s,trim=duration=%.3f,setpts=PTS-STARTPTS[b%d]" % (i, scale, seg, i)
-                     for i, seg in enumerate(bg_segs)]
-            parts.append("%sconcat=n=%d:v=1:a=0[bgv]" % ("".join("[b%d]" % i for i in range(nb)), nb))
-            parts.append("[bgv][%d:v]overlay=format=auto[vout]" % nb)
-            vf = ";".join(parts)
+        parts = []
+        for i, (it, seg) in enumerate(zip(bg_items, bg_segs)):
+            if it["kind"] == "photo":
+                # 켄 번즈: 구간마다 줌 방향·초점을 바꿔 단조로움 방지. 총 줌 폭은 길이 무관 +0.45
+                fr = max(int(seg * FPS) + FPS, FPS)
+                zi = 0.45 / max(seg * FPS, 1)
+                styles = [
+                    "z='min(1.0+%.6f*on,1.5)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'" % zi,
+                    "z='min(1.0+%.6f*on,1.5)':x='iw/2-(iw/zoom/2)':y='ih/3-(ih/zoom/2)'" % zi,
+                    "z='max(1.45-%.6f*on,1.0)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'" % zi,
+                ]
+                parts.append(
+                    "[%d:v]scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d,"
+                    "zoompan=%s:d=%d:s=%dx%d:fps=%d,eq=saturation=0.88:brightness=-0.02,"
+                    "setsar=1,trim=duration=%.3f,setpts=PTS-STARTPTS[b%d]"
+                    % (i, W * 2, H * 2, W * 2, H * 2, styles[i % 3], fr, W, H, FPS, seg, i))
+            else:
+                parts.append("[%d:v]%s,trim=duration=%.3f,setpts=PTS-STARTPTS[b%d]"
+                             % (i, scale, seg, i))
+        parts.append("%sconcat=n=%d:v=1:a=0[bgv]" % ("".join("[b%d]" % i for i in range(nb)), nb))
+        parts.append("[bgv][%d:v]overlay=format=auto[vout]" % nb)
+        vf = ";".join(parts)
         a_base = nb + 1
     else:
         cmd += ["-framerate", str(FPS), "-i", os.path.join(work, "frames", "f%05d.jpg"), "-i", bgm]

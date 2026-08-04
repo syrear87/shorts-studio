@@ -82,10 +82,38 @@ def main():
                 rows.append((name, q, v.get("duration", 0), "세로" if portrait else "가로", mark))
             except Exception:
                 continue
+    # 사진 후보 (2026-08-05 디렉터 승인 — 켄 번즈 배경): 영상 스톡이 없는 역사·유래·개념 장면용
+    for qi, q in enumerate(queries):
+        try:
+            r = requests.get("https://api.pexels.com/v1/search",
+                             params={"query": q, "per_page": 6, "orientation": "portrait"},
+                             headers={"Authorization": key}, timeout=20)
+            r.raise_for_status()
+            photos = r.json().get("photos", [])
+        except Exception as e:
+            print("사진 검색 실패(%s): %s" % (q, e))
+            continue
+        for ph in photos[:3]:
+            if ph["id"] in seen:
+                continue
+            seen.add(ph["id"])
+            name = "p%d_%s.jpg" % (qi, ph["id"])
+            try:
+                img = requests.get(ph["src"]["medium"], timeout=20)
+                img.raise_for_status()
+                with open(os.path.join(OUT, name), "wb") as fh:
+                    fh.write(img.content)
+                mark = "  ⚠️ 이미 사용된 배경 — 선택 금지(렌더러가 기각함)" if ("photo:%s" % ph["id"]) in used else ""
+                rows.append((name, q, 0, "사진(켄번즈)", mark))
+            except Exception:
+                continue
+
     for name, q, dur, ori, mark in rows:
         print("%s  | query=%s | %ds | %s%s" % (name, q, dur, ori, mark))
     print("후보 %d개 저장 → %s" % (len(rows), OUT))
-    print("다음 단계: 미리보기를 Read로 보고, 소재가 실제로 보이는 영상의 id를 content json에 \"bg_id\": <숫자> 로 기록 후 렌더")
+    print("다음 단계: 미리보기를 Read로 직접 보고 서로 다른 그림 2~3개를 골라 content json에 기록 —")
+    print('  영상(q*.jpg)은 숫자 그대로, 사진(p*.jpg)은 "photo:<id>" 문자열로: 예) "bg_ids": [12345, "photo:67890"]')
+    print("  사진은 렌더러가 켄 번즈(느린 줌)로 살린다 — 실사 영상이 없는 역사·유래·개념 씬에 쓰라")
 
 
 if __name__ == "__main__":
