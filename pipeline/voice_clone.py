@@ -108,32 +108,23 @@ def normalize_numbers(text):
     return text.replace("%", "퍼센트")
 
 
-def tts(text, out_path, with_timestamps=False):
-    """클론 목소리로 합성. with_timestamps=True면 (mp3경로, 어절 경계 리스트) 반환 — 렌더러 자막 동기용."""
-    keys = load_keys()
-    vid = keys.get("ELEVEN_VOICE_ID")
-    if not vid:
-        sys.exit("ELEVEN_VOICE_ID 없음 — 먼저 create를 실행")
-    text = normalize_numbers(text)
-    url = API + "/text-to-speech/%s%s" % (vid, "/with-timestamps" if with_timestamps else "")
-    # 2026-08-04 디렉터 A/B/C 청음: B 채택 (자연스러움-또렷함 균형)
-    body = {"text": text, "model_id": "eleven_multilingual_v2",
-            "voice_settings": {"stability": 0.45, "similarity_boost": 0.85, "style": 0.15,
-                               "speed": 0.95}}  # 클론 원속이 분당 ~750자로 빨라 5% 감속 (2026-08-04)
-    r = requests.post(url, headers={"xi-api-key": keys["ELEVENLABS_API_KEY"]}, json=body, timeout=300)
+SENT_PAUSE = 0.7  # 문장 사이 쉼 0.7s (2026-08-04 디렉터 "숨차는 느낌" + 8분 요건 역산 — break 태그는 크레딧을 먹어 무음 이어붙임)
+
+
+def _synth_one(keys, vid, text):
+    """한 문장 합성 → (mp3 bytes, [(시작초, 어절)])."""
+    r = requests.post(API + "/text-to-speech/%s/with-timestamps" % vid,
+                      headers={"xi-api-key": keys["ELEVENLABS_API_KEY"]},
+                      # 2026-08-04 디렉터 청음 확정: eleven_v3 (억양·호흡 자연) — 설정 기본값(Natural)
+                      json={"text": text, "model_id": "eleven_v3"}, timeout=300)
     if r.status_code != 200:
         sys.exit("합성 실패 (%d): %s" % (r.status_code, r.text[:500]))
-    if not with_timestamps:
-        open(out_path, "wb").write(r.content)
-        return out_path, None
     j = r.json()
     import base64
-    open(out_path, "wb").write(base64.b64decode(j["audio_base64"]))
-    # 문자 타임스탬프 → 어절(공백 단위) 경계로 변환: (시작초, 어절)
+    audio = base64.b64decode(j["audio_base64"])
     al = j["alignment"]
-    chars, starts = al["characters"], al["character_start_times_seconds"]
     words, cur, t0 = [], "", None
-    for ch, st in zip(chars, starts):
+    for ch, st in zip(al["characters"], al["character_start_times_seconds"]):
         if ch.isspace():
             if cur:
                 words.append((t0, cur))
@@ -144,7 +135,50 @@ def tts(text, out_path, with_timestamps=False):
             cur += ch
     if cur:
         words.append((t0, cur))
-    return out_path, words
+    return audio, words
+
+
+def tts(text, out_path, with_timestamps=False):
+    """클론 목소리 합성. 문장별로 합성해 사이에 SENT_PAUSE 무음을 이어 붙인다.
+    반환: (mp3경로, [(시작초, 어절)]) — 렌더러 자막 동기용."""
+    import shutil
+    import subprocess
+    import tempfile
+    keys = load_keys()
+    vid = keys.get("ELEVEN_VOICE_ID")
+    if not vid:
+        sys.exit("ELEVEN_VOICE_ID 없음 — 먼저 create를 실행")
+    text = normalize_numbers(text)
+    sents = [s for s in re.split(r"(?<=[.?!])\s+", text.strip()) if s]
+    tmpd = tempfile.mkdtemp(prefix="vc_")
+    try:
+        words_all, wavs, offset = [], [], 0.0
+        for si, sent in enumerate(sents):
+            audio, words = _synth_one(keys, vid, sent)
+            mp3p = os.path.join(tmpd, "s%03d.mp3" % si)
+            wavp = os.path.join(tmpd, "s%03d.wav" % si)
+            open(mp3p, "wb").write(audio)
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", mp3p,
+                            "-ar", "44100", "-ac", "1", wavp], check=True)
+            d = float(subprocess.run(["ffprobe", "-v", "quiet", "-show_entries", "format=duration",
+                                      "-of", "csv=p=0", wavp], capture_output=True, text=True).stdout.strip())
+            words_all += [(offset + t, w) for t, w in words]
+            wavs.append(wavp)
+            offset += d + (SENT_PAUSE if si < len(sents) - 1 else 0.0)
+        sil = os.path.join(tmpd, "sil.wav")
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi",
+                        "-i", "anullsrc=r=44100:cl=mono", "-t", str(SENT_PAUSE), sil], check=True)
+        lst = os.path.join(tmpd, "list.txt")
+        with open(lst, "w") as f:
+            for i, w in enumerate(wavs):
+                if i:
+                    f.write("file '%s'\n" % sil)
+                f.write("file '%s'\n" % w)
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0",
+                        "-i", lst, "-codec:a", "libmp3lame", "-q:a", "2", out_path], check=True)
+    finally:
+        shutil.rmtree(tmpd, ignore_errors=True)
+    return out_path, (words_all if with_timestamps else None)
 
 
 if __name__ == "__main__":
