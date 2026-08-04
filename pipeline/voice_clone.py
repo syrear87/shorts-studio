@@ -118,7 +118,8 @@ def tts(text, out_path, with_timestamps=False):
     url = API + "/text-to-speech/%s%s" % (vid, "/with-timestamps" if with_timestamps else "")
     # 2026-08-04 디렉터 A/B/C 청음: B 채택 (자연스러움-또렷함 균형)
     body = {"text": text, "model_id": "eleven_multilingual_v2",
-            "voice_settings": {"stability": 0.45, "similarity_boost": 0.85, "style": 0.15}}
+            "voice_settings": {"stability": 0.45, "similarity_boost": 0.85, "style": 0.15,
+                               "speed": 0.95}}  # 클론 원속이 분당 ~750자로 빨라 5% 감속 (2026-08-04)
     r = requests.post(url, headers={"xi-api-key": keys["ELEVENLABS_API_KEY"]}, json=body, timeout=300)
     if r.status_code != 200:
         sys.exit("합성 실패 (%d): %s" % (r.status_code, r.text[:500]))
