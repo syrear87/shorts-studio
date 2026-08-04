@@ -32,7 +32,8 @@ def save_key(name, value):
     p = os.path.join(ROOT, "keys.env")
     lines = open(p, encoding="utf-8").read().splitlines()
     lines = [l for l in lines if not l.startswith(name + "=")]
-    lines.append("%s=%s   # ElevenLabs 디렉터 목소리 (voice_clone.py가 기록)" % (name, value))
+    # 값 뒤 인라인 주석 금지 — load_keys가 값의 일부로 읽는다 (2026-08-04 실사고)
+    lines.append("%s=%s" % (name, value))
     tmp = p + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
