@@ -151,7 +151,53 @@ def fetch_bg_by_id(vid_id):
         return None
 
 # ---------- TTS ----------
-async def tts_scene(text, mp3_path):
+def tts_azure(text, mp3_path):
+    """Azure Speech 공식 API (2026-08-05 디렉터 승인 S-004 — aitutor와 리소스 공유).
+
+    edge-tts와 같은 보이스(SunHi/InJoon)를 SSML로 합성 — 문어체 조각을 어색하게
+    읽던 문제("띄어쓰기를 이해 못 하는 느낌", 2026-08-04 디렉터)의 근본 대응.
+    word boundary 이벤트로 edge-tts와 동일한 (초, 단어) 타이밍을 반환한다.
+    키 없음/실패 시 None 반환 → 호출부가 edge-tts로 폴백."""
+    keys = load_keys()
+    key = keys.get("AZURE_SPEECH_KEY") or os.environ.get("AZURE_SPEECH_KEY")
+    if not key:
+        return None
+    try:
+        import azure.cognitiveservices.speech as speechsdk
+        from xml.sax.saxutils import escape
+        cfg = speechsdk.SpeechConfig(
+            subscription=key,
+            region=keys.get("AZURE_SPEECH_REGION") or os.environ.get("AZURE_SPEECH_REGION") or "koreacentral")
+        cfg.set_speech_synthesis_output_format(
+            speechsdk.SpeechSynthesisOutputFormat.Audio24Khz96KBitRateMonoMp3)
+        synth = speechsdk.SpeechSynthesizer(speech_config=cfg, audio_config=None)
+        boundaries = []
+
+        def on_boundary(evt):
+            # 구두점·문장 경계 이벤트는 제외 — 단어 팝인 타이밍에는 단어만
+            bt = getattr(evt, "boundary_type", None)
+            if bt is not None and bt != speechsdk.SpeechSynthesisBoundaryType.Word:
+                return
+            boundaries.append((evt.audio_offset / 1e7, evt.text))
+
+        synth.synthesis_word_boundary.connect(on_boundary)
+        ssml = ('<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="ko-KR">'
+                '<voice name="%s"><prosody rate="%s">%s</prosody></voice></speak>'
+                % (VOICE, RATE, escape(text)))
+        result = synth.speak_ssml_async(ssml).get()
+        if result.reason != speechsdk.ResultReason.SynthesizingAudioCompleted:
+            detail = getattr(getattr(result, "cancellation_details", None), "error_details", result.reason)
+            print("Azure TTS 실패(%s) → edge-tts 폴백" % str(detail)[:200], flush=True)
+            return None
+        with open(mp3_path, "wb") as f:
+            f.write(result.audio_data)
+        return boundaries
+    except Exception as e:
+        print("Azure TTS 예외(%s) → edge-tts 폴백" % str(e)[:200], flush=True)
+        return None
+
+
+async def tts_edge(text, mp3_path):
     import edge_tts
     try:
         # edge-tts 7.x: 기본이 SentenceBoundary라 단어 타이밍을 명시 요청해야 함
@@ -166,6 +212,14 @@ async def tts_scene(text, mp3_path):
             elif chunk["type"] == "WordBoundary":
                 boundaries.append((chunk["offset"] / 1e7, chunk["text"]))
     return boundaries
+
+
+def tts_scene_sync(text, mp3_path):
+    """Azure 우선, 실패 시 edge-tts 폴백 (같은 보이스라 톤 연속성 유지)."""
+    b = tts_azure(text, mp3_path)
+    if b is not None:
+        return b, "azure"
+    return asyncio.run(tts_edge(text, mp3_path)), "edge"
 
 def media_duration(path):
     out = subprocess.run(["ffprobe", "-v", "quiet", "-show_entries", "format=duration",
@@ -483,16 +537,16 @@ def main():
     cursor = LEAD_IN
     for i, sc in enumerate(script["scenes"]):
         mp3 = os.path.join(work, "s%02d.mp3" % i)
-        boundaries = asyncio.run(tts_scene(sc["voice"], mp3))
+        boundaries, tts_engine = tts_scene_sync(sc["voice"], mp3)
         if not boundaries:
-            sys.exit("기각: scene %d WordBoundary 0개 — 자막 동기 불가 (edge-tts 응답 이상, 재시도 필요)" % i)
+            sys.exit("기각: scene %d WordBoundary 0개 — 자막 동기 불가 (TTS 응답 이상, 재시도 필요)" % i)
         dur = media_duration(mp3)
         dws = display_words(sc)
         times = assign_times(dws, boundaries, dur)
         timeline.append({"start": cursor, "end": cursor + dur + SCENE_GAP, "mp3": mp3,
                          "dwords": dws, "word_times": [cursor + t for t in times]})
         cursor += dur + SCENE_GAP
-        print("scene %d: %.2fs, words=%d, boundaries=%d" % (i, dur, len(dws), len(boundaries)), flush=True)
+        print("scene %d: %.2fs, words=%d, boundaries=%d, tts=%s" % (i, dur, len(dws), len(boundaries), tts_engine), flush=True)
     total_dur = cursor + TAIL
     # 길이 하드게이트 (2026-07-29 감사: '경고만'은 QA 자기채점과 함께 51.5초 발송을 통과시킴)
     # 2026-08-02 디렉터 확정: 하드 게이트 20~55s로 통일 (문서마다 다르던 수치 일원화)

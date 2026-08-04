@@ -6,7 +6,7 @@
 
 ## 시스템 구조
 - `DAILY_PROMPT.md` — 데일리 세션의 전체 지침 (트렌드 리서치 → 기획 5렌즈 경쟁(A뉴스/B스포츠·밈/C커뮤니티/D플랫폼/E증시) → 적대 토론 → 중간보고(텔레그램 2건) → 팩트체크(출처 2개, 제목·설명 포함) → 대본(70~90단어) → 배경 시각 선별(pick_bg) → 렌더 → 프레임 QA → 게시 → 리포트·커밋). **이 요약은 참고용 — 절차 정본은 DAILY_PROMPT.md다**
-- `pipeline/make_short.py` — 렌더러: edge-tts(단어 타이밍 동기, `narrator: male|female`, 성우별 속도 보정 여+8%/남+18%), 배경은 `bg_id`(pick_bg로 시각 선별) 우선·`bg_query` 검색 폴백, 키네틱 자막, 자체 BGM. **기계 게이트**: 길이 15~55초, CTA 자막 2줄, WordBoundary 동기, 메타데이터 차단(-map_metadata -1)
+- `pipeline/make_short.py` — 렌더러: **Azure Speech TTS**(SSML·단어 타이밍 동기, 키 없으면 edge-tts 폴백 — 같은 보이스, `narrator: male|female`, 성우별 속도 보정 여+8%/남+18%), 배경은 `bg_id`(pick_bg로 시각 선별) 우선·`bg_query` 검색 폴백, 키네틱 자막, 자체 BGM. **기계 게이트**: 길이 15~55초, CTA 자막 2줄, WordBoundary 동기, 메타데이터 차단(-map_metadata -1)
 - `pipeline/pick_bg.py` — Pexels 후보 미리보기 저장 → 세션이 Read로 보고 `bg_id` 선택
 - `pipeline/upload_youtube.py` — preflight(길이·해상도 기계검증) 후 `config.json`의 `upload_mode`: `phase0_telegram`(현재) / `api_public`(감사 통과 후). `instagram: on`이면 릴스 업로드 체인(`upload_instagram.py`, 토큰은 keys.env)
 - `pipeline/analytics.py` — 채널 성과 조회(읽기 전용): eng%·subs/1kE KPI, 훅부검 플래그. 근거 문서는 `content/PERFORMANCE.md`
@@ -16,7 +16,7 @@
 - `launchd/` — daily(요일분기 스케줄)·watchdog. 수정 시 `~/Library/LaunchAgents`에 복사 후 unload/load (온디맨드 러너는 2026-07-29 감사에서 보안 통로로 판정되어 폐지)
 - `content/` — 대본 JSON(형식은 `sample_honey.json`), `BACKLOG.md`(탈락했지만 좋은 소재), `topics_used.md`(**정본은 content/ 쪽** — 루트 동명 파일은 폐지 스텁), `REJECTED.md`(영구금지), `PERFORMANCE.md`(실측 성과)
 - `assets/brand/` — 프로필·배너·워터마크 (다크 네이비 #0B1020~#181C36 + 앰버 #FFB627 + 화이트, Noto Sans CJK Black)
-- 비밀(커밋 금지, .gitignore 처리됨): `credentials.json`, `token.json`(YouTube OAuth), `telegram.env`(봇 토큰), `keys.env`(PEXELS_API_KEY, IG 토큰)
+- 비밀(커밋 금지, .gitignore 처리됨): `credentials.json`, `token.json`(YouTube OAuth), `telegram.env`(봇 토큰), `keys.env`(PEXELS_API_KEY, AZURE_SPEECH_KEY — aitutor와 공유·교체 시 양쪽 갱신, IG 토큰)
 
 ## 철칙 (규약 요약)
 0. **중립 원칙 (2026-08-03 디렉터 확정 — 최상위)**: 정당·정치인·진영 언급 금지. 정책은 "당신 고지서" 프레임으로. 단 잘못은 잘못, 잘한 건 잘했다고 사실·숫자로 말한다 — 잣대는 진영 무관 한 개.
