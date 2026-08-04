@@ -437,16 +437,16 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
             line_h = int(font.size * 1.42)
             wi = 0
             for li, (line, hl) in enumerate(sc["lines"]):
-                # 긴 줄은 화면 폭(여백 90px)에 맞게 폰트 자동 축소
+                # 긴 줄은 화면 폭에 맞게 폰트 자동 축소 — 여백 160px(양쪽 80px씩, 2026-08-05 디렉터: 글자가 화면 끝에 붙음)
                 line_font = font
                 lw = d.textlength(line, font=line_font)
-                if lw > W - 90:
-                    line_font = load_font(max(44, int(font.size * (W - 90) / lw)))
+                if lw > W - 160:
+                    line_font = load_font(max(44, int(font.size * (W - 160) / lw)))
                     lw = d.textlength(line, font=line_font)
-                    if lw > W - 90:
+                    if lw > W - 160:
                         # 2026-08-02 리뷰: 44px 클램프 후에도 초과면 좌우 잘린 채 게시됨 — 명시 기각
                         sys.exit("기각: scene %d 줄 %d 폭 초과(%.0fpx > %dpx) — 줄을 나눠라"
-                                 % (si, li, lw, W - 90))
+                                 % (si, li, lw, W - 160))
                 x = (W - lw) / 2
                 y = y_cursor + li * line_h
                 for w_ in line.split(" "):
