@@ -116,7 +116,7 @@ def fetch_bg(query, need_dur):
     return None
 
 def used_bg_ids(exclude_script=None):
-    """이미 다른 편에서 쓴 배경 id 집합 (2026-08-05 실사고: 에어컨 유래 편이
+    """이미 다른 편에서 쓴 배경 id 집합 (2026-08-04 실사고: 에어컨 유래 편이
     한전 편과 같은 배경을 써서 피드에서 재탕처럼 보임 — 디렉터가 커버를 수동 교체).
     대체본(같은 날짜-슬롯의 재제작, 예: am ↔ am2)끼리는 공유를 허용한다."""
     def norm(p):
@@ -136,7 +136,7 @@ def used_bg_ids(exclude_script=None):
 
 
 def fetch_bg_photo(photo_id):
-    """Pexels '사진'을 받아 켄 번즈 배경으로 쓴다 (2026-08-05 디렉터 승인 —
+    """Pexels '사진'을 받아 켄 번즈 배경으로 쓴다 (2026-08-04 디렉터 승인 —
     역사·유래 장면은 영상 스톡이 없어도 사진은 존재한다. 다큐의 표준 기법)."""
     key = load_keys().get("PEXELS_API_KEY") or os.environ.get("PEXELS_API_KEY")
     if not key or not photo_id:
@@ -199,7 +199,7 @@ def fetch_bg_by_id(vid_id):
 
 # ---------- TTS ----------
 def tts_azure(text, mp3_path):
-    """Azure Speech 공식 API (2026-08-05 디렉터 승인 S-004 — aitutor와 리소스 공유).
+    """Azure Speech 공식 API (2026-08-04 디렉터 승인 S-004 — aitutor와 리소스 공유).
 
     edge-tts와 같은 보이스(SunHi/InJoon)를 SSML로 합성 — 문어체 조각을 어색하게
     읽던 문제("띄어쓰기를 이해 못 하는 느낌", 2026-08-04 디렉터)의 근본 대응.

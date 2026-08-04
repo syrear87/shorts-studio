@@ -38,7 +38,7 @@ def main():
     import requests, shutil
     shutil.rmtree(OUT, ignore_errors=True)
     os.makedirs(OUT, exist_ok=True)
-    # 이미 다른 편에서 쓴 배경 표시 (2026-08-05 실사고: 배경 재탕 — 렌더러가 기계 기각하므로 여기서 미리 보여줌)
+    # 이미 다른 편에서 쓴 배경 표시 (2026-08-04 실사고: 배경 재탕 — 렌더러가 기계 기각하므로 여기서 미리 보여줌)
     import re as _re, glob as _glob
     def _norm(p):
         return _re.sub(r"\d+$", "", os.path.splitext(os.path.basename(p))[0])
@@ -82,7 +82,7 @@ def main():
                 rows.append((name, q, v.get("duration", 0), "세로" if portrait else "가로", mark))
             except Exception:
                 continue
-    # 사진 후보 (2026-08-05 디렉터 승인 — 켄 번즈 배경): 영상 스톡이 없는 역사·유래·개념 장면용
+    # 사진 후보 (2026-08-04 디렉터 승인 — 켄 번즈 배경): 영상 스톡이 없는 역사·유래·개념 장면용
     for qi, q in enumerate(queries):
         try:
             r = requests.get("https://api.pexels.com/v1/search",

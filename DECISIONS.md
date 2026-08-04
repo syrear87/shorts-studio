@@ -9,7 +9,7 @@
 - credentials/token/keys를 `~/.config/shorts-studio/`(700)로 이전 + 세션의 python3 자유 실행을 파이프라인 경로로 축소.
 - 2026-08-02 품질 리뷰 D1. 무인 파이프라인 파손 리스크가 있어 디렉터가 지켜볼 수 있는 시간대에 적용하기로 승인됨.
 
-### ~~S-004~~ · edge-tts → Azure Speech 이전 — **완료 (2026-08-05)**
+### ~~S-004~~ · edge-tts → Azure Speech 이전 — **완료 (2026-08-04)**
 - 완료: aitutor의 기존 Azure 리소스 공유(koreacentral, 디렉터 승인)로 계정 신설 없이 전환. SSML+word boundary, edge-tts는 폴백 유지. 잔여: 티어(F0/S0) 확인은 디렉터 확인 대기, TERMS.md 갱신은 S-005(감사 회신 후)와 함께.
 - 2026-08-02 품질 리뷰 D7 승인. 이전 후 TERMS.md 나레이션 기술 갱신.
 
@@ -35,7 +35,7 @@
 - Claude 앱 스케줄러 대신 launchd 사용. 근거: 게임 스튜디오 I-001 사고(이틀 미가동 + 새벽 오발화) vs 같은 Mac의 launchd 브리지 5일 무중단 실증.
 - 철회 조건: launchd 방식도 2회 이상 오발화/미가동이 관측되면 재검토.
 
-### SD-003 · 채널 공식 목소리 2인 고정 (2026-08-05, 디렉터 위임 결정)
+### SD-003 · 채널 공식 목소리 2인 고정 (2026-08-04, 디렉터 위임 결정)
 - **InJoon(남, 시사·차분) · SunHi(여, 생활·밝음) 확정.** 근거: ①디렉터 지적은 낭독 방식이었고 Azure 전환으로 해소 ②성과 데이터 전부가 이 2인 기준 ③매일 같은 목소리 = 채널 각인.
 - Azure ko-KR 잔여 8인(남 BongJin·GookMin·Hyunsu·HyunsuML / 여 JiMin·SeoHyeon·SoonBok·YuJin)은 **고정 코너 전용 목소리 카드**로 보류 — 코너 신설 시 재검토.
 
