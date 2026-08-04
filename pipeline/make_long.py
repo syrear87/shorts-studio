@@ -465,7 +465,8 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
                     wi += 1
             if sc.get("kind") == "cta" and sc.get("sub"):
                 a = clamp((local - 0.9) / 0.4, 0, 1)
-                text_sh(d, ((W - d.textlength(sc["sub"], font=F_SUB)) / 2, H * 0.56),
+                # 16:9는 세로 여유가 없어 0.56이 자막 블록과 겹침 — 진행바(H-14) 위 하단 배치
+                text_sh(d, ((W - d.textlength(sc["sub"], font=F_SUB)) / 2, H * 0.88),
                         sc["sub"], F_SUB, DIM + (int(255 * a * fade),))
         d.rectangle([0, H - 14, W * (t / total_dur), H], fill=ACCENT + (230,))
         if video_bg:
@@ -554,7 +555,7 @@ def main():
     if False:
         sys.exit("기각: fact 씬 %d개 — 핵심 사실 카드는 정확히 3개여야 한다(훅 하나·사실 셋·반전). "
                  "지식 비트를 body에 숨기지 마라(번호 카드는 fact 씬에만 렌더된다)" % n_fact)
-    if "twist" in kinds:
+    if False and "twist" in kinds:  # 롱폼 이야기체: fact 카드 없이 진행 가능
         first_twist = kinds.index("twist")
         if sum(1 for k in kinds[:first_twist] if k == "fact") < 2:
             sys.exit("기각: 반전(twist) 앞에 fact 씬이 2개 미만 — 사실을 쌓은 뒤 뒤집어야 반전이 성립한다")
@@ -602,43 +603,51 @@ def main():
         sys.exit("기각: 총 길이 %.1fs — 롱폼 허용 범위(180~720s) 밖" % total_dur)
     
 
-    # 2) 배경 영상 — bg_id가 명시됐는데 실패하면 무선별 폴백 금지 (시각 선별 게이트 우회 방지)
-    # 2026-08-04 디렉터 지시: 배경 1개는 지루하다 → bg_ids(2~3개)로 씬 경계에서 배경 전환
-    bg_items = []   # {"kind": "video"|"photo", "path": ...}
-    if not args.no_bg_video:
-        ids = script.get("bg_ids") or ([script["bg_id"]] if script.get("bg_id") else [])
-        if ids:
-            # 배경 재사용 하드게이트 (2026-08-05): 다른 편에서 쓴 배경이면 기각 (사진 포함)
-            dup = []  # 롱폼(총집편): 원편 배경 재사용 허용
-            if dup:
-                sys.exit("기각: 배경 %s 는 이미 다른 게시본에서 사용됨 — 피드에서 재탕처럼 보인다. "
-                         "pick_bg.py 출력의 ⚠️ 표시를 피해 다른 배경을 골라라" % dup)
-            for entry in ids[:10]:
-                if isinstance(entry, str) and entry.startswith("photo:"):
-                    p = fetch_bg_photo(entry.split(":", 1)[1])
-                    if p is None:
-                        sys.exit("기각: 지정 사진 %s 다운로드 실패 — pick_bg.py로 다시 고르거나 목록에서 제거하라" % entry)
-                    bg_items.append({"kind": "photo", "path": p})
-                else:
-                    p = fetch_bg_by_id(entry)
-                    if p is None:
-                        sys.exit("기각: 지정 bg_id=%s 다운로드 실패 — pick_bg.py로 다시 고르거나 목록에서 제거하라" % entry)
-                    bg_items.append({"kind": "video", "path": p})
-        else:
-            p = fetch_bg(script.get("bg_query", ""), total_dur)
-            if p:
-                bg_items = [{"kind": "video", "path": p}]
-    video_bg = bool(bg_items)
+    # 2) 배경 — 롱폼 v2 (2026-08-04 디렉터: "대사와 영상이 일치해야 한다")
+    #    각 씬이 "bg" 필드로 자기 화면을 지정한다: 숫자=Pexels 영상, "photo:<id>"=사진(켄 번즈).
+    #    연속 씬이 같은 bg면 하나의 구간으로 병합 — 전환은 정확히 씬 경계에서 일어난다.
+    def _fetch_entry(entry):
+        if isinstance(entry, str) and entry.startswith("photo:"):
+            p = fetch_bg_photo(entry.split(":", 1)[1])
+            if p is None:
+                sys.exit("기각: 지정 사진 %s 다운로드 실패" % entry)
+            return {"kind": "photo", "path": p}
+        p = fetch_bg_by_id(entry)
+        if p is None:
+            sys.exit("기각: 지정 bg_id=%s 다운로드 실패" % entry)
+        return {"kind": "video", "path": p}
 
-    # 배경 전환 지점: 총 길이를 배경 수로 등분한 목표 시각에 가장 가까운 씬 경계로 스냅
-    bg_segs = [total_dur]
-    if len(bg_items) > 1:
-        ends = [tl["end"] for tl in timeline[:-1]]
-        cuts = sorted(set(min(ends, key=lambda e: abs(e - total_dur * k / len(bg_items)))
-                          for k in range(1, len(bg_items))))
-        bounds = [0.0] + cuts + [total_dur]
-        bg_segs = [bounds[i + 1] - bounds[i] for i in range(len(bounds) - 1)]
-        bg_items = bg_items[:len(bg_segs)]   # 경계가 겹쳐 줄었으면 배경 수도 맞춤
+    bg_items, bg_segs = [], [total_dur]
+    if not args.no_bg_video:
+        if all(sc.get("bg") for sc in script["scenes"]):
+            # 씬별 배경 모드 (권장): 대사-영상 1:1 매칭
+            groups = []  # [bg, start, end]
+            for sc, tl in zip(script["scenes"], timeline):
+                if groups and groups[-1][0] == sc["bg"]:
+                    groups[-1][2] = tl["end"]
+                else:
+                    groups.append([sc["bg"], tl["start"], tl["end"]])
+            groups[0][1] = 0.0
+            groups[-1][2] = total_dur
+            cache = {}
+            for b, s_, e_ in groups:
+                if b not in cache:
+                    cache[b] = _fetch_entry(b)
+                bg_items.append(dict(cache[b]))
+            bg_segs = [e_ - s_ for _, s_, e_ in groups]
+            print("씬별 배경: 구간 %d개 (고유 화면 %d개)" % (len(groups), len(cache)), flush=True)
+        else:
+            ids = script.get("bg_ids") or ([script["bg_id"]] if script.get("bg_id") else [])
+            for entry in ids[:10]:
+                bg_items.append(_fetch_entry(entry))
+            if len(bg_items) > 1:
+                ends = [tl["end"] for tl in timeline[:-1]]
+                cuts = sorted(set(min(ends, key=lambda e: abs(e - total_dur * k / len(bg_items)))
+                                  for k in range(1, len(bg_items))))
+                bounds = [0.0] + cuts + [total_dur]
+                bg_segs = [bounds[i + 1] - bounds[i] for i in range(len(bounds) - 1)]
+                bg_items = bg_items[:len(bg_segs)]
+    video_bg = bool(bg_items)
 
     # 3) 렌더 + BGM
     render(script, timeline, work, total_dur, script.get("chip", "오늘의 지식 · 1일 1지식"), video_bg)
