@@ -52,7 +52,7 @@ def main():
         except Exception:
             continue
         ids = s.get("bg_ids") or ([s["bg_id"]] if s.get("bg_id") else [])
-        used.update(int(v) for v in ids)
+        used.update(str(v) for v in ids)   # 영상 "123" / 사진 "photo:123" — int() 쓰면 사진 id에서 죽는다
     seen, rows = set(), []
     for qi, q in enumerate(queries):
         try:
@@ -78,7 +78,7 @@ def main():
                     fh.write(img.content)
                 portrait = any((f.get("height") or 0) > (f.get("width") or 0)
                                for f in v.get("video_files", []))
-                mark = "  ⚠️ 이미 사용된 배경 — 선택 금지(렌더러가 기각함)" if v["id"] in used else ""
+                mark = "  ⚠️ 이미 사용된 배경 — 선택 금지(렌더러가 기각함)" if str(v["id"]) in used else ""
                 rows.append((name, q, v.get("duration", 0), "세로" if portrait else "가로", mark))
             except Exception:
                 continue
