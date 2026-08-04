@@ -356,32 +356,16 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
     F_NUM, F_SUB = load_font(140), load_font(40)
     F_SUBT = load_font(52)   # 영화식 하단 자막 (2026-08-04 디렉터: 인터랙션 없이 작고 깔끔하게)
 
-    # 채널 배지: 우상단 원형 심볼 + 2줄 (2026-08-04 디렉터: 중앙 칩 → 모서리 심볼형)
-    def make_badge(text):
-        parts = [p.strip() for p in text.split("·", 1)] if "·" in text else [text, ""]
-        f1, f2, fn = load_font(34), load_font(27), load_font(40)
-        tmp = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
-        w1 = tmp.textlength(parts[0], font=f1)
-        w2 = tmp.textlength(parts[1], font=f2) if parts[1] else 0
-        R, gap, pad = 34, 20, 10
-        pw = int(pad * 2 + R * 2 + gap + max(w1, w2))
-        ph = pad * 2 + R * 2
-        c = Image.new("RGBA", (pw, ph), (0, 0, 0, 0))
-        dc = ImageDraw.Draw(c)
-        # 밝은 배경(하늘 등) 위 가독성용 옅은 백킹
-        dc.rounded_rectangle([0, 0, pw - 1, ph - 1], radius=ph // 2, fill=(14, 18, 33, 150))
-        cx, cy = pad + R, ph // 2
-        dc.ellipse([cx - R, cy - R, cx + R, cy + R], fill=ACCENT + (255,))
-        dc.text((cx, cy - 1), "1", font=fn, fill=(14, 18, 33, 255), anchor="mm")
-        tx = pad + R * 2 + gap
-        if parts[1]:
-            dc.text((tx, cy - 4), parts[0], font=f1, fill=(255, 255, 255, 245), anchor="ld")
-            dc.text((tx, cy + 4), parts[1], font=f2, fill=(205, 212, 226, 235), anchor="la")
-        else:
-            dc.text((tx, cy), parts[0], font=f1, fill=(255, 255, 255, 245), anchor="lm")
-        return c
+    # 채널 로고: 기존 프로필 이미지를 원형으로 잘라 우상단에 그대로 (2026-08-04 디렉터: 새로 만들지 말 것)
+    def make_logo(size=120):
+        src = Image.open(os.path.join(ROOT, "assets", "brand", "profile_1080.png")).convert("RGBA")
+        src = src.resize((size, size), Image.LANCZOS)
+        mask = Image.new("L", (size * 4, size * 4), 0)
+        ImageDraw.Draw(mask).ellipse([0, 0, size * 4 - 1, size * 4 - 1], fill=255)
+        src.putalpha(mask.resize((size, size), Image.LANCZOS))
+        return src
 
-    CHIP = make_badge(channel_chip)
+    CHIP = make_logo()
     frames_dir = os.path.join(out_dir, "frames")
     # 이전 런 잔여 고번호 프레임(f01500+)이 ffmpeg 입력에 섞이지 않게 비우고 시작 (2026-08-02 리뷰)
     shutil.rmtree(frames_dir, ignore_errors=True)
@@ -393,23 +377,13 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
             fact_counter += 1
             fact_nums[i] = "%02d" % fact_counter
 
-    # 자막 팝인을 어절 단위 → 2어절 청크 단위로 (2026-08-04 디렉터: 단어 단위가 촐싹대고 어설픔)
-    # 같은 줄 안에서 2어절씩 묶어 청크 첫 어절의 시각에 함께 등장시킨다.
+    # 영화식 1줄 자막: 각 줄의 첫 어절 발화 시각에 줄 전체가 교체 표시 (2026-08-04 디렉터)
     for tl in timeline:
-        ct = list(tl["word_times"])
-        i0 = 0
-        while i0 < len(tl["dwords"]):
-            line = tl["dwords"][i0]["line"]
-            j = i0
-            while j < len(tl["dwords"]) and tl["dwords"][j]["line"] == line:
-                j += 1
-            k = i0
-            while k < j:
-                for m in range(k, min(k + 2, j)):
-                    ct[m] = tl["word_times"][k]
-                k += 2
-            i0 = j
-        tl["chunk_times"] = ct
+        starts = {}
+        for wi, dw in enumerate(tl["dwords"]):
+            if dw["line"] not in starts:
+                starts[dw["line"]] = tl["word_times"][wi]
+        tl["line_starts"] = [starts[k] for k in sorted(starts)]
 
     # 텍스트 그림자용 헬퍼
     def text_sh(d, xy, s, font, fill):
@@ -440,41 +414,33 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
             sc, tl = script["scenes"][si], timeline[si]
             local = t - tl["start"]
             fade = clamp((tl["end"] - t) / 0.35, 0, 1) if tl["end"] - t < 0.35 else 1.0
-            # 영화식 하단 자막 (2026-08-04 디렉터: 팝인 인터랙션 제거, 작고 깔끔하게 하단 고정)
+            # 영화식 1줄 자막 (2026-08-04 디렉터: 한 줄씩, 색·인터랙션 없이 — 지식한입 스타일)
             if si in fact_nums:
                 a = clamp(local / 0.3, 0, 1)
                 num = fact_nums[si]
                 d.text((W / 2 - d.textlength(num, font=F_NUM) / 2, H * 0.26),
                        num, font=F_NUM, fill=ACCENT + (int((140 if video_bg else 80) * a * fade),))
-            a_in = clamp(local / 0.25, 0, 1)
-            alpha = int(255 * a_in * fade)
-            line_h = int(F_SUBT.size * 1.38)
-            block_bottom = H * 0.895
-            y0 = block_bottom - len(sc["lines"]) * line_h
-            wi = 0
-            for li, (line, hl) in enumerate(sc["lines"]):
+            li = 0
+            for k, ls in enumerate(tl["line_starts"]):
+                if ls <= t:
+                    li = k
+            line = sc["lines"][li][0]
+            line_font = F_SUBT
+            lw = d.textlength(line, font=line_font)
+            if lw > W - 160:
                 # 긴 줄은 화면 폭(여백 160px)에 맞게 폰트 자동 축소
-                line_font = F_SUBT
+                line_font = load_font(max(38, int(F_SUBT.size * (W - 160) / lw)))
                 lw = d.textlength(line, font=line_font)
                 if lw > W - 160:
-                    line_font = load_font(max(38, int(F_SUBT.size * (W - 160) / lw)))
-                    lw = d.textlength(line, font=line_font)
-                    if lw > W - 160:
-                        # 2026-08-02 리뷰: 클램프 후에도 초과면 좌우 잘린 채 게시됨 — 명시 기각
-                        sys.exit("기각: scene %d 줄 %d 폭 초과(%.0fpx > %dpx) — 줄을 나눠라"
-                                 % (si, li, lw, W - 160))
-                x = (W - lw) / 2
-                y = y0 + li * line_h
-                for w_ in line.split(" "):
-                    # 키워드 앰버 강조만 유지, 등장 애니메이션 없음
-                    col = ACCENT if tl["dwords"][wi]["hl"] else TEXT
-                    text_sh(d, (x, y), w_, line_font, col + (alpha,))
-                    x += d.textlength(w_ + " ", font=line_font)
-                    wi += 1
+                    # 2026-08-02 리뷰: 클램프 후에도 초과면 좌우 잘린 채 게시됨 — 명시 기각
+                    sys.exit("기각: scene %d 줄 %d 폭 초과(%.0fpx > %dpx) — 줄을 나눠라"
+                             % (si, li, lw, W - 160))
+            y_sub = H * 0.875
+            text_sh(d, ((W - lw) / 2, y_sub), line, line_font, TEXT + (int(255 * fade),))
             if sc.get("kind") == "cta" and sc.get("sub"):
                 a = clamp((local - 0.9) / 0.4, 0, 1)
-                # 자막 블록 바로 위에 구독 표시 (하단 자막과 겹침 방지)
-                text_sh(d, ((W - d.textlength(sc["sub"], font=F_SUB)) / 2, y0 - 64),
+                # 자막 줄 바로 위에 구독 표시 (겹침 방지)
+                text_sh(d, ((W - d.textlength(sc["sub"], font=F_SUB)) / 2, y_sub - 64),
                         sc["sub"], F_SUB, DIM + (int(255 * a * fade),))
         d.rectangle([0, H - 14, W * (t / total_dur), H], fill=ACCENT + (230,))
         if video_bg:
