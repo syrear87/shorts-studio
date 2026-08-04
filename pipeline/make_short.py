@@ -278,6 +278,24 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
             fact_counter += 1
             fact_nums[i] = "%02d" % fact_counter
 
+    # 자막 팝인을 어절 단위 → 2어절 청크 단위로 (2026-08-04 디렉터: 단어 단위가 촐싹대고 어설픔)
+    # 같은 줄 안에서 2어절씩 묶어 청크 첫 어절의 시각에 함께 등장시킨다.
+    for tl in timeline:
+        ct = list(tl["word_times"])
+        i0 = 0
+        while i0 < len(tl["dwords"]):
+            line = tl["dwords"][i0]["line"]
+            j = i0
+            while j < len(tl["dwords"]) and tl["dwords"][j]["line"] == line:
+                j += 1
+            k = i0
+            while k < j:
+                for m in range(k, min(k + 2, j)):
+                    ct[m] = tl["word_times"][k]
+                k += 2
+            i0 = j
+        tl["chunk_times"] = ct
+
     # 텍스트 그림자용 헬퍼
     def text_sh(d, xy, s, font, fill):
         x, y = xy
@@ -331,14 +349,15 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
                 x = (W - lw) / 2
                 y = y_cursor + li * line_h
                 for w_ in line.split(" "):
-                    t_in = tl["word_times"][wi] - tl["start"]
-                    a = clamp((local - t_in) / 0.22, 0, 1)
+                    # 2026-08-04: 청크 시각 + 완만한 등장 (스케일 진폭·수직 이동 축소 — '촐싹거림' 제거)
+                    t_in = tl["chunk_times"][wi] - tl["start"]
+                    a = clamp((local - t_in) / 0.28, 0, 1)
                     if a > 0:
                         s = ease_out_back(a)
                         col = ACCENT if tl["dwords"][wi]["hl"] else TEXT
                         alpha = int(255 * a * fade)
-                        fs = load_font(int(line_font.size * (0.7 + 0.3 * s))) if abs(s - 1) > 0.01 else line_font
-                        yo = (1 - a) * 26
+                        fs = load_font(int(line_font.size * (0.85 + 0.15 * s))) if abs(s - 1) > 0.01 else line_font
+                        yo = (1 - a) * 14
                         text_sh(d, (x, y + yo + (line_font.size - fs.size) / 2), w_, fs, col + (alpha,))
                     x += d.textlength(w_ + " ", font=line_font)
                     wi += 1
@@ -483,15 +502,31 @@ def main():
         print("경고: 총 길이 %.1fs — 50s 초과분은 리포트에 사유 한 줄 기록" % total_dur, flush=True)
 
     # 2) 배경 영상 — bg_id가 명시됐는데 실패하면 무선별 폴백 금지 (시각 선별 게이트 우회 방지)
-    bg_path = None
+    # 2026-08-04 디렉터 지시: 배경 1개는 지루하다 → bg_ids(2~3개)로 씬 경계에서 배경 전환
+    bg_paths = []
     if not args.no_bg_video:
-        if script.get("bg_id"):
-            bg_path = fetch_bg_by_id(script["bg_id"])
-            if bg_path is None:
-                sys.exit("기각: 지정 bg_id=%s 다운로드 실패 — pick_bg.py로 다시 고르거나 bg_id를 제거하라" % script["bg_id"])
+        ids = script.get("bg_ids") or ([script["bg_id"]] if script.get("bg_id") else [])
+        if ids:
+            for vid_ in ids[:3]:
+                p = fetch_bg_by_id(vid_)
+                if p is None:
+                    sys.exit("기각: 지정 bg_id=%s 다운로드 실패 — pick_bg.py로 다시 고르거나 목록에서 제거하라" % vid_)
+                bg_paths.append(p)
         else:
-            bg_path = fetch_bg(script.get("bg_query", ""), total_dur)
-    video_bg = bg_path is not None
+            p = fetch_bg(script.get("bg_query", ""), total_dur)
+            if p:
+                bg_paths = [p]
+    video_bg = bool(bg_paths)
+
+    # 배경 전환 지점: 총 길이를 배경 수로 등분한 목표 시각에 가장 가까운 씬 경계로 스냅
+    bg_segs = [total_dur]
+    if len(bg_paths) > 1:
+        ends = [tl["end"] for tl in timeline[:-1]]
+        cuts = sorted(set(min(ends, key=lambda e: abs(e - total_dur * k / len(bg_paths)))
+                          for k in range(1, len(bg_paths))))
+        bounds = [0.0] + cuts + [total_dur]
+        bg_segs = [bounds[i + 1] - bounds[i] for i in range(len(bounds) - 1)]
+        bg_paths = bg_paths[:len(bg_segs)]   # 경계가 겹쳐 줄었으면 배경 수도 맞춤
 
     # 3) 렌더 + BGM
     render(script, timeline, work, total_dur, script.get("chip", "오늘의 지식 · 1일 1지식"), video_bg)
@@ -501,12 +536,21 @@ def main():
     # 4) 합성·인코딩
     cmd = ["ffmpeg", "-y"]
     if video_bg:
-        cmd += ["-stream_loop", "-1", "-i", bg_path,
-                "-framerate", str(FPS), "-i", os.path.join(work, "frames", "f%05d.png"),
+        for p in bg_paths:
+            cmd += ["-stream_loop", "-1", "-i", p]
+        nb = len(bg_paths)
+        cmd += ["-framerate", str(FPS), "-i", os.path.join(work, "frames", "f%05d.png"),
                 "-i", bgm]
-        vf = ("[0:v]scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d,setsar=1,fps=%d[bgv];"
-              "[bgv][1:v]overlay=format=auto[vout]" % (W, H, W, H, FPS))
-        a_base = 2
+        scale = "scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d,setsar=1,fps=%d" % (W, H, W, H, FPS)
+        if nb == 1:
+            vf = "[0:v]%s[bgv];[bgv][1:v]overlay=format=auto[vout]" % scale
+        else:
+            parts = ["[%d:v]%s,trim=duration=%.3f,setpts=PTS-STARTPTS[b%d]" % (i, scale, seg, i)
+                     for i, seg in enumerate(bg_segs)]
+            parts.append("%sconcat=n=%d:v=1:a=0[bgv]" % ("".join("[b%d]" % i for i in range(nb)), nb))
+            parts.append("[bgv][%d:v]overlay=format=auto[vout]" % nb)
+            vf = ";".join(parts)
+        a_base = nb + 1
     else:
         cmd += ["-framerate", str(FPS), "-i", os.path.join(work, "frames", "f%05d.jpg"), "-i", bgm]
         vf = "[0:v]copy[vout]"
