@@ -103,7 +103,7 @@ def make_heatdome(dur=17.0):
     total = int(dur * FPS)
     base = bg_gradient()
     f_med, f_small = load_font(46), load_font(36)
-    ground_y = H * 0.855
+    ground_y = H * 0.76
     dome_cx = W * 0.50
     # 측면 단면도이므로 지도 대신 도시 스카이라인 (건물 [x중심비, 폭, 높이])
     BUILDINGS = [(-0.145, 46, 70), (-0.105, 60, 120), (-0.06, 52, 92), (-0.02, 70, 150),
@@ -138,8 +138,8 @@ def make_heatdome(dur=17.0):
             d.arc(box, 180, 360, fill=col + (int(230 * aa),), width=16)
         # 라벨은 좌측 범례로 (중앙 자막 영역 회피)
         for (yy, col, aa, label) in [
-            (H * 0.66, ORANGE, a1, "북태평양 고기압 (아래층)"),
-            (H * 0.585, RED, a2, "티베트 고기압 (위층)"),
+            (H * 0.60, ORANGE, a1, "북태평양 고기압 (아래층)"),
+            (H * 0.525, RED, a2, "티베트 고기압 (위층)"),
         ]:
             if aa <= 0:
                 continue
@@ -150,7 +150,7 @@ def make_heatdome(dur=17.0):
         if a3 > 0:
             for j, ax in enumerate([dome_cx - W * 0.13, dome_cx + W * 0.045, dome_cx + W * 0.155]):
                 ph = (t * 0.55 + j * 0.33) % 1.0
-                y_from, y_to = H * 0.72, H * 0.62
+                y_from, y_to = H * 0.64, H * 0.54
                 yy = y_from + (y_to - y_from) * ph
                 al = int(255 * a3 * (1 - abs(ph - 0.5) * 1.6))
                 if al <= 0:
@@ -161,7 +161,7 @@ def make_heatdome(dur=17.0):
         # 주석 (타이틀 없음 — 본편 칩·자막과 겹침 방지)
         a0 = ease(min(1.0, t / 0.8))
         note = "· 개념 도식 (실제 축척 아님)"
-        d.text((W * 0.035, H * 0.925), note, font=f_small, fill=DIM + (int(200 * a0),))
+        d.text((W * 0.035, H * 0.045), note, font=f_small, fill=DIM + (int(200 * a0),))
         im.paste(ov, (0, 0), ov)
         im.save(os.path.join(fdir, "f%05d.png" % fi))
     encode(name, dur)
@@ -194,7 +194,7 @@ def make_dolphin_track(dur=15.0):
     db.text((W * 0.055, H * 0.42), "중국", font=f_med, fill=DIM)
     db.text((W * 0.845, H * 0.40), "일본", font=f_med, fill=DIM)
     # 경로: 남해 남쪽 → 북서진 → 서해로 비켜감 (상륙 없음)
-    P = [(0.62, 0.97), (0.57, 0.82), (0.50, 0.67), (0.43, 0.545), (0.375, 0.44), (0.345, 0.33), (0.335, 0.22)]
+    P = [(0.60, 0.86), (0.55, 0.76), (0.50, 0.67), (0.43, 0.545), (0.375, 0.44), (0.345, 0.33), (0.335, 0.22)]
     path = [(px * W, py * H) for px, py in P]
 
     def path_pos(s):
@@ -243,7 +243,7 @@ def make_dolphin_track(dur=15.0):
             d.text((W * 0.60, H * 0.295), lab, font=f_med, fill=ORANGE + (int(255 * a2),))
         # 주석 (타이틀 없음 — 본편 칩·자막과 겹침 방지)
         a0 = ease(min(1.0, t / 0.8))
-        d.text((W * 0.035, H * 0.925), "· 경로 개념 도식 (실측 지도 아님)", font=f_small,
+        d.text((W * 0.035, H * 0.045), "· 경로 개념 도식 (실측 지도 아님)", font=f_small,
                fill=DIM + (int(200 * a0),))
         im.paste(ov, (0, 0), ov)
         im.save(os.path.join(fdir, "f%05d.png" % fi))

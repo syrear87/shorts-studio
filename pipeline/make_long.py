@@ -12,7 +12,8 @@ W, H, FPS = 1920, 1080, 30
 ACCENT = (255, 182, 39)
 TEXT = (245, 246, 250)
 DIM = (170, 176, 195)
-VOICES = {"female": "ko-KR-SunHiNeural", "male": "ko-KR-InJoonNeural"}
+VOICES = {"female": "ko-KR-SunHiNeural", "male": "ko-KR-InJoonNeural",
+          "clone": "clone"}  # 디렉터 목소리 클론 (ElevenLabs, 2026-08-04 승인)
 VOICE = VOICES["female"]
 # InJoon(남)은 SunHi(여)+8%보다 실측 ~10%p 느림 → 성우별 기본 속도로 페이스 통일 (2026-07-29 실측)
 RATES = {"female": "+8%", "male": "+18%"}
@@ -263,7 +264,12 @@ async def tts_edge(text, mp3_path):
 
 
 def tts_scene_sync(text, mp3_path):
-    """Azure 우선, 실패 시 edge-tts 폴백 (같은 보이스라 톤 연속성 유지)."""
+    """clone=디렉터 목소리(ElevenLabs), 그 외 Azure 우선 + edge-tts 폴백."""
+    if VOICE == "clone":
+        import voice_clone
+        _, words = voice_clone.tts(text, mp3_path, with_timestamps=True)
+        # 클론은 폴백 없음 — 실패 시 voice_clone이 sys.exit (디렉터 목소리 편이 다른 목소리로 나가면 안 됨)
+        return words, "clone"
     b = tts_azure(text, mp3_path)
     if b is not None:
         return b, "azure"
@@ -275,6 +281,30 @@ def media_duration(path):
     return float(out.stdout.strip())
 
 # ---------- 타이밍 매핑 ----------
+def sub_lines_from_voice(text, max_chars=32):
+    """대사 원문 → 영화 자막 줄 (2026-08-04 디렉터: 요약 자막 대신 대사 그대로 표시).
+    문장 단위로 자르고, 긴 문장은 쉼표 → 공백 순서로 max_chars 이하가 되게 나눈다.
+    공백 경계만 자르므로 어절 수가 보존된다 (자막 타이밍 fast path 유지)."""
+    sents = re.split(r"(?<=[.?!])\s+", text.strip())
+    lines = []
+    for s in sents:
+        s = s.strip()
+        while len(s) > max_chars:
+            cut = -1
+            for m in re.finditer(r"[,]\s", s):
+                if m.end() <= max_chars + 2:
+                    cut = m.end()
+            if cut <= 0:
+                cut = s.rfind(" ", 0, max_chars + 1)
+            if cut <= 0:
+                break  # 한 어절이 max_chars 초과(비현실적) — 통짜로 두고 렌더러 축소에 맡김
+            lines.append(s[:cut].strip())
+            s = s[cut:].strip()
+        if s:
+            lines.append(s)
+    return lines
+
+
 def display_words(scene):
     ws = []
     for li, (line, hl) in enumerate(scene["lines"]):
@@ -424,7 +454,7 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
             for k, ls in enumerate(tl["line_starts"]):
                 if ls <= t:
                     li = k
-            line = sc["lines"][li][0]
+            line = tl["sub_lines"][li]
             line_font = F_SUBT
             lw = d.textlength(line, font=line_font)
             if lw > W - 160:
@@ -564,9 +594,13 @@ def main():
         if not boundaries:
             sys.exit("기각: scene %d WordBoundary 0개 — 자막 동기 불가 (TTS 응답 이상, 재시도 필요)" % i)
         dur = media_duration(mp3)
-        dws = display_words(sc)
+        # 자막 = 대사 원문 (2026-08-04 디렉터: 요약 자막이 아니라 대사를 그대로)
+        sub_ls = sub_lines_from_voice(sc["voice"])
+        dws = [{"line": li, "word": w, "hl": False}
+               for li, l in enumerate(sub_ls) for w in l.split(" ")]
         times = assign_times(dws, boundaries, dur)
         timeline.append({"start": cursor, "end": cursor + dur + SCENE_GAP, "mp3": mp3,
+                         "sub_lines": sub_ls,
                          "dwords": dws, "word_times": [cursor + t for t in times]})
         cursor += dur + SCENE_GAP
         print("scene %d: %.2fs, words=%d, boundaries=%d, tts=%s" % (i, dur, len(dws), len(boundaries), tts_engine), flush=True)

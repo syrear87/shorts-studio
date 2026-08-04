@@ -100,8 +100,12 @@ def normalize_numbers(text):
             # 공백을 넣으면 TTS가 또박또박 끊어 읽음 (2026-08-04 디렉터) — 붙여서 '사십이쩜오' (디렉터 발음 습관: '쩜')
             s += "쩜" + "".join(_D[int(c)] for c in dec)
         return s
+    # 월 이름 예외 (한자어 수사 규칙 밖): 6월=유월, 10월=시월
+    text = re.sub(r"(?<!\d)6월", "유월", text)
+    text = re.sub(r"(?<!\d)10월", "시월", text)
     text = re.sub(r"(\d+)(?:\.(\d+))?", repl, text)
-    return text.replace("%", " 퍼센트")
+    # 공백 없이 붙임 — 어절 수가 원문과 1:1로 유지돼야 자막 타이밍 fast path가 성립
+    return text.replace("%", "퍼센트")
 
 
 def tts(text, out_path, with_timestamps=False):
