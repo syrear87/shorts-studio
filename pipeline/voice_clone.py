@@ -108,11 +108,13 @@ def normalize_numbers(text):
     return text.replace("%", "퍼센트")
 
 
-SENT_PAUSE = 0.7  # 문장 사이 쉼 0.7s (2026-08-04 디렉터 "숨차는 느낌" + 8분 요건 역산 — break 태그는 크레딧을 먹어 무음 이어붙임)
+SENT_PAUSE = 0.45  # 문장 사이 '추가' 쉼 (v3 자체 쉼 위에 얹힘; 2026-08-04 디렉터 "숨차는 느낌")
 
 
-def _synth_one(keys, vid, text):
-    """한 문장 합성 → (mp3 bytes, [(시작초, 어절)])."""
+def _synth_whole(keys, vid, text):
+    """씬 전체를 한 번에 합성 → (mp3 bytes, [(시작초, 어절)]).
+    2026-08-04 실사고: 문장별 분할 합성은 문장마다 톤이 달라져 '다른 사람 같다' 지적 —
+    반드시 통짜로 합성해 목소리 일관성을 지키고, 쉼은 후처리(무음 삽입)로 만든다."""
     r = requests.post(API + "/text-to-speech/%s/with-timestamps" % vid,
                       headers={"xi-api-key": keys["ELEVENLABS_API_KEY"]},
                       # 2026-08-04 디렉터 청음 확정: eleven_v3 (억양·호흡 자연) — 설정 기본값(Natural)
@@ -139,7 +141,7 @@ def _synth_one(keys, vid, text):
 
 
 def tts(text, out_path, with_timestamps=False):
-    """클론 목소리 합성. 문장별로 합성해 사이에 SENT_PAUSE 무음을 이어 붙인다.
+    """클론 목소리 합성 (씬 통짜 1회 호출 → 문장 경계에 무음 삽입).
     반환: (mp3경로, [(시작초, 어절)]) — 렌더러 자막 동기용."""
     import shutil
     import subprocess
@@ -149,36 +151,53 @@ def tts(text, out_path, with_timestamps=False):
     if not vid:
         sys.exit("ELEVEN_VOICE_ID 없음 — 먼저 create를 실행")
     text = normalize_numbers(text)
-    sents = [s for s in re.split(r"(?<=[.?!])\s+", text.strip()) if s]
+    audio, words = _synth_whole(keys, vid, text)
+    # 문장 경계 = 마침표류로 끝나는 어절의 '다음 어절' 시작 시각
+    cuts = [words[i + 1][0] for i in range(len(words) - 1)
+            if words[i][1].rstrip('"\')').endswith((".", "?", "!"))]
     tmpd = tempfile.mkdtemp(prefix="vc_")
     try:
-        words_all, wavs, offset = [], [], 0.0
-        for si, sent in enumerate(sents):
-            audio, words = _synth_one(keys, vid, sent)
-            mp3p = os.path.join(tmpd, "s%03d.mp3" % si)
-            wavp = os.path.join(tmpd, "s%03d.wav" % si)
-            open(mp3p, "wb").write(audio)
-            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", mp3p,
-                            "-ar", "44100", "-ac", "1", wavp], check=True)
-            d = float(subprocess.run(["ffprobe", "-v", "quiet", "-show_entries", "format=duration",
-                                      "-of", "csv=p=0", wavp], capture_output=True, text=True).stdout.strip())
-            words_all += [(offset + t, w) for t, w in words]
-            wavs.append(wavp)
-            offset += d + (SENT_PAUSE if si < len(sents) - 1 else 0.0)
+        raw = os.path.join(tmpd, "raw.mp3")
+        open(raw, "wb").write(audio)
+        if not cuts:
+            wav = os.path.join(tmpd, "one.wav")
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", raw,
+                            "-ar", "44100", "-ac", "1", wav], check=True)
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", wav,
+                            "-codec:a", "libmp3lame", "-q:a", "2", out_path], check=True)
+            return out_path, (words if with_timestamps else None)
+        full = os.path.join(tmpd, "full.wav")
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", raw,
+                        "-ar", "44100", "-ac", "1", full], check=True)
+        # 경계마다 자르고 사이에 무음 — 같은 오디오를 자르는 것이라 목소리 톤은 그대로
+        bounds = [0.0] + cuts + [None]
+        segs = []
+        for i in range(len(bounds) - 1):
+            seg = os.path.join(tmpd, "seg%03d.wav" % i)
+            cmd = ["ffmpeg", "-y", "-loglevel", "error", "-i", full, "-ss", "%.3f" % bounds[i]]
+            if bounds[i + 1] is not None:
+                cmd += ["-to", "%.3f" % bounds[i + 1]]
+            subprocess.run(cmd + [seg], check=True)
+            segs.append(seg)
         sil = os.path.join(tmpd, "sil.wav")
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi",
                         "-i", "anullsrc=r=44100:cl=mono", "-t", str(SENT_PAUSE), sil], check=True)
         lst = os.path.join(tmpd, "list.txt")
         with open(lst, "w") as f:
-            for i, w in enumerate(wavs):
+            for i, sg in enumerate(segs):
                 if i:
                     f.write("file '%s'\n" % sil)
-                f.write("file '%s'\n" % w)
+                f.write("file '%s'\n" % sg)
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0",
                         "-i", lst, "-codec:a", "libmp3lame", "-q:a", "2", out_path], check=True)
+        # 어절 시각 보정: k번째 경계 이후 어절은 +k*SENT_PAUSE
+        shifted = []
+        for t, w in words:
+            k = sum(1 for c in cuts if t >= c)
+            shifted.append((t + k * SENT_PAUSE, w))
+        return out_path, (shifted if with_timestamps else None)
     finally:
         shutil.rmtree(tmpd, ignore_errors=True)
-    return out_path, (words_all if with_timestamps else None)
 
 
 if __name__ == "__main__":
