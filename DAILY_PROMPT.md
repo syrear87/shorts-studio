@@ -61,7 +61,7 @@
 - **2번째 씬에 시청자가 이미 아는 전일 뉴스 재통보 금지.** 2번째 씬 첫 문장은 훅이 던진 질문의 **첫 답 조각**이어야 한다 (사인 ③: body가 어제 코스피 폭락을 다시 알려줌).
 - 훅+2번째 씬 합산 **13초 이내**. 이 게이트는 의미 판단이라 기계 검증이 불가하다 — self-check와 적대 토론 공격 항목에서 잡아라.
 
-먼저 `SHORTS_STUDIO_PROTOCOL.md`, `DECISIONS.md`, `content/topics_used.md`, **`content/REJECTED.md`**, **`content/PERFORMANCE.md`**(실측 성과 — 소재·제목 판단의 근거), 최근 리포트 1개(`reports/`)를 Read 도구로 읽어라. 성과 수치를 새로 뽑으려면 `.venv/bin/python3 pipeline/analytics.py`(읽기 전용).
+먼저 `SHORTS_STUDIO_PROTOCOL.md`, `DECISIONS.md`, `content/topics_used.md`, **`content/REJECTED.md`**, **`content/PERFORMANCE.md`**(실측 성과 — 소재·제목 판단의 근거), **`content/CALENDAR.md`**(다가오는 이벤트 — D-7 이내 항목은 예고형 소재로 검토. 2026-08-04 신설: 실검만 보면 "이미 터진 것"만 쫓는다 — 미래는 캘린더에 공개돼 있다), 최근 리포트 1개(`reports/`)를 Read 도구로 읽어라. 성과 수치를 새로 뽑으려면 `.venv/bin/python3 pipeline/analytics.py`(읽기 전용).
 
 **🚫 기각 소재 영구 금지 (서열 ① — 그 무엇에도 지지 않는다. 2026-07-30 20시 실사고)**: `content/REJECTED.md`에 있는 소재는 **영구 금지**다. **"채택되지 않았으니 재도전 가능"이라는 판단은 금지된 추론이다** — 기각(디렉터가 완성본을 보고 거부)은 미사용이 아니라 **차단**이다. 각도를 바꾸거나 대본을 다시 써도, 같은 사건의 다른 측면이어도 금지다. **기획자 에이전트 5명 전원에게 이 금지 목록을 프롬프트로 전달**하고, 토론자에게도 "금지 목록 위반은 즉시 탈락" 기준을 주어라. `content/BACKLOG.md`(토론 탈락, 디렉터 미열람)는 재사용 가능하니 혼동하지 마라.
 
