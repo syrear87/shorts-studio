@@ -70,6 +70,23 @@ def log_looks_dead(text):
         return "출력 %d자 + 센티널 부재 (세션 즉사 의심)" % len(t)
     return "마감 센티널(SLOT-DONE) 부재 (세션 미완주 의심)"
 
+def sent_evidence(start_ts):
+    """이 세션 구간에 만들어진 mp4가 sent.log 실측 발송 기록으로 남았는가.
+    2026-08-05 실사고(디렉터 승인 수정): 완주한 세션이 'SLOT-DONE' 리터럴 대신 "슬롯 완료"로
+    마감 → 허위 미완주 경보. 센티널은 1차 판정으로 유지하되, 부재 시 실측으로 구제한다."""
+    try:
+        sent = ROOT / "logs" / "sent.log"
+        if not (sent.exists() and sent.stat().st_mtime >= start_ts):
+            return False
+        new_mp4 = {p.name for p in (ROOT / "out").glob("*.mp4") if p.stat().st_mtime >= start_ts}
+        if not new_mp4:
+            return False
+        recent = sent.read_text(errors="ignore").strip().splitlines()[-5:]
+        return any(any(n in ln for n in new_mp4) for ln in recent)
+    except Exception:
+        return False
+
+
 def main():
     os.chdir(str(ROOT))
     (ROOT / "logs").mkdir(exist_ok=True)
@@ -118,7 +135,11 @@ def main():
                % (r.returncode, attempt, LOG.name))
         else:
             reason = log_looks_dead(text)
-            if reason:
+            if reason and sent_evidence(start_ts):
+                # 센티널 누락이지만 발송 실측 존재 — 완주 인정, 형식 위반 주의만 (2026-08-05 디렉터 승인)
+                tg("ℹ️ 숏츠 데일리: 마감 센티널 누락(형식 위반)이나 sent.log 실측으로 완주 확인 — 조치 불필요")
+                check_artifacts(start_ts)
+            elif reason:
                 tg("⚠️ 숏츠 데일리: 종료코드는 0인데 %s — %s 확인" % (reason, LOG.name))
             else:
                 check_artifacts(start_ts)
