@@ -97,7 +97,8 @@ def normalize_numbers(text):
         whole, dec = m.group(1), m.group(2)
         s = _sino(int(whole))
         if dec:
-            s += " 점 " + " ".join(_D[int(c)] for c in dec)
+            # 공백을 넣으면 TTS가 또박또박 끊어 읽음 (2026-08-04 디렉터) — 붙여서 '사십이쩜오' (디렉터 발음 습관: '쩜')
+            s += "쩜" + "".join(_D[int(c)] for c in dec)
         return s
     text = re.sub(r"(\d+)(?:\.(\d+))?", repl, text)
     return text.replace("%", " 퍼센트")
