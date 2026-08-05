@@ -82,10 +82,13 @@ def sent_evidence(start_ts):
         sent = ROOT / "logs" / "sent.log"
         if not (sent.exists() and sent.stat().st_mtime >= start_ts):
             return False
+        recent = sent.read_text(errors="ignore").strip().splitlines()[-5:]
+        if CARD_MODE:
+            # 카드 세션은 mp4가 없다 — 캐러셀 게시 실측(IGCARD:)으로 판정 (2026-08-05)
+            return any("IGCARD:" in ln for ln in recent)
         new_mp4 = {p.name for p in (ROOT / "out").glob("*.mp4") if p.stat().st_mtime >= start_ts}
         if not new_mp4:
             return False
-        recent = sent.read_text(errors="ignore").strip().splitlines()[-5:]
         return any(any(n in ln for n in new_mp4) for ln in recent)
     except Exception:
         return False
@@ -164,6 +167,14 @@ def check_artifacts(start_ts):
         # '산출물 없음' 경보 발송 → SLOT-NOOP 마커(의도된 무제작)를 정상 종료로 인정
         if any(k in logtext for k in ("게시 중단", "게시 보류", "기각", "SLOT-NOOP", "이미 제작·발송 완료")):
             return  # 의도된 미게시/무제작 — 세션이 사유를 보고했음
+        if CARD_MODE:
+            # 카드 세션 산출물 판정 (2026-08-05): 캐러셀 게시 실측(IGCARD:)이 세션 시작 이후 기록됐는가
+            sent = ROOT / "logs" / "sent.log"
+            ok = sent.exists() and sent.stat().st_mtime >= start_ts and \
+                any("IGCARD:" in ln for ln in sent.read_text(errors="ignore").strip().splitlines()[-5:])
+            if not ok:
+                tg("⚠️ 지식 카드: 세션은 정상 종료했지만 캐러셀 게시 실측(IGCARD)이 없음 — %s 확인" % LOG.name)
+            return
         new_mp4 = [p for p in (ROOT / "out").glob("*.mp4") if p.stat().st_mtime >= start_ts]
         if not new_mp4:
             tg("⚠️ 숏츠 데일리: 세션은 정상 종료했지만 새 영상 산출물이 없음 — %s 확인" % LOG.name)
