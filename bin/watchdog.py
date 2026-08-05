@@ -71,8 +71,10 @@ def cleanup_out(now):
     import time
     removed = []
     ts = time.time()
-    for pattern, days in (("out/*.mp4", 14), ("out/bg_candidates/*", 7),
-                          ("out/cards/*/*.png", 14)):   # 카드 PNG도 14일 보관 (2026-08-05 점검 — 게시본은 인스타가 원본)
+    # 2026-08-06 디렉터 "맥미니 용량 아껴 쓰자" — 보관 대폭 단축 (게시 원본은 채널/인스타가 보관소)
+    for pattern, days in (("out/*.mp4", 3), ("out/bg_candidates/*", 3),
+                          ("out/cards/*/*.png", 7), ("out/*.mp3", 7),
+                          ("out/work_*/*", 3), ("assets/bg_cache/*", 21)):
         for p in glob.glob(os.path.join(ROOT, pattern)):
             try:
                 if ts - os.path.getmtime(p) > days * 86400:
