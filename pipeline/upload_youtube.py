@@ -93,12 +93,23 @@ def ig_caption(meta):
     return "📸 인스타 릴스 캡션 (복사용):\n\n%s\n\n%s" % (first, tags)
 
 def phase0(video, meta):
-    # 1) 영상 파일 자체를 텔레그램으로 발송 (봇 API 한도 50MB)
+    # 0) 인스타 릴스 자동 게시 (2026-08-05 디렉터 승인 — 오디세이 편으로 실전 검증 완료)
+    #    실패해도 슬롯을 죽이지 않는다: 경고 + 기존 수동 안내로 폴백
+    ig_ok = False
+    try:
+        import upload_instagram
+        ig_ok = bool(upload_instagram.upload(video, meta))
+    except Exception as e:
+        subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
+                        "⚠️ 인스타 자동 게시 실패(%s) — 아래 영상을 수동 업로드해주세요" % str(e)[:200]],
+                       timeout=90)
+    # 1) 영상 파일 텔레그램 발송 (유튜브 수동 업로드용; 봇 API 한도 50MB)
     size_mb = os.path.getsize(video) / 1e6
-    caption = ("🎬 오늘의 숏츠 완성 — 저장해서 ①YouTube Shorts ②인스타 릴스에 올려주세요\n"
-               "· YouTube: 시청자층 \"아니요, 아동용이 아닙니다\" · 공개\n"
-               "· 인스타: 다음다음 메시지의 릴스 캡션을 붙여넣기 (릴스 조회량이 보너스 프로그램 초대 조건)\n\n"
-               "제목: %s" % clean_title(meta))
+    caption = (("🎬 오늘의 숏츠 완성 — ✅ 인스타는 자동 게시됨. 이 파일은 YouTube Shorts 수동 업로드용\n"
+                if ig_ok else
+                "🎬 오늘의 숏츠 완성 — 저장해서 ①YouTube Shorts ②인스타 릴스에 올려주세요\n")
+               + "· YouTube: 시청자층 \"아니요, 아동용이 아닙니다\" · 공개\n\n"
+               + "제목: %s" % clean_title(meta))
     # 2026-08-02 리뷰 [A1]: 네트워크 스톨 시 러너 100분 타임아웃까지 슬롯이 통째로 잠기는 것 방지
     if size_mb < 49:
         subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send-video.sh"), video, caption],
@@ -107,12 +118,13 @@ def phase0(video, meta):
         subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
                         "⚠️ 영상이 %dMB로 텔레그램 한도 초과 — 파일: %s" % (size_mb, os.path.abspath(video))],
                        check=True, timeout=90)
-    # 2) 제목·설명·태그는 복사하기 좋게 별도 메시지로 (헤더 없음)
+    # 2) 유튜브 설명란: 머리말 없이 '제목(#Shorts 없음)+본문+태그 줄' (2026-08-05 디렉터 포맷 확정)
     msg = "%s\n\n%s\n\n태그: %s" % (clean_title(meta), full_description(meta), ", ".join(topic_tags(meta)))
     subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), msg], check=True, timeout=90)
-    # 3) 인스타 릴스 캡션 별도 발송 (2026-08-02 디렉터 지시 — 릴스는 짧은 캡션이 정석)
-    subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), ig_caption(meta)], check=True, timeout=90)
-    print("phase0: 텔레그램으로 영상+메타데이터+IG캡션 발송 완료 (API 업로드 안 함)")
+    # 3) 인스타 캡션 메시지는 자동 게시 성공 시 생략 (2026-08-05 디렉터 — 붙여넣을 일이 없음)
+    if not ig_ok:
+        subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), ig_caption(meta)], check=True, timeout=90)
+    print("phase0: IG 자동 게시=%s, 텔레그램 발송 완료" % ("성공" if ig_ok else "실패(수동 폴백)"))
 
 def api_public(video, meta):
     from googleapiclient.discovery import build
