@@ -11,12 +11,13 @@
         <string>--mode</string>
         <string>card</string>
     </array>
-    <!-- 지식 카드 세션: 매일 09(모닝지식)/13(점심지식)/17(금융·뉴스·정책) — CARD_PROMPT.md -->
+    <!-- 지식 카드 세션: 매일 09(모닝지식)/13(점심지식)/15(금융·뉴스·정책) — CARD_PROMPT.md
+         2026-08-06 팔로워 활동 실측(피크 09~16시, 17시부터 절벽)으로 15↔17 교환 -->
     <key>StartCalendarInterval</key>
     <array>
         <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>0</integer></dict>
         <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>0</integer></dict>
-        <dict><key>Hour</key><integer>17</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>15</integer><key>Minute</key><integer>0</integer></dict>
     </array>
     <key>StandardOutPath</key>
     <string>/Users/kimminsoo/Dev/shorts-studio/logs/launchd.out.log</string>

@@ -99,3 +99,34 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+def ig_online_followers_peak():
+    """팔로워 접속 피크 요약 (2026-08-06 디렉터 승인 전략 — 카드 슬롯 배치 근거, 주기 재점검용)."""
+    try:
+        import collections
+        import requests
+        kv = {}
+        import os
+        root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        for line in open(os.path.join(root, "keys.env"), encoding="utf-8"):
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                kv[k.strip()] = v.strip()
+        r = requests.get("https://graph.instagram.com/v23.0/%s/insights" % kv["IG_USER_ID"],
+                         params={"metric": "online_followers", "period": "lifetime",
+                                 "access_token": kv["IG_ACCESS_TOKEN"]}, timeout=30).json()
+        agg = collections.defaultdict(list)
+        for day in r["data"][0]["values"]:
+            for h, c in (day.get("value") or {}).items():
+                agg[(int(h) + 9) % 24].append(c)
+        avg = sorted(((h, sum(v) / len(v)) for h, v in agg.items()), key=lambda x: -x[1])
+        top = ", ".join("%02d시(%.0f)" % (h, c) for h, c in avg[:5])
+        low = ", ".join("%02d시(%.0f)" % (h, c) for h, c in avg[-3:])
+        print("\nIG 팔로워 접속 피크(KST): %s | 최저: %s" % (top, low))
+        print("※ 카드 슬롯(09/13/15)이 피크대를 벗어나기 시작하면 재배치 검토")
+    except Exception as e:
+        print("\nIG 팔로워 접속 조회 실패:", str(e)[:80])
+
+
+ig_online_followers_peak()

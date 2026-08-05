@@ -11,12 +11,12 @@
         <string>--mode</string>
         <string>video</string>
     </array>
-    <!-- 영상 세션 전용: 매일 11(날씨·에버그린)/15(장마감 금융)/19(밤 감성) — DAILY_PROMPT.md
+    <!-- 영상 세션 전용: 매일 11(날씨·에버그린)/17(장마감 금융·확정 시세)/19(밤 감성) — DAILY_PROMPT.md
          카드 세션은 com.shorts-studio.card.plist (--mode 인자로 모드 확정, 지연 기동에도 안전) -->
     <key>StartCalendarInterval</key>
     <array>
         <dict><key>Hour</key><integer>11</integer><key>Minute</key><integer>0</integer></dict>
-        <dict><key>Hour</key><integer>15</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>17</integer><key>Minute</key><integer>0</integer></dict>
         <dict><key>Hour</key><integer>19</integer><key>Minute</key><integer>0</integer></dict>
     </array>
     <key>StandardOutPath</key>

@@ -6,14 +6,14 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-# 2026-08-05 디렉터 편성(확정): 카드(09/13/17) + 영상(11/15/19) 2시간 교차.
+# 2026-08-06 편성 v2: 카드(09/13/15 — 팔로워 활동 피크대) + 영상(11/17/19).
 # 모드는 plist가 넘기는 --mode 인자가 정본 (2026-08-05 점검: 절전 벌충 지연 기동 시
 # 시각 판정은 카드↔영상이 뒤바뀜) — 인자 부재 시에만 시각 폴백.
 # 카드 세션은 짧게(45분) 잘라 다음 슬롯과 겹치지 않게 하고, 락도 분리한다.
 if "--mode" in sys.argv:
     CARD_MODE = sys.argv[sys.argv.index("--mode") + 1] == "card"
 else:
-    CARD_MODE = datetime.now().hour in (9, 13, 17)
+    CARD_MODE = datetime.now().hour in (9, 13, 15)
 PROMPT_FILE = "CARD_PROMPT.md" if CARD_MODE else "DAILY_PROMPT.md"
 LOCK = ROOT / "logs" / (".card.lock" if CARD_MODE else ".daily.lock")
 LOG = ROOT / "logs" / ("daily-%s.log" % datetime.now().strftime("%Y%m%d-%H%M"))
