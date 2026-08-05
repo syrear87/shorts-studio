@@ -128,6 +128,13 @@ def upload(video, meta, publish=True):
     for k in ("R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL"):
         if not kv.get(k):
             raise RuntimeError("keys.env에 %s 없음 — 릴스 업로드 건너뜀" % k)
+    # 멱등 가드 (2026-08-05 점검): 이미 게시된 파일이면 건너뛰고 성공 취급 — 재실행/재시도 중복 게시 봉쇄
+    sent_p = os.path.join(ROOT, "logs", "sent.log")
+    base = os.path.basename(video)
+    if os.path.exists(sent_p) and any(ln.rstrip().endswith("IG:" + base)
+                                      for ln in open(sent_p, encoding="utf-8", errors="ignore")):
+        print("이미 게시됨(IG:%s) — 건너뜀" % base)
+        return "already-published"
     token = refresh_token_if_due(token)
 
     # 1) R2 임시 업로드 → 공개 URL
@@ -145,7 +152,7 @@ def upload(video, meta, publish=True):
         cont = api("POST", "/%s/media" % user_id, data=data)
         cid = cont["id"]
         print("컨테이너 생성: %s" % cid, flush=True)
-        return _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish)
+        return _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video)
     except Exception:
         _r2_cleanup(kv, s3, r2key)
         raise
@@ -157,9 +164,10 @@ def _r2_cleanup(kv, s3, r2key):
         print("R2 정리 완료", flush=True)
     except Exception as e:
         print("R2 삭제 실패(%s) — 수동 정리 필요: %s" % (e, r2key), flush=True)
+        tg("⚠️ R2 임시 파일 삭제 실패 — 수동 정리 필요: %s" % r2key)
 
 
-def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish):
+def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video):
 
     # 3) 처리 대기
     for _ in range(POLL_MAX):
@@ -179,18 +187,20 @@ def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish):
         _r2_cleanup(kv, s3, r2key)
         return None
 
-    # 4) 게시
+    # 4) 게시 — 성공 즉시 실측 기록(멱등 가드·러너 판정의 근거), 이후 조회 실패는 성공을 뒤집지 않는다
     pub = api("POST", "/%s/media_publish" % user_id,
               data={"creation_id": cid, "access_token": token})
     media_id = pub["id"]
-    _r2_cleanup(kv, s3, r2key)   # Meta가 인코딩까지 마친 뒤라 원본 URL은 더 필요 없음
-    perma = api("GET", "/%s" % media_id,
-                params={"fields": "permalink", "access_token": token}).get("permalink", "")
-    # 발송 실측 기록 (러너 sent_evidence·중복 게시 방지 판정용)
     import datetime
     with open(os.path.join(ROOT, "logs", "sent.log"), "a") as f:
         f.write("%s IG:%s\n" % (datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
-                                os.path.basename(sys.argv[1] if len(sys.argv) > 1 else "video")))
+                                os.path.basename(video)))
+    _r2_cleanup(kv, s3, r2key)   # Meta가 인코딩까지 마친 뒤라 원본 URL은 더 필요 없음
+    try:
+        perma = api("GET", "/%s" % media_id,
+                    params={"fields": "permalink", "access_token": token}).get("permalink", "")
+    except Exception as e:
+        perma = "(permalink 조회 실패: %s)" % str(e)[:80]
     print("릴스 게시 완료:", perma or media_id)
     tg("✅ 인스타 릴스 게시 완료\n%s\n%s" % (build_caption(meta).split("\n")[0], perma))
     return media_id
@@ -203,6 +213,13 @@ def publish_carousel(images, caption, publish=True):
     token, user_id = kv.get("IG_ACCESS_TOKEN"), kv.get("IG_USER_ID")
     if not token or not user_id:
         raise RuntimeError("keys.env에 IG_ACCESS_TOKEN/IG_USER_ID 없음")
+    # 멱등 가드 (2026-08-05 점검): 같은 카드 묶음(디렉터리명)이 이미 게시됐으면 건너뜀
+    card_name = os.path.basename(os.path.dirname(images[0]))
+    sent_p = os.path.join(ROOT, "logs", "sent.log")
+    if os.path.exists(sent_p) and any(ln.rstrip().endswith("IGCARD:" + card_name)
+                                      for ln in open(sent_p, encoding="utf-8", errors="ignore")):
+        print("이미 게시됨(IGCARD:%s) — 건너뜀" % card_name)
+        return "already-published"
     token = refresh_token_if_due(token)
     import boto3
     s3 = boto3.client("s3",
@@ -220,6 +237,16 @@ def publish_carousel(images, caption, publish=True):
                 "image_url": url, "is_carousel_item": "true", "access_token": token})
             child_ids.append(item["id"])
         print("아이템 컨테이너 %d개 생성" % len(child_ids), flush=True)
+        for ch in child_ids:   # 자식 인코딩 완료 대기 (2026-08-05 점검)
+            for _ in range(POLL_MAX):
+                st = api("GET", "/%s" % ch, params={"fields": "status_code", "access_token": token})
+                if st.get("status_code") == "FINISHED":
+                    break
+                if st.get("status_code") == "ERROR":
+                    raise RuntimeError("아이템 컨테이너 처리 실패: %s" % st)
+                time.sleep(3)
+            else:
+                raise RuntimeError("아이템 컨테이너 처리 대기 초과")
         cont = api("POST", "/%s/media" % user_id, data={
             "media_type": "CAROUSEL", "children": ",".join(child_ids),
             "caption": caption[:2200], "access_token": token})
@@ -239,12 +266,14 @@ def publish_carousel(images, caption, publish=True):
         pub = api("POST", "/%s/media_publish" % user_id,
                   data={"creation_id": cid, "access_token": token})
         media_id = pub["id"]
-        perma = api("GET", "/%s" % media_id,
-                    params={"fields": "permalink", "access_token": token}).get("permalink", "")
         import datetime
         with open(os.path.join(ROOT, "logs", "sent.log"), "a") as f:
-            f.write("%s IGCARD:%s\n" % (datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
-                                        os.path.basename(os.path.dirname(images[0]))))
+            f.write("%s IGCARD:%s\n" % (datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S"), card_name))
+        try:
+            perma = api("GET", "/%s" % media_id,
+                        params={"fields": "permalink", "access_token": token}).get("permalink", "")
+        except Exception as e:
+            perma = "(permalink 조회 실패: %s)" % str(e)[:80]
         print("카드 게시 완료:", perma or media_id)
         tg("✅ 지식 카드 게시 완료\n%s\n%s" % (caption.split("\n")[0], perma))
         return media_id

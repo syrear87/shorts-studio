@@ -128,6 +128,7 @@ def main():
             new_mp4_made = any(p.stat().st_mtime >= start_ts for p in (ROOT / "out").glob("*.mp4"))
             transient = (r.returncode != 0 and len(text.strip()) <= SAFE_RETRY_MAX_LEN
                          and not new_mp4_made
+                         and not sent_evidence(start_ts)   # 발송 실측 있으면 재시도 금지 — 중복 게시 봉쇄 (2026-08-05 점검)
                          and any(m.lower() in text.lower() for m in RETRY_MARKERS))
             if not transient or attempt >= len(RETRY_DELAYS):
                 break
@@ -151,7 +152,7 @@ def main():
             else:
                 check_artifacts(start_ts)
     except subprocess.TimeoutExpired:
-        tg("⚠️ 숏츠 데일리 세션 타임아웃(100분) — %s 확인" % LOG.name)
+        tg("⚠️ %s 세션 타임아웃(%d분) — %s 확인" % ("지식 카드" if CARD_MODE else "숏츠 데일리", TIMEOUT // 60, LOG.name))
     finally:
         LOCK.unlink(missing_ok=True)
 
@@ -182,8 +183,9 @@ def check_artifacts(start_ts):
         sent = ROOT / "logs" / "sent.log"
         sent_ok = sent.exists() and sent.stat().st_mtime >= start_ts
         if sent_ok:
-            lines = sent.read_text(errors="ignore").strip().splitlines()
-            sent_ok = bool(lines) and any(p.name in lines[-1] for p in new_mp4)
+            lines = sent.read_text(errors="ignore").strip().splitlines()[-5:]
+            # 카드·영상 세션 병행으로 교차 기록될 수 있어 최근 5행에서 탐색 (2026-08-05 점검)
+            sent_ok = bool(lines) and any(any(p.name in ln for ln in lines) for p in new_mp4)
         if not sent_ok:
             # 기존 문자열 검사는 보조로 강등 — 경보 문면의 진단 정보로만 쓴다
             note = " (로그엔 발송 문구가 있음 — 자기 보고 불일치)" if ("발송 완료" in logtext or "phase0" in logtext) else ""
