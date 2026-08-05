@@ -16,7 +16,8 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 W, H = 1080, 1350
-NAVY, NAVY_HI = (10, 15, 30), (38, 54, 92)
+# 로고(profile_1080.png) 배경 실측: 모서리 (11,16,32) ~ (23,27,53) — 카드 배경을 로고와 통일 (2026-08-05 디렉터)
+NAVY, NAVY_HI = (11, 16, 32), (23, 27, 53)
 ACCENT = (255, 182, 39)
 TEXT, DIM = (245, 246, 250), (176, 184, 202)
 FP = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
@@ -32,7 +33,7 @@ def base(page, total):
     d = ImageDraw.Draw(im)
     for y in range(H):
         t = y / H
-        c = tuple(int(NAVY_HI[i] * (1 - t) * 0.9 + NAVY[i] * (0.1 + t * 0.9)) for i in range(3))
+        c = tuple(int(NAVY_HI[i] * (1 - t) + NAVY[i] * t) for i in range(3))
         d.line([(0, y), (W, y)], fill=c)
     logo = Image.open(os.path.join(ROOT, "assets", "brand", "profile_1080.png")).convert("RGBA").resize((116, 116))
     mask = Image.new("L", (464, 464), 0)
@@ -123,21 +124,21 @@ def render(script_path):
 
         try:
             if kind == "hook":
-                y = P(d, c["title"], font(76, "b"), 80, 430, W - 200, hl=t_hl, lh=1.35)
+                y = P(d, c["title"], font(86, "b"), 80, 400, W - 160, hl=t_hl, lh=1.32)
                 if c.get("body"):
-                    P(d, c["body"], font(40, "m"), 80, y + 120, W - 200, color=DIM, hl=b_hl)
+                    P(d, c["body"], font(48, "sb"), 80, y + 100, W - 160, color=TEXT, hl=b_hl)
             elif kind == "end":
-                y = P(d, c["title"], font(56, "b"), 80, 430, W - 200, hl=t_hl, lh=1.4)
+                y = P(d, c["title"], font(64, "b"), 80, 410, W - 160, hl=t_hl, lh=1.38)
                 if c.get("body"):
-                    y = P(d, c["body"], font(44, "m"), 80, y + 60, W - 220, color=DIM, hl=b_hl)
+                    y = P(d, c["body"], font(50, "sb"), 80, y + 56, W - 180, color=TEXT, hl=b_hl)
                 if c.get("sub"):
-                    P(d, c["sub"], font(42, "m"), 80, max(y + 90, 780), W - 200, color=ACCENT)
+                    P(d, c["sub"], font(46, "b"), 80, max(y + 90, 800), W - 160, color=ACCENT)
             else:  # fact
-                y = P(d, c["title"], font(58, "b"), 80, 300, W - 220, hl=t_hl)
+                y = P(d, c["title"], font(66, "b"), 80, 280, W - 180, hl=t_hl)
                 if c.get("body"):
-                    y = P(d, c["body"], font(46, "m"), 80, y + 70, W - 220, hl=b_hl)
+                    y = P(d, c["body"], font(52, "sb"), 80, y + 64, W - 180, color=TEXT, hl=b_hl)
                 if c.get("sub"):
-                    P(d, c["sub"], font(44, "r"), 80, y + 50, W - 220, color=DIM)
+                    P(d, c["sub"], font(46, "m"), 80, y + 48, W - 180, color=DIM)
         except OverflowError as e:
             sys.exit("기각: 카드 %d 가로 폭 초과(%s) — 어절을 나눠라" % (i, e))
         p = os.path.join(out_dir, "card_%d.png" % i)
