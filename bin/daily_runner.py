@@ -6,9 +6,9 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-# 2026-08-05 디렉터 편성: 카드(09/12/15) + 영상(10/13/16) — 시각으로 모드 판정.
-# 카드 세션은 짧게(45분) 잘라 다음 영상 슬롯(정각+1h)과 겹치지 않게 하고, 락도 분리한다.
-CARD_MODE = datetime.now().hour in (9, 12, 15)
+# 2026-08-05 디렉터 편성(확정): 카드(09/13/17) + 영상(11/15/19) 2시간 교차 — 시각으로 모드 판정.
+# 카드 세션은 짧게(45분) 잘라 다음 슬롯과 겹치지 않게 하고, 락도 분리한다.
+CARD_MODE = datetime.now().hour in (9, 13, 17)
 PROMPT_FILE = "CARD_PROMPT.md" if CARD_MODE else "DAILY_PROMPT.md"
 LOCK = ROOT / "logs" / (".card.lock" if CARD_MODE else ".daily.lock")
 LOG = ROOT / "logs" / ("daily-%s.log" % datetime.now().strftime("%Y%m%d-%H%M"))
