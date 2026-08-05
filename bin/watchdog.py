@@ -29,6 +29,9 @@ def main():
         hhmm = os.path.basename(p).split("-")[2].split(".")[0]   # daily-YYYYMMDD-HHMM.log
         t = int(hhmm[:2]) * 60 + int(hhmm[2:4])
         near = min(slots, key=lambda h: abs(t - int(h) * 60))
+        # 2시간 간격 편성에서 ±90분 창은 이웃 슬롯과 겹친다 — 60분 초과 지연은 매핑하지 않는다 (2026-08-05 점검)
+        if abs(t - int(near) * 60) > 60:
+            continue
         diff = t - int(near) * 60
         if abs(diff) <= 90:
             if near not in hit or abs(diff) < abs(hit[near]):
@@ -68,7 +71,8 @@ def cleanup_out(now):
     import time
     removed = []
     ts = time.time()
-    for pattern, days in (("out/*.mp4", 14), ("out/bg_candidates/*", 7)):
+    for pattern, days in (("out/*.mp4", 14), ("out/bg_candidates/*", 7),
+                          ("out/cards/*/*.png", 14)):   # 카드 PNG도 14일 보관 (2026-08-05 점검 — 게시본은 인스타가 원본)
         for p in glob.glob(os.path.join(ROOT, pattern)):
             try:
                 if ts - os.path.getmtime(p) > days * 86400:

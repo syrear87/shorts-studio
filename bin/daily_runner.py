@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# launchd가 평일 07/11/16/19시·주말 08/11/14/17/20시(KST)에 실행 — 헤드리스 스튜디오 세션 기동.
-# 락으로 중복 방지, 100분 타임아웃, 로그 저장, 실패·무산출 시 텔레그램 통보.
+# launchd가 매일 6회(카드 09/13/17시 · 영상 11/15/19시, KST) 실행 — 헤드리스 스튜디오 세션 기동.
+# 락으로 중복 방지(모드별 분리), 영상 100분·카드 45분 타임아웃, 로그 저장, 실패·무산출 시 텔레그램 통보.
 import os, shutil, subprocess, sys, time
 from datetime import datetime
 from pathlib import Path
