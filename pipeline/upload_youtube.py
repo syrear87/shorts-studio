@@ -103,16 +103,11 @@ def phase0(video, meta):
         subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
                         "⚠️ 인스타 자동 게시 실패(%s) — 아래 영상을 수동 업로드해주세요" % str(e)[:200]],
                        timeout=90)
-    # 1) 영상 파일 텔레그램 발송 (유튜브 수동 업로드용; 봇 API 한도 50MB)
+    # 1) 영상 파일 텔레그램 발송 — 캡션 없이 영상만 (2026-08-05 디렉터: 안내 문구 전부 제거)
     size_mb = os.path.getsize(video) / 1e6
-    caption = (("🎬 오늘의 숏츠 완성 — ✅ 인스타는 자동 게시됨. 이 파일은 YouTube Shorts 수동 업로드용\n"
-                if ig_ok else
-                "🎬 오늘의 숏츠 완성 — 저장해서 ①YouTube Shorts ②인스타 릴스에 올려주세요\n")
-               + "· YouTube: 시청자층 \"아니요, 아동용이 아닙니다\" · 공개\n\n"
-               + "제목: %s" % clean_title(meta))
     # 2026-08-02 리뷰 [A1]: 네트워크 스톨 시 러너 100분 타임아웃까지 슬롯이 통째로 잠기는 것 방지
     if size_mb < 49:
-        subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send-video.sh"), video, caption],
+        subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send-video.sh"), video, ""],
                        check=True, timeout=360)
     else:
         subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
