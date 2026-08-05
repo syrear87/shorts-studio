@@ -22,11 +22,10 @@ def topic_tags(meta, limit=None):
     return tags[:limit] if limit else tags
 
 def full_description(meta):
-    # Pexels API 가이드라인: 출처 표기 의무 (2026-07-29 감사 지적)
-    desc = meta["description"]
-    if "Pexels" not in desc:
-        desc += "\n\n배경 영상: Pexels (www.pexels.com)"
-    return desc
+    # 2026-08-05 디렉터: 캡션에서 Pexels 크레딧 제거 — 출처 표기는 채널 정보란으로 이관
+    # (기존 meta에 이미 박혀 있는 크레딧 줄은 여기서 걸러낸다)
+    lines = [l for l in meta["description"].splitlines() if "배경 영상: Pexels" not in l]
+    return "\n".join(lines).strip()
 
 def check_meta(meta):
     """설명 규격 검증 (2026-08-01 실사고: 99자·해시태그 0개로 발송돼 '너무 빈약하다' 지적)."""
