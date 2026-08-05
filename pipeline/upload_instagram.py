@@ -95,12 +95,15 @@ def refresh_token_if_due(token):
 
 
 def build_caption(meta):
-    """요약 1줄 + 내용 태그 5개 (2026-08-03 디렉터 지정 — 브랜드·광역 태그 금지.
-    구버전 '제목+본문 전체'는 폐기: 릴스 캡션은 첫 125자만 노출되고, 분배는 내용 태그가 태운다)."""
-    from upload_youtube import topic_tags
-    first = meta["description"].strip().split("\n")[0]
-    tags = " ".join("#" + t.replace(" ", "") for t in topic_tags(meta, 5))
-    return ("%s\n\n%s" % (first, tags))[:2200]
+    """캡션 = 제목 + 본문 전문, 단 맨 아래 '태그: ...' 줄만 제거 (2026-08-05 디렉터 포맷 지정).
+    본문 안의 해시태그 줄(#...)과 Pexels 크레딧은 그대로 유지한다."""
+    title = meta["title"].replace("#shorts", "").replace("#Shorts", "").strip()
+    desc = meta["description"]
+    lines = [l for l in desc.splitlines() if not l.strip().startswith("태그:")]
+    desc = "\n".join(lines).strip()
+    if "Pexels" not in desc:
+        desc += "\n\n배경 영상: Pexels (www.pexels.com)"
+    return ("%s\n\n%s" % (title, desc))[:2200]
 
 
 def r2_put(kv, path):
@@ -132,11 +135,14 @@ def upload(video, meta, publish=True):
     print("R2 업로드: %s (%.1fMB)" % (url, os.path.getsize(video) / 1e6), flush=True)
     try:
         # 2) 컨테이너 생성 (video_url 방식)
-        cont = api("POST", "/%s/media" % user_id, data={
+        # 커버 = 훅 텍스트 전부 노출된 프레임 (렌더러가 meta에 기록, 없으면 3초 지점)
+        data = {
             "media_type": "REELS", "video_url": url,
             "caption": build_caption(meta), "share_to_feed": "true",
+            "thumb_offset": str(int(meta.get("ig_thumb_ms", 3000))),
             "access_token": token,
-        })
+        }
+        cont = api("POST", "/%s/media" % user_id, data=data)
         cid = cont["id"]
         print("컨테이너 생성: %s" % cid, flush=True)
         return _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish)

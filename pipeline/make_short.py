@@ -602,6 +602,22 @@ def main():
     if total_dur > 50:
         print("경고: 총 길이 %.1fs — 50s 초과분은 리포트에 사유 한 줄 기록" % total_dur, flush=True)
 
+    # 인스타 커버 시점 기록 (2026-08-05 디렉터: 커버는 훅 텍스트가 전부 노출된 첫 장면):
+    # 훅 씬 마지막 어절 등장 시각 + 팝인 0.28s + 여유 → meta.json의 ig_thumb_ms로.
+    # upload_instagram.py가 이 값을 릴스 thumb_offset으로 쓴다.
+    meta_path = os.path.splitext(args.script_json)[0] + ".meta.json"
+    if os.path.exists(meta_path):
+        try:
+            m = json.load(open(meta_path, encoding="utf-8"))
+            m["ig_thumb_ms"] = int((max(timeline[0]["word_times"]) + 0.5) * 1000)
+            tmp = meta_path + ".tmp"
+            with open(tmp, "w", encoding="utf-8") as f:
+                json.dump(m, f, ensure_ascii=False, indent=2)
+            os.replace(tmp, meta_path)
+            print("ig_thumb_ms=%d 기록 (인스타 커버 시점)" % m["ig_thumb_ms"], flush=True)
+        except Exception as e:
+            print("meta ig_thumb_ms 기록 실패(%s) — 커버는 기본값 사용" % e, flush=True)
+
     # 2) 배경 영상 — bg_id가 명시됐는데 실패하면 무선별 폴백 금지 (시각 선별 게이트 우회 방지)
     # 2026-08-04 디렉터 지시: 배경 1개는 지루하다 → bg_ids(2~3개)로 씬 경계에서 배경 전환
     bg_items = []   # {"kind": "video"|"photo", "path": ...}
