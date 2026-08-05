@@ -17,7 +17,7 @@
 - 실측 근거: 유래형은 릴스에서 약하지만(§10) 저장형 카드와는 궁합이 좋다.
 
 ## 2. 제작
-1. `content/cards-YYYY-MM-DD-{slot}.json` 작성 — slot은 card-am(09시)/card-noon(12시)/card-pm(15시):
+1. `content/cards-YYYY-MM-DD-{slot}.json` 작성 — slot은 card-am(09시)/card-noon(13시)/card-pm(17시):
 ```json
 {
   "topic": "소재 한 줄",
