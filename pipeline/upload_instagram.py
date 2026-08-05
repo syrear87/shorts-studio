@@ -95,38 +95,65 @@ def refresh_token_if_due(token):
 
 
 def build_caption(meta):
-    title = meta["title"].replace("#shorts", "").replace("#Shorts", "").strip()
-    desc = meta["description"]
-    if "Pexels" not in desc:
-        desc += "\n\n배경 영상: Pexels (www.pexels.com)"
-    return ("%s\n\n%s" % (title, desc))[:2200]
+    """요약 1줄 + 내용 태그 5개 (2026-08-03 디렉터 지정 — 브랜드·광역 태그 금지.
+    구버전 '제목+본문 전체'는 폐기: 릴스 캡션은 첫 125자만 노출되고, 분배는 내용 태그가 태운다)."""
+    from upload_youtube import topic_tags
+    first = meta["description"].strip().split("\n")[0]
+    tags = " ".join("#" + t.replace(" ", "") for t in topic_tags(meta, 5))
+    return ("%s\n\n%s" % (first, tags))[:2200]
 
 
-def upload(video, meta):
+def r2_put(kv, path):
+    """렌더 mp4를 R2에 임시 공개 업로드 → (s3클라이언트, 키, 공개 URL).
+    2026-08-05 실측: 이 계정/앱 유형은 resumable(rupload) 거부, video_url 방식만 허용 —
+    Meta가 URL에서 가져가면 삭제한다."""
+    import boto3
+    key = "reels/%s" % os.path.basename(path)
+    s3 = boto3.client("s3",
+                      endpoint_url="https://%s.r2.cloudflarestorage.com" % kv["R2_ACCOUNT_ID"],
+                      aws_access_key_id=kv["R2_ACCESS_KEY"],
+                      aws_secret_access_key=kv["R2_SECRET_KEY"], region_name="auto")
+    s3.upload_file(path, kv["R2_BUCKET"], key, ExtraArgs={"ContentType": "video/mp4"})
+    return s3, key, kv["R2_PUBLIC_URL"].rstrip("/") + "/" + key
+
+
+def upload(video, meta, publish=True):
     kv = load_keys()
     token, user_id = kv.get("IG_ACCESS_TOKEN"), kv.get("IG_USER_ID")
     if not token or not user_id:
         raise RuntimeError("keys.env에 IG_ACCESS_TOKEN/IG_USER_ID 없음 — 릴스 업로드 건너뜀")
+    for k in ("R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL"):
+        if not kv.get(k):
+            raise RuntimeError("keys.env에 %s 없음 — 릴스 업로드 건너뜀" % k)
     token = refresh_token_if_due(token)
 
-    # 1) 컨테이너 생성 (resumable)
-    cont = api("POST", "/%s/media" % user_id, data={
-        "media_type": "REELS", "upload_type": "resumable",
-        "caption": build_caption(meta), "share_to_feed": "true",
-        "access_token": token,
-    })
-    cid = cont["id"]
-    print("컨테이너 생성: %s" % cid, flush=True)
-
-    # 2) 바이너리 업로드
-    size = os.path.getsize(video)
-    with open(video, "rb") as f:
-        api("POST", "/%s" % cid, base=RUPLOAD, raw_body=f.read(), headers={
-            "Authorization": "OAuth " + token,
-            "offset": "0", "file_size": str(size),
-            "Content-Type": "application/octet-stream",
+    # 1) R2 임시 업로드 → 공개 URL
+    s3, r2key, url = r2_put(kv, video)
+    print("R2 업로드: %s (%.1fMB)" % (url, os.path.getsize(video) / 1e6), flush=True)
+    try:
+        # 2) 컨테이너 생성 (video_url 방식)
+        cont = api("POST", "/%s/media" % user_id, data={
+            "media_type": "REELS", "video_url": url,
+            "caption": build_caption(meta), "share_to_feed": "true",
+            "access_token": token,
         })
-    print("바이너리 업로드 완료 (%.1fMB)" % (size / 1e6), flush=True)
+        cid = cont["id"]
+        print("컨테이너 생성: %s" % cid, flush=True)
+        return _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish)
+    except Exception:
+        _r2_cleanup(kv, s3, r2key)
+        raise
+
+
+def _r2_cleanup(kv, s3, r2key):
+    try:
+        s3.delete_object(Bucket=kv["R2_BUCKET"], Key=r2key)
+        print("R2 정리 완료", flush=True)
+    except Exception as e:
+        print("R2 삭제 실패(%s) — 수동 정리 필요: %s" % (e, r2key), flush=True)
+
+
+def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish):
 
     # 3) 처리 대기
     for _ in range(POLL_MAX):
@@ -140,23 +167,36 @@ def upload(video, meta):
     else:
         raise RuntimeError("IG 처리 대기 시간 초과(5분)")
 
+    if not publish:
+        # 시험 모드: 게시 직전 중단 — 미게시 컨테이너는 24시간 뒤 자동 소멸 (2026-08-05 리허설용)
+        print("--no-publish: 컨테이너 %s 처리 FINISHED 확인, 게시 없이 종료" % cid)
+        _r2_cleanup(kv, s3, r2key)
+        return None
+
     # 4) 게시
     pub = api("POST", "/%s/media_publish" % user_id,
               data={"creation_id": cid, "access_token": token})
     media_id = pub["id"]
+    _r2_cleanup(kv, s3, r2key)   # Meta가 인코딩까지 마친 뒤라 원본 URL은 더 필요 없음
     perma = api("GET", "/%s" % media_id,
                 params={"fields": "permalink", "access_token": token}).get("permalink", "")
+    # 발송 실측 기록 (러너 sent_evidence·중복 게시 방지 판정용)
+    import datetime
+    with open(os.path.join(ROOT, "logs", "sent.log"), "a") as f:
+        f.write("%s IG:%s\n" % (datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
+                                os.path.basename(sys.argv[1] if len(sys.argv) > 1 else "video")))
     print("릴스 게시 완료:", perma or media_id)
     tg("✅ 인스타 릴스 게시 완료\n%s\n%s" % (build_caption(meta).split("\n")[0], perma))
     return media_id
 
 
 def main():
-    if len(sys.argv) < 3:
-        sys.exit("사용: upload_instagram.py <video.mp4> <meta.json>")
-    with open(sys.argv[2], encoding="utf-8") as f:
+    args = [a for a in sys.argv[1:] if a != "--no-publish"]
+    if len(args) < 2:
+        sys.exit("사용: upload_instagram.py <video.mp4> <meta.json> [--no-publish]")
+    with open(args[1], encoding="utf-8") as f:
         meta = json.load(f)
-    upload(sys.argv[1], meta)
+    upload(args[0], meta, publish="--no-publish" not in sys.argv)
 
 
 if __name__ == "__main__":
