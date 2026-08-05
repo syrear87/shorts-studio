@@ -121,10 +121,9 @@ def phase0(video, meta):
     # 2) 유튜브 설명란: 머리말 없이 '제목(#Shorts 없음)+본문+태그 줄' (2026-08-05 디렉터 포맷 확정)
     msg = "%s\n\n%s\n\n태그: %s" % (clean_title(meta), full_description(meta), ", ".join(topic_tags(meta)))
     subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), msg], check=True, timeout=90)
-    # 3) 인스타 캡션 메시지는 자동 게시 성공 시 생략 (2026-08-05 디렉터 — 붙여넣을 일이 없음)
-    if not ig_ok:
-        subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), ig_caption(meta)], check=True, timeout=90)
-    print("phase0: IG 자동 게시=%s, 텔레그램 발송 완료" % ("성공" if ig_ok else "실패(수동 폴백)"))
+    # IG 캡션 별도 메시지는 폐지 (2026-08-05 디렉터: 실패 시에도 경고 한 줄이면 충분 —
+    # 유튜브용으로 발송된 영상+캡션으로 수동 업로드 가능)
+    print("phase0: IG 자동 게시=%s, 텔레그램 발송 완료" % ("성공" if ig_ok else "실패(경고 발송)"))
 
 def api_public(video, meta):
     from googleapiclient.discovery import build
