@@ -196,6 +196,66 @@ def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish):
     return media_id
 
 
+def publish_carousel(images, caption, publish=True):
+    """지식 카드 캐러셀 게시 (2026-08-05 디렉터 승인 — 하루 3편 아침·점심·저녁).
+    images: PNG 경로 리스트(2~3장). 흐름: R2 업로드 → 아이템 컨테이너 → 캐러셀 컨테이너 → 게시 → R2 정리."""
+    kv = load_keys()
+    token, user_id = kv.get("IG_ACCESS_TOKEN"), kv.get("IG_USER_ID")
+    if not token or not user_id:
+        raise RuntimeError("keys.env에 IG_ACCESS_TOKEN/IG_USER_ID 없음")
+    token = refresh_token_if_due(token)
+    import boto3
+    s3 = boto3.client("s3",
+                      endpoint_url="https://%s.r2.cloudflarestorage.com" % kv["R2_ACCOUNT_ID"],
+                      aws_access_key_id=kv["R2_ACCESS_KEY"],
+                      aws_secret_access_key=kv["R2_SECRET_KEY"], region_name="auto")
+    keys, child_ids = [], []
+    try:
+        for p in images:
+            key = "cards/%s/%s" % (os.path.basename(os.path.dirname(p)), os.path.basename(p))
+            s3.upload_file(p, kv["R2_BUCKET"], key, ExtraArgs={"ContentType": "image/png"})
+            keys.append(key)
+            url = kv["R2_PUBLIC_URL"].rstrip("/") + "/" + key
+            item = api("POST", "/%s/media" % user_id, data={
+                "image_url": url, "is_carousel_item": "true", "access_token": token})
+            child_ids.append(item["id"])
+        print("아이템 컨테이너 %d개 생성" % len(child_ids), flush=True)
+        cont = api("POST", "/%s/media" % user_id, data={
+            "media_type": "CAROUSEL", "children": ",".join(child_ids),
+            "caption": caption[:2200], "access_token": token})
+        cid = cont["id"]
+        for _ in range(POLL_MAX):
+            st = api("GET", "/%s" % cid, params={"fields": "status_code", "access_token": token})
+            if st.get("status_code") == "FINISHED":
+                break
+            if st.get("status_code") == "ERROR":
+                raise RuntimeError("캐러셀 컨테이너 처리 실패: %s" % st)
+            time.sleep(POLL_INTERVAL)
+        else:
+            raise RuntimeError("캐러셀 처리 대기 초과")
+        if not publish:
+            print("--no-publish: 캐러셀 %s FINISHED 확인, 게시 없이 종료" % cid)
+            return None
+        pub = api("POST", "/%s/media_publish" % user_id,
+                  data={"creation_id": cid, "access_token": token})
+        media_id = pub["id"]
+        perma = api("GET", "/%s" % media_id,
+                    params={"fields": "permalink", "access_token": token}).get("permalink", "")
+        import datetime
+        with open(os.path.join(ROOT, "logs", "sent.log"), "a") as f:
+            f.write("%s IGCARD:%s\n" % (datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
+                                        os.path.basename(os.path.dirname(images[0]))))
+        print("카드 게시 완료:", perma or media_id)
+        tg("✅ 지식 카드 게시 완료\n%s\n%s" % (caption.split("\n")[0], perma))
+        return media_id
+    finally:
+        for key in keys:
+            try:
+                s3.delete_object(Bucket=kv["R2_BUCKET"], Key=key)
+            except Exception as e:
+                print("R2 삭제 실패(%s): %s" % (e, key), flush=True)
+
+
 def main():
     args = [a for a in sys.argv[1:] if a != "--no-publish"]
     if len(args) < 2:

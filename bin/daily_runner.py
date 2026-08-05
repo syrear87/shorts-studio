@@ -6,9 +6,13 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-LOCK = ROOT / "logs" / ".daily.lock"
+# 2026-08-05 디렉터 편성: 카드(09/12/15) + 영상(10/13/16) — 시각으로 모드 판정.
+# 카드 세션은 짧게(45분) 잘라 다음 영상 슬롯(정각+1h)과 겹치지 않게 하고, 락도 분리한다.
+CARD_MODE = datetime.now().hour in (9, 12, 15)
+PROMPT_FILE = "CARD_PROMPT.md" if CARD_MODE else "DAILY_PROMPT.md"
+LOCK = ROOT / "logs" / (".card.lock" if CARD_MODE else ".daily.lock")
 LOG = ROOT / "logs" / ("daily-%s.log" % datetime.now().strftime("%Y%m%d-%H%M"))
-TIMEOUT = 100 * 60
+TIMEOUT = (45 if CARD_MODE else 100) * 60
 STALE = TIMEOUT + 10 * 60   # 2026-08-02 리뷰(OPS-7): 타임아웃과의 결합(실여유 10분)을 파생 정의로 명시
 # 일시적 API 장애(529 과부하·429 한도·연결 오류)는 몇 분이면 풀린다 → 재시도로 슬롯을 구한다.
 # 2026-07-30 17:00 실사고: 529 Overloaded로 즉사, 재시도가 없어 슬롯 하나가 통째로 증발.
@@ -112,7 +116,7 @@ def main():
                 lf.flush()
                 r = subprocess.run(
                     ["/bin/zsh", "-l", "-c",
-                     'claude -p "$(cat DAILY_PROMPT.md)" --model opus --permission-mode acceptEdits'],
+                     'claude -p "$(cat %s)" --model opus --permission-mode acceptEdits' % PROMPT_FILE],
                     stdout=lf, stderr=subprocess.STDOUT, timeout=TIMEOUT, cwd=str(ROOT))
             # 판정은 마지막 attempt 구간만 읽는다 — 이전 시도의 마커·본문과 섞임 방지 (2026-08-02 리뷰)
             text = LOG.read_text(errors="ignore").split("=== attempt ")[-1]
