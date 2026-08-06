@@ -11,13 +11,14 @@
         <string>--mode</string>
         <string>video</string>
     </array>
-    <!-- 영상 세션 전용: 매일 11(날씨·에버그린)/17(장마감 금융·확정 시세)/19(밤 감성) — DAILY_PROMPT.md
+    <!-- 영상 세션 전용: 매일 08(출근길)/12(점심)/18(퇴근길) — DAILY_PROMPT.md
+         2026-08-07 디렉터 편성 v3: 영상=붙잡힌 시간(대중교통·점심), 카드=근무 중 짧은 틈
          카드 세션은 com.shorts-studio.card.plist (--mode 인자로 모드 확정, 지연 기동에도 안전) -->
     <key>StartCalendarInterval</key>
     <array>
-        <dict><key>Hour</key><integer>11</integer><key>Minute</key><integer>0</integer></dict>
-        <dict><key>Hour</key><integer>17</integer><key>Minute</key><integer>0</integer></dict>
-        <dict><key>Hour</key><integer>19</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>8</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>12</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>18</integer><key>Minute</key><integer>0</integer></dict>
     </array>
     <key>StandardOutPath</key>
     <string>/Users/kimminsoo/Dev/shorts-studio/logs/launchd.out.log</string>

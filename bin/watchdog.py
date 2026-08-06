@@ -6,9 +6,9 @@ import glob, os, subprocess, sys
 from datetime import datetime, timedelta
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# 2026-08-05 디렉터 편성(확정): 매일 동일 — 카드 09/13/17 + 영상 11/15/19 (주말 구분 폐지)
-WEEKDAY_SLOTS = ["09", "11", "13", "15", "17", "19"]
-WEEKEND_SLOTS = ["09", "11", "13", "15", "17", "19"]
+# 2026-08-07 디렉터 편성 v3: 매일 동일 — 영상 08/12/18 + 카드 10/14/16 (주말 구분 폐지)
+WEEKDAY_SLOTS = ["08", "10", "12", "14", "16", "18"]
+WEEKEND_SLOTS = ["08", "10", "12", "14", "16", "18"]
 
 
 def main():

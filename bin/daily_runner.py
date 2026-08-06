@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# launchd가 매일 6회(카드 09/13/17시 · 영상 11/15/19시, KST) 실행 — 헤드리스 스튜디오 세션 기동.
+# launchd가 매일 6회(영상 08/12/18시 · 카드 10/14/16시, KST) 실행 — 헤드리스 스튜디오 세션 기동.
 # 락으로 중복 방지(모드별 분리), 영상 100분·카드 45분 타임아웃, 로그 저장, 실패·무산출 시 텔레그램 통보.
 import os, shutil, subprocess, sys, time
 from datetime import datetime
@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parent.parent
 if "--mode" in sys.argv:
     CARD_MODE = sys.argv[sys.argv.index("--mode") + 1] == "card"
 else:
-    CARD_MODE = datetime.now().hour in (9, 13, 15)
+    CARD_MODE = datetime.now().hour in (10, 14, 16)
 PROMPT_FILE = "CARD_PROMPT.md" if CARD_MODE else "DAILY_PROMPT.md"
 LOCK = ROOT / "logs" / (".card.lock" if CARD_MODE else ".daily.lock")
 LOG = ROOT / "logs" / ("daily-%s.log" % datetime.now().strftime("%Y%m%d-%H%M"))
