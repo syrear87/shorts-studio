@@ -449,19 +449,22 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
                                  % (si, li, lw, W - 160))
                 x = (W - lw) / 2
                 y = y_cursor + li * line_h
-                for w_ in line.split(" "):
-                    # 2026-08-04: 청크 시각 + 완만한 등장 (스케일 진폭·수직 이동 축소 — '촐싹거림' 제거)
-                    t_in = tl["chunk_times"][wi] - tl["start"]
-                    a = clamp((local - t_in) / 0.28, 0, 1)
-                    if a > 0:
-                        s = ease_out_back(a)
+                # 2026-08-07 디렉터: 어절 팝인 폐지 — 대사 요약 자막을 성우 발화에 억지로 맞추다
+                # '지나간 얘기의 자막이 뒤늦게 두둥' 하는 어긋남이 생겼다. 줄 단위로 순차 등장하되
+                # 등장 시각은 씬 내 균등 배분(발화 매칭 의존 제거), 0.25s 페이드인만 남긴다.
+                n_lines = len(sc["lines"])
+                line_gap = 0.55 if n_lines > 1 else 0.0
+                t_in = li * line_gap
+                a = clamp((local - t_in) / 0.25, 0, 1)
+                if a > 0:
+                    alpha = int(255 * a * fade)
+                    for w_ in line.split(" "):
                         col = ACCENT if tl["dwords"][wi]["hl"] else TEXT
-                        alpha = int(255 * a * fade)
-                        fs = load_font(int(line_font.size * (0.85 + 0.15 * s))) if abs(s - 1) > 0.01 else line_font
-                        yo = (1 - a) * 14
-                        text_sh(d, (x, y + yo + (line_font.size - fs.size) / 2), w_, fs, col + (alpha,))
-                    x += d.textlength(w_ + " ", font=line_font)
-                    wi += 1
+                        text_sh(d, (x, y), w_, line_font, col + (alpha,))
+                        x += d.textlength(w_ + " ", font=line_font)
+                        wi += 1
+                else:
+                    wi += len(line.split(" "))
             if sc.get("kind") == "cta" and sc.get("sub"):
                 a = clamp((local - 0.9) / 0.4, 0, 1)
                 text_sh(d, ((W - d.textlength(sc["sub"], font=F_SUB)) / 2, H * 0.56),
@@ -621,7 +624,40 @@ def main():
     # 2) 배경 영상 — bg_id가 명시됐는데 실패하면 무선별 폴백 금지 (시각 선별 게이트 우회 방지)
     # 2026-08-04 디렉터 지시: 배경 1개는 지루하다 → bg_ids(2~3개)로 씬 경계에서 배경 전환
     bg_items = []   # {"kind": "video"|"photo", "path": ...}
-    if not args.no_bg_video:
+    scene_bg_mode = (not args.no_bg_video) and all(sc.get("bg") for sc in script["scenes"])
+    if scene_bg_mode:
+        # 씬별 배경 (2026-08-07 디렉터: "각 페이즈마다 알맞은 영상" — 롱폼에서 검증된 방식을 쇼츠로).
+        # 각 씬이 "bg"로 자기 화면을 지정한다: 숫자=Pexels 영상, "photo:<id>"=사진(켄 번즈).
+        # 연속 씬이 같은 bg면 병합 — 전환은 정확히 씬 경계에서 일어난다.
+        seen = used_bg_ids(exclude_script=args.script_json)
+        dup = [str(sc["bg"]) for sc in script["scenes"] if str(sc["bg"]) in seen]
+        if dup:
+            sys.exit("기각: 배경 %s 는 이미 다른 게시본에서 사용됨 — 다른 배경을 골라라" % sorted(set(dup)))
+        groups = []   # [bg, start, end]
+        for sc, tl in zip(script["scenes"], timeline):
+            if groups and groups[-1][0] == sc["bg"]:
+                groups[-1][2] = tl["end"]
+            else:
+                groups.append([sc["bg"], tl["start"], tl["end"]])
+        groups[0][1] = 0.0
+        groups[-1][2] = total_dur
+        cache = {}
+        for b, s_, e_ in groups:
+            if b not in cache:
+                if isinstance(b, str) and b.startswith("photo:"):
+                    p = fetch_bg_photo(b.split(":", 1)[1])
+                    if p is None:
+                        sys.exit("기각: 지정 사진 %s 다운로드 실패" % b)
+                    cache[b] = {"kind": "photo", "path": p}
+                else:
+                    p = fetch_bg_by_id(b)
+                    if p is None:
+                        sys.exit("기각: 지정 bg_id=%s 다운로드 실패" % b)
+                    cache[b] = {"kind": "video", "path": p}
+            bg_items.append(dict(cache[b]))
+        scene_bg_segs = [e_ - s_ for _, s_, e_ in groups]
+        print("씬별 배경: 구간 %d개 (고유 화면 %d개)" % (len(groups), len(cache)), flush=True)
+    elif not args.no_bg_video:
         ids = script.get("bg_ids") or ([script["bg_id"]] if script.get("bg_id") else [])
         if ids:
             # 배경 재사용 하드게이트 (2026-08-05): 다른 편에서 쓴 배경이면 기각 (사진 포함)
@@ -648,7 +684,9 @@ def main():
 
     # 배경 전환 지점: 총 길이를 배경 수로 등분한 목표 시각에 가장 가까운 씬 경계로 스냅
     bg_segs = [total_dur]
-    if len(bg_items) > 1:
+    if scene_bg_mode:
+        bg_segs = scene_bg_segs
+    elif len(bg_items) > 1:
         ends = [tl["end"] for tl in timeline[:-1]]
         cuts = sorted(set(min(ends, key=lambda e: abs(e - total_dur * k / len(bg_items)))
                           for k in range(1, len(bg_items))))
