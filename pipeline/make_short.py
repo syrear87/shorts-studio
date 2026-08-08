@@ -532,8 +532,9 @@ def main():
     ap.add_argument("--keep-work", action="store_true",
                     help="work 디렉터리 보존 (디버깅용, 2026-08-02 리뷰)")
     # 2026-08-09 실험 4종 (품질 감사 experiment 등급 — 디렉터 A/B용, 채택 전 기본 off)
-    ap.add_argument("--fx-xfade", action="store_true", help="씬 경계 크로스페이드 0.35s")
-    ap.add_argument("--fx-zoom", action="store_true", help="영상 배경 슬로우 줌 (켄번즈 영상판)")
+    ap.add_argument("--no-fx-xfade", dest="fx_xfade", action="store_false", help="크로스페이드 끄기")
+    ap.add_argument("--no-fx-zoom", dest="fx_zoom", action="store_false", help="슬로우 줌 끄기")
+    ap.set_defaults(fx_xfade=True, fx_zoom=True)   # 2026-08-09 디렉터 채택 ("0+1+2로") — 기본 on
     ap.add_argument("--fx-underline", action="store_true", help="강조어 ACCENT 밑줄")
     ap.add_argument("--fx-sfx", action="store_true", help="배경 전환 소프트 스윕음 (-18dB)")
     args = ap.parse_args()
