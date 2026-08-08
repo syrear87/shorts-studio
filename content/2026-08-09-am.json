@@ -1,0 +1,78 @@
+{
+  "title": "에어컨을 켤수록 불이 납니다 — 한 달 새 화재 136건",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "에어컨이 시원한 바람을 만들 때, 그 열은 어디로 갈까요. 바로 실외기입니다.",
+      "bg": 6764581,
+      "lines": [
+        ["에어컨이 시원한 바람을 만들 때", ["시원한"]],
+        ["그 열은 어디로 갈까요", ["열은"]]
+      ]
+    },
+    {
+      "kind": "body",
+      "voice": "에어컨은 방 안의 열을 뽑아서 밖으로 내보내는 기계입니다.",
+      "bg": 6764581,
+      "lines": [
+        ["방 안의 열을 뽑아서", ["열을"]],
+        ["밖으로 내보내는 기계", ["밖으로"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "수십 대가 동시에 돌면 좁은 외벽에 열이 갇힙니다. 먼지 낀 전선이 합선을 일으킵니다.",
+      "bg": 6764581,
+      "lines": [
+        ["수십 대가 동시에 돌면", ["수십"]],
+        ["열이 갇히고 합선이 일어난다", ["합선"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "올해 7월부터 한 달 새 에어컨 화재만 136건입니다. 이 중 75퍼센트가 전기 단락이었습니다.",
+      "bg": 4389495,
+      "lines": [
+        ["한 달 새 에어컨 화재 136건", ["136건"]],
+        ["75%가 전기 단락", ["75%"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "소방청은 8월 5일 화재위험경보를 심각으로 올렸습니다. 4년 5개월 만에 하루 117건입니다.",
+      "bg": 4389495,
+      "lines": [
+        ["8/5 화재위험경보 '심각'", ["심각"]],
+        ["4년 5개월 만 · 하루 117건", ["117건"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "에어컨을 끄면 해결될까요. 실외기 주변 물건만 치워도 과열은 급격히 줄어듭니다. 불을 막는 건 버튼이 아니라 공간입니다.",
+      "bg": "photo:36085200",
+      "lines": [
+        ["끄면 해결될까요?", []],
+        ["실외기 주변만 비워도", ["주변만"]],
+        ["불을 막는 건 공간입니다", ["공간"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.fnnews.com/news/202608051657203585",
+    "https://www.hankyung.com/article/2026080568457",
+    "https://www.hvacrj.co.kr/news/articleView.html?idxno=21991",
+    "https://safekoreanews.co.kr/View.aspx?No=4174459"
+  ],
+  "bg_query": ["apartment air conditioner outdoor units wall rows summer", "electrical wire sparks fire close up", "fire truck emergency response apartment building urban", "air conditioner outdoor unit maintenance cleaning"]
+}
