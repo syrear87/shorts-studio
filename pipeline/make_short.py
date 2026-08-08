@@ -325,10 +325,6 @@ def assign_times(dwords, boundaries, dur):
     return times
 
 # ---------- 렌더 ----------
-def ease_out_back(t, s=1.35):
-    t -= 1
-    return 1 + (s + 1) * t ** 3 + s * t ** 2
-
 def clamp(x, a, b):
     return max(a, min(b, x))
 
@@ -382,35 +378,33 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
             fact_counter += 1
             fact_nums[i] = "%02d" % fact_counter
 
-    # 자막 팝인을 어절 단위 → 2어절 청크 단위로 (2026-08-04 디렉터: 단어 단위가 촐싹대고 어설픔)
-    # 같은 줄 안에서 2어절씩 묶어 청크 첫 어절의 시각에 함께 등장시킨다.
-    for tl in timeline:
-        ct = list(tl["word_times"])
-        i0 = 0
-        while i0 < len(tl["dwords"]):
-            line = tl["dwords"][i0]["line"]
-            j = i0
-            while j < len(tl["dwords"]) and tl["dwords"][j]["line"] == line:
-                j += 1
-            k = i0
-            while k < j:
-                for m in range(k, min(k + 2, j)):
-                    ct[m] = tl["word_times"][k]
-                k += 2
-            i0 = j
-        tl["chunk_times"] = ct
-
     # 텍스트 그림자용 헬퍼
     def text_sh(d, xy, s, font, fill):
+        # 2026-08-08 품질 감사: 흰 트럭·크롬·LED 위 흰 글자 저대비 실측 — 얇은 외곽선 추가 (그림자와 병행)
+        a = fill[3] if len(fill) > 3 else 255
         x, y = xy
         if video_bg:
-            d.text((x + 3, y + 3), s, font=font, fill=(0, 0, 0, min(200, fill[3] if len(fill) > 3 else 255)))
-        d.text(xy, s, font=font, fill=fill)
+            d.text((x + 3, y + 3), s, font=font, fill=(0, 0, 0, min(200, a)))
+        d.text(xy, s, font=font, fill=fill, stroke_width=2, stroke_fill=(0, 0, 0, min(190, a)))
+
+    # 2026-08-08 품질 감사: 균일 스크림이 배경을 전체적으로 탁하게 만듦 — 세로 그라데이션 1회 프리렌더
+    # (상단 칩존 150 / 중앙 95 — 배경이 살아남 / 자막존 160 — 대비 확보 / 하단 140)
+    scrim = Image.new("RGBA", (W, H))
+    _sd = ImageDraw.Draw(scrim)
+    for _y in range(H):
+        r = _y / H
+        if r < 0.16:  a_ = 150
+        elif r < 0.34: a_ = int(150 + (95 - 150) * (r - 0.16) / 0.18)
+        elif r < 0.40: a_ = int(95 + (160 - 95) * (r - 0.34) / 0.06)
+        elif r < 0.72: a_ = 160
+        elif r < 0.80: a_ = int(160 + (140 - 160) * (r - 0.72) / 0.08)
+        else:          a_ = 140
+        _sd.line([(0, _y), (W, _y)], fill=(0, 0, 0, a_))
 
     for fi in range(total):
         t = fi / FPS
         if video_bg:
-            im = Image.new("RGBA", (W, H), (0, 0, 0, SCRIM))   # 어두운 스크림 + 투명 텍스트층
+            im = scrim.copy()
         else:
             im = BG.copy().convert("RGBA")
             ax = int(W * 0.75 + 60 * math.sin(t * 0.35)); ay = int(H * 0.20 + 40 * math.cos(t * 0.28))
@@ -425,10 +419,13 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
             if tl["start"] <= t < tl["end"]:
                 si = idx
                 break
+        # 2026-08-08 품질 감사(4방향 전원 합의): 첫 프레임이 곧 피드 인상 — LEAD_IN 구간에도 훅을 그린다
+        if si is None and t < timeline[0]["start"]:
+            si = 0
         if si is not None:
             sc, tl = script["scenes"][si], timeline[si]
-            local = t - tl["start"]
-            fade = clamp((tl["end"] - t) / 0.35, 0, 1) if tl["end"] - t < 0.35 else 1.0
+            local = max(0.0, t - tl["start"])
+            fade = clamp((tl["end"] - t) / 0.20, 0, 1) if tl["end"] - t < 0.20 else 1.0
             font = F_BIG if sc.get("kind") in ("hook", "cta") else F_MED
             y_cursor = H * 0.40
             if si in fact_nums:
@@ -458,7 +455,8 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
                 n_lines = len(sc["lines"])
                 line_gap = 0.55 if n_lines > 1 else 0.0
                 t_in = li * line_gap
-                a = clamp((local - t_in) / 0.25, 0, 1)
+                # 훅 첫 줄은 0프레임부터 완성 상태 (페이드 없음 — 스와이프 판정은 첫 프레임에서 난다)
+                a = 1.0 if (si == 0 and li == 0) else clamp((local - t_in) / 0.15, 0, 1)
                 if a > 0:
                     alpha = int(255 * a * fade)
                     for w_ in line.split(" "):
@@ -469,19 +467,19 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
                 else:
                     wi += len(line.split(" "))
             if sc.get("kind") == "cta" and sc.get("sub"):
-                a = clamp((local - 0.9) / 0.4, 0, 1)
+                a = clamp((local - 0.6) / 0.3, 0, 1)   # 2026-08-08: CTA는 종료 전 완전 노출 (noon 편 실사고)
                 text_sh(d, ((W - d.textlength(sc["sub"], font=F_SUB)) / 2, H * 0.56),
                         sc["sub"], F_SUB, DIM + (int(255 * a * fade),))
         d.rectangle([0, H - 14, W * (t / total_dur), H], fill=ACCENT + (230,))
         if video_bg:
-            im.save(os.path.join(out_dir, "frames", "f%05d.png" % fi))
+            im.save(os.path.join(out_dir, "frames", "f%05d.png" % fi), compress_level=1)
         else:
             im.convert("RGB").save(os.path.join(out_dir, "frames", "f%05d.jpg" % fi), quality=92)
         if fi % 150 == 0:
             print("frame %d/%d" % (fi, total), flush=True)
 
 # ---------- BGM ----------
-def make_bgm(dur, path):
+def make_bgm(dur, path, lift_spans=None):
     SR = 44100
     prog = [[220.0, 261.63, 329.63], [174.61, 220.0, 261.63],
             [130.81, 164.81, 196.0, 261.63], [196.0, 246.94, 293.66]]
@@ -501,6 +499,18 @@ def make_bgm(dur, path):
         i1 = min(i0 + n, len(audio))
         audio[i0:i1] += seg[: i1 - i0]
     audio /= max(np.abs(audio).max(), 1e-9)
+    # 2026-08-08: twist 구간 게인 리프트(1.0→1.30, 0.4s 램프) — 반전 긴장 상승, 이후 재정규화
+    if lift_spans:
+        env = np.ones(len(audio))
+        for s0, e0 in lift_spans:
+            i0, i1 = int(s0 * SR), min(int(e0 * SR), len(audio))
+            r = int(0.4 * SR)
+            if i1 - i0 > 2 * r:
+                env[i0:i0 + r] = np.linspace(1.0, 1.30, r)
+                env[i0 + r:i1 - r] = 1.30
+                env[i1 - r:i1] = np.linspace(1.30, 1.0, r)
+        audio *= env
+        audio /= max(np.abs(audio).max(), 1e-9)
     fo = int(SR * 1.5)
     fade = np.ones(len(audio)); fade[-fo:] = np.linspace(1, 0, fo)
     pcm = (audio * fade * 32767).astype(np.int16)
@@ -548,6 +558,18 @@ def main():
         if len(sc.get("lines", [])) > limit:
             sys.exit("기각: scene %d(%s) 자막 %d줄 — %s 씬은 최대 %d줄 (구독 문구 겹침 방지)"
                      % (i, sc.get("kind"), len(sc["lines"]), sc.get("kind"), limit))
+
+    # 0-1c) 강조 분량 게이트 (2026-08-08 품질 감사: 줄 절반이 노랑이면 강조가 죽는다 — cta 고정 블록은 제외)
+    for i_, sc_ in enumerate(script["scenes"]):
+        if sc_.get("kind") == "cta":
+            continue
+        tot_hl = 0
+        for ln_, hl_ in sc_.get("lines", []):
+            if len(hl_) > 1:
+                sys.exit("기각: scene %d 줄 '%s' 강조 %d어절 — 줄당 1어절만 (강조는 아껴야 강조다)" % (i_, ln_[:20], len(hl_)))
+            tot_hl += len(hl_)
+        if tot_hl > 2:
+            sys.exit("기각: scene %d 강조 합계 %d어절 — 씬당 2어절 이내" % (i_, tot_hl))
 
     # 0-1b) 씬 문법 하드게이트 (2026-08-03 실사고: 지식 3비트를 body에 넣고 fact 씬이
     #       마무리 문장 1개뿐인 편이 게시됨 — 번호 카드는 fact 씬에만 붙으므로 시청자에겐
@@ -615,7 +637,8 @@ def main():
     if os.path.exists(meta_path):
         try:
             m = json.load(open(meta_path, encoding="utf-8"))
-            m["ig_thumb_ms"] = int((max(timeline[0]["word_times"]) + 0.5) * 1000)
+            # 2026-08-08: 훅 노출은 줄 스태거가 결정 (첫 줄 0s + 이후 줄 0.55s 간격 + 0.15s 페이드)
+            m["ig_thumb_ms"] = int((LEAD_IN + 0.55 * max(0, len(script["scenes"][0]["lines"]) - 1) + 0.30) * 1000)
             tmp = meta_path + ".tmp"
             with open(tmp, "w", encoding="utf-8") as f:
                 json.dump(m, f, ensure_ascii=False, indent=2)
@@ -659,6 +682,9 @@ def main():
                     cache[b] = {"kind": "video", "path": p}
             bg_items.append(dict(cache[b]))
         scene_bg_segs = [e_ - s_ for _, s_, e_ in groups]
+        for b_, s_, e_ in groups:
+            if e_ - s_ > 12:
+                print("경고: 배경 %s 구간 %.1fs — 한 구도 12초 초과는 이탈 구간이 된다. 연속 씬에 같은 bg를 몰아주지 마라" % (b_, e_ - s_), flush=True)
         print("씬별 배경: 구간 %d개 (고유 화면 %d개)" % (len(groups), len(cache)), flush=True)
     elif not args.no_bg_video:
         ids = script.get("bg_ids") or ([script["bg_id"]] if script.get("bg_id") else [])
@@ -700,7 +726,9 @@ def main():
     # 3) 렌더 + BGM
     render(script, timeline, work, total_dur, script.get("chip", "오늘의 지식 · 1일 1지식"), video_bg)
     bgm = os.path.join(work, "bgm.wav")
-    make_bgm(total_dur, bgm)
+    twist_spans = [(tl["start"], tl["end"]) for sc_, tl in zip(script["scenes"], timeline)
+                   if sc_.get("kind") == "twist"]
+    make_bgm(total_dur, bgm, twist_spans)
 
     # 4) 합성·인코딩
     cmd = ["ffmpeg", "-y"]
