@@ -262,6 +262,9 @@ async def tts_edge(text, mp3_path):
 
 
 def tts_scene_sync(text, mp3_path):
+    # 2026-08-08: 숫자+단위를 한글 수사로 선변환 — TTS의 고유어/한자어 선택 실수("열두개월") 원천 차단
+    from voice_clone import normalize_ko
+    text = normalize_ko(text)
     """Azure 우선, 실패 시 edge-tts 폴백 (같은 보이스라 톤 연속성 유지)."""
     b = tts_azure(text, mp3_path)
     if b is not None:
