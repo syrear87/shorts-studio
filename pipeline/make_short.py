@@ -345,7 +345,7 @@ def make_glow(r, color, alpha):
     ImageDraw.Draw(im).ellipse([r * 0.3, r * 0.3, s - r * 0.3, s - r * 0.3], fill=color + (alpha,))
     return im.filter(ImageFilter.GaussianBlur(r * 0.35))
 
-def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
+def render(script, timeline, out_dir, total_dur, channel_chip, video_bg, fx_underline=False):
     """video_bg=True → 투명 오버레이 PNG(+스크림), False → 그라데이션 JPG."""
     if not video_bg:
         BG = make_bg()
@@ -462,6 +462,11 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg):
                     for w_ in line.split(" "):
                         col = ACCENT if tl["dwords"][wi]["hl"] else TEXT
                         text_sh(d, (x, y), w_, line_font, col + (alpha,))
+                        if fx_underline and col == ACCENT:
+                            uw = d.textlength(w_, font=line_font)
+                            uy = y + line_font.size * 1.06
+                            d.line([(x, uy), (x + uw, uy)], fill=ACCENT + (alpha,),
+                                   width=max(3, int(line_font.size * 0.06)))
                         x += d.textlength(w_ + " ", font=line_font)
                         wi += 1
                 else:
@@ -526,6 +531,11 @@ def main():
     ap.add_argument("--no-bg-video", action="store_true", help="배경영상 없이 그라데이션")
     ap.add_argument("--keep-work", action="store_true",
                     help="work 디렉터리 보존 (디버깅용, 2026-08-02 리뷰)")
+    # 2026-08-09 실험 4종 (품질 감사 experiment 등급 — 디렉터 A/B용, 채택 전 기본 off)
+    ap.add_argument("--fx-xfade", action="store_true", help="씬 경계 크로스페이드 0.35s")
+    ap.add_argument("--fx-zoom", action="store_true", help="영상 배경 슬로우 줌 (켄번즈 영상판)")
+    ap.add_argument("--fx-underline", action="store_true", help="강조어 ACCENT 밑줄")
+    ap.add_argument("--fx-sfx", action="store_true", help="배경 전환 소프트 스윕음 (-18dB)")
     args = ap.parse_args()
     with open(args.script_json, encoding="utf-8") as f:
         script = json.load(f)
@@ -724,7 +734,7 @@ def main():
         bg_items = bg_items[:len(bg_segs)]   # 경계가 겹쳐 줄었으면 배경 수도 맞춤
 
     # 3) 렌더 + BGM
-    render(script, timeline, work, total_dur, script.get("chip", "오늘의 지식 · 1일 1지식"), video_bg)
+    render(script, timeline, work, total_dur, script.get("chip", "오늘의 지식 · 1일 1지식"), video_bg, fx_underline=args.fx_underline)
     bgm = os.path.join(work, "bgm.wav")
     twist_spans = [(tl["start"], tl["end"]) for sc_, tl in zip(script["scenes"], timeline)
                    if sc_.get("kind") == "twist"]
@@ -743,7 +753,9 @@ def main():
                 "-i", bgm]
         scale = "scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d,setsar=1,fps=%d" % (W, H, W, H, FPS)
         parts = []
-        for i, (it, seg) in enumerate(zip(bg_items, bg_segs)):
+        _xf_ext = 0.35 if args.fx_xfade else 0.0
+        for i, (it, seg0) in enumerate(zip(bg_items, bg_segs)):
+            seg = seg0 + (_xf_ext if i < len(bg_items) - 1 else 0)
             if it["kind"] == "photo":
                 # 켄 번즈: 구간마다 줌 방향·초점을 바꿔 단조로움 방지. 총 줌 폭은 길이 무관 +0.45
                 fr = max(int(seg * FPS) + FPS, FPS)
@@ -758,10 +770,27 @@ def main():
                     "zoompan=%s:d=%d:s=%dx%d:fps=%d,eq=saturation=0.88:brightness=-0.02,"
                     "setsar=1,trim=duration=%.3f,setpts=PTS-STARTPTS[b%d]"
                     % (i, W * 2, H * 2, W * 2, H * 2, styles[i % 3], fr, W, H, FPS, seg, i))
+            elif args.fx_zoom:
+                # 슬로우 줌 (2026-08-09 실험): 2배 중간 해상도 경유(서브픽셀 쉬머 방지), 구간당 +6% 줌
+                parts.append(
+                    "[%d:v]scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d,"
+                    "zoompan=z='min(1.0+%.7f*on,1.12)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=%dx%d:fps=%d,"
+                    "setsar=1,trim=duration=%.3f,setpts=PTS-STARTPTS[b%d]"
+                    % (i, W * 2, H * 2, W * 2, H * 2, 0.06 / max(seg * FPS, 1), W, H, FPS, seg, i))
             else:
                 parts.append("[%d:v]%s,trim=duration=%.3f,setpts=PTS-STARTPTS[b%d]"
                              % (i, scale, seg, i))
-        parts.append("%sconcat=n=%d:v=1:a=0[bgv]" % ("".join("[b%d]" % i for i in range(nb)), nb))
+        if args.fx_xfade and nb > 1:
+            # 크로스페이드 (2026-08-09 실험): 각 세그를 d만큼 연장 렌더했으므로 xfade가 총길이를 보존한다
+            D = 0.35
+            chain, acc = "[b0]", bg_segs[0]
+            for i in range(1, nb):
+                out = "[bgv]" if i == nb - 1 else "[x%d]" % i
+                parts.append("%s[b%d]xfade=transition=fade:duration=%.2f:offset=%.3f%s"
+                             % (chain, i, D, acc - D, out))
+                chain, acc = out, acc + bg_segs[i] - D
+        else:
+            parts.append("%sconcat=n=%d:v=1:a=0[bgv]" % ("".join("[b%d]" % i for i in range(nb)), nb))
         parts.append("[bgv][%d:v]overlay=format=auto[vout]" % nb)
         vf = ";".join(parts)
         a_base = nb + 1
@@ -771,11 +800,38 @@ def main():
         a_base = 1
     fl = [vf, "[%d:a]volume=0.14[bg]" % a_base]
     amix_in = "[bg]"
+    sfx_n = 0
+    if getattr(args, "fx_sfx", False) and video_bg and len(bg_segs) > 1:
+        # 소프트 전환음 (2026-08-09 실험): 밴드패스 노이즈 스윕 0.30s, -18dB — 자체 합성(저작권 클린)
+        sfx_path = os.path.join(work, "sfx.wav")
+        SRs = 44100
+        n = int(SRs * 0.30)
+        tt = np.arange(n) / SRs
+        rng = np.random.default_rng(7)
+        noise = rng.standard_normal(n)
+        sweep = np.sin(2 * np.pi * (900 - 500 * tt / 0.30) * tt)
+        sig = (0.6 * noise * np.exp(-((tt - 0.10) ** 2) / 0.004) + 0.4 * sweep) * np.hanning(n)
+        sig /= max(np.abs(sig).max(), 1e-9)
+        pcm = (sig * 32767 * 0.125).astype(np.int16)   # ≈ -18dB
+        with wave.open(sfx_path, "wb") as wf:
+            wf.setnchannels(1); wf.setsampwidth(2); wf.setframerate(SRs)
+            wf.writeframes(pcm.tobytes())
+        cuts = []
+        acc = 0.0
+        for seg in bg_segs[:-1]:
+            acc += seg
+            cuts.append(acc)
+        for ci, cut in enumerate(cuts):
+            cmd += ["-i", sfx_path]
+            fl.append("[%d:a]adelay=%d:all=1[sfx%d]" % (a_base + 1 + ci, max(0, int((cut - 0.15) * 1000)), ci))
+            amix_in += "[sfx%d]" % ci
+        sfx_n = len(cuts)
+        a_base += sfx_n
     for i, tl in enumerate(timeline):
         cmd += ["-i", tl["mp3"]]
         fl.append("[%d:a]adelay=%d:all=1,volume=1.0[v%d]" % (a_base + 1 + i, int(tl["start"] * 1000), i))
         amix_in += "[v%d]" % i
-    fl.append("%samix=inputs=%d:normalize=0[aout]" % (amix_in, len(timeline) + 1))
+    fl.append("%samix=inputs=%d:normalize=0[aout]" % (amix_in, len(timeline) + 1 + sfx_n))
     # 텔레그램 봇 전송 한도 50MB — 배경 영상이 고디테일이면 CRF 20에서 12Mbps까지 튄다.
     # 2026-08-01 실사고: 49초짜리가 78MB로 나와 발송 실패. maxrate로 상한을 걸어 원천 차단한다.
     cmd += ["-filter_complex", ";".join(fl), "-map", "[vout]", "-map", "[aout]",
