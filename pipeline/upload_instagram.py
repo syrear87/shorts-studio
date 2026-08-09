@@ -263,8 +263,20 @@ def publish_carousel(images, caption, publish=True):
         if not publish:
             print("--no-publish: 캐러셀 %s FINISHED 확인, 게시 없이 종료" % cid)
             return None
-        pub = api("POST", "/%s/media_publish" % user_id,
-                  data={"creation_id": cid, "access_token": token})
+        # media_publish 재시도 — FINISHED 직후에도 9007 "not available" 가능
+        pub = None
+        for attempt in range(5):
+            try:
+                pub = api("POST", "/%s/media_publish" % user_id,
+                          data={"creation_id": cid, "access_token": token})
+                break
+            except RuntimeError as e:
+                if "9007" in str(e) and attempt < 4:
+                    print("media_publish 대기 재시도 %d/4…" % (attempt + 1), flush=True)
+                    time.sleep(10)
+                else:
+                    raise
+        assert pub is not None
         media_id = pub["id"]
         import datetime
         with open(os.path.join(ROOT, "logs", "sent.log"), "a") as f:
