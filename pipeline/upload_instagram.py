@@ -99,9 +99,10 @@ def build_caption(meta):
     본문 안의 해시태그 줄(#...)과 Pexels 크레딧은 그대로 유지한다."""
     title = meta["title"].replace("#shorts", "").replace("#Shorts", "").strip()
     desc = meta["description"]
-    # 2026-08-05 디렉터: Pexels 크레딧 줄도 캡션에서 제거 (채널 정보란으로 이관)
+    # 2026-08-05 디렉터: Pexels 크레딧 줄 제거 (채널 정보란으로 이관)
+    # 2026-08-10 보강: '배경 영상: Pexels' 문구만 걸러 'Pexels 제공 영상 사용'이 새어나감 — 'Pexels' 포함 줄 전체로 확장
     lines = [l for l in desc.splitlines()
-             if not l.strip().startswith("태그:") and "배경 영상: Pexels" not in l]
+             if not l.strip().startswith("태그:") and "Pexels" not in l and "pexels" not in l]
     desc = "\n".join(lines).strip()
     return ("%s\n\n%s" % (title, desc))[:2200]
 
