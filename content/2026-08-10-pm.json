@@ -1,0 +1,68 @@
+{
+  "title": "수요일 밤 별똥별, 망원경을 가져가면 오히려 못 봅니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "bg_ids": [19182135, 37767639, 25649447],
+  "bg_query": [
+    "meteor shower night sky timelapse",
+    "starry night sky dark field",
+    "person lying grass watching stars night",
+    "silhouette night sky milky way"
+  ],
+  "sources": [
+    "https://www.khan.co.kr/article/202608100858001",
+    "https://www.kasi.re.kr/kor/publication/post/newsMaterial/5547",
+    "https://starwalk.space/en/news/all-you-need-to-know-about-the-perseids"
+  ],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "수요일 밤 열 시부터 별똥별이 쏟아집니다. 가져가야 할 건 딱 하나입니다.",
+      "lines": [
+        ["수요일 밤 10시, 별똥별", ["10시"]],
+        ["가져가야 할 건 딱 하나", ["하나"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "페르세우스 유성우의 절정은 8월 12일 밤입니다. 밤 열 시부터 새벽까지, 밤이 깊을수록 별똥별이 늘어납니다.",
+      "lines": [
+        ["절정: 8월 12일(수) 밤", ["8월 12일"]],
+        ["밤 10시~새벽, 늦을수록 많다", ["10시"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "올해는 마침 신월이라 달빛이 없습니다. 어두운 별똥별까지 맨눈으로 볼 수 있는 최상의 조건입니다.",
+      "lines": [
+        ["신월 — 달빛 없는 밤", ["신월"]],
+        ["맨눈 관측 최상의 조건", ["맨눈"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "도심 불빛만 피하면 됩니다. 스마트폰 화면도 끄세요. 눈이 어둠에 적응하는 데 30분이면 충분합니다.",
+      "lines": [
+        ["도심 불빛만 피하면 OK", ["도심"]],
+        ["어둠 적응 30분이면 충분", ["30분"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "망원경은 가져가지 마세요. 시야를 좁게 만들 뿐입니다. 돗자리 하나면 됩니다. 133년 전 혜성의 부스러기가 눈앞에서 타오릅니다.",
+      "lines": [
+        ["망원경은 오히려 방해", ["방해"]],
+        ["돗자리 하나면 됩니다 · 12일 밤 예고", ["돗자리"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ]
+}
