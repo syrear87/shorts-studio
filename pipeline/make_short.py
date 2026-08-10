@@ -681,7 +681,14 @@ def main():
         cache = {}
         for b, s_, e_ in groups:
             if b not in cache:
-                if isinstance(b, str) and b.startswith("photo:"):
+                if isinstance(b, str) and b.startswith("nasa:"):
+                    # 2026-08-11: NASA 공개 아카이브 (퍼블릭 도메인) — 우주·천문 소재의 정합 배경
+                    from fetch_nasa import fetch as fetch_nasa
+                    p = fetch_nasa(b.split(":", 1)[1])
+                    if p is None:
+                        sys.exit("기각: NASA 배경 %s 다운로드 실패" % b)
+                    cache[b] = {"kind": "video", "path": p}
+                elif isinstance(b, str) and b.startswith("photo:"):
                     p = fetch_bg_photo(b.split(":", 1)[1])
                     if p is None:
                         sys.exit("기각: 지정 사진 %s 다운로드 실패" % b)
