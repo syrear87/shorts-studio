@@ -203,6 +203,14 @@ def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video):
     except Exception as e:
         perma = "(permalink 조회 실패: %s)" % str(e)[:80]
     print("릴스 게시 완료:", perma or media_id)
+    # 2026-08-10: permalink 원장 — 제목을 나중에 교체하면 IG 캡션과 어긋나 대조가 실패한다(치킨게임 편 실사고).
+    # 파일명 기준 원장을 남겨 두면 어떤 편이 어떤 게시물인지 항상 역추적 가능.
+    try:
+        with open(os.path.join(ROOT, "logs", "ig_posts.log"), "a", encoding="utf-8") as _f:
+            _f.write("%s\t%s\t%s\t%s\n" % (time.strftime("%Y-%m-%dT%H:%M:%S"),
+                     os.path.basename(video), media_id, perma or ""))
+    except Exception as _e:
+        print("permalink 원장 기록 실패(무해):", _e)
     tg("✅ 인스타 릴스 게시 완료\n%s\n%s" % (build_caption(meta).split("\n")[0], perma))
     return media_id
 
