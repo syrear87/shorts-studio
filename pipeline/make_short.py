@@ -203,6 +203,10 @@ def fetch_bg_by_id(vid_id):
         return None
 
 # ---------- TTS ----------
+# 2026-08-11 blind A/B (디렉터 선정): 남성 = HD(Hyunsu HD, eastus 신규 리소스) / 여성 = 현행(SunHi) 유지
+HD_VOICE_MAP = {"ko-KR-InJoonNeural": ("ko-KR-Hyunsu:DragonHDLatestNeural", "+12%")}
+
+
 def tts_azure(text, mp3_path):
     """Azure Speech 공식 API (2026-08-04 디렉터 승인 S-004 — aitutor와 리소스 공유).
 
@@ -211,15 +215,21 @@ def tts_azure(text, mp3_path):
     word boundary 이벤트로 edge-tts와 동일한 (초, 단어) 타이밍을 반환한다.
     키 없음/실패 시 None 반환 → 호출부가 edge-tts로 폴백."""
     keys = load_keys()
-    key = keys.get("AZURE_SPEECH_KEY") or os.environ.get("AZURE_SPEECH_KEY")
+    voice, rate = VOICE, RATE
+    # 남성이면 HD 보이스·HD 리소스(eastus)로 라우팅 — HD 키가 없으면 현행 유지
+    if VOICE in HD_VOICE_MAP and keys.get("AZURE_SPEECH_KEY_HD"):
+        voice, rate = HD_VOICE_MAP[VOICE]
+        key = keys["AZURE_SPEECH_KEY_HD"]
+        region = keys.get("AZURE_SPEECH_REGION_HD", "eastus")
+    else:
+        key = keys.get("AZURE_SPEECH_KEY") or os.environ.get("AZURE_SPEECH_KEY")
+        region = keys.get("AZURE_SPEECH_REGION") or os.environ.get("AZURE_SPEECH_REGION") or "koreacentral"
     if not key:
         return None
     try:
         import azure.cognitiveservices.speech as speechsdk
         from xml.sax.saxutils import escape
-        cfg = speechsdk.SpeechConfig(
-            subscription=key,
-            region=keys.get("AZURE_SPEECH_REGION") or os.environ.get("AZURE_SPEECH_REGION") or "koreacentral")
+        cfg = speechsdk.SpeechConfig(subscription=key, region=region)
         cfg.set_speech_synthesis_output_format(
             speechsdk.SpeechSynthesisOutputFormat.Audio24Khz96KBitRateMonoMp3)
         synth = speechsdk.SpeechSynthesizer(speech_config=cfg, audio_config=None)
@@ -235,7 +245,7 @@ def tts_azure(text, mp3_path):
         synth.synthesis_word_boundary.connect(on_boundary)
         ssml = ('<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="ko-KR">'
                 '<voice name="%s"><prosody rate="%s">%s</prosody></voice></speak>'
-                % (VOICE, RATE, escape(text)))
+                % (voice, rate, escape(text)))
         result = synth.speak_ssml_async(ssml).get()
         if result.reason != speechsdk.ResultReason.SynthesizingAudioCompleted:
             detail = getattr(getattr(result, "cancellation_details", None), "error_details", result.reason)
