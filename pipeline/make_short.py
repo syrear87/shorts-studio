@@ -24,6 +24,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def font_path():
     cands = [
+        # 2026-08-11 고급화: Pretendard 우선 (OFL 오픈소스 — 상위 채널 표준 서체)
+        os.path.join(ROOT, "assets", "fonts", "Pretendard-ExtraBold.otf"),
         os.path.join(ROOT, "assets", "fonts", "NotoSansCJKkr-Black.otf"),
         "/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc",
         "/System/Library/Fonts/AppleSDGothicNeo.ttc",
@@ -34,10 +36,13 @@ def font_path():
     sys.exit("한글 폰트를 찾을 수 없습니다 — setup.sh를 먼저 실행하세요")
 
 FONT = font_path()
+FONT_HOOK = os.path.join(ROOT, "assets", "fonts", "Pretendard-Black.otf")   # 훅·CTA용 최대 굵기
 TTC_IDX = 1 if FONT.endswith("NotoSansCJK-Black.ttc") else 0
 
-def load_font(size):
+def load_font(size, hook=False):
     try:
+        if hook and os.path.exists(FONT_HOOK):
+            return ImageFont.truetype(FONT_HOOK, size)
         return ImageFont.truetype(FONT, size, index=TTC_IDX)
     except Exception:
         return ImageFont.truetype(FONT, size, index=0)
@@ -351,7 +356,7 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg, fx_unde
         BG = make_bg()
         GA = make_glow(520, ACCENT, 26)
         GB = make_glow(640, (90, 110, 220), 22)
-    F_BIG, F_MED = load_font(92), load_font(78)
+    F_BIG, F_MED = load_font(92, hook=True), load_font(78)
     F_CHIP, F_NUM, F_SUB = load_font(36), load_font(140), load_font(40)
 
     # 채널 배너: 1회 프리렌더 (불투명 필 + 정중앙 정렬 → 압축·움직임에도 또렷)
@@ -537,6 +542,8 @@ def main():
     ap.set_defaults(fx_xfade=True, fx_zoom=True)   # 2026-08-09 디렉터 채택 ("0+1+2로") — 기본 on
     ap.add_argument("--fx-underline", action="store_true", help="강조어 ACCENT 밑줄")
     ap.add_argument("--fx-sfx", action="store_true", help="배경 전환 소프트 스윕음 (-18dB)")
+    ap.add_argument("--no-fx-cine", dest="fx_cine", action="store_false", help="시네마틱 톤 끄기")
+    ap.set_defaults(fx_cine=True)   # 2026-08-11 디렉터 채택 ("영상은 일단 ㅇㅋ") — 기본 on
     args = ap.parse_args()
     with open(args.script_json, encoding="utf-8") as f:
         script = json.load(f)
@@ -769,7 +776,9 @@ def main():
                 cmd += ["-stream_loop", "-1", "-i", it["path"]]
         cmd += ["-framerate", str(FPS), "-i", os.path.join(work, "frames", "f%05d.png"),
                 "-i", bgm]
-        scale = "scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d,setsar=1,fps=%d" % (W, H, W, H, FPS)
+        # 2026-08-11 고급화 실험: 필름룩 — 미드톤 대비↑·채도 살짝↓·섀도 블루틴트 (차분한 시네마 톤)
+        cine = ",curves=master='0/0 0.25/0.21 0.5/0.5 0.75/0.79 1/1',eq=saturation=0.92,colorbalance=bs=0.03:ms=0.01" if args.fx_cine else ""
+        scale = "scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d,setsar=1,fps=%d%s" % (W, H, W, H, FPS, cine)
         parts = []
         _xf_ext = 0.35 if args.fx_xfade else 0.0
         for i, (it, seg0) in enumerate(zip(bg_items, bg_segs)):
