@@ -127,6 +127,19 @@ def normalize_ko(text):
             return _NATIVE[n] + m.group(2) + m.group(3)
         return m.group(0)   # 21+ 는 일반 패스(한자어)로
     text = re.sub(r"(?<![\d.])(\d+)(\s?)(%s)" % _NATIVE_UNITS, native_repl, text)
+    # 경음화 표기 (2026-08-11 디렉터 청음 선정 — "팔도"가 아니라 "팔또"로 읽혀야 자연스럽다):
+    # 받침 ㄱ/ㅂ/ㄹ로 끝나는 수사(일·칠·팔·육·십·백·억) 뒤의 도/달러를 소리 나는 대로 바꿔 TTS에 전달.
+    # 자막은 원문 유지 — TTS 입력 전용. 모음으로 끝나면(이도·오도) 그대로 둔다.
+    def tense_repl(m):
+        num, dec, unit = m.group(1), m.group(2), m.group(3)
+        s_ = _sino(int(num))
+        if dec:
+            s_ += "쩜" + "".join(_D[int(c)] for c in dec)
+        if s_ and s_[-1] in "일칠팔육십백억":
+            unit = {"도": "또", "달러": "딸러"}[unit]
+        return s_ + unit
+    # 뒤에 조사(까지·로·였다 등)가 와도 매칭돼야 한다 — 숫자 연속만 차단
+    text = re.sub(r"(?<![\d.])(\d+)(?:\.(\d+))?\s?(도|달러)(?![0-9])", tense_repl, text)
     return normalize_numbers(text)
 
 
