@@ -121,8 +121,18 @@ def r2_put(kv, path):
     return s3, key, kv["R2_PUBLIC_URL"].rstrip("/") + "/" + key
 
 
+def _validate_r2_config(kv):
+    """keys.env 오염 조기 검출 (2026-08-12 실사고: 키 추가 시 줄바꿈 누락으로
+    R2_PUBLIC_URL 끝에 다른 키가 이어붙어 IG 컨테이너가 조용히 ERROR — 슬롯 2회 실패)."""
+    u = kv.get("R2_PUBLIC_URL", "")
+    if not u.startswith("https://") or "=" in u or not u.rstrip("/").endswith(".r2.dev"):
+        raise RuntimeError("keys.env 오염 의심: R2_PUBLIC_URL 형식 이상(%r...) — "
+                           "줄바꿈 누락으로 다른 키가 이어붙었는지 확인하라" % u[:40])
+
+
 def upload(video, meta, publish=True):
     kv = load_keys()
+    _validate_r2_config(kv)
     token, user_id = kv.get("IG_ACCESS_TOKEN"), kv.get("IG_USER_ID")
     if not token or not user_id:
         raise RuntimeError("keys.env에 IG_ACCESS_TOKEN/IG_USER_ID 없음 — 릴스 업로드 건너뜀")
