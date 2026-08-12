@@ -1,0 +1,75 @@
+{
+  "title": "오늘 밤 별똥별, 자정 넘겨서 나가세요",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "bg_query": [
+    "meteor shower night sky shooting star",
+    "milky way lake reflection dark",
+    "starry night blue sky timelapse",
+    "meteor trail long exposure stars"
+  ],
+  "sources": [
+    "https://www.etoday.co.kr/news/view/2613446",
+    "https://starwalk.space/en/news/all-you-need-to-know-about-the-perseids",
+    "https://www.newsis.com/view/NISX20260811_0003744932",
+    "https://ncbi.nlm.nih.gov/pmc/articles/PMC6343678",
+    "https://www.weather.go.kr/w/forecast/overall/short-term.do"
+  ],
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": "photo:17431612",
+      "voice": "오늘 밤 별똥별이 쏟아집니다. 열 시에 나가면, 겨우 몇 개 보고 돌아옵니다.",
+      "lines": [
+        ["오늘 밤 별똥별 쏟아진다", ["별똥별"]],
+        ["10시에 나가면 몇 개뿐", ["몇 개뿐"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 28295445,
+      "voice": "별똥별이 출발하는 페르세우스자리는 밤 열 시에는 아직 낮게 떠 있습니다. 자정이 넘어야 높이 올라와서 하늘 전체로 쏟아지기 시작합니다.",
+      "lines": [
+        ["페르세우스자리 — 10시엔 아직 낮다", ["10시엔"]],
+        ["자정이 넘어야 하늘 전체로", ["자정"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 13423306,
+      "voice": "가장 많이 쏟아지는 시간은 새벽 두 시에서 네 시 사이입니다. 도시 불빛이 없는 곳이라면 시간당 팔십 개까지 볼 수 있습니다.",
+      "lines": [
+        ["새벽 2시~4시 — 시간당 최대 80개", ["80개"]],
+        ["도시 불빛 없는 곳에서", ["불빛"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "photo:18409140",
+      "voice": "나가자마자 안 보인다고 돌아오지 마세요. 우리 눈이 어둠에 적응하려면 삼십 분이 걸립니다. 스마트폰 화면을 보면 다시 처음부터입니다.",
+      "lines": [
+        ["눈 어둠적응에 30분 필요", ["30분"]],
+        ["스마트폰 보면 처음부터", ["스마트폰"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": "photo:17431612",
+      "voice": "수도권과 충청, 전라는 맑습니다. 동해안에 구름이 끼더라도 내일 밤 기회가 한 번 더 있습니다. 폰을 끄고, 하늘만 보세요.",
+      "lines": [
+        ["수도권·충청·전라 맑음", ["맑음"]],
+        ["내일 밤 한 번 더 — 폰 끄고 하늘만", ["폰 끄고"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": 13423306,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ]
+}
