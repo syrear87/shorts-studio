@@ -1,0 +1,370 @@
+#!/usr/bin/env python3
+# 제휴 댓글 워처 (2026-08-13 디렉터 확정 루틴)
+#   흐름: 세션이 텔레그램으로 "제휴 후보(쿠팡 검색명)" 알림 → 디렉터가 쿠팡 앱에서 상품 공유
+#   URL(link.coupang.com)을 이 방에 회신 → 이 워처가 감지해 **가장 최근 IG 게시물**에
+#   연결 문구+링크+고지 댓글을 자동 게시 → 확인 메시지 발송(고정은 디렉터 앱에서).
+#   ⚠️ S-007: 세션 단독 부착 금지 원칙 유지 — 이 봇은 "디렉터가 보낸 링크"에만 반응한다(전달=승인).
+#   한계(v1): 대상은 회신 시점의 최신 게시물로 판정한다. 잘못 붙었으면 "취소"라고 회신 → 댓글 삭제.
+# 실행: nohup .venv/bin/python3 pipeline/affiliate_bot.py >> logs/affiliate_bot.log 2>&1 &
+import json
+import os
+import re
+import time
+import urllib.parse
+import urllib.request
+from datetime import datetime
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OFFSET_F = os.path.join(ROOT, "logs", "affiliate_offset.txt")
+STATE_F = os.path.join(ROOT, "logs", "affiliate_state.json")
+DISCLOSURE = "* 이 게시물은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다"
+
+
+def env(path, keys):
+    out = {}
+    for line in open(os.path.join(ROOT, path), encoding="utf-8"):
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            k, v = line.split("=", 1)
+            if k.strip() in keys:
+                out[k.strip()] = v.strip().strip('"')
+    return out
+
+
+TG = env("telegram.env", {"STUDIO_TG_TOKEN", "STUDIO_TG_CHAT_ID"})
+IG = env("keys.env", {"IG_ACCESS_TOKEN", "IG_USER_ID"})
+KV = env("keys.env", {"R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL"})
+G = "https://graph.instagram.com/v23.0"
+
+
+def http(url, data=None, timeout=60):
+    req = urllib.request.Request(url, data=data, method="POST" if data else "GET")
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return json.load(r)
+
+
+def tg_send(text):
+    http("https://api.telegram.org/bot%s/sendMessage" % TG["STUDIO_TG_TOKEN"],
+         urllib.parse.urlencode({"chat_id": TG["STUDIO_TG_CHAT_ID"], "text": text,
+                                 "disable_web_page_preview": "true"}).encode())
+
+
+def tg_send_photo(path, caption):
+    import mimetypes, uuid
+    boundary = uuid.uuid4().hex
+    fields = {"chat_id": TG["STUDIO_TG_CHAT_ID"], "caption": caption}
+    body = b""
+    for k, v in fields.items():
+        body += ("--%s\r\nContent-Disposition: form-data; name=\"%s\"\r\n\r\n%s\r\n" % (boundary, k, v)).encode()
+    fn = os.path.basename(path)
+    body += ("--%s\r\nContent-Disposition: form-data; name=\"document\"; filename=\"%s\"\r\nContent-Type: image/jpeg\r\n\r\n" % (boundary, fn)).encode()
+    body += open(path, "rb").read() + b"\r\n"
+    body += ("--%s--\r\n" % boundary).encode()
+    req = urllib.request.Request("https://api.telegram.org/bot%s/sendDocument" % TG["STUDIO_TG_TOKEN"],
+                                 data=body, method="POST")
+    req.add_header("Content-Type", "multipart/form-data; boundary=%s" % boundary)
+    with urllib.request.urlopen(req, timeout=120) as r:
+        return json.load(r)
+
+
+def latest_media():
+    d = http(f"{G}/{IG['IG_USER_ID']}/media?fields=id,permalink,caption,timestamp,media_type,media_url,thumbnail_url,children{{media_url}}&limit=1&access_token={IG['IG_ACCESS_TOKEN']}")
+    if not d.get("data"):
+        return None
+    m = d["data"][0]
+    # 캐러셀(카드)은 첫 장의 media_url을 커버로 사용
+    if not m.get("media_url") and m.get("children", {}).get("data"):
+        m["media_url"] = m["children"]["data"][0].get("media_url")
+    return m
+
+
+def state(update=None):
+    s = {}
+    if os.path.exists(STATE_F):
+        s = json.load(open(STATE_F, encoding="utf-8"))
+    if update:
+        s.update(update)
+        json.dump(s, open(STATE_F, "w", encoding="utf-8"), ensure_ascii=False)
+    return s
+
+
+HUB_KEY = "hub/index.html"
+STORY_KEY = "hub/story_%s.jpg"
+
+
+def r2_client():
+    import boto3
+    return boto3.client("s3",
+                        endpoint_url="https://%s.r2.cloudflarestorage.com" % KV["R2_ACCOUNT_ID"],
+                        aws_access_key_id=KV["R2_ACCESS_KEY"],
+                        aws_secret_access_key=KV["R2_SECRET_KEY"], region_name="auto")
+
+
+def update_hub(items):
+    """자체 미니 허브 페이지 갱신 (v2: 흰 배경 미니멀 — 2026-08-13 디렉터 "심플하게, 배경색 없이").
+    items = [{name, url, date}] 최신순 최대 5개."""
+    rows = "\n".join(
+        '<a class="item" href="%s"><span class="name">%s</span><span class="meta">%s · 쿠팡에서 보기 &#8250;</span></a>' % (it["url"], (it["name"][:34] + '…') if len(it["name"]) > 35 else it["name"], it["date"])
+        for it in items)
+    html = """<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1일 1지식 - 오늘의 추천</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fff;color:#111;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard',sans-serif;
+padding:56px 20px 40px;max-width:480px;margin:0 auto}
+h1{font-size:26px;font-weight:900;text-align:center;letter-spacing:-0.5px}
+h1 .d1{color:#12192e}h1 .d2{color:#ffb43c}
+.underbar{width:58px;height:5px;background:#ffb43c;border-radius:3px;margin:8px auto 0}
+p.sub{color:#8a8f98;font-size:13px;text-align:center;margin:6px 0 36px}
+.item{display:block;border:1px solid #e6e8eb;border-radius:14px;padding:18px 20px;margin:10px 0;
+text-decoration:none;color:#111;transition:border-color .15s}
+.item:active{border-color:#111}
+.name{display:block;font-size:15px;font-weight:650;line-height:1.45}
+.meta{display:block;color:#a0a5ad;font-size:12px;margin-top:6px}
+footer{color:#b3b8bf;font-size:11px;text-align:center;margin-top:44px;line-height:1.7}
+</style></head><body>
+<h1><span class="d1">1일</span> <span class="d2">1지식</span></h1><div class="underbar"></div><p class="sub" style="margin-top:14px">오늘의 추천 아이템</p>
+%s
+<footer>쿠팡 파트너스 활동의 일환으로,<br>이에 따른 일정액의 수수료를 제공받습니다</footer>
+</body></html>""" % rows
+    s3 = r2_client()
+    s3.put_object(Bucket=KV["R2_BUCKET"], Key=HUB_KEY, Body=html.encode("utf-8"),
+                  ContentType="text/html; charset=utf-8", CacheControl="no-cache")
+    return KV["R2_PUBLIC_URL"].rstrip("/") + "/" + HUB_KEY
+
+
+def local_cover_frame(media):
+    """최신 IG 게시물이 우리 영상이면, 로컬 mp4에서 훅 자막이 '전부' 뜬 프레임을 뽑아 커버로 쓴다
+    (2026-08-14 디렉터: IG 썸네일은 자막 한 줄만 나온 시점이라 기각 — "자막 다 나온 상태 캡쳐해줘").
+    방법: sent.log 마지막 IG:*.mp4 행 ↔ 게시 시각 대조(±30분) → 초반 12초를 2fps 스캔,
+    중앙 자막 밴드(세로 35~65%)의 흰 픽셀이 최대인(동률이면 가장 늦은) 시점 = 훅 자막 완성 시점."""
+    import subprocess
+    import tempfile
+    from datetime import timezone, timedelta
+    try:
+        rows = [ln.split() for ln in open(os.path.join(ROOT, "logs", "sent.log"), encoding="utf-8")]
+        vids = [r for r in rows if len(r) == 2 and r[1].startswith("IG:") and r[1].endswith(".mp4")]
+        if not vids:
+            return None
+        ts_str, name = vids[-1][0], vids[-1][1][3:]
+        path = os.path.join(ROOT, "out", name)
+        if not os.path.exists(path):
+            return None
+        mt = datetime.strptime(media["timestamp"], "%Y-%m-%dT%H:%M:%S%z")
+        lt = datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone(timedelta(hours=9)))
+        if abs((mt - lt).total_seconds()) > 1800:
+            return None  # 최신 게시물이 이 파일이 아니다 — 썸네일 폴백
+        tmp = tempfile.mkdtemp(prefix="afcover_")
+        subprocess.run(["ffmpeg", "-y", "-t", "12", "-i", path, "-vf", "fps=2,scale=270:480",
+                        "-loglevel", "error", os.path.join(tmp, "f%03d.jpg")], check=True)
+        from PIL import Image
+        best_n, best_ink = None, -1
+        for fn in sorted(os.listdir(tmp)):
+            if not fn.startswith("f"):
+                continue
+            g = Image.open(os.path.join(tmp, fn)).convert("L")
+            band = g.crop((0, int(480 * 0.35), 270, int(480 * 0.65)))
+            ink = sum(1 for v in band.getdata() if v >= 225)
+            if ink >= best_ink:  # 동률이면 늦은 프레임(단어 하이라이트까지 진행된 상태)
+                best_n, best_ink = int(fn[1:4]), ink
+        if best_n is None:
+            return None
+        t = (best_n - 1) / 2.0 + 0.2
+        outp = os.path.join(tmp, "cover.jpg")
+        subprocess.run(["ffmpeg", "-y", "-ss", "%.2f" % t, "-i", path, "-frames:v", "1",
+                        "-q:v", "2", "-loglevel", "error", outp], check=True)
+        return outp if os.path.exists(outp) else None
+    except Exception:
+        return None  # 어떤 실패든 썸네일 폴백 — 스티커 킷 발송 자체를 막지 않는다
+
+
+def make_story_image(media, product_name, out_path, sticker_mode=False):
+    """스토리용 이미지 v2 (2026-08-13 디렉터: 어두운 블러 배경판 기각 → 허브와 같은 흰 배경 브랜드 톤).
+    구성: 워드마크 / 오늘의 추천 + 상품명 / 게시물 커버(라운드+섀도) / 하단 여백(스티커 자리) / 고지."""
+    from PIL import Image, ImageDraw, ImageFont, ImageFilter
+    import io
+    W, H = 1080, 1920
+    NAVY, GOLD = (18, 25, 46), (255, 180, 60)
+    GRAY, LGRAY = (138, 143, 152), (179, 184, 191)
+    # 커버 우선순위: 로컬 영상의 '자막 완성' 프레임 → IG 썸네일 (2026-08-14 디렉터: 썸네일은 자막 한 줄뿐)
+    local = local_cover_frame(media)
+    if local:
+        cover = Image.open(local).convert("RGB")
+    else:
+        # 릴스는 media_url이 mp4다 — 이미지는 항상 썸네일 우선 (2026-08-13 실사고)
+        url = media.get("thumbnail_url") or media.get("media_url")
+        raw = urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"}), timeout=60).read()
+        cover = Image.open(io.BytesIO(raw)).convert("RGB")
+    im = Image.new("RGB", (W, H), (255, 255, 255))
+    d = ImageDraw.Draw(im)
+    def font(sz):
+        for p in ["/Library/Fonts/Pretendard-ExtraBold.otf",
+                  os.path.expanduser("~/Library/Fonts/Pretendard-ExtraBold.otf"),
+                  "/System/Library/Fonts/AppleSDGothicNeo.ttc"]:
+            if os.path.exists(p):
+                try:
+                    return ImageFont.truetype(p, sz)
+                except Exception:
+                    continue
+        return ImageFont.load_default()
+    def center(y, t, f, fill):
+        d.text(((W - d.textlength(t, font=f)) / 2, y), t, font=f, fill=fill)
+    f_mark = font(72)
+    w1, w2 = d.textlength("1일 ", font=f_mark), d.textlength("1지식", font=f_mark)
+    x0 = (W - w1 - w2) / 2
+    d.text((x0, 150), "1일 ", font=f_mark, fill=NAVY)
+    d.text((x0 + w1, 150), "1지식", font=f_mark, fill=GOLD)
+    d.rounded_rectangle([(W - 140) / 2, 260, (W + 140) / 2, 274], radius=7, fill=GOLD)
+    center(340, "오늘의 추천", font(44), GRAY)
+    if not sticker_mode:
+        name = product_name if len(product_name) <= 18 else product_name[:17] + "…"
+        center(420, name, font(56), NAVY)
+    # sticker_mode: '오늘의 추천' 아래(y 400~540)를 비워둔다 — 디렉터가 그 자리에 링크 스티커 배치 (2026-08-13)
+    card_w = 860
+    card = cover.resize((card_w, int(card_w * cover.height / cover.width)))
+    if card.height > 1050:
+        # 세로 커버(릴스)는 자막 블록이 화면 중앙부(약 40~60%)에 있다 — 그 중심(48%)이 카드 가운데 오도록 크롭 (2026-08-13 디렉터)
+        y0 = int(card.height * 0.48 - 525)
+        y0 = max(0, min(y0, card.height - 1050))
+        card = card.crop((0, y0, card_w, y0 + 1050))
+    rad = 36
+    mask = Image.new("L", card.size, 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, card.width, card.height], radius=rad, fill=255)
+    cx, cy = (W - card_w) // 2, 560
+    shadow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(shadow).rounded_rectangle(
+        [cx + 6, cy + 14, cx + card_w + 6, cy + card.height + 14], radius=rad, fill=(20, 25, 40, 60))
+    shadow = shadow.filter(ImageFilter.GaussianBlur(18))
+    im.paste(shadow, (0, 0), shadow)
+    im.paste(card, (cx, cy), mask)
+    if sticker_mode:
+        # 카드 아래 ~고지 사이는 링크 스티커용 여백
+        center(H - 150, "쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다", font(26), LGRAY)
+    else:
+        center(H - 260, "구매 링크는 프로필에서", font(46), GOLD)
+        center(H - 150, "쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다", font(26), LGRAY)
+    im.save(out_path, quality=93)
+    return out_path
+
+
+def publish_story(image_path):
+    """스토리 발행: R2 임시 업로드 → STORIES 컨테이너 → publish."""
+    s3 = r2_client()
+    key = STORY_KEY % datetime.now().strftime("%Y%m%d%H%M%S")
+    s3.upload_file(image_path, KV["R2_BUCKET"], key, ExtraArgs={"ContentType": "image/jpeg"})
+    pub = KV["R2_PUBLIC_URL"].rstrip("/") + "/" + key
+    try:
+        c = http(f"{G}/{IG['IG_USER_ID']}/media",
+                 urllib.parse.urlencode({"media_type": "STORIES", "image_url": pub,
+                                         "access_token": IG["IG_ACCESS_TOKEN"]}).encode())
+        import time as _t
+        for _ in range(20):
+            st = http(f"{G}/{c['id']}?fields=status_code&access_token={IG['IG_ACCESS_TOKEN']}")
+            if st.get("status_code") == "FINISHED":
+                break
+            _t.sleep(3)
+        res = http(f"{G}/{IG['IG_USER_ID']}/media_publish",
+                   urllib.parse.urlencode({"creation_id": c["id"], "access_token": IG["IG_ACCESS_TOKEN"]}).encode())
+        return res.get("id")
+    finally:
+        try:
+            s3.delete_object(Bucket=KV["R2_BUCKET"], Key=key)
+        except Exception:
+            pass
+
+
+def handle_link(text_msg):
+    url_m = re.search(r"https://link\.coupang\.com/\S+", text_msg)
+    if not url_m:
+        return
+    url = url_m.group(0)
+    name = ""
+    for ln in text_msg.splitlines():
+        ln = ln.strip()
+        if ln and "link.coupang.com" not in ln and "쿠팡을 추천합니다" not in ln:
+            name = ln[:60]
+            break
+    if not name:
+        name = "오늘의 추천 상품"
+    m = latest_media()
+    if not m:
+        tg_send("⚠️ 처리 실패: 최근 게시물 조회 실패")
+        return
+    # ① 허브 자동 갱신 (프로필 링크 보조 통로)
+    s_ = state()
+    items = [it for it in s_.get("hub_items", []) if it["url"] != url]
+    items.insert(0, {"name": name, "url": url, "date": datetime.now().strftime("%m/%d")})
+    items = items[:5]
+    update_hub(items)
+    state({"hub_items": items, "last_permalink": m.get("permalink"),
+           "last_product": {"name": name, "url": url}, "ts": datetime.now().isoformat()})
+    # ② 최종 확정 (2026-08-13 오후): 자동 게시 없음, 프로필 유도형 없음 —
+    #    스티커 킷(이미지+링크)을 만들어 보내면 디렉터가 스토리+링크 스티커로 게시한다 (클릭 1번 경로 유일 기본)
+    try:
+        img = os.path.join(ROOT, "out", "story_sticker_ready.jpg")
+        make_story_image(m, name, img, sticker_mode=True)
+        tg_send_photo(img, "📸 %s — ①저장 ②스토리 올리기 ③링크 스티커(다음 메시지) ④게시" % name)
+        tg_send(url)
+        tg_send("📋 유튜브 설명란 끝에 붙여넣기용 (링크 클릭 가능):\n\n🛒 %s\n%s\n* 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다" % (name, url))
+    except Exception as e:
+        print("[affiliate_bot] 이미지 실패:", str(e)[:200], flush=True)
+        tg_send("⚠️ 스토리 이미지 생성 실패 — 게시물 커버로 직접 스토리 올려주세요. 링크: %s" % url)
+
+
+def send_sticker_kit():
+    s_ = state()
+    p = s_.get("last_product")
+    if not p:
+        tg_send("최근 제휴 상품 기록이 없습니다.")
+        return
+    m = latest_media()
+    img = os.path.join(ROOT, "out", "story_sticker_ready.jpg")
+    make_story_image(m, p["name"], img, sticker_mode=True)
+    tg_send_photo(img, "📸 스티커용 이미지 — ①저장 ②스토리 올리기 ③링크 스티커 ④게시")
+    tg_send("스티커용 링크 (복사):\n%s" % p["url"])
+
+
+def cancel_last():
+    s = state()
+    items = s.get("hub_items", [])
+    if not items:
+        tg_send("취소할 항목이 없습니다.")
+        return
+    dropped = items.pop(0)
+    update_hub(items)
+    state({"hub_items": items})
+    tg_send("🗑 허브에서 '%s' 제거했습니다. 스토리는 앱에서 직접 삭제해주세요(24시간 후 자동 소멸)." % dropped["name"])
+
+
+def main():
+    offset = 0
+    if os.path.exists(OFFSET_F):
+        try:
+            offset = int(open(OFFSET_F).read().strip())
+        except ValueError:
+            pass
+    print("[affiliate_bot] 시작 offset=%d %s" % (offset, datetime.now().isoformat()), flush=True)
+    while True:
+        try:
+            d = http("https://api.telegram.org/bot%s/getUpdates?timeout=50&offset=%d" % (TG["STUDIO_TG_TOKEN"], offset + 1), timeout=70)
+            for u in d.get("result", []):
+                offset = max(offset, u["update_id"])
+                open(OFFSET_F, "w").write(str(offset))
+                m = u.get("message") or {}
+                if str(m.get("chat", {}).get("id")) != str(TG["STUDIO_TG_CHAT_ID"]):
+                    continue
+                text = m.get("text") or ""
+                if "link.coupang.com" in text:
+                    print("[affiliate_bot] 링크 회신 감지:", text[:60], flush=True)
+                    handle_link(text)
+                elif text.strip() == "스티커":
+                    send_sticker_kit()
+                elif text.strip() in ("취소", "cancel"):
+                    cancel_last()
+        except Exception as e:
+            print("[affiliate_bot] 오류:", str(e)[:200], flush=True)
+            time.sleep(30)
+
+
+if __name__ == "__main__":
+    main()
