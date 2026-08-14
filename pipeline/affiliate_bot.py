@@ -346,10 +346,16 @@ def hub_stats():
     if not c or not k:
         tg_send("허브 카운터가 아직 배포 전입니다 — CLOUDFLARE_API_TOKEN을 keys.env에 넣고 bash bin/deploy_hub_counter.sh 실행")
         return
-    try:
-        d = http("%s/stats?k=%s" % (c, k))
-    except Exception as e:
-        tg_send("⚠️ 집계 조회 실패: %s" % str(e)[:80])
+    d = None
+    for attempt in range(3):   # DNS 전파 과도기 플랩 내성 (2026-08-14 첫날 실측)
+        try:
+            d = http("%s/stats?k=%s" % (c, k))
+            break
+        except Exception as e:
+            err = e
+            time.sleep(4)
+    if d is None:
+        tg_send("⚠️ 집계 서버 연결이 아직 고르지 않습니다(새 주소 전파 중 — 최대 30분). 잠시 후 '허브'를 다시 보내주세요. (%s)" % str(err)[:60])
         return
     today = datetime.now().strftime("%Y-%m-%d")
     lines = ["📊 허브 집계 (디렉터 기기 제외)",
