@@ -487,16 +487,27 @@ def handle_approval(cb):
     json.dump(q, open(qf, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     answer("게시를 시작합니다")
     tg_send("✅ 통과 — 게시를 시작합니다: 「%s」" % item["title"])
-    try:
+    def run_upload(v, m):
         r = subprocess.run([os.path.join(ROOT, ".venv/bin/python3"),
-                            os.path.join(ROOT, "pipeline/upload_instagram.py"),
-                            item["video"], item["meta"]],
+                            os.path.join(ROOT, "pipeline/upload_instagram.py"), v, m],
                            capture_output=True, text=True, timeout=900, cwd=ROOT)
-        out = (r.stdout or "") + (r.stderr or "")
-        link = ""
-        for ln in out.splitlines():
-            if "instagram.com/reel" in ln:
-                link = ln.strip()
+        o = (r.stdout or "") + (r.stderr or "")
+        return o, next((ln.strip() for ln in o.splitlines() if "instagram.com/reel" in ln), "")
+    try:
+        out, link = run_upload(item["video"], item["meta"])
+        if not link and "이미 게시됨" in out:
+            # 2026-08-14: 삭제 후 재게시 — 멱등 가드가 옛 기록으로 막는다. 판본 사본으로 1회 재시도
+            import shutil
+            base, ext = os.path.splitext(item["video"])
+            n = 2
+            while os.path.exists("%s-v%d%s" % (base, n, ext)):
+                n += 1
+            v2 = "%s-v%d%s" % (base, n, ext)
+            m2 = os.path.splitext(item["meta"])[0].replace(".meta", "") + "-v%d.meta.json" % n
+            shutil.copy(item["video"], v2)
+            shutil.copy(item["meta"], m2)
+            tg_send("↻ 이전 게시 기록이 남아 있어 판본 %d로 다시 올립니다" % n)
+            out, link = run_upload(v2, m2)
         item["status"] = "published" if link else "failed"
         item["result"] = link or out[-300:]
         if not link:
