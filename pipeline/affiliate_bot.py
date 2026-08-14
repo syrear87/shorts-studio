@@ -510,6 +510,20 @@ def handle_approval(cb):
             out, link = run_upload(v2, m2)
         item["status"] = "published" if link else "failed"
         item["result"] = link or out[-300:]
+        if link:
+            # 게시 성공 시 유튜브용 캡션 자동 발송 (2026-08-14 디렉터: "유튜브용 캡션도 보내야지")
+            try:
+                cap = subprocess.run([os.path.join(ROOT, ".venv/bin/python3"), "-c",
+                    "import json,sys;sys.path.insert(0,'pipeline');"
+                    "from upload_youtube import clean_title, full_description, topic_tags;"
+                    "m=json.load(open(sys.argv[1],encoding='utf-8'));"
+                    "print('%s\\n\\n%s\\n\\n태그: %s' % (clean_title(m), full_description(m), ', '.join(topic_tags(m))))",
+                    item["meta"]], capture_output=True, text=True, timeout=60, cwd=ROOT)
+                if cap.stdout.strip():
+                    tg_send("📋 유튜브용 캡션 (제목/설명/태그):")
+                    tg_send(cap.stdout.strip())
+            except Exception as e:
+                print("[affiliate_bot] YT 캡션 발송 실패:", str(e)[:150], flush=True)
         if not link:
             tg_send("⚠️ 게시 실패 — 로그 확인 필요\n%s" % out[-400:])
     except Exception as e:
