@@ -118,10 +118,10 @@ def update_hub(items):
         slug = urllib.parse.quote(it["name"][:24])
         return "%s/go?n=%s&u=%s" % (cnt, slug, urllib.parse.quote(it["url"], safe=""))
     rows = "\n".join(
-        '<a class="item" href="%s"><span class="name">%s</span><span class="meta">%s · 쿠팡에서 보기 &#8250;</span></a>'
+        '<a class="item" href="%s"><span class="name">%s</span><span class="meta">%s</span></a>'
         % (_html.escape(_href(it), quote=True),
            _html.escape((it["name"][:34] + '…') if len(it["name"]) > 35 else it["name"]),
-           _html.escape(it["date"]))
+           _html.escape(("「%s」에 나온 물건 · %s" % (it["ep"], it["date"])) if it.get("ep") else ("%s · 쿠팡에서 보기 ›" % it["date"])))
         for it in items)
     beacon = ""
     if cnt:
@@ -151,7 +151,7 @@ text-decoration:none;color:#111;transition:border-color .15s}
 .meta{display:block;color:#a0a5ad;font-size:12px;margin-top:6px}
 footer{color:#b3b8bf;font-size:11px;text-align:center;margin-top:44px;line-height:1.7}
 </style></head><body>
-<h1><span class="d1">1일</span> <span class="d2">1지식</span></h1><div class="underbar"></div><p class="sub" style="margin-top:14px">오늘의 추천 아이템</p>
+<h1><span class="d1">1일</span> <span class="d2">1지식</span></h1><div class="underbar"></div><p class="sub" style="margin-top:14px">영상에 나온 것들 · 지식 아카이브</p>
 %s
 <footer>쿠팡 파트너스 활동의 일환으로,<br>이에 따른 일정액의 수수료를 제공받습니다</footer>
 %s</body></html>""" % (rows, beacon)
@@ -280,7 +280,26 @@ def make_story_image(media, product_name, out_path, sticker_mode=False):
     im.paste(shadow, (0, 0), shadow)
     im.paste(card, (cx, cy), mask)
     if sticker_mode:
-        # 카드 아래 ~고지 사이는 링크 스티커용 여백
+        # v3 (2026-08-14 전략회의 A1): 상품명 복원 — 기존엔 스티커 자리를 비우며 상품명까지 사라져
+        # '무엇을 추천하는지' 정보량이 0이었다. 스티커 예약 공간(y 400~540)은 유지.
+        name3 = product_name if len(product_name) <= 20 else product_name[:19] + "…"
+        card_bottom = cy + card.height
+        center(card_bottom + 36, name3, font(52), NAVY)
+        center(card_bottom + 116, "링크는 위 스티커를 탭", font(30), GOLD)
+        # 스티커 위치 점선 가이드 (IG 기본 스티커보다 약간 작게 — 스티커가 덮으면 최종 화면엔 안 보임)
+        gx0, gy0, gx1, gy1 = (W - 460) / 2, 415, (W + 460) / 2, 525
+        dash = 18
+        x_ = gx0
+        while x_ < gx1:
+            d.line([(x_, gy0), (min(x_ + dash, gx1), gy0)], fill=(210, 213, 220), width=3)
+            d.line([(x_, gy1), (min(x_ + dash, gx1), gy1)], fill=(210, 213, 220), width=3)
+            x_ += dash * 2
+        y_ = gy0
+        while y_ < gy1:
+            d.line([(gx0, y_), (gx0, min(y_ + dash, gy1))], fill=(210, 213, 220), width=3)
+            d.line([(gx1, y_), (gx1, min(y_ + dash, gy1))], fill=(210, 213, 220), width=3)
+            y_ += dash * 2
+        center((gy0 + gy1) / 2 - 14, "여기에 링크 스티커", font(26), LGRAY)
         center(H - 150, "쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다", font(26), LGRAY)
     else:
         center(H - 260, "구매 링크는 프로필에서", font(46), GOLD)
@@ -310,7 +329,8 @@ def handle_link(text_msg):
     # ① 허브 자동 갱신 (프로필 링크 보조 통로)
     s_ = state()
     items = [it for it in s_.get("hub_items", []) if it["url"] != url]
-    items.insert(0, {"name": name, "url": url, "date": datetime.now().strftime("%m/%d")})
+    ep = (m.get("caption") or "").split("\n")[0][:40]
+    items.insert(0, {"name": name, "url": url, "date": datetime.now().strftime("%m/%d"), "ep": ep})
     items = items[:5]
     update_hub(items)
     state({"hub_items": items, "last_permalink": m.get("permalink"),
@@ -320,8 +340,9 @@ def handle_link(text_msg):
     try:
         img = os.path.join(ROOT, "out", "story_sticker_ready.jpg")
         make_story_image(m, name, img, sticker_mode=True)
-        tg_send_photo(img, "📸 %s — ①저장 ②스토리 올리기 ③링크 스티커(다음 메시지) ④게시" % name)
+        tg_send_photo(img, "📸 %s — ①저장 ②스토리 올리기 ③점선 자리에 링크 스티커(다음 메시지) — 스티커 문구는 '링크' 대신 상품명으로 ④게시. 11시대에 올리면 접속 피크를 통째로 탑니다" % name)
         tg_send(url)
+        state({"pending_story": {"name": name, "kit_ts": time.time(), "story_id": None, "posted_ts": None}})
         tg_send("📋 유튜브 설명란 끝에 붙여넣기용 (링크 클릭 가능):\n\n🛒 %s\n%s\n* 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다" % (name, url))
     except Exception as e:
         print("[affiliate_bot] 이미지 실패:", str(e)[:200], flush=True)
@@ -381,6 +402,55 @@ def hub_stats():
     tg_send("\n".join(lines))
 
 
+def track_story():
+    """스토리 계측 (2026-08-14 전략회의 A2 — 계기판 없이는 어떤 개선도 판정 불가).
+    킷 발송 후: ①디렉터 게시 감지(/stories) ②게시 +20h에 도달(reach) 수집 → state.story_stats 누적."""
+    st = state()
+    p = st.get("pending_story")
+    if not p:
+        return
+    now = time.time()
+    try:
+        if not p.get("story_id"):
+            if now - p["kit_ts"] > 24 * 3600:
+                state({"pending_story": None})   # 24h 내 미게시 — 추적 포기
+                return
+            d = http(f"{G}/{IG['IG_USER_ID']}/stories?fields=id,timestamp&access_token={IG['IG_ACCESS_TOKEN']}")
+            for it in d.get("data", []):
+                ts = datetime.strptime(it["timestamp"], "%Y-%m-%dT%H:%M:%S%z").timestamp()
+                if ts >= p["kit_ts"] - 300:
+                    p["story_id"], p["posted_ts"] = it["id"], ts
+                    state({"pending_story": p})
+                    break
+        elif now > p["posted_ts"] + 20 * 3600:
+            v = {}
+            try:
+                ins = http(f"{G}/{p['story_id']}/insights?metric=reach,replies&access_token={IG['IG_ACCESS_TOKEN']}")
+                v = {x["name"]: x["values"][0]["value"] for x in ins["data"]}
+            except Exception as e:
+                v = {"error": str(e)[:60]}
+            stats = st.get("story_stats", [])
+            stats.append({"date": datetime.fromtimestamp(p["posted_ts"]).strftime("%m/%d %H:%M"),
+                          "name": p["name"], "reach": v.get("reach"), "replies": v.get("replies")})
+            state({"story_stats": stats[-30:], "pending_story": None})
+    except Exception as e:
+        print("[affiliate_bot] 스토리 추적 오류:", str(e)[:120], flush=True)
+
+
+def story_report():
+    """'스토리' 명령 — 스토리별 도달 기록. 파트너스 링크별 클릭(디렉터 회신)과 대사해 CTR 계산."""
+    stats = state().get("story_stats", [])
+    if not stats:
+        tg_send("아직 계측된 스토리가 없습니다 (게시 +20시간 후 자동 수집).")
+        return
+    lines = ["📈 스토리 계측 (게시 +20h 도달 기준)"]
+    for x in stats[-10:]:
+        lines.append("· %s %s — 도달 %s%s" % (x["date"], x["name"][:16], x.get("reach", "?"),
+                                             (" 답장 %s" % x["replies"]) if x.get("replies") else ""))
+    lines.append("파트너스 리포트의 링크별 클릭 수를 회신해주시면 CTR로 환산합니다 (예: '베개 3 삼계탕 1')")
+    tg_send("\n".join(lines))
+
+
 def cancel_last():
     s = state()
     items = s.get("hub_items", [])
@@ -425,10 +495,13 @@ def main():
                         cancel_last()
                     elif text.strip() in ("허브", "hub"):
                         hub_stats()
+                    elif text.strip() == "스토리":
+                        story_report()
                 except Exception as e:
                     # 오프셋은 이미 전진 — 조용히 삼키면 회신이 영구 유실된다 (2026-08-14 감사)
                     print("[affiliate_bot] 명령 처리 실패:", str(e)[:200], flush=True)
                     tg_send("⚠️ 처리 실패(%s) — 같은 메시지를 다시 보내주세요" % str(e)[:80])
+            track_story()   # 스토리 게시 감지·+20h 도달 수집 (A2 계측)
         except Exception as e:
             print("[affiliate_bot] 오류:", str(e)[:200], flush=True)
             time.sleep(30)
