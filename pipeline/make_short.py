@@ -582,9 +582,17 @@ def main():
     eq_lines = [(i, ln[0]) for i, sc in enumerate(script["scenes"]) if sc.get("kind") != "cta"
                 for ln in sc.get("lines", []) if "=" in ln[0]]
     if len(eq_lines) > 1:
-        sys.exit("기각: 자막 등호(=) %d회(%s) — 편당 최대 1회, 진짜 수식·수치 비교일 때만. "
-                 "서술어 대용 등호는 '는/이/가'로 풀어 써라 (예: '정체 = 물' → '정체는 물')"
+        sys.exit("기각: 자막 등호(=) %d회(%s) — 편당 최대 1회, 양변이 숫자+단위인 환산식일 때만"
                  % (len(eq_lines), "; ".join("scene %d '%s'" % (i, t[:20]) for i, t in eq_lines)))
+    # 2026-08-14 디렉터 2차 강화: 등호는 수치 등식만 — 바로 앞·뒤 어절에 둘 다 숫자가 있어야 한다
+    # ("지방 1kg = 7,700kcal" ✓ / "식빵 두 쪽 = 밥 3분의 2공기" ✗ — 사물이 오면 문장으로 풀어라)
+    for i, t in eq_lines:
+        left, right = t.split("=", 1)
+        lw = left.strip().split(" ")[-1] if left.strip() else ""
+        rw = right.strip().split(" ")[0] if right.strip() else ""
+        if not (re.search(r"\d", lw) and re.search(r"\d", rw)):
+            sys.exit("기각: scene %d 등호 '%s' — 등호는 양변이 숫자+단위인 환산식만 허용"
+                     "(디렉터 2026-08-14: '수치 비교일 때만'). 문장으로 풀어 써라 (예: '식빵 두 쪽 = 밥 3분의 2공기' → '식빵 두 쪽이면 밥 3분의 2공기')" % (i, t[:30]))
     for i, sc in enumerate(script["scenes"]):
         v = sc.get("voice", "")
         for sym in "=→×±":
