@@ -7,7 +7,7 @@ set -euo pipefail
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$DIR"
 
-get_key() { grep "^$1=" keys.env 2>/dev/null | head -1 | cut -d= -f2-; }
+get_key() { { grep "^$1=" keys.env 2>/dev/null || true; } | head -1 | cut -d= -f2-; }   # 키 부재가 set -e를 죽이면 안 된다 (2026-08-14 실사고)
 TOKEN="$(get_key CLOUDFLARE_API_TOKEN)"
 ACC="$(get_key R2_ACCOUNT_ID)"
 [[ -n "$TOKEN" ]] || { echo "keys.env에 CLOUDFLARE_API_TOKEN이 없습니다 — 토큰 생성 후 추가하세요" >&2; exit 3; }
