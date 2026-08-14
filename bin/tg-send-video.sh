@@ -3,6 +3,7 @@
 set -euo pipefail
 export LC_ALL=en_US.UTF-8   # launchd C 로케일에서 ${2:0:1000}이 바이트 절단→UTF-8 파손되는 것 예방 (2026-08-02 리뷰)
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+[[ -f "$DIR/../telegram.env" ]] || { echo "telegram.env 없음" >&2; exit 3; }   # set -e 무언사 방지 (tg-send.sh와 동일 가드)
 source "$DIR/../telegram.env"
 
 if [[ -z "${STUDIO_TG_TOKEN:-}" ]]; then

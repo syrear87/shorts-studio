@@ -76,6 +76,7 @@ def refresh_token_if_due(token):
             tmp = KEYS + ".tmp"
             with open(tmp, "w", encoding="utf-8") as f:
                 f.write("".join(out_lines))
+            os.chmod(tmp, 0o600)   # 2026-08-14 감사: umask 기본값이면 장기 토큰이 644로 노출된다
             os.replace(tmp, KEYS)
             token = new
         os.makedirs(os.path.dirname(STATE), exist_ok=True)
@@ -163,7 +164,7 @@ def upload(video, meta, publish=True):
         cont = api("POST", "/%s/media" % user_id, data=data)
         cid = cont["id"]
         print("컨테이너 생성: %s" % cid, flush=True)
-        return _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video)
+        return _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, data)
     except Exception:
         _r2_cleanup(kv, s3, r2key)
         raise
@@ -178,19 +179,30 @@ def _r2_cleanup(kv, s3, r2key):
         tg("⚠️ R2 임시 파일 삭제 실패 — 수동 정리 필요: %s" % r2key)
 
 
-def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video):
+def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, container_data=None):
 
-    # 3) 처리 대기
-    for _ in range(POLL_MAX):
-        st = api("GET", "/%s" % cid, params={"fields": "status_code", "access_token": token})
-        code = st.get("status_code")
-        if code == "FINISHED":
-            break
-        if code == "ERROR":
-            raise RuntimeError("IG 컨테이너 처리 실패: %s" % st)
-        time.sleep(POLL_INTERVAL)
-    else:
-        raise RuntimeError("IG 처리 대기 시간 초과(5분)")
+    # 3) 처리 대기 (ERROR·타임아웃 시 컨테이너 1회 재생성 — 2026-08-14 감사: 일시 인코딩 실패 내성)
+    def _wait(cid_):
+        for _ in range(POLL_MAX):
+            st = api("GET", "/%s" % cid_, params={"fields": "status_code", "access_token": token})
+            code = st.get("status_code")
+            if code == "FINISHED":
+                return None
+            if code == "ERROR":
+                return "IG 컨테이너 처리 실패: %s" % st
+            time.sleep(POLL_INTERVAL)
+        return "IG 처리 대기 시간 초과(5분)"
+    err = _wait(cid)
+    if err:
+        print("1차 실패(%s) — 컨테이너 재생성 1회 재시도" % err, flush=True)
+        if not container_data:
+            raise RuntimeError(err)
+        cont2 = api("POST", "/%s/media" % user_id, data=container_data)
+        cid = cont2["id"]
+        print("컨테이너 재생성: %s" % cid, flush=True)
+        err = _wait(cid)
+        if err:
+            raise RuntimeError(err)
 
     if not publish:
         # 시험 모드: 게시 직전 중단 — 미게시 컨테이너는 24시간 뒤 자동 소멸 (2026-08-05 리허설용)

@@ -11,14 +11,19 @@ if [[ -z "${STUDIO_TG_TOKEN:-}" ]]; then
   exit 3   # 성공 흉내 금지 (2026-07-29 감사: 미전달이 exit 0으로 은폐되던 문제)
 fi
 
-TEXT="${1:0:4000}"
-RESP=$(curl -sS --max-time 60 -X POST "https://api.telegram.org/bot${STUDIO_TG_TOKEN}/sendMessage" \
-  -d "chat_id=${STUDIO_TG_CHAT_ID}" \
-  --data-urlencode "text=${TEXT}" \
-  -d "disable_web_page_preview=true")
-if [[ "$RESP" == *'"ok":true'* ]]; then
-  echo "발송 완료 (${#TEXT}자)"
-else
-  echo "발송 실패: $RESP" >&2
-  exit 1
-fi
+# 4000자 초과는 무언 절단 대신 분할 발송 (2026-08-14 감사 — 잘리는 쪽이 태그·꼬리 정보부다)
+MSG="$1"
+while [[ -n "$MSG" ]]; do
+  TEXT="${MSG:0:3900}"
+  MSG="${MSG:3900}"
+  RESP=$(curl -sS --max-time 60 -X POST "https://api.telegram.org/bot${STUDIO_TG_TOKEN}/sendMessage" \
+    -d "chat_id=${STUDIO_TG_CHAT_ID}" \
+    --data-urlencode "text=${TEXT}" \
+    -d "disable_web_page_preview=true")
+  if [[ "$RESP" == *'"ok":true'* ]]; then
+    echo "발송 완료 (${#TEXT}자)"
+  else
+    echo "발송 실패: $RESP" >&2
+    exit 1
+  fi
+done

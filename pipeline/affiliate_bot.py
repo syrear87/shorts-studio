@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-# 제휴 댓글 워처 (2026-08-13 디렉터 확정 루틴)
-#   흐름: 세션이 텔레그램으로 "제휴 후보(쿠팡 검색명)" 알림 → 디렉터가 쿠팡 앱에서 상품 공유
-#   URL(link.coupang.com)을 이 방에 회신 → 이 워처가 감지해 **가장 최근 IG 게시물**에
-#   연결 문구+링크+고지 댓글을 자동 게시 → 확인 메시지 발송(고정은 디렉터 앱에서).
-#   ⚠️ S-007: 세션 단독 부착 금지 원칙 유지 — 이 봇은 "디렉터가 보낸 링크"에만 반응한다(전달=승인).
-#   한계(v1): 대상은 회신 시점의 최신 게시물로 판정한다. 잘못 붙었으면 "취소"라고 회신 → 댓글 삭제.
-# 실행: nohup .venv/bin/python3 pipeline/affiliate_bot.py >> logs/affiliate_bot.log 2>&1 &
+# 제휴 스티커 킷 워처 (2026-08-13 오후 디렉터 최종 확정 루틴 — 댓글·자동 게시 폐기)
+#   흐름: 세션이 텔레그램으로 "제휴 후보+쿠팡 검색 딥링크" 발송 → 디렉터가 상품 공유
+#   URL(link.coupang.com) 회신(=승인, S-007) → 이 워처가 ①허브 갱신 ②스티커 킷
+#   (자막 완성 프레임 커버 이미지+링크+YT 설명란 블록) 발송 → 디렉터가 스토리+링크 스티커 게시.
+#   명령: '스티커'(킷 재발송) / '취소'(허브 롤백 — 스토리는 앱에서 삭제).
+#   ⚠️ IG 댓글·캡션 URL은 클릭 불가, 링크 스티커는 API 미지원 — 클릭 통로는 스토리 스티커·프로필 링크뿐.
+# 실행: pm2 (studio-affiliate)
 import json
 import os
 import re
@@ -81,10 +81,15 @@ def latest_media():
 def state(update=None):
     s = {}
     if os.path.exists(STATE_F):
-        s = json.load(open(STATE_F, encoding="utf-8"))
+        try:
+            s = json.load(open(STATE_F, encoding="utf-8"))
+        except Exception:
+            s = {}   # 파손 시 초기화 — 모든 명령이 영구 실패하는 것보다 낫다 (2026-08-14 감사)
     if update:
         s.update(update)
-        json.dump(s, open(STATE_F, "w", encoding="utf-8"), ensure_ascii=False)
+        tmp = STATE_F + ".tmp"
+        json.dump(s, open(tmp, "w", encoding="utf-8"), ensure_ascii=False)
+        os.replace(tmp, STATE_F)   # 원자적 교체
     return s
 
 
@@ -103,8 +108,12 @@ def r2_client():
 def update_hub(items):
     """자체 미니 허브 페이지 갱신 (v2: 흰 배경 미니멀 — 2026-08-13 디렉터 "심플하게, 배경색 없이").
     items = [{name, url, date}] 최신순 최대 5개."""
+    import html as _html
     rows = "\n".join(
-        '<a class="item" href="%s"><span class="name">%s</span><span class="meta">%s · 쿠팡에서 보기 &#8250;</span></a>' % (it["url"], (it["name"][:34] + '…') if len(it["name"]) > 35 else it["name"], it["date"])
+        '<a class="item" href="%s"><span class="name">%s</span><span class="meta">%s · 쿠팡에서 보기 &#8250;</span></a>'
+        % (_html.escape(it["url"], quote=True),
+           _html.escape((it["name"][:34] + '…') if len(it["name"]) > 35 else it["name"]),
+           _html.escape(it["date"]))
         for it in items)
     html = """<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -146,14 +155,18 @@ def local_cover_frame(media):
         vids = [r for r in rows if len(r) == 2 and r[1].startswith("IG:") and r[1].endswith(".mp4")]
         if not vids:
             return None
-        ts_str, name = vids[-1][0], vids[-1][1][3:]
+        # 게시 시각과 가장 가까운 행 선택 (2026-08-14 감사: 정정 연타 때 '마지막 행'은 삭제본일 수 있다)
+        mt = datetime.strptime(media["timestamp"], "%Y-%m-%dT%H:%M:%S%z")
+        def gap(r):
+            lt = datetime.strptime(r[0], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone(timedelta(hours=9)))
+            return abs((mt - lt).total_seconds())
+        best = min(vids, key=gap)
+        if gap(best) > 600:   # 게시 직후 기록되므로 정상 매칭은 수 분 이내
+            return None  # 최신 게시물이 우리 발행분이 아니다 — 썸네일 폴백
+        name = best[1][3:]
         path = os.path.join(ROOT, "out", name)
         if not os.path.exists(path):
             return None
-        mt = datetime.strptime(media["timestamp"], "%Y-%m-%dT%H:%M:%S%z")
-        lt = datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone(timedelta(hours=9)))
-        if abs((mt - lt).total_seconds()) > 1800:
-            return None  # 최신 게시물이 이 파일이 아니다 — 썸네일 폴백
         tmp = tempfile.mkdtemp(prefix="afcover_")
         subprocess.run(["ffmpeg", "-y", "-t", "12", "-i", path, "-vf", "fps=2,scale=270:480",
                         "-loglevel", "error", os.path.join(tmp, "f%03d.jpg")], check=True)
@@ -189,7 +202,9 @@ def make_story_image(media, product_name, out_path, sticker_mode=False):
     # 커버 우선순위: 로컬 영상의 '자막 완성' 프레임 → IG 썸네일 (2026-08-14 디렉터: 썸네일은 자막 한 줄뿐)
     local = local_cover_frame(media)
     if local:
-        cover = Image.open(local).convert("RGB")
+        cover = Image.open(local).convert("RGB")   # convert가 즉시 로드 — 이후 원본 삭제 안전
+        import shutil
+        shutil.rmtree(os.path.dirname(local), ignore_errors=True)   # 임시 프레임 24장 누적 방지
     else:
         # 릴스는 media_url이 mp4다 — 이미지는 항상 썸네일 우선 (2026-08-13 실사고)
         url = media.get("thumbnail_url") or media.get("media_url")
@@ -247,31 +262,6 @@ def make_story_image(media, product_name, out_path, sticker_mode=False):
     return out_path
 
 
-def publish_story(image_path):
-    """스토리 발행: R2 임시 업로드 → STORIES 컨테이너 → publish."""
-    s3 = r2_client()
-    key = STORY_KEY % datetime.now().strftime("%Y%m%d%H%M%S")
-    s3.upload_file(image_path, KV["R2_BUCKET"], key, ExtraArgs={"ContentType": "image/jpeg"})
-    pub = KV["R2_PUBLIC_URL"].rstrip("/") + "/" + key
-    try:
-        c = http(f"{G}/{IG['IG_USER_ID']}/media",
-                 urllib.parse.urlencode({"media_type": "STORIES", "image_url": pub,
-                                         "access_token": IG["IG_ACCESS_TOKEN"]}).encode())
-        import time as _t
-        for _ in range(20):
-            st = http(f"{G}/{c['id']}?fields=status_code&access_token={IG['IG_ACCESS_TOKEN']}")
-            if st.get("status_code") == "FINISHED":
-                break
-            _t.sleep(3)
-        res = http(f"{G}/{IG['IG_USER_ID']}/media_publish",
-                   urllib.parse.urlencode({"creation_id": c["id"], "access_token": IG["IG_ACCESS_TOKEN"]}).encode())
-        return res.get("id")
-    finally:
-        try:
-            s3.delete_object(Bucket=KV["R2_BUCKET"], Key=key)
-        except Exception:
-            pass
-
 
 def handle_link(text_msg):
     url_m = re.search(r"https://link\.coupang\.com/\S+", text_msg)
@@ -318,10 +308,17 @@ def send_sticker_kit():
         tg_send("최근 제휴 상품 기록이 없습니다.")
         return
     m = latest_media()
-    img = os.path.join(ROOT, "out", "story_sticker_ready.jpg")
-    make_story_image(m, p["name"], img, sticker_mode=True)
-    tg_send_photo(img, "📸 스티커용 이미지 — ①저장 ②스토리 올리기 ③링크 스티커 ④게시")
-    tg_send("스티커용 링크 (복사):\n%s" % p["url"])
+    if not m:
+        tg_send("⚠️ 최근 게시물 조회 실패 — 잠시 후 '스티커'로 다시 시도해주세요. 링크: %s" % p["url"])
+        return
+    try:
+        img = os.path.join(ROOT, "out", "story_sticker_ready.jpg")
+        make_story_image(m, p["name"], img, sticker_mode=True)
+        tg_send_photo(img, "📸 스티커용 이미지 — ①저장 ②스토리 올리기 ③링크 스티커 ④게시")
+        tg_send("스티커용 링크 (복사):\n%s" % p["url"])
+    except Exception as e:
+        print("[affiliate_bot] 스티커 킷 실패:", str(e)[:200], flush=True)
+        tg_send("⚠️ 스티커 이미지 생성 실패 — 게시물 커버로 직접 올려주세요. 링크: %s" % p["url"])
 
 
 def cancel_last():
@@ -332,7 +329,11 @@ def cancel_last():
         return
     dropped = items.pop(0)
     update_hub(items)
-    state({"hub_items": items})
+    upd = {"hub_items": items}
+    lp = s.get("last_product")
+    if lp and lp.get("url") == dropped.get("url"):
+        upd["last_product"] = None   # 취소된 상품이 '스티커' 명령으로 재발송되는 것 방지 (2026-08-14 감사)
+    state(upd)
     tg_send("🗑 허브에서 '%s' 제거했습니다. 스토리는 앱에서 직접 삭제해주세요(24시간 후 자동 소멸)." % dropped["name"])
 
 
@@ -354,13 +355,18 @@ def main():
                 if str(m.get("chat", {}).get("id")) != str(TG["STUDIO_TG_CHAT_ID"]):
                     continue
                 text = m.get("text") or ""
-                if "link.coupang.com" in text:
-                    print("[affiliate_bot] 링크 회신 감지:", text[:60], flush=True)
-                    handle_link(text)
-                elif text.strip() == "스티커":
-                    send_sticker_kit()
-                elif text.strip() in ("취소", "cancel"):
-                    cancel_last()
+                try:
+                    if "link.coupang.com" in text:
+                        print("[affiliate_bot] 링크 회신 감지:", text[:60], flush=True)
+                        handle_link(text)
+                    elif text.strip() == "스티커":
+                        send_sticker_kit()
+                    elif text.strip() in ("취소", "cancel"):
+                        cancel_last()
+                except Exception as e:
+                    # 오프셋은 이미 전진 — 조용히 삼키면 회신이 영구 유실된다 (2026-08-14 감사)
+                    print("[affiliate_bot] 명령 처리 실패:", str(e)[:200], flush=True)
+                    tg_send("⚠️ 처리 실패(%s) — 같은 메시지를 다시 보내주세요" % str(e)[:80])
         except Exception as e:
             print("[affiliate_bot] 오류:", str(e)[:200], flush=True)
             time.sleep(30)

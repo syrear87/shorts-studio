@@ -37,6 +37,13 @@ def check_meta(meta):
     title = meta.get("title", "").strip()
     if not (5 <= len(title) <= 100):
         problems.append("제목 %d자 (허용 5~100자)" % len(title))
+    ct = clean_title(meta).strip() if title else ""
+    if title and not (5 <= len(ct) <= 100):
+        problems.append("정리 후 제목 %d자 ('#shorts' 제거 후에도 5~100자여야 함)" % len(ct))
+    banned = [t for t in ("지식", "상식", "1일1지식", "쇼츠", "shorts")
+              if ("#" + t) in desc or t in [x.replace(" ", "") for x in meta.get("tags", [])]]
+    if banned:
+        problems.append("채널 공통 태그 금지 위반: %s (DAILY_PROMPT 규칙 — 8/9~10 위반 3건 게시 실사고)" % ", ".join(banned))
     if "<" in title or ">" in title:
         problems.append("제목에 금지문자 <·> 포함")
     if desc.count("#") < 5:
@@ -82,15 +89,6 @@ def preflight(video):
         sys.exit("preflight 실패: " + ", ".join(problems))
     print("preflight 통과: %.1fs, %dx%d" % (dur, w, h))
 
-def ig_caption(meta):
-    """인스타 릴스 붙여넣기용 캡션 (2026-08-02 디렉터 지시 — 보너스 프로그램 겨냥).
-    릴스 캡션은 첫 125자만 접히기 전에 노출되므로 요약 1줄 + 해시태그로 짧게.
-    해시태그는 릴스 관심사 그래프 분배의 재료 — 소재 태그를 그대로 쓴다."""
-    first = meta["description"].strip().split("\n")[0]
-    # 2026-08-03 디렉터 지정: 브랜드·광역 태그(#1일1지식 등) 빼고 내용 태그만 —
-    # 소규모 계정에선 브랜드 태그의 발견성 기여가 0이고, 릴스 분배는 내용 태그가 태운다.
-    tags = " ".join("#" + t.replace(" ", "") for t in topic_tags(meta, 5))
-    return "📸 인스타 릴스 캡션 (복사용):\n\n%s\n\n%s" % (first, tags)
 
 def phase0(video, meta):
     # 0) 인스타 릴스 자동 게시 (2026-08-05 디렉터 승인 — 오디세이 편으로 실전 검증 완료)
@@ -120,6 +118,18 @@ def phase0(video, meta):
     # 유튜브용으로 발송된 영상+캡션으로 수동 업로드 가능)
     print("phase0: IG 자동 게시=%s, 텔레그램 발송 완료" % ("성공" if ig_ok else "실패(경고 발송)"))
 
+def _fit_tags(tags):
+    """YT snippet.tags 총량 ~500자 제한(공백 포함 태그는 따옴표까지 계산) — 초과분은 뒤에서 잘라낸다."""
+    out, total = [], 0
+    for t in tags:
+        cost = len(t) + (2 if " " in t else 0) + 1
+        if total + cost > 450:
+            break
+        out.append(t)
+        total += cost
+    return out
+
+
 def api_public(video, meta):
     from googleapiclient.discovery import build
     from googleapiclient.http import MediaFileUpload
@@ -134,7 +144,7 @@ def api_public(video, meta):
         "snippet": {
             "title": title[:100],
             "description": ("%s\n\n%s" % (title, full_description(meta)))[:4900],
-            "tags": topic_tags(meta, 5),
+            "tags": _fit_tags(topic_tags(meta, 5)),
             "categoryId": "27",  # 교육
             "defaultLanguage": "ko",
         },
