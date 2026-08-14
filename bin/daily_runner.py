@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# launchd가 매일 6회(영상 08/12/18시 · 카드 10/14/16시, KST) 실행 — 헤드리스 스튜디오 세션 기동.
+# launchd가 매일 6회(영상 07/11/15시 · 카드 09/13/17시, KST — 편성 v7) 실행 — 헤드리스 스튜디오 세션 기동.
 # 락으로 중복 방지(모드별 분리), 영상 100분·카드 45분 타임아웃, 로그 저장, 실패·무산출 시 텔레그램 통보.
 import os, shutil, subprocess, sys, time
 from datetime import datetime
@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parent.parent
 if "--mode" in sys.argv:
     CARD_MODE = sys.argv[sys.argv.index("--mode") + 1] == "card"
 else:
-    CARD_MODE = datetime.now().hour in (10, 14, 16)
+    CARD_MODE = datetime.now().hour in (9, 13, 17)   # 편성 v7 (2026-08-13)
 PROMPT_FILE = "CARD_PROMPT.md" if CARD_MODE else "DAILY_PROMPT.md"
 LOCK = ROOT / "logs" / (".card.lock" if CARD_MODE else ".daily.lock")
 LOG = ROOT / "logs" / ("daily-%s.log" % datetime.now().strftime("%Y%m%d-%H%M"))
@@ -171,19 +171,24 @@ def check_artifacts(start_ts):
         logtext = LOG.read_text(errors="ignore")
         # 2026-08-03 실사고: 슬롯이 앞선 세션에 의해 이미 채워져 세션이 정당하게 무제작 종료했는데
         # '산출물 없음' 경보 발송 → SLOT-NOOP 마커(의도된 무제작)를 정상 종료로 인정
-        if any(k in logtext for k in ("게시 중단", "게시 보류", "기각", "SLOT-NOOP", "이미 제작·발송 완료")):
+        # 2026-08-14 감사: '기각'은 의도 마커가 아니다 — 렌더 기각 후 자가수정 실패로 무산출 종료해도
+        # '의도된 미게시'로 오분류돼 슬롯 공실이 무경보로 지나갔다. 기각은 아래에서 별도 경보한다.
+        if any(k in logtext for k in ("게시 중단", "게시 보류", "SLOT-NOOP", "이미 제작·발송 완료")):
             return  # 의도된 미게시/무제작 — 세션이 사유를 보고했음
+        gate_rejected = "기각" in logtext
         if CARD_MODE:
             # 카드 세션 산출물 판정 (2026-08-05): 캐러셀 게시 실측(IGCARD:)이 세션 시작 이후 기록됐는가
             sent = ROOT / "logs" / "sent.log"
             ok = sent.exists() and sent.stat().st_mtime >= start_ts and \
                 any("IGCARD:" in ln for ln in sent.read_text(errors="ignore").strip().splitlines()[-5:])
             if not ok:
-                tg("⚠️ 지식 카드: 세션은 정상 종료했지만 캐러셀 게시 실측(IGCARD)이 없음 — %s 확인" % LOG.name)
+                tg("⚠️ 지식 카드: 세션은 정상 종료했지만 캐러셀 게시 실측(IGCARD)이 없음%s — %s 확인"
+                   % (" (로그에 기각 있음 — 자가수정 실패 가능)" if gate_rejected else "", LOG.name))
             return
         new_mp4 = [p for p in (ROOT / "out").glob("*.mp4") if p.stat().st_mtime >= start_ts]
         if not new_mp4:
-            tg("⚠️ 숏츠 데일리: 세션은 정상 종료했지만 새 영상 산출물이 없음 — %s 확인" % LOG.name)
+            tg("⚠️ 숏츠 데일리: 세션은 정상 종료했지만 새 영상 산출물이 없음%s — %s 확인"
+               % (" (렌더 기각 후 자가수정 실패로 보임)" if gate_rejected else "", LOG.name))
             return
         sent = ROOT / "logs" / "sent.log"
         sent_ok = sent.exists() and sent.stat().st_mtime >= start_ts

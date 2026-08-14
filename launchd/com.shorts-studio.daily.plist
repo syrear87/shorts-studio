@@ -16,9 +16,9 @@
          카드 세션은 com.shorts-studio.card.plist (--mode 인자로 모드 확정, 지연 기동에도 안전) -->
     <key>StartCalendarInterval</key>
     <array>
-        <dict><key>Hour</key><integer>8</integer><key>Minute</key><integer>0</integer></dict>
-        <dict><key>Hour</key><integer>12</integer><key>Minute</key><integer>0</integer></dict>
-        <dict><key>Hour</key><integer>18</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>7</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>11</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>15</integer><key>Minute</key><integer>0</integer></dict>
     </array>
     <key>StandardOutPath</key>
     <string>/Users/kimminsoo/Dev/shorts-studio/logs/launchd.out.log</string>

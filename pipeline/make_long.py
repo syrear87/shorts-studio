@@ -265,6 +265,9 @@ async def tts_edge(text, mp3_path):
 
 def tts_scene_sync(text, mp3_path):
     """clone=디렉터 목소리(ElevenLabs), 그 외 Azure 우선 + edge-tts 폴백."""
+    # 2026-08-14 감사: 숫자 읽기를 엔진 임의 선택에 맡기지 않는다 (make_short와 동일 정규화, 멱등)
+    from voice_clone import normalize_ko
+    text = normalize_ko(text)
     if VOICE == "clone":
         import voice_clone
         _, words = voice_clone.tts(text, mp3_path, with_timestamps=True)

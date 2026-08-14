@@ -137,6 +137,12 @@ def used_bg_ids(exclude_script=None):
             continue
         ids = s.get("bg_ids") or ([s["bg_id"]] if s.get("bg_id") else [])
         used.update(str(v) for v in ids)   # 영상은 "123", 사진은 "photo:123" 문자열로 통일
+        # 2026-08-14 감사(critical): 씬별 bg 지정이 표준이 된 뒤 이 게이트가 죽어 있었다 —
+        # scenes[].bg도 수집한다. file: 로컬 자산은 제외(디렉터 승인 재사용분, 예: 유성우 실사진)
+        for sc in s.get("scenes", []) or []:
+            b = sc.get("bg")
+            if b and not (isinstance(b, str) and b.startswith("file:")):
+                used.add(str(b))
     return used
 
 
@@ -289,7 +295,11 @@ def tts_scene_sync(text, mp3_path):
 def media_duration(path):
     out = subprocess.run(["ffprobe", "-v", "quiet", "-show_entries", "format=duration",
                           "-of", "csv=p=0", path], capture_output=True, text=True)
-    return float(out.stdout.strip())
+    try:
+        return float(out.stdout.strip())
+    except ValueError:
+        sys.exit("기각: %s 길이 판독 불가(ffprobe 출력 '%s') — 파일 손상/0바이트, TTS 재합성 필요"
+                 % (os.path.basename(path), out.stdout.strip()[:40]))
 
 # ---------- 타이밍 매핑 ----------
 def display_words(scene):
@@ -582,10 +592,53 @@ def main():
     for i, sc in enumerate(script["scenes"]):
         if not sc.get("lines") or not sc.get("voice"):
             sys.exit("기각: scene %d lines/voice 누락" % i)
+        # 2026-08-14 감사: 스키마 이상은 원시 traceback 대신 명시적 기각 (578행 설계 원칙)
+        for li, ln in enumerate(sc["lines"]):
+            if not (isinstance(ln, (list, tuple)) and len(ln) == 2 and isinstance(ln[0], str)
+                    and isinstance(ln[1], (list, tuple))):
+                sys.exit("기각: scene %d 줄 %d 형식 오류 — 각 줄은 [\"자막 텍스트\", [강조어절...]] 2요소여야 한다"
+                         % (i, li))
+            # 강조어가 그 줄에 실제로 없으면 조용히 소실된다 — 하드 기각 (2026-08-14 감사)
+            for hw in ln[1]:
+                if not isinstance(hw, str) or hw not in ln[0]:
+                    sys.exit("기각: scene %d 강조어 '%s'가 줄 '%s'에 없음 — 강조는 자막 어절 그대로 적어라"
+                             % (i, hw, ln[0][:24]))
         limit = 2 if sc.get("kind") == "cta" else 3
         if len(sc.get("lines", [])) > limit:
             sys.exit("기각: scene %d(%s) 자막 %d줄 — %s 씬은 최대 %d줄 (구독 문구 겹침 방지)"
                      % (i, sc.get("kind"), len(sc["lines"]), sc.get("kind"), limit))
+
+    # 0-0b) 자막 문장부호·문구 게이트 (2026-08-14 디렉터: "= 너무 많이 쓴다 — 수식·킥일 때만")
+    eq_lines = [(i, ln[0]) for i, sc in enumerate(script["scenes"]) if sc.get("kind") != "cta"
+                for ln in sc.get("lines", []) if "=" in ln[0]]
+    if len(eq_lines) > 1:
+        sys.exit("기각: 자막 등호(=) %d회(%s) — 편당 최대 1회, 진짜 수식·수치 비교일 때만. "
+                 "서술어 대용 등호는 '는/이/가'로 풀어 써라 (예: '정체 = 물' → '정체는 물')"
+                 % (len(eq_lines), "; ".join("scene %d '%s'" % (i, t[:20]) for i, t in eq_lines)))
+    for i, sc in enumerate(script["scenes"]):
+        v = sc.get("voice", "")
+        for sym in "=→×±":
+            if sym in v:
+                print("경고: scene %d 나레이션에 기호 '%s' — TTS가 묵음 처리해 의미가 사라진다. 말로 풀어 써라" % (i, sym), flush=True)
+        if re.search(r"(^|[ ,])사실(은|,| )", v):
+            print("경고: scene %d 나레이션에 부사 '사실' — 금지어다(2026-08-12 디렉터). 명사 용법이면 무시" % i, flush=True)
+        if re.search(r"\d+번(?![째0-9])", v):
+            print("경고: scene %d '%s번' — 발음 모호(이번/두 번). 횟수면 '두 번'처럼 한글로 쓰라"
+                  % (i, re.search(r"(\d+)번(?![째0-9])", v).group(1)), flush=True)
+
+    # 0-0c) 자막-나레이션 정합 경고 (2026-08-12 규칙의 기계화 — 오탐 여지가 있어 경고만, 기각 아님)
+    def _core_words(s_):
+        return [w for w in re.sub(r"[^\w가-힣 ]", " ", s_).split()
+                if w and not re.search(r"[0-9A-Za-z]", w) and len(w) >= 2]
+    for i, sc in enumerate(script["scenes"]):
+        if sc.get("kind") == "cta":
+            continue
+        v = sc.get("voice", "")
+        miss = [w for ln in sc.get("lines", []) for w in _core_words(ln[0])
+                if w not in v and w[:2] not in v]
+        if miss:
+            print("경고: scene %d 자막 어절 %s — 나레이션에 없는 말이다. 자막은 나레이션의 같은 단어로 (숫자·단위 표기 차이는 무시해도 됨)"
+                  % (i, miss), flush=True)
 
     # 0-1c) 강조 분량 게이트 (2026-08-08 품질 감사: 줄 절반이 노랑이면 강조가 죽는다 — cta 고정 블록은 제외)
     for i_, sc_ in enumerate(script["scenes"]):
@@ -720,6 +773,21 @@ def main():
                     if p is None:
                         sys.exit("기각: 지정 사진 %s 다운로드 실패" % b)
                     cache[b] = {"kind": "photo", "path": p}
+                elif isinstance(b, str) and b.startswith("file:"):
+                    # 로컬 파일 배경 (make_long.py와 동일 스킴, 2026-08-12)
+                    p = b.split(":", 1)[1]
+                    if not os.path.isabs(p):
+                        p = os.path.join(ROOT, p)
+                    if not os.path.exists(p):
+                        sys.exit("기각: 지정 로컬 배경 %s 없음" % p)
+                    if os.path.splitext(p)[1].lower() in (".jpg", ".jpeg", ".png", ".webp"):
+                        # 로컬 사진 → 켄 번즈 (2026-08-13 유성우 실사진 편: CC/PD 소스는 Pexels 밖에서 온다)
+                        print("배경 사진(로컬, 켄 번즈): %s" % os.path.basename(p), flush=True)
+                        cache[b] = {"kind": "photo", "path": p}
+                    else:
+                        print("배경 영상(자체 제작): %s" % os.path.basename(p), flush=True)
+                        # graphic: 이미 최종 프레이밍이라 줌·시네톤을 걸지 않는다 (가장자리 요소가 잘림)
+                        cache[b] = {"kind": "graphic", "path": p}
                 else:
                     p = fetch_bg_by_id(b)
                     if p is None:
@@ -767,6 +835,10 @@ def main():
         bounds = [0.0] + cuts + [total_dur]
         bg_segs = [bounds[i + 1] - bounds[i] for i in range(len(bounds) - 1)]
         bg_items = bg_items[:len(bg_segs)]   # 경계가 겹쳐 줄었으면 배경 수도 맞춤
+        # 씬별 bg 모드와 동일한 이탈 경고 (2026-08-14 감사: 폴백 모드에만 누락돼 있었다)
+        for sl in bg_segs:
+            if sl > 12:
+                print("경고: 배경 구간 %.1fs — 한 구도 12초 초과는 이탈 구간이 된다. bg_ids 수를 늘려라" % sl, flush=True)
 
     # 3) 렌더 + BGM
     render(script, timeline, work, total_dur, script.get("chip", "오늘의 지식 · 1일 1지식"), video_bg, fx_underline=args.fx_underline)
@@ -787,7 +859,8 @@ def main():
         cmd += ["-framerate", str(FPS), "-i", os.path.join(work, "frames", "f%05d.png"),
                 "-i", bgm]
         # 2026-08-11 고급화 실험: 필름룩 — 미드톤 대비↑·채도 살짝↓·섀도 블루틴트 (차분한 시네마 톤)
-        cine = ",curves=master='0/0 0.25/0.21 0.5/0.5 0.75/0.79 1/1',eq=saturation=0.92,colorbalance=bs=0.03:ms=0.01" if args.fx_cine else ""
+        # 주의: colorbalance에 'ms' 옵션은 없다(bs/bm/bh 등만 유효) — 'ms'로 두면 이 경로 사용 시 ffmpeg가 죽는다 (2026-08-12 발견)
+        cine = ",curves=master='0/0 0.25/0.21 0.5/0.5 0.75/0.79 1/1',eq=saturation=0.92,colorbalance=bs=0.03:bm=0.01" if args.fx_cine else ""
         scale = "scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d,setsar=1,fps=%d%s" % (W, H, W, H, FPS, cine)
         parts = []
         _xf_ext = 0.35 if args.fx_xfade else 0.0
@@ -807,6 +880,11 @@ def main():
                     "zoompan=%s:d=%d:s=%dx%d:fps=%d,eq=saturation=0.88:brightness=-0.02,"
                     "setsar=1,trim=duration=%.3f,setpts=PTS-STARTPTS[b%d]"
                     % (i, W * 2, H * 2, W * 2, H * 2, styles[i % 3], fr, W, H, FPS, seg, i))
+            elif it["kind"] == "graphic":
+                # 자체 도해: 줌·시네톤 없이 원본 프레이밍 그대로 (2026-08-12)
+                parts.append(
+                    "[%d:v]scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d,setsar=1,fps=%d,"
+                    "trim=duration=%.3f,setpts=PTS-STARTPTS[b%d]" % (i, W, H, W, H, FPS, seg, i))
             elif args.fx_zoom:
                 # 슬로우 줌 (2026-08-09 실험): 2배 중간 해상도 경유(서브픽셀 쉬머 방지), 구간당 +6% 줌
                 parts.append(

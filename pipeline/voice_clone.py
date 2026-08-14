@@ -87,7 +87,11 @@ def _sino(n):
                 s += _D[g]
             out.append(s + groups[gi])
         gi += 1
-    return "".join(reversed(out))
+    r = "".join(reversed(out))
+    # 관용: 만 단위 선두의 '일'은 생략 (일만원→만원). 일억·일조는 '일' 유지가 표준.
+    if r.startswith("일만"):
+        r = r[1:]
+    return r
 
 
 def normalize_numbers(text):
@@ -115,15 +119,27 @@ _NATIVE = {1: "한", 2: "두", 3: "세", 4: "네", 5: "다섯", 6: "여섯", 7: 
            17: "열일곱", 18: "열여덟", 19: "열아홉", 20: "스무"}
 _NATIVE_UNITS = (r"가지|군데|번째|시간(?!대)|개(?!월|국|사|소|점)|마리|살(?!균|충)|명(?!령|예|단)|잔|병(?!원|사|력)"
                  r"|곳|채(?!널|용|취)|켤레|벌(?!금|레|집)|끼(?!리)|그루|송이|달(?!러|력|성)|배(?!송|달|경|추|정|출|당|율|수|관|터)"
-                 r"|시(?=[ ,.!?에까부반쯤]|$)")   # 시각(9시=아홉시). 뒤에 조사·구두점이 올 때만 — 시장·시절 등 오폭 방지
+                 r"|시(?=[ ,.!?에까부반쯤였입이경]|$)")   # 시각(9시=아홉시). 뒤에 조사·구두점이 올 때만 — 시장·시절 등 오폭 방지 (였·입·이·경: 2026-08-14 감사 "10시였다→십시였다" 수정)
 
 
 def normalize_ko(text):
-    # 천 단위 쉼표 제거 (2026-08-14 실사고: "7,700칼로리"를 "칠, 칠백 칼로리"로 읽음 — 쉼표가 숫자를 쪼갬)
-    text = __import__("re").sub(r"(\d),(?=\d{3})", r"\1", text)
-
     """TTS 입력 전용 최종 정규화 — 단위별 수사 선택(고유어 1~20) 후 일반 한자어 변환.
     어절 수는 원문과 1:1 유지(공백 추가 금지) — 자막 타이밍 전제."""
+    # 천 단위 쉼표 제거 (2026-08-14 실사고: "7,700칼로리"를 "칠, 칠백 칼로리"로 읽음 — 쉼표가 숫자를 쪼갬)
+    text = re.sub(r"(\d),(?=\d{3})", r"\1", text)
+    # 관용 발음 예외 사전 — 숫자 패스보다 먼저 (2026-08-14 감사: 코로나십구/오G 오독)
+    for k, v in (("코로나19", "코로나일구"), ("5G", "파이브지"), ("4G", "포지"), ("3D", "쓰리디"),
+                 ("%p", "퍼센트포인트")):
+        text = text.replace(k, v)
+    # 범위 물결표: "3~5일" → "3에서5일" (붙여 써서 어절 수 유지; '~'는 엔진이 묵음 처리해 "삼오일"로 뭉개짐)
+    text = re.sub(r"(\d)~(?=\d)", r"\1에서", text)
+    # 시각 콜론: "13:12" → "13시12분" (붙여 써서 어절 수 유지)
+    text = re.sub(r"(?<!\d)(\d{1,2}):(\d{2})(?!\d)", r"\1시\2분", text)
+    # 날짜 슬래시: 조사가 바로 붙을 때만 (분수 3/4 오폭 방지) — "8/15에" → "8월15일에"
+    text = re.sub(r"(?<!\d)(\d{1,2})/(\d{1,2})(?=에|까지|부터|,)", r"\1월\2일", text)
+    # 영하 표기의 중복 부호 제거(팩트 보존) 후 남은 숫자 앞 마이너스는 낭독으로
+    text = re.sub(r"영하 -(?=\d)", "영하 ", text)
+    text = re.sub(r"(?<![\d가-힣A-Za-z])-(?=\d)", "마이너스", text)
     def native_repl(m):
         n = int(m.group(1))
         if 1 <= n <= 20:
@@ -134,15 +150,17 @@ def normalize_ko(text):
     # 받침 ㄱ/ㅂ/ㄹ로 끝나는 수사(일·칠·팔·육·십·백·억) 뒤의 도/달러를 소리 나는 대로 바꿔 TTS에 전달.
     # 자막은 원문 유지 — TTS 입력 전용. 모음으로 끝나면(이도·오도) 그대로 둔다.
     def tense_repl(m):
-        num, dec, unit = m.group(1), m.group(2), m.group(3)
+        num, dec, sp, unit = m.group(1), m.group(2), m.group(3), m.group(4)
         s_ = _sino(int(num))
         if dec:
             s_ += "쩜" + "".join(_D[int(c)] for c in dec)
-        if s_ and s_[-1] in "일칠팔육십백억":
+        # 경음화는 붙여 쓴 표기에만 — 띄어 쓴 "오 달러"는 엔진 연음에 맡긴다.
+        # 공백은 반드시 보존 (2026-08-14 감사: 공백 삼킴이 어절 수 1:1 불변식을 깨 자막 fast path 강등)
+        if sp == "" and s_ and s_[-1] in "일칠팔육십백억":
             unit = {"도": "또", "달러": "딸러"}[unit]
-        return s_ + unit
+        return s_ + sp + unit
     # 뒤에 조사(까지·로·였다 등)가 와도 매칭돼야 한다 — 숫자 연속만 차단
-    text = re.sub(r"(?<![\d.])(\d+)(?:\.(\d+))?\s?(도|달러)(?![0-9])", tense_repl, text)
+    text = re.sub(r"(?<![\d.])(\d+)(?:\.(\d+))?(\s?)(도|달러)(?![0-9])", tense_repl, text)
     return normalize_numbers(text)
 
 
@@ -188,7 +206,8 @@ def tts(text, out_path, with_timestamps=False):
     vid = keys.get("ELEVEN_VOICE_ID")
     if not vid:
         sys.exit("ELEVEN_VOICE_ID 없음 — 먼저 create를 실행")
-    text = normalize_numbers(text)
+    # 2026-08-14 감사(critical): normalize_numbers만 태우면 쉼표 숫자·고유어 수사·경음화가 전부 빠진다
+    text = normalize_ko(text)
     audio, words = _synth_whole(keys, vid, text)
     # 문장 경계 = 마침표류로 끝나는 어절의 '다음 어절' 시작 시각
     cuts = [words[i + 1][0] for i in range(len(words) - 1)

@@ -15,9 +15,9 @@
          2026-08-07 디렉터 편성 v3 -->
     <key>StartCalendarInterval</key>
     <array>
-        <dict><key>Hour</key><integer>10</integer><key>Minute</key><integer>0</integer></dict>
-        <dict><key>Hour</key><integer>14</integer><key>Minute</key><integer>0</integer></dict>
-        <dict><key>Hour</key><integer>16</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>17</integer><key>Minute</key><integer>0</integer></dict>
     </array>
     <key>StandardOutPath</key>
     <string>/Users/kimminsoo/Dev/shorts-studio/logs/launchd.out.log</string>

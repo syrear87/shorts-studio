@@ -6,9 +6,10 @@ import glob, os, subprocess, sys
 from datetime import datetime, timedelta
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# 2026-08-07 디렉터 편성 v3: 매일 동일 — 영상 08/12/18 + 카드 10/14/16 (주말 구분 폐지)
-WEEKDAY_SLOTS = ["08", "10", "12", "14", "16", "18"]
-WEEKEND_SLOTS = ["08", "10", "12", "14", "16", "18"]
+# 2026-08-13 디렉터 편성 v7: 매일 동일 — 영상 07/11/15 + 카드 09/13/17
+# (2026-08-14 감사: v3 표가 남아 매일 허위 보고 — 편성 변경 시 이 표도 반드시 갱신하라)
+WEEKDAY_SLOTS = ["07", "09", "11", "13", "15", "17"]
+WEEKEND_SLOTS = ["07", "09", "11", "13", "15", "17"]
 
 
 def main():
@@ -74,7 +75,12 @@ def cleanup_out(now):
     # 2026-08-06 디렉터 "맥미니 용량 아껴 쓰자" — 보관 대폭 단축 (게시 원본은 채널/인스타가 보관소)
     for pattern, days in (("out/*.mp4", 3), ("out/bg_candidates/*", 3),
                           ("out/cards/*/*.png", 7), ("out/*.mp3", 7),
-                          ("out/work_*/*", 3), ("assets/bg_cache/*", 21)):
+                          ("out/work_*/*", 3), ("assets/bg_cache/*", 21),
+                          # 2026-08-14 감사: 정리 사각지대 추가 (segs·QA 프레임·폐기본·그래픽·로그)
+                          ("out/segs/*", 3), ("out/qa/*", 7), ("out/*.scrapped", 3),
+                          ("out/graphics/*", 7), ("out/*.jpg", 7), ("out/*.png", 7),
+                          ("logs/daily-*.log", 30), ("logs/calendar_scout-*.log", 30),
+                          ("logs/search_dept-*.log", 30)):
         for p in glob.glob(os.path.join(ROOT, pattern)):
             try:
                 if ts - os.path.getmtime(p) > days * 86400:
