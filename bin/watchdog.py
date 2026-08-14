@@ -6,10 +6,10 @@ import glob, os, subprocess, sys
 from datetime import datetime, timedelta
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# 2026-08-14 디렉터 편성 v8: 카드 폐지 — 영상 5편 07/09/11/13/15
+# 2026-08-14 디렉터 편성 v8: 카드 폐지 — 영상 6편 07/09/11/13/15/17
 # (편성 변경 시 이 표도 반드시 갱신하라 — v3 표가 남아 매일 허위 보고한 전례)
-WEEKDAY_SLOTS = ["07", "09", "11", "13", "15"]
-WEEKEND_SLOTS = ["07", "09", "11", "13", "15"]
+WEEKDAY_SLOTS = ["07", "09", "11", "13", "15", "17"]
+WEEKEND_SLOTS = ["07", "09", "11", "13", "15", "17"]
 
 
 def main():
