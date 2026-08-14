@@ -449,6 +449,65 @@ def story_report():
     tg_send("\n".join(lines))
 
 
+
+def handle_approval(cb):
+    """게시 승인 버튼 처리 (2026-08-14 디렉터: 통과를 눌렀을 때만 게시).
+    통과 → upload_instagram.py 실행 후 결과 보고 / 반려 → 게시 없이 종료."""
+    import subprocess
+    data = cb.get("data") or ""
+    cid = cb.get("id")
+    def answer(text):
+        try:
+            http("https://api.telegram.org/bot%s/answerCallbackQuery" % TG["STUDIO_TG_TOKEN"],
+                 urllib.parse.urlencode({"callback_query_id": cid, "text": text}).encode())
+        except Exception:
+            pass
+    if ":" not in data:
+        return
+    verdict, job = data.split(":", 1)
+    qf = os.path.join(ROOT, "logs", "publish_queue.json")
+    try:
+        q = json.load(open(qf, encoding="utf-8"))
+    except Exception:
+        q = {}
+    item = q.get(job)
+    if not item:
+        answer("만료된 요청입니다")
+        return
+    if item.get("status") != "pending":
+        answer("이미 처리됨: %s" % item.get("status"))
+        return
+    if verdict == "no":
+        item["status"] = "rejected"
+        json.dump(q, open(qf, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        answer("반려했습니다")
+        tg_send("❌ 반려 처리했습니다 — 게시하지 않았습니다.\n「%s」\n무엇을 고칠지 알려주시면 반영해 다시 올리겠습니다." % item["title"])
+        return
+    item["status"] = "publishing"
+    json.dump(q, open(qf, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    answer("게시를 시작합니다")
+    tg_send("✅ 통과 — 게시를 시작합니다: 「%s」" % item["title"])
+    try:
+        r = subprocess.run([os.path.join(ROOT, ".venv/bin/python3"),
+                            os.path.join(ROOT, "pipeline/upload_instagram.py"),
+                            item["video"], item["meta"]],
+                           capture_output=True, text=True, timeout=900, cwd=ROOT)
+        out = (r.stdout or "") + (r.stderr or "")
+        link = ""
+        for ln in out.splitlines():
+            if "instagram.com/reel" in ln:
+                link = ln.strip()
+        item["status"] = "published" if link else "failed"
+        item["result"] = link or out[-300:]
+        if not link:
+            tg_send("⚠️ 게시 실패 — 로그 확인 필요\n%s" % out[-400:])
+    except Exception as e:
+        item["status"] = "failed"
+        item["result"] = str(e)[:200]
+        tg_send("⚠️ 게시 중 오류: %s" % str(e)[:200])
+    json.dump(q, open(qf, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+
 def cancel_last():
     s = state()
     items = s.get("hub_items", [])
@@ -479,6 +538,15 @@ def main():
             for u in d.get("result", []):
                 offset = max(offset, u["update_id"])
                 open(OFFSET_F, "w").write(str(offset))
+                if u.get("callback_query"):
+                    cb = u["callback_query"]
+                    if str((cb.get("message") or {}).get("chat", {}).get("id")) == str(TG["STUDIO_TG_CHAT_ID"]):
+                        try:
+                            handle_approval(cb)
+                        except Exception as e:
+                            print("[affiliate_bot] 승인 처리 실패:", str(e)[:200], flush=True)
+                            tg_send("⚠️ 승인 처리 실패: %s" % str(e)[:150])
+                    continue
                 m = u.get("message") or {}
                 if str(m.get("chat", {}).get("id")) != str(TG["STUDIO_TG_CHAT_ID"]):
                     continue
