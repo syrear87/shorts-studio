@@ -34,6 +34,7 @@ def env(path, keys):
 TG = env("telegram.env", {"STUDIO_TG_TOKEN", "STUDIO_TG_CHAT_ID"})
 IG = env("keys.env", {"IG_ACCESS_TOKEN", "IG_USER_ID"})
 KV = env("keys.env", {"R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL"})
+HUB = env("keys.env", {"HUB_COUNTER_URL", "HUB_STATS_KEY"})   # 허브 카운터 (2026-08-14, 미배포면 빈 dict)
 G = "https://graph.instagram.com/v23.0"
 
 
@@ -109,12 +110,30 @@ def update_hub(items):
     """자체 미니 허브 페이지 갱신 (v2: 흰 배경 미니멀 — 2026-08-13 디렉터 "심플하게, 배경색 없이").
     items = [{name, url, date}] 최신순 최대 5개."""
     import html as _html
+    cnt = HUB.get("HUB_COUNTER_URL", "").rstrip("/")
+    def _href(it):
+        if not cnt:
+            return it["url"]
+        # 카운터 경유: 클릭 집계 후 쿠팡으로 302 (2026-08-14 디렉터 — 상품별 클릭 체크)
+        slug = urllib.parse.quote(it["name"][:24])
+        return "%s/go?n=%s&u=%s" % (cnt, slug, urllib.parse.quote(it["url"], safe=""))
     rows = "\n".join(
         '<a class="item" href="%s"><span class="name">%s</span><span class="meta">%s · 쿠팡에서 보기 &#8250;</span></a>'
-        % (_html.escape(it["url"], quote=True),
+        % (_html.escape(_href(it), quote=True),
            _html.escape((it["name"][:34] + '…') if len(it["name"]) > 35 else it["name"]),
            _html.escape(it["date"]))
         for it in items)
+    beacon = ""
+    if cnt:
+        # 방문 비콘 — 세션당 1회. 디렉터 제외: 허브를 '#me' 붙여 한 번 열면 그 기기는 영구 제외
+        # (localStorage 플래그 → 비콘 생략 + 클릭 링크에 me=1)
+        beacon = ("<script>(function(){try{"
+                  "if(location.hash==='#me'){localStorage.setItem('hub_admin','1');}"
+                  "var me=localStorage.getItem('hub_admin')==='1';"
+                  "if(me){document.querySelectorAll('a.item').forEach(function(a){a.href+='&me=1';});}"
+                  "else if(!sessionStorage.getItem('hs')){sessionStorage.setItem('hs','1');"
+                  "(new Image()).src='%s/px?r='+Date.now();}"
+                  "}catch(e){}})();</script>" % cnt)
     html = """<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>1일 1지식 - 오늘의 추천</title><style>
@@ -135,7 +154,7 @@ footer{color:#b3b8bf;font-size:11px;text-align:center;margin-top:44px;line-heigh
 <h1><span class="d1">1일</span> <span class="d2">1지식</span></h1><div class="underbar"></div><p class="sub" style="margin-top:14px">오늘의 추천 아이템</p>
 %s
 <footer>쿠팡 파트너스 활동의 일환으로,<br>이에 따른 일정액의 수수료를 제공받습니다</footer>
-</body></html>""" % rows
+%s</body></html>""" % (rows, beacon)
     s3 = r2_client()
     s3.put_object(Bucket=KV["R2_BUCKET"], Key=HUB_KEY, Body=html.encode("utf-8"),
                   ContentType="text/html; charset=utf-8", CacheControl="no-cache")
@@ -321,6 +340,33 @@ def send_sticker_kit():
         tg_send("⚠️ 스티커 이미지 생성 실패 — 게시물 커버로 직접 올려주세요. 링크: %s" % p["url"])
 
 
+def hub_stats():
+    """'허브' 명령 — 방문·클릭 집계를 텔레그램으로 (2026-08-14 디렉터: 나만 볼 수 있게)."""
+    c, k = HUB.get("HUB_COUNTER_URL", "").rstrip("/"), HUB.get("HUB_STATS_KEY", "")
+    if not c or not k:
+        tg_send("허브 카운터가 아직 배포 전입니다 — CLOUDFLARE_API_TOKEN을 keys.env에 넣고 bash bin/deploy_hub_counter.sh 실행")
+        return
+    try:
+        d = http("%s/stats?k=%s" % (c, k))
+    except Exception as e:
+        tg_send("⚠️ 집계 조회 실패: %s" % str(e)[:80])
+        return
+    today = datetime.now().strftime("%Y-%m-%d")
+    lines = ["📊 허브 집계 (디렉터 기기 제외)",
+             "방문: 오늘 %d · 누적 %d" % (d.get("view:%s" % today, 0), d.get("view:total", 0))]
+    clicks = sorted(((urllib.parse.unquote(key[6:]), v) for key, v in d.items()
+                     if key.startswith("click:")), key=lambda x: -x[1])
+    if clicks:
+        lines.append("상품 클릭 (누적):")
+        for name, v in clicks[:10]:
+            t = d.get("day:%s:click:%s" % (today, urllib.parse.quote(name[:24])), 0)
+            lines.append("· %s — %d회%s" % (name, v, " (오늘 %d)" % t if t else ""))
+    else:
+        lines.append("상품 클릭: 아직 없음")
+    lines.append("(참고: 파트너스 리포트의 링크별 클릭은 스토리 스티커 포함 전체 집계)")
+    tg_send("\n".join(lines))
+
+
 def cancel_last():
     s = state()
     items = s.get("hub_items", [])
@@ -363,6 +409,8 @@ def main():
                         send_sticker_kit()
                     elif text.strip() in ("취소", "cancel"):
                         cancel_last()
+                    elif text.strip() in ("허브", "hub"):
+                        hub_stats()
                 except Exception as e:
                     # 오프셋은 이미 전진 — 조용히 삼키면 회신이 영구 유실된다 (2026-08-14 감사)
                     print("[affiliate_bot] 명령 처리 실패:", str(e)[:200], flush=True)
