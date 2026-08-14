@@ -49,9 +49,10 @@ def save_state(ran, alerted):
 
 
 def launch(prompt_file, log_path, timeout_min, label):
-    env = dict(os.environ)
-    env.pop("CLAUDECODE", None)
-    env.pop("CLAUDE_CODE_ENTRYPOINT", None)
+    # 2026-08-14 실사고(05시·10시 연속 타임아웃): pm2 데몬이 상주 세션에서 재시작되며
+    # CLAUDE_* 변수 일습(메시징 소켓 등)을 물려줌 → 자식 claude -p가 죽은 소켓 부착을
+    # 기다리며 무한 대기. 2개만 지우면 부족하다 — CLAUDE 접두사 전부 제거.
+    env = {k: v for k, v in os.environ.items() if not k.startswith("CLAUDE")}
     try:
         with open(log_path, "w") as lf:
             subprocess.run(["/bin/zsh", "-l", "-c",
