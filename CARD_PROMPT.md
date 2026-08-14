@@ -36,6 +36,7 @@
 }
 ```
 2. 렌더: `.venv/bin/python3 pipeline/make_cards.py content/cards-....json`
+2-b. **부장 검수 (2026-08-14 신설, DAILY 5-b 동일)**: 카드 json 확정본을 동기 Agent 1개에게 PERFORMANCE §11 지적 이력·하드게이트 체크리스트와 함께 주고 "디렉터라면 어디서 빠꾸 놓을까"만 찾게 하라. 지적 0이 될 때까지 수정 후 렌더.
 3. **눈 검수**: 생성된 `out/cards/<이름>/card_*.png`를 Read로 직접 보고 — 글자 잘림·어색한 줄바꿈·강조 위치를 확인. 문제 있으면 json 고쳐 재렌더.
 4. 게시: `.venv/bin/python3 pipeline/make_cards.py content/cards-....json --publish` (인스타 캐러셀 자동 게시 + 텔레그램 보고 자동)
 
