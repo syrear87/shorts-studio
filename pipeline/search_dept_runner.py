@@ -49,15 +49,17 @@ def save_state(ran, alerted):
 
 
 def launch(prompt_file, log_path, timeout_min, label):
-    # 2026-08-14 실사고(05시·10시 연속 타임아웃): pm2 데몬이 상주 세션에서 재시작되며
-    # CLAUDE_* 변수 일습(메시징 소켓 등)을 물려줌 → 자식 claude -p가 죽은 소켓 부착을
-    # 기다리며 무한 대기. 2개만 지우면 부족하다 — CLAUDE 접두사 전부 제거.
-    env = {k: v for k, v in os.environ.items() if not k.startswith("CLAUDE")}
+    # 2026-08-14 실사고 3회(05·10·14시 전부 0바이트 무한대기): CLAUDE_* 제거로도 부족 —
+    # pm2 데몬 환경 자체를 물려받지 않는다. 수동 재기동이 두 번 다 성공한 방식(env -i 최소 환경)
+    # 그대로: zsh -l이 PATH를 재구축하므로 이 다섯 개면 충분하다.
+    home = os.path.expanduser("~")
+    env = {"HOME": home, "USER": os.path.basename(home), "LOGNAME": os.path.basename(home),
+           "SHELL": "/bin/zsh", "TERM": "xterm", "LANG": "en_US.UTF-8"}
     try:
         with open(log_path, "w") as lf:
             subprocess.run(["/bin/zsh", "-l", "-c",
                             'claude -p "$(cat %s)" --model opus --permission-mode acceptEdits' % prompt_file],
-                           stdout=lf, stderr=subprocess.STDOUT, timeout=timeout_min * 60, cwd=ROOT, env=env)
+                           stdin=subprocess.DEVNULL, stdout=lf, stderr=subprocess.STDOUT, timeout=timeout_min * 60, cwd=ROOT, env=env)
     except Exception as e:
         print("[search_dept] %s 오류: %s" % (label, str(e)[:150]), flush=True)
         tg_alert("⚠️ 서치부 %s 실패: %s" % (label, str(e)[:120]))
