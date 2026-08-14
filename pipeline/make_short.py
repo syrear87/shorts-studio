@@ -569,6 +569,15 @@ def main():
             sys.exit("기각: scene %d(%s) 자막 %d줄 — %s 씬은 최대 %d줄 (구독 문구 겹침 방지)"
                      % (i, sc.get("kind"), len(sc["lines"]), sc.get("kind"), limit))
 
+    # 0-0a2) 폰트 미지원 글자 게이트 (2026-08-14 실사고 2회: 스토리 🔗 두부, 자막 ⅔ 두부 ☒)
+    _bad_re = re.compile(u"[\u2150-\u215F\u2460-\u24FF\u2600-\u27BF\u2B00-\u2BFF"
+                         u"\U0001F000-\U0001FAFF\u2610-\u2612]")
+    for i, sc in enumerate(script["scenes"]):
+        for ln_, _h in sc.get("lines", []):
+            hit = _bad_re.search(ln_)
+            if hit:
+                sys.exit("기각: scene %d 자막에 폰트 미지원 글자 %r — 분수·이모지·기호는 ☒로 깨진다. 한글·숫자로 풀어 써라 (예: ⅔ → 3분의 2)" % (i, hit.group(0)))
+
     # 0-0b) 자막 문장부호·문구 게이트 (2026-08-14 디렉터: "= 너무 많이 쓴다 — 수식·킥일 때만")
     eq_lines = [(i, ln[0]) for i, sc in enumerate(script["scenes"]) if sc.get("kind") != "cta"
                 for ln in sc.get("lines", []) if "=" in ln[0]]
