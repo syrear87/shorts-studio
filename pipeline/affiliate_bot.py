@@ -162,10 +162,10 @@ footer{color:#b3b8bf;font-size:11px;text-align:center;margin-top:44px;line-heigh
 
 
 def local_cover_frame(media):
-    """최신 IG 게시물이 우리 영상이면, 로컬 mp4에서 훅 자막이 '전부' 뜬 프레임을 뽑아 커버로 쓴다
-    (2026-08-14 디렉터: IG 썸네일은 자막 한 줄만 나온 시점이라 기각 — "자막 다 나온 상태 캡쳐해줘").
-    방법: sent.log 마지막 IG:*.mp4 행 ↔ 게시 시각 대조(±30분) → 초반 12초를 2fps 스캔,
-    중앙 자막 밴드(세로 35~65%)의 흰 픽셀이 최대인(동률이면 가장 늦은) 시점 = 훅 자막 완성 시점."""
+    """최신 IG 게시물이 우리 영상이면, 로컬 mp4에서 '결론(반전) 페이지' 자막이 전부 뜬 프레임을 커버로 쓴다
+    (2026-08-14 디렉터 1차: "자막 다 나온 상태로" / 2차: "첫 문구 말고 1일 1지식 전 결론 페이지로").
+    방법: 게시 시각 최근접 매칭 → 영상 끝에서 CTA(~6.5s) 제외한 마지막 창을 2fps 스캔,
+    중앙 자막 밴드(세로 35~65%)의 흰 픽셀 최대(동률이면 늦은) 시점 = 결론 자막 완성 시점."""
     import subprocess
     import tempfile
     from datetime import timezone, timedelta
@@ -186,8 +186,16 @@ def local_cover_frame(media):
         path = os.path.join(ROOT, "out", name)
         if not os.path.exists(path):
             return None
+        # 2026-08-14 디렉터: 커버는 훅이 아니라 '결론(반전) 페이지' — 구독(CTA) 직전 씬.
+        # 끝에서 CTA+꼬리(~6.5s)를 제외한 마지막 13.5s 창을 스캔해 결론 자막 완성 시점을 잡는다.
+        probe = subprocess.run(["ffprobe", "-v", "quiet", "-show_entries", "format=duration",
+                                "-of", "csv=p=0", path], capture_output=True, text=True)
+        dur = float(probe.stdout.strip())
+        w_start = max(0.0, dur - 20.0)
+        w_len = max(1.0, (dur - 6.5) - w_start)
         tmp = tempfile.mkdtemp(prefix="afcover_")
-        subprocess.run(["ffmpeg", "-y", "-t", "12", "-i", path, "-vf", "fps=2,scale=270:480",
+        subprocess.run(["ffmpeg", "-y", "-ss", "%.2f" % w_start, "-t", "%.2f" % w_len,
+                        "-i", path, "-vf", "fps=2,scale=270:480",
                         "-loglevel", "error", os.path.join(tmp, "f%03d.jpg")], check=True)
         from PIL import Image
         best_n, best_ink = None, -1
@@ -201,7 +209,7 @@ def local_cover_frame(media):
                 best_n, best_ink = int(fn[1:4]), ink
         if best_n is None:
             return None
-        t = (best_n - 1) / 2.0 + 0.2
+        t = w_start + (best_n - 1) / 2.0 + 0.2
         outp = os.path.join(tmp, "cover.jpg")
         subprocess.run(["ffmpeg", "-y", "-ss", "%.2f" % t, "-i", path, "-frames:v", "1",
                         "-q:v", "2", "-loglevel", "error", outp], check=True)
