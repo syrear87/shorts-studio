@@ -280,12 +280,10 @@ def make_story_image(media, product_name, out_path, sticker_mode=False):
     im.paste(shadow, (0, 0), shadow)
     im.paste(card, (cx, cy), mask)
     if sticker_mode:
-        # v3 (2026-08-14 전략회의 A1): 상품명 복원 — 기존엔 스티커 자리를 비우며 상품명까지 사라져
-        # '무엇을 추천하는지' 정보량이 0이었다. 스티커 예약 공간(y 400~540)은 유지.
-        name3 = product_name if len(product_name) <= 20 else product_name[:19] + "…"
+        # v3.1 (2026-08-14 디렉터: "상품명 복원 하지 마 — 스티커에 내가 상품명 작성") —
+        # 상품명은 링크 스티커 문구가 담당. 이미지는 탭 유도 한 줄만.
         card_bottom = cy + card.height
-        center(card_bottom + 36, name3, font(52), NAVY)
-        center(card_bottom + 116, "링크는 위 스티커를 탭", font(30), GOLD)
+        center(card_bottom + 60, "링크는 위 스티커를 탭", font(30), GOLD)
         # 스티커 위치 점선 가이드 (IG 기본 스티커보다 약간 작게 — 스티커가 덮으면 최종 화면엔 안 보임)
         gx0, gy0, gx1, gy1 = (W - 460) / 2, 415, (W + 460) / 2, 525
         dash = 18
