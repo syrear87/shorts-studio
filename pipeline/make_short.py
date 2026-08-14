@@ -309,45 +309,6 @@ def display_words(scene):
             ws.append({"line": li, "word": w, "hl": any(h in w for h in hl)})
     return ws
 
-def norm(s):
-    return re.sub(r"[^\w가-힣%]", "", s)
-
-def assign_times(dwords, boundaries, dur):
-    if boundaries and len(boundaries) == len(dwords):
-        return [b[0] for b in boundaries]
-    times, bi = [], 0
-    for dw in dwords:
-        t_norm = norm(dw["word"])
-        matched = None
-        for j in range(bi, min(bi + 3, len(boundaries))):
-            if norm(boundaries[j][1]) and (norm(boundaries[j][1]) in t_norm or t_norm in norm(boundaries[j][1])):
-                matched = j
-                break
-        if matched is not None:
-            times.append(boundaries[matched][0])
-            bi = matched + 1
-        else:
-            times.append(None)
-    known = [(i, t) for i, t in enumerate(times) if t is not None]
-    if not known:
-        return [i * dur / max(len(dwords), 1) for i in range(len(dwords))]
-    # 2026-08-02 리뷰: 머리·꼬리 미매칭 단어가 한 시각에 뭉텅이 팝업되던 것을 균등 분할 외삽으로 교정
-    #                 (voice 구어 ≠ lines 압축 자막이 기본 스타일이라 퍼지 매칭 실패는 일상적)
-    first, last = known[0], known[-1]
-    for i in range(len(times)):
-        if times[i] is None:
-            if i < first[0]:
-                # 첫 매칭 이전: [0, first[1]] 균등 분할
-                times[i] = first[1] * (i + 1) / (first[0] + 1)
-            elif i > last[0]:
-                # 마지막 매칭 이후: [last[1], dur] 균등 분할
-                times[i] = last[1] + (dur - last[1]) * (i - last[0]) / (len(times) - last[0])
-            else:
-                prev = max([k for k in known if k[0] < i], key=lambda x: x[0])
-                nxt = min([k for k in known if k[0] > i], key=lambda x: x[0])
-                f = (i - prev[0]) / (nxt[0] - prev[0])
-                times[i] = prev[1] + f * (nxt[1] - prev[1])
-    return times
 
 # ---------- 렌더 ----------
 def clamp(x, a, b):
@@ -698,6 +659,21 @@ def main():
             sys.exit("기각: cta 자막에 '구독으로 받아보세요' 줄 없음 — 발화와 자막이 불일치 "
                      "(정규형: lines=[[\"오늘도 1일 1지식\",...], [\"구독으로 받아보세요\",...]])")
 
+    # 0-0d) 자막 폭 선행 게이트 (2026-08-14 감사: 폭 초과가 TTS 합성·배경 다운로드·렌더를 다 마친
+    #        뒤에야 기각되던 늦은 실패 — 같은 폰트·같은 축소 규칙으로 렌더 전에 판정한다.
+    #        렌더 루프 안의 기존 검사는 최후 방어선으로 유지)
+    from PIL import Image as _WImg, ImageDraw as _WDraw
+    _wd = _WDraw.Draw(_WImg.new("RGB", (8, 8)))
+    for i, sc in enumerate(script["scenes"]):
+        _base = load_font(92, hook=True) if sc.get("kind") in ("hook", "cta") else load_font(78)
+        for li, (ln_, _hl) in enumerate(sc["lines"]):
+            _lw = _wd.textlength(ln_, font=_base)
+            if _lw > W - 160:
+                _shr = load_font(max(44, int(_base.size * (W - 160) / _lw)))
+                if _wd.textlength(ln_, font=_shr) > W - 160:
+                    sys.exit("기각: scene %d 줄 %d 폭 초과 — 최소 폰트(44px)로도 화면을 넘는다. 줄을 나눠라: '%s…'"
+                             % (i, li, ln_[:24]))
+
     # 1) 씬별 TTS
     timeline = []
     cursor = LEAD_IN
@@ -708,9 +684,9 @@ def main():
             sys.exit("기각: scene %d WordBoundary 0개 — 자막 동기 불가 (TTS 응답 이상, 재시도 필요)" % i)
         dur = media_duration(mp3)
         dws = display_words(sc)
-        times = assign_times(dws, boundaries, dur)
+        # 2026-08-14 감사: 어절별 시각 매핑은 2026-08-07 어절 팝인 폐지 후 아무도 읽지 않는 계산이었다 — 제거
         timeline.append({"start": cursor, "end": cursor + dur + SCENE_GAP, "mp3": mp3,
-                         "dwords": dws, "word_times": [cursor + t for t in times]})
+                         "dwords": dws})
         cursor += dur + SCENE_GAP
         print("scene %d: %.2fs, words=%d, boundaries=%d, tts=%s" % (i, dur, len(dws), len(boundaries), tts_engine), flush=True)
     total_dur = cursor + TAIL
