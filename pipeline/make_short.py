@@ -578,6 +578,22 @@ def main():
             if hit:
                 sys.exit("기각: scene %d 자막에 폰트 미지원 글자 %r — 분수·이모지·기호는 ☒로 깨진다. 한글·숫자로 풀어 써라 (예: ⅔ → 3분의 2)" % (i, hit.group(0)))
 
+    # 0-0a3) 15시(대박 슬롯) 공유 트리거 게이트 (2026-08-14 결산: 공유 0 → 도달 정체가 성장 병목)
+    #        당일성·시한·행동 지시 중 최소 하나가 훅/반전에 문장으로 있어야 한다.
+    if re.search(r"-pm(?:-|\.|$)", os.path.basename(args.script_json)):
+        _sc = script["scenes"]
+        _txt = " ".join([_sc[0].get("voice", "")] +
+                        [s_.get("voice", "") for s_ in _sc if s_.get("kind") == "twist"])
+        _trig = ("당일성", r"오늘|내일|이번 주|이번 주말|밤|새벽|지금"), \
+                ("시한", r"마지막|까지|남았|끝나|마감|한정|올해만|다시 보려면"), \
+                ("행동", r"보세요|해보세요|나가|확인해|재보|챙기|눌러|기억해|찾아보")
+        _hit = [n for n, p in _trig if re.search(p, _txt)]
+        if not _hit:
+            sys.exit("기각: 15시 대박 슬롯인데 공유 트리거가 없다 — 훅이나 반전에 "
+                     "①당일성(오늘/내일/오늘 밤) ②시한(마지막·~까지) ③행동 지시(보세요·확인해보세요) "
+                     "중 최소 하나를 문장으로 넣어라. 공유가 0이면 도달도 0이다(2026-08-14 결산)")
+        print("공유 트리거: %s ✓" % ", ".join(_hit), flush=True)
+
     # 0-0b) 자막 문장부호·문구 게이트 (2026-08-14 디렉터: "= 너무 많이 쓴다 — 수식·킥일 때만")
     eq_lines = [(i, ln[0]) for i, sc in enumerate(script["scenes"]) if sc.get("kind") != "cta"
                 for ln in sc.get("lines", []) if "=" in ln[0]]

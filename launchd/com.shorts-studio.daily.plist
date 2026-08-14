@@ -1,28 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>Label</key>
-    <string>com.shorts-studio.daily</string>
-    <key>ProgramArguments</key>
-    <array>
+<plist version="1.0"><dict>
+    <key>Label</key><string>com.shorts-studio.daily</string>
+    <key>ProgramArguments</key><array>
         <string>/usr/bin/python3</string>
         <string>/Users/kimminsoo/Dev/shorts-studio/bin/daily_runner.py</string>
-        <string>--mode</string>
-        <string>video</string>
+        <string>--mode</string><string>video</string>
     </array>
-    <!-- 영상 세션 전용: 매일 08(출근길)/12(점심)/18(퇴근길) — DAILY_PROMPT.md
-         2026-08-07 디렉터 편성 v3: 영상=붙잡힌 시간(대중교통·점심), 카드=근무 중 짧은 틈
-         카드 세션은 com.shorts-studio.card.plist (--mode 인자로 모드 확정, 지연 기동에도 안전) -->
-    <key>StartCalendarInterval</key>
-    <array>
+    <key>StandardOutPath</key><string>/Users/kimminsoo/Dev/shorts-studio/logs/launchd.out.log</string>
+    <key>StandardErrorPath</key><string>/Users/kimminsoo/Dev/shorts-studio/logs/launchd.err.log</string>
+    <key>StartCalendarInterval</key><array>
         <dict><key>Hour</key><integer>7</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>0</integer></dict>
         <dict><key>Hour</key><integer>11</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>0</integer></dict>
         <dict><key>Hour</key><integer>15</integer><key>Minute</key><integer>0</integer></dict>
     </array>
-    <key>StandardOutPath</key>
-    <string>/Users/kimminsoo/Dev/shorts-studio/logs/launchd.out.log</string>
-    <key>StandardErrorPath</key>
-    <string>/Users/kimminsoo/Dev/shorts-studio/logs/launchd.err.log</string>
-</dict>
-</plist>
+</dict></plist>

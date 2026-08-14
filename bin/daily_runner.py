@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parent.parent
 if "--mode" in sys.argv:
     CARD_MODE = sys.argv[sys.argv.index("--mode") + 1] == "card"
 else:
-    CARD_MODE = datetime.now().hour in (9, 13, 17)   # 편성 v7 (2026-08-13)
+    CARD_MODE = False   # 편성 v8 (2026-08-14): 카드 폐지 — 전 슬롯 영상. --mode card는 수동 호출용으로만 남긴다
 PROMPT_FILE = "CARD_PROMPT.md" if CARD_MODE else "DAILY_PROMPT.md"
 LOCK = ROOT / "logs" / (".card.lock" if CARD_MODE else ".daily.lock")
 LOG = ROOT / "logs" / ("daily-%s.log" % datetime.now().strftime("%Y%m%d-%H%M"))
