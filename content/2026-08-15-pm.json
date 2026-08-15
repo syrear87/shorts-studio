@@ -1,0 +1,64 @@
+{
+  "title": "안중근의 무덤은 116년째 비어 있습니다",
+  "chip": "광복절 특별 · 1일 1지식",
+  "narrator": "male",
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg_id": 6840432,
+      "voice": "효창공원에 무덤이 하나 있습니다. 비어 있습니다.",
+      "lines": [
+        ["효창공원에 무덤이 하나", ["무덤"]],
+        ["비어 있습니다", ["비어"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg_id": 11349182,
+      "voice": "1909년 하얼빈역. 서른 살의 안중근이 이토 히로부미를 저격했습니다.",
+      "lines": [
+        ["1909년 하얼빈역", ["하얼빈역"]],
+        ["안중근이 이토를 저격했습니다", ["안중근"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg_id": 9478312,
+      "voice": "그보다 앞서 동지 열두 명과 왼손 약지를 끊었습니다. 그 피로 태극기에 대한독립 네 글자를 썼습니다.",
+      "lines": [
+        ["동지 열두 명과 왼손 약지를 끊었습니다", ["약지"]],
+        ["피로 대한독립을 썼습니다", ["대한독립"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg_id": 7317430,
+      "voice": "사형 선고를 받자 어머니 조마리아는 수의를 지어 보냈습니다. 항소하면 목숨을 구걸하는 짓이라 했습니다. 딴 마음 먹지 말고 죽으라.",
+      "lines": [
+        ["어머니는 수의를 지어 보냈습니다", ["수의"]],
+        ["딴 마음 먹지 말고 죽으라", ["죽으라"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg_id": "photo:15536974",
+      "voice": "1910년 3월 26일 뤼순 감옥에서 순국했습니다. 일본이 유해를 비밀 매장했고, 광복절인 오늘도 돌아오지 못했습니다. 효창공원의 그 무덤은 116년째 비어 있습니다.",
+      "lines": [
+        ["광복절인 오늘도 돌아오지 못했습니다", ["광복절"]],
+        ["그 무덤은 116년째 비어 있습니다", ["116년째"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg_id": 13301956,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://encykorea.aks.ac.kr/Article/E0066338",
+    "https://www.mofa.go.kr/www/brd/m_4080/view.do?seq=327169"
+  ],
+  "bg_query": ["memorial park grave stone flowers solemn", "old vintage train station platform railway", "ink calligraphy brush writing old korean flag", "old handwritten letter vintage paper envelope", "cemetery memorial flowers grave empty", "korean flag waving celebration"]
+}
