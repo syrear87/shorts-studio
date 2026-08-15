@@ -78,6 +78,12 @@ def send_for_approval(video, meta_path, note=""):
     if not res.get("ok"):
         sys.exit("승인 요청 발송 실패: %s" % str(res)[:200])
     q = queue_load()
+    # 같은 영상의 이전 대기 건은 자동 무효화 — 수정본 재발송 시 옛 버튼으로 구버전이 게시되는 사고 방지
+    # (2026-08-15: 태극기·안중근 재수정 중 pending 4건이 쌓여 수동 정리했다)
+    base = os.path.basename(video).split("-fix")[0]
+    for k, v in q.items():
+        if v.get("status") == "pending" and os.path.basename(v.get("video", "")).split("-fix")[0] == base:
+            v["status"] = "superseded"
     q[job] = {"video": os.path.abspath(video), "meta": os.path.abspath(meta_path),
               "title": title, "ts": time.time(),
               "msg_id": res["result"]["message_id"], "status": "pending"}
