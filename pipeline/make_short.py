@@ -331,7 +331,7 @@ def make_glow(r, color, alpha):
     ImageDraw.Draw(im).ellipse([r * 0.3, r * 0.3, s - r * 0.3, s - r * 0.3], fill=color + (alpha,))
     return im.filter(ImageFilter.GaussianBlur(r * 0.35))
 
-def render(script, timeline, out_dir, total_dur, channel_chip, video_bg, fx_underline=False):
+def render(script, timeline, out_dir, total_dur, channel_chip, video_bg, fx_underline=False, light_bg=False):
     """video_bg=True → 투명 오버레이 PNG(+스크림), False → 그라데이션 JPG."""
     if not video_bg:
         BG = make_bg()
@@ -377,6 +377,8 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg, fx_unde
     # (상단 칩존 150 / 중앙 95 — 배경이 살아남 / 자막존 160 — 대비 확보 / 하단 140)
     scrim = Image.new("RGBA", (W, H))
     _sd = ImageDraw.Draw(scrim)
+    # 흰 도판(퀴즈·비교 이미지) 배경은 스크림이 과하면 회색으로 죽는다 → --light-bg로 약화 (2026-08-15)
+    _k = 0.42 if light_bg else 1.0
     for _y in range(H):
         r = _y / H
         if r < 0.16:  a_ = 150
@@ -385,7 +387,7 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg, fx_unde
         elif r < 0.72: a_ = 160
         elif r < 0.80: a_ = int(160 + (140 - 160) * (r - 0.72) / 0.08)
         else:          a_ = 140
-        _sd.line([(0, _y), (W, _y)], fill=(0, 0, 0, a_))
+        _sd.line([(0, _y), (W, _y)], fill=(0, 0, 0, int(a_ * _k)))
 
     for fi in range(total):
         t = fi / FPS
@@ -522,6 +524,7 @@ def main():
     ap.add_argument("--no-fx-zoom", dest="fx_zoom", action="store_false", help="슬로우 줌 끄기")
     ap.set_defaults(fx_xfade=True, fx_zoom=True)   # 2026-08-09 디렉터 채택 ("0+1+2로") — 기본 on
     ap.add_argument("--fx-underline", action="store_true", help="강조어 ACCENT 밑줄")
+    ap.add_argument("--light-bg", action="store_true", help="흰 도판 배경용 약한 스크림 (2026-08-15)")
     ap.add_argument("--fx-sfx", action="store_true", help="배경 전환 소프트 스윕음 (-18dB)")
     ap.add_argument("--no-fx-cine", dest="fx_cine", action="store_false", help="시네마틱 톤 끄기")
     ap.set_defaults(fx_cine=True)   # 2026-08-11 디렉터 채택 ("영상은 일단 ㅇㅋ") — 기본 on
@@ -782,7 +785,7 @@ def main():
                     if p is None:
                         sys.exit("기각: 지정 사진 %s 다운로드 실패" % b)
                     cache[b] = {"kind": "photo", "path": p}
-                elif isinstance(b, str) and b.startswith("file:"):
+                elif isinstance(b, str) and (b.startswith("file:") or b.startswith("file!:")):
                     # 로컬 파일 배경 (make_long.py와 동일 스킴, 2026-08-12)
                     p = b.split(":", 1)[1]
                     if not os.path.isabs(p):
@@ -791,8 +794,14 @@ def main():
                         sys.exit("기각: 지정 로컬 배경 %s 없음" % p)
                     if os.path.splitext(p)[1].lower() in (".jpg", ".jpeg", ".png", ".webp"):
                         # 로컬 사진 → 켄 번즈 (2026-08-13 유성우 실사진 편: CC/PD 소스는 Pexels 밖에서 온다)
-                        print("배경 사진(로컬, 켄 번즈): %s" % os.path.basename(p), flush=True)
-                        cache[b] = {"kind": "photo", "path": p}
+                        # 단 "file!:" 처럼 '!'를 붙이면 고정(줌 없음) — 문제 화면·비교 도판처럼
+                        # 화면 전체를 한눈에 봐야 하는 배경용 (2026-08-15 디렉터: "포커싱 이동 말고 중앙에 그냥 떠있게")
+                        if b.startswith("file!:"):
+                            print("배경 사진(로컬, 고정): %s" % os.path.basename(p), flush=True)
+                            cache[b] = {"kind": "still", "path": p}
+                        else:
+                            print("배경 사진(로컬, 켄 번즈): %s" % os.path.basename(p), flush=True)
+                            cache[b] = {"kind": "photo", "path": p}
                     else:
                         print("배경 영상(자체 제작): %s" % os.path.basename(p), flush=True)
                         # graphic: 이미 최종 프레이밍이라 줌·시네톤을 걸지 않는다 (가장자리 요소가 잘림)
@@ -850,7 +859,7 @@ def main():
                 print("경고: 배경 구간 %.1fs — 한 구도 12초 초과는 이탈 구간이 된다. bg_ids 수를 늘려라" % sl, flush=True)
 
     # 3) 렌더 + BGM
-    render(script, timeline, work, total_dur, script.get("chip", "오늘의 지식 · 1일 1지식"), video_bg, fx_underline=args.fx_underline)
+    render(script, timeline, work, total_dur, script.get("chip", "오늘의 지식 · 1일 1지식"), video_bg, fx_underline=args.fx_underline, light_bg=args.light_bg)
     bgm = os.path.join(work, "bgm.wav")
     twist_spans = [(tl["start"], tl["end"]) for sc_, tl in zip(script["scenes"], timeline)
                    if sc_.get("kind") == "twist"]
@@ -861,7 +870,7 @@ def main():
     if video_bg:
         nb = len(bg_items)
         for it in bg_items:
-            if it["kind"] == "photo":
+            if it["kind"] in ("photo", "still"):
                 cmd += ["-loop", "1", "-i", it["path"]]
             else:
                 cmd += ["-stream_loop", "-1", "-i", it["path"]]
@@ -889,6 +898,14 @@ def main():
                     "zoompan=%s:d=%d:s=%dx%d:fps=%d,eq=saturation=0.88:brightness=-0.02,"
                     "setsar=1,trim=duration=%.3f,setpts=PTS-STARTPTS[b%d]"
                     % (i, W * 2, H * 2, W * 2, H * 2, styles[i % 3], fr, W, H, FPS, seg, i))
+            elif it["kind"] == "still":
+                # 고정 배경: 줌·이동 없이 그대로 (문제 화면·비교 도판 — 2026-08-15)
+                # 이미 1080x1920로 만든 도판이므로 확대·크롭하지 않는다 (잘림 방지, 2026-08-15)
+                parts.append(
+                    "[%d:v]scale=%d:%d:force_original_aspect_ratio=decrease,"
+                    "pad=%d:%d:(ow-iw)/2:(oh-ih)/2:color=0xF7F6F3,setsar=1,fps=%d,"
+                    "trim=duration=%.3f,setpts=PTS-STARTPTS[b%d]"
+                    % (i, W, H, W, H, FPS, seg, i))
             elif it["kind"] == "graphic":
                 # 자체 도해: 줌·시네톤 없이 원본 프레이밍 그대로 (2026-08-12)
                 parts.append(
