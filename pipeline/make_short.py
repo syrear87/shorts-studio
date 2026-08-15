@@ -641,13 +641,18 @@ def main():
     for i_, sc_ in enumerate(script["scenes"]):
         if sc_.get("kind") == "cta":
             continue
+        # 대조 쌍 예외 (2026-08-15 디렉터: "양·음·위·아래" 같은 대비어는 강조가 곧 의미다)
+        # 씬에 "hl_pair": true 를 두면 줄당 2어절·씬당 4어절까지 허용한다.
+        pair = bool(sc_.get("hl_pair"))
+        per_line, per_scene = (2, 4) if pair else (1, 2)
         tot_hl = 0
         for ln_, hl_ in sc_.get("lines", []):
-            if len(hl_) > 1:
-                sys.exit("기각: scene %d 줄 '%s' 강조 %d어절 — 줄당 1어절만 (강조는 아껴야 강조다)" % (i_, ln_[:20], len(hl_)))
+            if len(hl_) > per_line:
+                sys.exit("기각: scene %d 줄 '%s' 강조 %d어절 — 줄당 %d어절만 (강조는 아껴야 강조다)"
+                         % (i_, ln_[:20], len(hl_), per_line))
             tot_hl += len(hl_)
-        if tot_hl > 2:
-            sys.exit("기각: scene %d 강조 합계 %d어절 — 씬당 2어절 이내" % (i_, tot_hl))
+        if tot_hl > per_scene:
+            sys.exit("기각: scene %d 강조 합계 %d어절 — 씬당 %d어절 이내" % (i_, tot_hl, per_scene))
 
     # 0-1b) 씬 문법 하드게이트 (2026-08-03 실사고: 지식 3비트를 body에 넣고 fact 씬이
     #       마무리 문장 1개뿐인 편이 게시됨 — 번호 카드는 fact 씬에만 붙으므로 시청자에겐
