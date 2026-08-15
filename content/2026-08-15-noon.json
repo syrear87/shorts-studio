@@ -1,0 +1,74 @@
+{
+  "title": "명동이 한 집안 것이었는데, 돌아온 사람은 한 명이었습니다",
+  "chip": "광복절 특별 · 1일 1지식",
+  "narrator": "male",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "명동 일대에 큰 땅을 가진 집안이 있었습니다. 1910년, 그 집안이 전부 팔았습니다.",
+      "lines": [
+        ["큰 땅을 가진 집안", ["집안"]],
+        ["1910년, 전부 팔았습니다", ["전부"]]
+      ],
+      "bg_query": "Myeongdong Seoul night neon city street",
+      "bg_id": 37362904
+    },
+    {
+      "kind": "fact",
+      "voice": "나라를 잃은 직후입니다. 이회영 6형제가 전 재산을 처분합니다. 지금 돈으로 추정 600억 원이 넘습니다.",
+      "lines": [
+        ["이회영 6형제", ["6형제"]],
+        ["추정 600억 원", ["600억"]]
+      ],
+      "bg_query": "old Korean traditional house hanok gate",
+      "bg_id": 37841629
+    },
+    {
+      "kind": "fact",
+      "voice": "일가 60여 명과 만주로 건너가 신흥무관학교를 세웠습니다. 10년간 약 3,500명의 독립군을 길러냅니다.",
+      "lines": [
+        ["신흥무관학교를 세웠습니다", ["신흥무관학교"]],
+        ["3,500명의 독립군", ["3,500명"]]
+      ],
+      "bg_query": "military training martial arts outdoors",
+      "bg_id": 27844626
+    },
+    {
+      "kind": "fact",
+      "voice": "다섯 형제는 해방을 보지 못했습니다. 둘째 이석영은 1934년 상하이에서 굶어 죽었습니다.",
+      "lines": [
+        ["다섯 형제는", ["다섯"]],
+        ["해방을 보지 못했습니다", ["해방을"]]
+      ],
+      "bg_query": "old empty room window sunlight dust",
+      "bg_id": 5401861
+    },
+    {
+      "kind": "twist",
+      "voice": "유일하게 살아 돌아온 다섯째 이시영은 대한민국 초대 부통령이 됩니다. 형제들이 판 그 땅 위에, 지금 우리가 서 있습니다.",
+      "lines": [
+        ["이시영, 초대 부통령", ["초대"]],
+        ["그 땅 위에 우리가 서 있습니다", ["우리가"]]
+      ],
+      "bg_query": "South Korea flag building government",
+      "bg_id": 13301911
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "bg_query": [
+    "Myeongdong Seoul night neon city street",
+    "old Korean traditional house hanok gate",
+    "military training martial arts outdoors",
+    "old empty room window sunlight dust",
+    "South Korea flag building government"
+  ],
+  "sources": [
+    "https://contents.history.go.kr/front/tg/view.do?levelId=tg_004_1660",
+    "https://encykorea.aks.ac.kr/Article/E0044990"
+  ]
+}
