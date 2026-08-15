@@ -554,6 +554,13 @@ def main():
     if not script.get("scenes"):
         sys.exit("기각: scenes 없음")
     for i, sc in enumerate(script["scenes"]):
+        # 2026-08-15: 화면 자체가 콘텐츠인 씬(퀴즈 문제 등)은 "no_sub": true로 자막을 비울 수 있다.
+        # 그 외에는 무자막이 곧 사고이므로 기존대로 기각한다.
+        if sc.get("no_sub"):
+            sc["lines"] = []
+            if not sc.get("voice"):
+                sys.exit("기각: scene %d voice 누락 (자막을 비웠으면 나레이션은 필수다)" % i)
+            continue
         if not sc.get("lines") or not sc.get("voice"):
             sys.exit("기각: scene %d lines/voice 누락" % i)
         # 2026-08-14 감사: 스키마 이상은 원시 traceback 대신 명시적 기각 (578행 설계 원칙)

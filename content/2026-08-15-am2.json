@@ -7,14 +7,8 @@
       "kind": "hook",
       "voice": "태극기 네 개 중, 진짜는 몇 번일까요. 잘 보세요. 하나만 정답입니다. 셋은 어딘가가 틀렸습니다.",
       "bg": "file!:assets/bg_flag/bg_hook.png",
-      "lines": [
-        [
-          "진짜 태극기는 몇 번일까요",
-          [
-            "몇 번"
-          ]
-        ]
-      ]
+      "lines": [],
+      "no_sub": true
     },
     {
       "kind": "fact",
