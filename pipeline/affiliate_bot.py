@@ -549,7 +549,9 @@ def cancel_last():
     tg_send("🗑 허브에서 '%s' 제거했습니다. 스토리는 앱에서 직접 삭제해주세요(24시간 후 자동 소멸)." % dropped["name"])
 
 
-def main():
+def main(once=False):
+    """once=True면 대기 중인 메시지를 한 번만 처리하고 끝낸다.
+    2026-08-16 디렉터 "데일리만 남기자" — 상주 봇을 없애고 슬롯 세션이 이 함수를 호출한다."""
     offset = 0
     if os.path.exists(OFFSET_F):
         try:
@@ -559,19 +561,12 @@ def main():
     print("[affiliate_bot] 시작 offset=%d %s" % (offset, datetime.now().isoformat()), flush=True)
     while True:
         try:
-            d = http("https://api.telegram.org/bot%s/getUpdates?timeout=50&offset=%d" % (TG["STUDIO_TG_TOKEN"], offset + 1), timeout=70)
+            d = http("https://api.telegram.org/bot%s/getUpdates?timeout=%d&offset=%d" % (TG["STUDIO_TG_TOKEN"], 0 if once else 50, offset + 1), timeout=70)
             for u in d.get("result", []):
                 offset = max(offset, u["update_id"])
                 open(OFFSET_F, "w").write(str(offset))
                 if u.get("callback_query"):
-                    cb = u["callback_query"]
-                    if str((cb.get("message") or {}).get("chat", {}).get("id")) == str(TG["STUDIO_TG_CHAT_ID"]):
-                        try:
-                            handle_approval(cb)
-                        except Exception as e:
-                            print("[affiliate_bot] 승인 처리 실패:", str(e)[:200], flush=True)
-                            tg_send("⚠️ 승인 처리 실패: %s" % str(e)[:150])
-                    continue
+                    continue   # 승인 게이트 폐지 (2026-08-16) — 옛 버튼이 눌려도 무시
                 m = u.get("message") or {}
                 if str(m.get("chat", {}).get("id")) != str(TG["STUDIO_TG_CHAT_ID"]):
                     continue
@@ -600,8 +595,13 @@ def main():
                 pass
         except Exception as e:
             print("[affiliate_bot] 오류:", str(e)[:200], flush=True)
+            if once:
+                return
             time.sleep(30)
+        if once:
+            return
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    main(once="--once" in sys.argv)
