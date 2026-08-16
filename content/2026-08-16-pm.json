@@ -1,0 +1,74 @@
+{
+  "title": "결혼 전에 산 주식, 이혼하면 누구 것일까요",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "bg_query": [
+    "courtroom judge gavel law",
+    "legal document contract signing pen",
+    "wedding rings couple hands",
+    "stock market chart trading screen",
+    "couple discussing documents financial planning",
+    "subscribe channel notification"
+  ],
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": 34536748,
+      "voice": "결혼 전에 산 주식, 이혼하면 내 것일까요.",
+      "lines": [
+        ["결혼 전에 산 주식", ["주식"]],
+        ["이혼하면 내 것일까요", ["내 것일까요"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 7579664,
+      "voice": "민법 830조는 혼인 전 재산을 특유재산이라 합니다. 원칙적으로 나눌 필요가 없습니다.",
+      "lines": [
+        ["민법 830조, 특유재산", ["특유재산"]],
+        ["원칙적으로 나눌 필요가 없습니다", ["없습니다"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 38359910,
+      "voice": "그런데 대법원은 배우자의 가사노동도 기여로 인정했습니다. 기여가 없다면 보호되지만, 있다면 나눠야 합니다.",
+      "lines": [
+        ["가사노동도 기여로 인정", ["가사노동도"]],
+        ["기여가 있다면 나눠야 합니다", ["나눠야"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 38557069,
+      "voice": "올해 7월 법원은 결혼 전 주식도 분할 대상으로 보고 약 9천400억 원을 선고했습니다. 현재 대법원 심리 중입니다.",
+      "lines": [
+        ["결혼 전 주식도 분할 대상", ["분할"]],
+        ["약 9,400억 원 선고, 대법원 심리 중", ["9,400억"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 6964253,
+      "voice": "결혼 전에 산 주식이라도 내 것이 아닐 수 있습니다. 결혼한 분이라면 한번 확인해 보세요.",
+      "lines": [
+        ["결혼 전 주식이라도 내 것이 아닐 수 있습니다", ["내 것이"]],
+        ["결혼한 분이라면 확인해 보세요", ["확인해"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": 6964253,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://casenote.kr/%EB%B2%95%EB%A0%B9/%EB%AF%BC%EB%B2%95/%EC%A0%9C830%EC%A1%B0",
+    "https://imnews.imbc.com/news/2026/society/article/6839840_36918.html"
+  ]
+}
