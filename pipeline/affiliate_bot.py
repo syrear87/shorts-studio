@@ -385,7 +385,12 @@ def handle_link(text_msg):
             _th.reply_text(_pid, "%s\n%s\n\n%s" % (name, url, DISCLOSURE))
             print("[affiliate_bot] 스레드 답글 완료:", ep[:20], flush=True)
         else:
-            print("[affiliate_bot] 스레드에서 해당 편을 못 찾음 — 답글 생략", flush=True)
+            # 조용히 넘기지 마라 — 2026-08-17 실사고: 답글이 안 달렸는데 아무도 몰랐고
+            # 디렉터가 "왜 쓰레드에 댓글로 안 넣어줌?"이라고 물어서야 발견됐다.
+            print("[affiliate_bot] 스레드에서 해당 편을 못 찾음", flush=True)
+            tg_send("⚠️ 스레드에 답글을 못 달았습니다 — 그 편을 스레드에서 못 찾았습니다.\n"
+                    "상품: %s\n게시가 아직 안 됐거나 제목이 바뀐 경우입니다. "
+                    "'스티커'라고 보내시면 다시 시도합니다." % name[:40])
     except Exception as _e:
         print("[affiliate_bot] 스레드 답글 실패(무해):", str(_e)[:150], flush=True)
 
@@ -397,7 +402,8 @@ def handle_link(text_msg):
         tg_send_photo(img, "📸 %s — ①저장 ②스토리 올리기 ③점선 자리에 링크 스티커(다음 메시지) — 스티커 문구는 '링크' 대신 상품명으로 ④게시. 11시대에 올리면 접속 피크를 통째로 탑니다" % name)
         tg_send(url)
         state({"pending_story": {"name": name, "kit_ts": time.time(), "story_id": None, "posted_ts": None}})
-        tg_send("📋 유튜브 설명란 끝에 붙여넣기용 (링크 클릭 가능):\n\n🛒 %s\n%s\n* 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다" % (name, url))
+        # 2026-08-17 디렉터: "유튜브엔 설명이든 댓글이든 링크 작성해도 링크 안 걸리니깐 이건 이제 안 보내도 됨"
+        #   → 유튜브 설명란용 블록 발송 폐기. 클릭 통로는 스레드 답글과 인스타 스토리뿐이다.
     except Exception as e:
         print("[affiliate_bot] 이미지 실패:", str(e)[:200], flush=True)
         tg_send("⚠️ 스토리 이미지 생성 실패 — 게시물 커버로 직접 스토리 올려주세요. 링크: %s" % url)

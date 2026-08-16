@@ -138,11 +138,18 @@ def find_recent_post(caption_hint, limit=8):
     tok = token()
     me = _get("%s/me?fields=id&access_token=%s" % (API, tok))["id"]
     d = _get("%s/%s/threads?fields=id,text,timestamp&limit=%d&access_token=%s" % (API, me, limit, tok))
-    key = (caption_hint or "").strip()[:24]
+    # 스레드는 게시물당 해시태그를 하나만 허용해 **첫 해시태그의 #을 지운다**
+    # ("…아닙니다 #장마 #날씨" → "…아닙니다 장마 #날씨"). 그래서 원문 그대로 비교하면 못 찾는다.
+    # → 해시태그가 시작되기 전까지의 제목 부분만 비교한다 (2026-08-17 실사고).
+    import re as _re
+    def _core(t):
+        t = _re.split(r"[#\n]", t or "", 1)[0]
+        return _re.sub(r"\s+", " ", t).strip()
+    key = _core(caption_hint)[:22]
     if not key:
         return None
     for it in d.get("data") or []:
-        if key in (it.get("text") or ""):
+        if key and key in _core(it.get("text") or ""):
             return it["id"]
     return None
 
