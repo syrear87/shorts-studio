@@ -118,34 +118,24 @@ def build_caption(meta):
 
 
 def threads_parts(meta):
-    """스레드 본문을 (첫 글, [답글...])로 나눈다 (2026-08-16 디렉터: "캡션도 인스타와 동일하게").
-    스레드 상한이 500자라 인스타 캡션 전문이 한 글에 안 들어간다 → 문단 단위로 쪼개 답글로 잇는다.
-    마지막 답글에 **쿠팡 링크**를 붙인다(디렉터: "쿠팡 링크를 넣어야지") —
-    인스타는 캡션 URL이 클릭 불가지만 스레드는 클릭된다. 우리 유일한 클릭 통로다.
-    ⚠️ 쿠팡 링크를 넣으면 대가성 문구가 법적 의무다 — 같은 글에 반드시 함께 붙인다."""
-    HUB = "https://hub.daily1know.workers.dev"
+    """스레드 본문 (2026-08-16 디렉터 확정): 첫 글 = 제목 + 내용(출처 제외),
+    답글 = 쿠팡 링크. **쿠팡 링크가 없으면 답글을 달지 않는다.**
+    스레드 상한 500자라 넘치면 블록 단위로 잘라낸다(잘랐음을 숨기지 않고 '…'로 표시).
+    쿠팡 링크에는 대가성 문구가 법적 의무이므로 항상 같은 글에 붙인다."""
     blocks = [b.strip() for b in build_caption(meta).split("\n\n") if b.strip()]
-    parts, cur = [], ""
-    for b in blocks:
-        if len(cur) + len(b) + 2 <= MAX_THREADS:
-            cur = (cur + "\n\n" + b) if cur else b
-        else:
-            if cur:
-                parts.append(cur)
-            cur = b if len(b) <= MAX_THREADS else b[:MAX_THREADS - 1] + "…"
-    if cur:
-        parts.append(cur)
-    # 링크 블록 — 이 편과 짝이 되는 쿠팡 상품이 있으면 그것을, 없으면 허브로
+    keep = [b for b in blocks
+            if not b.startswith("출처") and not b.lstrip().startswith("•")]
+    head = ""
+    for b in keep:
+        cand = (head + "\n\n" + b) if head else b
+        if len(cand) > MAX_THREADS:
+            break
+        head = cand
+    if not head:                      # 제목 한 줄도 넘치는 예외
+        head = keep[0][:MAX_THREADS - 1] + "…" if keep else ""
     link, name = affiliate_for(meta)
-    if link:
-        tail = "%s\n%s\n\n%s" % (name, link, DISCLOSURE_TEXT)
-    else:
-        tail = "영상에 나온 것들 · " + HUB
-    if parts and len(parts[-1]) + len(tail) + 2 <= MAX_THREADS:
-        parts[-1] = parts[-1] + "\n\n" + tail
-    else:
-        parts.append(tail)
-    return parts[0], parts[1:]
+    replies = ["%s\n%s\n\n%s" % (name, link, DISCLOSURE_TEXT)] if link else []
+    return head, replies
 
 
 DISCLOSURE_TEXT = "* 이 게시물은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다"
