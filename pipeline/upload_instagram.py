@@ -96,16 +96,24 @@ def refresh_token_if_due(token):
 
 
 def build_caption(meta):
-    """캡션 = 제목 + 본문 전문, 단 맨 아래 '태그: ...' 줄만 제거 (2026-08-05 디렉터 포맷 지정).
-    본문 안의 해시태그 줄(#...)과 Pexels 크레딧은 그대로 유지한다."""
+    """캡션 = [제목 + 해시태그] 한 줄 → 빈 줄 → 본문(출처까지).
+    2026-08-16 디렉터 포맷 개정: 해시태그를 **제목 줄 끝**에 붙이고, 본문 하단의
+    해시태그 줄과 '태그: ...' 줄은 지운다 — 피드에서 첫 줄만 보이므로 태그도 함께 노출된다.
+    Pexels 크레딧은 계속 제거(채널 정보란으로 이관, 2026-08-05)."""
     title = meta["title"].replace("#shorts", "").replace("#Shorts", "").strip()
-    desc = meta["description"]
-    # 2026-08-05 디렉터: Pexels 크레딧 줄 제거 (채널 정보란으로 이관)
-    # 2026-08-10 보강: '배경 영상: Pexels' 문구만 걸러 'Pexels 제공 영상 사용'이 새어나감 — 'Pexels' 포함 줄 전체로 확장
-    lines = [l for l in desc.splitlines()
-             if not l.strip().startswith("태그:") and "Pexels" not in l and "pexels" not in l]
-    desc = "\n".join(lines).strip()
-    return ("%s\n\n%s" % (title, desc))[:2200]
+    body, tagline = [], ""
+    for l in meta["description"].splitlines():
+        t = l.strip()
+        if t.startswith("태그:") or "Pexels" in l or "pexels" in l:
+            continue
+        if t.startswith("#"):
+            tagline = t          # 본문 하단 해시태그 줄 → 제목 뒤로 이동
+            continue
+        body.append(l)
+    if not tagline and meta.get("tags"):
+        tagline = " ".join("#" + t.lstrip("#") for t in meta["tags"])
+    head = ("%s %s" % (title, tagline)).strip()
+    return ("%s\n\n%s" % (head, "\n".join(body).strip()))[:2200]
 
 
 def r2_put(kv, path):

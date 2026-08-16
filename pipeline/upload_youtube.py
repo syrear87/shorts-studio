@@ -112,7 +112,9 @@ def phase0(video, meta):
                         "⚠️ 영상이 %dMB로 텔레그램 한도 초과 — 파일: %s" % (size_mb, os.path.abspath(video))],
                        check=True, timeout=90)
     # 2) 유튜브 설명란: 머리말 없이 '제목(#Shorts 없음)+본문+태그 줄' (2026-08-05 디렉터 포맷 확정)
-    msg = "%s\n\n%s\n\n태그: %s" % (clean_title(meta), full_description(meta), ", ".join(topic_tags(meta)))
+    # 2026-08-16 디렉터 포맷 개정: 해시태그는 제목 줄 끝에, 하단 '태그:' 줄은 폐지 — 인스타 캡션과 동형
+    _tags = " ".join("#" + t.lstrip("#") for t in topic_tags(meta))
+    msg = "%s %s\n\n%s" % (clean_title(meta), _tags, full_description(meta))
     subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), msg], check=True, timeout=90)
     # IG 캡션 별도 메시지는 폐지 (2026-08-05 디렉터: 실패 시에도 경고 한 줄이면 충분 —
     # 유튜브용으로 발송된 영상+캡션으로 수동 업로드 가능)
