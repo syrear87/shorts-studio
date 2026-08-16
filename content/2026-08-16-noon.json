@@ -1,0 +1,84 @@
+{
+  "title": "번들거리는 피부, 기름이 아니라 수분이 문제였습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "bg_query": [
+    "woman oil blotting paper face summer",
+    "woman washing face foam cleanser",
+    "skin barrier layer ceramide moisture closeup",
+    "face wash soap bubbles foam hands",
+    "woman touching face oily skin mirror",
+    "woman applying face serum essence skincare",
+    "subscribe channel notification"
+  ],
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": 6446127,
+      "voice": "여름에 피부가 번들거리면, 먼저 기름종이를 쓰고 집에 가면 더 꼼꼼히 씻습니다.",
+      "lines": [
+        ["여름에 피부가 번들거리면", ["번들거리면"]],
+        ["기름종이를 쓰고, 더 꼼꼼히 씻습니다", ["기름종이를"]]
+      ]
+    },
+    {
+      "kind": "body",
+      "bg": 6565143,
+      "voice": "그런데 바로 그 세안 습관이 번들거림을 더 심하게 만들 수 있습니다.",
+      "lines": [
+        ["그 세안 습관이", ["세안"]],
+        ["번들거림을 더 심하게 만듭니다", ["심하게"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 8131887,
+      "voice": "피부 장벽 지질의 절반은 세라마이드입니다. 이 지질이 피부 속 수분이 증발하지 않게 막아 줍니다.",
+      "lines": [
+        ["장벽 지질의 절반은 세라마이드", ["세라마이드"]],
+        ["수분 증발을 막아 줍니다", ["수분"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 8298623,
+      "voice": "강한 세안제의 계면활성제는 피지뿐 아니라 이 세라마이드까지 녹여 냅니다. 장벽이 약해질수록 수분은 더 빨리 빠집니다.",
+      "lines": [
+        ["세안제가 세라마이드까지 녹여 냅니다", ["세라마이드까지"]],
+        ["장벽이 약해질수록 수분은 빠집니다", ["빠집니다"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 8075529,
+      "voice": "피부과에서는 표면은 기름지면서도 안쪽은 수분이 부족한 상태가 동시에 존재할 수 있다고 설명합니다.",
+      "lines": [
+        ["기름지면서도 수분은 부족", ["수분은"]],
+        ["동시에 존재할 수 있습니다", ["동시에"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 8131886,
+      "voice": "번들거림의 해법은 더 세게 씻는 게 아니라 장벽을 회복시키는 것일 수 있습니다. 기름종이보다 수분이 먼저입니다.",
+      "lines": [
+        ["해법은 더 세게 씻는 게 아닙니다", ["아닙니다"]],
+        ["기름종이보다 수분이 먼저입니다", ["수분이"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": 8131886,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://pubmed.ncbi.nlm.nih.gov/12553851/",
+    "https://dermnetnz.org/topics/sebum"
+  ]
+}
