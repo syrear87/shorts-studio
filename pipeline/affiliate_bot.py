@@ -280,10 +280,9 @@ def make_story_image(media, product_name, out_path, sticker_mode=False):
     im.paste(shadow, (0, 0), shadow)
     im.paste(card, (cx, cy), mask)
     if sticker_mode:
-        # v3.1 (2026-08-14 디렉터: "상품명 복원 하지 마 — 스티커에 내가 상품명 작성") —
-        # 상품명은 링크 스티커 문구가 담당. 이미지는 탭 유도 한 줄만.
-        card_bottom = cy + card.height
-        center(card_bottom + 60, "링크는 위 스티커를 탭", font(30), GOLD)
+        # v3.2 (2026-08-16 디렉터: "링크는 위 스티커를 탭 이거 안 나오게 해줘") —
+        # 문구는 전부 뺀다. 상품명도 탭 유도도 링크 스티커가 담당하고,
+        # 이미지는 커버 프레임 + 스티커 자리 점선 가이드만 남긴다.
         # 스티커 위치 점선 가이드 (IG 기본 스티커보다 약간 작게 — 스티커가 덮으면 최종 화면엔 안 보임)
         gx0, gy0, gx1, gy1 = (W - 460) / 2, 415, (W + 460) / 2, 525
         dash = 18
