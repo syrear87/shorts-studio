@@ -31,12 +31,23 @@ export default {
         return new Response("forbidden", { status: 403 });   // 오픈 리다이렉트 방지 — 쿠팡만
       }
       const n = (url.searchParams.get("n") || "etc").slice(0, 48);
-      if (url.searchParams.get("me") !== "1") {
+      if (url.searchParams.get("me") === "1") {
+        await bump(env, "me:click:" + slug);   // 디렉터 테스트분 — 실적 집계에서 분리 (2026-08-16)
+      } else {
         await bump("click:" + n);
         await bump("day:" + day + ":click:" + n);
       }
       return Response.redirect(dest.toString(), 302);
     }
+    if (url.pathname === "/reset") {
+      // 오염 데이터 정리 (2026-08-16: 배포 당일 디렉터 테스트 클릭 9건이 실적으로 잡혀 있었다)
+      if (url.searchParams.get("k") !== env.STATS_KEY) return new Response("nope", { status: 403 });
+      const list = await env.KV.list();
+      let n = 0;
+      for (const key of list.keys) { await env.KV.delete(key.name); n++; }
+      return new Response("reset " + n + " keys", { headers: { "content-type": "text/plain" } });
+    }
+
     if (url.pathname === "/stats") {
       if (url.searchParams.get("k") !== env.STATS_KEY) {
         return new Response("forbidden", { status: 403 });
