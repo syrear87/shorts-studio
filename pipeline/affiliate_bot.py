@@ -593,6 +593,11 @@ def main():
                     print("[affiliate_bot] 명령 처리 실패:", str(e)[:200], flush=True)
                     tg_send("⚠️ 처리 실패(%s) — 같은 메시지를 다시 보내주세요" % str(e)[:80])
             track_story()   # 스토리 게시 감지·+20h 도달 수집 (A2 계측)
+            try:
+                from affiliate_gap import check_and_alert
+                check_and_alert(tg_send)     # 제휴 공백 24h 경보 (2026-08-16)
+            except Exception:
+                pass
         except Exception as e:
             print("[affiliate_bot] 오류:", str(e)[:200], flush=True)
             time.sleep(30)
