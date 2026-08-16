@@ -1,0 +1,135 @@
+{
+ "topic": "이불 찬물 세탁으로는 집먼지진드기가 죽지 않는다 — 55도 이상 필요 (JACI 1992)",
+ "narrator": "female",
+ "sources": [
+  "McDonald LG, Tovey E. The role of water temperature and laundry procedures in reducing house dust mite populations and allergen content of bedding. J Allergy Clin Immunol. 1992;90(4):599-608. (PMID 1401643) — 55도 이상에서 진드기 전멸, 세제로는 저온을 보완할 수 없음",
+  "Tovey ER et al. Mite and mite allergen removal during machine washing of laundry. J Allergy Clin Immunol. 2003 — 찬물 세탁도 알레르겐은 90% 이상 제거",
+  "완전 박멸 최소 온도 58도: 상기 연구 및 후속 세탁 프로그램 연구"
+ ],
+ "bg_query": [
+  "bed sheets bedding close up morning",
+  "washing machine laundry water",
+  "hot water steam laundry",
+  "clean white bedding sunlight",
+  "person making bed fresh sheets",
+  "folded clean bedding stack"
+ ],
+ "scenes": [
+  {
+   "kind": "hook",
+   "voice": "이불을 아무리 자주 빨아도, 찬물이면 진드기는 그대로 살아 있습니다.",
+   "lines": [
+    [
+     "이불을 자주 빨아도",
+     [
+      "자주"
+     ]
+    ],
+    [
+     "찬물이면 진드기는 살아 있다",
+     [
+      "살아 있다"
+     ]
+    ]
+   ],
+   "bg": 8406464
+  },
+  {
+   "kind": "fact",
+   "voice": "호주 연구진이 세탁 온도를 나눠 실험했습니다. 찬물로 돌린 이불에서는 살아 있는 진드기가 거의 그대로 나왔습니다.",
+   "lines": [
+    [
+     "찬물 세탁 후에도",
+     [
+      "찬물"
+     ]
+    ],
+    [
+     "산 진드기는 거의 그대로 남았다",
+     [
+      "그대로"
+     ]
+    ]
+   ],
+   "bg": 30183209
+  },
+  {
+   "kind": "fact",
+   "voice": "진드기가 전멸한 건 오십오도부터였습니다. 세제를 아무리 바꿔도 낮은 온도를 대신하지는 못했습니다.",
+   "lines": [
+    [
+     "전멸은 55도부터",
+     [
+      "55도"
+     ]
+    ],
+    [
+     "세제로는 온도를 대신하지 못했다",
+     [
+      "온도"
+     ]
+    ]
+   ],
+   "bg": 10558368
+  },
+  {
+   "kind": "fact",
+   "voice": "그렇다고 찬물 세탁이 헛수고는 아닙니다. 알레르기를 일으키는 물질 자체는 찬물로도 구십 퍼센트 넘게 씻겨 나갔습니다.",
+   "lines": [
+    [
+     "찬물 세탁도 헛수고는 아닙니다",
+     [
+      "헛수고"
+     ]
+    ],
+    [
+     "알레르기 물질은 90% 넘게 씻겨 나간다",
+     [
+      "90%"
+     ]
+    ]
+   ],
+   "bg": 6763586
+  },
+  {
+   "kind": "twist",
+   "voice": "정리하면 이렇습니다. 죽이려면 온수, 씻어내려면 찬물도 됩니다. 세탁이 어려운 매트리스와 베개는 커버를 씌우고, 그 커버만 온수로 돌리면 됩니다.",
+   "lines": [
+    [
+     "죽이려면 온수, 씻어내려면 찬물",
+     [
+      "온수"
+     ]
+    ],
+    [
+     "매트리스와 베개는 커버를 씌운다",
+     [
+      "커버"
+     ]
+    ]
+   ],
+   "bg": 7641367
+  },
+  {
+   "kind": "cta",
+   "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+   "lines": [
+    [
+     "오늘도 1일 1지식",
+     [
+      "1일",
+      "1지식"
+     ]
+    ],
+    [
+     "구독으로 받아보세요",
+     [
+      "구독으로"
+     ]
+    ]
+   ],
+   "sub": "1일 1지식 · 구독",
+   "bg": 7131731
+  }
+ ]
+}
