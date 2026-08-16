@@ -85,13 +85,23 @@ def token():
     return tok
 
 
-def publish(video_url, text, timeout_s=300):
-    """R2 공개 URL의 mp4를 스레드에 올린다. 성공하면 permalink, 실패하면 예외."""
+def _create(me, tok, params):
+    params["access_token"] = tok
+    return _post("%s/threads" % me, params)["id"]
+
+
+def _publish_container(me, tok, cid):
+    pid = _post("%s/threads_publish" % me, {"creation_id": cid, "access_token": tok})["id"]
+    return pid
+
+
+def publish(video_url, text, timeout_s=300, replies=()):
+    """R2 공개 URL의 mp4를 스레드에 올리고, 넘치는 본문은 답글로 이어붙인다.
+    2026-08-16 디렉터: "캡션도 인스타와 동일하게" — 스레드 본문 상한이 500자라
+    한 게시물에 다 넣을 수 없다. 첫 게시물에 도입부, 나머지는 자기 글 답글로 잇는다."""
     tok = token()
     me = _get("%s/me?fields=id&access_token=%s" % (API, tok))["id"]
-    cid = _post("%s/threads" % me, {
-        "media_type": "VIDEO", "video_url": video_url,
-        "text": text[:MAX_TEXT], "access_token": tok})["id"]
+    cid = _create(me, tok, {"media_type": "VIDEO", "video_url": video_url, "text": text[:MAX_TEXT]})
     # 컨테이너가 FINISHED가 될 때까지 기다린다 — 바로 발행하면 처리 중이라 실패한다
     deadline = time.time() + timeout_s
     while time.time() < deadline:
@@ -104,9 +114,46 @@ def publish(video_url, text, timeout_s=300):
             raise RuntimeError("스레드 미디어 처리 실패: %s" % st.get("error_message"))
     else:
         raise RuntimeError("스레드 미디어 처리 시간 초과(%ds)" % timeout_s)
-    pid = _post("%s/threads_publish" % me, {"creation_id": cid, "access_token": tok})["id"]
+    pid = _publish_container(me, tok, cid)
+    # 답글 체인 — 각 답글은 바로 앞 글에 달아 하나의 실로 읽히게 한다
+    parent = pid
+    for r in replies:
+        if not r.strip():
+            continue
+        try:
+            rid = _create(me, tok, {"media_type": "TEXT", "text": r[:MAX_TEXT], "reply_to_id": parent})
+            time.sleep(2)
+            parent = _publish_container(me, tok, rid)
+        except Exception as e:
+            print("[threads] 답글 실패(본문은 게시됨):", str(e)[:150], flush=True)
+            break
     link = _get("%s/%s?fields=permalink&access_token=%s" % (API, pid, tok)).get("permalink")
     return link or ("https://www.threads.net/@syusyu_channel/post/" + pid)
+
+
+def find_recent_post(caption_hint, limit=8):
+    """내 최근 스레드 글 중 캡션 앞부분이 일치하는 글의 id를 찾는다 (2026-08-16).
+    게시(슬롯 시각)와 제휴 링크 회신(디렉터가 나중) 사이에 시차가 있어,
+    링크가 오면 그 편의 스레드 글을 되찾아 답글로 붙여야 하기 때문이다."""
+    tok = token()
+    me = _get("%s/me?fields=id&access_token=%s" % (API, tok))["id"]
+    d = _get("%s/%s/threads?fields=id,text,timestamp&limit=%d&access_token=%s" % (API, me, limit, tok))
+    key = (caption_hint or "").strip()[:24]
+    if not key:
+        return None
+    for it in d.get("data") or []:
+        if key in (it.get("text") or ""):
+            return it["id"]
+    return None
+
+
+def reply_text(parent_id, text):
+    """기존 글에 텍스트 답글을 단다."""
+    tok = token()
+    me = _get("%s/me?fields=id&access_token=%s" % (API, tok))["id"]
+    cid = _create(me, tok, {"media_type": "TEXT", "text": text[:MAX_TEXT], "reply_to_id": parent_id})
+    time.sleep(2)
+    return _publish_container(me, tok, cid)
 
 
 if __name__ == "__main__":

@@ -365,6 +365,21 @@ def handle_link(text_msg):
     update_hub(items)
     state({"hub_items": items, "last_permalink": m.get("permalink"),
            "last_product": {"name": name, "url": url}, "ts": datetime.now().isoformat()})
+    # ①-b 스레드에 쿠팡 링크 답글 (2026-08-16 디렉터: "쿠팡 링크를 넣어야지")
+    #    게시(슬롯 시각)와 링크 회신(디렉터가 나중) 사이에 시차가 있어 본문에 못 넣는다 →
+    #    그 편의 스레드 글을 찾아 답글로 붙인다. 스레드는 링크가 클릭되는 유일한 통로다.
+    #    ⚠️ 쿠팡 링크에는 대가성 문구가 법적 의무 — 같은 글에 함께 붙인다.
+    try:
+        import upload_threads as _th
+        _pid = _th.find_recent_post(ep)
+        if _pid:
+            _th.reply_text(_pid, "%s\n%s\n\n%s" % (name, url, DISCLOSURE))
+            print("[affiliate_bot] 스레드 답글 완료:", ep[:20], flush=True)
+        else:
+            print("[affiliate_bot] 스레드에서 해당 편을 못 찾음 — 답글 생략", flush=True)
+    except Exception as _e:
+        print("[affiliate_bot] 스레드 답글 실패(무해):", str(_e)[:150], flush=True)
+
     # ② 최종 확정 (2026-08-13 오후): 자동 게시 없음, 프로필 유도형 없음 —
     #    스티커 킷(이미지+링크)을 만들어 보내면 디렉터가 스토리+링크 스티커로 게시한다 (클릭 1번 경로 유일 기본)
     try:

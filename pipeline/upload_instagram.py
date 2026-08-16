@@ -117,27 +117,58 @@ def build_caption(meta):
     return ("%s\n\n%s" % (head, "\n".join(body).strip()))[:2200]
 
 
-def threads_text(meta):
-    """스레드 본문 (2026-08-16 신설). 500자 상한이라 캡션 전문을 넣을 수 없다.
-    구성: [제목 + 해시태그] + 요약 문단 + 허브 링크.
-    **허브 링크가 핵심이다** — 인스타는 캡션 URL이 클릭 불가지만 스레드는 클릭된다.
-    우리 병목(비팔로워가 링크에 닿을 수 없음)을 푸는 유일한 통로다."""
+def threads_parts(meta):
+    """스레드 본문을 (첫 글, [답글...])로 나눈다 (2026-08-16 디렉터: "캡션도 인스타와 동일하게").
+    스레드 상한이 500자라 인스타 캡션 전문이 한 글에 안 들어간다 → 문단 단위로 쪼개 답글로 잇는다.
+    마지막 답글에 **쿠팡 링크**를 붙인다(디렉터: "쿠팡 링크를 넣어야지") —
+    인스타는 캡션 URL이 클릭 불가지만 스레드는 클릭된다. 우리 유일한 클릭 통로다.
+    ⚠️ 쿠팡 링크를 넣으면 대가성 문구가 법적 의무다 — 같은 글에 반드시 함께 붙인다."""
     HUB = "https://hub.daily1know.workers.dev"
-    full = build_caption(meta)
-    head, _, body = full.partition("\n\n")
-    # 본문에서 요약 문단만 (불릿·출처는 버린다 — 길이 예산이 없다)
-    para = ""
-    for blk in body.split("\n\n"):
-        b = blk.strip()
-        if b and not b.startswith("·") and not b.startswith("출처") and not b.startswith("•"):
-            para = b
-            break
-    tail = "\n\n영상에 나온 것들 · " + HUB
-    room = MAX_THREADS - len(head) - len(tail) - 2
-    if room > 40 and para:
-        para = para if len(para) <= room else para[:room - 1].rstrip() + "…"
-        return "%s\n\n%s%s" % (head, para, tail)
-    return (head + tail)[:MAX_THREADS]
+    blocks = [b.strip() for b in build_caption(meta).split("\n\n") if b.strip()]
+    parts, cur = [], ""
+    for b in blocks:
+        if len(cur) + len(b) + 2 <= MAX_THREADS:
+            cur = (cur + "\n\n" + b) if cur else b
+        else:
+            if cur:
+                parts.append(cur)
+            cur = b if len(b) <= MAX_THREADS else b[:MAX_THREADS - 1] + "…"
+    if cur:
+        parts.append(cur)
+    # 링크 블록 — 이 편과 짝이 되는 쿠팡 상품이 있으면 그것을, 없으면 허브로
+    link, name = affiliate_for(meta)
+    if link:
+        tail = "%s\n%s\n\n%s" % (name, link, DISCLOSURE_TEXT)
+    else:
+        tail = "영상에 나온 것들 · " + HUB
+    if parts and len(parts[-1]) + len(tail) + 2 <= MAX_THREADS:
+        parts[-1] = parts[-1] + "\n\n" + tail
+    else:
+        parts.append(tail)
+    return parts[0], parts[1:]
+
+
+DISCLOSURE_TEXT = "* 이 게시물은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다"
+
+
+def affiliate_for(meta):
+    """이 편과 짝이 되는 쿠팡 상품 (링크, 이름). 없으면 (None, None).
+    판정: 상품명 낱말이 이 편 캡션에 등장하는가 — 무관한 편에 상품을 붙이면 광고 계정이 된다
+    (2026-08-16 '직결 판정법'과 같은 기준)."""
+    import re as _re
+    try:
+        st = json.load(open(os.path.join(ROOT, "logs", "affiliate_state.json"), encoding="utf-8"))
+    except Exception:
+        return None, None
+    p = st.get("last_product") or {}
+    name, url = p.get("name"), p.get("url")
+    if not (name and url):
+        return None, None
+    cap = build_caption(meta)
+    toks = [t for t in _re.split(r"[^0-9A-Za-z가-힣]+", name) if len(t) >= 2]
+    if any(t in cap for t in toks):
+        return url, name
+    return None, None
 
 
 def r2_put(kv, path):
@@ -255,7 +286,8 @@ def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, 
     # 실패해도 릴스 게시는 이미 끝났으니 슬롯을 죽이지 않는다(경고만).
     try:
         import upload_threads
-        th_link = upload_threads.publish(public_url, threads_text(meta))
+        _head, _replies = threads_parts(meta)
+        th_link = upload_threads.publish(url, _head, replies=_replies)
         print("스레드 게시 완료:", th_link, flush=True)
     except Exception as _te:
         print("스레드 게시 실패(무해, 릴스는 정상):", str(_te)[:200], flush=True)
