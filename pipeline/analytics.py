@@ -124,7 +124,7 @@ def ig_online_followers_peak():
         top = ", ".join("%02d시(%.0f)" % (h, c) for h, c in avg[:5])
         low = ", ".join("%02d시(%.0f)" % (h, c) for h, c in avg[-3:])
         print("\nIG 팔로워 접속 피크(KST): %s | 최저: %s" % (top, low))
-        print("※ 카드 슬롯(09/13/17)이 피크대를 벗어나기 시작하면 재배치 검토")
+        print("※ 편성 v9(07/10/13/16/19)와 대조 — 피크대(09~15시)를 벗어난 슬롯이 늘면 재배치 검토")
     except Exception as e:
         print("\nIG 팔로워 접속 조회 실패:", str(e)[:80])
 
