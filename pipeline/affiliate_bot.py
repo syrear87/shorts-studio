@@ -91,12 +91,21 @@ def match_media(product_name, limit=6):
     if not items:
         return None
     toks = [t for t in re.split(r"[^0-9A-Za-z가-힣]+", product_name or "") if len(t) >= 2]
+    # 2글자 조각까지 본다 (2026-08-16 실사고: 상품 '비상용망치'와 대본 '비상탈출 망치'가
+    # 낱말 단위로는 안 겹쳐 매칭이 실패했다. 같은 물건을 다르게 부르는 건 흔한 일이다).
+    grams = set()
+    for t in toks:
+        for i in range(len(t) - 1):
+            grams.add(t[i:i + 2])
     best, best_hit = None, 0
     for it in items:
         cap = it.get("caption") or ""
-        hit = sum(1 for t in toks if t in cap)
+        hit = sum(2 for t in toks if t in cap)            # 낱말 일치는 가중 2
+        hit += sum(1 for g in grams if g in cap)          # 2글자 조각은 1
         if hit > best_hit:
             best, best_hit = it, hit
+    if best_hit < 3:      # 조각 두어 개 우연히 겹친 정도는 매칭으로 보지 않는다
+        best = None
     m = best or items[0]
     if best:
         print("[affiliate_bot] 커버 매칭: '%s' → %s (겹친 낱말 %d)"

@@ -156,7 +156,9 @@ def affiliate_for(meta):
         return None, None
     cap = build_caption(meta)
     toks = [t for t in _re.split(r"[^0-9A-Za-z가-힣]+", name) if len(t) >= 2]
-    if any(t in cap for t in toks):
+    grams = {t[i:i + 2] for t in toks for i in range(len(t) - 1)}
+    score = sum(2 for t in toks if t in cap) + sum(1 for g in grams if g in cap)
+    if score >= 3:   # 봇의 match_media와 같은 기준 (2026-08-16)
         return url, name
     return None, None
 
