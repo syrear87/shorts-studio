@@ -14,6 +14,7 @@ STATE = os.path.join(ROOT, "logs", ".ig_token_refreshed")   # 새 토큰 투입 
 GRAPH = "https://graph.instagram.com/v23.0"   # 2026-08-02 리뷰 [A18]: RUPLOAD와 버전 일치 고정 — 무버전 호출은 Meta 버전 폐기 시 무예고 파손
 RUPLOAD = "https://rupload.facebook.com/ig-api-upload/v23.0"
 REFRESH_AFTER = 7 * 86400          # 7일마다 토큰 갱신
+MAX_THREADS = 500                  # 스레드 본문 상한 (2026-08-16)
 POLL_INTERVAL, POLL_MAX = 10, 30   # 처리 대기 최대 5분
 
 
@@ -116,6 +117,29 @@ def build_caption(meta):
     return ("%s\n\n%s" % (head, "\n".join(body).strip()))[:2200]
 
 
+def threads_text(meta):
+    """스레드 본문 (2026-08-16 신설). 500자 상한이라 캡션 전문을 넣을 수 없다.
+    구성: [제목 + 해시태그] + 요약 문단 + 허브 링크.
+    **허브 링크가 핵심이다** — 인스타는 캡션 URL이 클릭 불가지만 스레드는 클릭된다.
+    우리 병목(비팔로워가 링크에 닿을 수 없음)을 푸는 유일한 통로다."""
+    HUB = "https://hub.daily1know.workers.dev"
+    full = build_caption(meta)
+    head, _, body = full.partition("\n\n")
+    # 본문에서 요약 문단만 (불릿·출처는 버린다 — 길이 예산이 없다)
+    para = ""
+    for blk in body.split("\n\n"):
+        b = blk.strip()
+        if b and not b.startswith("·") and not b.startswith("출처") and not b.startswith("•"):
+            para = b
+            break
+    tail = "\n\n영상에 나온 것들 · " + HUB
+    room = MAX_THREADS - len(head) - len(tail) - 2
+    if room > 40 and para:
+        para = para if len(para) <= room else para[:room - 1].rstrip() + "…"
+        return "%s\n\n%s%s" % (head, para, tail)
+    return (head + tail)[:MAX_THREADS]
+
+
 def r2_put(kv, path):
     """렌더 mp4를 R2에 임시 공개 업로드 → (s3클라이언트, 키, 공개 URL).
     2026-08-05 실측: 이 계정/앱 유형은 resumable(rupload) 거부, video_url 방식만 허용 —
@@ -172,7 +196,7 @@ def upload(video, meta, publish=True):
         cont = api("POST", "/%s/media" % user_id, data=data)
         cid = cont["id"]
         print("컨테이너 생성: %s" % cid, flush=True)
-        return _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, data)
+        return _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, data, url)
     except Exception:
         _r2_cleanup(kv, s3, r2key)
         raise
@@ -187,7 +211,7 @@ def _r2_cleanup(kv, s3, r2key):
         tg("⚠️ R2 임시 파일 삭제 실패 — 수동 정리 필요: %s" % r2key)
 
 
-def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, container_data=None):
+def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, container_data=None, public_url=None):
 
     # 3) 처리 대기 (ERROR·타임아웃 시 컨테이너 1회 재생성 — 2026-08-14 감사: 일시 인코딩 실패 내성)
     def _wait(cid_):
@@ -226,6 +250,16 @@ def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, 
     with open(os.path.join(ROOT, "logs", "sent.log"), "a") as f:
         f.write("%s IG:%s\n" % (datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
                                 os.path.basename(video)))
+    # ── 스레드 동시 게시 (2026-08-16 디렉터: "릴스 올리면 쓰레드에도 자동으로")
+    # R2 정리 '전에' 해야 한다 — 같은 공개 URL을 스레드가 다시 가져가기 때문이다.
+    # 실패해도 릴스 게시는 이미 끝났으니 슬롯을 죽이지 않는다(경고만).
+    try:
+        import upload_threads
+        th_link = upload_threads.publish(public_url, threads_text(meta))
+        print("스레드 게시 완료:", th_link, flush=True)
+    except Exception as _te:
+        print("스레드 게시 실패(무해, 릴스는 정상):", str(_te)[:200], flush=True)
+        tg("⚠️ 스레드 게시 실패(릴스는 정상 게시됨): %s" % str(_te)[:150])
     _r2_cleanup(kv, s3, r2key)   # Meta가 인코딩까지 마친 뒤라 원본 URL은 더 필요 없음
     try:
         perma = api("GET", "/%s" % media_id,
