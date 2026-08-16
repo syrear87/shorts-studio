@@ -220,8 +220,12 @@ def local_cover_frame(media):
         probe = subprocess.run(["ffprobe", "-v", "quiet", "-show_entries", "format=duration",
                                 "-of", "csv=p=0", path], capture_output=True, text=True)
         dur = float(probe.stdout.strip())
-        w_start = max(0.0, dur - 20.0)
-        w_len = max(1.0, (dur - 6.5) - w_start)
+        # 2026-08-16 디렉터 지적("씬 3으로 뽑혔거든?"): 창이 13.5s로 넓어 결론 앞 fact 씬까지 들어왔고,
+        # 판정 기준이 '흰 픽셀 최대'라 자막이 더 긴 fact3이 결론을 이겼다.
+        # → CTA 직전 7.5s(결론 씬 한 개 분량)만 스캔한다.
+        w_end = max(1.0, dur - 6.5)
+        w_start = max(0.0, w_end - 7.5)
+        w_len = max(1.0, w_end - w_start)
         tmp = tempfile.mkdtemp(prefix="afcover_")
         subprocess.run(["ffmpeg", "-y", "-ss", "%.2f" % w_start, "-t", "%.2f" % w_len,
                         "-i", path, "-vf", "fps=2,scale=270:480",
