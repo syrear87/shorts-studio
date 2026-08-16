@@ -11,9 +11,10 @@
 - `pipeline/upload_youtube.py` — preflight(길이·해상도 기계검증) 후 `config.json`의 `upload_mode`: `phase0_telegram`(현재) / `api_public`(감사 통과 후). `instagram: on`이면 릴스 업로드 체인(`upload_instagram.py`, 토큰은 keys.env)
 - `pipeline/analytics.py` — 채널 성과 조회(읽기 전용): eng%·subs/1kE KPI, 훅부검 플래그. 근거 문서는 `content/PERFORMANCE.md`
 - `pipeline/retitle.py` — 무긴장 제목 구제(2026-08-02 승인): 게시 3~4h + 조회<300 + 무긴장이면 제목 교체, `content/RETITLES.md` 자동 기록
+- `pipeline/affiliate_bot.py` — 제휴 배선(허브 갱신·스토리 스티커 킷·허브 통계). **상주하지 않는다** — 슬롯 세션이 `--once`로 호출해 링크 회신과 `허브`/`스티커`/`취소` 명령을 처리한다.
+- `archive/` — 폐지된 코드·프롬프트 보관소(삭제 아님). 카드 렌더러·롱폼·PIL 도해·승인 게이트·서치부·트렌드워치·워치독. **되살릴 땐 왜 폐지됐는지 DECISIONS부터 읽어라.**
 - `bin/daily_runner.py` — launchd가 슬롯마다 실행. **반드시 로그인 셸(zsh -l) 경유로 claude를 띄운다** (launchd 빈 PATH 사고 이력). 조용한 죽음 경보 + 산출물 실측 대조 내장
-- `bin/watchdog.py` — 매일 22:30 슬롯 누락 대조 + 텔레그램 하트비트 (메시지 부재 = 장애 신호)
-- `launchd/` — daily(요일분기 스케줄)·watchdog. 수정 시 `~/Library/LaunchAgents`에 복사 후 unload/load (온디맨드 러너는 2026-07-29 감사에서 보안 통로로 판정되어 폐지)
+- `launchd/` — **daily 하나뿐이다** (07·10·13·16·19시, 편성 v9). 수정 시 `~/Library/LaunchAgents`에 복사 후 unload/load. **2026-08-16 이후 상주 프로세스는 없다** — 워치독·트렌드워치·서치부·제휴 봇 전원 정리(SD-007/008). 제휴 링크 회신 처리는 슬롯 세션이 `pipeline/affiliate_bot.py --once`로 폴링한다.
 - `content/` — 대본 JSON(형식은 `sample_honey.json`), `BACKLOG.md`(탈락했지만 좋은 소재), `topics_used.md`(**정본은 content/ 쪽** — 루트 동명 파일은 폐지 스텁), `REJECTED.md`(영구금지), `PERFORMANCE.md`(실측 성과)
 - `assets/brand/` — 프로필·배너·워터마크 (다크 네이비 #0B1020~#181C36 + 앰버 #FFB627 + 화이트, Noto Sans CJK Black)
 - 비밀(커밋 금지, .gitignore 처리됨): `credentials.json`, `token.json`(YouTube OAuth), `telegram.env`(봇 토큰), `keys.env`(PEXELS_API_KEY, AZURE_SPEECH_KEY — aitutor와 공유·교체 시 양쪽 갱신, IG 토큰)
