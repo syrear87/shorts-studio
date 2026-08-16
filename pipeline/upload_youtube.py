@@ -114,7 +114,11 @@ def phase0(video, meta):
     # 2) 유튜브 설명란: 머리말 없이 '제목(#Shorts 없음)+본문+태그 줄' (2026-08-05 디렉터 포맷 확정)
     # 2026-08-16 디렉터 포맷 개정: 해시태그는 제목 줄 끝에, 하단 '태그:' 줄은 폐지 — 인스타 캡션과 동형
     _tags = " ".join("#" + t.lstrip("#") for t in topic_tags(meta))
-    msg = "%s %s\n\n%s" % (clean_title(meta), _tags, full_description(meta))
+    # 본문 맨 아래 해시태그 줄은 지운다 — 제목 줄로 이미 올렸으니 중복이다
+    # (2026-08-16 디렉터: "제목에 태그 이미 있으니까 마지막에 태그는 안 써도 된다고요")
+    _body = "\n".join(l for l in full_description(meta).splitlines()
+                      if not l.strip().startswith("#")).rstrip()
+    msg = "%s %s\n\n%s" % (clean_title(meta), _tags, _body)
     subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), msg], check=True, timeout=90)
     # IG 캡션 별도 메시지는 폐지 (2026-08-05 디렉터: 실패 시에도 경고 한 줄이면 충분 —
     # 유튜브용으로 발송된 영상+캡션으로 수동 업로드 가능)
