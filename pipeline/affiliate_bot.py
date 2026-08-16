@@ -79,6 +79,35 @@ def latest_media():
     return m
 
 
+def match_media(product_name, limit=6):
+    """상품과 짝이 되는 게시물을 고른다 (2026-08-16 실사고로 신설).
+    사고: 세라마이드 로션 링크를 17:17에 회신했는데 커버가 16시 '결혼 전 주식' 편으로 나갔다.
+      커버를 무조건 '최신 게시물'에서 뽑았기 때문이다 — 디렉터가 링크를 늦게 주면
+      이미 다음 편이 올라가 있어 엉뚱한 화면이 커버가 된다.
+    방법: 상품명을 2글자 이상 토큰으로 쪼개 최근 게시물 캡션(해시태그 포함)과 대조하고,
+      가장 많이 겹치는 편을 쓴다. 하나도 안 겹치면 최신 편으로 폴백한다."""
+    d = http(f"{G}/{IG['IG_USER_ID']}/media?fields=id,permalink,caption,timestamp,media_type,media_url,thumbnail_url,children{{media_url}}&limit={limit}&access_token={IG['IG_ACCESS_TOKEN']}")
+    items = d.get("data") or []
+    if not items:
+        return None
+    toks = [t for t in re.split(r"[^0-9A-Za-z가-힣]+", product_name or "") if len(t) >= 2]
+    best, best_hit = None, 0
+    for it in items:
+        cap = it.get("caption") or ""
+        hit = sum(1 for t in toks if t in cap)
+        if hit > best_hit:
+            best, best_hit = it, hit
+    m = best or items[0]
+    if best:
+        print("[affiliate_bot] 커버 매칭: '%s' → %s (겹친 낱말 %d)"
+              % (product_name[:20], (m.get("caption") or "")[:24], best_hit), flush=True)
+    else:
+        print("[affiliate_bot] 커버 매칭 실패 — 최신 편 사용", flush=True)
+    if not m.get("media_url") and m.get("children", {}).get("data"):
+        m["media_url"] = m["children"]["data"][0].get("media_url")
+    return m
+
+
 def state(update=None):
     s = {}
     if os.path.exists(STATE_F):
@@ -319,7 +348,7 @@ def handle_link(text_msg):
             break
     if not name:
         name = "오늘의 추천 상품"
-    m = latest_media()
+    m = match_media(name)
     if not m:
         tg_send("⚠️ 처리 실패: 최근 게시물 조회 실패")
         return
@@ -352,7 +381,7 @@ def send_sticker_kit():
     if not p:
         tg_send("최근 제휴 상품 기록이 없습니다.")
         return
-    m = latest_media()
+    m = match_media(p.get("name", ""))
     if not m:
         tg_send("⚠️ 최근 게시물 조회 실패 — 잠시 후 '스티커'로 다시 시도해주세요. 링크: %s" % p["url"])
         return
