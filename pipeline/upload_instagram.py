@@ -277,7 +277,7 @@ def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, 
     try:
         import upload_threads
         _head, _replies = threads_parts(meta)
-        th_link = upload_threads.publish(url, _head, replies=_replies)
+        th_link = upload_threads.publish(public_url, _head, replies=_replies)
         print("스레드 게시 완료:", th_link, flush=True)
     except Exception as _te:
         print("스레드 게시 실패(무해, 릴스는 정상):", str(_te)[:200], flush=True)
