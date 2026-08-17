@@ -136,6 +136,56 @@ def _fit_tags(tags):
     return out
 
 
+def _title_with_tags(title, tags, limit=100):
+    """제목 뒤에 해시태그를 붙이되 100자를 넘기지 않는다. 넘치면 태그를 뒤에서 하나씩 뺀다."""
+    tags = [("#" + t.lstrip("#")) for t in tags]
+    while tags:
+        cand = "%s %s" % (title, " ".join(tags))
+        if len(cand) <= limit:
+            return cand
+        tags.pop()
+    return title[:limit]
+
+
+def hook_full_ms(video, scan_s=5.0, fps=5):
+    """훅 자막이 **다 뜬** 시점(ms)을 찾는다 (2026-08-17 디렉터: "훅 자막 다 나온 장면으로 셋팅").
+    수동으로 정한 ig_thumb_ms는 편마다 어긋났다 — 장마 편(700ms)은 첫 줄만 떠 있었다.
+    방법: 앞 5초를 훑어 중앙 자막 밴드(세로 35~72%)의 흰 픽셀이 최대인 시점을 고른다.
+    두 줄이 다 뜬 순간이 흰 픽셀이 가장 많다. 동률이면 이른 쪽(자막이 사라지기 전)."""
+    import subprocess, tempfile, os as _os
+    from PIL import Image
+    tmp = tempfile.mkdtemp(prefix="hookscan_")
+    subprocess.run(["ffmpeg", "-y", "-t", "%.2f" % scan_s, "-i", video,
+                    "-vf", "fps=%d,scale=270:480" % fps, "-loglevel", "error",
+                    _os.path.join(tmp, "f%03d.jpg")], check=True)
+    best_ms, best_ink = None, -1
+    for fn in sorted(_os.listdir(tmp)):
+        if not fn.startswith("f"):
+            continue
+        n = int(fn[1:4])
+        g = Image.open(_os.path.join(tmp, fn)).convert("L")
+        band = g.crop((0, int(480 * 0.35), 270, int(480 * 0.72)))
+        ink = sum(1 for v in band.getdata() if v >= 225)
+        if ink > best_ink:
+            best_ms, best_ink = int((n - 1) * 1000 / fps), ink
+    return best_ms if best_ms is not None else 1000
+
+
+def set_thumbnail(yt, vid, video, meta):
+    """훅 자막이 다 뜬 프레임을 유튜브 미리보기로 올린다.
+    시점은 자동 탐색(hook_full_ms)하고, meta에 ig_thumb_ms가 있으면 그것을 우선한다 —
+    디렉터가 특정 시점을 지정한 편은 그 뜻을 존중한다.
+    실패해도 게시는 유지한다(커스텀 미리보기는 채널 인증이 필요할 수 있다)."""
+    import subprocess, tempfile, os as _os
+    ms = int(meta["ig_thumb_ms"]) if meta.get("ig_thumb_ms") else hook_full_ms(video)
+    tmp = _os.path.join(tempfile.mkdtemp(prefix="ytthumb_"), "thumb.jpg")
+    subprocess.run(["ffmpeg", "-y", "-ss", "%.2f" % (ms / 1000.0), "-i", video,
+                    "-frames:v", "1", "-q:v", "2", "-loglevel", "error", tmp], check=True)
+    from googleapiclient.http import MediaFileUpload
+    yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(tmp, mimetype="image/jpeg")).execute()
+    print("미리보기 설정 완료 (%dms 지점)" % ms, flush=True)
+
+
 def api_public(video, meta):
     from googleapiclient.discovery import build
     from googleapiclient.http import MediaFileUpload
@@ -148,16 +198,15 @@ def api_public(video, meta):
     title = clean_title(meta)
     body = {
         "snippet": {
-            "title": title[:100],
-            # 2026-08-16 캡션 포맷 개정: 해시태그는 제목 줄 끝에, 본문 하단의 태그 줄은 제거
-            #   (디렉터: "제목에 태그 이미 있으니까 마지막에 태그는 안 써도 된다고요")
-            #   — phase0에는 반영돼 있었으나 api_public에는 빠져 있던 것을 전환 시점에 맞춤
-            "description": ("%s %s\n\n%s" % (
-                title,
-                " ".join("#" + t.lstrip("#") for t in topic_tags(meta)),
-                "\n".join(l for l in full_description(meta).splitlines()
-                           if not l.strip().startswith("#")).rstrip(),
-            ))[:4900],
+            # 제목 = 본제목 + 해시태그 5개 (유튜브 제목 상한 100자 — 넘치면 태그부터 잘라낸다)
+            "title": _title_with_tags(title, topic_tags(meta)),
+            # 2026-08-17 디렉터: "캡션과 제목을 분리한다" —
+            #   제목 줄(+해시태그)은 title 필드가 이미 담당하므로 설명에 반복하지 않는다.
+            #   설명에는 본문만 넣고, 본문 하단의 해시태그 줄도 제거한다(제목에 이미 있다).
+            "description": "\n".join(
+                l for l in full_description(meta).splitlines()
+                if not l.strip().startswith("#")
+            ).strip()[:4900],
             "tags": _fit_tags(topic_tags(meta, 5)),
             "categoryId": "27",  # 교육
             "defaultLanguage": "ko",
@@ -179,6 +228,10 @@ def api_public(video, meta):
     vid = resp["id"]
     url = "https://youtube.com/shorts/" + vid
     print("업로드 완료:", url)
+    try:
+        set_thumbnail(yt, vid, video, meta)
+    except Exception as _te:
+        print("미리보기 설정 실패(게시는 정상):", str(_te)[:200], flush=True)
     # 2026-08-02 리뷰 [A6]: 게시 실증 기록 — 러너 check_artifacts가 sent.log로 발송을 검증
     #                       (형식 고정: date +%FT%T + 공백 + basename, tg-send-video.sh와 동일)
     os.makedirs(os.path.join(ROOT, "logs"), exist_ok=True)
