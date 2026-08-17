@@ -1,7 +1,7 @@
 {
-  "channel_name": "1일 1지식",
-  "chip": "오늘의 지식 · 1일 1지식",
-  "upload_mode": "phase0_telegram",
-  "instagram": "off",
-  "note": "YouTube: 감사 통과 후 upload_mode를 api_public으로 변경. Instagram: keys.env에 IG 토큰 + instagram=on이어도 api_public 모드에서만 게시됨(디렉터 결정 2026-07-29 — phase0 검수 우회 방지)"
+ "channel_name": "1일 1지식",
+ "chip": "오늘의 지식 · 1일 1지식",
+ "upload_mode": "api_public",
+ "instagram": "on",
+ "note": "YouTube: 2026-08-17 감사 통과 확인(테스트 업로드가 public으로 게시됨) → api_public 전환. 이제 슬롯 세션이 upload_youtube.py 한 번으로 YT·IG·스레드에 동시 게시한다. Instagram: keys.env의 IG 토큰 + instagram=on"
 }

@@ -149,7 +149,15 @@ def api_public(video, meta):
     body = {
         "snippet": {
             "title": title[:100],
-            "description": ("%s\n\n%s" % (title, full_description(meta)))[:4900],
+            # 2026-08-16 캡션 포맷 개정: 해시태그는 제목 줄 끝에, 본문 하단의 태그 줄은 제거
+            #   (디렉터: "제목에 태그 이미 있으니까 마지막에 태그는 안 써도 된다고요")
+            #   — phase0에는 반영돼 있었으나 api_public에는 빠져 있던 것을 전환 시점에 맞춤
+            "description": ("%s %s\n\n%s" % (
+                title,
+                " ".join("#" + t.lstrip("#") for t in topic_tags(meta)),
+                "\n".join(l for l in full_description(meta).splitlines()
+                           if not l.strip().startswith("#")).rstrip(),
+            ))[:4900],
             "tags": _fit_tags(topic_tags(meta, 5)),
             "categoryId": "27",  # 교육
             "defaultLanguage": "ko",
