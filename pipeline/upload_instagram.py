@@ -200,7 +200,15 @@ def upload(video, meta, publish=True):
     base = os.path.basename(video)
     if os.path.exists(sent_p) and any(ln.rstrip().endswith("IG:" + base)
                                       for ln in open(sent_p, encoding="utf-8", errors="ignore")):
+        # 2026-08-17 실사고: 16시 슬롯이 상주 세션과 같은 파일명(-pm)을 써서 여기서 건너뛰었는데,
+        #   세션이 반환값을 '성공'으로 읽고 "Instagram 게시 완료"라고 허위 보고했다.
+        #   → 조용히 넘기지 말고 경고를 띄운다. 파일명 충돌은 사고지 정상이 아니다.
         print("이미 게시됨(IG:%s) — 건너뜀" % base)
+        try:
+            tg("⚠️ 인스타 게시를 건너뛰었습니다 — 같은 파일명이 이미 게시된 기록이 있습니다: %s\n"
+               "파일명이 겹친 것이라면 다른 이름으로 다시 렌더해 게시하세요." % base)
+        except Exception:
+            pass
         return "already-published"
     token = refresh_token_if_due(token)
 
