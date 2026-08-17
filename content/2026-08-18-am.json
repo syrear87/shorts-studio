@@ -1,0 +1,67 @@
+{
+  "title": "아이 입원 1주, 육아휴직은 한 달부터였습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": 7641649,
+      "voice": "아이가 아플 때, 연차만 썼습니다. 육아휴직을 쓰려면 한 달은 내야 했으니까요.",
+      "lines": [
+        ["아이 아플 때 연차만 썼습니다", ["연차만"]],
+        ["육아휴직은 한 달부터였습니다", ["한 달"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 7345049,
+      "voice": "8월 20일부터 1주 또는 2주 단위 단기 육아휴직이 생깁니다. 연 1회 쓸 수 있습니다.",
+      "lines": [
+        ["8월 20일, 1주 단기 육아휴직", ["1주"]],
+        ["연 1회 사용 가능", ["연 1회"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 7313176,
+      "voice": "만 8세 이하 자녀를 둔 근로자라면 누구나 됩니다. 사업장 크기도, 성별도 가리지 않습니다.",
+      "lines": [
+        ["만 8세 이하 자녀 근로자 전원", ["전원"]],
+        ["규모·성별 무관", ["무관"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 6781916,
+      "voice": "급여는 통상임금 100퍼센트, 쓴 날수만큼 나눠서 받습니다. 단, 기존 육아휴직 기간에서 차감됩니다.",
+      "lines": [
+        ["통상임금 100%, 날수만큼", ["100%"]],
+        ["기존 기간에서 차감", ["차감"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 6473758,
+      "voice": "아이 입원이나 갑작스러운 휴교 같은 상황이면, 당일 바로 신청됩니다. 이 기간은 연차에서 깎이지 않습니다. 해당되는 분은 꼭 확인해보세요.",
+      "lines": [
+        ["긴급 사유, 당일 신청", ["당일"]],
+        ["연차 안 깎여요, 확인해보세요", ["확인해보세요"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": 6473758,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19768",
+    "https://www.outsourcing.co.kr/news/articleView.html?idxno=203494"
+  ],
+  "bg_query": ["worried parent hospital child bed", "official document stamp seal", "family parents toddler kindergarten", "calculator laptop paystub office", "phone calendar reminder notification"]
+}
