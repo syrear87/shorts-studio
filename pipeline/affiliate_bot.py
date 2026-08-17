@@ -9,6 +9,7 @@
 import json
 import os
 import re
+import sys
 import time
 import urllib.parse
 import urllib.request
@@ -115,6 +116,37 @@ def match_media(product_name, limit=6):
     if not m.get("media_url") and m.get("children", {}).get("data"):
         m["media_url"] = m["children"]["data"][0].get("media_url")
     return m
+
+
+def youtube_comment(caption_hint, text, limit=8):
+    """그 편의 유튜브 영상에 댓글로 제휴 링크를 단다
+    (2026-08-17 디렉터: "쓰레드/유튜브 댓글에 넣는건 너가 해줘").
+    ⚠️ 쇼츠 **설명란** 링크는 클릭이 안 되지만(2023-08-31~), **댓글 링크는 클릭된다.**
+    최근 업로드에서 제목이 일치하는 영상을 찾아 댓글을 단다. 실패해도 나머지는 진행한다.
+    고정(pin)은 API가 없어 디렉터가 직접 해야 한다."""
+    import re as _re
+    sys.path.insert(0, os.path.join(ROOT, "pipeline"))
+    from google_creds import load_creds
+    from googleapiclient.discovery import build
+    yt = build("youtube", "v3",
+               credentials=load_creds(require_scope="https://www.googleapis.com/auth/youtube.force-ssl"))
+    up = yt.channels().list(part="contentDetails", mine=True).execute()[
+        "items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+    items = yt.playlistItems().list(part="snippet", playlistId=up, maxResults=limit).execute()["items"]
+
+    def core(t):
+        return _re.sub(r"\s+", " ", _re.split(r"[#\n]", t or "", 1)[0]).strip()
+
+    key = core(caption_hint)[:22]
+    for it in items:
+        sn = it["snippet"]
+        if key and key in core(sn["title"]):
+            vid = sn["resourceId"]["videoId"]
+            yt.commentThreads().insert(part="snippet", body={"snippet": {
+                "videoId": vid,
+                "topLevelComment": {"snippet": {"textOriginal": text}}}}).execute()
+            return "https://youtube.com/shorts/" + vid
+    return None
 
 
 def state(update=None):
@@ -393,6 +425,17 @@ def handle_link(text_msg):
                     "'스티커'라고 보내시면 다시 시도합니다." % name[:40])
     except Exception as _e:
         print("[affiliate_bot] 스레드 답글 실패(무해):", str(_e)[:150], flush=True)
+
+    # ①-c 유튜브 댓글에도 링크 (2026-08-17 디렉터) — 쇼츠 설명란과 달리 댓글 링크는 클릭된다
+    try:
+        _yurl = youtube_comment(ep, "%s\n%s\n\n%s" % (name, url, DISCLOSURE))
+        if _yurl:
+            print("[affiliate_bot] 유튜브 댓글 완료:", _yurl, flush=True)
+            tg_send("💬 유튜브 댓글에 링크를 달았습니다 — 상단 고정은 직접 해주세요\n%s" % _yurl)
+        else:
+            print("[affiliate_bot] 유튜브에서 해당 편을 못 찾음", flush=True)
+    except Exception as _e:
+        print("[affiliate_bot] 유튜브 댓글 실패(무해):", str(_e)[:200], flush=True)
 
     # ② 최종 확정 (2026-08-13 오후): 자동 게시 없음, 프로필 유도형 없음 —
     #    스티커 킷(이미지+링크)을 만들어 보내면 디렉터가 스토리+링크 스티커로 게시한다 (클릭 1번 경로 유일 기본)
