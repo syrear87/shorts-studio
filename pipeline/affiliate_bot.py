@@ -568,6 +568,15 @@ def main(once=False):
                         hub_stats()
                     elif text.strip() == "스토리":
                         story_report()
+                    else:
+                        # 2026-08-17 디렉터: "기획 텔레그램 왔는데 내가 텔레그램으로 얘기하면 그거 반영해줌?"
+                        #   → 명령·링크가 아닌 일반 텍스트는 **디렉터 지시**로 보고 기록해 둔다.
+                        #     진행 중인 슬롯 세션이 director_msgs.jsonl을 읽어 즉시 반영한다.
+                        _note = {"ts": datetime.now().isoformat(), "text": text}
+                        with open(os.path.join(ROOT, "logs", "director_msgs.jsonl"), "a",
+                                  encoding="utf-8") as _f:
+                            _f.write(json.dumps(_note, ensure_ascii=False) + "\n")
+                        print("[affiliate_bot] 디렉터 지시 기록:", text[:60], flush=True)
                 except Exception as e:
                     # 오프셋은 이미 전진 — 조용히 삼키면 회신이 영구 유실된다 (2026-08-14 감사)
                     print("[affiliate_bot] 명령 처리 실패:", str(e)[:200], flush=True)
