@@ -228,7 +228,6 @@ def api_public(video, meta):
     vid = resp["id"]
     url = "https://youtube.com/shorts/" + vid
     print("업로드 완료:", url)
-    _thumb_hint = int(meta["ig_thumb_ms"]) if meta.get("ig_thumb_ms") else hook_full_ms(video)
     try:
         set_thumbnail(yt, vid, video, meta)
     except Exception as _te:
@@ -240,11 +239,7 @@ def api_public(video, meta):
         f.write("%s %s\n" % (datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
                              os.path.basename(video)))
     subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
-                    # 2026-08-17 디렉터: "게시 완료 오면 내가 시간 날 때 모바일에서 바꿔놓을게"
-                    #   — 쇼츠 채널 그리드 썸네일은 API로 통제되지 않는다(유튜브가 자동 프레임 사용).
-                    #     디렉터가 Studio에서 직접 고를 때 참고하도록 **훅 자막이 다 뜬 시점**을 함께 알린다.
-                    "✅ 오늘의 숏츠 게시 완료\n%s\n%s\n\n🖼 썸네일 권장 시점: %.1f초 (훅 자막 완성)" % (
-                        title, url, _thumb_hint / 1000.0)], check=False)
+                    "✅ 오늘의 숏츠 게시 완료\n%s\n%s" % (title, url)], check=False)
     return vid
 
 def main():
