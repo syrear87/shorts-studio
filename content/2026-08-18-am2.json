@@ -1,0 +1,80 @@
+{
+  "title": "'예쁘다' 화장품, 한국이 아니라 독일입니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": 7316377,
+      "voice": "이름도, 성분도, 공장도 전부 한국입니다. 그런데 한국 브랜드가 아닙니다.",
+      "lines": [
+        ["이름도 성분도 공장도 한국입니다", ["한국입니다"]],
+        ["한국 브랜드가 아닙니다", ["아닙니다"]]
+      ]
+    },
+    {
+      "kind": "body",
+      "bg": 6801656,
+      "voice": "예쁘다. 한국어 그대로 이름을 쓴 독일 화장품입니다.",
+      "lines": [
+        ["예쁘다", ["예쁘다"]],
+        ["한국어 그대로 쓴 독일 화장품", ["독일"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 36871094,
+      "voice": "첫째, 2020년 베를린에서 시작했습니다. 한국인 어머니를 둔 네덜란드인 한 명과 독일인 한 명이 만들었습니다.",
+      "lines": [
+        ["2020년 베를린에서 시작", ["베를린에서"]],
+        ["네덜란드인과 독일인이 만들었습니다", ["만들었습니다"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 8720278,
+      "voice": "둘째, 전 제품을 한국에서 만듭니다. 유럽에 입점했고, 올해 성수동에 역수입 매장까지 열었습니다.",
+      "lines": [
+        ["전 제품을 한국에서 만듭니다", ["한국에서"]],
+        ["올해 성수동에 역수입 매장까지", ["역수입"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 7754395,
+      "voice": "셋째, 예쁘다만이 아닙니다. K-뷰티가 커지면서 한국어를 브랜드 이름에 넣는 외국 회사가 늘고 있습니다.",
+      "lines": [
+        ["예쁘다만이 아닙니다", ["아닙니다"]],
+        ["한국어 이름 외국 회사가 늘고 있습니다", ["늘고"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 6802234,
+      "voice": "한국어가 적힌 화장품, 어느 나라 건지 확인해 보세요. 한국어가 프리미엄 라벨입니다.",
+      "lines": [
+        ["어느 나라 건지 확인해 보세요", ["확인해"]],
+        ["한국어가 프리미엄 라벨입니다", ["프리미엄"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": 6802234,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://www.beautyindependent.com/k-beauty-brand-yepoda-secures-series-b-funding-debuts-retail-sephora-europe/",
+    "https://www.koreaherald.com/article/10757964"
+  ],
+  "bg_query": [
+    "Korean skincare cosmetics bottles closeup",
+    "cosmetics product label branding store",
+    "Berlin Germany city street autumn",
+    "cosmetics factory production line manufacturing",
+    "beauty products store display variety shelves",
+    "woman checking skincare product label shopping"
+  ]
+}
