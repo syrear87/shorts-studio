@@ -91,28 +91,42 @@ def match_media(product_name, limit=6):
     items = d.get("data") or []
     if not items:
         return None
-    toks = [t for t in re.split(r"[^0-9A-Za-z가-힣]+", product_name or "") if len(t) >= 2]
-    # 2글자 조각까지 본다 (2026-08-16 실사고: 상품 '비상용망치'와 대본 '비상탈출 망치'가
-    # 낱말 단위로는 안 겹쳐 매칭이 실패했다. 같은 물건을 다르게 부르는 건 흔한 일이다).
+    # 2026-08-18 실사고: 상품명의 숫자 조각("100"·"00")이 육아휴직편 캡션의 "통상임금 100%"와
+    # 겹쳐 5점 오매칭 — 화장품 링크가 육아휴직 글에 붙었다. **숫자는 매칭에서 전면 제외한다.**
+    toks = [t for t in re.split(r"[^0-9A-Za-z가-힣]+", product_name or "")
+            if len(t) >= 2 and not re.fullmatch(r"[0-9]+[a-zA-Z]*", t)]   # 숫자·단위 토큰 제외
     grams = set()
     for t in toks:
         for i in range(len(t) - 1):
-            grams.add(t[i:i + 2])
+            g = t[i:i + 2]
+            if not re.search(r"[가-힣A-Za-z]", g) or re.search(r"[0-9]", g):
+                continue                                   # 숫자 섞인 조각 제외
+            grams.add(g)
     best, best_hit = None, 0
     for it in items:
         cap = it.get("caption") or ""
-        hit = sum(2 for t in toks if t in cap)            # 낱말 일치는 가중 2
-        hit += sum(1 for g in grams if g in cap)          # 2글자 조각은 1
+        hit = sum(2 for t in toks if t in cap)
+        hit += sum(1 for g in grams if g in cap)
         if hit > best_hit:
             best, best_hit = it, hit
-    if best_hit < 3:      # 조각 두어 개 우연히 겹친 정도는 매칭으로 보지 않는다
+    if best_hit < 3:
         best = None
-    m = best or items[0]
+    # 2026-08-18: 매칭 실패 시 최신 편 폴백 폐지 — 디렉터가 링크를 보낸 시점에
+    # 다음 편이 렌더 중이면 '최신 편'이 엉뚱한 편이다. 확신 없으면 붙이지 말고 물어라.
     if best:
-        print("[affiliate_bot] 커버 매칭: '%s' → %s (겹친 낱말 %d)"
+        m = best
+        print("[affiliate_bot] 커버 매칭: '%s' → %s (점수 %d)"
               % (product_name[:20], (m.get("caption") or "")[:24], best_hit), flush=True)
     else:
-        print("[affiliate_bot] 커버 매칭 실패 — 최신 편 사용", flush=True)
+        print("[affiliate_bot] 커버 매칭 확신 없음 — 디렉터에게 질의", flush=True)
+        try:
+            _opts = "\n".join("%d) %s" % (i + 1, (it.get("caption") or "").split("\n")[0][:36])
+                              for i, it in enumerate(items[:4]))
+            tg_send("❓ 이 상품을 어느 편에 붙일까요? 숫자로 답해주세요 (예: 2)\n%s\n\n%s"
+                    % (product_name[:40], _opts))
+        except Exception:
+            pass
+        return None
     if not m.get("media_url") and m.get("children", {}).get("data"):
         m["media_url"] = m["children"]["data"][0].get("media_url")
     return m
@@ -364,8 +378,13 @@ def handle_link(text_msg):
         name = "오늘의 추천 상품"
     m = match_media(name)
     if not m:
-        tg_send("⚠️ 처리 실패: 최근 게시물 조회 실패")
+        state({"pending_link": {"name": name, "url": url, "ts": datetime.now().isoformat()}})
         return
+    handle_link_to(name, url, m)
+
+
+def handle_link_to(name, url, m):
+    """지정된 게시물(m)에 링크를 부착한다 — 허브·스레드 답글·스티커 킷 (2026-08-18 분리)."""
     # ① 허브 자동 갱신 (프로필 링크 보조 통로)
     s_ = state()
     items = [it for it in s_.get("hub_items", []) if it["url"] != url]
@@ -568,6 +587,19 @@ def main(once=False):
                         hub_stats()
                     elif text.strip() == "스토리":
                         story_report()
+                    elif text.strip().isdigit() and state().get("pending_link"):
+                        # 매칭 질의에 대한 답 (2026-08-18): 숫자 = 후보 목록의 몇 번째 편
+                        _pl = state().get("pending_link")
+                        _idx = int(text.strip()) - 1
+                        _d = http(f"{G}/{IG['IG_USER_ID']}/media?fields=id,permalink,caption,timestamp,media_type,media_url,thumbnail_url&limit=6&access_token={IG['IG_ACCESS_TOKEN']}")
+                        _items = _d.get("data") or []
+                        if 0 <= _idx < len(_items):
+                            state({"pending_link": None})
+                            _cap = (_items[_idx].get("caption") or "").split("\n")[0]
+                            print("[affiliate_bot] 디렉터 지정: %d번 → %s" % (_idx + 1, _cap[:30]), flush=True)
+                            handle_link_to(_pl["name"], _pl["url"], _items[_idx])
+                        else:
+                            tg_send("번호가 목록 범위를 벗어났습니다. 다시 답해주세요.")
                     else:
                         # 2026-08-17 디렉터: "기획 텔레그램 왔는데 내가 텔레그램으로 얘기하면 그거 반영해줌?"
                         #   → 명령·링크가 아닌 일반 텍스트는 **디렉터 지시**로 보고 기록해 둔다.
