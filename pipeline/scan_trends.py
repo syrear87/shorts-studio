@@ -164,7 +164,8 @@ def main():
         ("유튜브 인기 급상승(KR)", lambda: clean(youtube_trending(), key=lambda x: "%s %s" % (x[0], x[1]), korean_only=True),
          lambda r: ["- %s — %s (%s회)" % (t, ch, format(vc, ",")) for t, ch, vc in r]),
         ("네이버 랭킹뉴스(많이 본)", lambda: clean(naver_ranking_news()), lambda r: ["- %s" % t for t in r]),
-        ("네이트판 실시간 톡", lambda: clean(nate_pann()), lambda r: ["- %s" % t for t in r]),
+        # 네이트판 제외 (2026-08-18 디렉터: "그 네이트판 빼" — 가족사진 사기 실사고.
+        #   개인 연애·가정사 가십 위주라 소재로도 감정 참고로도 손실이 크다)
         ("디시 실시간 베스트", lambda: clean(dcinside_best()), lambda r: ["- %s" % t for t in r]),
         ("오늘의유머 베오베", lambda: clean(todayhumor_best()), lambda r: ["- %s" % t for t in r]),
     ]
