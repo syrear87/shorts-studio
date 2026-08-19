@@ -5,18 +5,30 @@
     {
       "kind": "hook",
       "title": "아이폰이 접힙니다",
-      "title_hl": ["접힙니다"],
-      "body": "다음 달 공개 유력 — \"아이폰 역사상 가장 큰 개편\" (블룸버그)",
-      "body_hl": ["다음", "달"],
-      "badge": "루머 · 공식 발표 아님"
+      "title_hl": [
+        "접힙니다"
+      ],
+      "body": "다음 달 공개 유력 — \"역사상 가장 큰 개편\"",
+      "body_hl": [
+        "다음",
+        "달"
+      ],
+      "badge": "루머 · 공식 발표 아님",
+      "img": "assets/cards/fold_dummy_crop.jpg",
+      "img_y": 630,
+      "credit": "사진: 유출 더미 모델 (Sonny Dickson · MacRumors)"
     },
     {
       "kind": "fact",
       "title": "지금까지 확인된 것",
-      "body": "책처럼 옆으로 접는 방식. 펼치면 7.6인치, 접으면 5.3인치. 화면 주름이 거의 없다는 보도. 예상 가격 2,000달러 이상.",
-      "body_hl": ["7.6인치"],
-      "sub": "전부 애널리스트·매체 보도 기준 — 확정 스펙 아님",
-      "badge": "루머 · 교차 보도"
+      "body": "책처럼 옆으로 접는 방식. 펼치면 7.6인치, 접으면 5.3인치. 예상 가격 2,000달러 이상.",
+      "body_hl": [
+        "7.6인치"
+      ],
+      "badge": "루머 · 교차 보도",
+      "img": "assets/cards/fold_render.jpg",
+      "img_y": 660,
+      "credit": "컨셉 이미지: MacRumors"
     },
     {
       "kind": "end",
