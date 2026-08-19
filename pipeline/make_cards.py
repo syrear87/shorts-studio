@@ -113,6 +113,27 @@ def render(script_path):
     for i, c in enumerate(cards, 1):
         im, d = base(i, total)
         kind = c.get("kind", "fact")
+        # 배지 (2026-08-19 테크 카드 라인: 루머는 카드에 박는다 — "루머 · 블룸버그" / "공식" / "컨셉 이미지")
+        if c.get("badge"):
+            bf = font(34, "b")
+            bw = d.textlength(c["badge"], font=bf)
+            d.rounded_rectangle([64, 52, 64 + bw + 48, 116], radius=32,
+                                outline=ACCENT, width=3)
+            d.text((88, 62), c["badge"], font=bf, fill=ACCENT)
+        # 제품 이미지 (공식 프레스컷/크레딧 렌더) — 카드 중단에 맞춤 배치
+        if c.get("img"):
+            pi = Image.open(os.path.join(ROOT, c["img"])).convert("RGB")
+            iw = W - 200
+            ih = int(pi.height * iw / pi.width)
+            if ih > 520:
+                ih = 520
+                iw = int(pi.width * ih / pi.height)
+            pi = pi.resize((iw, ih))
+            im.paste(pi, ((W - iw) // 2, c.get("img_y", 640)))
+            d = ImageDraw.Draw(im)
+        # 출처 크레딧 (이미지·정보 출처, 하단 고정)
+        if c.get("credit"):
+            d.text((64, H - 152), c["credit"], font=font(28, "m"), fill=DIM)
         max_y = H - 140   # 페이지 카운터 상단 여백
         t_hl, b_hl = c.get("title_hl", []), c.get("body_hl", [])
         last_y = [0]
