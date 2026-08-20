@@ -392,6 +392,18 @@ def publish_carousel(images, caption, publish=True):
         except Exception as e:
             perma = "(permalink 조회 실패: %s)" % str(e)[:80]
         print("카드 게시 완료:", perma or media_id)
+        # 스레드에도 게시 (2026-08-20 디렉터: "카드 소재도 스레드에 올리자" —
+        # 제휴봇이 IG 캡션 첫 줄로 스레드 글을 찾아 쿠팡 링크 답글을 달기 때문.
+        # 첫 줄이 IG 캡션과 반드시 일치해야 find_recent_post 매칭이 된다.)
+        # R2 정리(finally) 전에 실행 — 스레드 컨테이너가 이미지 URL을 읽어야 한다.
+        try:
+            import upload_threads as _th
+            first_url = kv["R2_PUBLIC_URL"].rstrip("/") + "/" + keys[0]
+            th_link = _th.publish_image(first_url, caption)
+            print("스레드 게시 완료:", th_link, flush=True)
+        except Exception as _e:
+            print("스레드 게시 실패(카드 자체는 게시됨):", str(_e)[:150], flush=True)
+            tg("⚠️ 카드는 게시됐지만 스레드 게시 실패 — 제휴 링크 답글이 안 붙을 수 있음\n%s" % str(_e)[:150])
         tg("✅ 지식 카드 게시 완료\n%s\n%s" % (caption.split("\n")[0], perma))
         return media_id
     finally:

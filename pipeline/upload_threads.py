@@ -95,6 +95,26 @@ def _publish_container(me, tok, cid):
     return pid
 
 
+def publish_image(image_url, text):
+    """이미지 1장 스레드 게시 (2026-08-20 — 카드도 스레드에 올린다: 제휴봇이
+    IG 캡션 첫 줄로 스레드 글을 찾아 쿠팡 링크 답글을 달기 때문. IG API 게시는
+    앱과 달리 스레드 자동 공유가 없어 여기서 직접 올린다)."""
+    tok = token()
+    me = _get("%s/me?fields=id&access_token=%s" % (API, tok))["id"]
+    cid = _create(me, tok, {"media_type": "IMAGE", "image_url": image_url,
+                            "text": text[:MAX_TEXT]})
+    last = None
+    for i in range(6):
+        time.sleep(4)
+        try:
+            pid = _publish_container(me, tok, cid)
+            link = _get("%s/%s?fields=permalink&access_token=%s" % (API, pid, tok)).get("permalink")
+            return link or pid
+        except Exception as e:
+            last = e
+    raise RuntimeError("threads 이미지 게시 실패: %s" % str(last)[:150])
+
+
 def publish(video_url, text, timeout_s=300, replies=()):
     """R2 공개 URL의 mp4를 스레드에 올리고, 넘치는 본문은 답글로 이어붙인다.
     2026-08-16 디렉터: "캡션도 인스타와 동일하게" — 스레드 본문 상한이 500자라
