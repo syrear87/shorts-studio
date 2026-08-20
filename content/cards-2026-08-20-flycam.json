@@ -1,0 +1,25 @@
+{
+  "topic": "호버에어 Versa — 세계 최초 '나는 포켓 카메라' 인디고고 23만 달러 (PetaPixel)",
+  "caption": "카메라가 손에서 날아오릅니다.\n\n호버에어가 '세계 최초 나는 포켓 카메라' Versa를 인디고고에 정식 런칭했습니다 — 캠페인 59일을 남기고 이미 23만 달러(약 3억 원)를 모았습니다.\n\n생긴 건 DJI 오즈모 같은 셀카용 짐벌 카메라인데, 위쪽 카메라 모듈이 그대로 날아올라 셀프 드론샷을 찍어줍니다. 브이로그 찍는 사람들이 열광하는 이유.\n\n출처: PetaPixel, HoverAir 인디고고\n\n#카메라 #드론캠 #브이로그 #호버에어 #테크\n",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "카메라가 손에서 날아오른다",
+      "title_hl": ["날아오른다"],
+      "body": "세계 최초 '나는 포켓 카메라' — 펀딩 시작하자마자 23만 달러",
+      "body_hl": ["23만"],
+      "img": "assets/cards/flycam.jpg",
+      "credit": "이미지: HoverAir 공식 (PetaPixel)"
+    },
+    {
+      "kind": "end",
+      "title": "짐벌캠인 줄 알았는데 드론",
+      "title_hl": ["드론"],
+      "body": "평소엔 손에 쥐는 셀카 카메라, 버튼 누르면 카메라만 날아올라 셀프 드론샷. 브이로거들이 환장할 물건",
+      "body_hl": ["셀프"],
+      "sub": "영상 찍는 친구에게 공유",
+      "img": "assets/cards/flycam_z.jpg",
+      "credit": "이미지: HoverAir 공식 (PetaPixel)"
+    }
+  ]
+}

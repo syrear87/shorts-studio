@@ -1,0 +1,25 @@
+{
+  "topic": "샌드마크 96mm 아이폰 망원 렌즈 공식 발표 (PetaPixel)",
+  "caption": "폰카 줌이 흐릿한 건 렌즈 탓이 맞았습니다.\n\n샌드마크가 아이폰용 96mm 망원 렌즈를 발표했습니다. 스마트폰의 고배율 줌은 사실 디지털 줌이라 뭉개지는데, 이건 진짜 유리 렌즈를 폰에 붙여 광학으로 당깁니다 — \"디지털 줌이 서류상으로만 좁힌 간극을 광학으로 메운다\"는 게 샌드마크의 설명.\n\n폰으로 공연·경기 찍을 때 뭉개진 사진에 실망해봤다면 이해되는 물건입니다.\n\n출처: PetaPixel, Sandmarc 공식\n\n#아이폰렌즈 #샌드마크 #폰카 #사진 #테크\n",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "폰카 줌이 흐릿한 건 렌즈 탓이 맞았다",
+      "title_hl": ["렌즈"],
+      "body": "샌드마크가 낸 아이폰용 96mm 진짜 유리 망원 렌즈",
+      "body_hl": ["96mm"],
+      "img": "assets/cards/sandmarc.jpg",
+      "credit": "이미지: Sandmarc 공식 (PetaPixel)"
+    },
+    {
+      "kind": "end",
+      "title": "디지털 줌 말고, 광학으로 당긴다",
+      "title_hl": ["광학으로"],
+      "body": "폰 고배율 줌은 디지털이라 뭉개짐 — 유리 렌즈를 붙이면 공연·경기 사진이 달라진다는 게 포인트",
+      "body_hl": ["유리"],
+      "sub": "콘서트 갈 사람 저장해두기",
+      "img": "assets/cards/sandmarc_z.jpg",
+      "credit": "이미지: Sandmarc 공식 (PetaPixel)"
+    }
+  ]
+}
