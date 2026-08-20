@@ -4,9 +4,9 @@
   "cards": [
     {
       "kind": "hook",
-      "title": "애플이 애플을 유출했다",
+      "title": "이번 유출범, 애플 본인이었음",
       "title_hl": [
-        "애플을"
+        "본인이었음"
       ],
       "body": "카메라 달린 에어팟 — 자기네 macOS 베타에 데모 영상을 통째로 흘렸음",
       "body_hl": [
@@ -23,7 +23,6 @@
         "다음",
         "달"
       ],
-      "sub": "아직 루머 — 애플 입에서 나오면 다시 올림",
       "credit": "이미지: 현행 에어팟 프로 (Engadget) · 유출 기기는 스템이 더 두꺼움",
       "img": "assets/cards/airpods_leak2.jpg",
       "title_hl": [
