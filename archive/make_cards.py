@@ -49,11 +49,11 @@ def base(page, total, img=None):
         for y in range(H):
             t = y / H
             if t < 0.42:          # 상단: 배지·제목 영역 — 진하게
-                a = int(235 - t / 0.42 * 130)
-            elif t < 0.62:        # 중단: 이미지 살리기
-                a = 90
+                a = int(245 - t / 0.42 * 105)
+            elif t < 0.60:        # 중단: 이미지 살리기 (그래도 텍스트가 겹칠 수 있어 바닥값 유지)
+                a = 140
             else:                 # 하단: 본문·크레딧 — 다시 진하게
-                a = int(90 + (t - 0.62) / 0.38 * 140)
+                a = int(140 + (t - 0.60) / 0.40 * 105)
             mp.append(a)
         mask.putdata(mp)
         im.paste(ov, (0, 0), mask.resize((W, H)))
@@ -101,6 +101,10 @@ def para(d, text, f, x, y0, max_w, color=TEXT, lh=1.42, hl=()):
             core = w_.strip("'\"()[].,!?…·—")
             col = ACCENT if any(h and (core == h or core.startswith(h) or h in w_ and len(h) >= max(2, len(core) - 2))
                                 for h in hl) else color
+            # 사진 위 가독성: 그림자 2겹 (2026-08-20 디렉터 "글자가 잘 안 보인다")
+            off = max(2, f.size // 24)
+            d.text((cx + off, y + off), w_, font=f, fill=(0, 0, 0))
+            d.text((cx + off // 2, y + off // 2), w_, font=f, fill=(0, 0, 0))
             d.text((cx, y), w_, font=f, fill=col)
             cx += d.textlength(w_ + " ", font=f)
         y += int(f.size * lh)
