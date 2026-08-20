@@ -210,12 +210,25 @@ text-decoration:none;color:#111;transition:border-color .15s}
 .item.hide{display:none}
 .name{display:block;font-size:15px;font-weight:650;line-height:1.45}
 .meta{display:block;color:#a0a5ad;font-size:12px;margin-top:6px}
-footer{color:#b3b8bf;font-size:11px;text-align:center;margin-top:44px;line-height:1.7}
+.pager{display:flex;gap:8px;justify-content:center;margin-top:18px}
+.pg{border:1px solid #e6e8eb;background:#fff;border-radius:10px;min-width:38px;padding:8px 0;font-size:14px;color:#111}
+.pg.on{background:#12192e;color:#fff;border-color:#12192e;font-weight:700}
+footer{color:#b3b8bf;font-size:11px;text-align:center;margin-top:34px;line-height:1.7}
 </style></head><body>
 <h1><span class="d1">1일</span> <span class="d2">1지식</span></h1><div class="underbar"></div><p class="sub" style="margin-top:14px">영상·카드에 나온 것들 — DM에서 받은 번호를 검색하세요</p>
 <input class="search" id="q" type="search" inputmode="search" placeholder="번호나 제품명 검색 (예: 2)">
 %s
-<script>document.getElementById('q').addEventListener('input',function(){var v=this.value.trim().toLowerCase();document.querySelectorAll('a.item').forEach(function(a){var hit=!v||a.dataset.no===v||a.dataset.name.indexOf(v)>-1||(a.dataset.no&&(a.dataset.no+'번')===v);a.classList.toggle('hide',!hit);});});</script>
+<div class="pager" id="pager"></div>
+<script>(function(){var PER=10,page=1,q='';
+var items=[].slice.call(document.querySelectorAll('a.item'));
+var pager=document.getElementById('pager');
+function render(){var vis=items.filter(function(a){return !q||a.dataset.no===q||a.dataset.name.indexOf(q)>-1||(a.dataset.no&&(a.dataset.no+'번')===q);});
+items.forEach(function(a){a.classList.add('hide');});
+var pages=Math.max(1,Math.ceil(vis.length/PER));if(page>pages)page=pages;
+vis.slice((page-1)*PER,page*PER).forEach(function(a){a.classList.remove('hide');});
+pager.innerHTML='';if(pages>1&&!q){for(var i=1;i<=pages;i++){var b=document.createElement('button');b.textContent=i;b.className='pg'+(i===page?' on':'');b.onclick=(function(n){return function(){page=n;render();window.scrollTo(0,0);};})(i);pager.appendChild(b);}}}
+document.getElementById('q').addEventListener('input',function(){q=this.value.trim().toLowerCase();page=1;render();});
+render();})();</script>
 <footer>쿠팡 파트너스 활동의 일환으로,<br>이에 따른 일정액의 수수료를 제공받습니다</footer>
 %s</body></html>""" % (rows, beacon)
     s3 = r2_client()
@@ -420,7 +433,7 @@ def handle_link_to(name, url, m):
         print("[affiliate_bot] 썸네일 실패(무해):", str(_te)[:100], flush=True)
     items.insert(0, {"no": seq, "name": name, "url": url, "img": thumb_url,
                      "date": datetime.now().strftime("%m/%d"), "ep": ep})
-    items = items[:8]
+    # 전체 보존 (2026-08-21 디렉터: "등록된 거 다 볼 수 있게" — 허브가 페이징 처리)
     state({"hub_seq": seq})
     update_hub(items)
     state({"hub_items": items, "last_permalink": m.get("permalink"),
