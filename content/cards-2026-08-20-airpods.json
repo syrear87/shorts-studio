@@ -1,0 +1,34 @@
+{
+  "topic": "애플, 카메라 에어팟 데모 영상 실수 유출 (Engadget·AppleInsider 교차 확인)",
+  "caption": "애플이 실수로 자기 신제품을 유출했습니다.\n\nmacOS 베타 안에 카메라 달린 차세대 에어팟의 데모 영상이 통째로 들어 있었습니다. 영상 속 기능: 에어팟 카메라가 본 것을 시리가 설명해주는 'Visual Intelligence' — \"이 책 기억해줘\"라고 말하면 시리가 기억합니다.\n\n이름은 'AirPods Ultra'가 검토 중이라는 보도(블룸버그). 이르면 다음 달 공개 가능성.\n\n⚠️ 유출 사건은 다수 매체가 확인한 사실이며, 출시 시기·제품명은 아직 루머 단계입니다.\n\n출처: Engadget, AppleInsider, iClarified, Bloomberg(마크 거먼)\n\n#에어팟 #애플 #AirPods #테크뉴스 #유출\n",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "애플이 실수로 신제품을 유출했습니다",
+      "title_hl": [
+        "실수로"
+      ],
+      "body": "macOS 베타에 데모 영상이 통째로",
+      "body_hl": [
+        "데모",
+        "영상이"
+      ],
+      "badge": "유출 · 공식 발표 아님",
+      "img": "assets/cards/airpods_leak_wide.jpg",
+      "img_y": 820,
+      "credit": "이미지: 유출된 애플 데모 영상 프레임 (macOS 베타 · iClarified)"
+    },
+    {
+      "kind": "end",
+      "title": "에어팟이 보고, 시리가 말해줍니다",
+      "body": "카메라가 본 것을 시리가 설명하는 'Visual Intelligence'. 이름은 'AirPods Ultra' 검토, 이르면 다음 달 공개라는 보도.",
+      "body_hl": [
+        "다음",
+        "달"
+      ],
+      "sub": "출시 시기·이름은 루머 단계 — 확정되면 다시 올립니다 📌",
+      "badge": "루머 · 교차 보도",
+      "credit": "출처: Engadget · AppleInsider · Bloomberg(거먼)"
+    }
+  ]
+}
