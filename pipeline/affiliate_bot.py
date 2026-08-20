@@ -398,6 +398,21 @@ def handle_link_to(name, url, m):
     update_hub(items)
     state({"hub_items": items, "last_permalink": m.get("permalink"),
            "last_product": {"name": name, "url": url}, "ts": datetime.now().isoformat()})
+    # ①-a2 댓글→DM 규칙 자동 등록 (2026-08-20 디렉터: "쿠팡에 있는 상품이어야만 함")
+    #    쿠팡 링크가 도착한 게시물에 한해 "댓글에 '링크'" 자동 DM을 켠다 — comment_dm.py가 소비.
+    try:
+        _dm_p = os.path.join(ROOT, "content", "dm_rules.json")
+        _rules = json.load(open(_dm_p, encoding="utf-8")) if os.path.exists(_dm_p) else []
+        _mid = m.get("id")
+        if _mid:
+            _rules = [r for r in _rules if r.get("media") != _mid]
+            _rules.append({"keyword": "링크", "media": _mid,
+                           "dm": "%s\n%s\n\n%s" % (name, url, DISCLOSURE),
+                           "ack": "DM으로 보내드렸어요 📩"})
+            json.dump(_rules, open(_dm_p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+            print("[affiliate_bot] 댓글DM 규칙 등록:", _mid, flush=True)
+    except Exception as _e:
+        print("[affiliate_bot] 댓글DM 규칙 등록 실패(무해):", str(_e)[:120], flush=True)
     # ①-b 스레드에 쿠팡 링크 답글 (2026-08-16 디렉터: "쿠팡 링크를 넣어야지")
     #    게시(슬롯 시각)와 링크 회신(디렉터가 나중) 사이에 시차가 있어 본문에 못 넣는다 →
     #    그 편의 스레드 글을 찾아 답글로 붙인다. 스레드는 링크가 클릭되는 유일한 통로다.
