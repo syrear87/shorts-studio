@@ -173,7 +173,7 @@ def update_hub(items):
     rows = "\n".join(
         '<a class="item" href="%s"><span class="name">%s</span><span class="meta">%s</span></a>'
         % (_html.escape(_href(it), quote=True),
-           _html.escape((it["name"][:34] + '…') if len(it["name"]) > 35 else it["name"]),
+           _html.escape((("%d. " % it["no"]) if it.get("no") else "") + ((it["name"][:34] + '…') if len(it["name"]) > 35 else it["name"])),
            _html.escape(("「%s」에 나온 물건 · %s" % (it["ep"], it["date"])) if it.get("ep") else ("%s · 쿠팡에서 보기 ›" % it["date"])))
         for it in items)
     beacon = ""
@@ -389,8 +389,12 @@ def handle_link_to(name, url, m):
     s_ = state()
     items = [it for it in s_.get("hub_items", []) if it["url"] != url]
     ep = (m.get("caption") or "").split("\n")[0][:40]
-    items.insert(0, {"name": name, "url": url, "date": datetime.now().strftime("%m/%d"), "ep": ep})
-    items = items[:5]
+    # 고정 번호 (2026-08-20 디렉터 — 살룸연구소 인포크 패턴: "영상에서 몇 번이라고 말해주면 찾아 들어감").
+    # 번호는 등록 순 영구 부여 — 항목이 밀려나도 번호는 재사용하지 않는다 (콘텐츠에 박힌 번호가 어긋나지 않게).
+    seq = int(s_.get("hub_seq") or 0) + 1
+    items.insert(0, {"no": seq, "name": name, "url": url, "date": datetime.now().strftime("%m/%d"), "ep": ep})
+    items = items[:8]
+    state({"hub_seq": seq})
     update_hub(items)
     state({"hub_items": items, "last_permalink": m.get("permalink"),
            "last_product": {"name": name, "url": url}, "ts": datetime.now().isoformat()})
@@ -402,7 +406,7 @@ def handle_link_to(name, url, m):
         import upload_threads as _th
         _pid = _th.find_recent_post(ep)
         if _pid:
-            _th.reply_text(_pid, "%s\n%s\n\n%s" % (name, url, DISCLOSURE))
+            _th.reply_text(_pid, "%s\n%s\n\n프로필 링크 %d번에서도 볼 수 있어요\n\n%s" % (name, url, seq, DISCLOSURE))
             print("[affiliate_bot] 스레드 답글 완료:", ep[:20], flush=True)
         else:
             # 조용히 넘기지 마라 — 2026-08-17 실사고: 답글이 안 달렸는데 아무도 몰랐고
