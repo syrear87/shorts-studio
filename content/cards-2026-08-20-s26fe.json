@@ -5,18 +5,26 @@
     {
       "kind": "hook",
       "title": "삼성이 아직 발표도 안 했는데",
-      "title_hl": ["발표도"],
+      "title_hl": [
+        "발표도"
+      ],
       "body": "갤럭시 S26 FE 홍보 이미지 28장이 통째로 유출됨",
-      "body_hl": ["28장"],
+      "body_hl": [
+        "28장"
+      ],
       "img": "assets/cards/s26fe_promo.jpg",
       "credit": "유출 프로모 이미지: Android Headlines"
     },
     {
       "kind": "end",
-      "title": "달라진 건 안, 올라간 건 값",
-      "title_hl": ["값"],
+      "title": "스펙은 그대로, 가격만 오른다?",
+      "title_hl": [
+        "가격만"
+      ],
       "body": "Exynos 2500 / 50MP 트리플 / 4,900mAh — 스펙은 비슷한데 가격은 올랐다는 소문. 이르면 9월 초",
-      "body_hl": ["9월"],
+      "body_hl": [
+        "9월"
+      ],
       "img": "assets/cards/s26fe_e.webp",
       "credit": "유출 프로모 이미지: Android Headlines"
     }
