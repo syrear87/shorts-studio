@@ -1,0 +1,24 @@
+{
+  "topic": "구글 픽셀 11 시리즈 오늘 글로벌 출시 — 세계 첫 2nm 칩, 뒷면 LED 알림 (Google Blog·Engadget·9to5Google·Android Authority 교차 확인)",
+  "caption": "구글 픽셀 11, 오늘 전 세계 출시.\n\n세계 최초 2nm 칩(텐서 G6) 탑재 스마트폰. 프로 모델은 카메라 주변에 'HiLight'라는 LED가 있어서, 엎어놓으면 알림을 색으로 알려줌 — 초록은 애인, 빨강은 상사, 이런 식.\n\n카메라 감도 56% 향상, 128GB 없앤 대신 256GB 시작, 충전 15분에 15시간 배터리.\n\n한국은 내일(8/21) 사전예약 시작, 8/28 정식 출시. 프로 예상가 약 139만원.\n\n출처: Google 공식 블로그, 9to5Google, Engadget, Android Authority\n\n#픽셀11 #구글 #Pixel11 #스마트폰 #테크뉴스",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "뒷면이 빛나는 폰이 나왔다",
+      "title_hl": ["빛나는"],
+      "body": "구글 픽셀 11 프로 오늘 출시. 카메라 옆 LED가 전화 올 때 색으로 반응한다",
+      "body_hl": ["색으로"],
+      "img": "assets/cards/pixel11_p1.png",
+      "credit": "이미지: Google 공식 프레스"
+    },
+    {
+      "kind": "end",
+      "title": "한국 사전예약 내일 시작",
+      "title_hl": ["내일"],
+      "body": "세계 첫 2nm 칩 탑재. 899달러 시작, 한국 프로 예상 139만원. 충전 15분에 15시간",
+      "body_hl": ["2nm", "15분"],
+      "img": "assets/cards/pixel11_p3.jpg",
+      "credit": "이미지: 9to5Google 핸즈온"
+    }
+  ]
+}
