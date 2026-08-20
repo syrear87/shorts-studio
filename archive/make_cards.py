@@ -10,9 +10,16 @@
 #  → out/cards/<이름>/card_N.png
 import json
 import os
+import re
 import sys
 
 from PIL import Image, ImageDraw, ImageFont
+
+# PIL+AppleSDGothicNeo는 컬러 이모지를 못 그린다(□ 깨짐) — 카드 텍스트에서 기계 제거 (2026-08-20 디렉터 지적)
+_EMOJI = re.compile("[\U0001F000-\U0001FAFF☀-➿⬀-⯿️‍]")
+
+def _clean(t):
+    return _EMOJI.sub("", t or "").rstrip()
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 W, H = 1080, 1350
@@ -28,13 +35,36 @@ def font(sz, w="r"):
     return ImageFont.truetype(FP, sz, index=WEIGHTS[w])
 
 
-def base(page, total):
-    im = Image.new("RGB", (W, H), NAVY)
-    d = ImageDraw.Draw(im)
-    for y in range(H):
-        t = y / H
-        c = tuple(int(NAVY_HI[i] * (1 - t) + NAVY[i] * t) for i in range(3))
-        d.line([(0, y), (W, y)], fill=c)
+def base(page, total, img=None):
+    if img:
+        # 풀블리드: 이미지를 카드 전체에 cover-crop, 상·하 어두운 스크림으로 텍스트 가독 확보 (2026-08-20 디렉터: "꽉 찬 이미지")
+        pi = Image.open(os.path.join(ROOT, img)).convert("RGB")
+        sc = max(W / pi.width, H / pi.height)
+        pi = pi.resize((int(pi.width * sc) + 1, int(pi.height * sc) + 1))
+        x0, y0 = (pi.width - W) // 2, (pi.height - H) // 2
+        im = pi.crop((x0, y0, x0 + W, y0 + H))
+        ov = Image.new("RGB", (W, H), NAVY)
+        mask = Image.new("L", (1, H))
+        mp = []
+        for y in range(H):
+            t = y / H
+            if t < 0.42:          # 상단: 배지·제목 영역 — 진하게
+                a = int(235 - t / 0.42 * 130)
+            elif t < 0.62:        # 중단: 이미지 살리기
+                a = 90
+            else:                 # 하단: 본문·크레딧 — 다시 진하게
+                a = int(90 + (t - 0.62) / 0.38 * 140)
+            mp.append(a)
+        mask.putdata(mp)
+        im.paste(ov, (0, 0), mask.resize((W, H)))
+        d = ImageDraw.Draw(im)
+    else:
+        im = Image.new("RGB", (W, H), NAVY)
+        d = ImageDraw.Draw(im)
+        for y in range(H):
+            t = y / H
+            c = tuple(int(NAVY_HI[i] * (1 - t) + NAVY[i] * t) for i in range(3))
+            d.line([(0, y), (W, y)], fill=c)
     logo = Image.open(os.path.join(ROOT, "assets", "brand", "profile_1080.png")).convert("RGBA").resize((116, 116))
     mask = Image.new("L", (464, 464), 0)
     ImageDraw.Draw(mask).ellipse([0, 0, 463, 463], fill=255)
@@ -111,7 +141,10 @@ def render(script_path):
     total = len(cards)
     paths = []
     for i, c in enumerate(cards, 1):
-        im, d = base(i, total)
+        for k in ("title", "body", "sub", "badge", "credit"):
+            if c.get(k):
+                c[k] = _clean(c[k])
+        im, d = base(i, total, img=c.get("img"))
         kind = c.get("kind", "fact")
         # 배지 (2026-08-19 테크 카드 라인: 루머는 카드에 박는다 — "루머 · 블룸버그" / "공식" / "컨셉 이미지")
         if c.get("badge"):
@@ -120,17 +153,6 @@ def render(script_path):
             d.rounded_rectangle([64, 52, 64 + bw + 48, 116], radius=32,
                                 outline=ACCENT, width=3)
             d.text((88, 62), c["badge"], font=bf, fill=ACCENT)
-        # 제품 이미지 (공식 프레스컷/크레딧 렌더) — 카드 중단에 맞춤 배치
-        if c.get("img"):
-            pi = Image.open(os.path.join(ROOT, c["img"])).convert("RGB")
-            iw = W - 200
-            ih = int(pi.height * iw / pi.width)
-            if ih > 520:
-                ih = 520
-                iw = int(pi.width * ih / pi.height)
-            pi = pi.resize((iw, ih))
-            im.paste(pi, ((W - iw) // 2, c.get("img_y", 640)))
-            d = ImageDraw.Draw(im)
         # 출처 크레딧 (이미지·정보 출처, 하단 고정)
         if c.get("credit"):
             d.text((64, H - 152), c["credit"], font=font(28, "m"), fill=DIM)

@@ -8,14 +8,13 @@
       "title_hl": [
         "실수로"
       ],
-      "body": "macOS 베타에 데모 영상이 통째로",
+      "body": "macOS 베타 안에 데모 영상이 통째로 들어 있었습니다",
       "body_hl": [
         "데모",
         "영상이"
       ],
       "badge": "유출 · 공식 발표 아님",
-      "img": "assets/cards/airpods_leak_wide.jpg",
-      "img_y": 820,
+      "img": "assets/cards/airpods_leak.jpg",
       "credit": "이미지: 유출된 애플 데모 영상 프레임 (macOS 베타 · iClarified)"
     },
     {
@@ -26,9 +25,10 @@
         "다음",
         "달"
       ],
-      "sub": "출시 시기·이름은 루머 단계 — 확정되면 다시 올립니다 📌",
+      "sub": "출시 시기·이름은 루머 단계 — 확정되면 다시 올립니다",
       "badge": "루머 · 교차 보도",
-      "credit": "출처: Engadget · AppleInsider · Bloomberg(거먼)"
+      "credit": "출처: Engadget · AppleInsider · Bloomberg(거먼)",
+      "img": "assets/cards/airpods_leak.jpg"
     }
   ]
 }
