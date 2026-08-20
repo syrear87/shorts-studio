@@ -140,7 +140,7 @@ def used_bg_ids(exclude_script=None):
         # 2026-08-14 감사(critical): 씬별 bg 지정이 표준이 된 뒤 이 게이트가 죽어 있었다 —
         # scenes[].bg도 수집한다. file: 로컬 자산은 제외(디렉터 승인 재사용분, 예: 유성우 실사진)
         for sc in s.get("scenes", []) or []:
-            b = sc.get("bg")
+            b = sc.get("bg") or sc.get("bg_id")   # bg_id 별칭도 수집 (2026-08-20 정규화와 짝)
             if b and not (isinstance(b, str) and b.startswith("file:")):
                 used.add(str(b))
     return used
@@ -837,7 +837,15 @@ def main():
     # 2) 배경 영상 — bg_id가 명시됐는데 실패하면 무선별 폴백 금지 (시각 선별 게이트 우회 방지)
     # 2026-08-04 디렉터 지시: 배경 1개는 지루하다 → bg_ids(2~3개)로 씬 경계에서 배경 전환
     bg_items = []   # {"kind": "video"|"photo", "path": ...}
+    # 씬 배경 키 정규화 (2026-08-20 실사고: 세션이 씬에 "bg_id"로 써서 조용히 무시됨 →
+    # bg_query 검색 폴백이 '사이렌 타워'로 장대축제 영상을 골라 42초 단일 배경으로 게시됐다.
+    # 별칭을 흡수해 씬별 모드로 태우고, 다시는 조용히 버리지 않는다)
+    for sc in script["scenes"]:
+        if not sc.get("bg") and sc.get("bg_id"):
+            sc["bg"] = sc.pop("bg_id")
     scene_bg_mode = (not args.no_bg_video) and all(sc.get("bg") for sc in script["scenes"])
+    if (not args.no_bg_video) and not scene_bg_mode and any(sc.get("bg") for sc in script["scenes"]):
+        sys.exit("기각: 일부 씬에만 bg가 있다 — 씬별 배경은 전 씬에 지정하거나 전부 빼라 (조용한 폴백 금지)")
     if scene_bg_mode:
         # 씬별 배경 (2026-08-07 디렉터: "각 페이즈마다 알맞은 영상" — 롱폼에서 검증된 방식을 쇼츠로).
         # 각 씬이 "bg"로 자기 화면을 지정한다: 숫자=Pexels 영상, "photo:<id>"=사진(켄 번즈).
