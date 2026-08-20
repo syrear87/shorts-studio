@@ -59,7 +59,9 @@ def run_once(verbose=True):
         cnt = (kv.get("HUB_COUNTER_URL") or "").rstrip("/")
         key = kv.get("HUB_STATS_KEY") or ""
         if cnt and key:
-            with urllib.request.urlopen("%s/events?k=%s" % (cnt, key), timeout=20) as r:
+            req = urllib.request.Request("%s/events?k=%s" % (cnt, key),
+                                         headers={"User-Agent": "Mozilla/5.0 (studio-bot)"})
+            with urllib.request.urlopen(req, timeout=20) as r:
                 events = json.load(r)
     except Exception as e:
         print("[comment_dm] 이벤트 조회 실패:", str(e)[:120])
