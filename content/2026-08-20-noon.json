@@ -1,0 +1,76 @@
+{
+  "title": "당신의 뇌는 벌써 가을입니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg_id": 34398523,
+      "voice": "처서가 사흘 뒤입니다. 오늘 유독 몸이 처진다면, 의지 문제가 아닙니다.",
+      "lines": [
+        ["처서가 사흘 뒤입니다", ["처서가"]],
+        ["의지 문제가 아닙니다", ["아닙니다"]]
+      ]
+    },
+    {
+      "kind": "body",
+      "bg_id": 35003022,
+      "voice": "뇌는 달력을 못 읽습니다. 대신, 빛을 읽습니다.",
+      "lines": [
+        ["뇌는 달력을 못 읽습니다", ["달력을"]],
+        ["대신, 빛을 읽습니다", ["빛을"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg_id": 34504957,
+      "voice": "지금 서울의 낮은 한여름보다 한 시간 넘게 짧습니다. 하루에 2분씩, 빛이 줄고 있습니다.",
+      "lines": [
+        ["한여름보다 1시간 넘게 짧습니다", ["1시간"]],
+        ["하루 2분씩 빛이 줄고 있습니다", ["2분씩"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg_id": 10069259,
+      "voice": "의학 저널 랜싯, 성인 101명 채혈 결과입니다. 세로토닌 생산은 햇빛 시간에 정비례했습니다.",
+      "lines": [
+        ["랜싯 — 성인 101명 채혈 결과", ["101명"]],
+        ["세로토닌이 햇빛 시간에 정비례", ["정비례"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg_id": 6889675,
+      "voice": "세로토닌은 낮에 기분을 올리고, 밤에는 수면 호르몬 멜라토닌의 원료가 됩니다. 원료가 줄면, 낮엔 처지고 밤엔 잠이 얕아집니다.",
+      "lines": [
+        ["낮엔 기분 ↑ 밤엔 수면 원료", ["원료"]],
+        ["줄면 — 낮엔 처지고 밤엔 얕아집니다", ["처지고"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg_id": 13575058,
+      "voice": "처서 뒤로, 매일 해가 2분씩 더 짧아집니다. 의지 탓이 아닙니다. 당신의 뇌가 빛을 먼저 읽은 겁니다.",
+      "lines": [
+        ["매일 해가 2분씩 더 짧아집니다", ["2분씩"]],
+        ["뇌가 빛을 먼저 읽은 겁니다", ["먼저"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg_id": "photo:8746219",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "매일 30초 지식",
+      "lines": [
+        ["오늘도 1일 1지식,", ["1일", "1지식,"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://pubmed.ncbi.nlm.nih.gov/12480364/",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC2290997/"
+  ],
+  "bg_query": ["sunset golden hour city skyline", "person tired desk office sleepy", "brain neuron synapse closeup", "sunlight through window morning", "autumn leaves falling season change", "clock sunset timelapse sky", "sun setting behind buildings"]
+}
