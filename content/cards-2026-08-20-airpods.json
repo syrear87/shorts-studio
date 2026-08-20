@@ -4,29 +4,31 @@
   "cards": [
     {
       "kind": "hook",
-      "title": "애플이 실수로?! 신제품 유출???",
+      "title": "애플이 애플을 유출했다",
       "title_hl": [
-        "실수로?!"
+        "애플을"
       ],
-      "body": "macOS 베타 안에 데모 영상이 통째로 들어있었음..",
+      "body": "카메라 달린 에어팟 — 자기네 macOS 베타에 데모 영상을 통째로 흘렸음",
       "body_hl": [
-        "데모",
-        "영상이"
+        "카메라"
       ],
       "img": "assets/cards/airpods_leak.jpg",
       "credit": "이미지: 유출된 애플 데모 영상 프레임 (macOS 베타 · iClarified)"
     },
     {
       "kind": "end",
-      "title": "에어팟이 보고, 시리가 말해준다?",
-      "body": "카메라가 본 걸 시리가 설명해주는 'Visual Intelligence'. 이름은 'AirPods Ultra'가 유력하다는 소문. 이르면 다음 달 공개?!",
+      "title": "귀에 꽂는 눈",
+      "body": "\"시리야, 이 책 기억해줘\" 에어팟이 보고, 시리가 기억함. 이름은 'AirPods Ultra' 소문. 이르면 다음 달",
       "body_hl": [
         "다음",
         "달"
       ],
-      "sub": "아직 루머 단계 — 애플이 확정하면 바로 다시 올림",
-      "credit": "출처: Engadget · AppleInsider · Bloomberg(거먼)",
-      "img": "assets/cards/airpods_leak.jpg"
+      "sub": "아직 루머 — 애플 입에서 나오면 다시 올림",
+      "credit": "이미지: 현행 에어팟 프로 (Engadget) · 유출 기기는 스템이 더 두꺼움",
+      "img": "assets/cards/airpods_leak2.jpg",
+      "title_hl": [
+        "눈"
+      ]
     }
   ]
 }
