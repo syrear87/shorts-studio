@@ -20,7 +20,7 @@
           ]
         ]
       ],
-      "bg": 35117249
+      "bg": "file:assets/bg_lki/roar.jpg"
     },
     {
       "kind": "body",
@@ -39,7 +39,7 @@
           ]
         ]
       ],
-      "bg": 19980218
+      "bg": "file:assets/bg_lki/dribble.jpg"
     },
     {
       "kind": "fact",
@@ -52,7 +52,7 @@
           ]
         ]
       ],
-      "bg": 31326302
+      "bg": "file:assets/bg_lki/point.jpg"
     },
     {
       "kind": "fact",
@@ -65,7 +65,7 @@
           ]
         ]
       ],
-      "bg": 9440064
+      "bg": "file:assets/bg_lki/shot.jpg"
     },
     {
       "kind": "fact",
@@ -129,7 +129,8 @@
   ],
   "sources": [
     "https://isplus.com/article/view/isp202608200005",
-    "https://isplus.com/article/view/isp202608200004"
+    "https://isplus.com/article/view/isp202608200004",
+    "이미지: 연합뉴스TV 보도 화면 캡처 (유튜브 GY7DOqnYbeA)"
   ],
   "bg_query": "soccer stadium"
 }
