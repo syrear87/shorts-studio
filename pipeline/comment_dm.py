@@ -52,6 +52,56 @@ def run_once(verbose=True):
     st = _state()
     replied = set(st.get("replied", []))
     sent = 0
+    # 1차 소스: 웹훅 이벤트 (2026-08-21 — 개발 모드에서 REST 댓글 읽기가 차단돼 워커 푸시로 우회)
+    events = []
+    try:
+        import urllib.request
+        cnt = (kv.get("HUB_COUNTER_URL") or "").rstrip("/")
+        key = kv.get("HUB_STATS_KEY") or ""
+        if cnt and key:
+            with urllib.request.urlopen("%s/events?k=%s" % (cnt, key), timeout=20) as r:
+                events = json.load(r)
+    except Exception as e:
+        print("[comment_dm] 이벤트 조회 실패:", str(e)[:120])
+    for ev in events:
+        cid = ev.get("id")
+        if not cid or cid in replied or (ev.get("from") or "") == ME_USERNAME:
+            continue
+        text = (ev.get("text") or "").strip().lower()
+        emid = ev.get("media") or ""
+        for r in rules:
+            if r.get("media") not in ("any", emid):
+                continue
+            if r["keyword"].lower() in text:
+                try:
+                    api("POST", "/me/messages", data={
+                        "recipient": json.dumps({"comment_id": cid}),
+                        "message": json.dumps({"text": r["dm"][:900]}),
+                        "access_token": tok})
+                    sent += 1
+                    replied.add(cid)
+                    if verbose:
+                        print("[comment_dm] (웹훅) DM 발송 → @%s (%s)" % (ev.get("from"), r["keyword"]))
+                    if r.get("ack"):
+                        try:
+                            api("POST", "/%s/replies" % cid, data={
+                                "message": r["ack"][:300], "access_token": tok})
+                        except Exception as e2:
+                            print("[comment_dm] 공개 답글 실패(무해):", str(e2)[:120])
+                    time.sleep(2)
+                except Exception as e:
+                    print("[comment_dm] (웹훅) DM 실패 @%s: %s" % (ev.get("from"), str(e)[:200]))
+                    try:
+                        import subprocess
+                        subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
+                                        "⚠️ 댓글DM 발송 실패 — @%s의 '%s' 댓글. 원인: %s" % (
+                                            ev.get("from"), r["keyword"], str(e)[:150])],
+                                       check=False, timeout=30)
+                    except Exception:
+                        pass
+                    replied.add(cid)
+                break
+    # 2차 소스(REST 폴링 — 검수 승인 후 데이터가 열리면 자동으로 같이 동작)
     media = api("GET", "/me/media", params={
         "fields": "id,caption,timestamp", "limit": 15, "access_token": tok}).get("data", [])
     for m in media:

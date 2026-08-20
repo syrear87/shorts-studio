@@ -71,5 +71,5 @@ import sys; sys.path.insert(0, 'pipeline')
 import affiliate_bot as ab
 items = ab.state().get('hub_items', [])
 print('허브 갱신:', ab.update_hub(items))"
-pm2 restart studio-affiliate > /dev/null && echo "   studio-affiliate 재시작 ✓"
+# (2026-08-21) pm2 상주 재시작 제거 — SD-007 상주 금지. 제휴봇은 슬롯 세션이 --once 호출.
 echo "완료 — 텔레그램에 '허브'라고 보내면 집계가 옵니다. 디렉터 기기 제외 등록: 허브를 #me 붙여 한 번 열기"

@@ -32,12 +32,54 @@ export default {
       }
       const n = (url.searchParams.get("n") || "etc").slice(0, 48);
       if (url.searchParams.get("me") === "1") {
-        await bump(env, "me:click:" + slug);   // 디렉터 테스트분 — 실적 집계에서 분리 (2026-08-16)
+        await bump("me:click:" + n);   // 디렉터 테스트분 — 실적 집계에서 분리 (2026-08-16; 2026-08-21 slug 오타 수정 — 디렉터 기기에서만 500)
       } else {
         await bump("click:" + n);
         await bump("day:" + day + ":click:" + n);
       }
       return Response.redirect(dest.toString(), 302);
+    }
+    if (url.pathname === "/webhook") {
+      // Instagram 댓글 웹훅 (2026-08-21 — 개발 모드에서 REST 댓글 읽기가 차단돼 푸시로 우회)
+      if (req.method === "GET") {
+        // Meta 구독 검증 핸드셰이크
+        if (url.searchParams.get("hub.verify_token") === env.STATS_KEY) {
+          return new Response(url.searchParams.get("hub.challenge") || "", { status: 200 });
+        }
+        return new Response("bad token", { status: 403 });
+      }
+      if (req.method === "POST") {
+        let body;
+        try { body = await req.json(); } catch (e) { return new Response("bad json", { status: 400 }); }
+        try {
+          for (const entry of body.entry || []) {
+            for (const ch of entry.changes || []) {
+              if (ch.field !== "comments") continue;
+              const v = ch.value || {};
+              if (!v.id) continue;
+              await env.KV.put("whc:" + v.id, JSON.stringify({
+                id: v.id, text: v.text || "",
+                from: (v.from && v.from.username) || "", from_id: (v.from && v.from.id) || "",
+                media: (v.media && v.media.id) || "", ts: Date.now()
+              }), { expirationTtl: 604800 });
+            }
+          }
+        } catch (e) { /* 이벤트 하나 깨져도 200 — Meta 재전송 폭주 방지 */ }
+        return new Response("ok", { status: 200 });
+      }
+      return new Response("nope", { status: 405 });
+    }
+    if (url.pathname === "/events") {
+      // 봇이 소비: 저장된 댓글 이벤트 반환 후 삭제
+      if (url.searchParams.get("k") !== env.STATS_KEY) return new Response("forbidden", { status: 403 });
+      const out = [];
+      const page = await env.KV.list({ prefix: "whc:" });
+      for (const key of page.keys) {
+        const v = await env.KV.get(key.name);
+        if (v) out.push(JSON.parse(v));
+        await env.KV.delete(key.name);
+      }
+      return new Response(JSON.stringify(out), { headers: { "content-type": "application/json" } });
     }
     if (url.pathname === "/reset") {
       // 오염 데이터 정리 (2026-08-16: 배포 당일 디렉터 테스트 클릭 9건이 실적으로 잡혀 있었다)
