@@ -20,7 +20,7 @@
           ]
         ]
       ],
-      "bg": "file:assets/bg_lki/roar.jpg"
+      "bg": "file!:assets/bg_lki/roar_v.jpg"
     },
     {
       "kind": "body",
@@ -39,7 +39,7 @@
           ]
         ]
       ],
-      "bg": "file:assets/bg_lki/dribble.jpg"
+      "bg": "file!:assets/bg_lki/dribble_v.jpg"
     },
     {
       "kind": "fact",
@@ -52,7 +52,7 @@
           ]
         ]
       ],
-      "bg": "file:assets/bg_lki/point.jpg"
+      "bg": "file!:assets/bg_lki/point_v.jpg"
     },
     {
       "kind": "fact",
@@ -65,7 +65,7 @@
           ]
         ]
       ],
-      "bg": "file:assets/bg_lki/shot.jpg"
+      "bg": "file!:assets/bg_lki/shot_v.jpg"
     },
     {
       "kind": "fact",
@@ -84,7 +84,7 @@
           ]
         ]
       ],
-      "bg": 35970585
+      "bg": "file!:assets/bg_lki/t30_v.jpg"
     },
     {
       "kind": "twist",
@@ -103,7 +103,7 @@
           ]
         ]
       ],
-      "bg": 32337290
+      "bg": 19980218
     },
     {
       "kind": "cta",
