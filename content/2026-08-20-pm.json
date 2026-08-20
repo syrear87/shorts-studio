@@ -1,0 +1,76 @@
+{
+  "title": "카카오 이모티콘 두 달, ChatGPT는 5분입니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg_id": 5474816,
+      "voice": "카카오 이모티콘 작가가 되려면 최소 두 달 걸립니다.",
+      "lines": [
+        ["카카오 이모티콘 작가까지 두 달 걸립니다", ["두 달"]]
+      ]
+    },
+    {
+      "kind": "body",
+      "bg_id": 8706294,
+      "voice": "한 세트에 표정 24개를 직접 그리는 것부터 시작합니다.",
+      "lines": [
+        ["한 세트에 표정 24개", ["24개"]],
+        ["직접 그리는 것부터 시작합니다", ["직접"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg_id": 1196530,
+      "voice": "프로 작가도 한 세트 완성에 3주 이상 걸립니다. 표정마다 동작과 각도가 달라야 합니다.",
+      "lines": [
+        ["프로 작가도 한 세트에 3주 이상", ["3주"]],
+        ["표정마다 동작과 각도가 달라야 합니다", ["달라야"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg_id": 7593780,
+      "voice": "완성하면 제안서를 제출합니다. 심사만 2주에서 4주, 탈락하면 수정 후 재제출입니다.",
+      "lines": [
+        ["심사만 2주에서 4주", ["2주"]],
+        ["탈락하면 수정 후 재제출입니다", ["재제출"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg_id": 6670424,
+      "voice": "그런데 지금, 이 과정 전부가 5분에 끝납니다. 챗GPT에 셀카 한 장과 프롬프트 한 줄이면 됩니다.",
+      "lines": [
+        ["이 과정 전부가 5분에 끝납니다", ["5분"]],
+        ["챗GPT에 셀카 한 장 + 프롬프트 한 줄", ["한 줄"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg_id": 8629052,
+      "voice": "내 얼굴을 닮은 16표정 스티커 시트가 바로 나옵니다. 무료 플랜으로도 됩니다. 오늘 바로 해보세요, 프롬프트는 화면에 적어 뒀습니다.",
+      "lines": [
+        ["내 얼굴을 닮은 16표정 스티커 시트", ["16표정"]],
+        ["오늘 바로 해보세요", ["오늘"]],
+        ["프롬프트는 화면에 적어 뒀습니다", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg_id": 5183601,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.tiktok.com/en/trending/detail/chatgpt-sticker-prompts-trend-goes-viral",
+    "https://www.media.io/ai/explore/zone/chatgpt-sticker-prompts"
+  ],
+  "bg_query": ["person drawing digital tablet illustration", "cute cartoon character sticker sheet design", "hourglass time passing slow", "paper documents office waiting rejection stamp", "smartphone AI chatbot conversation screen fast", "colorful emoji sticker grid cute expressions face", "sunrise morning knowledge learning"]
+}
