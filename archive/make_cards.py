@@ -48,12 +48,11 @@ def base(page, total, img=None):
         mp = []
         for y in range(H):
             t = y / H
-            if t < 0.42:          # 상단: 배지·제목 영역 — 진하게
-                a = int(245 - t / 0.42 * 105)
-            elif t < 0.60:        # 중단: 이미지 살리기 (그래도 텍스트가 겹칠 수 있어 바닥값 유지)
-                a = 140
-            else:                 # 하단: 본문·크레딧 — 다시 진하게
-                a = int(140 + (t - 0.60) / 0.40 * 105)
+            # 하단 정렬 레이아웃 (2026-08-20 디렉터 "이미지가 더 강조되도록"): 위는 얇게, 텍스트가 사는 아래만 진하게
+            if t < 0.48:
+                a = 55
+            else:
+                a = int(55 + (t - 0.48) / 0.52 * 190)
             mp.append(a)
         mask.putdata(mp)
         im.paste(ov, (0, 0), mask.resize((W, H)))
@@ -170,7 +169,26 @@ def render(script_path):
             return y_
 
         try:
-            if kind == "hook":
+            if c.get("img"):
+                # 풀블리드 카드: 텍스트 블록을 하단 정렬 — 이미지가 주인공 (2026-08-20 디렉터)
+                tf = font(86 if kind == "hook" else 66, "b")
+                bf2 = font(48 if kind == "hook" else 50, "sb")
+                sf = font(44, "b")
+                tl = wrap(d, c["title"], tf, W - 160)
+                bl = wrap(d, c.get("body", ""), bf2, W - 180) if c.get("body") else []
+                sl = wrap(d, c.get("sub", ""), sf, W - 160) if c.get("sub") else []
+                blk = len(tl) * int(tf.size * 1.30)
+                if bl:
+                    blk += 48 + len(bl) * int(bf2.size * 1.42)
+                if sl:
+                    blk += 52 + len(sl) * int(sf.size * 1.4)
+                y = (H - 190) - blk
+                y2 = P(d, c["title"], tf, 80, y, W - 160, hl=t_hl, lh=1.30)
+                if bl:
+                    y2 = P(d, c["body"], bf2, 80, y2 + 48, W - 180, color=TEXT, hl=b_hl)
+                if sl:
+                    P(d, c["sub"], sf, 80, y2 + 52, W - 160, color=ACCENT)
+            elif kind == "hook":
                 y = P(d, c["title"], font(86, "b"), 80, 400, W - 160, hl=t_hl, lh=1.32)
                 if c.get("body"):
                     P(d, c["body"], font(48, "sb"), 80, y + 100, W - 160, color=TEXT, hl=b_hl)
