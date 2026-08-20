@@ -170,12 +170,15 @@ def update_hub(items):
         # 카운터 경유: 클릭 집계 후 쿠팡으로 302 (2026-08-14 디렉터 — 상품별 클릭 체크)
         slug = urllib.parse.quote(it["name"][:24])
         return "%s/go?n=%s&u=%s" % (cnt, slug, urllib.parse.quote(it["url"], safe=""))
-    rows = "\n".join(
-        '<a class="item" href="%s"><span class="name">%s</span><span class="meta">%s</span></a>'
-        % (_html.escape(_href(it), quote=True),
-           _html.escape((("%d. " % it["no"]) if it.get("no") else "") + ((it["name"][:34] + '…') if len(it["name"]) > 35 else it["name"])),
-           _html.escape(("「%s」에 나온 물건 · %s" % (it["ep"], it["date"])) if it.get("ep") else ("%s · 쿠팡에서 보기 ›" % it["date"])))
-        for it in items)
+    def _row(it):
+        thumb = ('<img class="thumb" src="%s" alt="" loading="lazy">' % _html.escape(it["img"], quote=True)) if it.get("img") else '<span class="thumb ph">🛍️</span>'
+        label = (("%d. " % it["no"]) if it.get("no") else "") + ((it["name"][:34] + '…') if len(it["name"]) > 35 else it["name"])
+        meta = ("「%s」에 나온 물건 · %s" % (it["ep"], it["date"])) if it.get("ep") else ("%s · 쿠팡에서 보기 ›" % it["date"])
+        return ('<a class="item" href="%s" data-no="%s" data-name="%s">%s<span class="tx"><span class="name">%s</span><span class="meta">%s</span></span></a>'
+                % (_html.escape(_href(it), quote=True), it.get("no") or "",
+                   _html.escape(it["name"].lower(), quote=True), thumb,
+                   _html.escape(label), _html.escape(meta)))
+    rows = "\n".join(_row(it) for it in items)
     beacon = ""
     if cnt:
         # 방문 비콘 — 세션당 1회. 디렉터 제외: 허브를 '#me' 붙여 한 번 열면 그 기기는 영구 제외
@@ -197,15 +200,22 @@ h1{font-size:26px;font-weight:900;text-align:center;letter-spacing:-0.5px}
 h1 .d1{color:#12192e}h1 .d2{color:#ffb43c}
 .underbar{width:58px;height:5px;background:#ffb43c;border-radius:3px;margin:8px auto 0}
 p.sub{color:#8a8f98;font-size:13px;text-align:center;margin:6px 0 36px}
-.item{display:block;border:1px solid #e6e8eb;border-radius:14px;padding:18px 20px;margin:10px 0;
+.item{display:flex;align-items:center;gap:14px;border:1px solid #e6e8eb;border-radius:14px;padding:14px 16px;margin:10px 0;
 text-decoration:none;color:#111;transition:border-color .15s}
 .item:active{border-color:#111}
+.thumb{width:56px;height:56px;border-radius:10px;object-fit:cover;flex:0 0 56px;background:#f2f3f5;display:flex;align-items:center;justify-content:center;font-size:24px}
+.tx{min-width:0}
+.search{width:100%%;border:1px solid #e6e8eb;border-radius:12px;padding:12px 16px;font-size:15px;margin-bottom:14px;outline:none}
+.search:focus{border-color:#ffb43c}
+.item.hide{display:none}
 .name{display:block;font-size:15px;font-weight:650;line-height:1.45}
 .meta{display:block;color:#a0a5ad;font-size:12px;margin-top:6px}
 footer{color:#b3b8bf;font-size:11px;text-align:center;margin-top:44px;line-height:1.7}
 </style></head><body>
-<h1><span class="d1">1일</span> <span class="d2">1지식</span></h1><div class="underbar"></div><p class="sub" style="margin-top:14px">영상에 나온 것들 · 지식 아카이브</p>
+<h1><span class="d1">1일</span> <span class="d2">1지식</span></h1><div class="underbar"></div><p class="sub" style="margin-top:14px">영상·카드에 나온 것들 — DM에서 받은 번호를 검색하세요</p>
+<input class="search" id="q" type="search" inputmode="search" placeholder="번호나 제품명 검색 (예: 2)">
 %s
+<script>document.getElementById('q').addEventListener('input',function(){var v=this.value.trim().toLowerCase();document.querySelectorAll('a.item').forEach(function(a){var hit=!v||a.dataset.no===v||a.dataset.name.indexOf(v)>-1||(a.dataset.no&&(a.dataset.no+'번')===v);a.classList.toggle('hide',!hit);});});</script>
 <footer>쿠팡 파트너스 활동의 일환으로,<br>이에 따른 일정액의 수수료를 제공받습니다</footer>
 %s</body></html>""" % (rows, beacon)
     s3 = r2_client()
@@ -392,7 +402,24 @@ def handle_link_to(name, url, m):
     # 고정 번호 (2026-08-20 디렉터 — 살룸연구소 인포크 패턴: "영상에서 몇 번이라고 말해주면 찾아 들어감").
     # 번호는 등록 순 영구 부여 — 항목이 밀려나도 번호는 재사용하지 않는다 (콘텐츠에 박힌 번호가 어긋나지 않게).
     seq = int(s_.get("hub_seq") or 0) + 1
-    items.insert(0, {"no": seq, "name": name, "url": url, "date": datetime.now().strftime("%m/%d"), "ep": ep})
+    thumb_url = None
+    try:
+        # 해당 게시물(카드/영상)의 IG 이미지 → R2 영구 썸네일 (IG CDN 링크는 만료되므로 복사해 보관)
+        mid_ = m.get("id")
+        if mid_:
+            det = http("%s/%s?fields=media_url,thumbnail_url&access_token=%s" % (G, mid_, KV["IG_ACCESS_TOKEN"]))
+            src = det.get("thumbnail_url") or det.get("media_url")
+            if src:
+                import urllib.request as _ur
+                data = _ur.urlopen(src, timeout=20).read()
+                key_ = "hub/thumb_%d.jpg" % seq
+                r2_client().put_object(Bucket=KV["R2_BUCKET"], Key=key_, Body=data,
+                                       ContentType="image/jpeg", CacheControl="public,max-age=31536000")
+                thumb_url = KV["R2_PUBLIC_URL"].rstrip("/") + "/" + key_
+    except Exception as _te:
+        print("[affiliate_bot] 썸네일 실패(무해):", str(_te)[:100], flush=True)
+    items.insert(0, {"no": seq, "name": name, "url": url, "img": thumb_url,
+                     "date": datetime.now().strftime("%m/%d"), "ep": ep})
     items = items[:8]
     state({"hub_seq": seq})
     update_hub(items)
