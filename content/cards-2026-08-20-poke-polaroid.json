@@ -1,0 +1,25 @@
+{
+  "topic": "포켓몬 30주년 X 폴라로이드 공식 콜라보 카메라 (Engadget·Polaroid 공식)",
+  "caption": "피카츄가 폴라로이드가 됐습니다.\n\n포켓몬 30주년 기념으로 폴라로이드가 공식 콜라보 카메라를 내놓습니다. 폴라로이드 나우·고를 기반으로 피카츄·님피아 등 포켓몬 디자인을 입힌 3종 — 전용 즉석필름과 액세서리까지 세트입니다.\n\n출시 시기·국내 발매는 폴라로이드 공식 발표 기준으로 확인하세요.\n\n출처: Engadget, Polaroid 공식\n\n#포켓몬 #폴라로이드 #피카츄 #카메라 #콜라보\n",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "피카츄가 폴라로이드가 됐다",
+      "title_hl": ["폴라로이드가"],
+      "body": "포켓몬 30주년 기념 — 폴라로이드 공식 콜라보 카메라 3종",
+      "body_hl": ["30주년"],
+      "img": "assets/cards/poke_pola.jpg",
+      "credit": "이미지: Polaroid 공식 (Engadget)"
+    },
+    {
+      "kind": "end",
+      "title": "나우·고 기반, 필름까지 포켓몬",
+      "title_hl": ["필름까지"],
+      "body": "피카츄·님피아 등 디자인 3종 + 전용 즉석필름·액세서리 세트. 곧 출시",
+      "body_hl": ["곧"],
+      "sub": "필카 감성 좋아하는 친구에게 공유",
+      "img": "assets/cards/poke_pola_z.jpg",
+      "credit": "이미지: Polaroid 공식 (Engadget)"
+    }
+  ]
+}
