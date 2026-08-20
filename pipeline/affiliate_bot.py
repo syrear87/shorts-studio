@@ -649,4 +649,6 @@ def main(once=False):
 
 if __name__ == "__main__":
     import sys
-    main(once="--once" in sys.argv)
+    # 기본값 = --once (2026-08-21 실사고: 세션이 인자 없이 실행 → 상주 루프가 남아
+    # 구버전 코드로 링크를 처리. 상주 금지 규약(SD-007)상 루프는 --daemon 명시할 때만.)
+    main(once="--daemon" not in sys.argv)
