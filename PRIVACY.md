@@ -34,3 +34,21 @@ https://security.google.com/settings/security/permissions
 
 ## Contact
 syrear87@gmail.com
+
+## Instagram / Threads (Meta Platforms)
+
+shorts-studio also uses the Instagram API and Threads API to publish
+self-produced content (videos and image cards) to the operator's own
+Instagram/Threads account (@syusyu_channel), and to manage that account's
+comments and direct messages.
+
+- Comment events on the operator's own posts are processed solely to send
+  a requested reply (e.g., a user who comments a keyword receives the
+  product link they asked for via DM). Comment text and usernames are
+  processed transiently and are not stored beyond a short-lived delivery
+  queue (deleted upon processing, max 7 days).
+- No data is sold or shared with third parties.
+- No data about users other than the operator's own account is collected,
+  profiled, or retained.
+- Data deletion requests: contact syrear87@gmail.com and any stored data
+  related to your account will be deleted within 7 days.
