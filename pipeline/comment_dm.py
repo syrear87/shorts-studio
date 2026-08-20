@@ -92,6 +92,14 @@ def run_once(verbose=True):
                     except Exception as e:
                         # 권한 부족(instagram_business_manage_messages 미승인)이면 여기서 드러난다
                         print("[comment_dm] DM 실패 @%s: %s" % (c.get("username"), str(e)[:200]))
+                        try:
+                            import subprocess
+                            subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
+                                            "⚠️ 댓글DM 발송 실패 — @%s의 '%s' 댓글. 원인: %s" % (
+                                                c.get("username"), r["keyword"], str(e)[:150])],
+                                           check=False, timeout=30)
+                        except Exception:
+                            pass
                         replied.add(cid)   # 같은 댓글로 무한 재시도 방지 (수동 확인 후 상태 파일에서 제거)
                     break
     st["replied"] = list(replied)[-2000:]
