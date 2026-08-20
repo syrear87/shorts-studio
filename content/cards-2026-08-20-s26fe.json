@@ -1,0 +1,24 @@
+{
+  "topic": "갤럭시 S26 FE 프로모 이미지 28장+핸즈온 영상 대량 유출 (Android Headlines·Sammy Fans·9to5Google 등 교차 확인)",
+  "caption": "삼성이 아직 발표도 안 한 갤럭시 S26 FE,\n프로모 이미지 28장이 통째로 유출됐습니다.\n\n핵심 스펙:\nExynos 2500 / 6.7인치 120Hz / 50MP 트리플 카메라\n4,900mAh / 45W 충전\n\n색상은 블루베리, 그라파이트, 피스타치오 3종.\n가격은 전작 대비 인상 전망 (유럽 기준 799유로).\nIFA(9/4) 전후 출시가 유력합니다.\n\n출처: Android Headlines, Sammy Fans, 9to5Google, SamMobile, Notebookcheck\n\n#갤럭시S26FE #삼성 #Galaxy #테크뉴스 #유출",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "삼성이 아직 발표도 안 했는데",
+      "title_hl": ["발표도"],
+      "body": "갤럭시 S26 FE 홍보 이미지 28장이 통째로 유출됨",
+      "body_hl": ["28장"],
+      "img": "assets/cards/s26fe_promo.jpg",
+      "credit": "유출 프로모 이미지: Android Headlines"
+    },
+    {
+      "kind": "end",
+      "title": "달라진 건 안, 올라간 건 값",
+      "title_hl": ["값"],
+      "body": "Exynos 2500 / 50MP 트리플 / 4,900mAh — 스펙은 비슷한데 가격은 올랐다는 소문. 이르면 9월 초",
+      "body_hl": ["9월"],
+      "img": "assets/cards/s26fe_e.webp",
+      "credit": "유출 프로모 이미지: Android Headlines"
+    }
+  ]
+}
