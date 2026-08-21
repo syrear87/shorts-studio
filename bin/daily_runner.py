@@ -150,7 +150,8 @@ def main():
             reason = log_looks_dead(text)
             if reason and sent_evidence(start_ts):
                 # 센티널 누락이지만 발송 실측 존재 — 완주 인정, 형식 위반 주의만 (2026-08-05 디렉터 승인)
-                tg("ℹ️ 숏츠 데일리: 마감 센티널 누락(형식 위반)이나 sent.log 실측으로 완주 확인 — 조치 불필요")
+                # 2026-08-21 디렉터: '조치 불필요' 정보성 알림은 텔레그램 소음 — 로그로만 남긴다
+                print("[runner] 센티널 누락, 실측 완주 확인 — 조치 불필요", flush=True)
                 check_artifacts(start_ts)
             elif reason:
                 tg("⚠️ 숏츠 데일리: 종료코드는 0인데 %s — %s 확인" % (reason, LOG.name))
