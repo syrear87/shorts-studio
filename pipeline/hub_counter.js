@@ -58,10 +58,39 @@ export default {
               const v = ch.value || {};
               if (!v.id) continue;
               if (v.from && v.from.username === "syusyu_channel") continue;   // 자기 댓글(안내·답글) 제외
+              let handled = false;
+              try {   // 실시간 즉답 (2026-08-21 디렉터: "누르면 바로 답이 오면") — 워커가 직접 DM①
+                const cfg = JSON.parse((await env.KV.get("dm:cfg")) || "{}");
+                const mediaId = (v.media && v.media.id) || "";
+                const txt = (v.text || "").toLowerCase();
+                const rule = (cfg.rules || []).find((r) =>
+                  (r.media === mediaId || r.media === "any") && txt.includes((r.keyword || "").toLowerCase()));
+                if (cfg.token && rule && !(await env.KV.get("done:" + v.id))) {
+                  const greet = "안녕하세요 👋 댓글 남겨주신 거 봤어요!\n" + (rule.name || "요청하신 상품") +
+                                " 정보를 보내드릴게요 — 아래 버튼을 눌러주세요 ⬇️";
+                  const r1 = await fetch("https://graph.instagram.com/v23.0/me/messages?access_token=" + cfg.token, {
+                    method: "POST", headers: { "content-type": "application/json" },
+                    body: JSON.stringify({ recipient: { comment_id: v.id },
+                      message: { attachment: { type: "template", payload: { template_type: "button",
+                        text: greet, buttons: [{ type: "postback", title: "네! 받을래요 🙌",
+                                                 payload: "SEND_LINK|" + mediaId }] } } } })
+                  });
+                  if (r1.ok) {
+                    handled = true;
+                    await env.KV.put("done:" + v.id, "1", { expirationTtl: 604800 });
+                    if (rule.ack) {
+                      await fetch("https://graph.instagram.com/v23.0/" + v.id + "/replies?access_token=" + cfg.token, {
+                        method: "POST", headers: { "content-type": "application/json" },
+                        body: JSON.stringify({ message: rule.ack })
+                      });
+                    }
+                  }
+                }
+              } catch (e) { /* 실패 시 폴러가 백업 처리 */ }
               await env.KV.put("whc:" + v.id, JSON.stringify({
                 id: v.id, text: v.text || "",
                 from: (v.from && v.from.username) || "", from_id: (v.from && v.from.id) || "",
-                media: (v.media && v.media.id) || "", ts: Date.now()
+                media: (v.media && v.media.id) || "", handled: handled, ts: Date.now()
               }), { expirationTtl: 604800 });
             }
           }
@@ -77,10 +106,39 @@ export default {
                 text = ms.message.text || "";
                 payload = (ms.message.quick_reply && ms.message.quick_reply.payload) || "";
               } else { continue; }
+              let mHandled = false;
+              try {   // 버튼 탭 즉답 — 워커가 직접 DM②(이미지 카드+구매 버튼+고지문)
+                if (payload && payload.indexOf("SEND_LINK|") === 0) {
+                  const cfg = JSON.parse((await env.KV.get("dm:cfg")) || "{}");
+                  const emid = payload.split("|")[1];
+                  const rule = (cfg.rules || []).find((r) => r.media === emid);
+                  const uid = (ms.sender && ms.sender.id) || "";
+                  if (cfg.token && rule && uid && !(await env.KV.get("done:" + mid))) {
+                    const el = { title: (rule.name || "추천 상품").slice(0, 80),
+                                 subtitle: "쿠팡에서 최저가 확인하기",
+                                 buttons: [{ type: "web_url", url: rule.url || "", title: "상품 보러가기 🛒" }] };
+                    if (rule.img) el.image_url = rule.img;
+                    const r2 = await fetch("https://graph.instagram.com/v23.0/me/messages?access_token=" + cfg.token, {
+                      method: "POST", headers: { "content-type": "application/json" },
+                      body: JSON.stringify({ recipient: { id: uid },
+                        message: { attachment: { type: "template", payload: { template_type: "generic", elements: [el] } } } })
+                    });
+                    if (r2.ok) {
+                      mHandled = true;
+                      await env.KV.put("done:" + mid, "1", { expirationTtl: 604800 });
+                      await fetch("https://graph.instagram.com/v23.0/me/messages?access_token=" + cfg.token, {
+                        method: "POST", headers: { "content-type": "application/json" },
+                        body: JSON.stringify({ recipient: { id: uid },
+                          message: { text: "프로필 링크의 허브에서도 언제든 다시 볼 수 있어요 🙂\n\n* 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다" } })
+                      });
+                    }
+                  }
+                }
+              } catch (e) { /* 실패 시 폴러가 백업 처리 */ }
               await env.KV.put("whm:" + mid, JSON.stringify({
                 type: "message", id: mid,
                 from_id: (ms.sender && ms.sender.id) || "",
-                text: text, payload: payload,
+                text: text, payload: payload, handled: mHandled,
                 ts: ms.timestamp || Date.now()
               }), { expirationTtl: 604800 });
             }
@@ -89,6 +147,12 @@ export default {
         return new Response("ok", { status: 200 });
       }
       return new Response("nope", { status: 405 });
+    }
+    if (url.pathname === "/dm_config") {
+      if (url.searchParams.get("k") !== env.STATS_KEY) return new Response("forbidden", { status: 403 });
+      if (req.method !== "POST") return new Response("nope", { status: 405 });
+      await env.KV.put("dm:cfg", await req.text());
+      return new Response("ok");
     }
     if (url.pathname === "/events") {
       // 봇이 소비: 저장된 댓글 이벤트 반환 후 삭제

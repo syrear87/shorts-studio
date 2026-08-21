@@ -73,9 +73,28 @@ def run_once(verbose=True):
         except Exception:
             pass
 
+    # 설정 동기화 — 워커 실시간 응답용 (토큰 갱신·규칙 변경 반영)
+    try:
+        import urllib.request
+        cnt2 = (kv.get("HUB_COUNTER_URL") or "").rstrip("/")
+        key2 = kv.get("HUB_STATS_KEY") or ""
+        if cnt2 and key2:
+            cfg = json.dumps({"token": tok, "rules": rules}).encode()
+            rq = urllib.request.Request("%s/dm_config?k=%s" % (cnt2, key2), data=cfg,
+                                        headers={"User-Agent": "Mozilla/5.0 (studio-bot)",
+                                                 "Content-Type": "application/json"}, method="POST")
+            urllib.request.urlopen(rq, timeout=20).read()
+    except Exception as e:
+        print("[comment_dm] 설정 동기화 실패(무해):", str(e)[:100])
+
     for ev in events:
         cid = ev.get("id")
         if not cid or cid in replied:
+            continue
+        if ev.get("handled"):
+            replied.add(cid)
+            if verbose:
+                print("[comment_dm] (워커 즉답 처리됨) %s" % cid[:24])
             continue
         # ─ 버튼 탭 (messages 웹훅, quick_reply payload = "SEND_LINK|<media_id>") → 이미지 카드 템플릿
         if ev.get("type") == "message":
