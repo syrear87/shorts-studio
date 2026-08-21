@@ -480,6 +480,8 @@
 - **11시 카드 = Pixel 11 Pro HiLight — 10년 만에 돌아온 알림 LED** [신제품]: 8/20 글로벌 발매. 카메라 바 옆 LED가 빛으로 전화·AI 상태 알림. 이미지: Google Blog + 9to5Google.
   - ✅ **게시 완료** (11시 세션): IG https://www.instagram.com/p/DcSOXg7GQr5/ · 스레드 https://www.threads.com/@syusyu_channel/post/DcSOYh-mShf — 2장 캐러셀(훅: "10년 만에 돌아온 알림 LED"). 한국 미출시, 댓글DM 없음.
 - 12시~ 자율. 참고 풀: LG B6 OLED 미국 최저가(국내 무관이라 비추), Apple Music AI 라벨(서비스 — 카드 제외), 갤럭시 S26 FE는 어제 소진·8/27 이벤트가 재등판 시점. 유출 쿼터 오늘 0/2 사용.
+- **12시 카드 = Sennheiser MOMENTUM True Wireless 5 — 배터리 교체 가능 무선 이어폰** [신제품]: 8/20 발표. 이어폰·케이스 배터리 사용자 교체, BT 6.0, 돌비 애트모스, $299.95, 9/3 출시.
+  - ✅ **게시 완료** (12시 세션): IG https://www.instagram.com/p/DcSVPjpGSh1/ · 스레드 https://www.threads.com/@syusyu_channel/post/DcSVSErGSJI — 2장 캐러셀(훅: "무선 이어폰의 유통기한이 사라졌다"). 신제품, 댓글DM 없음.
 - 탐색탭 실사는 이번 회차 생략(크론 지각 — 09시 세션 지정 우선 처리).
 
 ### 🚨 공유형 소재 백로그 (8/21 디렉터 "민방위처럼 터진 거, 사이렌 같은 공유형 더 찾아봐" — 상주 사냥 결과)

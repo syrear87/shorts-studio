@@ -1,0 +1,24 @@
+{
+  "topic": "Sennheiser MOMENTUM True Wireless 5 — 배터리를 직접 갈 수 있는 무선 이어폰 [신제품]",
+  "caption": "무선 이어폰은 배터리가 닳으면 버려야 했다.\n2~3년 쓰면 재생 시간이 반토막 나고, 수리도 안 되니까 새로 사는 수밖에 없었다.\n\n젠하이저가 그 공식을 깼다. MOMENTUM True Wireless 5는 이어폰과 케이스 배터리를 직접 교체할 수 있다. 드라이버 하나면 된다.\n\n블루투스 6.0, 돌비 애트모스, aptX Lossless까지. $299.95, 9월 3일 출시.\n\n발표: 2026.08.20\n출처: Sennheiser 공식 뉴스룸, Engadget, Forbes\n\n#젠하이저 #MOMENTUM #무선이어폰 #배터리교체 #신제품",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "무선 이어폰의 유통기한이 사라졌다",
+      "title_hl": ["유통기한"],
+      "body": "젠하이저 신작, 배터리를 직접 갈 수 있는 무선 이어폰이 나왔다",
+      "body_hl": ["배터리를 직접"],
+      "img": "assets/cards/sennheiser_mtw5_lifestyle.jpg",
+      "credit": "이미지: Sennheiser 공식 프레스킷"
+    },
+    {
+      "kind": "end",
+      "title": "MOMENTUM True Wireless 5, $299.95",
+      "title_hl": ["MOMENTUM True Wireless 5"],
+      "body": "드라이버 하나로 배터리 교체. 블루투스 6.0, 돌비 애트모스, 40시간 재생. 9월 3일 출시",
+      "body_hl": ["드라이버 하나로"],
+      "img": "assets/cards/sennheiser_mtw5_product.jpg",
+      "credit": "이미지: Sennheiser 공식 프레스킷"
+    }
+  ]
+}
