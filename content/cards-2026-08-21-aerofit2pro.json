@@ -1,0 +1,24 @@
+{
+  "topic": "Soundcore AeroFit 2 Pro — 오픈이어인데 노캔도 되는 변신 이어폰 [구매가능]",
+  "caption": "오픈이어 이어폰과 노이즈캔슬링 이어폰, 둘 중 하나만 골라야 했다.\n앵커 사운드코어가 그 고민을 끝냈다.\n\nAeroFit 2 Pro. 이어훅을 돌리면 오픈이어가 ANC로 변신한다.\n5단계 조절. 벌리면 주변 소리가 들리고, 밀면 노캔이 켜진다.\n센서가 자동 감지해서 EQ까지 알아서 바꿔준다.\n\n초당 38만 번 환경 체크, 분당 180회 미세 조정.\n오픈이어 34시간, ANC 24시간 배터리. IP55 방수.\nCES 2026 혁신상, 레드닷, iF 디자인 어워드 3관왕.\n\n출처: Soundcore 공식, CNN Underscored, Expert Reviews, SoundGuys\n\n#사운드코어 #AeroFit2Pro #오픈이어 #노이즈캔슬링 #이어폰",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "이 이어폰은 변신한다",
+      "title_hl": ["변신한다"],
+      "body": "Soundcore AeroFit 2 Pro. 이어훅을 돌리면 오픈이어가 노캔으로 바뀐다",
+      "body_hl": ["오픈이어", "노캔"],
+      "img": "assets/cards/aerofit2pro-1.png",
+      "credit": "이미지: Soundcore 공식"
+    },
+    {
+      "kind": "end",
+      "title": "귀에서 뺄 필요가 없어졌다",
+      "title_hl": ["뺄 필요가 없어졌다"],
+      "body": "5단계 이어훅 조절. 초당 38만 번 환경 감지. CES·레드닷·iF 3관왕",
+      "body_hl": ["3관왕"],
+      "img": "assets/cards/aerofit2pro-2.jpg",
+      "credit": "이미지: Soundcore 공식"
+    }
+  ]
+}

@@ -509,3 +509,9 @@
 - IG: https://www.instagram.com/p/DcSjmOBGbTc/
 - 스레드: https://www.threads.com/@syusyu_channel/post/DcSjnReGVvb
 - 중복 검사: 최근 7일 제품 확인 완료
+
+### 2026-08-21 (금) 15시 카드 — ✅ Soundcore AeroFit 2 Pro 게시 완료
+- 소재: 오픈이어↔ANC 변신 이어폰 (5단계 이어훅, 초당 38만 환경감지, CES·레드닷·iF 3관왕) [구매가능]
+- IG: https://www.instagram.com/p/DcSp7m-mZjX/
+- 스레드: https://www.threads.com/@syusyu_channel/post/DcSp8ymGSON
+- 중복 검사: 최근 7일 제품 확인 완료
