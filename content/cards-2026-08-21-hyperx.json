@@ -1,0 +1,24 @@
+{
+  "topic": "HyperX Cloud Alpha Air — HyperX 최초 오픈백 게이밍 헤드셋 [신제품]",
+  "caption": "게이밍 헤드셋은 원래 귀를 막는다.\n오픈백은 음악 감상용이지 게임용이 아니라는 게 업계 상식이었는데, HyperX가 그 금기를 처음으로 깼다.\n\nCloud Alpha Air. 오픈백인데 Bass Tube 기술로 저음까지 살렸다는 게 핵심이다. 275g, $149.99, 9월 출시 예정.\n\n발표: HyperX Level Awakening 2026 (2026.08.20)\n출처: HP 공식 보도자료, SlashGear 핸즈온\n\n#HyperX #CloudAlphaAir #오픈백헤드셋 #게이밍헤드셋 #신제품",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "게이밍 헤드셋의 금기를 깼다",
+      "title_hl": ["금기"],
+      "body": "HyperX 최초 오픈백 — 귀를 막지 않는 게이밍 헤드셋이 나왔다",
+      "body_hl": ["오픈백"],
+      "img": "assets/cards/hyperx.jpg",
+      "credit": "이미지: SlashGear (실물 촬영)"
+    },
+    {
+      "kind": "end",
+      "title": "Cloud Alpha Air, $149.99",
+      "title_hl": ["Cloud Alpha Air"],
+      "body": "오픈백의 약점인 저음을 Bass Tube 기술로 잡았다. 275g 경량, 9월 출시 예정",
+      "body_hl": ["Bass Tube"],
+      "img": "assets/cards/hyperx2.jpg",
+      "credit": "이미지: SlashGear / HyperX Level Awakening 2026"
+    }
+  ]
+}
