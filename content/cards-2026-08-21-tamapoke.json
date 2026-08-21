@@ -1,0 +1,24 @@
+{
+  "topic": "타마포케 — 3D프린트 몬스터볼 다마고치 (MakerWorld 무료 공개, 오픈소스)",
+  "caption": "포켓몬 팬은 이 카드 넘기세요.\n\n3D 프린터로 몬스터볼을 뽑고, 안에 원형 AMOLED를 넣으면 진짜 다마고치가 됩니다. 1세대 151마리 전부 부화, 육성, 진화 가능.\n\n이름은 '타마포케(TamaPoke)'. 설계도는 MakerWorld에서 무료 공개, 펌웨어도 오픈소스라 브라우저에서 바로 설치됩니다.\n\n만든 사람: Quique (케이스 원형: yoyothechicken)\n\n출처: MakerWorld, GitHub(socquique/TamaPoke)\n\n#타마포케 #포켓몬 #다마고치 #3D프린트 #가젯 #DIY #TamaPoke",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "이걸 3D프린터로 만들었다고?",
+      "title_hl": ["3D프린터"],
+      "body": "몬스터볼 안에 진짜 포켓몬이 산다 — 151마리 전부 부화, 육성, 진화",
+      "body_hl": ["151마리"],
+      "img": "assets/cards/tamapoke1.jpg",
+      "credit": "이미지: Quique / MakerWorld"
+    },
+    {
+      "kind": "end",
+      "title": "설계도 무료, 코드도 무료",
+      "title_hl": ["무료"],
+      "body": "MakerWorld에서 케이스 설계도 다운로드, 펌웨어는 브라우저에서 원클릭 설치. 필요한 건 3D프린터와 원형 AMOLED 하나뿐",
+      "body_hl": ["원클릭"],
+      "img": "assets/cards/tamapoke2.jpg",
+      "credit": "이미지: Quique / MakerWorld (실물 사진)"
+    }
+  ]
+}
