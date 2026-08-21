@@ -477,7 +477,9 @@
 - **10시 카드 = HyperX 첫 오픈백 게이밍 헤드셋** (09:50 변경 — 디렉터 "윈도우11은 좀..." 기각): 신제품 발표(Engadget). 각도 = "게이밍 헤드셋의 금기(오픈백)를 깼다" + 오픈백이 뭔지 한 스푼. 이미지: assets/cards/hyperx.jpg (HyperX 공식/Engadget). [신제품]
   - ✅ **게시 완료** (10시 세션): IG https://www.instagram.com/p/DcSHMDXmRu9/ · 스레드 https://www.threads.com/@syusyu_channel/post/DcSHOg0mY-A — 2장 캐러셀(훅: "게이밍 헤드셋의 금기를 깼다", Cloud Alpha Air $149.99·Bass Tube·275g·9월). 신제품, 댓글DM 없음.
 - ~~윈도우11 업데이트 경고~~ — 디렉터 기각. 쓰지 마라.
-- 11시~ 자율. 참고 풀: LG B6 OLED 미국 최저가(국내 무관이라 비추), Apple Music AI 라벨(서비스 — 카드 제외), 갤럭시 S26 FE는 어제 소진·8/27 이벤트가 재등판 시점. 유출 쿼터 오늘 0/2 사용.
+- **11시 카드 = Pixel 11 Pro HiLight — 10년 만에 돌아온 알림 LED** [신제품]: 8/20 글로벌 발매. 카메라 바 옆 LED가 빛으로 전화·AI 상태 알림. 이미지: Google Blog + 9to5Google.
+  - ✅ **게시 완료** (11시 세션): IG https://www.instagram.com/p/DcSOXg7GQr5/ · 스레드 https://www.threads.com/@syusyu_channel/post/DcSOYh-mShf — 2장 캐러셀(훅: "10년 만에 돌아온 알림 LED"). 한국 미출시, 댓글DM 없음.
+- 12시~ 자율. 참고 풀: LG B6 OLED 미국 최저가(국내 무관이라 비추), Apple Music AI 라벨(서비스 — 카드 제외), 갤럭시 S26 FE는 어제 소진·8/27 이벤트가 재등판 시점. 유출 쿼터 오늘 0/2 사용.
 - 탐색탭 실사는 이번 회차 생략(크론 지각 — 09시 세션 지정 우선 처리).
 
 ### 🚨 공유형 소재 백로그 (8/21 디렉터 "민방위처럼 터진 거, 사이렌 같은 공유형 더 찾아봐" — 상주 사냥 결과)

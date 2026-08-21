@@ -1,0 +1,24 @@
+{
+  "topic": "Pixel 11 Pro HiLight — 10년 만에 돌아온 알림 LED [신제품]",
+  "caption": "옛날 폰에는 깜빡이는 LED가 있었다.\n화면을 켜지 않아도 부재중 전화가 왔는지 알 수 있던 그 불빛. 스마트폰이 커지면서 사라졌는데, 구글이 Pixel 11 Pro에서 되살렸다.\n\n이름은 'HiLight'. 카메라 바 옆에 LED가 들어가 있고, 폰을 뒤집어 놓으면 빛으로 알려준다. 가까운 사람 5명에게 각각 다른 색을 지정할 수 있어서, 빛 색만 보고 누가 전화했는지 안다.\n\nAI 비서 Gemini와 대화할 때도 듣는 중, 생각 중, 답변 중마다 빛이 다르게 반응한다.\n\n$899~, 8월 20일 글로벌 발매 (한국 미출시)\n\n출처: Google Blog, 9to5Google, Engadget\n\n#Pixel11 #HiLight #구글픽셀 #알림LED #스마트폰 #테크",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "10년 만에 돌아온 알림 LED",
+      "title_hl": ["알림 LED"],
+      "body": "옛날 폰 위에서 깜빡이던 그 불빛, 구글이 Pixel 11 Pro 뒷면에서 되살렸다",
+      "body_hl": ["Pixel 11 Pro"],
+      "img": "assets/cards/pixel11_hilight1.jpg",
+      "credit": "이미지: Google Blog (공식 프레스)"
+    },
+    {
+      "kind": "end",
+      "title": "빛 색으로 누가 전화했는지 안다",
+      "title_hl": ["빛 색"],
+      "body": "가까운 사람 5명에게 각각 다른 색을 지정. 폰을 뒤집어 놓아도 빛만 보면 된다. AI 비서 Gemini 대화 중에도 반응한다",
+      "body_hl": ["5명"],
+      "img": "assets/cards/pixel11_hilight2.jpg",
+      "credit": "이미지: 9to5Google (실물 촬영)"
+    }
+  ]
+}
