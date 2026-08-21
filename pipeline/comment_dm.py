@@ -125,13 +125,23 @@ def run_once(verbose=True):
             if r["keyword"].lower() in text:
                 try:
                     greet = "안녕하세요 👋 댓글 남겨주신 거 봤어요!\n%s 정보를 보내드릴게요 — 아래 버튼을 눌러주세요 ⬇️" % (r.get("name") or "요청하신 상품")
-                    api("POST", "/me/messages", data={
-                        "recipient": json.dumps({"comment_id": cid}),
-                        "message": json.dumps({"text": greet[:900],
-                            "quick_replies": [{"content_type": "text",
-                                               "title": "네! 받을래요 🙌",
-                                               "payload": "SEND_LINK|%s" % emid}]}),
-                        "access_token": tok})
+                    btn_msg = {"attachment": {"type": "template", "payload": {
+                        "template_type": "button", "text": greet[:600],
+                        "buttons": [{"type": "postback", "title": "네! 받을래요 🙌",
+                                     "payload": "SEND_LINK|%s" % emid}]}}}
+                    try:
+                        api("POST", "/me/messages", data={
+                            "recipient": json.dumps({"comment_id": cid}),
+                            "message": json.dumps(btn_msg), "access_token": tok})
+                    except Exception:
+                        # 버튼 템플릿 미지원 시 빠른답장 폴백
+                        api("POST", "/me/messages", data={
+                            "recipient": json.dumps({"comment_id": cid}),
+                            "message": json.dumps({"text": greet[:900],
+                                "quick_replies": [{"content_type": "text",
+                                                   "title": "네! 받을래요 🙌",
+                                                   "payload": "SEND_LINK|%s" % emid}]}),
+                            "access_token": tok})
                     sent += 1
                     replied.add(cid)
                     if verbose:

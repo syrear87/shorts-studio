@@ -57,6 +57,7 @@ export default {
               if (ch.field !== "comments") continue;
               const v = ch.value || {};
               if (!v.id) continue;
+              if (v.from && v.from.username === "syusyu_channel") continue;   // 자기 댓글(안내·답글) 제외
               await env.KV.put("whc:" + v.id, JSON.stringify({
                 id: v.id, text: v.text || "",
                 from: (v.from && v.from.username) || "", from_id: (v.from && v.from.id) || "",
@@ -66,13 +67,20 @@ export default {
           }
           for (const entry of body.entry || []) {
             for (const ms of entry.messaging || []) {
-              if (!ms.message || ms.message.is_echo) continue;   // 우리가 보낸 메시지 에코는 제외
-              const mid = ms.message.mid || (entry.id + "_" + ms.timestamp);
+              let mid, text, payload;
+              if (ms.postback) {                       // 버튼 템플릿 탭
+                mid = ms.postback.mid || (entry.id + "_pb_" + ms.timestamp);
+                text = ms.postback.title || "";
+                payload = ms.postback.payload || "";
+              } else if (ms.message && !ms.message.is_echo) {   // 일반 메시지·빠른답장
+                mid = ms.message.mid || (entry.id + "_" + ms.timestamp);
+                text = ms.message.text || "";
+                payload = (ms.message.quick_reply && ms.message.quick_reply.payload) || "";
+              } else { continue; }
               await env.KV.put("whm:" + mid, JSON.stringify({
                 type: "message", id: mid,
                 from_id: (ms.sender && ms.sender.id) || "",
-                text: (ms.message.text) || "",
-                payload: (ms.message.quick_reply && ms.message.quick_reply.payload) || "",
+                text: text, payload: payload,
                 ts: ms.timestamp || Date.now()
               }), { expirationTtl: 604800 });
             }
