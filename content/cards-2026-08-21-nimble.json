@@ -1,0 +1,24 @@
+{
+  "topic": "Nimble SharePower — 반으로 쪼개지는 보조배터리 [신제품]",
+  "caption": "보조배터리를 반으로 쪼갠다.\n\n미국 Nimble이 만든 SharePower.\n10,000mAh 하나가 자석으로 붙어 있다가, 비틀면 5,000mAh 두 개로 갈라진다.\n\n각각 USB-C 포트가 있어서 친구한테 반쪽을 건네면 둘 다 충전 가능. 다시 붙이면 용량도 합산된다.\n\n소재는 100% 재활용 플라스틱, 무게 216g. 애플 공식 스토어에서 $79.95.\n\nEngadget 8.6/10, Macworld 추천.\n출처: Engadget, Macworld, Nimble 공식\n\n#Nimble #SharePower #보조배터리 #가젯 #테크",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "이 보조배터리는 반으로 쪼개진다",
+      "title_hl": ["반으로 쪼개진다"],
+      "body": "Nimble SharePower. 10,000mAh가 자석으로 붙어 있다가, 비틀면 5,000mAh 둘로 갈라진다",
+      "body_hl": ["비틀면"],
+      "img": "assets/cards/nimble1.jpg",
+      "credit": "이미지: Nimble 공식"
+    },
+    {
+      "kind": "end",
+      "title": "반쪽을 건네면 둘 다 충전된다",
+      "title_hl": ["둘 다 충전"],
+      "body": "각각 USB-C 20W 출력. 다시 합치면 35W. 100% 재활용 소재, 216g, $79.95",
+      "body_hl": ["$79.95"],
+      "img": "assets/cards/nimble2.jpg",
+      "credit": "이미지: Nimble 공식"
+    }
+  ]
+}
