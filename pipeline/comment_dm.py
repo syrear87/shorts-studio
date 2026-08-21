@@ -65,9 +65,57 @@ def run_once(verbose=True):
                 events = json.load(r)
     except Exception as e:
         print("[comment_dm] 이벤트 조회 실패:", str(e)[:120])
+    def _alert(msg):
+        try:
+            import subprocess
+            subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), msg],
+                           check=False, timeout=30)
+        except Exception:
+            pass
+
     for ev in events:
         cid = ev.get("id")
-        if not cid or cid in replied or (ev.get("from") or "") == ME_USERNAME:
+        if not cid or cid in replied:
+            continue
+        # ─ 버튼 탭 (messages 웹훅, quick_reply payload = "SEND_LINK|<media_id>") → 이미지 카드 템플릿
+        if ev.get("type") == "message":
+            payload = ev.get("payload") or ""
+            if not payload.startswith("SEND_LINK|"):
+                replied.add(cid)   # 일반 DM은 자동 응답하지 않는다
+                continue
+            emid = payload.split("|", 1)[1]
+            r = next((x for x in rules if x.get("media") == emid), None)
+            if not r:
+                replied.add(cid)
+                continue
+            try:
+                el = {"title": (r.get("name") or "추천 상품")[:80],
+                      "subtitle": "쿠팡에서 최저가 확인하기",
+                      "buttons": [{"type": "web_url", "url": r.get("url") or "",
+                                   "title": "상품 보러가기 🛒"}]}
+                if r.get("img"):
+                    el["image_url"] = r["img"]
+                api("POST", "/me/messages", data={
+                    "recipient": json.dumps({"id": ev.get("from_id")}),
+                    "message": json.dumps({"attachment": {"type": "template",
+                        "payload": {"template_type": "generic", "elements": [el]}}}),
+                    "access_token": tok})
+                api("POST", "/me/messages", data={
+                    "recipient": json.dumps({"id": ev.get("from_id")}),
+                    "message": json.dumps({"text": "프로필 링크의 허브에서도 언제든 다시 볼 수 있어요 🙂\n\n* 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다"}),
+                    "access_token": tok})
+                sent += 1
+                replied.add(cid)
+                if verbose:
+                    print("[comment_dm] (버튼) 카드 템플릿 발송 → %s" % ev.get("from_id"))
+                time.sleep(2)
+            except Exception as e:
+                print("[comment_dm] 템플릿 발송 실패: %s" % str(e)[:200])
+                _alert("⚠️ 버튼DM(카드 템플릿) 발송 실패: %s" % str(e)[:150])
+                replied.add(cid)
+            continue
+        # ─ 키워드 댓글 → 인사 + 빠른답장 버튼
+        if (ev.get("from") or "") == ME_USERNAME:
             continue
         text = (ev.get("text") or "").strip().lower()
         emid = ev.get("media") or ""
@@ -76,14 +124,18 @@ def run_once(verbose=True):
                 continue
             if r["keyword"].lower() in text:
                 try:
+                    greet = "안녕하세요 👋 댓글 남겨주신 거 봤어요!\n%s 정보를 보내드릴게요 — 아래 버튼을 눌러주세요 ⬇️" % (r.get("name") or "요청하신 상품")
                     api("POST", "/me/messages", data={
                         "recipient": json.dumps({"comment_id": cid}),
-                        "message": json.dumps({"text": r["dm"][:900]}),
+                        "message": json.dumps({"text": greet[:900],
+                            "quick_replies": [{"content_type": "text",
+                                               "title": "네! 받을래요 🙌",
+                                               "payload": "SEND_LINK|%s" % emid}]}),
                         "access_token": tok})
                     sent += 1
                     replied.add(cid)
                     if verbose:
-                        print("[comment_dm] (웹훅) DM 발송 → @%s (%s)" % (ev.get("from"), r["keyword"]))
+                        print("[comment_dm] (웹훅) 버튼DM 발송 → @%s (%s)" % (ev.get("from"), r["keyword"]))
                     if r.get("ack"):
                         try:
                             api("POST", "/%s/replies" % cid, data={
@@ -93,14 +145,8 @@ def run_once(verbose=True):
                     time.sleep(2)
                 except Exception as e:
                     print("[comment_dm] (웹훅) DM 실패 @%s: %s" % (ev.get("from"), str(e)[:200]))
-                    try:
-                        import subprocess
-                        subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
-                                        "⚠️ 댓글DM 발송 실패 — @%s의 '%s' 댓글. 원인: %s" % (
-                                            ev.get("from"), r["keyword"], str(e)[:150])],
-                                       check=False, timeout=30)
-                    except Exception:
-                        pass
+                    _alert("⚠️ 댓글DM 발송 실패 — @%s의 '%s' 댓글. 원인: %s" % (
+                        ev.get("from"), r["keyword"], str(e)[:150]))
                     replied.add(cid)
                 break
     # 2차 소스(REST 폴링 — 검수 승인 후 데이터가 열리면 자동으로 같이 동작)

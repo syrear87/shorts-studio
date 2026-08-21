@@ -64,6 +64,19 @@ export default {
               }), { expirationTtl: 604800 });
             }
           }
+          for (const entry of body.entry || []) {
+            for (const ms of entry.messaging || []) {
+              if (!ms.message || ms.message.is_echo) continue;   // 우리가 보낸 메시지 에코는 제외
+              const mid = ms.message.mid || (entry.id + "_" + ms.timestamp);
+              await env.KV.put("whm:" + mid, JSON.stringify({
+                type: "message", id: mid,
+                from_id: (ms.sender && ms.sender.id) || "",
+                text: (ms.message.text) || "",
+                payload: (ms.message.quick_reply && ms.message.quick_reply.payload) || "",
+                ts: ms.timestamp || Date.now()
+              }), { expirationTtl: 604800 });
+            }
+          }
         } catch (e) { /* 이벤트 하나 깨져도 200 — Meta 재전송 폭주 방지 */ }
         return new Response("ok", { status: 200 });
       }
@@ -73,7 +86,9 @@ export default {
       // 봇이 소비: 저장된 댓글 이벤트 반환 후 삭제
       if (url.searchParams.get("k") !== env.STATS_KEY) return new Response("forbidden", { status: 403 });
       const out = [];
-      const page = await env.KV.list({ prefix: "whc:" });
+      let page = await env.KV.list({ prefix: "whc:" });
+      const page2 = await env.KV.list({ prefix: "whm:" });
+      page = { keys: page.keys.concat(page2.keys) };
       for (const key of page.keys) {
         const v = await env.KV.get(key.name);
         if (v) out.push(JSON.parse(v));

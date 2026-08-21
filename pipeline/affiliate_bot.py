@@ -447,6 +447,7 @@ def handle_link_to(name, url, m):
         if _mid:
             _rules = [r for r in _rules if r.get("media") != _mid]
             _rules.append({"keyword": "링크", "media": _mid,
+                           "name": name, "url": url, "img": thumb_url,
                            "dm": "%s\n%s\n\n%s" % (name, url, DISCLOSURE),
                            "ack": "DM으로 보내드렸어요 📩"})
             json.dump(_rules, open(_dm_p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
