@@ -521,3 +521,9 @@
 - IG: https://www.instagram.com/p/DcSxJzhmTl0/
 - 스레드: https://www.threads.com/@syusyu_channel/post/DcSxMG-GaYL
 - 중복 검사: 최근 7일 제품 확인 완료
+
+### 2026-08-21 (금) 17시 카드 — ✅ Valve Steam Frame 게시 완료
+- 소재: 밸브 VR 헤드셋 공식 튜토리얼 유출 (185g, 눈당 2160x2160, 120Hz, 독립+PC 무선) [신제품]
+- IG: https://www.instagram.com/p/DcS3nSEmSYr/
+- 스레드: https://www.threads.com/@syusyu_channel/post/DcS3puKmaJl
+- 중복 검사: 최근 7일 제품 확인 완료

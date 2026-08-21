@@ -1,0 +1,24 @@
+{
+  "topic": "Valve Steam Frame — 유출범은 밸브 본인이었다 [신제품]",
+  "caption": "밸브가 공식 튜토리얼 영상을 실수로 올렸다가 삭제했다.\n근데 이미 다 퍼진 뒤였음.\n\nSteam Frame. 밸브 인덱스 이후 7년 만의 VR 헤드셋.\n눈당 2160x2160 LCD, 스냅드래곤 8 Gen 3, 본체 185g.\n독립 실행도, PC 무선 스트리밍도 된다. MicroSD 확장까지.\n\n가격은 아직 미공개. 업계 추정 $1,100~$1,200.\n여름 출시 예고했으니 곧 나온다.\n\n출처: Valve 공식 튜토리얼(삭제됨), PC Gamer, Tom's Guide, Engadget 교차 확인\n⚠️ 가격·출시일은 아직 공식 발표가 아닌 루머 단계 정보입니다\n\n#SteamFrame #Valve #VR헤드셋 #밸브 #스팀프레임",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "유출범, 밸브 본인이었다",
+      "title_hl": ["밸브 본인"],
+      "body": "공식 튜토리얼 영상을 실수로 올렸다 삭제 — 이미 늦었다",
+      "body_hl": ["실수로"],
+      "img": "assets/cards/steamframe2.webp",
+      "credit": "이미지: Valve 공식 튜토리얼 캡처 (gagadget)"
+    },
+    {
+      "kind": "end",
+      "title": "Steam Frame, 본체 185g",
+      "title_hl": ["Steam Frame"],
+      "body": "눈당 2160x2160, 120Hz, 독립 실행 + PC 무선 스트리밍. 밸브 인덱스 이후 7년 만이다",
+      "body_hl": ["7년 만"],
+      "img": "assets/cards/steam.jpg",
+      "credit": "이미지: Valve 공식 튜토리얼 캡처"
+    }
+  ]
+}
