@@ -455,8 +455,9 @@ def handle_link_to(name, url, m):
             # 안내 댓글 자동 (2026-08-21 디렉터: "캡션 말고 그냥 댓글로 하자" — 링크 도착 후에만 안다)
             try:
                 http("%s/%s/comments" % (G, _mid),
-                     data={"message": "구매 링크 필요하면 댓글에 '링크'라고 남겨주세요 — DM으로 보내드려요 📩",
-                           "access_token": IG["IG_ACCESS_TOKEN"]})
+                     urllib.parse.urlencode(
+                         {"message": "구매 링크 필요하면 댓글에 '링크'라고 남겨주세요 — DM으로 보내드려요 📩",
+                          "access_token": IG["IG_ACCESS_TOKEN"]}).encode())
                 print("[affiliate_bot] 안내 댓글 게시:", _mid, flush=True)
             except Exception as _ce:
                 print("[affiliate_bot] 안내 댓글 실패(무해):", str(_ce)[:100], flush=True)
