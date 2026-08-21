@@ -150,3 +150,4 @@
 | 2026-08-20 | pm | [게시] 카카오 이모티콘 두 달, ChatGPT는 5분입니다 — 카카오 이모티콘 스튜디오 24개·심사 2~4주 vs ChatGPT 스티커 프롬프트 트렌드 16표정 5분, AI 활용법 쿼터 (YT K6kjvzKzjnk / IG reel/DcQdGvHiLuN) | AI활용법/트렌드 | female |
 | 2026-08-21 | am | [게시] 찬물 샤워, 열대야에 역효과입니다 — 찬물→교감신경→혈관수축→체온반등(6~15분 뒤 상승), 서울아산병원 권장 33도 미지근한 물, 건강·생활과학 쿼터 (YT 0FxJiQ5RtOE / IG reel/DcR0eVJAP2D) | 건강/생활과학 | female |
 | 2026-08-21 | noon | [미가동] 결번 — 전 렌즈 파도 없음, AI활용법 쿼터 18시 이관 | - | - |
+| 2026-08-21 | pm | [게시] ChatGPT가 숙제 답을 안 줍니다 — 13~17세 청소년 모드(8/18 출시), Study Mode(정답 대신 힌트), Quiet Hours(부모 시간 차단), 위험 감지 알림. AI활용법 쿼터 충족 (YT 0dI_yD2CmmE / IG reel/DcTA-AyjoiU) | AI활용법/교육 | female |
