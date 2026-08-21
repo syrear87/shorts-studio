@@ -515,3 +515,9 @@
 - IG: https://www.instagram.com/p/DcSp7m-mZjX/
 - 스레드: https://www.threads.com/@syusyu_channel/post/DcSp8ymGSON
 - 중복 검사: 최근 7일 제품 확인 완료
+
+### 2026-08-21 (금) 16시 카드 — ✅ RayNeo Air 4 Pro 게시 완료
+- 소재: 76g AR 안경 안에 201인치 HDR10 화면 (1080p Micro-OLED, 120Hz, B&O 사운드, $299/국내 29만원대) [구매가능]
+- IG: https://www.instagram.com/p/DcSxJzhmTl0/
+- 스레드: https://www.threads.com/@syusyu_channel/post/DcSxMG-GaYL
+- 중복 검사: 최근 7일 제품 확인 완료

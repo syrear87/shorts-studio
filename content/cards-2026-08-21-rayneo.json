@@ -1,0 +1,24 @@
+{
+  "topic": "RayNeo Air 4 Pro — 76g 안경 안에 201인치 HDR10 화면 [구매가능]",
+  "caption": "선글라스처럼 생겼는데, 쓰면 눈앞에 201인치 화면이 뜬다.\nRayNeo Air 4 Pro. AR 글래스 최초로 HDR10을 지원한다.\n\n76g. 1080p Micro-OLED. 120Hz. 밝기 1200니트.\n사운드는 B&O가 튜닝했다.\n\n스위치2, PS5, 맥, 아이폰 전부 USB-C 하나로 연결.\n배터리가 없다. 연결한 기기에서 전력을 받아서 76g이 가능했다.\n\nCES 2026 피처드. TechRadar 올해의 가젯 선정.\n국내 29만원대부터 구매 가능.\n\n출처: RayNeo 공식, Gizmodo, TechRadar, Engadget, GSMArena\n\n#RayNeo #AR글래스 #Air4Pro #HDR10 #테크",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "이 안경, 화면이 201인치다",
+      "title_hl": ["201인치"],
+      "body": "RayNeo Air 4 Pro. 76g 선글라스를 쓰면 눈앞에 1080p HDR10 화면이 펼쳐진다",
+      "body_hl": ["76g", "HDR10"],
+      "img": "assets/cards/rayneo_wear.jpg",
+      "credit": "이미지: Gizmodo"
+    },
+    {
+      "kind": "end",
+      "title": "스위치를 201인치로 하는 법",
+      "title_hl": ["201인치로"],
+      "body": "스위치2, PS5, 맥, 아이폰 전부 USB-C 하나로. B&O 사운드. 국내 29만원대",
+      "body_hl": ["전부", "29만원대"],
+      "img": "assets/cards/rayneo_detail.jpg",
+      "credit": "이미지: Gizmodo"
+    }
+  ]
+}
