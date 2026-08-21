@@ -1,0 +1,24 @@
+{
+  "topic": "로지텍 모비 폴드 — 주머니에 들어가는 접이식 마우스 [구매가능]",
+  "caption": "접히는 폰 다음은 접히는 마우스였다.\n\n로지텍이 만든 첫 폴더블 마우스, 모비 폴드(Mobi Fold).\n접으면 6.6cm, 79g. 청바지 주머니에 쏙 들어간다.\n\n펼치면 12.2cm 풀사이즈 마우스가 되고, 접으면 자동으로 꺼진다. 버튼도 스위치도 필요 없다.\n힌지 내구성 5만 회, 매일 써도 15년.\n1분 충전이면 22시간 사용. 기기 3대 동시 연결.\n\n한국 정식 출시, 139,000원.\n출처: Engadget, Forbes, Logitech 공식\n\n#로지텍 #MobiFold #폴더블마우스 #가젯 #테크",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "이 마우스는 반으로 접힌다",
+      "title_hl": ["반으로 접힌다"],
+      "body": "로지텍 모비 폴드. 접으면 6.6cm, 79g. 주머니에 넣고 다닌다",
+      "body_hl": ["주머니"],
+      "img": "assets/cards/mobi-fold1.png",
+      "credit": "이미지: Logitech 공식"
+    },
+    {
+      "kind": "end",
+      "title": "펼치면 마우스, 접으면 전원 OFF",
+      "title_hl": ["접으면 전원 OFF"],
+      "body": "힌지가 전원 스위치. 5만 회 내구, 15년. 1분 충전 = 22시간. 139,000원",
+      "body_hl": ["139,000원"],
+      "img": "assets/cards/mobi-fold2.png",
+      "credit": "이미지: Logitech 공식"
+    }
+  ]
+}

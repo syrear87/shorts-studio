@@ -503,3 +503,9 @@
 - 소재: 반으로 쪼개지는 보조배터리 (10,000→5,000×2, 자석 분리, $79.95)
 - IG: https://www.instagram.com/p/DcScE9SmaN6/
 - 중복 검사: 최근 7일 제품 확인 완료
+
+### 2026-08-21 (금) 14시 카드 — ✅ 로지텍 모비 폴드 게시 완료
+- 소재: 접이식 마우스 (79g, 힌지=전원, 5만 회 내구, 139,000원) [구매가능]
+- IG: https://www.instagram.com/p/DcSjmOBGbTc/
+- 스레드: https://www.threads.com/@syusyu_channel/post/DcSjnReGVvb
+- 중복 검사: 최근 7일 제품 확인 완료
