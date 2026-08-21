@@ -420,7 +420,7 @@ def handle_link_to(name, url, m):
         # 해당 게시물(카드/영상)의 IG 이미지 → R2 영구 썸네일 (IG CDN 링크는 만료되므로 복사해 보관)
         mid_ = m.get("id")
         if mid_:
-            det = http("%s/%s?fields=media_url,thumbnail_url&access_token=%s" % (G, mid_, KV["IG_ACCESS_TOKEN"]))
+            det = http("%s/%s?fields=media_url,thumbnail_url&access_token=%s" % (G, mid_, IG["IG_ACCESS_TOKEN"]))
             src = det.get("thumbnail_url") or det.get("media_url")
             if src:
                 import urllib.request as _ur
@@ -456,7 +456,7 @@ def handle_link_to(name, url, m):
             try:
                 http("%s/%s/comments" % (G, _mid),
                      data={"message": "구매 링크 필요하면 댓글에 '링크'라고 남겨주세요 — DM으로 보내드려요 📩",
-                           "access_token": KV["IG_ACCESS_TOKEN"]})
+                           "access_token": IG["IG_ACCESS_TOKEN"]})
                 print("[affiliate_bot] 안내 댓글 게시:", _mid, flush=True)
             except Exception as _ce:
                 print("[affiliate_bot] 안내 댓글 실패(무해):", str(_ce)[:100], flush=True)
