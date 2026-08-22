@@ -1,0 +1,24 @@
+{
+  "topic": "Pebble Time 2 — 10년 전 사라진 스마트워치, 창업자가 되살렸다 [신제품]",
+  "caption": "10년 전 사라진 스마트워치가 돌아왔다.\nPebble Time 2.\n\n2016년, 모두가 사랑한 Pebble이 사라졌다.\n창업자 에릭 미기코프스키가 상표를 되찾고\nCore Devices라는 회사로 직접 다시 만들었다.\n\n1.5인치 64색 e-paper 컬러 디스플레이.\n터치스크린 + 물리 버튼.\n심박, 나침반, SpO2 센서.\n스테인리스 스틸 316 바디.\n\n배터리? 한 달에 한 번 충전하면 된다.\n애플 워치가 매일 충전대를 찾을 때, 이 시계는 30일을 간다.\n\n$225 (약 30만원).\n93개국, 2만 5천 대 판매.\n\n출처: TechCrunch, GadgetReview, Android Central 교차 확인\n\n#PebbleTime2 #Pebble #스마트워치 #CoreDevices #eink",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "10년 전 사라진 시계가 돌아왔다",
+      "title_hl": ["사라진 시계"],
+      "body": "Pebble Time 2. 창업자가 상표를 되찾고 직접 다시 만들었다. $225",
+      "body_hl": ["Pebble Time 2"],
+      "img": "assets/cards/pebble_time2_1.webp",
+      "credit": "이미지: Core Devices (TechCrunch)"
+    },
+    {
+      "kind": "end",
+      "title": "충전은 한 달에 한 번",
+      "title_hl": ["한 달에 한 번"],
+      "body": "e-paper 컬러 디스플레이, 심박 센서, 나침반. 스테인리스 스틸. 93개국 2.5만 대 판매",
+      "body_hl": ["30일"],
+      "img": "assets/cards/pebble_time2_2.png",
+      "credit": "이미지: Core Devices (ericmigi.com)"
+    }
+  ]
+}
