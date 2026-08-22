@@ -1,0 +1,24 @@
+{
+  "topic": "갤럭시 워치 울트라2 — 역대 가장 밝은 시계, 다이빙 컴퓨터까지 [구매가능]",
+  "caption": "역대 가장 밝은 스마트워치 화면.\n갤럭시 워치 울트라2, 5000닛.\n\n애플 워치 울트라3가 3000닛이다.\n67% 더 밝다.\n\n그런데 밝기만이 아니다.\n다이빙 컴퓨터 국제 인증(EN13319).\n40m 바닷속까지 쓸 수 있는 시계.\n\n3nm 스냅드래곤 웨어 엘리트 칩.\n배터리 800mAh, 전작 대비 35% 증가.\n무게 62g.\n\n출처: Samsung 공식, GSMArena, SamMobile 교차 확인\n\n#갤럭시워치울트라2 #GalaxyWatchUltra2 #삼성 #스마트워치 #다이빙컴퓨터",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "역대 가장 밝은 시계 화면",
+      "title_hl": ["가장 밝은"],
+      "body": "갤럭시 워치 울트라2, 5000닛. 애플 워치 울트라3보다 67% 밝다",
+      "body_hl": ["5000닛"],
+      "img": "assets/cards/gw_ultra2_1.jpg",
+      "credit": "이미지: Samsung 공식 (GSMArena)"
+    },
+    {
+      "kind": "end",
+      "title": "시계 안에 다이빙 컴퓨터",
+      "title_hl": ["다이빙 컴퓨터"],
+      "body": "EN13319 인증, 40m 방수. 3nm 칩에 배터리는 35% 늘었다. 62g",
+      "body_hl": ["40m"],
+      "img": "assets/cards/gw_ultra2_4.jpg",
+      "credit": "이미지: Samsung 공식 (GSMArena)"
+    }
+  ]
+}
