@@ -115,6 +115,33 @@ def publish_image(image_url, text):
     raise RuntimeError("threads 이미지 게시 실패: %s" % str(last)[:150])
 
 
+def publish_images(image_urls, text):
+    """이미지 여러 장 캐러셀 게시 (2026-08-22 디렉터: "쓰레드에는 사진이 한장만 게시되네?" —
+    카드 캐러셀 전 장을 스레드에도 그대로 올린다). 1장이면 단장 게시로 폴백."""
+    urls = [u for u in image_urls if u]
+    if not urls:
+        raise ValueError("이미지 URL이 없다")
+    if len(urls) < 2:   # 스레드 캐러셀은 2장부터
+        return publish_image(urls[0], text)
+    tok = token()
+    me = _get("%s/me?fields=id&access_token=%s" % (API, tok))["id"]
+    children = [_create(me, tok, {"media_type": "IMAGE", "image_url": u,
+                                  "is_carousel_item": "true"}) for u in urls[:20]]
+    time.sleep(4)   # 자식 컨테이너 처리 대기
+    car = _create(me, tok, {"media_type": "CAROUSEL", "children": ",".join(children),
+                            "text": text[:MAX_TEXT]})
+    last = None
+    for _ in range(6):
+        time.sleep(4)
+        try:
+            pid = _publish_container(me, tok, car)
+            link = _get("%s/%s?fields=permalink&access_token=%s" % (API, pid, tok)).get("permalink")
+            return link or pid
+        except Exception as e:
+            last = e
+    raise RuntimeError("threads 캐러셀 게시 실패: %s" % str(last)[:150])
+
+
 def publish(video_url, text, timeout_s=300, replies=()):
     """R2 공개 URL의 mp4를 스레드에 올리고, 넘치는 본문은 답글로 이어붙인다.
     2026-08-16 디렉터: "캡션도 인스타와 동일하게" — 스레드 본문 상한이 500자라

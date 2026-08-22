@@ -398,8 +398,8 @@ def publish_carousel(images, caption, publish=True):
         # R2 정리(finally) 전에 실행 — 스레드 컨테이너가 이미지 URL을 읽어야 한다.
         try:
             import upload_threads as _th
-            first_url = kv["R2_PUBLIC_URL"].rstrip("/") + "/" + keys[0]
-            th_link = _th.publish_image(first_url, caption)
+            base = kv["R2_PUBLIC_URL"].rstrip("/")
+            th_link = _th.publish_images([base + "/" + k for k in keys], caption)
             print("스레드 게시 완료:", th_link, flush=True)
         except Exception as _e:
             print("스레드 게시 실패(카드 자체는 게시됨):", str(_e)[:150], flush=True)
