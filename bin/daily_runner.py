@@ -122,19 +122,28 @@ def main():
             with open(LOG, "a") as lf:
                 lf.write("=== attempt %d ===\n" % (attempt + 1))
                 lf.flush()
+                # 2026-08-22 11:00 실사고: 세션이 "무엇을 도와드릴까요?"만 남기고 종료(빈 프롬프트 의심).
+                # 프롬프트 글자수를 기동 직전에 실측 기록해 다음 재발 때 cat 실패인지 모델 즉사인지 가른다.
                 r = subprocess.run(
                     ["/bin/zsh", "-l", "-c",
-                     'claude -p "$(cat %s)" --model opus --permission-mode acceptEdits' % PROMPT_FILE],
+                     'p="$(cat %s)"; print -r -- "[runner] prompt ${#p}자"; '
+                     'claude -p "$p" --model opus --permission-mode acceptEdits' % PROMPT_FILE],
                     stdout=lf, stderr=subprocess.STDOUT, timeout=TIMEOUT, cwd=str(ROOT))
             # 판정은 마지막 attempt 구간만 읽는다 — 이전 시도의 마커·본문과 섞임 방지 (2026-08-02 리뷰)
             text = LOG.read_text(errors="ignore").split("=== attempt ")[-1]
             # 2026-08-02 리뷰(OPS-2): 이번 슬롯에서 새 mp4가 이미 나왔으면 렌더+발송을 마쳤을 수 있으므로
             # 재시도 금지(중복 게시 방지) — 아래 rc!=0 분기의 경보만 발송된다. 길이 가드는 보조로 유지.
             new_mp4_made = any(p.stat().st_mtime >= start_ts for p in (ROOT / "out").glob("*.mp4"))
+            evidence = sent_evidence(start_ts)   # 발송 실측 있으면 재시도 금지 — 중복 게시 봉쇄 (2026-08-05 점검)
             transient = (r.returncode != 0 and len(text.strip()) <= SAFE_RETRY_MAX_LEN
-                         and not new_mp4_made
-                         and not sent_evidence(start_ts)   # 발송 실측 있으면 재시도 금지 — 중복 게시 봉쇄 (2026-08-05 점검)
+                         and not new_mp4_made and not evidence
                          and any(m.lower() in text.lower() for m in RETRY_MARKERS))
+            # 2026-08-22 11:00 실사고: rc=0인데 인사말만 남기고 종료(즉사) — 마커가 없어 재시도를 안 탔다.
+            # 산출물·발송·센티널이 전무한 초단문 종료는 장애로 간주해 재시도로 슬롯을 구한다.
+            if (not transient and r.returncode == 0 and len(text.strip()) < 200
+                    and "SLOT-DONE" not in text and "SLOT-NOOP" not in text
+                    and not new_mp4_made and not evidence):
+                transient = True
             if not transient or attempt >= len(RETRY_DELAYS):
                 break
             delay = RETRY_DELAYS[attempt]
