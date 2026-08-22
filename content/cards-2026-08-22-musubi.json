@@ -1,0 +1,24 @@
+{
+  "topic": "Looking Glass Musubi — 사진을 넣으면 홀로그램이 된다, $149 [신제품]",
+  "caption": "사진을 넣으면 홀로그램이 된다.\n안경 필요 없다.\n\nLooking Glass Musubi.\n7인치 투명 액자에 사진을 넣으면\nAI가 2D를 3D 홀로그램으로 바꿔준다.\n\n아이폰으로 찍은 고양이 사진도,\n여행 영상 30초도 둥둥 떠다닌다.\n여러 명이 동시에 맨눈으로 본다.\n\n1,000장 저장. 배터리 3시간.\nUSB-C 연결, 구독료 없음.\n$149(약 21만원). 현재 구매 가능.\n\n출처: Engadget, New Atlas, Looking Glass 공식\n\n#홀로그램 #LookingGlass #Musubi #가젯 #테크",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "사진을 넣으면 홀로그램이 된다",
+      "title_hl": ["홀로그램"],
+      "body": "Looking Glass Musubi. 7인치 투명 액자가 2D 사진을 3D로 띄운다. 안경 없이, 맨눈으로",
+      "body_hl": ["맨눈으로"],
+      "img": "assets/cards/musubi_1.jpg",
+      "credit": "이미지: Looking Glass 공식"
+    },
+    {
+      "kind": "end",
+      "title": "구독료 없는 홀로그램 액자",
+      "title_hl": ["구독료 없는"],
+      "body": "AI가 사진을 3D로 변환. 1,000장 저장, 배터리 3시간. USB-C, 구독료 없음. $149(약 21만원)",
+      "body_hl": ["$149"],
+      "img": "assets/cards/musubi_2.jpg",
+      "credit": "이미지: Looking Glass 공식"
+    }
+  ]
+}
