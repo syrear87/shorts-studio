@@ -1,0 +1,24 @@
+{
+  "topic": "Bose QC 헤드폰 2세대 — 울트라 전용 기능이 35만원대로 내려왔다 [구매가능]",
+  "caption": "보스가 울트라 전용 기능을 풀어버렸다.\nQC 헤드폰 2세대, 국내 정식 출시 359,000원.\n\nQC 울트라에만 있던 몰입 오디오(TrueSpatial)가\n이제 일반 QC에도 들어갔다.\n\n6마이크 적응형 노이즈캔슬링.\n안경 쓰면 틈새가 생기잖아?\n그 틈새까지 보정해주는 ANC.\n\nUSB-C 유선 연결 시 24bit/48kHz 무손실 재생.\n한정 컬러 3종(유칼립투스 그린, 듀드롭 민트, 로즈우드 모브).\n\n출처: Bose 공식 발표, SoundGuys, betanews 교차 확인\n\n#보스 #BoseQC #노이즈캔슬링 #헤드폰 #QC헤드폰2세대",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "울트라 전용 기능을 풀어버렸다",
+      "title_hl": ["풀어버렸다"],
+      "body": "Bose QC 헤드폰 2세대. 울트라보다 10만원 싸고 핵심은 다 넣었다",
+      "body_hl": ["10만원"],
+      "img": "assets/cards/bose_qc2_1.jpg",
+      "credit": "이미지: Bose 공식 (SoundGuys)"
+    },
+    {
+      "kind": "end",
+      "title": "안경 틈새까지 잡는 ANC",
+      "title_hl": ["안경 틈새"],
+      "body": "6마이크 적응형 노캔. USB-C 무손실. 국내 359,000원",
+      "body_hl": ["359,000원"],
+      "img": "assets/cards/bose_qc2_2.jpg",
+      "credit": "이미지: Bose 공식 (SoundGuys)"
+    }
+  ]
+}
