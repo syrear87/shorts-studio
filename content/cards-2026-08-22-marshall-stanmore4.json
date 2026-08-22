@@ -1,0 +1,24 @@
+{
+  "topic": "Marshall Stanmore IV — 기타 앰프 브랜드가 만든 블루투스 스피커, 출고가 640,000원 [구매가능]",
+  "caption": "60년 된 기타 앰프 브랜드가 만든 블루투스 스피커.\nMarshall Stanmore IV, 국내 정식 출시.\n\n가죽 질감 외장에 황동 노브.\n볼륨을 손으로 돌리는 스피커가 2026년에 나왔다.\n\n우퍼 60W로 업그레이드. 왜곡 없이 집이 울린다.\nAuracast로 여러 대 무선 연결.\nRCA 단자 있어서 턴테이블도 바로 꽂힌다.\n\nFSC 인증 목재 + 부품 개별 교체 가능.\n망가져도 버리는 게 아니라 고쳐 쓰는 스피커.\n\n출고가 640,000원. 블랙, 크림 2색.\n\n출처: Marshall 공식, Forbes, 뉴스핌 교차 확인\n\n#마샬 #Marshall #스탠모어4 #블루투스스피커 #StanmoreIV",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "기타 앰프 브랜드가 스피커를 만들면",
+      "title_hl": ["기타 앰프"],
+      "body": "Marshall Stanmore IV. 가죽에 황동 노브, 볼륨을 손으로 돌린다",
+      "body_hl": ["황동 노브"],
+      "img": "assets/cards/marshall_stanmore4_1.jpg",
+      "credit": "이미지: Marshall 공식"
+    },
+    {
+      "kind": "end",
+      "title": "망가져도 버리지 않는 스피커",
+      "title_hl": ["버리지 않는"],
+      "body": "60W 우퍼, Auracast 멀티룸, 부품 개별 교체. 출고가 640,000원",
+      "body_hl": ["640,000원"],
+      "img": "assets/cards/marshall_stanmore4_2.jpg",
+      "credit": "이미지: Marshall 공식"
+    }
+  ]
+}
