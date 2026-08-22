@@ -1,0 +1,24 @@
+{
+  "topic": "Inkleaf — E-ink 화면 2개를 반으로 접었다, 킥스타터 $489 [펀딩]",
+  "caption": "E-ink 화면이 두 개다.\n읽으면서 필기한다.\n\nInkleaf. 10.3인치 E Ink Carta 디스플레이 2장을\n책처럼 접히는 알루미늄 바디에 넣었다.\n\n펼치면 한쪽은 PDF, 한쪽은 노트.\n스타일러스 4096 필압, 배터리 없는 펜.\n\n접으면 8.4mm. 리마커블2보다 얇다.\n무게 480g.\n안드로이드 기반, 구독료 없음.\n\n킥스타터 $489(약 68만원). 2026년 8월 배송 시작.\n\n출처: TechRadar, Good e-Reader, Yanko Design 교차 확인\n\n#Inkleaf #EInk #전자잉크 #태블릿 #킥스타터",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "E-ink 화면을 반으로 접었다",
+      "title_hl": ["반으로 접었다"],
+      "body": "Inkleaf. 10.3인치 E Ink 화면 2개. 왼쪽은 읽고, 오른쪽은 필기한다",
+      "body_hl": ["화면 2개"],
+      "img": "assets/cards/inkleaf_1.jpg",
+      "credit": "이미지: Inkleaf 공식 (FreeYork)"
+    },
+    {
+      "kind": "end",
+      "title": "책꽂이에 꽂히는 태블릿",
+      "title_hl": ["책꽂이"],
+      "body": "접으면 8.4mm, 480g. 리마커블2보다 얇다. 안드로이드, 구독료 없음. 킥스타터 $489",
+      "body_hl": ["8.4mm"],
+      "img": "assets/cards/inkleaf_3.webp",
+      "credit": "이미지: Inkleaf 공식 (FreeYork)"
+    }
+  ]
+}
