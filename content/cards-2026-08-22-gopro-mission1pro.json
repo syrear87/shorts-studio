@@ -1,0 +1,24 @@
+{
+  "topic": "GoPro Mission 1 Pro — 액션캠 회사가 만든 207g 8K 시네마 카메라, 1,168,000원 [구매가능]",
+  "caption": "액션캠 만들던 고프로가 시네마 카메라를 만들었다.\n1인치 센서에 8K 60fps.\n손바닥 위에 올라가는 207g.\n\n4K 슬로모션 240fps.\n20m 방수에 배터리 3시간 이상.\n전문가용 10-bit GP-Log2까지.\n\n국내 정식 판매 중, 1,168,000원.\n\n출처: GoPro 공식, Engadget, 다나와 교차 확인\n\n#고프로 #GoPro #Mission1Pro #8K카메라 #시네마카메라",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "액션캠 회사가 시네마 카메라를 만들었다",
+      "title_hl": ["시네마 카메라"],
+      "body": "GoPro Mission 1 Pro. 1인치 센서, 8K 60fps를 207g에 넣었다",
+      "body_hl": ["207g"],
+      "img": "assets/cards/gopro_mission1pro_1.png",
+      "credit": "이미지: GoPro 공식"
+    },
+    {
+      "kind": "end",
+      "title": "손바닥 위 시네마 스튜디오",
+      "title_hl": ["손바닥"],
+      "body": "4K 240fps 슬로모, 20m 방수, 배터리 3시간+. 국내 정식 출시 1,168,000원",
+      "body_hl": ["1,168,000원"],
+      "img": "assets/cards/gopro_mission1pro_2.jpg",
+      "credit": "이미지: GoPro 공식"
+    }
+  ]
+}
