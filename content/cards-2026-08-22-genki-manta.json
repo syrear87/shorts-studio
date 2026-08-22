@@ -1,0 +1,24 @@
+{
+  "topic": "Genki Manta — 화면 달린 커스텀 게임패드, 킥스타터 라이브 [펀딩]",
+  "caption": "게임패드 한가운데 2.8인치 터치스크린.\n\nGenki Manta — 세팅 바꾸려고 앱 열 필요 없다. 화면 위에서 키매핑, 감도, 폴링레이트, 매크로까지 전부 건드린다.\n\nTMR 홀 효과 스틱(저항 30~80gf 조절 가능), 8000Hz 폴링, 3단 트리거(디지털 클릭, 숏트래블, 풀아날로그 전환). 자체 OS 'MantaOS'가 돌아간다.\n\nPC, 스위치2 호환. 킥스타터 얼리버드 $189, 정가 $279. 배송 예정 2027년 2월.\n\n출처: Genki 공식 킥스타터, The Verge, GameSpot, Notebookcheck\n\n#GenkiManta #게임패드 #킥스타터 #가젯 #테크",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "게임패드에 화면을 박아버렸다",
+      "title_hl": ["화면"],
+      "body": "Genki Manta. 2.8인치 터치스크린이 정중앙에 있다. 세팅 바꾸려고 앱 열 필요 없다",
+      "body_hl": ["2.8인치"],
+      "img": "assets/cards/genki_manta_hero.webp",
+      "credit": "이미지: Genki 공식 (The Verge)"
+    },
+    {
+      "kind": "end",
+      "title": "스틱부터 트리거까지 전부 커스텀",
+      "title_hl": ["전부 커스텀"],
+      "body": "TMR 스틱, 8000Hz 폴링, 3단 트리거. 화면 위에서 다 바꾼다. 킥스타터 $189",
+      "body_hl": ["8000Hz"],
+      "img": "assets/cards/genki_manta_1.jpg",
+      "credit": "이미지: Genki 공식 (The Verge)"
+    }
+  ]
+}
