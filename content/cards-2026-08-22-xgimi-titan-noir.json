@@ -1,0 +1,24 @@
+{
+  "topic": "XGIMI TITAN Noir — 킥스타터 역대급 220억 원, 6천 명이 몰린 4K 프로젝터 [펀딩]",
+  "caption": "프로젝터 하나에 220억이 몰렸다.\n\nXGIMI TITAN Noir 시리즈. 2026년 킥스타터 최고 펀딩 — $18.8M(약 260억 원), 후원자 5,900명 이상.\n\n4K RGB 레이저. 네이티브 명암비 10,000:1. 밝기 7,000 ISO루멘. 거실 조명 켜고도 영화관 느낌이 나도록 설계한 듀얼 아이리스 시스템이 핵심이다.\n\n240Hz 지원으로 게이밍도 된다. harman/kardon 스피커, IMAX Enhanced 인증까지.\n\n킥스타터 $2,499~$2,999(마감). 정가는 $3,999~$5,999.\n\n국내 미출시 — 직구만 가능. 국내 출시일 미정.\n\n출처: XGIMI 공식 킥스타터, PR Newswire, Projector Reviews\n\n#XGIMI #프로젝터 #킥스타터 #홈시어터 #가젯",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "프로젝터 하나에\n220억이 몰렸다",
+      "title_hl": ["220억"],
+      "body": "XGIMI TITAN Noir. 2026년 킥스타터 최고 펀딩 기록. 후원자 5,900명, 총 $18.8M",
+      "body_hl": ["$18.8M"],
+      "img": "assets/cards/xgimi_titan_noir_1.webp",
+      "credit": "이미지: XGIMI 공식 (Projector Reviews)"
+    },
+    {
+      "kind": "end",
+      "title": "거실에서 영화관을 이긴다",
+      "title_hl": ["영화관"],
+      "body": "4K RGB 레이저. 7,000루멘. 명암비 10,000:1. 듀얼 아이리스로 조명 켜도 블랙이 산다. 240Hz 게이밍까지",
+      "body_hl": ["10,000:1"],
+      "img": "assets/cards/xgimi_titan_noir_2.webp",
+      "credit": "이미지: XGIMI 공식 (Projector Reviews)"
+    }
+  ]
+}
