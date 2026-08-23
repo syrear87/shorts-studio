@@ -166,11 +166,10 @@ def affiliate_for(meta):
     name, url = p.get("name"), p.get("url")
     if not (name and url):
         return None, None
-    cap = build_caption(meta)
-    toks = [t for t in _re.split(r"[^0-9A-Za-z가-힣]+", name) if len(t) >= 2]
-    grams = {t[i:i + 2] for t in toks for i in range(len(t) - 1)}
-    score = sum(2 for t in toks if t in cap) + sum(1 for g in grams if g in cap)
-    if score >= 3:   # 봇의 match_media와 같은 기준 (2026-08-16)
+    # 2026-08-24 실사고: 여기 있던 자체 채점 사본이 영문 조각 소음으로 '앤커 충전기'를
+    # 관절 편에 3점 매칭 — 채점은 product_match 단일 정본만 쓴다.
+    from product_match import score
+    if score(name, build_caption(meta)) >= 3:
         return url, name
     return None, None
 

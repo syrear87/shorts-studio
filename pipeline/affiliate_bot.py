@@ -87,39 +87,12 @@ def match_media(product_name, limit=6):
     items = d.get("data") or []
     if not items:
         return None
-    # 2026-08-18 실사고: 상품명의 숫자 조각("100"·"00")이 육아휴직편 캡션의 "통상임금 100%"와
-    # 겹쳐 5점 오매칭 — 화장품 링크가 육아휴직 글에 붙었다. **숫자는 매칭에서 전면 제외한다.**
-    toks = [t for t in re.split(r"[^0-9A-Za-z가-힣]+", product_name or "")
-            if len(t) >= 2 and not re.fullmatch(r"[0-9]+[a-zA-Z]*", t)]   # 숫자·단위 토큰 제외
-    # 2026-08-23 실사고: 스위치2 마리오카트 링크가 레이저 키보드 편에 9점 오매칭.
-    # 원인 ①상품명 "국내·전용" 같은 유통 상투어가 아무 캡션과나 겹침 ②상품명은 영문
-    # "Nintendo Switch"인데 정답 캡션은 한글 "닌텐도 스위치2"라 정작 정답과는 0점.
-    _STOP = {"국내", "해외", "전용", "세트", "정품", "공식", "출시", "무료", "배송", "할인",
-             "단품", "패키지", "호환", "한국", "한국어", "일본어", "영어", "버전", "추천", "인기"}
-    toks = [t for t in toks if t not in _STOP and t.lower() not in _STOP]
-    _ALIAS = {"nintendo": "닌텐도", "switch": "스위치", "apple": "애플", "iphone": "아이폰",
-              "ipad": "아이패드", "airpods": "에어팟", "galaxy": "갤럭시", "samsung": "삼성",
-              "sony": "소니", "playstation": "플레이스테이션", "xbox": "엑스박스",
-              "razer": "레이저", "logitech": "로지텍", "dyson": "다이슨", "marshall": "마샬",
-              "bose": "보스", "gopro": "고프로", "mario": "마리오", "pokemon": "포켓몬"}
-    toks += [_ALIAS[t.lower()] for t in toks if t.lower() in _ALIAS]   # 영문 상품명 ↔ 한글 캡션 다리
-    grams = set()
-    for t in toks:
-        # 2026-08-23: 영문 토큰은 조각 매칭 제외 — "nt"·"ch" 같은 영문 2글자가 무관한
-        # 캡션의 영문 단어와 우연히 겹쳐 소음 점수를 쌓았다(스위치2→레이저 오매칭의 절반).
-        # 영문은 토큰 전체 일치나 별칭(_ALIAS)으로만 잡는다.
-        if not re.search(r"[가-힣]", t):
-            continue
-        for i in range(len(t) - 1):
-            g = t[i:i + 2]
-            if re.search(r"[0-9]", g):
-                continue                                   # 숫자 섞인 조각 제외
-            grams.add(g)
+    # 채점은 product_match 단일 정본 (2026-08-24: upload_instagram의 사본이 구판으로 남아
+    # 앤커→관절 오매칭 재발 — 규칙 이력·상수는 product_match.py 참조)
+    from product_match import score as _pm_score
     best, best_hit = None, 0
     for it in items:
-        cap = it.get("caption") or ""
-        hit = sum(2 for t in toks if t in cap)
-        hit += sum(1 for g in grams if g in cap)
+        hit = _pm_score(product_name, it.get("caption") or "")
         if hit > best_hit:
             best, best_hit = it, hit
     if best_hit < 3:
