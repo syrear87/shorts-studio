@@ -1,0 +1,25 @@
+{
+  "topic": "iPhone 18 Pro Max — 아이폰 사상 첫 가변조리개 카메라, 진단 로그에서 확인 [루머]",
+  "caption": "아이폰 카메라가 19년 만에 바뀝니다.\n\n2007년 초대 아이폰부터 지금까지, 모든 아이폰의 조리개는 고정이었습니다. 그런데 애플 협력사 내부 진단 로그에서 아이폰 18 Pro Max에 가변조리개 메커니즘이 달린 소니 IMX905 센서가 확인됐습니다.\n\n어두운 곳에선 조리개를 열어 빛을 더 받고, 밝은 곳에선 조여서 선명도를 높이는 — DSLR에서나 쓰던 기술이 아이폰에 처음 들어옵니다. 다만 Pro Max만 독점이라는 소문도 있습니다.\n\n9월 공개가 유력하지만, 아직 공식 발표는 없습니다.\n\n출처: MacRumors, Notebookcheck, Ice Universe(Weibo), GSMArena\n\n#아이폰18 #iPhone18ProMax #가변조리개 #애플카메라 #테크뉴스\n",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "아이폰 카메라, 19년 만에 바뀐다",
+      "title_hl": ["19년"],
+      "body": "2007년부터 지금까지 모든 아이폰의 조리개는 고정이었다",
+      "body_hl": ["고정"],
+      "img": "assets/cards/iphone18promax_1.jpg",
+      "credit": "이미지: iPhone 18 Pro 유출 더미 모델 (MacRumors)"
+    },
+    {
+      "kind": "end",
+      "title": "다음 달, 그게 움직인다",
+      "title_hl": ["움직인다"],
+      "body": "유출된 진단 로그에서 소니 IMX905 + 가변조리개 메커니즘 확인. Pro Max 독점 소문",
+      "body_hl": ["가변조리개"],
+      "sub": "9월 공개 예상 — 공식 발표는 아직",
+      "img": "assets/cards/iphone18promax_2.jpg",
+      "credit": "이미지: iPhone 18 Pro vs 17 Pro 더미 비교 (MacRumors)"
+    }
+  ]
+}

@@ -568,3 +568,9 @@
 - IG: https://www.instagram.com/p/DcS3nSEmSYr/
 - 스레드: https://www.threads.com/@syusyu_channel/post/DcS3puKmaJl
 - 중복 검사: 최근 7일 제품 확인 완료
+
+### 2026-08-23 (토) 09시 카드 — ✅ iPhone 18 Pro Max 가변조리개 카메라 유출 게시 완료
+- 소재: 아이폰 사상 첫 가변조리개 — 진단 로그에서 소니 IMX905 + 가변조리개 메커니즘 확인, Pro Max 독점 소문 (MacRumors·Notebookcheck·Ice Universe 교차) [루머]
+- IG: https://www.instagram.com/p/DcXKwByAY0i/
+- 스레드: https://www.threads.com/@syusyu_channel/post/DcXKzsEAfje
+- 중복 검사: 최근 7일 제품 확인 완료
