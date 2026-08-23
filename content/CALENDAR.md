@@ -574,3 +574,9 @@
 - IG: https://www.instagram.com/p/DcXKwByAY0i/
 - 스레드: https://www.threads.com/@syusyu_channel/post/DcXKzsEAfje
 - 중복 검사: 최근 7일 제품 확인 완료
+
+### 2026-08-23 (토) 10시 카드 — ✅ Razer Huntsman V3 HE Magnetic 게시 완료
+- 소재: 레이저 첫 홀 이펙트 자석 스위치 게이밍 키보드 — 0.1mm 작동, 8000Hz 폴링, 다이내믹 키스트로크 [구매가능]
+- IG: https://www.instagram.com/p/DcXRIC8meEC/
+- 스레드: https://www.threads.com/@syusyu_channel/post/DcXRL11mTU6
+- 중복 검사: 최근 7일 제품 확인 완료

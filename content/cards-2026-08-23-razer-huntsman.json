@@ -1,0 +1,24 @@
+{
+  "topic": "Razer Huntsman V3 HE Magnetic — 레이저가 자석 스위치 전쟁에 뛰어들었다 [구매가능]",
+  "caption": "레이저가 드디어 자석 스위치 전쟁에 참전했다.\nHuntsman V3 HE Magnetic 8KHz.\n\n게이밍 키보드 끝판왕들이 쓰던 홀 이펙트 자석 스위치,\n레이저가 직접 만들어서 넣었다.\n\n0.1mm부터 작동하는 초정밀 키감 조절.\n8000Hz 폴링으로 응답 속도 0.60ms.\n키 하나에 동작 4개를 깊이별로 배정하는\n'다이내믹 키스트로크'까지.\n\n국내 정식 출시. 공식가 기준 미니 199,900원, TKL 239,000원.\n\n출처: Razer 공식 뉴스룸, Windows Central (4.5/5), TechPowerUp 교차 확인\n\n#레이저 #헌츠맨V3 #마그네틱키보드 #게이밍키보드 #홀이펙트",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "자석 스위치 전쟁, 레이저 참전",
+      "title_hl": ["레이저"],
+      "body": "Huntsman V3 HE Magnetic. 0.1mm 초정밀 작동, 8000Hz 응답",
+      "body_hl": ["0.1mm", "8000Hz"],
+      "img": "assets/cards/razer_huntsman_v3_1.jpg",
+      "credit": "이미지: Razer 공식 (TechPowerUp)"
+    },
+    {
+      "kind": "end",
+      "title": "키 하나에 동작 4개",
+      "title_hl": ["4개"],
+      "body": "깊이별로 다른 동작. 국내 정식 출시, 공식가 미니 199,900원부터",
+      "body_hl": ["199,900원"],
+      "img": "assets/cards/razer_huntsman_v3_2.jpg",
+      "credit": "이미지: Razer 공식 (TechPowerUp)"
+    }
+  ]
+}
