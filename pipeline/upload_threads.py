@@ -126,6 +126,14 @@ def _publish_with_retry(me, tok, cid, fail_msg, tries=6):
     return link or pid
 
 
+def publish_text(text):
+    """텍스트 단독 게시 (2026-08-23 스레드 성장 연구 — 네이티브 리스트형 글용)."""
+    tok = token()
+    me = _get("%s/me?fields=id&access_token=%s" % (API, tok))["id"]
+    cid = _create(me, tok, {"media_type": "TEXT", "text": text[:MAX_TEXT]})
+    return _publish_with_retry(me, tok, cid, "threads 텍스트 게시 실패")
+
+
 def publish_images(image_urls, text):
     """이미지 여러 장 캐러셀 게시 (2026-08-22 디렉터: "쓰레드에는 사진이 한장만 게시되네?" —
     카드 캐러셀 전 장을 스레드에도 그대로 올린다). 1장이면 단장 게시로 폴백."""

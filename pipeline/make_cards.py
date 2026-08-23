@@ -224,4 +224,4 @@ if __name__ == "__main__":
         if not s.get("caption"):
             sys.exit("기각: caption 없음 — 게시 불가")
         from upload_instagram import publish_carousel
-        publish_carousel(paths, s["caption"])
+        publish_carousel(paths, s["caption"], threads_text=s.get("threads_text"))

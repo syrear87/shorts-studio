@@ -116,6 +116,19 @@ def build_caption(meta):
     return ("%s\n\n%s" % (head, "\n".join(body).strip()))[:2200]
 
 
+def native_threads_text(threads_text, caption):
+    """스레드 전용 본문 가드 (2026-08-23 성장 연구 — 뉴스체 캡션 복제 대신 1인칭 현지화 본문 사용).
+    단 **첫 줄(훅)은 IG 캡션 첫 줄과 동일**해야 한다 — 제휴봇(find_recent_post)이 캡션 첫 줄로
+    스레드 글을 되찾아 쿠팡 링크를 달기 때문. 다르면 캡션 훅을 첫 줄로 강제 삽입한다."""
+    if not threads_text:
+        return None
+    hook = (caption or "").split("\n")[0].strip()
+    first = threads_text.split("\n")[0].strip()
+    if hook and first != hook:
+        return hook + "\n\n" + threads_text
+    return threads_text
+
+
 def threads_parts(meta):
     """스레드 본문 (2026-08-16 디렉터 확정): 첫 글 = 제목 + 내용(출처 제외),
     답글 = 쿠팡 링크. **쿠팡 링크가 없으면 답글을 달지 않는다.**
@@ -285,8 +298,12 @@ def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, 
     # 실패해도 릴스 게시는 이미 끝났으니 슬롯을 죽이지 않는다(경고만).
     try:
         import upload_threads
-        _head, _replies = threads_parts(meta)
-        th_link = upload_threads.publish(public_url, _head, replies=_replies)
+        _tt = native_threads_text(meta.get("threads_text"), build_caption(meta))
+        if _tt:
+            th_link = upload_threads.publish(public_url, _tt)   # 현지화 본문 — 답글 체인 없이 단독 완결
+        else:
+            _head, _replies = threads_parts(meta)
+            th_link = upload_threads.publish(public_url, _head, replies=_replies)
         print("스레드 게시 완료:", th_link, flush=True)
     except Exception as _te:
         print("스레드 게시 실패(무해, 릴스는 정상):", str(_te)[:200], flush=True)
@@ -310,7 +327,7 @@ def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, 
     return media_id
 
 
-def publish_carousel(images, caption, publish=True):
+def publish_carousel(images, caption, publish=True, threads_text=None):
     """지식 카드 캐러셀 게시 (2026-08-05 디렉터 승인 — 하루 3편 아침·점심·저녁).
     images: PNG 경로 리스트(2~3장). 흐름: R2 업로드 → 아이템 컨테이너 → 캐러셀 컨테이너 → 게시 → R2 정리."""
     kv = load_keys()
@@ -399,7 +416,8 @@ def publish_carousel(images, caption, publish=True):
         try:
             import upload_threads as _th
             base = kv["R2_PUBLIC_URL"].rstrip("/")
-            th_link = _th.publish_images([base + "/" + k for k in keys], caption)
+            th_link = _th.publish_images([base + "/" + k for k in keys],
+                                         native_threads_text(threads_text, caption) or caption)
             print("스레드 게시 완료:", th_link, flush=True)
         except Exception as _e:
             print("스레드 게시 실패(카드 자체는 게시됨):", str(_e)[:150], flush=True)
