@@ -6,6 +6,7 @@
 import argparse, asyncio, functools, glob, json, math, os, re, shutil, subprocess, sys, wave
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from bg_history import used_bg_ids   # 정본은 bg_history.py — pick_bg와 공유 (2026-08-23: 무거운 렌더러 임포트 없이 쓰도록 분리)
 
 W, H, FPS = 1080, 1920, 30
 ACCENT = (255, 182, 39)
@@ -120,7 +121,6 @@ def fetch_bg(query):
     print("배경 영상 없음 → 그라데이션 폴백", flush=True)
     return None
 
-from bg_history import used_bg_ids   # 정본은 bg_history.py — pick_bg와 공유 (2026-08-23 리뷰: 무거운 렌더러 임포트 없이 쓰도록 분리)
 
 
 def fetch_bg_photo(photo_id):

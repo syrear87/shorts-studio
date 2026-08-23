@@ -43,20 +43,28 @@ def _alert_fail(why, msg):
     except Exception:
         pass
 
+# log_looks_dead 판정 코드 — 호출자는 이 상수로 분기한다 (2026-08-23 리뷰: 경보 문안 부분문자열
+# 매칭이 문구 수정 한 번에 재시도 로직을 끄던 결합 제거)
+DEAD_AUTH, DEAD_SHORT, DEAD_NO_SENTINEL = "auth", "short", "no_sentinel"
+
+
 def log_looks_dead(text):
+    """세션 사망 의심 판정. 반환: (판정코드, 사람용 사유) 또는 None(정상)."""
     # claude -p는 인증 만료(401)로 죽어도 종료코드 0 — 2026-07-29 11:00 슬롯이 경보 없이 증발한 원인.
     t = text.strip()
     for marker in ("failed to authenticate", "authentication_error", "oauth access token"):
         if marker in t.lower():   # 2026-08-02 리뷰: 재시도 판정과 동일하게 소문자 비교로 통일
-            return "인증 오류 감지"
+            return (DEAD_AUTH, "인증 오류 감지")
     # 2026-08-02 리뷰(OPS-4): 마감 센티널(SLOT-DONE)의 존재가 완주의 1차 근거다.
     # 센티널이 있으면 길이는 보지 않는다 — 첫 야간 슬롯 실사고: 규칙대로 간결하게
     # 마감한 82자 응답(센티널 포함)을 길이 검사가 '즉사'로 오판해 허위 경보 발송.
-    if "SLOT-DONE" in t or "SLOT-NOOP" in t:   # NOOP도 의도된 완주다 (2026-08-23 리뷰: 판정 일원화)
+    # ⚠️ SLOT-NOOP은 여기서 인정하지 않는다 (2026-08-23 2차 리뷰 회귀 정정): DAILY_PROMPT상
+    # 정당한 NOOP도 마지막 줄 SLOT-DONE이 의무다 — NOOP만 찍고 마감 전에 죽은 반쪽 세션은 경보 대상.
+    if "SLOT-DONE" in t:
         return None
     if len(t) < 200:
-        return "출력 %d자 + 센티널 부재 (세션 즉사 의심)" % len(t)
-    return "마감 센티널(SLOT-DONE) 부재 (세션 미완주 의심)"
+        return (DEAD_SHORT, "출력 %d자 + 센티널 부재 (세션 즉사 의심)" % len(t))
+    return (DEAD_NO_SENTINEL, "마감 센티널(SLOT-DONE) 부재 (세션 미완주 의심)")
 
 def sent_evidence(start_ts):
     """이 세션 구간에 만들어진 mp4가 sent.log 실측 발송 기록으로 남았는가.
@@ -119,10 +127,11 @@ def main():
                          and any(m.lower() in text.lower() for m in RETRY_MARKERS))
             # 2026-08-22 11:00 실사고: rc=0인데 인사말만 남기고 종료(즉사) — 마커가 없어 재시도를 안 탔다.
             # 산출물·발송·센티널이 전무한 초단문 종료는 장애로 간주해 재시도로 슬롯을 구한다.
-            # 판정은 log_looks_dead 한 곳에서 — 기준을 두 벌 유지하다 어긋나지 않게 (2026-08-23 리뷰)
+            # 판정 코드(DEAD_SHORT)로 분기 — 문안 결합 금지. SLOT-NOOP(의도된 무제작)는 재시도 무의미.
+            # 인증 오류(DEAD_AUTH)는 재시도해도 소용없어 제외 — 경보 경로가 잡는다.
             if not transient and r.returncode == 0 and not new_mp4_made and not evidence:
-                _reason = log_looks_dead(text)
-                if _reason and "즉사 의심" in _reason:
+                _dead = log_looks_dead(text)
+                if _dead and _dead[0] == DEAD_SHORT and "SLOT-NOOP" not in text:
                     transient = True
             if not transient or attempt >= len(RETRY_DELAYS):
                 break
@@ -143,7 +152,7 @@ def main():
                 print("[runner] 센티널 누락, 실측 완주 확인 — 조치 불필요", flush=True)
                 check_artifacts(start_ts)
             elif reason:
-                tg("⚠️ 숏츠 데일리: 종료코드는 0인데 %s — %s 확인" % (reason, LOG.name))
+                tg("⚠️ 숏츠 데일리: 종료코드는 0인데 %s — %s 확인" % (reason[1], LOG.name))
             else:
                 check_artifacts(start_ts)
     except subprocess.TimeoutExpired:

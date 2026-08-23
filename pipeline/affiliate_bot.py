@@ -10,11 +10,13 @@ import json
 import os
 import re
 import shutil
+import subprocess
 import sys
+import tempfile
 import time
 import urllib.parse
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OFFSET_F = os.path.join(ROOT, "logs", "affiliate_offset.txt")
@@ -252,9 +254,6 @@ def local_cover_frame(media):
     (2026-08-14 디렉터 1차: "자막 다 나온 상태로" / 2차: "첫 문구 말고 1일 1지식 전 결론 페이지로").
     방법: 게시 시각 최근접 매칭 → 영상 끝에서 CTA(~6.5s) 제외한 마지막 창을 2fps 스캔,
     중앙 자막 밴드(세로 35~65%)의 흰 픽셀 최대(동률이면 늦은) 시점 = 결론 자막 완성 시점."""
-    import subprocess
-    import tempfile
-    from datetime import timezone, timedelta
     try:
         rows = [ln.split() for ln in open(os.path.join(ROOT, "logs", "sent.log"), encoding="utf-8")]
         vids = [r for r in rows if len(r) == 2 and r[1].startswith("IG:") and r[1].endswith(".mp4")]
