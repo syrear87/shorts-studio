@@ -595,3 +595,8 @@
 - IG: https://www.instagram.com/p/DcXmj7nGVwH/
 - 스레드: https://www.threads.com/@syusyu_channel/post/DcXmnt0GVFm
 - 중복 검사: 최근 7일 제품 확인 완료
+
+### 2026-08-23 (일) 카드 — 에어팟4 ANC vs 프로3 비교 (9만원 차이의 핵심) [공유형][구매가능]
+- IG: https://www.instagram.com/p/DcXs28AmTdw/
+- 스레드: https://www.threads.com/@syusyu_channel/post/DcXs5e4mfT4
+- 중복 검사: 최근 7일 제품 확인 완료 (에어팟 카메라 유출 8/20은 다른 제품)

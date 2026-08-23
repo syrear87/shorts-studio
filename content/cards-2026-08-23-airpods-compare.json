@@ -1,0 +1,24 @@
+{
+  "topic": "에어팟4 ANC vs 프로3 — 9만원 차이, 뭘 사야 할까 [공유형][구매가능]",
+  "caption": "같은 에어팟, 같은 노이즈캔슬링인데\n9만 원 차이.\n\n에어팟4 ANC — 269,000원 (애플 정가)\n에어팟 프로3 — 359,000원 (애플 정가)\n\n\"에어팟4에도 노캔 있으니까 그거면 되지?\"\n라고 생각했다면 꼭 보세요.\n\n오픈형 vs 밀폐형, 노캔 성능이 2배 차이.\n배터리도 4시간 vs 8시간으로 2배.\n프로3에만 심박수 측정, 청력검사, 보청기 기능까지.\n\n9만 원 차이인데, 완전히 다른 이어폰입니다.\n\n출처: 9to5Mac (2026.08.20), SoundGuys, Apple 공식\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우\n\n#에어팟 #에어팟프로3 #에어팟4 #AirPods #애플 #이어폰비교 #가성비이어폰",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "같은 노캔인데, 9만 원 차이",
+      "title_hl": ["9만 원"],
+      "body": "에어팟4 ANC vs 프로3 — 뭘 사야 할까",
+      "body_hl": ["에어팟4", "프로3"],
+      "img": "assets/cards/airpods_compare_4.jpg",
+      "credit": "이미지: Apple Newsroom (apple.com/newsroom)"
+    },
+    {
+      "kind": "end",
+      "title": "9만원에 이만큼 달라진다",
+      "title_hl": ["이만큼"],
+      "body": "노캔 2배 강력(밀폐형), 배터리 2배(8시간), 심박수 측정, 청력검사까지. 비교하면 답은 하나다",
+      "body_hl": ["2배", "2배", "심박수", "청력검사"],
+      "img": "assets/cards/airpods_compare_2.jpg",
+      "credit": "이미지: Apple Newsroom (apple.com/newsroom)"
+    }
+  ]
+}
