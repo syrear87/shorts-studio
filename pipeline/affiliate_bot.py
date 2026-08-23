@@ -95,6 +95,18 @@ def match_media(product_name, limit=6):
     # 겹쳐 5점 오매칭 — 화장품 링크가 육아휴직 글에 붙었다. **숫자는 매칭에서 전면 제외한다.**
     toks = [t for t in re.split(r"[^0-9A-Za-z가-힣]+", product_name or "")
             if len(t) >= 2 and not re.fullmatch(r"[0-9]+[a-zA-Z]*", t)]   # 숫자·단위 토큰 제외
+    # 2026-08-23 실사고: 스위치2 마리오카트 링크가 레이저 키보드 편에 9점 오매칭.
+    # 원인 ①상품명 "국내·전용" 같은 유통 상투어가 아무 캡션과나 겹침 ②상품명은 영문
+    # "Nintendo Switch"인데 정답 캡션은 한글 "닌텐도 스위치2"라 정작 정답과는 0점.
+    _STOP = {"국내", "해외", "전용", "세트", "정품", "공식", "출시", "무료", "배송", "할인",
+             "단품", "패키지", "호환", "한국", "한국어", "일본어", "영어", "버전", "추천", "인기"}
+    toks = [t for t in toks if t not in _STOP and t.lower() not in _STOP]
+    _ALIAS = {"nintendo": "닌텐도", "switch": "스위치", "apple": "애플", "iphone": "아이폰",
+              "ipad": "아이패드", "airpods": "에어팟", "galaxy": "갤럭시", "samsung": "삼성",
+              "sony": "소니", "playstation": "플레이스테이션", "xbox": "엑스박스",
+              "razer": "레이저", "logitech": "로지텍", "dyson": "다이슨", "marshall": "마샬",
+              "bose": "보스", "gopro": "고프로", "mario": "마리오", "pokemon": "포켓몬"}
+    toks += [_ALIAS[t.lower()] for t in toks if t.lower() in _ALIAS]   # 영문 상품명 ↔ 한글 캡션 다리
     grams = set()
     for t in toks:
         for i in range(len(t) - 1):
