@@ -16,23 +16,19 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG = os.path.join(ROOT, "logs", "director_msgs.jsonl")
 
 
-def _count():
-    if not os.path.exists(LOG):
-        return 0
-    with open(LOG, encoding="utf-8") as f:
-        return sum(1 for _ in f)
-
-
 def wait(seconds=180, poll=5):
-    """지금 이후로 들어오는 디렉터 메시지를 기다린다. 반환: 새 메시지 리스트(문자열)."""
-    base = _count()
+    """지금 이후로 들어오는 디렉터 메시지를 기다린다. 반환: 새 메시지 리스트(문자열).
+    2026-08-23 감사: 5초마다 파일 전체 재독 → 시작 시점 크기를 기억하고 크기 변화만 감시,
+    증가분(f.seek)만 파싱한다. jsonl이 무기한 성장해도 폴링 비용이 커지지 않는다."""
+    base_size = os.path.getsize(LOG) if os.path.exists(LOG) else 0
     deadline = time.time() + seconds
     while time.time() < deadline:
         time.sleep(poll)
-        if _count() > base:
+        size = os.path.getsize(LOG) if os.path.exists(LOG) else 0
+        if size > base_size:
             with open(LOG, encoding="utf-8") as f:
-                rows = [json.loads(l) for l in f if l.strip()]
-            return [r["text"] for r in rows[base:]]
+                f.seek(base_size)
+                return [json.loads(l)["text"] for l in f if l.strip()]
     return []
 
 

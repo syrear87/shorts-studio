@@ -3,7 +3,7 @@
 # 사용: .venv/bin/python3 pipeline/make_short.py content/2026-07-29.json --out out/2026-07-29.mp4
 # 배경: script JSON의 "bg_query"(예: "eiffel tower")로 Pexels에서 세로 영상 검색.
 #       keys.env에 PEXELS_API_KEY 필요. 없거나 실패하면 그라데이션 배경으로 폴백.
-import argparse, asyncio, glob, json, math, os, re, shutil, subprocess, sys, wave
+import argparse, asyncio, functools, glob, json, math, os, re, shutil, subprocess, sys, wave
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
@@ -19,7 +19,6 @@ RATE = RATES["female"]
 SCENE_GAP = 0.35
 LEAD_IN = 0.30
 TAIL = 0.9
-SCRIM = 130           # 배경영상 위 어두운 막 (0~255)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def font_path():
@@ -39,6 +38,7 @@ FONT = font_path()
 FONT_HOOK = os.path.join(ROOT, "assets", "fonts", "Pretendard-Black.otf")   # 훅·CTA용 최대 굵기
 TTC_IDX = 1 if FONT.endswith("NotoSansCJK-Black.ttc") else 0
 
+@functools.lru_cache(maxsize=None)   # 렌더 핫루프에서 폭 초과 줄마다 폰트 파일을 매 프레임 재로드하던 것 차단 (2026-08-23 감사)
 def load_font(size, hook=False):
     try:
         if hook and os.path.exists(FONT_HOOK):
@@ -77,7 +77,7 @@ def _download(url, dst):
                 fh.write(chunk)
     os.replace(part, dst)
 
-def fetch_bg(query, need_dur):
+def fetch_bg(query):
     """Pexels에서 배경 영상 검색·다운로드 → 로컬 경로 (실패 시 None).
     query: 문자열 또는 문자열 리스트(우선순위 순 폴백).
     소재 적합성이 우선 — 세로가 없으면 가로 HD를 받아 크롭한다."""
@@ -134,6 +134,7 @@ def used_bg_ids(exclude_script=None):
         try:
             s = json.load(open(p, encoding="utf-8"))
         except Exception:
+            print("경고: %s 파싱 실패 — 배경 재사용 게이트에서 제외됨" % p, flush=True)
             continue
         ids = s.get("bg_ids") or ([s["bg_id"]] if s.get("bg_id") else [])
         used.update(str(v) for v in ids)   # 영상은 "123", 사진은 "photo:123" 문자열로 통일
@@ -283,10 +284,10 @@ async def tts_edge(text, mp3_path):
 
 
 def tts_scene_sync(text, mp3_path):
+    """Azure 우선, 실패 시 edge-tts 폴백 (같은 보이스라 톤 연속성 유지)."""
     # 2026-08-08: 숫자+단위를 한글 수사로 선변환 — TTS의 고유어/한자어 선택 실수("열두개월") 원천 차단
     from voice_clone import normalize_ko
     text = normalize_ko(text)
-    """Azure 우선, 실패 시 edge-tts 폴백 (같은 보이스라 톤 연속성 유지)."""
     b = tts_azure(text, mp3_path)
     if b is not None:
         return b, "azure"
@@ -303,10 +304,11 @@ def media_duration(path):
 
 # ---------- 타이밍 매핑 ----------
 def display_words(scene):
+    """어절별 하이라이트 여부 리스트 — 렌더 루프가 wi 순번으로 조회 (2026-08-23 감사: line·word 키는 미사용이라 불리언으로 축소)."""
     ws = []
-    for li, (line, hl) in enumerate(scene["lines"]):
+    for line, hl in scene["lines"]:
         for w in line.split(" "):
-            ws.append({"line": li, "word": w, "hl": any(h in w for h in hl)})
+            ws.append(any(h in w for h in hl))
     return ws
 
 
@@ -448,7 +450,7 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg, fx_unde
                 if a > 0:
                     alpha = int(255 * a * fade)
                     for w_ in line.split(" "):
-                        col = ACCENT if tl["dwords"][wi]["hl"] else TEXT
+                        col = ACCENT if tl["dwords"][wi] else TEXT
                         text_sh(d, (x, y), w_, line_font, col + (alpha,))
                         if fx_underline and col == ACCENT:
                             uw = d.textlength(w_, font=line_font)
@@ -593,19 +595,18 @@ def main():
     # 2026-08-16 밤 확대: 16시 전용 → **전 슬롯**. 실측이 결정적이다 —
     #   시한성 있는 편 30.4만/16.0만/7.5만 vs 없는 편 203/164/152 (약 1,500배).
     #   "오늘 해야 할 이유"가 없으면 아무리 좋은 지식도 200회에서 끝난다.
-    if True:
-        _sc = script["scenes"]
-        _txt = " ".join([_sc[0].get("voice", "")] +
-                        [s_.get("voice", "") for s_ in _sc if s_.get("kind") == "twist"])
-        _trig = ("당일성", r"오늘|내일|이번 주|이번 주말|밤|새벽|지금"), \
-                ("시한", r"마지막|까지|남았|끝나|마감|한정|올해만|다시 보려면"), \
-                ("행동", r"보세요|해보세요|나가|확인해|재보|챙기|눌러|기억해|찾아보")
-        _hit = [n for n, p in _trig if re.search(p, _txt)]
-        if not _hit:
-            sys.exit("기각: 공유 트리거가 없다 — 훅이나 반전에 "
-                     "①당일성(오늘/내일/오늘 밤) ②시한(마지막·~까지) ③행동 지시(보세요·확인해보세요) "
-                     "중 최소 하나를 문장으로 넣어라.\n  실측: 시한성 있는 편 30.4만·16.0만·7.5만 / 없는 편 203·164·152 — **1,500배 차이다.**\n  '왜 오늘 이걸 봐야 하는가'에 한 문장으로 답하지 못하면 그 소재는 버려라.")
-        print("공유 트리거: %s ✓" % ", ".join(_hit), flush=True)
+    _sc = script["scenes"]
+    _txt = " ".join([_sc[0].get("voice", "")] +
+                    [s_.get("voice", "") for s_ in _sc if s_.get("kind") == "twist"])
+    _trig = ("당일성", r"오늘|내일|이번 주|이번 주말|밤|새벽|지금"), \
+            ("시한", r"마지막|까지|남았|끝나|마감|한정|올해만|다시 보려면"), \
+            ("행동", r"보세요|해보세요|나가|확인해|재보|챙기|눌러|기억해|찾아보")
+    _hit = [n for n, p in _trig if re.search(p, _txt)]
+    if not _hit:
+        sys.exit("기각: 공유 트리거가 없다 — 훅이나 반전에 "
+                 "①당일성(오늘/내일/오늘 밤) ②시한(마지막·~까지) ③행동 지시(보세요·확인해보세요) "
+                 "중 최소 하나를 문장으로 넣어라.\n  실측: 시한성 있는 편 30.4만·16.0만·7.5만 / 없는 편 203·164·152 — **1,500배 차이다.**\n  '왜 오늘 이걸 봐야 하는가'에 한 문장으로 답하지 못하면 그 소재는 버려라.")
+    print("공유 트리거: %s ✓" % ", ".join(_hit), flush=True)
 
     # 0-0a1) 훅 첫 줄 완결성 게이트 (2026-08-16 — YouTube Studio 조언 + 오늘 5편 첫 프레임 실사)
     # 실사 결과: 5편 중 3편이 첫 1초에 미완성 문장만 떴다("이불을 자주 빨아도" / "여름에 피부가
@@ -782,8 +783,7 @@ def main():
     # 0-0d) 자막 폭 선행 게이트 (2026-08-14 감사: 폭 초과가 TTS 합성·배경 다운로드·렌더를 다 마친
     #        뒤에야 기각되던 늦은 실패 — 같은 폰트·같은 축소 규칙으로 렌더 전에 판정한다.
     #        렌더 루프 안의 기존 검사는 최후 방어선으로 유지)
-    from PIL import Image as _WImg, ImageDraw as _WDraw
-    _wd = _WDraw.Draw(_WImg.new("RGB", (8, 8)))
+    _wd = ImageDraw.Draw(Image.new("RGB", (8, 8)))
     for i, sc in enumerate(script["scenes"]):
         _base = load_font(92, hook=True) if sc.get("kind") in ("hook", "cta") else load_font(78)
         for li, (ln_, _hl) in enumerate(sc["lines"]):
@@ -913,7 +913,8 @@ def main():
         ids = script.get("bg_ids") or ([script["bg_id"]] if script.get("bg_id") else [])
         if ids:
             # 배경 재사용 하드게이트 (2026-08-05): 다른 편에서 쓴 배경이면 기각 (사진 포함)
-            dup = [v for v in ids[:3] if str(v) in used_bg_ids(exclude_script=args.script_json)]
+            seen = used_bg_ids(exclude_script=args.script_json)   # 2026-08-23 감사: 원소마다 content/ 풀스캔하던 것을 1회로
+            dup = [v for v in ids[:3] if str(v) in seen]
             if dup:
                 sys.exit("기각: 배경 %s 는 이미 다른 게시본에서 사용됨 — 피드에서 재탕처럼 보인다. "
                          "pick_bg.py 출력의 ⚠️ 표시를 피해 다른 배경을 골라라" % dup)
@@ -929,7 +930,7 @@ def main():
                         sys.exit("기각: 지정 bg_id=%s 다운로드 실패 — pick_bg.py로 다시 고르거나 목록에서 제거하라" % entry)
                     bg_items.append({"kind": "video", "path": p})
         else:
-            p = fetch_bg(script.get("bg_query", ""), total_dur)
+            p = fetch_bg(script.get("bg_query", ""))
             if p:
                 bg_items = [{"kind": "video", "path": p}]
     video_bg = bool(bg_items)

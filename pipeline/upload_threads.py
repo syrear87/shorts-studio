@@ -103,16 +103,27 @@ def publish_image(image_url, text):
     me = _get("%s/me?fields=id&access_token=%s" % (API, tok))["id"]
     cid = _create(me, tok, {"media_type": "IMAGE", "image_url": image_url,
                             "text": text[:MAX_TEXT]})
-    last = None
-    for i in range(6):
+    return _publish_with_retry(me, tok, cid, "threads 이미지 게시 실패")
+
+
+def _publish_with_retry(me, tok, cid, fail_msg, tries=6):
+    """컨테이너 발행 재시도 후 permalink 조회 (2026-08-23 감사: permalink 조회 실패가
+    발행 성공을 뒤집고 같은 컨테이너를 재발행하던 것 분리 — 조회 실패는 성공을 뒤집지 않는다)."""
+    last, pid = None, None
+    for _ in range(tries):
         time.sleep(4)
         try:
             pid = _publish_container(me, tok, cid)
-            link = _get("%s/%s?fields=permalink&access_token=%s" % (API, pid, tok)).get("permalink")
-            return link or pid
+            break
         except Exception as e:
             last = e
-    raise RuntimeError("threads 이미지 게시 실패: %s" % str(last)[:150])
+    if pid is None:
+        raise RuntimeError("%s: %s" % (fail_msg, str(last)[:150]))
+    try:
+        link = _get("%s/%s?fields=permalink&access_token=%s" % (API, pid, tok)).get("permalink")
+    except Exception:
+        link = None
+    return link or pid
 
 
 def publish_images(image_urls, text):
@@ -130,16 +141,7 @@ def publish_images(image_urls, text):
     time.sleep(4)   # 자식 컨테이너 처리 대기
     car = _create(me, tok, {"media_type": "CAROUSEL", "children": ",".join(children),
                             "text": text[:MAX_TEXT]})
-    last = None
-    for _ in range(6):
-        time.sleep(4)
-        try:
-            pid = _publish_container(me, tok, car)
-            link = _get("%s/%s?fields=permalink&access_token=%s" % (API, pid, tok)).get("permalink")
-            return link or pid
-        except Exception as e:
-            last = e
-    raise RuntimeError("threads 캐러셀 게시 실패: %s" % str(last)[:150])
+    return _publish_with_retry(me, tok, car, "threads 캐러셀 게시 실패")
 
 
 def publish(video_url, text, timeout_s=300, replies=()):
@@ -174,7 +176,10 @@ def publish(video_url, text, timeout_s=300, replies=()):
         except Exception as e:
             print("[threads] 답글 실패(본문은 게시됨):", str(e)[:150], flush=True)
             break
-    link = _get("%s/%s?fields=permalink&access_token=%s" % (API, pid, tok)).get("permalink")
+    try:
+        link = _get("%s/%s?fields=permalink&access_token=%s" % (API, pid, tok)).get("permalink")
+    except Exception:
+        link = None   # 조회 실패는 게시 성공을 뒤집지 않는다 (2026-08-23 감사)
     return link or ("https://www.threads.net/@syusyu_channel/post/" + pid)
 
 

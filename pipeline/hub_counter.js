@@ -182,14 +182,17 @@ export default {
         return new Response("forbidden", { status: 403 });
       }
       const out = {};
-      let cursor;
-      do {
-        const page = await env.KV.list({ cursor });
-        for (const key of page.keys) {
-          out[key.name] = parseInt((await env.KV.get(key.name)) || "0", 10);
-        }
-        cursor = page.list_complete ? null : page.cursor;
-      } while (cursor);
+      // 2026-08-23 감사: 전체 키 나열+직렬 get → 통계 프리픽스만 나열하고 병렬 조회
+      // (소비자는 view:/click:/day:/me: 만 읽는다 — done:·dm:cfg·whc: 등 비통계 키 제외)
+      for (const prefix of ["view:", "click:", "day:", "me:"]) {
+        let cursor;
+        do {
+          const page = await env.KV.list({ prefix, cursor });
+          const vals = await Promise.all(page.keys.map((key) => env.KV.get(key.name)));
+          page.keys.forEach((key, i) => { out[key.name] = parseInt(vals[i] || "0", 10); });
+          cursor = page.list_complete ? null : page.cursor;
+        } while (cursor);
+      }
       if (url.searchParams.get("fmt") !== "html") {
         return new Response(JSON.stringify(out, null, 1),
           { headers: { "content-type": "application/json; charset=utf-8" } });

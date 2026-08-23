@@ -16,7 +16,7 @@
 - **상주 세션 크론 (세션 귀속 — 새 세션마다 재설정 필요, 2026-08-21 편성 v11.1 기준)**: ①`43 6 * * *` 07시 영상 사냥 ②`43 8 * * *` 카드 데이 사냥(9연발 소재 지형+상위 지정) ③`43 17 * * *` 18시 대박 영상 사냥 (댓글DM 폴링은 2026-08-21부터 launchd com.shorts-studio.dm이 10분 간격으로 담당 — 세션 크론 아님). 사냥 프롬프트 원문은 content/CALENDAR.md 이력과 이 파일 이전 커밋 참조. CronCreate는 세션 메모리에만 살고 7일 만료 — **새 세션은 시작하자마자 이 4개를 CronCreate로 다시 걸어라.**
 - `archive/` — 폐지된 코드·프롬프트 보관소(삭제 아님). 카드 렌더러·롱폼·PIL 도해·승인 게이트·서치부·트렌드워치·워치독. **되살릴 땐 왜 폐지됐는지 DECISIONS부터 읽어라.**
 - `bin/daily_runner.py` — launchd가 슬롯마다 실행. **반드시 로그인 셸(zsh -l) 경유로 claude를 띄운다** (launchd 빈 PATH 사고 이력). 조용한 죽음 경보 + 산출물 실측 대조 내장
-- `launchd/` — **daily 하나뿐이다** (07·10·13·16·19시, 편성 v9). 수정 시 `~/Library/LaunchAgents`에 복사 후 unload/load. **2026-08-16 이후 상주 프로세스는 없다** — 워치독·트렌드워치·서치부·제휴 봇 전원 정리(SD-007/008). 제휴 링크 회신 처리는 슬롯 세션이 `pipeline/affiliate_bot.py --once`로 폴링한다.
+- `launchd/` — **3개: daily(영상 07/12/18)·card(카드 09~17 매시)·dm(10분 틱, 편성 v11.1)**. 저장소 사본은 설치본(~/Library/LaunchAgents)과 동기화해 둔다 — 수정 시 복사 후 unload/load. **2026-08-16 이후 상주 프로세스는 없다** — 워치독·트렌드워치·서치부·제휴 봇 전원 정리(SD-007/008). 댓글DM·제휴 링크 폴링은 launchd dm 틱(bin/dm_tick.sh)이 담당한다.
 - `content/` — 대본 JSON(형식은 `sample_honey.json`), `BACKLOG.md`(탈락했지만 좋은 소재), `topics_used.md`(**정본은 content/ 쪽** — 루트 동명 파일은 폐지 스텁), `REJECTED.md`(영구금지), `PERFORMANCE.md`(실측 성과)
 - `assets/brand/` — 프로필·배너·워터마크 (다크 네이비 #0B1020~#181C36 + 앰버 #FFB627 + 화이트, Noto Sans CJK Black)
 - 비밀(커밋 금지, .gitignore 처리됨): `credentials.json`, `token.json`(YouTube OAuth), `telegram.env`(봇 토큰), `keys.env`(PEXELS_API_KEY, AZURE_SPEECH_KEY — aitutor와 공유·교체 시 양쪽 갱신, IG 토큰)

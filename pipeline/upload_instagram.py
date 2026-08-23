@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # 인스타그램 릴스 자동 업로더 (Instagram API with Instagram Login).
 #  - keys.env에 IG_ACCESS_TOKEN, IG_USER_ID 필요 (본인 프로페셔널 계정, 앱 심사 불필요)
-#  - 흐름: 컨테이너 생성(resumable) → rupload로 바이너리 업로드 → 상태 폴링 → 게시
+#  - 흐름: R2 공개 URL 업로드 → 컨테이너 생성(video_url) → 상태 폴링 → 게시 (이 계정은 rupload 거부 — R2 경유가 정본)
 #  - 캡션 = 제목 + 본문 (유튜브 설명과 동일 포맷, 디렉터 지정 2026-07-29)
 #  - 장기 토큰(60일)은 마지막 갱신 7일 경과 시 자동 갱신해 keys.env를 업데이트
 # 사용: python3 pipeline/upload_instagram.py out/영상.mp4 content/영상.meta.json
@@ -11,8 +11,7 @@ import urllib.request, urllib.parse, urllib.error
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KEYS = os.path.join(ROOT, "keys.env")
 STATE = os.path.join(ROOT, "logs", ".ig_token_refreshed")   # 새 토큰 투입 시 touch logs/.ig_token_refreshed 병행 (2026-08-02 리뷰 [A18])
-GRAPH = "https://graph.instagram.com/v23.0"   # 2026-08-02 리뷰 [A18]: RUPLOAD와 버전 일치 고정 — 무버전 호출은 Meta 버전 폐기 시 무예고 파손
-RUPLOAD = "https://rupload.facebook.com/ig-api-upload/v23.0"
+GRAPH = "https://graph.instagram.com/v23.0"   # 버전 고정 — 무버전 호출은 Meta 버전 폐기 시 무예고 파손 (2026-08-02 리뷰 [A18])
 REFRESH_AFTER = 7 * 86400          # 7일마다 토큰 갱신
 MAX_THREADS = 500                  # 스레드 본문 상한 (2026-08-16)
 POLL_INTERVAL, POLL_MAX = 10, 30   # 처리 대기 최대 5분
@@ -36,14 +35,14 @@ def tg(msg):
         pass
 
 
-def api(method, path, params=None, data=None, headers=None, raw_body=None, base=GRAPH):
-    url = base + path
+def api(method, path, params=None, data=None):
+    url = GRAPH + path
     if params:
         url += "?" + urllib.parse.urlencode(params)
-    body = raw_body
+    body = None
     if data is not None:
         body = urllib.parse.urlencode(data).encode()
-    req = urllib.request.Request(url, data=body, method=method, headers=headers or {})
+    req = urllib.request.Request(url, data=body, method=method, headers={})
     try:
         with urllib.request.urlopen(req, timeout=120) as r:
             return json.loads(r.read().decode())
@@ -242,7 +241,7 @@ def _r2_cleanup(kv, s3, r2key):
         tg("⚠️ R2 임시 파일 삭제 실패 — 수동 정리 필요: %s" % r2key)
 
 
-def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, container_data=None, public_url=None):
+def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, container_data, public_url):
 
     # 3) 처리 대기 (ERROR·타임아웃 시 컨테이너 1회 재생성 — 2026-08-14 감사: 일시 인코딩 실패 내성)
     def _wait(cid_):
@@ -258,8 +257,6 @@ def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, 
     err = _wait(cid)
     if err:
         print("1차 실패(%s) — 컨테이너 재생성 1회 재시도" % err, flush=True)
-        if not container_data:
-            raise RuntimeError(err)
         cont2 = api("POST", "/%s/media" % user_id, data=container_data)
         cid = cont2["id"]
         print("컨테이너 재생성: %s" % cid, flush=True)
@@ -315,9 +312,13 @@ def publish_carousel(images, caption, publish=True):
     """지식 카드 캐러셀 게시 (2026-08-05 디렉터 승인 — 하루 3편 아침·점심·저녁).
     images: PNG 경로 리스트(2~3장). 흐름: R2 업로드 → 아이템 컨테이너 → 캐러셀 컨테이너 → 게시 → R2 정리."""
     kv = load_keys()
+    _validate_r2_config(kv)   # 2026-08-23 감사: upload()와 동일 가드 — keys.env 오염 시 조기 명시 실패
     token, user_id = kv.get("IG_ACCESS_TOKEN"), kv.get("IG_USER_ID")
     if not token or not user_id:
         raise RuntimeError("keys.env에 IG_ACCESS_TOKEN/IG_USER_ID 없음")
+    for k in ("R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL"):
+        if not kv.get(k):
+            raise RuntimeError("keys.env에 %s 없음 — 카드 게시 불가" % k)
     # 멱등 가드 (2026-08-05 점검): 같은 카드 묶음(디렉터리명)이 이미 게시됐으면 건너뜀
     card_name = os.path.basename(os.path.dirname(images[0]))
     sent_p = os.path.join(ROOT, "logs", "sent.log")

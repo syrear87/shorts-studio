@@ -33,9 +33,13 @@ def env(path, keys):
 
 
 TG = env("telegram.env", {"STUDIO_TG_TOKEN", "STUDIO_TG_CHAT_ID"})
-IG = env("keys.env", {"IG_ACCESS_TOKEN", "IG_USER_ID"})
-KV = env("keys.env", {"R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL"})
-HUB = env("keys.env", {"HUB_COUNTER_URL", "HUB_STATS_KEY"})   # 허브 카운터 (2026-08-14, 미배포면 빈 dict)
+# keys.env는 1회만 읽고 용도별 부분집합으로 나눈다 (2026-08-23 감사: 매 틱 3회 전체 재독 제거)
+_KEYS = env("keys.env", {"IG_ACCESS_TOKEN", "IG_USER_ID",
+                         "R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL",
+                         "HUB_COUNTER_URL", "HUB_STATS_KEY"})
+IG = {k: v for k, v in _KEYS.items() if k in ("IG_ACCESS_TOKEN", "IG_USER_ID")}
+KV = {k: v for k, v in _KEYS.items() if k.startswith("R2_")}
+HUB = {k: v for k, v in _KEYS.items() if k.startswith("HUB_")}   # 허브 카운터 (2026-08-14, 미배포면 빈 dict)
 G = "https://graph.instagram.com/v23.0"
 
 
@@ -52,7 +56,7 @@ def tg_send(text):
 
 
 def tg_send_photo(path, caption):
-    import mimetypes, uuid
+    import uuid
     boundary = uuid.uuid4().hex
     fields = {"chat_id": TG["STUDIO_TG_CHAT_ID"], "caption": caption}
     body = b""
@@ -67,17 +71,6 @@ def tg_send_photo(path, caption):
     req.add_header("Content-Type", "multipart/form-data; boundary=%s" % boundary)
     with urllib.request.urlopen(req, timeout=120) as r:
         return json.load(r)
-
-
-def latest_media():
-    d = http(f"{G}/{IG['IG_USER_ID']}/media?fields=id,permalink,caption,timestamp,media_type,media_url,thumbnail_url,children{{media_url}}&limit=1&access_token={IG['IG_ACCESS_TOKEN']}")
-    if not d.get("data"):
-        return None
-    m = d["data"][0]
-    # 캐러셀(카드)은 첫 장의 media_url을 커버로 사용
-    if not m.get("media_url") and m.get("children", {}).get("data"):
-        m["media_url"] = m["children"]["data"][0].get("media_url")
-    return m
 
 
 def match_media(product_name, limit=6):
@@ -165,7 +158,6 @@ def state(update=None):
 
 
 HUB_KEY = "hub/index.html"
-STORY_KEY = "hub/story_%s.jpg"
 
 
 def r2_client():
@@ -291,31 +283,42 @@ def local_cover_frame(media):
         w_start = max(0.0, w_end - 7.5)
         w_len = max(1.0, w_end - w_start)
         tmp = tempfile.mkdtemp(prefix="afcover_")
-        subprocess.run(["ffmpeg", "-y", "-ss", "%.2f" % w_start, "-t", "%.2f" % w_len,
-                        "-i", path, "-vf", "fps=2,scale=270:480",
-                        "-loglevel", "error", os.path.join(tmp, "f%03d.jpg")], check=True)
-        from PIL import Image
-        best_n, best_ink = None, -1
-        for fn in sorted(os.listdir(tmp)):
-            if not fn.startswith("f"):
-                continue
-            g = Image.open(os.path.join(tmp, fn)).convert("L")
-            band = g.crop((0, int(480 * 0.35), 270, int(480 * 0.65)))
-            ink = sum(1 for v in band.getdata() if v >= 225)
-            if ink >= best_ink:  # 동률이면 늦은 프레임(단어 하이라이트까지 진행된 상태)
-                best_n, best_ink = int(fn[1:4]), ink
-        if best_n is None:
-            return None
-        t = w_start + (best_n - 1) / 2.0 + 0.2
-        outp = os.path.join(tmp, "cover.jpg")
-        subprocess.run(["ffmpeg", "-y", "-ss", "%.2f" % t, "-i", path, "-frames:v", "1",
-                        "-q:v", "2", "-loglevel", "error", outp], check=True)
-        return outp if os.path.exists(outp) else None
+        try:
+            subprocess.run(["ffmpeg", "-y", "-ss", "%.2f" % w_start, "-t", "%.2f" % w_len,
+                            "-i", path, "-vf", "fps=2,scale=270:480",
+                            "-loglevel", "error", os.path.join(tmp, "f%03d.jpg")], check=True)
+            from PIL import Image
+            best_n, best_ink = None, -1
+            for fn in sorted(os.listdir(tmp)):
+                if not fn.startswith("f"):
+                    continue
+                g = Image.open(os.path.join(tmp, fn)).convert("L")
+                band = g.crop((0, int(480 * 0.35), 270, int(480 * 0.65)))
+                ink = sum(1 for v in band.getdata() if v >= 225)
+                if ink >= best_ink:  # 동률이면 늦은 프레임(단어 하이라이트까지 진행된 상태)
+                    best_n, best_ink = int(fn[1:4]), ink
+            if best_n is None:
+                return None
+            t = w_start + (best_n - 1) / 2.0 + 0.2
+            outp = os.path.join(tmp, "cover.jpg")
+            subprocess.run(["ffmpeg", "-y", "-ss", "%.2f" % t, "-i", path, "-frames:v", "1",
+                            "-q:v", "2", "-loglevel", "error", outp], check=True)
+            if not os.path.exists(outp):
+                return None
+            fd, keep = tempfile.mkstemp(prefix="afcover_", suffix=".jpg")
+            os.close(fd)
+            import shutil
+            shutil.move(outp, keep)
+            return keep
+        finally:
+            import shutil
+            shutil.rmtree(tmp, ignore_errors=True)   # 어떤 경로로 빠져도 프레임 잔여물 정리 (2026-08-23 감사: afcover_* 잔존 실측)
     except Exception:
         return None  # 어떤 실패든 썸네일 폴백 — 스티커 킷 발송 자체를 막지 않는다
 
 
-def make_story_image(media, product_name, out_path, sticker_mode=False):
+def make_story_image(media, product_name, out_path):
+    # 2026-08-23 감사: sticker_mode 파라미터 제거 — 2026-08-13 스티커 킷 확정 후 비스티커 분기는 도달 불가였다
     """스토리용 이미지 v2 (2026-08-13 디렉터: 어두운 블러 배경판 기각 → 허브와 같은 흰 배경 브랜드 톤).
     구성: 워드마크 / 오늘의 추천 + 상품명 / 게시물 커버(라운드+섀도) / 하단 여백(스티커 자리) / 고지."""
     from PIL import Image, ImageDraw, ImageFont, ImageFilter
@@ -327,8 +330,10 @@ def make_story_image(media, product_name, out_path, sticker_mode=False):
     local = local_cover_frame(media)
     if local:
         cover = Image.open(local).convert("RGB")   # convert가 즉시 로드 — 이후 원본 삭제 안전
-        import shutil
-        shutil.rmtree(os.path.dirname(local), ignore_errors=True)   # 임시 프레임 24장 누적 방지
+        try:
+            os.remove(local)   # 프레임 정리는 local_cover_frame이 담당 — 여기선 커버 단일 파일만 (2026-08-23 감사)
+        except OSError:
+            pass
     else:
         # 릴스는 media_url이 mp4다 — 이미지는 항상 썸네일 우선 (2026-08-13 실사고)
         url = media.get("thumbnail_url") or media.get("media_url")
@@ -355,10 +360,7 @@ def make_story_image(media, product_name, out_path, sticker_mode=False):
     d.text((x0 + w1, 150), "1지식", font=f_mark, fill=GOLD)
     d.rounded_rectangle([(W - 140) / 2, 260, (W + 140) / 2, 274], radius=7, fill=GOLD)
     center(340, "오늘의 추천", font(44), GRAY)
-    if not sticker_mode:
-        name = product_name if len(product_name) <= 18 else product_name[:17] + "…"
-        center(420, name, font(56), NAVY)
-    # sticker_mode: '오늘의 추천' 아래(y 400~540)를 비워둔다 — 디렉터가 그 자리에 링크 스티커 배치 (2026-08-13)
+    # '오늘의 추천' 아래(y 400~540)를 비워둔다 — 디렉터가 그 자리에 링크 스티커 배치 (2026-08-13)
     card_w = 860
     card = cover.resize((card_w, int(card_w * cover.height / cover.width)))
     if card.height > 1050:
@@ -376,28 +378,24 @@ def make_story_image(media, product_name, out_path, sticker_mode=False):
     shadow = shadow.filter(ImageFilter.GaussianBlur(18))
     im.paste(shadow, (0, 0), shadow)
     im.paste(card, (cx, cy), mask)
-    if sticker_mode:
-        # v3.2 (2026-08-16 디렉터: "링크는 위 스티커를 탭 이거 안 나오게 해줘") —
-        # 문구는 전부 뺀다. 상품명도 탭 유도도 링크 스티커가 담당하고,
-        # 이미지는 커버 프레임 + 스티커 자리 점선 가이드만 남긴다.
-        # 스티커 위치 점선 가이드 (IG 기본 스티커보다 약간 작게 — 스티커가 덮으면 최종 화면엔 안 보임)
-        gx0, gy0, gx1, gy1 = (W - 460) / 2, 415, (W + 460) / 2, 525
-        dash = 18
-        x_ = gx0
-        while x_ < gx1:
-            d.line([(x_, gy0), (min(x_ + dash, gx1), gy0)], fill=(210, 213, 220), width=3)
-            d.line([(x_, gy1), (min(x_ + dash, gx1), gy1)], fill=(210, 213, 220), width=3)
-            x_ += dash * 2
-        y_ = gy0
-        while y_ < gy1:
-            d.line([(gx0, y_), (gx0, min(y_ + dash, gy1))], fill=(210, 213, 220), width=3)
-            d.line([(gx1, y_), (gx1, min(y_ + dash, gy1))], fill=(210, 213, 220), width=3)
-            y_ += dash * 2
-        center((gy0 + gy1) / 2 - 14, "여기에 링크 스티커", font(26), LGRAY)
-        center(H - 150, "쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다", font(26), LGRAY)
-    else:
-        center(H - 260, "구매 링크는 프로필에서", font(46), GOLD)
-        center(H - 150, "쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다", font(26), LGRAY)
+    # v3.2 (2026-08-16 디렉터: "링크는 위 스티커를 탭 이거 안 나오게 해줘") —
+    # 문구는 전부 뺀다. 상품명도 탭 유도도 링크 스티커가 담당하고,
+    # 이미지는 커버 프레임 + 스티커 자리 점선 가이드만 남긴다.
+    # 스티커 위치 점선 가이드 (IG 기본 스티커보다 약간 작게 — 스티커가 덮으면 최종 화면엔 안 보임)
+    gx0, gy0, gx1, gy1 = (W - 460) / 2, 415, (W + 460) / 2, 525
+    dash = 18
+    x_ = gx0
+    while x_ < gx1:
+        d.line([(x_, gy0), (min(x_ + dash, gx1), gy0)], fill=(210, 213, 220), width=3)
+        d.line([(x_, gy1), (min(x_ + dash, gx1), gy1)], fill=(210, 213, 220), width=3)
+        x_ += dash * 2
+    y_ = gy0
+    while y_ < gy1:
+        d.line([(gx0, y_), (gx0, min(y_ + dash, gy1))], fill=(210, 213, 220), width=3)
+        d.line([(gx1, y_), (gx1, min(y_ + dash, gy1))], fill=(210, 213, 220), width=3)
+        y_ += dash * 2
+    center((gy0 + gy1) / 2 - 14, "여기에 링크 스티커", font(26), LGRAY)
+    center(H - 150, "쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다", font(26), LGRAY)
     im.save(out_path, quality=93)
     return out_path
 
@@ -509,7 +507,7 @@ def handle_link_to(name, url, m):
     #    스티커 킷(이미지+링크)을 만들어 보내면 디렉터가 스토리+링크 스티커로 게시한다 (클릭 1번 경로 유일 기본)
     try:
         img = os.path.join(ROOT, "out", "story_sticker_ready.jpg")
-        make_story_image(m, name, img, sticker_mode=True)
+        make_story_image(m, name, img)
         tg_send_photo(img, "📸 %s — ①저장 ②스토리 올리기 ③점선 자리에 링크 스티커(다음 메시지) — 스티커 문구는 '링크' 대신 상품명으로 ④게시. 11시대에 올리면 접속 피크를 통째로 탑니다" % name)
         tg_send(url)
         state({"pending_story": {"name": name, "kit_ts": time.time(), "story_id": None, "posted_ts": None}})
@@ -532,7 +530,7 @@ def send_sticker_kit():
         return
     try:
         img = os.path.join(ROOT, "out", "story_sticker_ready.jpg")
-        make_story_image(m, p["name"], img, sticker_mode=True)
+        make_story_image(m, p["name"], img)
         tg_send_photo(img, "📸 스티커용 이미지 — ①저장 ②스토리 올리기 ③링크 스티커 ④게시")
         tg_send("스티커용 링크 (복사):\n%s" % p["url"])
     except Exception as e:
@@ -553,7 +551,8 @@ def hub_stats():
             break
         except Exception as e:
             err = e
-            time.sleep(4)
+            if attempt < 2:
+                time.sleep(4)   # 마지막 실패 후엔 즉시 통보 (2026-08-23 감사)
     if d is None:
         tg_send("⚠️ 집계 서버 연결이 아직 고르지 않습니다(새 주소 전파 중 — 최대 30분). 잠시 후 '허브'를 다시 보내주세요. (%s)" % str(err)[:60])
         return
@@ -700,11 +699,8 @@ def main(once=False):
                     print("[affiliate_bot] 명령 처리 실패:", str(e)[:200], flush=True)
                     tg_send("⚠️ 처리 실패(%s) — 같은 메시지를 다시 보내주세요" % str(e)[:80])
             track_story()   # 스토리 게시 감지·+20h 도달 수집 (A2 계측)
-            try:
-                from affiliate_gap import check_and_alert
-                check_and_alert(tg_send)     # 제휴 공백 24h 경보 (2026-08-16)
-            except Exception:
-                pass
+            # (affiliate_gap 공백 경보는 2026-08-16 모듈 archive 이동으로 소멸 — 죽은 import가
+            #  매 틱 침묵 실패하던 것 제거. 부활시키려면 archive/affiliate_gap.py 복원. 2026-08-23 감사)
         except Exception as e:
             print("[affiliate_bot] 오류:", str(e)[:200], flush=True)
             if once:
@@ -715,7 +711,6 @@ def main(once=False):
 
 
 if __name__ == "__main__":
-    import sys
     # 기본값 = --once (2026-08-21 실사고: 세션이 인자 없이 실행 → 상주 루프가 남아
     # 구버전 코드로 링크를 처리. 상주 금지 규약(SD-007)상 루프는 --daemon 명시할 때만.)
     main(once="--daemon" not in sys.argv)

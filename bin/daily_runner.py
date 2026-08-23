@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-# launchd가 매일 6회(영상 07/11/15시 · 카드 09/13/17시, KST — 편성 v7) 실행 — 헤드리스 스튜디오 세션 기동.
+# launchd가 슬롯마다 실행(편성 v11.1 — 영상 07/12/18시 · 카드 09~17시 매시, KST) — 헤드리스 스튜디오 세션 기동.
 # 락으로 중복 방지(모드별 분리), 영상 100분·카드 45분 타임아웃, 로그 저장, 실패·무산출 시 텔레그램 통보.
-import os, shutil, subprocess, sys, time
+import os, subprocess, sys, time
 from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-# 2026-08-06 편성 v2: 카드(09/13/15 — 팔로워 활동 피크대) + 영상(11/17/19).
 # 모드는 plist가 넘기는 --mode 인자가 정본 (2026-08-05 점검: 절전 벌충 지연 기동 시
 # 시각 판정은 카드↔영상이 뒤바뀜) — 인자 부재 시에만 시각 폴백.
 # 카드 세션은 짧게(45분) 잘라 다음 슬롯과 겹치지 않게 하고, 락도 분리한다.
@@ -26,26 +25,6 @@ RETRY_MARKERS = ("529", "overloaded", "rate_limit", "429", "Connection error",
 RETRY_DELAYS = (180, 420)     # 3분 → 7분 (최대 2회 재시도)
 SAFE_RETRY_MAX_LEN = 800      # 이보다 로그가 길면 세션이 실제 작업을 했을 수 있으므로 재시도 금지(중복 게시 방지)
 
-
-def find_claude():
-    c = shutil.which("claude")
-    if c:
-        return c
-    home = Path.home()
-    for p in ["/opt/homebrew/bin/claude", "/usr/local/bin/claude",
-              str(home / ".local/bin/claude"), str(home / ".claude/local/claude"),
-              str(home / ".npm-global/bin/claude"), str(home / "bin/claude")]:
-        if Path(p).exists():
-            return p
-    try:
-        out = subprocess.run(["/bin/zsh", "-l", "-c", "which claude"],
-                             capture_output=True, text=True, timeout=20)
-        cand = out.stdout.strip().splitlines()
-        if out.returncode == 0 and cand:
-            return cand[-1].strip()
-    except Exception:
-        pass
-    return None
 
 def tg(msg):
     # 2026-08-02 리뷰(OPS-1): 경보 발송 실패를 침묵시키지 않는다 — watchdog.py와 동일하게 로컬 파일에 기록.

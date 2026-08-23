@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.shorts-studio.dm</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>/Users/kimminsoo/Dev/shorts-studio/bin/dm_tick.sh</string>
+	</array>
+	<key>StandardErrorPath</key>
+	<string>/Users/kimminsoo/Dev/shorts-studio/logs/comment_dm.log</string>
+	<key>StandardOutPath</key>
+	<string>/Users/kimminsoo/Dev/shorts-studio/logs/comment_dm.log</string>
+	<key>StartInterval</key>
+	<integer>600</integer>
+	<key>WorkingDirectory</key>
+	<string>/Users/kimminsoo/Dev/shorts-studio</string>
+</dict>
+</plist>

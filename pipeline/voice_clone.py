@@ -7,7 +7,6 @@
 #   3) 시청 테스트: .venv/bin/python3 pipeline/voice_clone.py test "안녕하세요, 1일 1지식입니다."
 #      → out/voice_test.mp3 생성 (들어보고 승인/재녹음 판단)
 # 본편 연동(make_long) 은 테스트 승인 후 별도 커밋으로.
-import json
 import re
 import os
 import sys
@@ -54,11 +53,15 @@ def create(samples):
         if not os.path.exists(s):
             sys.exit("샘플 파일 없음: %s" % s)
     files = [("files", (os.path.basename(s), open(s, "rb"), "audio/mpeg")) for s in samples]
-    r = requests.post(API + "/voices/add",
-                      headers={"xi-api-key": api_key()},
-                      data={"name": "director-ko",
-                            "description": "1일 1지식 디렉터 본인 목소리 (본인 동의, 롱폼 내레이션용)"},
-                      files=files, timeout=120)
+    try:
+        r = requests.post(API + "/voices/add",
+                          headers={"xi-api-key": api_key()},
+                          data={"name": "director-ko",
+                                "description": "1일 1지식 디렉터 본인 목소리 (본인 동의, 롱폼 내레이션용)"},
+                          files=files, timeout=120)
+    finally:
+        for _, (_, fh, _) in files:   # 파일핸들 누수 방지 (2026-08-23 감사)
+            fh.close()
     if r.status_code != 200:
         sys.exit("클론 생성 실패 (%d): %s" % (r.status_code, r.text[:500]))
     vid = r.json()["voice_id"]
@@ -261,7 +264,7 @@ def tts(text, out_path, with_timestamps=False):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2 or sys.argv[1] not in ("create", "test"):
-        sys.exit(__doc__ or "사용: voice_clone.py create <샘플...> | test \"문장\"")
+        sys.exit("사용: voice_clone.py create <샘플...> | test \"문장\"")
     if sys.argv[1] == "create":
         if len(sys.argv) < 3:
             sys.exit("사용: voice_clone.py create assets/voice/sample1.m4a [...]")

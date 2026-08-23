@@ -56,7 +56,6 @@ def base(page, total, img=None):
             mp.append(a)
         mask.putdata(mp)
         im.paste(ov, (0, 0), mask.resize((W, H)))
-        d = ImageDraw.Draw(im)
     else:
         im = Image.new("RGB", (W, H), NAVY)
         d = ImageDraw.Draw(im)

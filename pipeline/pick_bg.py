@@ -39,20 +39,10 @@ def main():
     shutil.rmtree(OUT, ignore_errors=True)
     os.makedirs(OUT, exist_ok=True)
     # 이미 다른 편에서 쓴 배경 표시 (2026-08-04 실사고: 배경 재탕 — 렌더러가 기계 기각하므로 여기서 미리 보여줌)
-    import re as _re, glob as _glob
-    def _norm(p):
-        return _re.sub(r"\d+$", "", os.path.splitext(os.path.basename(p))[0])
-    me = _norm(sys.argv[1])
-    used = set()
-    for p in _glob.glob(os.path.join(ROOT, "content", "2026-*.json")):
-        if p.endswith(".meta.json") or _norm(p) == me:
-            continue
-        try:
-            s = json.load(open(p, encoding="utf-8"))
-        except Exception:
-            continue
-        ids = s.get("bg_ids") or ([s["bg_id"]] if s.get("bg_id") else [])
-        used.update(str(v) for v in ids)   # 영상 "123" / 사진 "photo:123" — int() 쓰면 사진 id에서 죽는다
+    # 2026-08-23 감사: 자체 사본이 드리프트해 scenes[].bg 수집이 누락됐었다 — 렌더러의 정본 함수를 공유한다.
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from make_short import used_bg_ids
+    used = used_bg_ids(exclude_script=sys.argv[1])
     seen, rows = set(), []
     for qi, q in enumerate(queries):
         try:

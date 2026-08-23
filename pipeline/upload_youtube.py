@@ -28,6 +28,12 @@ def full_description(meta):
     lines = [l for l in meta["description"].splitlines() if "Pexels" not in l and "pexels" not in l]
     return "\n".join(lines).strip()
 
+def body_without_tags(meta):
+    """설명 본문에서 해시태그 줄 제거 — 태그는 제목 줄이 담당 (2026-08-16 포맷 개정.
+    2026-08-23 감사: phase0·api_public 중복 구현을 헬퍼로 통일 — 포맷 변경 시 한 곳만 고친다)."""
+    return "\n".join(l for l in full_description(meta).splitlines()
+                     if not l.strip().startswith("#"))
+
 def check_meta(meta):
     """설명 규격 검증 (2026-08-01 실사고: 99자·해시태그 0개로 발송돼 '너무 빈약하다' 지적)."""
     desc = meta.get("description", "")
@@ -116,8 +122,7 @@ def phase0(video, meta):
     _tags = " ".join("#" + t.lstrip("#") for t in topic_tags(meta))
     # 본문 맨 아래 해시태그 줄은 지운다 — 제목 줄로 이미 올렸으니 중복이다
     # (2026-08-16 디렉터: "제목에 태그 이미 있으니까 마지막에 태그는 안 써도 된다고요")
-    _body = "\n".join(l for l in full_description(meta).splitlines()
-                      if not l.strip().startswith("#")).rstrip()
+    _body = body_without_tags(meta).rstrip()
     msg = "%s %s\n\n%s" % (clean_title(meta), _tags, _body)
     subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), msg], check=True, timeout=90)
     # IG 캡션 별도 메시지는 폐지 (2026-08-05 디렉터: 실패 시에도 경고 한 줄이면 충분 —
@@ -155,20 +160,24 @@ def hook_full_ms(video, scan_s=5.0, fps=5):
     import subprocess, tempfile, os as _os
     from PIL import Image
     tmp = tempfile.mkdtemp(prefix="hookscan_")
-    subprocess.run(["ffmpeg", "-y", "-t", "%.2f" % scan_s, "-i", video,
-                    "-vf", "fps=%d,scale=270:480" % fps, "-loglevel", "error",
-                    _os.path.join(tmp, "f%03d.jpg")], check=True)
-    best_ms, best_ink = None, -1
-    for fn in sorted(_os.listdir(tmp)):
-        if not fn.startswith("f"):
-            continue
-        n = int(fn[1:4])
-        g = Image.open(_os.path.join(tmp, fn)).convert("L")
-        band = g.crop((0, int(480 * 0.35), 270, int(480 * 0.72)))
-        ink = sum(1 for v in band.getdata() if v >= 225)
-        if ink > best_ink:
-            best_ms, best_ink = int((n - 1) * 1000 / fps), ink
-    return best_ms if best_ms is not None else 1000
+    try:
+        subprocess.run(["ffmpeg", "-y", "-t", "%.2f" % scan_s, "-i", video,
+                        "-vf", "fps=%d,scale=270:480" % fps, "-loglevel", "error",
+                        _os.path.join(tmp, "f%03d.jpg")], check=True)
+        best_ms, best_ink = None, -1
+        for fn in sorted(_os.listdir(tmp)):
+            if not fn.startswith("f"):
+                continue
+            n = int(fn[1:4])
+            g = Image.open(_os.path.join(tmp, fn)).convert("L")
+            band = g.crop((0, int(480 * 0.35), 270, int(480 * 0.72)))
+            ink = sum(1 for v in band.getdata() if v >= 225)
+            if ink > best_ink:
+                best_ms, best_ink = int((n - 1) * 1000 / fps), ink
+        return best_ms if best_ms is not None else 1000
+    finally:
+        import shutil as _sh
+        _sh.rmtree(tmp, ignore_errors=True)   # 2026-08-23 감사: hookscan_* 고아 디렉터리 9개 잔존 실측
 
 
 def set_thumbnail(yt, vid, video, meta):
@@ -178,12 +187,17 @@ def set_thumbnail(yt, vid, video, meta):
     실패해도 게시는 유지한다(커스텀 미리보기는 채널 인증이 필요할 수 있다)."""
     import subprocess, tempfile, os as _os
     ms = int(meta["ig_thumb_ms"]) if meta.get("ig_thumb_ms") else hook_full_ms(video)
-    tmp = _os.path.join(tempfile.mkdtemp(prefix="ytthumb_"), "thumb.jpg")
-    subprocess.run(["ffmpeg", "-y", "-ss", "%.2f" % (ms / 1000.0), "-i", video,
-                    "-frames:v", "1", "-q:v", "2", "-loglevel", "error", tmp], check=True)
-    from googleapiclient.http import MediaFileUpload
-    yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(tmp, mimetype="image/jpeg")).execute()
-    print("미리보기 설정 완료 (%dms 지점)" % ms, flush=True)
+    tmp_dir = tempfile.mkdtemp(prefix="ytthumb_")
+    try:
+        tmp = _os.path.join(tmp_dir, "thumb.jpg")
+        subprocess.run(["ffmpeg", "-y", "-ss", "%.2f" % (ms / 1000.0), "-i", video,
+                        "-frames:v", "1", "-q:v", "2", "-loglevel", "error", tmp], check=True)
+        from googleapiclient.http import MediaFileUpload
+        yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(tmp, mimetype="image/jpeg")).execute()
+        print("미리보기 설정 완료 (%dms 지점)" % ms, flush=True)
+    finally:
+        import shutil as _sh
+        _sh.rmtree(tmp_dir, ignore_errors=True)   # 2026-08-23 감사: ytthumb_* 고아 디렉터리 26개 잔존 실측
 
 
 def api_public(video, meta):
@@ -203,10 +217,7 @@ def api_public(video, meta):
             # 2026-08-17 디렉터: "캡션과 제목을 분리한다" —
             #   제목 줄(+해시태그)은 title 필드가 이미 담당하므로 설명에 반복하지 않는다.
             #   설명에는 본문만 넣고, 본문 하단의 해시태그 줄도 제거한다(제목에 이미 있다).
-            "description": "\n".join(
-                l for l in full_description(meta).splitlines()
-                if not l.strip().startswith("#")
-            ).strip()[:4900],
+            "description": body_without_tags(meta).strip()[:4900],
             "tags": _fit_tags(topic_tags(meta, 5)),
             "categoryId": "27",  # 교육
             "defaultLanguage": "ko",

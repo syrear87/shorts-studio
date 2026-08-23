@@ -53,11 +53,11 @@ def run_once(verbose=True):
     replied = set(st.get("replied", []))
     sent = 0
     # 1차 소스: 웹훅 이벤트 (2026-08-21 — 개발 모드에서 REST 댓글 읽기가 차단돼 워커 푸시로 우회)
+    import urllib.request   # 이벤트 조회·설정 동기화 공용 (2026-08-23 감사: 중복 import·키 계산 통합)
+    cnt = (kv.get("HUB_COUNTER_URL") or "").rstrip("/")
+    key = kv.get("HUB_STATS_KEY") or ""
     events = []
     try:
-        import urllib.request
-        cnt = (kv.get("HUB_COUNTER_URL") or "").rstrip("/")
-        key = kv.get("HUB_STATS_KEY") or ""
         if cnt and key:
             req = urllib.request.Request("%s/events?k=%s" % (cnt, key),
                                          headers={"User-Agent": "Mozilla/5.0 (studio-bot)"})
@@ -75,12 +75,9 @@ def run_once(verbose=True):
 
     # 설정 동기화 — 워커 실시간 응답용 (토큰 갱신·규칙 변경 반영)
     try:
-        import urllib.request
-        cnt2 = (kv.get("HUB_COUNTER_URL") or "").rstrip("/")
-        key2 = kv.get("HUB_STATS_KEY") or ""
-        if cnt2 and key2:
+        if cnt and key:
             cfg = json.dumps({"token": tok, "rules": rules}).encode()
-            rq = urllib.request.Request("%s/dm_config?k=%s" % (cnt2, key2), data=cfg,
+            rq = urllib.request.Request("%s/dm_config?k=%s" % (cnt, key), data=cfg,
                                         headers={"User-Agent": "Mozilla/5.0 (studio-bot)",
                                                  "Content-Type": "application/json"}, method="POST")
             urllib.request.urlopen(rq, timeout=20).read()
@@ -219,14 +216,8 @@ def run_once(verbose=True):
                     except Exception as e:
                         # 권한 부족(instagram_business_manage_messages 미승인)이면 여기서 드러난다
                         print("[comment_dm] DM 실패 @%s: %s" % (c.get("username"), str(e)[:200]))
-                        try:
-                            import subprocess
-                            subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
-                                            "⚠️ 댓글DM 발송 실패 — @%s의 '%s' 댓글. 원인: %s" % (
-                                                c.get("username"), r["keyword"], str(e)[:150])],
-                                           check=False, timeout=30)
-                        except Exception:
-                            pass
+                        _alert("⚠️ 댓글DM 발송 실패 — @%s의 '%s' 댓글. 원인: %s" % (
+                            c.get("username"), r["keyword"], str(e)[:150]))
                         replied.add(cid)   # 같은 댓글로 무한 재시도 방지 (수동 확인 후 상태 파일에서 제거)
                     break
     st["replied"] = list(replied)[-2000:]

@@ -20,9 +20,7 @@ content/PERFORMANCE.md 갱신 근거로 쓴다.
    - YPP 유효 조회수는 engagedViews 기준이다. '실시간' 열은 배치 갱신
      캐시라(한 번에 +324 점프 실측) 분당 속도 비교·YPP 진척 계산에 쓰지 마라.
 """
-import datetime, json, os, sys
-
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+import datetime, os, sys
 
 from googleapiclient.discovery import build
 from google_creds import load_creds  # 2026-08-02 리뷰 [A13]: 토큰 취급 공용 헬퍼로 통일

@@ -40,7 +40,8 @@ def _get(url, timeout=60):
 def search(query, n=8):
     """NASA 영상 검색 → [{nasa_id, title, date, thumb, desc}]"""
     q = urllib.parse.urlencode({"q": query, "media_type": "video", "page_size": n * 2})
-    d = json.load(_get("%s/search?%s" % (API, q)))
+    with _get("%s/search?%s" % (API, q)) as _r:
+        d = json.load(_r)
     out = []
     for it in d.get("collection", {}).get("items", []):
         dat = it["data"][0]
@@ -58,7 +59,8 @@ def search(query, n=8):
 
 def asset_mp4(nasa_id, prefer=("~medium", "~mobile", "~large")):
     """nasa_id → 적당한 해상도의 mp4 URL (orig은 수백 MB라 피한다)"""
-    a = json.load(_get("%s/asset/%s" % (API, urllib.parse.quote(nasa_id))))
+    with _get("%s/asset/%s" % (API, urllib.parse.quote(nasa_id))) as _r:
+        a = json.load(_r)
     hrefs = [x["href"] for x in a["collection"]["items"] if x["href"].lower().endswith(".mp4")]
     for tag in prefer:
         for h in hrefs:
