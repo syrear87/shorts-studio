@@ -1,0 +1,24 @@
+{
+  "topic": "Roborock S10 MaxV Slim — 높이 7.95cm인데 문턱 8.8cm를 넘는다 [구매가능]",
+  "caption": "로봇청소기 국내 1위 로보락의 2026 플래그십.\n\n높이 7.95cm — 침대 밑, 소파 아래 들어간다.\n그런데 문턱은 8.8cm까지 넘는다.\n본체보다 높은 문턱을 어떻게?\n바퀴가 올라간다. AdaptLift Chassis 3.0.\n\n흡입력 36,000Pa.\n로봇팔이 벽 틈까지 닦고,\n돌아가면 100도 열수로 걸레를 빤다.\n\n장애물 300종 이상 인식, IoT 보안 최고 등급.\n\n출처: 아시아경제 (4/20 보도), 서울경제 (5/10 체험 리뷰) 교차 확인\n\n#로보락 #로봇청소기 #S10MaxVSlim #스마트홈 #가전",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "높이 7.95cm인데 문턱 8.8cm를 넘는다",
+      "title_hl": ["8.8cm"],
+      "body": "로보락 S10 MaxV Slim. 바퀴가 올라가는 AdaptLift Chassis 3.0",
+      "body_hl": ["바퀴가 올라가는"],
+      "img": "assets/cards/roborock_s10_slim_1.jpg",
+      "credit": "이미지: 로보락 공식 보도자료 (아시아경제)"
+    },
+    {
+      "kind": "end",
+      "title": "로봇팔로 구석까지, 100도 열수 세척",
+      "title_hl": ["100도"],
+      "body": "36,000Pa 흡입력에 장애물 300종 인식. 충전독이 걸레를 끓여 빤다",
+      "body_hl": ["36,000Pa", "끓여 빤다"],
+      "img": "assets/cards/roborock_s10_slim_2.jpg",
+      "credit": "이미지: 로보락 공식 보도자료 (보드나라)"
+    }
+  ]
+}

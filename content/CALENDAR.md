@@ -590,3 +590,8 @@
 - IG: https://www.instagram.com/p/DcXfQvLmcRW/
 - 스레드: https://www.threads.com/@syusyu_channel/post/DcXfTQXGZfT
 - 중복 검사: 최근 7일 제품 확인 완료
+
+### 2026-08-23 (토) 카드 — Roborock S10 MaxV Slim (7.95cm 초슬림, 문턱 8.8cm 통과, 36,000Pa) [구매가능]
+- IG: https://www.instagram.com/p/DcXmj7nGVwH/
+- 스레드: https://www.threads.com/@syusyu_channel/post/DcXmnt0GVFm
+- 중복 검사: 최근 7일 제품 확인 완료
