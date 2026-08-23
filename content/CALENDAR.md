@@ -585,3 +585,8 @@
 - IG: https://www.instagram.com/p/DcXYSR8mdN2/
 - 스레드: https://www.threads.com/@syusyu_channel/post/DcXYWKSGSAD
 - 중복 검사: 최근 7일 제품 확인 완료
+
+### 2026-08-23 (토) 카드 — Beats 360 헤드폰 유출 (에어팟 맥스 닮은꼴 $299, ANC 1.75배, IPX4) [루머]
+- IG: https://www.instagram.com/p/DcXfQvLmcRW/
+- 스레드: https://www.threads.com/@syusyu_channel/post/DcXfTQXGZfT
+- 중복 검사: 최근 7일 제품 확인 완료

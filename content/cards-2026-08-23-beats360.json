@@ -1,0 +1,24 @@
+{
+  "topic": "Beats 360 — 에어팟 맥스 닮은꼴이 반값에 온다는 소문 [루머]",
+  "caption": "Beats 헤드폰 신작이 유출됐다.\n이름은 Beats 360.\n\n메시 헤드밴드에 교체형 이어쿠션.\n에어팟 맥스를 떠올리게 하는 디자인인데,\n예상 가격은 $299 — 에어팟 맥스의 절반이다.\n\nANC는 Beats Studio Pro보다 1.75배 강력하고,\nIPX4 방수까지 달렸다.\n이어쿠션은 메시와 울트라플러시 두 종류,\n원하면 바꿔 끼울 수 있다.\n\n아직 공식 발표 전이다.\n아마존 UK 리스팅에서 먼저 새어 나왔다.\n\n출처: MacRumors (8/20), AppleInsider (8/19), SoundGuys, ecoustics 교차 확인\n\n#Beats360 #비츠헤드폰 #에어팟맥스 #ANC헤드폰 #테크유출",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "에어팟 맥스 닮은꼴, 반값이라는 소문",
+      "title_hl": ["반값"],
+      "body": "Beats 360. 메시 헤드밴드, 교체형 쿠션, 예상가 $299",
+      "body_hl": ["$299"],
+      "img": "assets/cards/beats360_1.jpg",
+      "credit": "이미지: MacRumors (유출 렌더)"
+    },
+    {
+      "kind": "end",
+      "title": "ANC 1.75배, 방수까지",
+      "title_hl": ["1.75배"],
+      "body": "Studio Pro보다 강한 노캔. IPX4 방수는 에어팟 맥스에도 없다",
+      "body_hl": ["IPX4 방수"],
+      "img": "assets/cards/beats360_2.jpg",
+      "credit": "이미지: AppleInsider (유출 렌더)"
+    }
+  ]
+}
