@@ -1,0 +1,24 @@
+{
+  "topic": "Dyson HushJet Mini Cool — 다이슨 역대 가장 싼 제품이 15만원짜리 손선풍기다 [구매가능]",
+  "caption": "다이슨 역대 가장 저렴한 제품.\nHushJet Mini Cool, 149,000원.\n\n날개 없는 선풍기로 유명한 다이슨이\n들고 다니는 선풍기를 만들었다.\n\n212g. 38mm 두께.\n65,000RPM 브러시리스 모터가\n초속 25m 바람을 만든다.\n\n손에 쥐고, 목에 걸고, 책상에 세운다.\n한 대가 세 가지로 쓰인다.\n\nUSB-C 충전, 최대 6시간.\n처서가 지났지만 더위는 아직이다.\n\n출처: Dyson 공식 홈페이지 (dyson.co.kr), 뉴시스 (5/13 국내 출시 보도), Tom's Guide 리뷰 교차 확인\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 🔔\n\n#다이슨 #HushJetMiniCool #휴대용선풍기 #다이슨선풍기 #가젯",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "다이슨이 역대 가장 싼 제품을 냈다",
+      "title_hl": ["역대 가장 싼"],
+      "body": "HushJet Mini Cool. 15만원짜리 손선풍기. 212g, 날개 없음",
+      "body_hl": ["15만원", "날개 없음"],
+      "img": "assets/cards/dyson_hushjet_1.jpg",
+      "credit": "이미지: Dyson 공식 (dyson.co.kr)"
+    },
+    {
+      "kind": "end",
+      "title": "손에 쥐고, 목에 걸고, 책상에 세운다",
+      "title_hl": ["목에 걸고"],
+      "body": "65,000RPM 모터로 초속 25m. USB-C 충전, 최대 6시간. 공식가 149,000원",
+      "body_hl": ["초속 25m", "149,000원"],
+      "img": "assets/cards/dyson_hushjet_2.jpg",
+      "credit": "이미지: Dyson 공식 (dyson.co.kr)"
+    }
+  ]
+}

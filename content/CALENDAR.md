@@ -600,3 +600,8 @@
 - IG: https://www.instagram.com/p/DcXs28AmTdw/
 - 스레드: https://www.threads.com/@syusyu_channel/post/DcXs5e4mfT4
 - 중복 검사: 최근 7일 제품 확인 완료 (에어팟 카메라 유출 8/20은 다른 제품)
+
+### 2026-08-23 (토) 카드 — Dyson HushJet Mini Cool (다이슨 첫 휴대용 선풍기, 공식가 149,000원) [구매가능]
+- IG: https://www.instagram.com/p/DcXzhlpGWDc/
+- 스레드: https://www.threads.com/@syusyu_channel/post/DcXzlW-GQqy
+- 중복 검사: 최근 7일 제품 확인 완료
