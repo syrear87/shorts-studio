@@ -109,9 +109,14 @@ def match_media(product_name, limit=6):
     toks += [_ALIAS[t.lower()] for t in toks if t.lower() in _ALIAS]   # 영문 상품명 ↔ 한글 캡션 다리
     grams = set()
     for t in toks:
+        # 2026-08-23: 영문 토큰은 조각 매칭 제외 — "nt"·"ch" 같은 영문 2글자가 무관한
+        # 캡션의 영문 단어와 우연히 겹쳐 소음 점수를 쌓았다(스위치2→레이저 오매칭의 절반).
+        # 영문은 토큰 전체 일치나 별칭(_ALIAS)으로만 잡는다.
+        if not re.search(r"[가-힣]", t):
+            continue
         for i in range(len(t) - 1):
             g = t[i:i + 2]
-            if not re.search(r"[가-힣A-Za-z]", g) or re.search(r"[0-9]", g):
+            if re.search(r"[0-9]", g):
                 continue                                   # 숫자 섞인 조각 제외
             grams.add(g)
     best, best_hit = None, 0
