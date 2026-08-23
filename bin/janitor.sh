@@ -16,10 +16,18 @@ MARK="$ROOT/logs/.janitor_date"
 TODAY=$(date +%Y-%m-%d)
 
 [ "$(cat "$MARK" 2>/dev/null)" = "$TODAY" ] && exit 0          # 오늘 이미 돌았다
-# 렌더 중이면 마커 없이 종료(다음 틱 재시도). 신선한 락(110분 미만 = daily_runner의 STALE 규칙과 동일)만
-# 인정 — 강제 종료로 남은 스테일 락이 janitor를 무기한 막지 않게 (2026-08-23 2차 리뷰).
-# ⚠️ 락 파일명은 bin/daily_runner.py LOCK 정의와 결합돼 있다 — 이름 바꾸면 여기도 고쳐라.
-[ -n "$(find "$ROOT/logs" -maxdepth 1 -name .daily.lock -mmin -110 2>/dev/null)" ] && exit 0
+# 렌더 중이면 마커 없이 종료(다음 틱 재시도). 판정은 락 속 PID의 생존(kill -0) — mtime 신선도는
+# 맥 절전·3차 재시도(락 무갱신 ~107분)에서 살아있는 렌더를 오판했다 (2026-08-23 3차 리뷰).
+# 죽은 PID의 락(강제 종료 잔재)은 무시하고 정상 진행한다.
+# ⚠️ 락 파일명·내용(PID)은 bin/daily_runner.py LOCK 정의와 결합 — 바꾸면 여기도 고쳐라.
+LOCKF="$ROOT/logs/.daily.lock"
+if [ -f "$LOCKF" ]; then
+  lpid=$(cat "$LOCKF" 2>/dev/null)
+  case "$lpid" in
+    ''|*[!0-9]*) : ;;                                   # PID 아님 — 잔재로 간주
+    *) kill -0 "$lpid" 2>/dev/null && exit 0 ;;         # 렌더 살아 있음
+  esac
+fi
 
 # bg_cache 상한 초과분 삭제 — stat 일괄 스냅샷(공백 파일명 안전·디렉터리 제외), mtime 오래된 것부터
 if [ -d "$CACHE" ]; then
@@ -30,6 +38,7 @@ if [ -d "$CACHE" ]; then
     freed=0
     while IFS=' ' read -r _mt sz path; do
       [ "$freed" -ge "$excess_kb" ] && break
+      case "$sz" in ''|*[!0-9]*) continue ;; esac   # stat 부분 실패·개행 파일명 행 방어 (3차 리뷰)
       rm -f "$path" && freed=$((freed + (sz + 1023) / 1024))
     done < <(find "$CACHE" -mindepth 1 -maxdepth 1 -type f -exec stat -f '%m %z %N' {} + 2>/dev/null | sort -n)
     # freed는 논리 크기 합산이라 근사치다 — 실측 재확인으로 회계 드리프트를 드러내고,
@@ -37,7 +46,8 @@ if [ -d "$CACHE" ]; then
     after_kb=$(du -sk "$CACHE" | cut -f1)
     echo "[janitor] $(date '+%F %T') bg_cache ${total_kb}KB → ${after_kb}KB (상한 ${cap_kb}KB, 근사 ${freed}KB 정리)"
     if [ "$after_kb" -gt $((cap_kb * 11 / 10)) ]; then
-      bash "$ROOT/bin/tg-send.sh" "⚠️ janitor: bg_cache 정리 후에도 ${after_kb}KB로 상한(${cap_kb}KB) 초과 — logs/janitor.log 확인" || true
+      bash "$ROOT/bin/tg-send.sh" "⚠️ janitor: bg_cache 정리 후에도 ${after_kb}KB로 상한(${cap_kb}KB) 초과 — logs/janitor.log 확인" \
+        || echo "[janitor] $(date '+%F %T') 텔레그램 경보 발송 실패" >> "$ROOT/logs/alert-fail.log"   # 경보 채널 사망도 기록 (관례: daily_runner tg)
     fi
   fi
 fi

@@ -14,7 +14,7 @@ if "--mode" in sys.argv:
 else:
     CARD_MODE = False   # 편성 v8 (2026-08-14): 카드 폐지 — 전 슬롯 영상. --mode card는 수동 호출용으로만 남긴다
 PROMPT_FILE = "CARD_PROMPT.md" if CARD_MODE else "DAILY_PROMPT.md"
-LOCK = ROOT / "logs" / (".card.lock" if CARD_MODE else ".daily.lock")
+LOCK = ROOT / "logs" / (".card.lock" if CARD_MODE else ".daily.lock")   # ⚠️ .daily.lock의 파일명·내용(PID)은 bin/janitor.sh 렌더 감지와 결합 (2026-08-23)
 LOG = ROOT / "logs" / ("daily-%s.log" % datetime.now().strftime("%Y%m%d-%H%M"))
 TIMEOUT = (45 if CARD_MODE else 100) * 60
 STALE = TIMEOUT + 10 * 60   # 2026-08-02 리뷰(OPS-7): 타임아웃과의 결합(실여유 10분)을 파생 정의로 명시
@@ -50,8 +50,12 @@ DEAD_AUTH, DEAD_SHORT, DEAD_NO_SENTINEL = "auth", "short", "no_sentinel"
 
 def log_looks_dead(text):
     """세션 사망 의심 판정. 반환: (판정코드, 사람용 사유) 또는 None(정상)."""
-    # claude -p는 인증 만료(401)로 죽어도 종료코드 0 — 2026-07-29 11:00 슬롯이 경보 없이 증발한 원인.
     t = text.strip()
+    # 완주 센티널을 최우선 인정 (2026-08-23 3차 리뷰: 토큰 갱신 작업을 '언급'만 한 완주 세션이
+    # 인증 마커 선행 검사에 오탐되던 순서 교정 — 진짜 인증 사망 세션은 SLOT-DONE을 찍지 못한다)
+    if "SLOT-DONE" in t:
+        return None
+    # claude -p는 인증 만료(401)로 죽어도 종료코드 0 — 2026-07-29 11:00 슬롯이 경보 없이 증발한 원인.
     for marker in ("failed to authenticate", "authentication_error", "oauth access token"):
         if marker in t.lower():   # 2026-08-02 리뷰: 재시도 판정과 동일하게 소문자 비교로 통일
             return (DEAD_AUTH, "인증 오류 감지")
@@ -60,8 +64,6 @@ def log_looks_dead(text):
     # 마감한 82자 응답(센티널 포함)을 길이 검사가 '즉사'로 오판해 허위 경보 발송.
     # ⚠️ SLOT-NOOP은 여기서 인정하지 않는다 (2026-08-23 2차 리뷰 회귀 정정): DAILY_PROMPT상
     # 정당한 NOOP도 마지막 줄 SLOT-DONE이 의무다 — NOOP만 찍고 마감 전에 죽은 반쪽 세션은 경보 대상.
-    if "SLOT-DONE" in t:
-        return None
     if len(t) < 200:
         return (DEAD_SHORT, "출력 %d자 + 센티널 부재 (세션 즉사 의심)" % len(t))
     return (DEAD_NO_SENTINEL, "마감 센티널(SLOT-DONE) 부재 (세션 미완주 의심)")
