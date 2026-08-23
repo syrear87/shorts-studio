@@ -17,7 +17,7 @@ PROMPT_FILE = "CARD_PROMPT.md" if CARD_MODE else "DAILY_PROMPT.md"
 LOCK = ROOT / "logs" / (".card.lock" if CARD_MODE else ".daily.lock")   # ⚠️ .daily.lock의 파일명·내용(PID)은 bin/janitor.sh 렌더 감지와 결합 (2026-08-23)
 LOG = ROOT / "logs" / ("daily-%s.log" % datetime.now().strftime("%Y%m%d-%H%M"))
 TIMEOUT = (45 if CARD_MODE else 100) * 60
-STALE = TIMEOUT + 10 * 60   # 2026-08-02 리뷰(OPS-7): 타임아웃과의 결합(실여유 10분)을 파생 정의로 명시
+# (STALE mtime 판정은 2026-08-23 4차 리뷰로 폐지 — 절전 시 살아있는 세션 오판. 락 판정은 PID 정체 검사로 통일)
 # 일시적 API 장애(529 과부하·429 한도·연결 오류)는 몇 분이면 풀린다 → 재시도로 슬롯을 구한다.
 # 2026-07-30 17:00 실사고: 529 Overloaded로 즉사, 재시도가 없어 슬롯 하나가 통째로 증발.
 RETRY_MARKERS = ("529", "overloaded", "rate_limit", "429", "Connection error",
@@ -51,9 +51,10 @@ DEAD_AUTH, DEAD_SHORT, DEAD_NO_SENTINEL = "auth", "short", "no_sentinel"
 def log_looks_dead(text):
     """세션 사망 의심 판정. 반환: (판정코드, 사람용 사유) 또는 None(정상)."""
     t = text.strip()
-    # 완주 센티널을 최우선 인정 (2026-08-23 3차 리뷰: 토큰 갱신 작업을 '언급'만 한 완주 세션이
-    # 인증 마커 선행 검사에 오탐되던 순서 교정 — 진짜 인증 사망 세션은 SLOT-DONE을 찍지 못한다)
-    if "SLOT-DONE" in t:
+    # 완주 센티널을 최우선 인정하되 **마지막 비어있지 않은 줄** 기준 (2026-08-23 4차 리뷰:
+    # substring 검사는 규칙을 '인용'만 하고 죽은 세션까지 생존 처리했다. 규약상 센티널은 마지막 줄이다)
+    _lines = [l for l in t.splitlines() if l.strip()]
+    if _lines and "SLOT-DONE" in _lines[-1]:
         return None
     # claude -p는 인증 만료(401)로 죽어도 종료코드 0 — 2026-07-29 11:00 슬롯이 경보 없이 증발한 원인.
     for marker in ("failed to authenticate", "authentication_error", "oauth access token"):
@@ -92,11 +93,21 @@ def main():
     os.chdir(str(ROOT))
     (ROOT / "logs").mkdir(exist_ok=True)
     if LOCK.exists():
-        age = time.time() - LOCK.stat().st_mtime
-        if age < STALE:
+        # 락 판정 = PID 정체 검사 (2026-08-23 4차 리뷰: mtime STALE은 절전 시 살아있는 세션을 잔재로,
+        # 크래시 직후 잔재를 실행 중으로 오판했다 — janitor.sh와 동일 방식으로 통일. PID 재사용은
+        # 커맨드에 daily_runner가 있는지로 배제)
+        alive = False
+        try:
+            lpid = int(LOCK.read_text().strip())
+            out = subprocess.run(["ps", "-p", str(lpid), "-o", "command="],
+                                 capture_output=True, text=True, timeout=10)
+            alive = "daily_runner" in (out.stdout or "")
+        except Exception:
+            alive = False
+        if alive:
             tg("⏳ 숏츠 데일리: 이전 세션이 아직 실행 중 — 오늘 기동 건너뜀")
             return
-        LOCK.unlink()
+        LOCK.unlink()   # 죽은 PID의 잔재 락
     # claude는 node 기반 → launchd의 빈 PATH에서 죽는다(2026-07-29 실사고: env: node not found).
     # 로그인 셸(zsh -l)을 통째로 경유해 사용자 PATH(node·claude 포함)를 복원한다.
     chk = subprocess.run(["/bin/zsh", "-l", "-c", "which claude"], capture_output=True, text=True, timeout=30)
@@ -175,6 +186,10 @@ def check_artifacts(start_ts):
         # 2026-08-14 감사: '기각'은 의도 마커가 아니다 — 렌더 기각 후 자가수정 실패로 무산출 종료해도
         # '의도된 미게시'로 오분류돼 슬롯 공실이 무경보로 지나갔다. 기각은 아래에서 별도 경보한다.
         if any(k in logtext for k in ("게시 중단", "게시 보류", "SLOT-NOOP", "이미 제작·발송 완료")):
+            # 2026-08-23 4차 리뷰: 인증이 실제로 깨져 'SLOT-NOOP 인증 오류'로 규정대로 마감한 세션은
+            # 여기서 조기 return되며 완전 무경보였다 — NOOP 사유에 인증 흔적이 있으면 경보는 남긴다.
+            if any(m in logtext.lower() for m in ("failed to authenticate", "authentication_error", "oauth access token")):
+                tg("⚠️ 숏츠 데일리: 세션이 인증 오류 사유로 무제작 종료 — 토큰 상태 확인 필요 (%s)" % LOG.name)
             return  # 의도된 미게시/무제작 — 세션이 사유를 보고했음
         gate_rejected = "기각" in logtext
         if CARD_MODE:

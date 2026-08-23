@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 # 디렉터 회신 수신 (2026-08-17 신설 — 디렉터: "기획 텔레그램 왔는데 내가 텔레그램으로 얘기하면 그거 반영해줌?")
 #
-# 그동안은 슬롯 세션이 기획 요약을 보내고 **답장을 기다리지 않고** 진행했다.
-# 이제 상주 봇이 디렉터의 일반 텍스트를 logs/director_msgs.jsonl에 기록하고,
-# 슬롯 세션이 이 모듈로 그 회신을 받아 반영한다.
+# 상주 봇 폐지 후 회신은 launchd 10분 틱(affiliate_bot --once)이 logs/director_msgs.jsonl에 기록한다.
+# 슬롯 세션의 Bash 도구는 최대 600초까지만 블로킹할 수 있어(2026-08-23 4차 리뷰) 장시간 대기
+# 대신 **2단계(mark → collect)**로 쓴다 — 소비 오프셋을 파일로 영속해 호출 사이 도착분도 잡는다:
 #
-# 사용: .venv/bin/python3 pipeline/director_reply.py 660
-#   → 최대 660초 대기(회신 기록자가 10분 launchd 틱뿐이라 틱 1회를 보장하는 창).
-#     회신이 오면 즉시 출력하고 종료(exit 0), 없으면 빈 출력(exit 0).
+#   ① 기획 요약 발송 직후:  .venv/bin/python3 pipeline/director_reply.py --mark
+#      (지금 파일 끝을 기준점으로 기록하고 즉시 종료)
+#   ② 준비 작업(~10분: 후보 검토·배경 선정)을 동기로 수행
+#   ③ 렌더 시작 직전:      .venv/bin/python3 pipeline/director_reply.py --collect 120
+#      (기준점 이후 도착분을 출력. 회신이 이미 있으면 즉시, 없으면 최대 120초 대기)
+#
+# 구형 사용법(director_reply.py <초>)도 동작한다 — 호출 시점부터 대기(오프셋 미영속).
 import json
 import os
 import sys
@@ -15,16 +19,20 @@ import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG = os.path.join(ROOT, "logs", "director_msgs.jsonl")
+OFF = os.path.join(ROOT, "logs", ".director_reply.off")
+
+
+def _size():
+    return os.path.getsize(LOG) if os.path.exists(LOG) else 0
 
 
 def _consume(base):
     """base 오프셋 이후의 완결 줄(개행으로 닫힌)만 파싱해 (메시지들, 새 오프셋, 꼬리 유무)를 돌려준다.
-    2026-08-23 2차 리뷰: ①바이너리로 읽어 UTF-8 문자 경계 seek 예외 차단 ②소비한 만큼
-    오프셋을 전진시켜 손상 줄 재파싱·재경고 방지 ③꼬리 조각(쓰는 중)은 남겨 다음 폴에.
-    3차 리뷰: 파일 축소(절단·교체) 시 오프셋 리셋 — 영구 블라인드 방지."""
-    size = os.path.getsize(LOG) if os.path.exists(LOG) else 0
+    바이너리로 읽어 UTF-8 문자 경계 seek 예외를 차단하고, 소비분만큼 오프셋을 전진시켜
+    손상 줄 재파싱을 막는다. 파일이 줄었으면(절단·교체) 0으로 리셋 — 재생성된 내용은 전부 새 것이다."""
+    size = _size()
     if size < base:
-        return [], size, False   # 파일이 줄었다 — 절단/교체로 보고 현재 끝으로 리셋
+        return [], 0, False
     if size == base:
         return [], base, False
     with open(LOG, "rb") as f:
@@ -32,7 +40,7 @@ def _consume(base):
         chunk = f.read(size - base)
     head, sep, tail = chunk.rpartition(b"\n")
     if not sep:
-        return [], base, True   # 완결 줄 없음 — 전부 꼬리(쓰는 중)
+        return [], base, True   # 완결 줄 없음 — 전부 쓰는 중인 꼬리
     msgs = []
     for l in head.split(b"\n"):
         if not l.strip():
@@ -44,27 +52,58 @@ def _consume(base):
     return msgs, base + len(head) + 1, bool(tail)
 
 
-def wait(seconds=660, poll=5):
-    """지금 이후로 들어오는 디렉터 메시지를 기다린다. 반환: 새 메시지 리스트(문자열).
-    기본 660초 (2026-08-23 3차 리뷰): 회신 기록자가 launchd 10분 틱뿐이라 180초 창은
-    ~70%를 놓쳤다 — 틱 1회가 반드시 지나가는 11분이 실효 하한이다."""
-    base = os.path.getsize(LOG) if os.path.exists(LOG) else 0
+def _write_off(v):
+    tmp = OFF + ".tmp"
+    open(tmp, "w").write(str(v))
+    os.replace(tmp, OFF)
+
+
+def mark():
+    """지금 파일 끝을 기준점으로 영속 기록 — collect가 여기부터 소비한다."""
+    _write_off(_size())
+
+
+def _wait_from(base, seconds, poll):
+    """base부터 소비하며 최대 seconds 대기. (메시지들, 최종 오프셋) 반환.
+    메시지를 찾으면 무조건 1폴 유예 후 재소비 — 같은 틱 배치의 후속 지시 회수
+    (2026-08-23 4차 리뷰: 꼬리 조건부 유예는 완결 줄 배치를 놓치는 회귀였다)."""
     deadline = time.time() + seconds
-    while time.time() < deadline:
+    msgs, base, _ = _consume(base)          # 이미 도착분 즉시 회수
+    while not msgs and time.time() < deadline:
         time.sleep(poll)
-        msgs, base, tail = _consume(base)
-        if msgs:
-            if tail and time.time() < deadline:
-                # 꼬리 조각이 실제로 있을 때만 한 폴 유예 — 반환 직후 완결되는 후속 지시 회수
-                time.sleep(poll)
-                more, base, _ = _consume(base)
-                msgs += more
-            return msgs
-    return []
+        msgs, base, _ = _consume(base)
+    if msgs:
+        time.sleep(poll)
+        more, base, _ = _consume(base)
+        msgs += more
+    return msgs, base
+
+
+def collect(seconds=120, poll=5):
+    """mark 기준점 이후 도착분을 소비하고 오프셋을 영속 갱신. mark가 없었으면 지금부터 대기."""
+    try:
+        base = int(open(OFF).read().strip())
+    except Exception:
+        base = _size()
+    msgs, base = _wait_from(base, seconds, poll)
+    _write_off(base)
+    return msgs
+
+
+def wait(seconds=180, poll=5):
+    """구형 단일 호출 — 지금 이후 도착분만 대기(오프셋 미영속). 새 코드는 mark/collect를 써라."""
+    msgs, _ = _wait_from(_size(), seconds, poll)
+    return msgs
 
 
 if __name__ == "__main__":
-    sec = int(sys.argv[1]) if len(sys.argv) > 1 else 660
-    msgs = wait(sec)
-    for m in msgs:
-        print(m)
+    if len(sys.argv) > 1 and sys.argv[1] == "--mark":
+        mark()
+    elif len(sys.argv) > 1 and sys.argv[1] == "--collect":
+        sec = int(sys.argv[2]) if len(sys.argv) > 2 else 120
+        for m in collect(sec):
+            print(m)
+    else:
+        sec = int(sys.argv[1]) if len(sys.argv) > 1 else 180
+        for m in wait(sec):
+            print(m)

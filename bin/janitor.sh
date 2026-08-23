@@ -25,7 +25,8 @@ if [ -f "$LOCKF" ]; then
   lpid=$(cat "$LOCKF" 2>/dev/null)
   case "$lpid" in
     ''|*[!0-9]*) : ;;                                   # PID 아님 — 잔재로 간주
-    *) kill -0 "$lpid" 2>/dev/null && exit 0 ;;         # 렌더 살아 있음
+    # PID 생존 + 정체 확인 — 재사용된 무관 PID가 청소를 무기한 막지 않게 (2026-08-23 4차 리뷰)
+    *) ps -p "$lpid" -o command= 2>/dev/null | grep -q daily_runner && exit 0 ;;
   esac
 fi
 
@@ -47,7 +48,7 @@ if [ -d "$CACHE" ]; then
     echo "[janitor] $(date '+%F %T') bg_cache ${total_kb}KB → ${after_kb}KB (상한 ${cap_kb}KB, 근사 ${freed}KB 정리)"
     if [ "$after_kb" -gt $((cap_kb * 11 / 10)) ]; then
       bash "$ROOT/bin/tg-send.sh" "⚠️ janitor: bg_cache 정리 후에도 ${after_kb}KB로 상한(${cap_kb}KB) 초과 — logs/janitor.log 확인" \
-        || echo "[janitor] $(date '+%F %T') 텔레그램 경보 발송 실패" >> "$ROOT/logs/alert-fail.log"   # 경보 채널 사망도 기록 (관례: daily_runner tg)
+        || echo "$(date '+%FT%T') 텔레그램 발송 실패(janitor): bg_cache 정리 후에도 ${after_kb}KB로 상한(${cap_kb}KB) 초과" >> "$ROOT/logs/alert-fail.log"   # 유실 경보 본문 포함 (관례: daily_runner _alert_fail)
     fi
   fi
 fi

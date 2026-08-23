@@ -14,9 +14,9 @@
 - `pipeline/affiliate_bot.py` — 제휴 배선(허브 갱신·스토리 스티커 킷·허브 통계). **상주하지 않는다** — 링크 회신과 `허브`/`스티커`/`취소` 명령은 launchd dm 틱(bin/dm_tick.sh)이 10분마다 `--once`로 처리한다(2026-08-21 이관 — 슬롯 세션 폴링을 다시 얹지 마라, 이중 처리된다).
 - `pipeline/upload_threads.py` — 스레드 동시 게시(2026-08-16). 인스타 업로드가 만든 **R2 공개 URL을 재사용**하므로 R2 정리 전에 호출된다. 토큰은 `keys.env`의 `THREADS_TOKEN`(60일, 만료 7일 전 자동 갱신 — 시크릿 불필요). **실패해도 릴스 게시엔 영향 없음**(경고만).
 - **상주 세션 크론 (세션 귀속 — 새 세션마다 재설정 필요, 2026-08-21 편성 v11.1 기준)**: ①`43 6 * * *` 07시 영상 사냥 ②`43 8 * * *` 카드 데이 사냥(9연발 소재 지형+상위 지정) ③`43 17 * * *` 18시 대박 영상 사냥 (댓글DM 폴링은 2026-08-21부터 launchd com.shorts-studio.dm이 10분 간격으로 담당 — 세션 크론 아님). 사냥 프롬프트 원문은 content/CALENDAR.md 이력과 이 파일 이전 커밋 참조. CronCreate는 세션 메모리에만 살고 7일 만료 — **새 세션은 시작하자마자 이 3개를 CronCreate로 다시 걸어라** (DM 폴링은 launchd 담당이라 세션 크론이 아니다 — 4개로 되돌리지 마라).
-- `archive/` — 폐지된 코드·프롬프트 보관소(삭제 아님). 카드 렌더러·롱폼·PIL 도해·승인 게이트·서치부·트렌드워치·워치독. **되살릴 땐 왜 폐지됐는지 DECISIONS부터 읽어라.**
+- `archive/` — 폐지된 코드·프롬프트 보관소(삭제 아님). 구 자막 카드 렌더러(현행 테크 카드 make_cards.py는 별개·라이브)·롱폼·PIL 도해·승인 게이트·서치부·트렌드워치·워치독. **되살릴 땐 왜 폐지됐는지 DECISIONS부터 읽어라.**
 - `bin/daily_runner.py` — launchd가 슬롯마다 실행. **반드시 로그인 셸(zsh -l) 경유로 claude를 띄운다** (launchd 빈 PATH 사고 이력). 조용한 죽음 경보 + 산출물 실측 대조 내장
-- `launchd/` — **3개: daily(영상 07/12/18)·card(카드 09~17 매시)·dm(10분 틱, 편성 v11.1)**. 저장소 사본은 설치본(~/Library/LaunchAgents)과 동기화해 둔다 — 수정 시 복사 후 unload/load. **2026-08-16 이후 상주 프로세스는 없다** — 워치독·트렌드워치·서치부·제휴 봇 전원 정리(SD-007/008). 댓글DM·제휴 링크 폴링은 launchd dm 틱(bin/dm_tick.sh)이 담당한다.
+- `launchd/` — **3개: daily(영상 07/12/18)·card(카드 09~17 매시)·dm(10분 틱, 편성 v11.1)**. 저장소 사본은 설치본(~/Library/LaunchAgents)과 동기화해 둔다 — 수정 시 복사 후 unload/load. **2026-08-21 이후 상주 프로세스는 없다** — 워치독·트렌드워치·서치부 정리(SD-007/008), 제휴 봇은 pm2 부활 사고 후 SD-015로 최종 폐지. 댓글DM·제휴 링크 폴링은 launchd dm 틱(bin/dm_tick.sh)이 담당한다.
 - `content/` — 대본 JSON(형식은 `sample_honey.json`), `BACKLOG.md`(탈락했지만 좋은 소재), `topics_used.md`(**정본은 content/ 쪽** — 루트 동명 파일은 폐지 스텁), `REJECTED.md`(영구금지), `PERFORMANCE.md`(실측 성과)
 - `assets/brand/` — 프로필·배너·워터마크 (다크 네이비 #0B1020~#181C36 + 앰버 #FFB627 + 화이트, Noto Sans CJK Black)
 - 비밀(커밋 금지, .gitignore 처리됨): `credentials.json`, `token.json`(YouTube OAuth), `telegram.env`(봇 토큰), `keys.env`(PEXELS_API_KEY, AZURE_SPEECH_KEY — aitutor와 공유·교체 시 양쪽 갱신, IG 토큰)
