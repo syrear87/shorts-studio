@@ -9,6 +9,7 @@
 import json
 import os
 import re
+import shutil
 import sys
 import time
 import urllib.parse
@@ -300,18 +301,19 @@ def local_cover_frame(media):
             if best_n is None:
                 return None
             t = w_start + (best_n - 1) / 2.0 + 0.2
-            outp = os.path.join(tmp, "cover.jpg")
-            subprocess.run(["ffmpeg", "-y", "-ss", "%.2f" % t, "-i", path, "-frames:v", "1",
-                            "-q:v", "2", "-loglevel", "error", outp], check=True)
-            if not os.path.exists(outp):
-                return None
+            # 커버는 mkstemp 단일 파일에 ffmpeg가 직접 쓴다 — move 없이 소유권이 명확 (2026-08-23 리뷰)
             fd, keep = tempfile.mkstemp(prefix="afcover_", suffix=".jpg")
             os.close(fd)
-            import shutil
-            shutil.move(outp, keep)
-            return keep
+            try:
+                subprocess.run(["ffmpeg", "-y", "-ss", "%.2f" % t, "-i", path, "-frames:v", "1",
+                                "-q:v", "2", "-loglevel", "error", keep], check=True)
+                if os.path.getsize(keep) > 0:
+                    return keep
+            except Exception:
+                pass
+            os.remove(keep)   # 실패한 커버는 여기서 즉시 정리 — 오류 경로 잔존물 금지
+            return None
         finally:
-            import shutil
             shutil.rmtree(tmp, ignore_errors=True)   # 어떤 경로로 빠져도 프레임 잔여물 정리 (2026-08-23 감사: afcover_* 잔존 실측)
     except Exception:
         return None  # 어떤 실패든 썸네일 폴백 — 스티커 킷 발송 자체를 막지 않는다
@@ -329,11 +331,14 @@ def make_story_image(media, product_name, out_path):
     # 커버 우선순위: 로컬 영상의 '자막 완성' 프레임 → IG 썸네일 (2026-08-14 디렉터: 썸네일은 자막 한 줄뿐)
     local = local_cover_frame(media)
     if local:
-        cover = Image.open(local).convert("RGB")   # convert가 즉시 로드 — 이후 원본 삭제 안전
         try:
-            os.remove(local)   # 프레임 정리는 local_cover_frame이 담당 — 여기선 커버 단일 파일만 (2026-08-23 감사)
-        except OSError:
-            pass
+            cover = Image.open(local).convert("RGB")   # convert가 즉시 로드 — 이후 원본 삭제 안전
+        finally:
+            # Image.open 실패(잘린 jpg 등)여도 커버 파일은 반드시 정리 (2026-08-23 리뷰: 오류 경로 누수)
+            try:
+                os.remove(local)
+            except OSError:
+                pass
     else:
         # 릴스는 media_url이 mp4다 — 이미지는 항상 썸네일 우선 (2026-08-13 실사고)
         url = media.get("thumbnail_url") or media.get("media_url")

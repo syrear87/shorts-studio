@@ -120,31 +120,7 @@ def fetch_bg(query):
     print("배경 영상 없음 → 그라데이션 폴백", flush=True)
     return None
 
-def used_bg_ids(exclude_script=None):
-    """이미 다른 편에서 쓴 배경 id 집합 (2026-08-04 실사고: 에어컨 유래 편이
-    한전 편과 같은 배경을 써서 피드에서 재탕처럼 보임 — 디렉터가 커버를 수동 교체).
-    대체본(같은 날짜-슬롯의 재제작, 예: am ↔ am2)끼리는 공유를 허용한다."""
-    def norm(p):
-        return re.sub(r"\d+$", "", os.path.splitext(os.path.basename(p))[0])
-    me = norm(exclude_script) if exclude_script else None
-    used = set()
-    for p in glob.glob(os.path.join(ROOT, "content", "2026-*.json")):
-        if p.endswith(".meta.json") or (me and norm(p) == me):
-            continue
-        try:
-            s = json.load(open(p, encoding="utf-8"))
-        except Exception:
-            print("경고: %s 파싱 실패 — 배경 재사용 게이트에서 제외됨" % p, flush=True)
-            continue
-        ids = s.get("bg_ids") or ([s["bg_id"]] if s.get("bg_id") else [])
-        used.update(str(v) for v in ids)   # 영상은 "123", 사진은 "photo:123" 문자열로 통일
-        # 2026-08-14 감사(critical): 씬별 bg 지정이 표준이 된 뒤 이 게이트가 죽어 있었다 —
-        # scenes[].bg도 수집한다. file: 로컬 자산은 제외(디렉터 승인 재사용분, 예: 유성우 실사진)
-        for sc in s.get("scenes", []) or []:
-            b = sc.get("bg") or sc.get("bg_id")   # bg_id 별칭도 수집 (2026-08-20 정규화와 짝)
-            if b and not (isinstance(b, str) and b.startswith("file:")):
-                used.add(str(b))
-    return used
+from bg_history import used_bg_ids   # 정본은 bg_history.py — pick_bg와 공유 (2026-08-23 리뷰: 무거운 렌더러 임포트 없이 쓰도록 분리)
 
 
 def fetch_bg_photo(photo_id):

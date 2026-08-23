@@ -28,7 +28,19 @@ def wait(seconds=180, poll=5):
         if size > base_size:
             with open(LOG, encoding="utf-8") as f:
                 f.seek(base_size)
-                return [json.loads(l)["text"] for l in f if l.strip()]
+                chunk = f.read()
+            # 개행으로 닫힌 완결 줄만 파싱 — 기록자가 아직 쓰는 중인 꼬리 조각은 다음 폴로 미룬다
+            # (2026-08-23 리뷰: 부분 플러시 라인에 json.loads가 예외를 던져 회신 대기가 죽던 것)
+            complete, nl, _tail = chunk.rpartition("\n")
+            msgs = []
+            for l in complete.splitlines():
+                if l.strip():
+                    try:
+                        msgs.append(json.loads(l)["text"])
+                    except Exception:
+                        print("[director_reply] 손상 줄 건너뜀: %r" % l[:60], flush=True)
+            if msgs:
+                return msgs
     return []
 
 

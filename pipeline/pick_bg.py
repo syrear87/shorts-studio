@@ -3,7 +3,7 @@
 # content json의 bg_query로 Pexels를 검색해 후보 영상의 미리보기 이미지를 저장한다.
 # 데일리 세션은 저장된 미리보기를 Read로 직접 보고, 소재의 시각적 대표물이 실제로
 # 보이는 영상의 id를 content json에 "bg_id"로 기록한 뒤 렌더한다.
-# 사용: python3 pipeline/pick_bg.py content/오늘날짜.json  (→ out/bg_candidates/에 저장)
+# 사용: .venv/bin/python3 pipeline/pick_bg.py content/오늘날짜.json  (→ out/bg_candidates/에 저장)
 import json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,9 +39,9 @@ def main():
     shutil.rmtree(OUT, ignore_errors=True)
     os.makedirs(OUT, exist_ok=True)
     # 이미 다른 편에서 쓴 배경 표시 (2026-08-04 실사고: 배경 재탕 — 렌더러가 기계 기각하므로 여기서 미리 보여줌)
-    # 2026-08-23 감사: 자체 사본이 드리프트해 scenes[].bg 수집이 누락됐었다 — 렌더러의 정본 함수를 공유한다.
-    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-    from make_short import used_bg_ids
+    # 2026-08-23 감사: 자체 사본이 드리프트해 scenes[].bg 수집이 누락됐었다 — 정본 함수를 공유한다.
+    # (bg_history는 stdlib 전용 — 렌더러의 numpy·PIL·폰트 의존을 여기로 끌고 오지 않는다. 2026-08-23 리뷰)
+    from bg_history import used_bg_ids
     used = used_bg_ids(exclude_script=sys.argv[1])
     seen, rows = set(), []
     for qi, q in enumerate(queries):

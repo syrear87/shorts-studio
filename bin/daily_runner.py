@@ -52,7 +52,7 @@ def log_looks_dead(text):
     # 2026-08-02 리뷰(OPS-4): 마감 센티널(SLOT-DONE)의 존재가 완주의 1차 근거다.
     # 센티널이 있으면 길이는 보지 않는다 — 첫 야간 슬롯 실사고: 규칙대로 간결하게
     # 마감한 82자 응답(센티널 포함)을 길이 검사가 '즉사'로 오판해 허위 경보 발송.
-    if "SLOT-DONE" in t:
+    if "SLOT-DONE" in t or "SLOT-NOOP" in t:   # NOOP도 의도된 완주다 (2026-08-23 리뷰: 판정 일원화)
         return None
     if len(t) < 200:
         return "출력 %d자 + 센티널 부재 (세션 즉사 의심)" % len(t)
@@ -119,10 +119,11 @@ def main():
                          and any(m.lower() in text.lower() for m in RETRY_MARKERS))
             # 2026-08-22 11:00 실사고: rc=0인데 인사말만 남기고 종료(즉사) — 마커가 없어 재시도를 안 탔다.
             # 산출물·발송·센티널이 전무한 초단문 종료는 장애로 간주해 재시도로 슬롯을 구한다.
-            if (not transient and r.returncode == 0 and len(text.strip()) < 200
-                    and "SLOT-DONE" not in text and "SLOT-NOOP" not in text
-                    and not new_mp4_made and not evidence):
-                transient = True
+            # 판정은 log_looks_dead 한 곳에서 — 기준을 두 벌 유지하다 어긋나지 않게 (2026-08-23 리뷰)
+            if not transient and r.returncode == 0 and not new_mp4_made and not evidence:
+                _reason = log_looks_dead(text)
+                if _reason and "즉사 의심" in _reason:
+                    transient = True
             if not transient or attempt >= len(RETRY_DELAYS):
                 break
             delay = RETRY_DELAYS[attempt]

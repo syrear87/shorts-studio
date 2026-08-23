@@ -11,7 +11,7 @@
 - `pipeline/upload_youtube.py` — preflight(길이·해상도 기계검증) 후 `config.json`의 `upload_mode`: `phase0_telegram`(현재) / `api_public`(감사 통과 후). `instagram: on`이면 릴스 업로드 체인(`upload_instagram.py`, 토큰은 keys.env)
 - `pipeline/analytics.py` — 채널 성과 조회(읽기 전용): eng%·subs/1kE KPI, 훅부검 플래그. 근거 문서는 `content/PERFORMANCE.md`
 - `pipeline/retitle.py` — 무긴장 제목 구제(2026-08-02 승인): 게시 3~4h + 조회<300 + 무긴장이면 제목 교체, `content/RETITLES.md` 자동 기록
-- `pipeline/affiliate_bot.py` — 제휴 배선(허브 갱신·스토리 스티커 킷·허브 통계). **상주하지 않는다** — 슬롯 세션이 `--once`로 호출해 링크 회신과 `허브`/`스티커`/`취소` 명령을 처리한다.
+- `pipeline/affiliate_bot.py` — 제휴 배선(허브 갱신·스토리 스티커 킷·허브 통계). **상주하지 않는다** — 링크 회신과 `허브`/`스티커`/`취소` 명령은 launchd dm 틱(bin/dm_tick.sh)이 10분마다 `--once`로 처리한다(2026-08-21 이관 — 슬롯 세션 폴링을 다시 얹지 마라, 이중 처리된다).
 - `pipeline/upload_threads.py` — 스레드 동시 게시(2026-08-16). 인스타 업로드가 만든 **R2 공개 URL을 재사용**하므로 R2 정리 전에 호출된다. 토큰은 `keys.env`의 `THREADS_TOKEN`(60일, 만료 7일 전 자동 갱신 — 시크릿 불필요). **실패해도 릴스 게시엔 영향 없음**(경고만).
 - **상주 세션 크론 (세션 귀속 — 새 세션마다 재설정 필요, 2026-08-21 편성 v11.1 기준)**: ①`43 6 * * *` 07시 영상 사냥 ②`43 8 * * *` 카드 데이 사냥(9연발 소재 지형+상위 지정) ③`43 17 * * *` 18시 대박 영상 사냥 (댓글DM 폴링은 2026-08-21부터 launchd com.shorts-studio.dm이 10분 간격으로 담당 — 세션 크론 아님). 사냥 프롬프트 원문은 content/CALENDAR.md 이력과 이 파일 이전 커밋 참조. CronCreate는 세션 메모리에만 살고 7일 만료 — **새 세션은 시작하자마자 이 4개를 CronCreate로 다시 걸어라.**
 - `archive/` — 폐지된 코드·프롬프트 보관소(삭제 아님). 카드 렌더러·롱폼·PIL 도해·승인 게이트·서치부·트렌드워치·워치독. **되살릴 땐 왜 폐지됐는지 DECISIONS부터 읽어라.**

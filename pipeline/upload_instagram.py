@@ -177,9 +177,14 @@ def r2_put(kv, path):
 
 
 def _validate_r2_config(kv):
-    """keys.env 오염 조기 검출 (2026-08-12 실사고: 키 추가 시 줄바꿈 누락으로
-    R2_PUBLIC_URL 끝에 다른 키가 이어붙어 IG 컨테이너가 조용히 ERROR — 슬롯 2회 실패)."""
-    u = kv.get("R2_PUBLIC_URL", "")
+    """R2 설정 단일 가드 — 존재 검사 후 오염 검사 (2026-08-23 리뷰: upload()·publish_carousel의
+    5키 루프 사본을 여기로 통합. 키가 아예 없으면 '없음'으로, 있는데 이상하면 '오염'으로 구분 보고).
+    오염 검출 배경: 2026-08-12 실사고 — 키 추가 시 줄바꿈 누락으로 R2_PUBLIC_URL 끝에
+    다른 키가 이어붙어 IG 컨테이너가 조용히 ERROR, 슬롯 2회 실패."""
+    for k in ("R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL"):
+        if not kv.get(k):
+            raise RuntimeError("keys.env에 %s 없음 — R2 업로드 불가" % k)
+    u = kv["R2_PUBLIC_URL"]
     if not u.startswith("https://") or "=" in u or not u.rstrip("/").endswith(".r2.dev"):
         raise RuntimeError("keys.env 오염 의심: R2_PUBLIC_URL 형식 이상(%r...) — "
                            "줄바꿈 누락으로 다른 키가 이어붙었는지 확인하라" % u[:40])
@@ -191,9 +196,6 @@ def upload(video, meta, publish=True):
     token, user_id = kv.get("IG_ACCESS_TOKEN"), kv.get("IG_USER_ID")
     if not token or not user_id:
         raise RuntimeError("keys.env에 IG_ACCESS_TOKEN/IG_USER_ID 없음 — 릴스 업로드 건너뜀")
-    for k in ("R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL"):
-        if not kv.get(k):
-            raise RuntimeError("keys.env에 %s 없음 — 릴스 업로드 건너뜀" % k)
     # 멱등 가드 (2026-08-05 점검): 이미 게시된 파일이면 건너뛰고 성공 취급 — 재실행/재시도 중복 게시 봉쇄
     sent_p = os.path.join(ROOT, "logs", "sent.log")
     base = os.path.basename(video)
@@ -312,13 +314,10 @@ def publish_carousel(images, caption, publish=True):
     """지식 카드 캐러셀 게시 (2026-08-05 디렉터 승인 — 하루 3편 아침·점심·저녁).
     images: PNG 경로 리스트(2~3장). 흐름: R2 업로드 → 아이템 컨테이너 → 캐러셀 컨테이너 → 게시 → R2 정리."""
     kv = load_keys()
-    _validate_r2_config(kv)   # 2026-08-23 감사: upload()와 동일 가드 — keys.env 오염 시 조기 명시 실패
+    _validate_r2_config(kv)   # upload()와 동일 단일 가드 (2026-08-23 리뷰: 존재+오염 통합)
     token, user_id = kv.get("IG_ACCESS_TOKEN"), kv.get("IG_USER_ID")
     if not token or not user_id:
         raise RuntimeError("keys.env에 IG_ACCESS_TOKEN/IG_USER_ID 없음")
-    for k in ("R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL"):
-        if not kv.get(k):
-            raise RuntimeError("keys.env에 %s 없음 — 카드 게시 불가" % k)
     # 멱등 가드 (2026-08-05 점검): 같은 카드 묶음(디렉터리명)이 이미 게시됐으면 건너뜀
     card_name = os.path.basename(os.path.dirname(images[0]))
     sent_p = os.path.join(ROOT, "logs", "sent.log")
