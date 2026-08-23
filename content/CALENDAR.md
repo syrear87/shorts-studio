@@ -580,3 +580,8 @@
 - IG: https://www.instagram.com/p/DcXRIC8meEC/
 - 스레드: https://www.threads.com/@syusyu_channel/post/DcXRL11mTU6
 - 중복 검사: 최근 7일 제품 확인 완료
+
+### 2026-08-23 (토) 카드 — Nintendo Switch 2 한국 가격 9/1 인상 (648,000→758,000원, +11만원) [구매가능]
+- IG: https://www.instagram.com/p/DcXYSR8mdN2/
+- 스레드: https://www.threads.com/@syusyu_channel/post/DcXYWKSGSAD
+- 중복 검사: 최근 7일 제품 확인 완료

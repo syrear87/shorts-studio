@@ -1,0 +1,24 @@
+{
+  "topic": "Nintendo Switch 2 한국 가격 인상 — 9월 1일부터 11만 원 오른다, 현재가 648,000원 [구매가능]",
+  "caption": "닌텐도 스위치2, 9일 뒤면 11만 원 더 비싸진다.\n\n한국닌텐도 공식 발표.\n9월 1일부터 권장소비자가격이\n648,000원에서 758,000원으로 오른다.\n인상 폭 약 17%.\n\n사유는 \"다양한 시장 환경 변화에 따른\n글로벌 사업성 검토 결과.\"\n한국뿐 아니라 대만, 홍콩도 동시 인상.\n\n살 생각이 있었다면, 9월 전이 마지막 기회다.\n\n출처: 한국닌텐도 공식 공지, 디지털데일리, 인벤, Game Developer 교차 확인\n\n#닌텐도스위치2 #닌텐도 #스위치2 #가격인상 #게임기",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "9일 뒤, 11만 원 오릅니다",
+      "title_hl": ["11만 원"],
+      "body": "Nintendo Switch 2 한국 공식 가격 인상 확정",
+      "body_hl": ["가격 인상"],
+      "img": "assets/cards/switch2_price_2.png",
+      "credit": "이미지: Nintendo 공식 (NintendoSoup)"
+    },
+    {
+      "kind": "end",
+      "title": "648,000원이 758,000원으로",
+      "title_hl": ["758,000원"],
+      "body": "9월 1일부터 적용. 살 생각이 있었다면 지금이 마지막 가격이다",
+      "body_hl": ["9월 1일", "마지막 가격"],
+      "img": "assets/cards/switch2_price_4.png",
+      "credit": "이미지: Nintendo 공식 (NintendoSoup)"
+    }
+  ]
+}
