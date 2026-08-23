@@ -4,3 +4,9 @@
 cd /Users/kimminsoo/Dev/shorts-studio
 .venv/bin/python3 pipeline/comment_dm.py
 .venv/bin/python3 pipeline/affiliate_bot.py --once
+# 디스크 위생 — 하루 1회만 (2026-08-23. 새 launchd 만들지 않고 이 틱에 얹는다: 프로세스 수 동결 원칙)
+MARK=logs/.janitor_date
+TODAY=$(date +%Y-%m-%d)
+if [ "$(cat "$MARK" 2>/dev/null)" != "$TODAY" ]; then
+  bash bin/janitor.sh >> logs/janitor.log 2>&1 && echo "$TODAY" > "$MARK"
+fi
