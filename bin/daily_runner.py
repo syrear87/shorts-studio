@@ -51,10 +51,11 @@ DEAD_AUTH, DEAD_SHORT, DEAD_NO_SENTINEL = "auth", "short", "no_sentinel"
 def log_looks_dead(text):
     """세션 사망 의심 판정. 반환: (판정코드, 사람용 사유) 또는 None(정상)."""
     t = text.strip()
-    # 완주 센티널을 최우선 인정하되 **마지막 비어있지 않은 줄** 기준 (2026-08-23 4차 리뷰:
-    # substring 검사는 규칙을 '인용'만 하고 죽은 세션까지 생존 처리했다. 규약상 센티널은 마지막 줄이다)
+    # 완주 센티널을 최우선 인정하되 **마지막 3개 비어있지 않은 줄** 기준 (2026-08-23 4차:
+    # substring 검사는 규칙 '인용'만 한 죽은 세션까지 생존 처리 / 5차: stderr 병합이라 종료 직전
+    # node 경고 꼬리가 센티널 뒤에 붙을 수 있어 마지막 1줄 앵커는 반대 방향 오탐 — 3줄로 완충)
     _lines = [l for l in t.splitlines() if l.strip()]
-    if _lines and "SLOT-DONE" in _lines[-1]:
+    if any("SLOT-DONE" in l for l in _lines[-3:]):
         return None
     # claude -p는 인증 만료(401)로 죽어도 종료코드 0 — 2026-07-29 11:00 슬롯이 경보 없이 증발한 원인.
     for marker in ("failed to authenticate", "authentication_error", "oauth access token"):
@@ -96,17 +97,24 @@ def main():
         # 락 판정 = PID 정체 검사 (2026-08-23 4차 리뷰: mtime STALE은 절전 시 살아있는 세션을 잔재로,
         # 크래시 직후 잔재를 실행 중으로 오판했다 — janitor.sh와 동일 방식으로 통일. PID 재사용은
         # 커맨드에 daily_runner가 있는지로 배제)
-        alive = False
+        alive, judge_failed = False, False
         try:
             lpid = int(LOCK.read_text().strip())
             out = subprocess.run(["ps", "-p", str(lpid), "-o", "command="],
                                  capture_output=True, text=True, timeout=10)
-            alive = "daily_runner" in (out.stdout or "")
+            cmd = out.stdout or ""
+            # 모드까지 대조 — PID 재사용이 반대 모드 러너에 맞아도 오판하지 않게 (2026-08-23 5차)
+            my_card = ("--mode card" in cmd)
+            alive = "daily_runner" in cmd and my_card == CARD_MODE
+        except ValueError:
+            pass   # PID 아님 — 잔재
         except Exception:
-            alive = False
+            judge_failed = True   # ps 실패는 '죽음'과 다르다 — 진행하되 흔적을 남긴다 (5차: fail-open 가시화)
         if alive:
             tg("⏳ 숏츠 데일리: 이전 세션이 아직 실행 중 — 오늘 기동 건너뜀")
             return
+        if judge_failed:
+            tg("⚠️ 숏츠 데일리: 락 생존 판정 실패(ps 오류) — 잔재로 간주하고 진행. 중복 기동이면 멱등 가드가 게시를 막는다")
         LOCK.unlink()   # 죽은 PID의 잔재 락
     # claude는 node 기반 → launchd의 빈 PATH에서 죽는다(2026-07-29 실사고: env: node not found).
     # 로그인 셸(zsh -l)을 통째로 경유해 사용자 PATH(node·claude 포함)를 복원한다.
@@ -151,7 +159,7 @@ def main():
             delay = RETRY_DELAYS[attempt]
             tg("🔁 숏츠 데일리: 일시적 API 장애로 즉사 — %d분 후 재시도 (%d/%d)"
                % (delay // 60, attempt + 1, len(RETRY_DELAYS)))
-            LOCK.write_text(str(os.getpid()))   # 스테일 판정 방지용 갱신
+            LOCK.write_text(str(os.getpid()))   # (mtime 스테일 판정은 폐지됨 — 잔재 재기록일 뿐, PID 동일. 2026-08-23)
             time.sleep(delay)
 
         if r.returncode != 0:
@@ -188,8 +196,10 @@ def check_artifacts(start_ts):
         if any(k in logtext for k in ("게시 중단", "게시 보류", "SLOT-NOOP", "이미 제작·발송 완료")):
             # 2026-08-23 4차 리뷰: 인증이 실제로 깨져 'SLOT-NOOP 인증 오류'로 규정대로 마감한 세션은
             # 여기서 조기 return되며 완전 무경보였다 — NOOP 사유에 인증 흔적이 있으면 경보는 남긴다.
-            if any(m in logtext.lower() for m in ("failed to authenticate", "authentication_error", "oauth access token")):
-                tg("⚠️ 숏츠 데일리: 세션이 인증 오류 사유로 무제작 종료 — 토큰 상태 확인 필요 (%s)" % LOG.name)
+            # (5차: 이전 attempt 잔재·단순 언급 오탐을 줄이려 마지막 attempt 구간만 스캔)
+            _last = logtext.split("=== attempt ")[-1].lower()
+            if any(m in _last for m in ("failed to authenticate", "authentication_error", "oauth access token")):
+                tg("⚠️ 숏츠 데일리: 세션이 인증 오류 사유로 무제작 종료 의심 — 토큰 상태 확인 필요 (%s)" % LOG.name)
             return  # 의도된 미게시/무제작 — 세션이 사유를 보고했음
         gate_rejected = "기각" in logtext
         if CARD_MODE:

@@ -58,9 +58,12 @@ def _write_off(v):
     os.replace(tmp, OFF)
 
 
+MARK_TTL = 90 * 60   # mark가 이보다 오래되면 죽은 세션의 잔재로 보고 폐기 (2026-08-23 5차 리뷰)
+
+
 def mark():
     """지금 파일 끝을 기준점으로 영속 기록 — collect가 여기부터 소비한다."""
-    _write_off(_size())
+    _write_off(json.dumps({"off": _size(), "ts": time.time()}))
 
 
 def _wait_from(base, seconds, poll):
@@ -80,13 +83,23 @@ def _wait_from(base, seconds, poll):
 
 
 def collect(seconds=120, poll=5):
-    """mark 기준점 이후 도착분을 소비하고 오프셋을 영속 갱신. mark가 없었으면 지금부터 대기."""
+    """mark 기준점 이후 도착분을 소비하고 오프셋을 영속 갱신.
+    mark가 없거나 MARK_TTL(90분)보다 오래됐으면(mark 후 죽은 세션의 잔재 — 옛 메시지를
+    '방금 회신'으로 재배달하는 사고 방지) 지금부터 대기한다."""
+    base = None
     try:
-        base = int(open(OFF).read().strip())
+        d = json.loads(open(OFF).read())
+        if time.time() - float(d.get("ts", 0)) <= MARK_TTL:
+            base = int(d["off"])
+        else:
+            print("[director_reply] 오래된 mark 폐기(%.0f분 경과) — 지금부터 대기"
+                  % ((time.time() - float(d.get("ts", 0))) / 60), flush=True)
     except Exception:
+        pass
+    if base is None:
         base = _size()
     msgs, base = _wait_from(base, seconds, poll)
-    _write_off(base)
+    _write_off(json.dumps({"off": base, "ts": time.time()}))
     return msgs
 
 
@@ -105,5 +118,9 @@ if __name__ == "__main__":
             print(m)
     else:
         sec = int(sys.argv[1]) if len(sys.argv) > 1 else 180
+        if sec > 590:
+            # Bash 도구 상한 600초 — 초과 대기는 출력째 죽는다 (2026-08-23 5차: 660 함정 방지)
+            print("[director_reply] %d초는 Bash 상한(600초) 초과 — 590초로 줄임. mark/collect 사용 권장" % sec, flush=True)
+            sec = 590
         for m in wait(sec):
             print(m)

@@ -16,17 +16,22 @@ MARK="$ROOT/logs/.janitor_date"
 TODAY=$(date +%Y-%m-%d)
 
 [ "$(cat "$MARK" 2>/dev/null)" = "$TODAY" ] && exit 0          # 오늘 이미 돌았다
-# 렌더 중이면 마커 없이 종료(다음 틱 재시도). 판정은 락 속 PID의 생존(kill -0) — mtime 신선도는
-# 맥 절전·3차 재시도(락 무갱신 ~107분)에서 살아있는 렌더를 오판했다 (2026-08-23 3차 리뷰).
-# 죽은 PID의 락(강제 종료 잔재)은 무시하고 정상 진행한다.
+# 렌더 중이면 마커 없이 종료(다음 틱 재시도). 판정은 락 속 PID의 **정체 검사**(ps 커맨드에
+# daily_runner 포함, 카드 모드 제외) — mtime 신선도는 맥 절전·3차 재시도에서 살아있는 렌더를
+# 오판했고(3차), kill -0 단독은 재사용 PID에 속았다(4차). 죽은 PID의 잔재 락은 무시하고 진행.
 # ⚠️ 락 파일명·내용(PID)은 bin/daily_runner.py LOCK 정의와 결합 — 바꾸면 여기도 고쳐라.
 LOCKF="$ROOT/logs/.daily.lock"
 if [ -f "$LOCKF" ]; then
   lpid=$(cat "$LOCKF" 2>/dev/null)
   case "$lpid" in
     ''|*[!0-9]*) : ;;                                   # PID 아님 — 잔재로 간주
-    # PID 생존 + 정체 확인 — 재사용된 무관 PID가 청소를 무기한 막지 않게 (2026-08-23 4차 리뷰)
-    *) ps -p "$lpid" -o command= 2>/dev/null | grep -q daily_runner && exit 0 ;;
+    *)
+      # PID 생존 + 정체 확인(카드 모드 러너는 .daily.lock 소유자가 아니다 — 5차: 모드까지 대조)
+      lcmd=$(ps -p "$lpid" -o command= 2>/dev/null)
+      case "$lcmd" in
+        *daily_runner*"--mode card"*) : ;;
+        *daily_runner*) exit 0 ;;                        # 영상 렌더 살아 있음
+      esac ;;
   esac
 fi
 
