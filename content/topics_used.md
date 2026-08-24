@@ -160,3 +160,4 @@
 | 2026-08-24 | am | [게시] 태풍이 오키나와에 있는데 관절이 쑤시는 이유 — 태풍 사우델 북상 중 관절통 메커니즘, 기압 하락→활액 압력 상승→신경 압박, 맨체스터대 1만3천명 추적 연구(Cloudy with a Chance of Pain), McAlindon 2007 AJM, 의료면책 포함 (YT 3Z2aU9ijF04 / IG reel/DcZkTZCFODL) | 건강/생활과학 | male |
 | 2026-08-24 | noon | [미가동] 결번 — 파도 없음(태풍 07시 기출 같은 계열·처서 3편 기출·스파이더맨 안정기), AI활용법 쿼터 18시 이관 | - | - |
 | 2026-08-24 | pm | [게시] ChatGPT에 셀카 올리면 1920년대 사람이 됩니다 — ChatGPT 사진 시대 변환(1920년대·르네상스 등), AI가 옷·배경·조명 변환 얼굴만 보존, 얼굴 과보정 방어 프롬프트('내 얼굴은 절대 바꾸지 마'), Plus 전용, AI활용법 쿼터 충족 (YT _7T7dKeIQEQ / IG reel/DcavUTGADR4) | AI활용법/트렌드 | female |
+| 2026-08-25 | am | [게시] 주말에 늦잠 자면 월요일 뇌는 시차를 겪는다 — 사회적 시차(Social Jet Lag), 뮌헨대 Wittmann 2006 최초 정의, Roenneberg 2012 Current Biology 6만5천명 추적(1시간당 비만 OR 33%), 인구 70%가 1h+ SJL, 개강 시즌 시의성, 의료면책 포함 (YT FYl1ATWEw9M / IG reel/DccIiw8idb3) | 건강/생활과학 | female |
