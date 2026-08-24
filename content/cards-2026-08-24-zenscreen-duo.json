@@ -1,0 +1,25 @@
+{
+  "topic": "ASUS ZenScreen Duo OLED — 접으면 책 한 권, 펼치면 OLED 듀얼 모니터 [구매가능]",
+  "caption": "노트북 옆에 모니터 2개가 더 생긴다.\n\nASUS ZenScreen Duo OLED.\n14인치 OLED 패널 2장이 책처럼 접힌다.\nUSB-C 케이블 하나로 둘 다 켜진다.\n\n펼치면 대각선 약 20인치.\n100% DCI-P3 시네마급 색감,\nDelta E 2 미만 — 사진 편집도 된다.\n\n접으면 15mm. 무게 1.07kg.\n카페에 들고 가서 노트북 옆에 펼치면\n그 자리가 3화면 작업 공간이 된다.\n\n국내 오픈마켓 70만원대에 판매 중.\n\n출처: ASUS 공식, Tom's Hardware, IT Pro\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 \ud83d\udd14\n\n#ASUS #ZenScreen #휴대용모니터 #OLED #듀얼모니터",
+  "threads_text": "노트북 옆에 모니터 2개가 더 생긴다.\n\n나 카페에서 노트북으로 일하는데 화면 좁아서 미칠 것 같았거든\n외장 모니터 들고 다니기엔 무겁고\n\n1. ASUS ZenScreen Duo OLED — 14인치 OLED가 2장\n2. 책처럼 접히고 펼치면 20인치 화면이 됨\n3. USB-C 하나 꽂으면 둘 다 켜짐. 어댑터 필요 없음\n4. 접으면 15mm, 1.07kg. 가방에 들어감\n5. 100% DCI-P3 색감이라 영상 편집이나 사진 보정도 됨\n6. 노트북 포함 3화면 — 카페에서 이러면 좀 민망하긴 한데 생산성은 확실함\n7. 국내 오픈마켓 70만원대. 비싸긴 한데 모니터 2대 산다고 생각하면\n\n(출처: ASUS 공식, Tom's Hardware, IT Pro)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "노트북 옆에 모니터 2개 더",
+      "title_hl": ["2개"],
+      "body": "ASUS ZenScreen Duo OLED. 14인치 OLED 2장이 책처럼 접히고, USB-C 하나로 둘 다 켜진다",
+      "body_hl": ["OLED 2장", "USB-C 하나"],
+      "img": "assets/cards/zenscreen_duo_hero.jpg",
+      "credit": "이미지: ASUS 공식 (press.asus.com)"
+    },
+    {
+      "kind": "end",
+      "title": "카페에서도 3화면",
+      "title_hl": ["3화면"],
+      "body": "1.07kg, 접으면 15mm. 100% DCI-P3 시네마급 색감. 국내 오픈마켓 70만원대",
+      "body_hl": ["1.07kg", "15mm", "70만원대"],
+      "img": "assets/cards/zenscreen_duo_display.jpg",
+      "credit": "이미지: ASUS 공식 (press.asus.com)"
+    }
+  ]
+}
