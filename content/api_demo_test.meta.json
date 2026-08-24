@@ -1,7 +1,0 @@
-{
-  "title": "API Upload Demo (Private Test)",
-  "description": "Demonstration upload for YouTube API compliance review.\nThis private video shows our API client (project: shorts-studio) uploading via videos.insert.\n\n· Single-user tool: uploads only to our own channel @daily1know\n· No third-party data, no other users\n· Flow: render pipeline → videos.insert (resumable) → private/public per config\n\n출처: internal demo\n#demo #api #test #private #compliance",
-  "tags": ["demo", "api", "test", "private", "compliance"],
-  "madeForKids": false,
-  "privacy": "private"
-}
