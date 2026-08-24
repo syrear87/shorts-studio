@@ -1,0 +1,25 @@
+{
+  "topic": "Keychron V6 Ultra Hybrid — 자석 스위치랑 기계식을 한 키보드에 같이 꽂는다 [펀딩]",
+  "caption": "자석 스위치랑 기계식, 한 키보드에 같이 꽂힌다.\n\n키크론이 킥스타터에 올린 V6 Ultra Hybrid.\n세계 최초로 자석 스위치와 기계식 스위치를\n같은 보드에 섞어 쓸 수 있다.\n\nTMR 센서가 소켓마다 스위치 종류를 자동 감지.\n자석은 0.1mm 단위 작동점 조절 + 래피드 트리거,\n기계식은 좋아하는 축 그대로.\n게임은 자석, 타이핑은 기계식 — 한 판에 해결.\n\n8K 폴링(유선+무선 둘 다), BT 5.3,\n가스켓 마운트, PBT 이중사출 키캡.\n\n킥스타터 얼리버드 $149(약 20만원).\n11월 배송 예정.\n\n출처: TechPowerUp (8/19), Forbes (8/18), Notebookcheck (8/19)\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 \ud83d\udd14\n\n#키크론 #기계식키보드 #자석스위치 #킥스타터 #가젯",
+  "threads_text": "자석 스위치랑 기계식, 한 키보드에 같이 꽂힌다.\n\n나 기계식 쓰다가 자석 스위치 궁금해서 새로 샀거든\n근데 이제 둘 다 한 판에 꽂으면 되는 시대가 옴\n\n1. 키크론 V6 Ultra Hybrid — 킥스타터에 방금 올라옴\n2. 자석 스위치랑 기계식 스위치를 한 키보드에 섞어 꽂을 수 있음\n3. TMR 센서가 소켓마다 뭐 꽂혀 있는지 알아서 감지함\n4. 게임 키(WASD)는 자석으로 래피드 트리거, 나머지는 내 최애 기계식 축 그대로\n5. 8K 폴링이 무선에서도 됨. 유선 안 꽂아도 됨\n6. 얼리버드 $149, 약 20만원. 11월 배송\n7. \"둘 중 하나 골라\" 시대가 끝난 건가\n\n(출처: TechPowerUp, Forbes, Notebookcheck)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "자석이랑 기계식, 한 판에 꽂힌다",
+      "title_hl": ["한 판에"],
+      "body": "키크론 V6 Ultra Hybrid. 세계 최초로 자석 스위치와 기계식 스위치를 같은 키보드에 섞어 쓴다",
+      "body_hl": ["세계 최초", "섞어 쓴다"],
+      "img": "assets/cards/keychron_v6_ultra_main.jpg",
+      "credit": "이미지: TechPowerUp (techpowerup.com)"
+    },
+    {
+      "kind": "end",
+      "title": "게임은 자석, 타이핑은 기계식",
+      "title_hl": ["자석", "기계식"],
+      "body": "TMR 센서가 스위치 종류 자동 감지. 0.1mm 래피드 트리거 + 8K 폴링(무선 포함). 킥스타터 $149, 11월 배송",
+      "body_hl": ["자동 감지", "$149"],
+      "img": "assets/cards/keychron_v6_ultra_detail.jpg",
+      "credit": "이미지: TechPowerUp (techpowerup.com)"
+    }
+  ]
+}
