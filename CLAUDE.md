@@ -9,6 +9,7 @@
 - `pipeline/make_short.py` — 렌더러: **Azure Speech TTS**(SSML·단어 타이밍 동기, 키 없으면 edge-tts 폴백 — 같은 보이스, `narrator: male|female`, 성우별 속도 보정 여+8%/남+18%), 배경은 `bg_id`(pick_bg로 시각 선별) 우선·`bg_query` 검색 폴백, 키네틱 자막, 자체 BGM. **기계 게이트**: 길이 15~55초, CTA 자막 2줄, WordBoundary 동기, 메타데이터 차단(-map_metadata -1)
 - `pipeline/pick_bg.py` — Pexels 후보 미리보기 저장 → 세션이 Read로 보고 `bg_id` 선택
 - `pipeline/upload_youtube.py` — preflight(길이·해상도 기계검증) 후 `config.json`의 `upload_mode`: `phase0_telegram`(현재) / `api_public`(감사 통과 후). `instagram: on`이면 릴스 업로드 체인(`upload_instagram.py`, 토큰은 keys.env)
+- `pipeline/threads_stats.py` — 스레드 성과 조회(읽기 전용): 7일 누적 지표·전일 대비 증감·상위 글. **일일 결산에 반드시 포함**(2026-08-24 디렉터 지시). 스냅샷은 logs/threads_stats.jsonl. ⚠️ 앱 인사이트는 **팔로워 100명까지 전면 잠금**(앱에 '100명이 되면 다시 방문하세요' 표시) — 그때까지 이 스크립트가 유일한 창구다. 조회 출처(추천/프로필/검색)는 100명 해금 후 앱에서 확인.
 - `pipeline/analytics.py` — 채널 성과 조회(읽기 전용): eng%·subs/1kE KPI, 훅부검 플래그. 근거 문서는 `content/PERFORMANCE.md`
 - `pipeline/retitle.py` — 무긴장 제목 구제(2026-08-02 승인): 게시 3~4h + 조회<300 + 무긴장이면 제목 교체, `content/RETITLES.md` 자동 기록
 - `pipeline/affiliate_bot.py` — 제휴 배선(허브 갱신·스토리 스티커 킷·허브 통계). **상주하지 않는다** — 링크 회신과 `허브`/`스티커`/`취소` 명령은 launchd dm 틱(bin/dm_tick.sh)이 10분마다 `--once`로 처리한다(2026-08-21 이관 — 슬롯 세션 폴링을 다시 얹지 마라, 이중 처리된다).
