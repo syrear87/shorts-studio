@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# launchd가 슬롯마다 실행(편성 v11.1 — 영상 07/12/18시 · 카드 09~17시 매시, KST) — 헤드리스 스튜디오 세션 기동.
-# 락으로 중복 방지(모드별 분리), 영상 100분·카드 45분 타임아웃, 로그 저장, 실패·무산출 시 텔레그램 통보.
+# launchd가 슬롯마다 실행(편성 v12 — 영상 07:00/10:20/13:20/15:20/19:00/21:00 · 카드 09~16시 매시+20시, KST) — 헤드리스 스튜디오 세션 기동.
+# 락으로 중복 방지(모드별 분리), 영상 75분·카드 45분 타임아웃, 로그 저장, 실패·무산출 시 텔레그램 통보.
 import os, subprocess, sys, time
 from datetime import datetime
 from pathlib import Path
@@ -16,7 +16,11 @@ else:
 PROMPT_FILE = "CARD_PROMPT.md" if CARD_MODE else "DAILY_PROMPT.md"
 LOCK = ROOT / "logs" / (".card.lock" if CARD_MODE else ".daily.lock")   # ⚠️ .daily.lock의 파일명·내용(PID)은 bin/janitor.sh 렌더 감지와 결합 (2026-08-23)
 LOG = ROOT / "logs" / ("daily-%s.log" % datetime.now().strftime("%Y%m%d-%H%M"))
-TIMEOUT = (45 if CARD_MODE else 100) * 60
+# 영상 75분: v12에서 영상 슬롯 간격이 120분(13:20→15:20)으로 좁아졌다. 실측 소요는 평균 30분·최대 48분이라
+# 75분이면 충분하고, 폭주한 세션이 락을 쥔 채 다음 슬롯을 잡아먹는 것을 45분 여유로 막는다 (2026-08-24 v12).
+TIMEOUT = (45 if CARD_MODE else 75) * 60
+CARD_QUOTA = 9   # 하루 카드 상한 — 2026-08-24 실사고: 15시 슬롯이 결번 벌충으로 3연발해 9장을 채웠는데
+                 # 16·17시 슬롯이 그대로 발화해 11장이 나갔다. 세션은 매번 새로 떠서 당일 누계를 모른다.
 # (STALE mtime 판정은 2026-08-23 4차 리뷰로 폐지 — 절전 시 살아있는 세션 오판. 락 판정은 PID 정체 검사로 통일)
 # 일시적 API 장애(529 과부하·429 한도·연결 오류)는 몇 분이면 풀린다 → 재시도로 슬롯을 구한다.
 # 2026-07-30 17:00 실사고: 529 Overloaded로 즉사, 재시도가 없어 슬롯 하나가 통째로 증발.
@@ -90,9 +94,30 @@ def sent_evidence(start_ts):
         return False
 
 
+def cards_sent_today():
+    """오늘 이미 게시된 카드 수 (sent.log 실측). 판정 불가 시 -1 — 가드를 열어둔다."""
+    try:
+        today = datetime.now().strftime("%Y-%m-%d")
+        sent = ROOT / "logs" / "sent.log"
+        if not sent.exists():
+            return 0
+        return sum(1 for ln in sent.read_text(errors="ignore").splitlines()
+                   if ln.startswith(today) and "IGCARD:" in ln)
+    except Exception:
+        return -1
+
+
 def main():
     os.chdir(str(ROOT))
     (ROOT / "logs").mkdir(exist_ok=True)
+    # 카드 쿼터 가드 (2026-08-24 v12): 벌충 몰아내기로 쿼터가 이미 찼으면 남은 슬롯은 조용히 결번.
+    # 도달이 붕괴 중인 계정에 초과 물량은 순손해다 — 세션을 띄우기 전에 끊는다.
+    if CARD_MODE:
+        n = cards_sent_today()
+        if n >= CARD_QUOTA:
+            with open(LOG, "a") as lf:
+                lf.write("SLOT-NOOP 카드 쿼터 충족(%d/%d) — 결번\nSLOT-DONE quota-guard\n" % (n, CARD_QUOTA))
+            return
     if LOCK.exists():
         # 락 판정 = PID 정체 검사 (2026-08-23 4차 리뷰: mtime STALE은 절전 시 살아있는 세션을 잔재로,
         # 크래시 직후 잔재를 실행 중으로 오판했다 — janitor.sh와 동일 방식으로 통일. PID 재사용은

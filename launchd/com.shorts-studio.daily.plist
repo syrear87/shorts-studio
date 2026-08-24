@@ -25,13 +25,31 @@
 		</dict>
 		<dict>
 			<key>Hour</key>
-			<integer>12</integer>
+			<integer>10</integer>
+			<key>Minute</key>
+			<integer>20</integer>
+		</dict>
+		<dict>
+			<key>Hour</key>
+			<integer>13</integer>
+			<key>Minute</key>
+			<integer>20</integer>
+		</dict>
+		<dict>
+			<key>Hour</key>
+			<integer>15</integer>
+			<key>Minute</key>
+			<integer>20</integer>
+		</dict>
+		<dict>
+			<key>Hour</key>
+			<integer>19</integer>
 			<key>Minute</key>
 			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>Hour</key>
-			<integer>18</integer>
+			<integer>21</integer>
 			<key>Minute</key>
 			<integer>0</integer>
 		</dict>
