@@ -141,7 +141,7 @@ def main():
             return
         if judge_failed:
             tg("⚠️ 숏츠 데일리: 락 생존 판정 실패(ps 오류) — 잔재로 간주하고 진행. 중복 기동이면 멱등 가드가 게시를 막는다")
-        LOCK.unlink()   # 죽은 PID의 잔재 락
+        LOCK.unlink(missing_ok=True)   # 죽은 PID의 잔재 락 (죽어가던 세션의 finally와 경합 가능 — 2026-08-25 감사)
     # claude는 node 기반 → launchd의 빈 PATH에서 죽는다(2026-07-29 실사고: env: node not found).
     # 로그인 셸(zsh -l)을 통째로 경유해 사용자 PATH(node·claude 포함)를 복원한다.
     chk = subprocess.run(["/bin/zsh", "-l", "-c", "which claude"], capture_output=True, text=True, timeout=30)

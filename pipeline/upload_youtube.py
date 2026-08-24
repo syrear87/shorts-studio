@@ -102,7 +102,9 @@ def phase0(video, meta):
     ig_ok = False
     try:
         import upload_instagram
-        ig_ok = bool(upload_instagram.upload(video, meta))
+        # "already-published"(멱등 가드)는 성공이 아니다 — 2026-08-17 허위 보고 실사고 재현 조건
+        _r = upload_instagram.upload(video, meta)
+        ig_ok = bool(_r) and _r != "already-published"
     except Exception as e:
         subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
                         "⚠️ 인스타 자동 게시 실패(%s) — 아래 영상을 수동 업로드해주세요" % str(e)[:200]],

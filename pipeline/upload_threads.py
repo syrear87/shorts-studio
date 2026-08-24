@@ -60,7 +60,10 @@ def _save_token(tok, expires_in):
     if not seen_e:
         lines.append("THREADS_TOKEN_EXPIRES=%d\n" % stamp)
     tmp = KEYS + ".tmp"
-    open(tmp, "w", encoding="utf-8").writelines(lines)
+    # ⚠️ keys.env 전체(전 채널 자격증명)를 재작성하는 경로다 — flush 보장 없이 os.replace가 먼저
+    # 실행되면 잘린 keys.env가 정본이 된다. with로 닫고 나서 교체한다 (2026-08-25 감사).
+    with open(tmp, "w", encoding="utf-8") as f:
+        f.writelines(lines)
     os.chmod(tmp, 0o600)
     os.replace(tmp, KEYS)
 
@@ -203,7 +206,7 @@ def find_recent_post(caption_hint, limit=8):
     # → 해시태그가 시작되기 전까지의 제목 부분만 비교한다 (2026-08-17 실사고).
     import re as _re
     def _core(t):
-        t = _re.split(r"[#\n]", t or "", 1)[0]
+        t = _re.split(r"[#\n]", t or "", maxsplit=1)[0]
         return _re.sub(r"\s+", " ", t).strip()
     key = _core(caption_hint)[:22]
     if not key:

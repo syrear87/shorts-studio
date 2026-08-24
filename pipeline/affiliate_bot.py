@@ -21,7 +21,7 @@ from datetime import datetime, timezone, timedelta
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OFFSET_F = os.path.join(ROOT, "logs", "affiliate_offset.txt")
 STATE_F = os.path.join(ROOT, "logs", "affiliate_state.json")
-DISCLOSURE = "* 이 게시물은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다"
+from disclosure import DISCLOSURE, DISCLOSURE_SHORT   # 법정 고지 문구 단일 정본 (2026-08-25)
 
 
 def env(path, keys):
@@ -372,7 +372,7 @@ def make_story_image(media, product_name, out_path):
         d.line([(gx1, y_), (gx1, min(y_ + dash, gy1))], fill=(210, 213, 220), width=3)
         y_ += dash * 2
     center((gy0 + gy1) / 2 - 14, "여기에 링크 스티커", font(26), LGRAY)
-    center(H - 150, "쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다", font(26), LGRAY)
+    center(H - 150, DISCLOSURE_SHORT, font(26), LGRAY)
     im.save(out_path, quality=93)
     return out_path
 
@@ -426,9 +426,10 @@ def handle_link_to(name, url, m):
     items.insert(0, {"no": seq, "name": name, "url": url, "img": thumb_url,
                      "date": datetime.now().strftime("%m/%d"), "ep": ep})
     # 전체 보존 (2026-08-21 디렉터: "등록된 거 다 볼 수 있게" — 허브가 페이징 처리)
-    state({"hub_seq": seq})
+    # 번호는 허브 갱신이 성공한 뒤에 커밋한다 — R2 장애로 update_hub가 죽으면 hub_seq만 올라가
+    # 재전송 시 번호가 건너뛴다("콘텐츠에 박힌 번호가 어긋나지 않게" 불변식 위반, 2026-08-25 감사)
     update_hub(items)
-    state({"hub_items": items, "last_permalink": m.get("permalink"),
+    state({"hub_seq": seq, "hub_items": items, "last_permalink": m.get("permalink"),
            "last_product": {"name": name, "url": url}, "ts": datetime.now().isoformat()})
     # ①-a2 댓글→DM 규칙 자동 등록 (2026-08-20 디렉터: "쿠팡에 있는 상품이어야만 함")
     #    쿠팡 링크가 도착한 게시물에 한해 "댓글에 '링크'" 자동 DM을 켠다 — comment_dm.py가 소비.

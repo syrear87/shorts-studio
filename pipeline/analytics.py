@@ -87,16 +87,18 @@ def main():
                 v["kst"].strftime("%m-%d %H:%M"), v["views"], "-", "-", "-", "-", "-",
                 v["title"][:36]))
 
-    src = ya.reports().query(ids="channel==MINE", startDate=start, endDate=today,
-                             metrics="views", dimensions="insightTrafficSourceType").execute()
-    rows = sorted(src.get("rows", []), key=lambda x: -x[1])
-    tot = sum(r[1] for r in rows) or 1
-    print("\n트래픽 소스:", ", ".join("%s %d(%.1f%%)" % (r[0], r[1], r[1] / tot * 100) for r in rows[:5]))
+    # 부가 지표다 — 구글 백엔드 500 한 번에 본편(편별 성과)까지 날리지 않는다.
+    # 2026-08-25 실측: YouTube Analytics가 backendError 500을 뱉어 결산 전체가 죽었다.
+    try:
+        src = ya.reports().query(ids="channel==MINE", startDate=start, endDate=today,
+                                 metrics="views", dimensions="insightTrafficSourceType").execute()
+        rows = sorted(src.get("rows", []), key=lambda x: -x[1])
+        tot = sum(r[1] for r in rows) or 1
+        print("\n트래픽 소스:", ", ".join("%s %d(%.1f%%)" % (r[0], r[1], r[1] / tot * 100) for r in rows[:5]))
+    except Exception as e:
+        print("\n트래픽 소스 조회 실패(무해):", str(e)[:100])
     print("\n※ 처리분·지속%·구독+ 이 '-'인 영상은 Analytics 집계 대기 중(약 3일 지연)입니다.")
 
-
-if __name__ == "__main__":
-    main()
 
 def ig_online_followers_peak():
     """팔로워 접속 피크 요약 (2026-08-06 디렉터 승인 전략 — 카드 슬롯 배치 근거, 주기 재점검용)."""
@@ -122,9 +124,13 @@ def ig_online_followers_peak():
         top = ", ".join("%02d시(%.0f)" % (h, c) for h, c in avg[:5])
         low = ", ".join("%02d시(%.0f)" % (h, c) for h, c in avg[-3:])
         print("\nIG 팔로워 접속 피크(KST): %s | 최저: %s" % (top, low))
-        print("※ 편성 v9(07/10/13/16/19)와 대조 — 피크대(09~15시)를 벗어난 슬롯이 늘면 재배치 검토")
+        print("※ 편성 v12.1(영상 07:00/10:20/13:20/15:20/19:00/21:00 · 카드 09/10/12/14/16/20)과 대조 — 피크대를 벗어난 슬롯이 늘면 재배치 검토")
     except Exception as e:
         print("\nIG 팔로워 접속 조회 실패:", str(e)[:80])
 
 
-ig_online_followers_peak()
+if __name__ == "__main__":
+    # ⚠️ 모듈 최상위에서 부르면 import만 해도 라이브 IG API가 호출된다. 또 main()이 sys.exit로
+    #    빠지면 이 요약이 조용히 누락됐다 — 가드 안으로 모았다 (2026-08-25 감사).
+    main()
+    ig_online_followers_peak()

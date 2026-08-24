@@ -20,6 +20,7 @@ import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from upload_instagram import load_keys, api  # noqa: E402
+from disclosure import DISCLOSURE  # noqa: E402  — 법정 고지 문구 단일 정본 (2026-08-25)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RULES = os.path.join(ROOT, "content", "dm_rules.json")
@@ -36,7 +37,8 @@ def _state():
 
 def _save(s):
     tmp = STATE + ".tmp"
-    json.dump(s, open(tmp, "w", encoding="utf-8"), ensure_ascii=False)
+    with open(tmp, "w", encoding="utf-8") as f:   # flush 보장 후 교체 (2026-08-25 감사)
+        json.dump(s, f, ensure_ascii=False)
     os.replace(tmp, STATE)
 
 
@@ -118,7 +120,7 @@ def run_once(verbose=True):
                     "access_token": tok})
                 api("POST", "/me/messages", data={
                     "recipient": json.dumps({"id": ev.get("from_id")}),
-                    "message": json.dumps({"text": "프로필 링크의 허브에서도 언제든 다시 볼 수 있어요 🙂\n\n* 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다"}),
+                    "message": json.dumps({"text": "프로필 링크의 허브에서도 언제든 다시 볼 수 있어요 🙂\n\n" + DISCLOSURE}),
                     "access_token": tok})
                 sent += 1
                 replied.add(cid)
@@ -176,8 +178,15 @@ def run_once(verbose=True):
                     replied.add(cid)
                 break
     # 2차 소스(REST 폴링 — 검수 승인 후 데이터가 열리면 자동으로 같이 동작)
-    media = api("GET", "/me/media", params={
-        "fields": "id,caption,timestamp", "limit": 15, "access_token": tok}).get("data", [])
+    # ⚠️ 이 시점엔 위 웹훅 경로가 이미 DM을 발송하고 replied에 기록했지만 _save는 아직이다.
+    #    여기서 5xx/429로 죽으면 상태가 저장되지 않아 다음 틱에 같은 사람에게 DM이 재발송된다.
+    #    아래 /comments 호출과 동일하게 방어한다 (2026-08-25 감사).
+    try:
+        media = api("GET", "/me/media", params={
+            "fields": "id,caption,timestamp", "limit": 15, "access_token": tok}).get("data", [])
+    except Exception as e:
+        print("[comment_dm] 미디어 조회 실패(무해 — 웹훅 경로는 이미 처리됨):", str(e)[:120], flush=True)
+        media = []
     for m in media:
         mid = m["id"]
         applicable = [r for r in rules if r.get("media") in ("any", mid)]

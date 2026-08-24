@@ -150,7 +150,7 @@ def threads_parts(meta):
     return head, replies
 
 
-DISCLOSURE_TEXT = "* 이 게시물은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다"
+from disclosure import DISCLOSURE as DISCLOSURE_TEXT   # 법정 고지 문구 단일 정본 (2026-08-25)
 
 
 def affiliate_for(meta):
