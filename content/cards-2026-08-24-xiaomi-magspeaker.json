@@ -1,0 +1,25 @@
+{
+  "topic": "샤오미 블루투스 스피커 마그네틱 — 폰 뒤에 딱 붙이면 스피커+거치대가 된다 [신제품]",
+  "caption": "폰에 딱 붙이면 스피커+거치대가 된다.\n\n샤오미가 자석으로 폰 뒤에 붙는\n블루투스 스피커를 만들었다.\n\n95g. 붙이는 순간 자동 전원.\n떼면 자동으로 꺼진다.\n\n1.5인치 풀레인지 3W 드라이버\n블루투스 6.0, IP67 방수방진\n650mAh 배터리, USB-C 충전\nRGB 조명은 음악에 맞춰 반응.\n\n최대 10개까지 동시 연결도 된다.\n\n가격은 199위안, 약 3만 8천원.\n중국 샤오미 유핀 크라우드펀딩으로 출시.\n국내 미출시 — 직구만 가능.\n\n출처: Notebookcheck (8/19), Yanko Design (8/19), XiaomiToday (8/19)\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 🔔\n\n#샤오미 #블루투스스피커 #가젯 #MagSafe스피커 #테크",
+  "threads_text": "폰에 딱 붙이면 스피커+거치대가 된다.\n\n나 이거 보자마자 \"이런 게 왜 이제 나옴?\" 했음\n\n1. 폰 뒤에 자석으로 딱 붙는 블루투스 스피커\n2. 붙이면 전원 자동 ON, 떼면 자동 OFF — 홀 센서\n3. 95g이라 붙여놓고 다녀도 됨\n4. 세우면 거치대. 유튜브 볼 때 폰 기대 세울 필요 없음\n5. 3W 드라이버에 IP67 방수. 샤워할 때도 가능\n6. RGB 조명까지 음악에 맞춰 돌아감\n7. 약 3만 8천원. 국내 미출시라 직구만 가능\n\n폰 스피커 답답한 사람한테는 답이 될 수도\n\n(출처: Notebookcheck, Yanko Design, XiaomiToday)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "폰에 붙이면 스피커가 된다",
+      "title_hl": ["붙이면"],
+      "body": "샤오미 블루투스 스피커 마그네틱. 자석으로 폰 뒤에 딱 붙는다. 95g",
+      "body_hl": ["자석", "95g"],
+      "img": "assets/cards/xiaomi_mag_speaker_main.jpg",
+      "credit": "이미지: Notebookcheck (notebookcheck.net)"
+    },
+    {
+      "kind": "end",
+      "title": "붙이면 자동 켜짐, 떼면 자동 꺼짐",
+      "title_hl": ["자동"],
+      "body": "3W 드라이버, BT 6.0, IP67 방수. RGB 조명이 음악에 반응. 약 3만 8천원, 국내 미출시 — 직구만",
+      "body_hl": ["IP67", "3만 8천원"],
+      "img": "assets/cards/xiaomi_mag_speaker_detail.jpg",
+      "credit": "이미지: XiaomiToday (xiaomitoday.com)"
+    }
+  ]
+}
