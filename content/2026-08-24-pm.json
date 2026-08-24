@@ -1,0 +1,84 @@
+{
+  "title": "ChatGPT에 셀카 올리면 1920년대 사람이 됩니다",
+  "description": "ChatGPT에 셀카 한 장 올리면 1920년대·르네상스·조선시대 — 어느 시대든 변신합니다.\n\n지금 SNS에서 가장 많이 공유되는 AI 놀이. 프롬프트 한 줄이면 옷·배경·조명이 통째로 바뀌는데, 얼굴까지 바뀌지 않게 하는 핵심 한 줄도 알려드립니다.\n\n📌 프롬프트: 이 사진 속 인물을 1920년대 개츠비 스타일 무도회에 넣어줘. 옷은 턱시도/스팽글 드레스로, 조명은 빈티지 샹들리에 느낌으로. 내 얼굴은 절대 바꾸지 마.\n\n(ChatGPT Plus 필요)\n\n출처: Analytics Insight · TechRepublic · Pexels (배경 영상)",
+  "tags": ["ChatGPT", "AI사진변환", "AI활용법", "시대변환", "셀카놀이"],
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "내 사진이 1920년대 흑백사진이 됩니다. 옷까지 바뀌고, 조명까지 바뀝니다.",
+      "bg": "photo:3617531",
+      "lines": [
+        ["내 사진이 1920년대 흑백사진이 됩니다", ["1920년대"]],
+        ["옷까지 바뀌고, 조명까지 바뀝니다", ["옷까지", "조명까지"]]
+      ],
+      "hl_pair": true
+    },
+    {
+      "kind": "body",
+      "voice": "지금 SNS에서 제일 많이 도는 챗GPT 놀이입니다. 셀카 한 장이면 어느 시대든 갑니다.",
+      "bg": 5871181,
+      "lines": [
+        ["지금 SNS에서 제일 많이 도는", []],
+        ["챗GPT 놀이입니다", ["챗GPT"]],
+        ["셀카 한 장이면 어느 시대든 갑니다", ["셀카"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "셀카를 올리고, 이 사람을 1920년대 무도회에 넣어줘, 한 줄이면 끝.",
+      "bg": "photo:7342998",
+      "lines": [
+        ["셀카를 올리고", ["셀카를"]],
+        ["'1920년대 무도회에 넣어줘'", []],
+        ["한 줄이면 끝", ["끝"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "AI가 옷을 갈아입히고, 배경을 그 시대 건물로 바꾸고, 조명까지 빈티지로 맞춥니다. 내 얼굴만 그대로.",
+      "bg": 6640201,
+      "lines": [
+        ["옷을 갈아입히고, 배경을 바꾸고", []],
+        ["조명까지 빈티지로 맞춥니다", ["빈티지로"]],
+        ["내 얼굴만 그대로", ["그대로"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "단, 가끔 얼굴까지 바꿔 버립니다. 프롬프트에 내 얼굴은 절대 바꾸지 마, 이 한 줄을 넣으세요.",
+      "bg": 7576281,
+      "lines": [
+        ["단, 가끔 얼굴까지 바꿔 버립니다", ["얼굴까지"]],
+        ["'내 얼굴은 절대 바꾸지 마'", ["절대"]],
+        ["이 한 줄을 넣으세요", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "전체 프롬프트는 화면에 있습니다. ChatGPT Plus에서 됩니다. 저장하고 지금 바로 해보세요.",
+      "bg": 6586070,
+      "lines": [
+        ["전체 프롬프트는 화면에 있습니다", []],
+        ["ChatGPT Plus에서 됩니다", ["Plus"]],
+        ["저장하고 지금 바로 해보세요", ["해보세요"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "저장해두고 따라 해보세요",
+      "bg": 6586070,
+      "lines": [
+        ["오늘도 1일 1지식,", ["1일", "1지식,"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "bg_query": ["vintage sepia photograph portrait", "person taking selfie smartphone", "phone screen typing chat", "1920s ballroom vintage fashion elegant", "face portrait mirror reflection", "phone screen text dark background"],
+  "sources": [
+    "https://www.analyticsinsight.net/amp/story/chatgpt/top-chatgpt-photo-editing-trends-2026-viral-ai-prompts-changing-social-media",
+    "https://www.techrepublic.com/article/news-chatgpt-photo-editing-trends-2026/"
+  ]
+}
