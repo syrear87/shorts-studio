@@ -1,0 +1,25 @@
+{
+  "topic": "DJI Mic Mini 2S — 5g짜리 핀 마이크에 14기가 내장, 폰 없이 녹음된다 [구매가능]",
+  "caption": "5g짜리 핀에 14기가가 들어간다.\n\nDJI Mic Mini 2S.\n이전 세대에선 꼭 폰이나 카메라를 연결해야 녹음이 됐다.\n이번엔 송신기 혼자서 32-bit float로 녹음한다.\n14.5GB 내장 메모리 — 약 13시간 분량.\n\n무게 5g. 옷깃에 꽂으면 보이지도 않는다.\n수신기와 250m 거리까지 끊김 없이 연결.\n배터리는 송신기 6시간, 충전 케이스 포함 18시간.\n\nDJI Mic 3의 핵심 기능을 절반 크기에 담았다.\n유튜브 촬영, 인터뷰, 브이로그.\n작아서 안 보이는 마이크가 필요한 사람에게.\n\n출처: DJI 공식, Imaging Resource, Newsshooter\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 \ud83d\udd14\n\n#DJI #무선마이크 #크리에이터 #MicMini2S #유튜브장비",
+  "threads_text": "5g짜리 핀에 14기가가 들어간다.\n\n나 영상 찍을 때 마이크 때문에 스트레스 진짜 많이 받았거든\n유선은 거추장스럽고, 무선은 폰 연결 안 하면 녹음이 안 되고\n\n1. DJI Mic Mini 2S — 송신기 무게 5g. 옷깃에 꽂으면 눈에 안 보임\n2. 이번에 내장 메모리 14.5GB 탑재. 폰 없이 송신기 혼자 녹음됨\n3. 32-bit float 녹음 — 소리 깨질 걱정 없음. 후보정으로 살릴 수 있음\n4. 수신기와 250m까지 끊김 없이 연결\n5. 배터리 송신기 6시간, 케이스 합쳐 18시간\n6. DJI Mic 3의 핵심이 절반 크기에 들어왔다고 보면 됨\n\n(출처: DJI 공식, Imaging Resource, Newsshooter)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "5g짜리 핀 마이크가 혼자 녹음한다",
+      "title_hl": ["5g", "혼자"],
+      "body": "DJI Mic Mini 2S. 내장 메모리 14.5GB, 폰 없이 32-bit float 녹음",
+      "body_hl": ["14.5GB", "32-bit float"],
+      "img": "assets/cards/dji_mic_mini2s_main.jpg",
+      "credit": "이미지: DJI 공식 (store.dji.com)"
+    },
+    {
+      "kind": "end",
+      "title": "작아서 안 보이는 마이크",
+      "title_hl": ["안 보이는"],
+      "body": "송신기 5g, 수신기 250m 연결. 배터리 18시간(케이스 포함). DJI Mic 3의 핵심을 절반 크기에",
+      "body_hl": ["5g", "250m", "18시간"],
+      "img": "assets/cards/dji_mic_mini2s_detail.jpg",
+      "credit": "이미지: DJI 공식 (store.dji.com)"
+    }
+  ]
+}

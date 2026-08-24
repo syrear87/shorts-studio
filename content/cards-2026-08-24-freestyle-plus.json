@@ -1,0 +1,25 @@
+{
+  "topic": "Samsung Freestyle+ — 원통 하나에서 100인치가 나온다, 해외가 $1,200 [신제품]",
+  "caption": "프로젝터가 원통 하나로 줄었다.\n\nSamsung Freestyle+.\n1080p DLP, 최대 100인치.\n430 ISO 루멘 — 전작보다 밝아졌다.\n\n3D Auto Keystone.\n커튼 주름 위에 쏴도 자동으로 화면을 펴 준다.\n벽지 색깔, 조명 상태까지 감지해서 색을 보정한다.\n\nTizen OS 내장. 넷플릭스, 디즈니+, 유튜브.\n360도 사운드 — 외부 스피커 없이도 된다.\n\n현재 미국에서만 판매 중.\n해외가 $1,200 (약 170만원).\n국내 출시일은 미정.\n\n출처: Samsung 공식, Engadget, New Atlas\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 \ud83d\udd14\n\n#Samsung #프로젝터 #Freestyle #홈시네마 #삼성",
+  "threads_text": "프로젝터가 원통 하나로 줄었다.\n\n나 빔프로젝터 살까 진짜 고민 많이 했는데\n설치가 복잡하고 스크린 따로 사야 되고 귀찮아서 포기했거든\n\n1. Samsung Freestyle+ — 원통 하나가 프로젝터. 100인치까지\n2. 커튼이나 벽에 그냥 쏘면 됨. 주름이 있어도 자동 보정\n3. 벽 색깔이랑 조명까지 감지해서 색감 맞춰줌\n4. Tizen OS 내장이라 넷플릭스 바로 틀 수 있음. 노트북 연결 안 해도 됨\n5. 스피커도 360도로 내장. 외부 스피커 필요 없음\n6. 미국에서만 판매 중. $1,200 (약 170만원). 국내 미정\n7. 삼성이 한국에서 안 파는 게 좀 웃기긴 한데 곧 들어오지 않을까\n\n(출처: Samsung 공식, Engadget, New Atlas)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "원통 하나에서 100인치",
+      "title_hl": ["100인치"],
+      "body": "Samsung Freestyle+. 커튼 위에 쏴도 자동 보정, Tizen OS로 넷플릭스 바로 재생",
+      "body_hl": ["자동 보정", "넷플릭스"],
+      "img": "assets/cards/samsung_freestyle_plus_main.jpg",
+      "credit": "이미지: Samsung 공식 (samsung.com)"
+    },
+    {
+      "kind": "end",
+      "title": "스크린도, 스피커도 필요 없다",
+      "title_hl": ["필요 없다"],
+      "body": "1080p, 430 루멘. 360도 사운드 내장. 해외가 $1,200 (약 170만원), 국내 미정",
+      "body_hl": ["360도 사운드", "$1,200"],
+      "img": "assets/cards/samsung_freestyle_plus_detail.jpg",
+      "credit": "이미지: Samsung 공식 (samsung.com)"
+    }
+  ]
+}

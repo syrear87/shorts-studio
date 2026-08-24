@@ -1,0 +1,25 @@
+{
+  "topic": "Anker Prime 300W 보조배터리 — 맥북까지 충전하는 26,250mAh 괴물 [구매가능]",
+  "caption": "보조배터리로 맥북을 충전한다.\n\nAnker Prime 26,250mAh.\n출력 300W. USB-C 2개, USB-A 1개.\n맥북 프로를 0에서 50%까지 약 30분.\n폰, 태블릿, 노트북 — 3대 동시 충전.\n\n용량은 99.75Wh.\n100Wh 미만이라 비행기 기내 반입 가능.\n해외 출장에 노트북 충전기를 안 들고 가도 된다.\n\n앱으로 충전 현황을 실시간 모니터링.\n충전 베이스를 사면 데스크 위 충전 허브로도 쓸 수 있다.\n\n출처: Anker 공식, How-To Geek, 9to5Toys\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 \ud83d\udd14\n\n#Anker #보조배터리 #AnkerPrime #노트북충전 #여행템",
+  "threads_text": "보조배터리로 맥북을 충전한다.\n\n나 출장 다닐 때 노트북 충전기 무게 때문에 짜증났거든\n어댑터에 케이블에 멀티탭에\n\n1. Anker Prime — 26,250mAh에 300W 출력. 노트북 충전이 됨\n2. USB-C 2개 + USB-A 1개. 노트북+폰+이어폰 동시 충전 가능\n3. 99.75Wh라 비행기 반입 된다. 100Wh 넘으면 못 태움\n4. 맥북 프로 50%까지 약 30분이면 찬다\n5. 앱으로 남은 용량이랑 충전 속도 실시간 확인 가능\n6. 충전 베이스 달면 책상 위 충전 허브로도 씀\n7. 노트북 충전기 안 들고 다녀도 되는 세상이 왔음\n\n(출처: Anker 공식, How-To Geek, 9to5Toys)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "보조배터리가 맥북을 충전한다",
+      "title_hl": ["맥북"],
+      "body": "Anker Prime 26,250mAh. 출력 300W — 노트북, 폰, 태블릿 3대 동시 충전",
+      "body_hl": ["300W", "3대 동시"],
+      "img": "assets/cards/anker_prime_300w_main.jpg",
+      "credit": "이미지: Anker 공식 (anker.com)"
+    },
+    {
+      "kind": "end",
+      "title": "비행기에도 탄다",
+      "title_hl": ["비행기"],
+      "body": "99.75Wh — 100Wh 미만이라 기내 반입 가능. 앱으로 충전 현황 실시간 모니터링",
+      "body_hl": ["99.75Wh", "기내 반입"],
+      "img": "assets/cards/anker_prime_300w_detail.jpg",
+      "credit": "이미지: Anker 공식 (anker.com)"
+    }
+  ]
+}
