@@ -1,0 +1,26 @@
+{
+  "topic": "Analogue 3D — 닌텐도 64 카트리지를 4K로 돌리는 FPGA 콘솔, $270 (약 37만원) [신제품]",
+  "caption": "닌텐도 64가 4K로 돌아왔다\n\nAnalogue 3D.\n30년 전 카트리지를 꽂으면\nHDMI 2.1로 4K HDR 영상이 나온다.\n\n에뮬레이션이 아니다.\nFPGA 칩이 원본 하드웨어를 통째로 복제한다.\n지연 없음. 호환 안 되는 게임 없음.\n\n슈퍼마리오 64, 젤다 시간의 오카리나,\n007 골든아이까지 전부.\n\n가격 $270 (약 37만원).\n국내 미출시 — 직구만 가능.\n\n출처: Analogue 공식, Engadget, Tom's Hardware\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 \ud83d\udd14\n\n#닌텐도64 #Analogue3D #레트로게임 #4K #FPGA",
+  "threads_text": "닌텐도 64가 4K로 돌아왔다\n\n이거 아는 사람 별로 없던데\n\n1. 닌텐도 64 카트리지를 4K TV에서 돌리는 콘솔이 나왔음\n2. Analogue 3D라는 건데, 에뮬레이션이 아니라 FPGA로 원본 하드웨어를 통째로 복제한 거\n3. HDMI 2.1에 4K HDR, VRR까지 지원 — 30년 전 게임이 이렇게 깨끗하게 나옴\n4. 슈퍼마리오 64, 젤다 시간의 오카리나, 007 골든아이 다 됨\n5. 리전프리라 일본판 카트리지도 그냥 꽂으면 됨\n6. 가격 $270 약 37만원, 국내 미출시라 직구만 가능\n7. 스위치 N64 에뮬보다 이게 원판에 더 가까움\n\n(출처: Analogue 공식, Engadget, Tom's Hardware)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "닌텐도 64가 4K로 돌아왔다",
+      "title_hl": ["4K"],
+      "body": "Analogue 3D — 30년 전 카트리지를 HDMI 2.1 4K HDR로",
+      "body_hl": ["Analogue 3D", "4K HDR"],
+      "img": "assets/cards/analogue3d_product.jpg",
+      "credit": "이미지: Analogue 공식 프레스킷"
+    },
+    {
+      "kind": "end",
+      "title": "에뮬레이션이 아니다, 하드웨어 복제다",
+      "title_hl": ["하드웨어 복제"],
+      "body": "FPGA 칩이 N64를 통째로 재현. 모든 카트리지 호환, 리전프리. 4K 60Hz + VRR, 원본 컨트롤러 4개 지원. 7월 업데이트로 내부 업스케일링까지 추가",
+      "body_hl": ["FPGA", "모든 카트리지 호환", "내부 업스케일링"],
+      "sub": "$270 (약 37만원) — 국내 미출시, 직구만 가능 (analogue.co)",
+      "img": "assets/cards/analogue3d_detail.jpg",
+      "credit": "이미지: Analogue 공식 프레스킷"
+    }
+  ]
+}
