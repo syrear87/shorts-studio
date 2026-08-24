@@ -1,0 +1,25 @@
+{
+  "topic": "아이맥 사려고요? 두 달만 기다리세요 — M6 아이맥, 새 색상까지 올해 안에 나온다 [공유형][루머]",
+  "caption": "아이맥 사려고요? 두 달만 기다리세요.\n\n블룸버그 마크 거먼이 전했다.\nM6 칩을 단 새 아이맥이 올해 안에 나온다.\n색상도 바뀐다.\n\n현행 M4 아이맥은 2024년 10월 출시.\n2년 만의 교체다.\n\n24인치 4.5K 레티나 디스플레이,\n디자인 큰 변화는 없지만\n새로운 색상 팔레트가 온다는 게 핵심.\n\nOLED 버전은 아직 수년 뒤.\n지금 사면 두 달 뒤에 후회한다.\n\n출처: Bloomberg Power On (Mark Gurman, 8/23), MacRumors (8/23), 9to5Mac (8/23)\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 🔔\n\n#아이맥 #iMac #M6 #애플 #테크",
+  "threads_text": "아이맥 사려고요? 두 달만 기다리세요.\n\n나 주변에 지금 아이맥 사려는 사람 있으면 무조건 말림\n\n1. 블룸버그 거먼이 M6 아이맥 올해 안에 나온다고 전함\n2. 현행 M4는 2024년 10월 출시 — 벌써 2년 전 모델\n3. 새로운 색상 팔레트까지 바뀐다고\n4. 디자인 큰 변화는 없고 칩 업그레이드 + 색상 변경\n5. OLED 버전은 아직 수년 뒤라 이번엔 아님\n6. 10월쯤 발표 예상 — 지금 사면 두 달 뒤에 구형\n\n주변에 아이맥 살 사람 있으면 이거 보내줘\n\n(출처: Bloomberg Power On — Mark Gurman, MacRumors, 9to5Mac)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "아이맥, 지금 사면 후회합니다",
+      "title_hl": ["후회"],
+      "body": "블룸버그 거먼 보도. M6 칩 + 새 색상을 단 아이맥이 올해 안에 나온다",
+      "body_hl": ["M6", "올해 안에"],
+      "img": "assets/cards/imac_m6_hero.jpg",
+      "credit": "이미지: Apple Newsroom (apple.com/newsroom)"
+    },
+    {
+      "kind": "end",
+      "title": "2년 만의 교체, 색상도 바뀐다",
+      "title_hl": ["색상"],
+      "body": "현행 M4는 2024년 10월 출시. 10월경 발표 예상. OLED는 아직 수년 뒤 — 이번이 사야 할 타이밍",
+      "body_hl": ["10월경", "OLED는 아직"],
+      "img": "assets/cards/imac_m6_green.jpg",
+      "credit": "이미지: Apple Newsroom (apple.com/newsroom)"
+    }
+  ]
+}

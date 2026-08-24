@@ -122,6 +122,10 @@
 - IG: https://www.instagram.com/p/DcZvSMYgZ8J/
 - 스레드: https://www.threads.com/@syusyu_channel/post/DcZvVycgSWz
 
+### 2026-08-24 (월) 카드 — M6 아이맥 올해 출시 예고 + 새 색상 (거먼 보도, 지금 사면 후회) [공유형][루머]
+- IG: https://www.instagram.com/p/DcZ2LTwGbi4/
+- 스레드: https://www.threads.com/@syusyu_channel/post/DcZ2POaGRyf
+
 ### 2026-08-22 (토) 아침 — 🌊 너울 검토 메모 (8/21 18:30 상주 세션, 지정 아님)
 - 8/21 18시는 AI활용법 쿼터 편(ChatGPT 청소년 모드)으로 나감 — 백로그의 **주말 너울 편이 미소화**.
 - 너울 골든타임은 "오늘 바다 가는 사람"인 **토요일 아침이 마지막 창**이다. 06:43 사냥·07시 세션은 기상청 풍랑특보·너울 실황을 먼저 확인하고, **실제로 특보·위험 예보가 있을 때만** 채택하라(없으면 소재 사망 — 폐기하고 다른 파도로). 감정=걱정, 행동지시="해안가 갯바위·방파제 접근 금지".
