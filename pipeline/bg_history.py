@@ -32,6 +32,8 @@ def used_bg_ids(exclude_script=None):
         # scenes[].bg도 수집한다. file: 로컬 자산은 제외(디렉터 승인 재사용분, 예: 유성우 실사진)
         for sc in s.get("scenes", []) or []:
             b = sc.get("bg") or sc.get("bg_id")   # bg_id 별칭도 수집 (2026-08-20 정규화와 짝)
-            if b and not (isinstance(b, str) and b.startswith("file:")):
+            # "file!:"(고정 배경, 2026-08-15 추가)도 같은 로컬 자산이다 — 제외 목록에서 빠져
+            # 있어 자체 제작 도판(비교 도판·문제 화면) 재사용이 기각되던 것을 정정 (2026-08-25 감사)
+            if b and not (isinstance(b, str) and b.startswith(("file:", "file!:"))):
                 used.add(str(b))
     return used

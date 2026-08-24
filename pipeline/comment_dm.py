@@ -52,7 +52,9 @@ def run_once(verbose=True):
     kv = load_keys()
     tok = kv["IG_ACCESS_TOKEN"]
     st = _state()
-    replied = set(st.get("replied", []))
+    # 삽입 순서 보존 — set이면 list(set)[-2000:]가 "최근 2000개"가 아니라 임의 부분집합이 돼
+    # 상한 로직이 무의미해지고, 탈락한 id가 폴링 창에 남아 있으면 DM이 재발송된다 (2026-08-25 감사)
+    replied = dict.fromkeys(st.get("replied", []))
     sent = 0
     # 1차 소스: 웹훅 이벤트 (2026-08-21 — 개발 모드에서 REST 댓글 읽기가 차단돼 워커 푸시로 우회)
     import urllib.request   # 이벤트 조회·설정 동기화 공용 (2026-08-23 감사: 중복 import·키 계산 통합)
@@ -91,7 +93,7 @@ def run_once(verbose=True):
         if not cid or cid in replied:
             continue
         if ev.get("handled"):
-            replied.add(cid)
+            replied[cid] = None
             if verbose:
                 print("[comment_dm] (워커 즉답 처리됨) %s" % cid[:24])
             continue
@@ -99,12 +101,12 @@ def run_once(verbose=True):
         if ev.get("type") == "message":
             payload = ev.get("payload") or ""
             if not payload.startswith("SEND_LINK|"):
-                replied.add(cid)   # 일반 DM은 자동 응답하지 않는다
+                replied[cid] = None   # 일반 DM은 자동 응답하지 않는다
                 continue
             emid = payload.split("|", 1)[1]
             r = next((x for x in rules if x.get("media") == emid), None)
             if not r:
-                replied.add(cid)
+                replied[cid] = None
                 continue
             try:
                 el = {"title": (r.get("name") or "추천 상품")[:80],
@@ -123,14 +125,14 @@ def run_once(verbose=True):
                     "message": json.dumps({"text": "프로필 링크의 허브에서도 언제든 다시 볼 수 있어요 🙂\n\n" + DISCLOSURE}),
                     "access_token": tok})
                 sent += 1
-                replied.add(cid)
+                replied[cid] = None
                 if verbose:
                     print("[comment_dm] (버튼) 카드 템플릿 발송 → %s" % ev.get("from_id"))
                 time.sleep(2)
             except Exception as e:
                 print("[comment_dm] 템플릿 발송 실패: %s" % str(e)[:200])
                 _alert("⚠️ 버튼DM(카드 템플릿) 발송 실패: %s" % str(e)[:150])
-                replied.add(cid)
+                replied[cid] = None
             continue
         # ─ 키워드 댓글 → 인사 + 빠른답장 버튼
         if (ev.get("from") or "") == ME_USERNAME:
@@ -161,7 +163,7 @@ def run_once(verbose=True):
                                                    "payload": "SEND_LINK|%s" % emid}]}),
                             "access_token": tok})
                     sent += 1
-                    replied.add(cid)
+                    replied[cid] = None
                     if verbose:
                         print("[comment_dm] (웹훅) 버튼DM 발송 → @%s (%s)" % (ev.get("from"), r["keyword"]))
                     if r.get("ack"):
@@ -175,7 +177,7 @@ def run_once(verbose=True):
                     print("[comment_dm] (웹훅) DM 실패 @%s: %s" % (ev.get("from"), str(e)[:200]))
                     _alert("⚠️ 댓글DM 발송 실패 — @%s의 '%s' 댓글. 원인: %s" % (
                         ev.get("from"), r["keyword"], str(e)[:150]))
-                    replied.add(cid)
+                    replied[cid] = None
                 break
     # 2차 소스(REST 폴링 — 검수 승인 후 데이터가 열리면 자동으로 같이 동작)
     # ⚠️ 이 시점엔 위 웹훅 경로가 이미 DM을 발송하고 replied에 기록했지만 _save는 아직이다.
@@ -212,7 +214,7 @@ def run_once(verbose=True):
                             "message": json.dumps({"text": r["dm"][:900]}),
                             "access_token": tok})
                         sent += 1
-                        replied.add(cid)
+                        replied[cid] = None
                         if verbose:
                             print("[comment_dm] DM 발송 → @%s (%s)" % (c.get("username"), r["keyword"]))
                         if r.get("ack"):
@@ -227,7 +229,7 @@ def run_once(verbose=True):
                         print("[comment_dm] DM 실패 @%s: %s" % (c.get("username"), str(e)[:200]))
                         _alert("⚠️ 댓글DM 발송 실패 — @%s의 '%s' 댓글. 원인: %s" % (
                             c.get("username"), r["keyword"], str(e)[:150]))
-                        replied.add(cid)   # 같은 댓글로 무한 재시도 방지 (수동 확인 후 상태 파일에서 제거)
+                        replied[cid] = None   # 같은 댓글로 무한 재시도 방지 (수동 확인 후 상태 파일에서 제거)
                     break
     st["replied"] = list(replied)[-2000:]
     _save(st)
