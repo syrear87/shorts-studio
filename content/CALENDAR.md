@@ -677,3 +677,4 @@
 **금지**: 니치 기기(360캠·커스텀 키보드·레트로 복각·포터블 모니터) 하루 1장 이하 — 8/24 실측 전부 13~35회로 최하위.
 
 - 09:00 AI 사진복원 카드 게시 — 챗GPT 옛날사진 복원 프롬프트 [AI놀이·따라하기형] https://www.instagram.com/p/DccUFz6gZM_/ (스레드: https://www.threads.com/@syusyu_channel/post/DccUKCpAZfJ)
+- 10:00 Qi2 vs Qi2.2 무선충전기 가이드 게시 — 내 폰에 맞는 규격 확인법 [구매가능·공유형·타이밍경고형] https://www.instagram.com/p/Dcca4rbmTh1/ (스레드: https://www.threads.com/@syusyu_channel/post/Dcca9q4GahX)

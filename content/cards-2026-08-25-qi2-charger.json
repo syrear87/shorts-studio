@@ -1,0 +1,36 @@
+{
+  "topic": "무선충전기, Qi2랑 Qi2.2 차이 모르면 속도 절반 — 내 폰에 맞는 규격 확인법 [구매가능][공유형]",
+  "caption": "무선충전기, 아무거나 사면 속도 절반이다\n\nQi2는 15W, Qi2.2는 25W — 67% 차이다.\n근데 내 폰이 25W를 못 받으면\n비싼 충전기 사도 15W밖에 안 나온다.\n\n25W 되는 폰: 아이폰 16 시리즈 · 갤럭시 S26 시리즈 · 픽셀 10 Pro\n15W까지만: 아이폰 15 이하 · 갤럭시 S25 이하\n\n아이폰 15 쓰면서 Qi2.2 사면 돈만 더 쓰는 거고,\n아이폰 16 쓰면서 Qi2 사면 속도를 버리는 거다.\n\n사기 전에 내 폰부터 확인하세요.\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 🔔\n\n#무선충전기 #Qi2 #Qi22 #MagSafe #충전기추천",
+  "threads_text": "무선충전기, 아무거나 사면 속도 절반이다\n\n1. Qi2는 15W, Qi2.2는 25W — 똑같이 생겼는데 속도가 67% 차이남\n2. 근데 핵심은 충전기가 아니라 폰이었음\n3. 아이폰 16·갤S26·픽셀10 Pro만 25W 받음\n4. 아이폰 15 이하·갤S25 이하는 Qi2.2 사도 15W밖에 안 나옴\n5. 거꾸로 아이폰 16 쓰면서 Qi2 15W짜리 사면 속도를 절반으로 깎는 거임\n6. 가격 차이 1~2만원인데 방향이 완전 반대라 확인 안 하면 손해\n\n(출처: WPC Qi2.2 공식 스펙, Belkin·SamMobile·Android Central 교차 확인)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "무선충전기, 아무거나 사면 속도 절반이다",
+      "title_hl": ["속도 절반"],
+      "body": "Qi2와 Qi2.2는 똑같이 생겼는데 충전 속도가 67% 차이 난다",
+      "body_hl": ["67%"],
+      "img": "assets/cards/qi2_charger_main.jpg",
+      "credit": "사진: Oscar Helgstrand (Pexels)"
+    },
+    {
+      "kind": "fact",
+      "title": "핵심은 충전기가 아니라 내 폰이다",
+      "title_hl": ["내 폰"],
+      "body": "25W 지원: 아이폰 16 전 모델 / 갤럭시 S26 전 모델 / 픽셀 10 Pro\n15W까지: 아이폰 15 이하 / 갤럭시 S25 이하",
+      "body_hl": ["25W", "15W"],
+      "sub": "폰이 15W면 Qi2.2 사도 15W — 비싼 충전기가 돈 낭비가 된다",
+      "img": "assets/cards/qi2_charger_detail.jpg",
+      "credit": "사진: cottonbro studio (Pexels)"
+    },
+    {
+      "kind": "end",
+      "title": "사기 전에 이것만 확인하세요",
+      "title_hl": ["이것만"],
+      "body": "아이폰 15 이하 / 갤S25 이하 = Qi2 (15W) 1~2만원대면 충분\n아이폰 16 이상 / 갤S26 이상 = Qi2.2 (25W) 안 사면 속도 손해",
+      "body_hl": ["Qi2", "Qi2.2"],
+      "sub": "가격 차이 1~2만원 — 방향만 맞추면 된다",
+      "img": "assets/cards/qi2_charger_main.jpg",
+      "credit": "사진: Oscar Helgstrand (Pexels)"
+    }
+  ]
+}
