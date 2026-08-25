@@ -63,28 +63,29 @@ def refresh_token_if_due(token):
         new = resp.get("access_token")
         if new and new != token:
             from keyfile import locked
-            _lk = locked()
-            _lk.__enter__()   # 읽기~교체 전체를 직렬화 (2026-08-25 감사: 스레드 갱신과 경쟁)
-            # 원자적 재작성 (임시파일→rename) + re.sub 이스케이프 함정 회피 (2026-07-29 감사)
-            lines = open(KEYS, encoding="utf-8").read().splitlines(keepends=True)
-            out_lines, replaced = [], False
-            for line in lines:
-                if line.strip().startswith("IG_ACCESS_TOKEN="):
+            # ⚠️ with로 감싼다 — 수동 __enter__/__exit__은 중간에 예외가 나면 __exit__이
+            #    호출되지 않아 같은 프로세스의 이후 갱신이 자기 락에 막힌다 (2026-08-25 자체 점검).
+            with locked():   # 읽기~교체 전체를 직렬화 (스레드 토큰 갱신과의 lost update 경쟁)
+                # 원자적 재작성 (임시파일→rename) + re.sub 이스케이프 함정 회피 (2026-07-29 감사)
+                lines = open(KEYS, encoding="utf-8").read().splitlines(keepends=True)
+                out_lines, replaced = [], False
+                for line in lines:
+                    if line.strip().startswith("IG_ACCESS_TOKEN="):
+                        out_lines.append("IG_ACCESS_TOKEN=%s\n" % new)
+                        replaced = True
+                    else:
+                        out_lines.append(line)
+                if not replaced:
                     out_lines.append("IG_ACCESS_TOKEN=%s\n" % new)
-                    replaced = True
-                else:
-                    out_lines.append(line)
-            if not replaced:
-                out_lines.append("IG_ACCESS_TOKEN=%s\n" % new)
-            tmp = KEYS + ".tmp"
-            with open(tmp, "w", encoding="utf-8") as f:
-                f.write("".join(out_lines))
-            os.chmod(tmp, 0o600)   # 2026-08-14 감사: umask 기본값이면 장기 토큰이 644로 노출된다
-            os.replace(tmp, KEYS)
-            _lk.__exit__(None, None, None)
+                tmp = KEYS + ".tmp"
+                with open(tmp, "w", encoding="utf-8") as f:
+                    f.write("".join(out_lines))
+                os.chmod(tmp, 0o600)   # 2026-08-14 감사: umask 기본값이면 장기 토큰이 644로 노출된다
+                os.replace(tmp, KEYS)
             token = new
         os.makedirs(os.path.dirname(STATE), exist_ok=True)
-        open(STATE, "w").write(str(int(time.time())))
+        with open(STATE, "w") as _sf:   # flush 보장 (2026-08-25 자체 점검)
+            _sf.write(str(int(time.time())))
         print("IG 토큰 갱신 완료 (유효기간 %d일)" % (resp.get("expires_in", 0) // 86400))
     except Exception as e:
         print("IG 토큰 갱신 실패(기존 토큰으로 계속): %s" % e)
