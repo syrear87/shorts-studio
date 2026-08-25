@@ -46,11 +46,31 @@ def run_once(verbose=True):
     if not os.path.exists(RULES):
         print("[comment_dm] 규칙 파일 없음 — 종료")
         return 0
-    rules = json.load(open(RULES, encoding="utf-8"))
+    # 무방어 인덱싱 3곳이 이 스크립트를 즉사시켰고, dm_tick은 rc!=0을 버리므로
+    # **댓글DM이 무증상으로 영구 정지**할 수 있었다 (2026-08-25 재감사).
+    try:
+        rules = json.load(open(RULES, encoding="utf-8"))
+    except Exception as e:
+        print("[comment_dm] 규칙 파일 파손 — 중단:", str(e)[:150])
+        try:
+            import subprocess as _sp
+            _sp.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
+                     "⚠️ content/dm_rules.json 파손으로 댓글DM 중단 — 파일 확인 필요: %s" % str(e)[:120]],
+                    check=False, timeout=30)
+        except Exception:
+            pass
+        return 0
     if not rules:
         return 0
+    rules = [r for r in rules if isinstance(r, dict) and r.get("keyword")]   # keyword 없는 항목은 건너뛴다
+    if not rules:
+        print("[comment_dm] 유효한 규칙 없음 — 종료")
+        return 0
     kv = load_keys()
-    tok = kv["IG_ACCESS_TOKEN"]
+    tok = kv.get("IG_ACCESS_TOKEN")
+    if not tok:
+        print("[comment_dm] keys.env에 IG_ACCESS_TOKEN 없음 — 중단")
+        return 0
     st = _state()
     # 삽입 순서 보존 — set이면 list(set)[-2000:]가 "최근 2000개"가 아니라 임의 부분집합이 돼
     # 상한 로직이 무의미해지고, 탈락한 id가 폴링 창에 남아 있으면 DM이 재발송된다 (2026-08-25 감사)
@@ -97,18 +117,21 @@ def run_once(verbose=True):
             import hashlib as _hl
             cfg = json.dumps({"token": tok, "rules": rules}).encode()
             _sig = _hl.sha1(cfg).hexdigest()
-            if st.get("cfg_sig") != _sig:
+            _age = time.time() - float(st.get("cfg_at") or 0)
+            if st.get("cfg_sig") != _sig or _age > 86400:   # 하루 1회는 무조건 재전송(워커 KV 재배포 대비)
                 rq = urllib.request.Request("%s/dm_config?k=%s" % (cnt, key), data=cfg,
                                             headers={"User-Agent": "Mozilla/5.0 (studio-bot)",
                                                      "Content-Type": "application/json"}, method="POST")
                 urllib.request.urlopen(rq, timeout=20).read()
                 st["cfg_sig"] = _sig
+                st["cfg_at"] = time.time()
                 st["cfg_fail"] = 0
                 _save(st)
                 if verbose:
                     print("[comment_dm] 설정 동기화 완료(변경 감지)")
     except Exception as e:
         st["cfg_fail"] = int(st.get("cfg_fail") or 0) + 1
+        _save(st)   # 즉시 저장 — 안 하면 카운터가 1에 고정돼 연속 실패 경보가 영원히 안 울린다
         print("[comment_dm] 설정 동기화 실패(%d회째):" % st["cfg_fail"], str(e)[:100])
         if st["cfg_fail"] in (3, 30):   # 30분·5시간 지점에서만 알린다(경보 폭주 방지)
             _alert("⚠️ 댓글DM 설정 동기화가 %d회 연속 실패 — 워커가 낡은 토큰을 들고 있을 수 있습니다: %s"
@@ -152,6 +175,10 @@ def run_once(verbose=True):
                     "access_token": tok})
                 sent += 1
                 replied[cid] = None
+                # 발송 직후 즉시 영속화 — 300초 캡의 kill -KILL은 finally도 안 준다.
+                # 기록이 유실되면 수신자 지정(버튼) DM이 다음 틱에 중복 발송된다 (2026-08-25 재감사).
+                st["replied"] = list(replied)
+                _save(st)
                 if verbose:
                     print("[comment_dm] (버튼) 카드 템플릿 발송 → %s" % ev.get("from_id"))
                 time.sleep(2)
@@ -190,6 +217,8 @@ def run_once(verbose=True):
                             "access_token": tok})
                     sent += 1
                     replied[cid] = None
+                    st["replied"] = list(replied)   # 발송 즉시 영속화 (위와 동일 사유)
+                    _save(st)
                     if verbose:
                         print("[comment_dm] (웹훅) 버튼DM 발송 → @%s (%s)" % (ev.get("from"), r["keyword"]))
                     if r.get("ack"):
@@ -210,9 +239,15 @@ def run_once(verbose=True):
     #    계정이 하루 4~6편을 올려 제휴 태깅된 편은 약 3일이면 창 밖으로 밀려난다.
     #    실측 교집합 0 — 즉 "백업 폴러"가 존재하지 않으면서 하루 144회 호출만 낭비했고,
     #    로그는 성공/고장 모두 "발송 0건"으로 같았다. 규칙의 미디어 ID를 직접 순회한다.
-    media = [{"id": mid} for mid in
-             dict.fromkeys(r.get("media") for r in rules
-                           if r.get("media") and r.get("media") != "any")]
+    _mids = [r.get("media") for r in rules if r.get("media") and r.get("media") != "any"]
+    if any(r.get("media") == "any" for r in rules):
+        # "any" 규칙이 있으면 최근 게시물도 함께 훑는다 — 안 그러면 그 규칙이 폴링에서 통째로 빠진다
+        try:
+            _mids += [m["id"] for m in api("GET", "/me/media", params={
+                "fields": "id", "limit": 15, "access_token": tok}).get("data", []) if m.get("id")]
+        except Exception as e:
+            print("[comment_dm] 최근 게시물 조회 실패(any 규칙 폴링 생략):", str(e)[:100])
+    media = [{"id": mid} for mid in dict.fromkeys(_mids)]
     for m in media:
         mid = m["id"]
         applicable = [r for r in rules if r.get("media") in ("any", mid)]
@@ -255,12 +290,15 @@ def run_once(verbose=True):
                             c.get("username"), r["keyword"], str(e)[:150]))
                         replied[cid] = None   # 같은 댓글로 무한 재시도 방지 (수동 확인 후 상태 파일에서 제거)
                     break
+    _before_inbox = st.get("inbox") or []   # 비우기 '전에' 캡처 — 아래 조건의 근거다
     st["inbox"] = []          # 이번 실행이 events를 끝까지 처리했다 — 재처리 대기분 비움
     _before = st.get("replied") or []
     st["replied"] = list(replied)[-2000:]
     # 실제로 바뀐 게 있을 때만 쓴다 — 매 틱 재작성하면 dm_state.json의 mtime이
     # "마지막 처리 시각"이 아니라 "마지막 틱 시각"이 돼 생존 신호로 쓸 수 없다 (2026-08-25 감사).
-    if st["replied"] != _before or (st.get("inbox") or []) or sent:
+    # ⚠️ _before_inbox를 봐야 한다 — st["inbox"]는 이미 비웠으니 항상 falsy라
+    #    키워드 미매칭 이벤트만 온 틱에서 저장이 스킵돼 inbox가 영구 누적됐다 (재감사).
+    if st["replied"] != _before or _before_inbox or sent:
         _save(st)
     if verbose:
         print("[comment_dm] 완료 — 발송 %d건" % sent)

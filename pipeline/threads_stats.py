@@ -50,6 +50,8 @@ def posts(tok, me, limit=12):
                              else i.get("total_value", {}).get("value", 0)) for i in ins}
         except Exception:
             continue
+        if not it.get("timestamp"):
+            continue          # 필드 누락 한 건이 스냅샷 전체를 죽이지 않게 (2026-08-25 재감사)
         rows.append({"ts": it["timestamp"], "views": v.get("views", 0) or 0,
                      "eng": sum((v.get(k, 0) or 0) for k in ("likes", "replies", "reposts", "quotes")),
                      "head": (it.get("text") or "").split("\n")[0][:30]})

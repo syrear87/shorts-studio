@@ -75,6 +75,19 @@ def log_looks_dead(text):
         return (DEAD_SHORT, "출력 %d자 + 센티널 부재 (세션 즉사 의심)" % len(t))
     return (DEAD_NO_SENTINEL, "마감 센티널(SLOT-DONE) 부재 (세션 미완주 의심)")
 
+def fresh_mp4(start_ts):
+    """start_ts 이후에 만들어진 out/*.mp4. janitor의 -delete와 경합해 파일이 사라져도
+    순회를 죽이지 않는다 — 같은 패턴 3곳이 제각각이던 것을 하나로 (2026-08-25 재감사)."""
+    out = []
+    for p_ in (ROOT / "out").glob("*.mp4"):
+        try:
+            if p_.stat().st_mtime >= start_ts:
+                out.append(p_)
+        except OSError:
+            continue
+    return out
+
+
 def sent_evidence(start_ts):
     """이 세션 구간에 만들어진 mp4가 sent.log 실측 발송 기록으로 남았는가.
     2026-08-05 실사고(디렉터 승인 수정): 완주한 세션이 'SLOT-DONE' 리터럴 대신 "슬롯 완료"로
@@ -87,7 +100,7 @@ def sent_evidence(start_ts):
         if CARD_MODE:
             # 카드 세션은 mp4가 없다 — 캐러셀 게시 실측(IGCARD:)으로 판정 (2026-08-05)
             return any("IGCARD:" in ln for ln in recent)
-        new_mp4 = {p.name for p in (ROOT / "out").glob("*.mp4") if p.stat().st_mtime >= start_ts}
+        new_mp4 = {p.name for p in fresh_mp4(start_ts)}
         if not new_mp4:
             return False
         return any(any(n in ln for n in new_mp4) for ln in recent)
@@ -170,7 +183,7 @@ def main():
             text = LOG.read_text(errors="ignore").split("=== attempt ")[-1]
             # 2026-08-02 리뷰(OPS-2): 이번 슬롯에서 새 mp4가 이미 나왔으면 렌더+발송을 마쳤을 수 있으므로
             # 재시도 금지(중복 게시 방지) — 아래 rc!=0 분기의 경보만 발송된다. 길이 가드는 보조로 유지.
-            new_mp4_made = any(p.stat().st_mtime >= start_ts for p in (ROOT / "out").glob("*.mp4"))
+            new_mp4_made = bool(fresh_mp4(start_ts))   # 경합 안전 (2026-08-25 재감사: 여기서 예외가 튀면 check_artifacts 자체가 안 돈다)
             evidence = sent_evidence(start_ts)   # 발송 실측 있으면 재시도 금지 — 중복 게시 봉쇄 (2026-08-05 점검)
             transient = (r.returncode != 0 and len(text.strip()) <= SAFE_RETRY_MAX_LEN
                          and not new_mp4_made and not evidence
@@ -243,12 +256,7 @@ def check_artifacts(start_ts):
                 tg("⚠️ 지식 카드: 세션은 정상 종료했지만 캐러셀 게시 실측(IGCARD)이 없음%s — %s 확인"
                    % (" (로그에 기각 있음 — 자가수정 실패 가능)" if gate_rejected else "", LOG.name))
             return
-        def _fresh(p_):   # janitor -delete와 경합해 파일이 사라져도 순회를 죽이지 않는다 (2026-08-25 감사)
-            try:
-                return p_.stat().st_mtime >= start_ts
-            except OSError:
-                return False
-        new_mp4 = [p for p in (ROOT / "out").glob("*.mp4") if _fresh(p)]
+        new_mp4 = fresh_mp4(start_ts)
         if not new_mp4:
             tg("⚠️ 숏츠 데일리: 세션은 정상 종료했지만 새 영상 산출물이 없음%s — %s 확인"
                % (" (렌더 기각 후 자가수정 실패로 보임)" if gate_rejected else "", LOG.name))

@@ -83,6 +83,14 @@ def refresh_token_if_due(token):
                 os.chmod(tmp, 0o600)   # 2026-08-14 감사: umask 기본값이면 장기 토큰이 644로 노출된다
                 os.replace(tmp, KEYS)
             token = new
+        if not new:
+            # ⚠️ 200인데 access_token이 없는 응답 — 갱신은 안 됐다. 여기서 스탬프를 찍으면
+            #    ①7일 게이트가 닫히고 ②age_days 경보는 매주 나이가 리셋돼 **영원히 안 울린다**.
+            #    60일 만료일에 릴스·캐러셀·댓글DM이 동시에 죽는다 (2026-08-25 재감사).
+            #    스탬프를 남기지 않아 다음 호출이 즉시 재시도하게 한다.
+            print("IG 토큰 갱신 응답에 access_token 없음 — 스탬프 미기록, 다음 호출에 재시도: %s"
+                  % json.dumps(resp)[:200])
+            return token
         os.makedirs(os.path.dirname(STATE), exist_ok=True)
         with open(STATE, "w") as _sf:   # flush 보장 (2026-08-25 자체 점검)
             _sf.write(str(int(time.time())))

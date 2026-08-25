@@ -73,18 +73,28 @@ def mark():
     → 직전 오프셋이 아직 EOF보다 뒤에 있으면(=미소비분 존재) 그 오프셋을 유지한다.
     """
     eof = _size()
-    prev = None
+    now = time.time()
+    prev, prev_ts = None, None
     try:
         d = json.loads(open(OFF).read())
         if isinstance(d, dict):
-            prev = int(d.get("off"))
+            prev, prev_ts = int(d.get("off")), float(d.get("ts") or 0)
     except Exception:
-        prev = None
-    keep = prev if (prev is not None and 0 <= prev < eof) else eof
-    if keep != eof:
-        print("[director_reply] 미소비 회신 %dB 보존 — 기준점을 EOF로 밀지 않음" % (eof - keep),
+        prev, prev_ts = None, None
+    # 보존에도 나이 제한을 둔다 — ts를 무조건 갱신하면 죽은 세션이 남긴 며칠 전 오프셋이
+    # 매 슬롯 mark()마다 "방금 찍은 마크"로 되살아나 MARK_TTL이 무력화되고,
+    # 옛 메시지를 '방금 회신'으로 재배달하는 사고가 되돌아온다 (2026-08-25 재감사).
+    fresh = prev_ts is not None and (now - prev_ts) <= MARK_TTL
+    if prev is not None and 0 <= prev < eof and fresh:
+        keep, keep_ts = prev, prev_ts     # 미소비분 보존 — 나이도 원본 유지
+        print("[director_reply] 미소비 회신 %dB 보존 — 기준점을 EOF로 밀지 않음" % (eof - prev),
               flush=True)
-    _write_off(json.dumps({"off": keep, "ts": time.time()}))
+    else:
+        keep, keep_ts = eof, now
+        if prev is not None and 0 <= prev < eof and not fresh:
+            print("[director_reply] 미소비분이 있으나 마크가 %d분 경과 — 잔재로 보고 폐기"
+                  % ((now - (prev_ts or now)) / 60), flush=True)
+    _write_off(json.dumps({"off": keep, "ts": keep_ts}))
 
 
 def _wait_from(base, seconds, poll):

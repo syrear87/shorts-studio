@@ -251,7 +251,12 @@ def api_public(video, meta):
                                                 os.path.basename(video)))
                     return _vid
         except Exception as _ge:
-            print("중복 검사 실패(계속 진행):", str(_ge)[:120], flush=True)
+            # 멱등 가드가 꺼진 채 업로드하면 러너 자동 복구와 겹쳐 같은 영상이 2회 공개 게시된다.
+            # 가드의 목적상 fail-CLOSED가 맞다 — 중단하고 알린다 (2026-08-25 재감사).
+            subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
+                            "⛔ 유튜브 중복 검사 실패로 업로드 중단(중복 게시 방지): %s" % str(_ge)[:150]],
+                           check=False)
+            sys.exit("중복 검사 실패 — 업로드 중단: %s" % str(_ge)[:150])
 
     media = MediaFileUpload(video, chunksize=8 * 1024 * 1024, resumable=True, mimetype="video/mp4")
     req = yt.videos().insert(part="snippet,status", body=body, media_body=media)

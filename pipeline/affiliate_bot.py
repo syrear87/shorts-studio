@@ -128,7 +128,8 @@ def state(update=None):
     if update:
         s.update(update)
         tmp = STATE_F + ".tmp"
-        json.dump(s, open(tmp, "w", encoding="utf-8"), ensure_ascii=False)
+        with open(tmp, "w", encoding="utf-8") as _f:   # flush 보장 (2026-08-25 재감사: 관례에서 유일하게 남았던 곳)
+            json.dump(s, _f, ensure_ascii=False)
         os.replace(tmp, STATE_F)   # 원자적 교체
     return s
 
@@ -445,7 +446,12 @@ def handle_link_to(name, url, m):
                            "name": name, "url": url, "img": thumb_url,
                            "dm": "%s\n%s\n\n%s" % (name, url, DISCLOSURE),
                            "ack": "DM으로 보내드렸어요 📩"})
-            json.dump(_rules, open(_dm_p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+            # 원자적 쓰기 — 직접 truncate-write는 dm 틱의 300초 캡(kill -KILL) 중간에 죽으면
+            # 반쪽 JSON이 정본이 되고, 다음 틱부터 comment_dm이 파싱 실패로 즉사한다 (2026-08-25 재감사)
+            _dm_tmp = _dm_p + ".tmp"
+            with open(_dm_tmp, "w", encoding="utf-8") as _df:
+                json.dump(_rules, _df, ensure_ascii=False, indent=2)
+            os.replace(_dm_tmp, _dm_p)
             print("[affiliate_bot] 댓글DM 규칙 등록:", _mid, flush=True)
             # 안내 댓글 자동 (2026-08-21 디렉터: "캡션 말고 그냥 댓글로 하자" — 링크 도착 후에만 안다)
             try:
@@ -626,7 +632,11 @@ def main(once=False):
         try:
             offset = int(open(OFFSET_F).read().strip())
         except ValueError:
-            pass
+            # offset=0으로 되돌리면 텔레그램 24시간치를 전량 재처리한다 —
+            # 허브 번호 재부여(불변식 위반)·안내 댓글/답글 재게시·옛 지시 재배달로 이어진다.
+            # 재처리보다 "이번 틱 건너뜀"이 훨씬 싸다 (2026-08-25 재감사).
+            print("[affiliate_bot] 오프셋 파일 손상 — 이번 틱 건너뜀(재처리 방지)", flush=True)
+            return
     print("[affiliate_bot] 시작 offset=%d %s" % (offset, datetime.now().isoformat()), flush=True)
     while True:
         try:

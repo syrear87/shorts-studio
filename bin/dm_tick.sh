@@ -10,11 +10,23 @@ cd /Users/kimminsoo/Dev/shorts-studio
 # perl 기반 워치독: macOS 기본 셸에 timeout(1)이 없다.
 _run_capped() {  # _run_capped <초> <명령...>
   local cap="$1"; shift
-  perl -e 'my $cap=shift @ARGV; my $p=fork(); if($p==0){ exec @ARGV or exit 127 } local $SIG{ALRM}=sub{ kill "KILL",$p; waitpid($p,0); exit 124 }; alarm $cap; waitpid($p,0); exit($?>>8)' "$cap" "$@"
+  # setpgrp로 자식을 새 프로세스 그룹에 두고 그룹 전체를 죽인다(손자까지). 시그널 사망은 128+n으로
+  # 보고한다 — $?>>8은 시그널 종료 시 0이라 '성공'으로 오인돼 스냅샷 도장이 잘못 찍혔다 (2026-08-25 재감사).
+  perl -e 'my $cap=shift @ARGV; my $p=fork(); if($p==0){ setpgrp(0,0); exec @ARGV or exit 127 } local $SIG{ALRM}=sub{ kill "KILL",-$p; waitpid($p,0); exit 124 }; alarm $cap; waitpid($p,0); my $st=$?; exit($st & 127 ? 128 + ($st & 127) : $st >> 8)' "$cap" "$@"
   local rc=$?
   if [ "$rc" = "124" ]; then
     echo "$(date '+%FT%T') dm_tick: '$*' 가 ${cap}초 초과로 강제 종료됨" >> logs/alert-fail.log
     bash bin/tg-send.sh "⚠️ dm 틱 단계가 ${cap}초를 넘겨 강제 종료됨: $* (틱 정지 방지)" || true
+  elif [ "$rc" != "0" ]; then
+    # 크래시(rc=1)는 지금까지 로그로만 흘러 **댓글DM·제휴봇이 무증상 영구 정지**할 수 있었다.
+    # 경보 폭주를 막으려 같은 명령의 연속 실패는 하루 3회까지만 알린다 (2026-08-25 재감사).
+    _fk="logs/.tickfail_$(echo "$1" | tr -c 'a-zA-Z0-9' '_')_$(date +%F)"
+    _n=$(( $(cat "$_fk" 2>/dev/null || echo 0) + 1 ))
+    echo "$_n" > "$_fk"
+    echo "$(date '+%FT%T') dm_tick: '$*' rc=$rc (${_n}회째)" >> logs/alert-fail.log
+    if [ "$_n" -le 3 ]; then
+      bash bin/tg-send.sh "⚠️ dm 틱 단계 실패(rc=$rc, 오늘 ${_n}회): $*" || true
+    fi
   fi
   return $rc
 }

@@ -214,25 +214,34 @@ def render(script_path):
     #   한국 고유 소재일 때만 완성 카드를 비전 검사해 외국 전통 요소를 잡는다.
     try:
         from culture_gate import is_korean_topic, check_frames
-        if s.get("culture_gate") is not False and is_korean_topic(s.get("topic", ""), s.get("caption", "")):
+        # 카드 본문(title/body/sub)까지 포함 — topic·caption만 보면 카드 안에만 있는
+        # 한국 소재 낱말을 놓친다 (2026-08-25 재감사, 영상 쪽과 동일 교정)
+        _cblob = " ".join([str(s.get("topic", "")), str(s.get("caption", "")),
+                           str(s.get("threads_text", ""))] +
+                          [str(c.get(k, "")) for c in s.get("cards", []) or []
+                           for k in ("title", "body", "sub")])
+        if s.get("culture_gate") is not False and is_korean_topic(_cblob):
             bad, unknown = check_frames(paths)
             if bad:
                 raise SystemExit("기각: 한국 고유 소재 카드에 외국 전통 요소가 감지됐다 — %s\n"
                                  "     → 이미지를 교체하라. 확실한 한국 자산이 없으면 "
                                  "국적이 드러나지 않는 것으로 가라."
                                  % " / ".join(w for _, w in bad))
+            if not paths:
+                raise SystemExit("기각: 카드 이미지가 없어 문화 게이트를 수행할 수 없다")
             if unknown:
-                # 판정 불가를 무시하고 "통과"라고 찍으면, 게이트가 죽은 채 세션이 통과로
-                # 리포트한다 — 막으려던 8/25 허위 통과를 게이트가 재생산한다 (2026-08-25 감사)
-                _m = ("⚠️ 카드 문화 게이트 판정 불가 — 게이트 없이 게시됨(%s). 한국 소재 카드이니 "
-                      "이미지를 확인하세요" % unknown[0][1][:80])
-                print("경고: " + _m, flush=True)
+                # fail-CLOSED — 영상과 정책을 맞춘다. 카드가 더 위험하다고 써놓고 방어가 더
+                # 약했고, 20시 카드는 경고를 보내봐야 밤이라 아무도 안 본다 (2026-08-25 재감사).
+                # 카드는 재렌더 비용이 영상보다 훨씬 싸므로 막는 쪽이 명백히 유리하다.
+                _m = ("⚠️ 카드 문화 게이트 판정 불가 — 게시를 보류합니다(%s). "
+                      "네트워크·GEMINI_API_KEY 확인 후 재실행하세요." % unknown[0][1][:80])
                 try:
                     import subprocess as _sp
                     _sp.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), _m],
-                                   check=False, timeout=30)
+                            check=False, timeout=30)
                 except Exception:
                     pass
+                raise SystemExit("기각: 문화 게이트 판정 불가 — %s" % unknown[0][1][:120])
             else:
                 print("문화 게이트 통과: 한국 고유 소재, 외국 전통 요소 없음", flush=True)
     except SystemExit:

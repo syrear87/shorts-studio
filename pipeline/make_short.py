@@ -1099,7 +1099,12 @@ def main():
     #   판정 불가(키 부재·네트워크)는 통과시키되 경고를 남긴다(게이트 고장이 슬롯을 죽이면 안 된다).
     try:
         from culture_gate import is_korean_topic, check_frames
-        _blob = " ".join([script.get("title", "")] +
+        # 판정 재료에 **나레이션(voice)·topic·chip·bg_query**를 모두 넣는다 —
+        # title만 보면 title 키가 없는 편(실측 137편 중 25편)과 "한복"이 자막이 아닌
+        # 나레이션에만 나오는 편이 통째로 미검사로 빠진다 (2026-08-25 재감사).
+        _blob = " ".join([str(script.get("title", "")), str(script.get("topic", "")),
+                          str(script.get("chip", "")), " ".join(script.get("bg_query") or [])] +
+                         [str(sc.get("voice", "")) for sc in script["scenes"]] +
                          [ln for sc in script["scenes"] for ln, _ in sc.get("lines", [])])
         # 소재국이 한국이 아님이 명백한 편(중국산 배추·피사의 사탑 등)은 json에
         # "culture_gate": false 로 끈다 — 그런 편에 한국 기준을 대면 정상 배경이 기각된다.
@@ -1124,7 +1129,13 @@ def main():
                              "-frames:v", "1", _f, "-y"], check=False, timeout=60)
                     if os.path.exists(_f):
                         _shots.append(_f)
-                _bad, _unknown = check_frames(_shots)
+                # 프레임이 하나도 안 뽑히면(ffmpeg PATH 사고·손상 파일) check_frames는 ([],[])를
+                # 반환해 "통과"가 찍힌다 — fail-closed 전환의 목적을 정면으로 무력화하는
+                # 가장 흔한 고장 모드였다 (2026-08-25 재감사). 판정 불가로 취급한다.
+                if not _shots:
+                    _bad, _unknown = [], [(None, "프레임 추출 0장(ffmpeg 확인 필요)")]
+                else:
+                    _bad, _unknown = check_frames(_shots)
                 if _bad:
                     _why = " / ".join(w for _, w in _bad)
                     # ⚠️ 산출물을 반드시 치운다 — 기각했는데 mp4가 out/에 남으면

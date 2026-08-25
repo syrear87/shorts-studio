@@ -62,6 +62,7 @@ fi
 # 30일 지난 렌더 산출물 / 60일 지난 로그
 find "$ROOT/out" -type f \( -name "*.mp4" -o -name "*.jpg" -o -name "*.png" \) -mtime +30 -delete 2>/dev/null
 find "$ROOT/logs" -type f -name "*.log" -mtime +60 -delete 2>/dev/null
+rm -f "$ROOT/logs"/*.log.trim "$ROOT/logs"/*.jsonl.trim 2>/dev/null   # 회전 중단 잔재 (2026-08-25)
 # ⚠️ 위 mtime 정리는 **계속 쓰이는 로그를 절대 못 지운다** — append마다 mtime이 갱신되기 때문이다.
 #    실제로 지워지는 건 버려진 daily-*.log 뿐이고, comment_dm.log 같은 상시 로그는 무한 증가한다
 #    (실측 16KB/일). 크기 기반 잘라내기를 더한다 (2026-08-25 감사). jsonl도 대상에 포함.
@@ -71,8 +72,13 @@ for lf in "$ROOT/logs"/*.log "$ROOT/logs"/*.jsonl; do
   sz=$(stat -f '%z' "$lf" 2>/dev/null || echo 0)
   case "$sz" in ''|*[!0-9]*) continue;; esac
   if [ "$sz" -gt 2097152 ]; then
-    tail -c 1048576 "$lf" > "$lf.trim" 2>/dev/null && mv "$lf.trim" "$lf" \
-      && echo "$(date '+%FT%T') janitor: $(basename "$lf") 회전(${sz}B → 1MB)"
+    # ⚠️ mv 금지 — inode가 바뀌면 launchd가 StandardOutPath로 열어둔 fd는 unlink된 옛 inode에
+    #    계속 쓴다. 회전 순간 그 틱의 comment_dm/affiliate 출력이 통째로 증발했다 (2026-08-25 재감사).
+    #    cat으로 in-place 덮어쓰기 → inode 보존.
+    if tail -c 1048576 "$lf" > "$lf.trim" 2>/dev/null && cat "$lf.trim" > "$lf" 2>/dev/null; then
+      echo "$(date '+%FT%T') janitor: $(basename "$lf") 회전(${sz}B → 1MB)" >> "$ROOT/logs/rotate.log"
+    fi
+    rm -f "$lf.trim"
   fi
 done
 

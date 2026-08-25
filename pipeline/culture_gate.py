@@ -27,10 +27,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 한국 고유 소재 — 이 낱말이 제목·대본에 있으면 배경 국적을 검사한다.
 KOREAN_TOPICS = (
     # 명절·절기
-    "추석", "한가위", "설날", "정월대보름", "단오", "한식", "동짓날", "삼짇날", "칠석",
+    "추석", "한가위", "설날", "정월대보름", "단오", "한식", "동지", "동짓날", "삼짇날", "칠석",
     # 의식주·전통
     "한복", "한옥", "온돌", "장독", "한지", "국악", "판소리", "사물놀이", "탈춤", "씨름",
-    "제사", "차례상", "차롓상", "세배", "성묘", "돌잔치", "궁궐", "경복궁", "창덕궁", "종묘", "서낭",
+    "제사", "차례", "세배", "성묘", "돌잔치", "궁궐", "경복궁", "창덕궁", "종묘", "서낭",
     # 음식
     "김치", "송편", "떡국", "비빔밥", "불고기", "막걸리", "된장", "고추장", "삼계탕",
     # 국가상징·역사
@@ -54,22 +54,40 @@ _PROMPT = (
 #   "4차례 강진"(피사의 사탑)·"동지 열두 명"(안중근)·"세 차례 검사"(중국산 배추) 등
 #   228편 중 16편 발동에 6편이 오탐이었다. 외국 소재 편에 한국 기준을 적용하면
 #   정상 배경이 기각되고, 기각 산출물이 자동 게시로 이어질 수 있었다).
-_AMBIGUOUS = {"한식", "신라", "백제"}   # "차례"·"동지"는 낱말 자체를 좁혀 해결(차례상·동짓날)
+_AMBIGUOUS = {"한식", "신라", "백제", "차례", "동지"}
+
+# ⚠️ 한국어는 낱말 뒤에 조사가 붙는다. 후행을 `(?![가-힣])`로 막으면 "신라의"·"백제가"·
+#    "한식은"·"동지에"가 전부 미발동해 **게이트가 사실상 꺼진다** (2026-08-25 재감사 실측).
+#    → 뒤에는 조사를 허용하고, 오탐은 아래 콜로케이션으로만 걷어낸다.
+_JOSA = r"(?=$|[^가-힣]|[은는이가을를의에도와과로만라며야여])"
+# "차례"의 오탐은 횟수 용법이다("4차례", "세 차례"). "동지"는 동료 용법("동지 열두 명").
+_FALSE_CTX = {
+    "차례": r"(?:\d+\s*차례|[한두세네다섯여섯일곱여덟아홉열몇여러]\s*차례|차례로|차례차례)",
+    # 동료 용법: "동지 열두 명"·"동지들"·"독립 동지" — 사람을 세는 문맥이면 절기가 아니다
+    "동지": r"(?:동지\s*[가-힣\d]*\s*명|동지\s*(?:여러분|들)|독립\s*동지|혁명\s*동지)",
+}
 
 
 def is_korean_topic(*texts):
     """제목·대본 등에 한국 고유 소재 낱말이 있으면 True.
 
-    - 모호한 낱말(차례·동지 등)은 앞뒤가 한글로 이어지지 않을 때만 인정한다.
+    - 모호한 낱말은 앞이 한글이 아니고 뒤가 조사/경계일 때 인정한다.
+    - 알려진 오탐 용법(횟수 '차례', 동료 '동지')은 그 매치만 제외한다.
     - content json에 `"culture_gate": false` 를 두면 옵트아웃한다 —
       소재국이 한국이 아님이 명백한 편(중국산 배추·피사의 사탑 등)에 쓴다.
     """
     blob = " ".join(t for t in texts if t)
     for k in KOREAN_TOPICS:
-        if k in _AMBIGUOUS:
-            if re.search(r"(?<![가-힣])%s(?![가-힣])" % re.escape(k), blob):
+        if k not in _AMBIGUOUS:
+            if k in blob:
                 return True
-        elif k in blob:
+            continue
+        pat = r"(?<![가-힣])%s%s" % (re.escape(k), _JOSA)
+        false_pat = _FALSE_CTX.get(k)
+        for m in re.finditer(pat, blob):
+            seg = blob[max(0, m.start() - 6):m.end() + 6]
+            if false_pat and re.search(false_pat, seg):
+                continue          # 알려진 오탐 용법 — 이 매치만 건너뛴다
             return True
     return False
 
@@ -88,9 +106,10 @@ def _key():
     return None
 
 
-def judge_image(path, timeout=90):
+def judge_image(path, timeout=90, _retry=1):
     """이미지 1장 판정. 반환: (foreign: bool|None, 사유 문자열).
-    foreign=None 은 '판정 불가'(게이트 고장) — 호출자는 통과시키되 경고를 남겨라."""
+    foreign=None 은 '판정 불가'다 — 한국 소재 편에서 호출자는 **기각**한다(fail-closed).
+    씬 수만큼 호출하므로 429·일시 오류 한 번에 슬롯이 죽지 않도록 1회 재시도한다."""
     try:
         key = _key()   # try 안 — keys.env 부재·권한 오류가 계약을 깨고 예외로 튀면
         if not key:    #          호출부의 광범위 except가 "무해 통과"로 뭉갠다 (2026-08-25 감사)
@@ -104,11 +123,26 @@ def judge_image(path, timeout=90):
             "gemini-2.5-flash:generateContent?key=" + key,
             data=body, headers={"Content-Type": "application/json"})
         with urllib.request.urlopen(req, timeout=timeout) as r:
-            txt = json.load(r)["candidates"][0]["content"]["parts"][0]["text"]
+            _resp = json.load(r)
+        # 200이어도 candidates/parts가 없을 수 있다(SAFETY·MAX_TOKENS 등) — 인덱싱 전에 확인
+        _cands = _resp.get("candidates") or []
+        _parts = (_cands[0].get("content", {}).get("parts") or []) if _cands else []
+        if not _parts:
+            return None, "모델이 판정을 반환하지 않음(%s)" % str(
+                _cands[0].get("finishReason") if _cands else _resp.get("promptFeedback"))[:60]
+        txt = _parts[0].get("text") or ""
         m = re.search(r"\{.*\}", txt, re.S)
         d = json.loads(m.group(0)) if m else {}
+        if "foreign" not in d:
+            # 모델이 산문·거부·절단 응답을 냈다 — 이건 "깨끗한 프레임"이 아니라
+            # "판정하지 못한 상태"다. 통과로 분류하면 fail-closed를 우회한다 (2026-08-25 재감사).
+            return None, "판정 파싱 실패: %s" % txt.strip()[:80]
         return bool(d.get("foreign")), "%s — %s" % (d.get("country", "?"), d.get("reason", ""))
     except Exception as e:
+        if _retry > 0:
+            import time as _t
+            _t.sleep(3)
+            return judge_image(path, timeout=timeout, _retry=_retry - 1)
         return None, "판정 실패: %s" % str(e)[:120]
 
 
