@@ -252,10 +252,31 @@ def check_artifacts(start_ts):
             # 카드·영상 세션 병행으로 교차 기록될 수 있어 최근 5행에서 탐색 (2026-08-05 점검)
             sent_ok = bool(lines) and any(any(p.name in ln for ln in lines) for p in new_mp4)
         if not sent_ok:
-            # 기존 문자열 검사는 보조로 강등 — 경보 문면의 진단 정보로만 쓴다
+            # 2026-08-25 실사고: 19시 세션이 렌더·QA를 끝내고 "게시 지시를 기다립니다"로 멈췄다.
+            # 경보는 정상 발송됐지만 **밤에는 아무도 안 본다** → 슬롯이 통째로 증발했다.
+            # 경보만 보내는 대신 여기서 직접 게시를 끝낸다 — 산출물이 있고 게이트를 통과했다는 뜻이므로
+            # 남은 건 업로더 호출뿐이다. 실패하면 그때 경보한다.
             note = " (로그엔 발송 문구가 있음 — 자기 보고 불일치)" if ("발송 완료" in logtext or "phase0" in logtext) else ""
-            tg("⚠️ 숏츠 데일리: 영상은 있는데 sent.log 발송 실측 기록이 없음%s — 게시 단계 누락 의심, %s 확인"
-               % (note, LOG.name))
+            newest = max(new_mp4, key=lambda p_: p_.stat().st_mtime)
+            meta = ROOT / "content" / (newest.stem + ".meta.json")
+            if meta.exists():
+                tg("🔧 숏츠 데일리: 영상은 있는데 미게시 — 러너가 자동 게시를 시도합니다 (%s)" % newest.name)
+                try:
+                    r = subprocess.run(["/bin/zsh", "-l", "-c",
+                                        "cd %s && .venv/bin/python3 pipeline/upload_youtube.py %s %s"
+                                        % (ROOT, newest, meta)],
+                                       capture_output=True, text=True, timeout=900)
+                    tail = ((r.stdout or "") + (r.stderr or "")).strip().splitlines()[-3:]
+                    if r.returncode == 0:
+                        tg("✅ 자동 게시 완료 (%s)\n%s" % (newest.name, "\n".join(tail)))
+                    else:
+                        tg("⚠️ 자동 게시 실패(rc=%d) — 수동 확인 필요 (%s)\n%s"
+                           % (r.returncode, newest.name, "\n".join(tail)))
+                except Exception as e:
+                    tg("⚠️ 자동 게시 예외 — 수동 확인 필요 (%s): %s" % (newest.name, str(e)[:200]))
+            else:
+                tg("⚠️ 숏츠 데일리: 영상은 있는데 sent.log 발송 실측 기록이 없음%s — meta 파일도 없어 자동 게시 불가, %s 확인"
+                   % (note, LOG.name))
     except Exception:
         pass
 
