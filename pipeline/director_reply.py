@@ -54,7 +54,8 @@ def _consume(base):
 
 def _write_off(v):
     tmp = OFF + ".tmp"
-    open(tmp, "w").write(str(v))
+    with open(tmp, "w") as f:     # flush 보장 (2026-08-25 감사)
+        f.write(str(v))
     os.replace(tmp, OFF)
 
 
@@ -62,8 +63,28 @@ MARK_TTL = 90 * 60   # mark가 이보다 오래되면 죽은 세션의 잔재로
 
 
 def mark():
-    """지금 파일 끝을 기준점으로 영속 기록 — collect가 여기부터 소비한다."""
-    _write_off(json.dumps({"off": _size(), "ts": time.time()}))
+    """collect가 소비할 기준점을 기록한다.
+
+    ⚠️ EOF를 그대로 기준점으로 쓰면 **직전 슬롯이 미처 회수하지 못한 회신이 영구 폐기**된다
+    (2026-08-25 감사): 회신은 10분 틱이 jsonl로 옮겨야 보이는데 collect는 보통 120초만
+    기다린다. 틱 직후 도착한 지시는 다음 틱(최대 10분 뒤)에야 실리고, 그 사이 새 슬롯의
+    mark가 EOF로 건너뛰면 어느 세션에도 도달하지 않는다. 디렉터는 지시했다고 생각하는데
+    시스템은 아무 말도 안 한다 — 가장 조용한 실패다.
+    → 직전 오프셋이 아직 EOF보다 뒤에 있으면(=미소비분 존재) 그 오프셋을 유지한다.
+    """
+    eof = _size()
+    prev = None
+    try:
+        d = json.loads(open(OFF).read())
+        if isinstance(d, dict):
+            prev = int(d.get("off"))
+    except Exception:
+        prev = None
+    keep = prev if (prev is not None and 0 <= prev < eof) else eof
+    if keep != eof:
+        print("[director_reply] 미소비 회신 %dB 보존 — 기준점을 EOF로 밀지 않음" % (eof - keep),
+              flush=True)
+    _write_off(json.dumps({"off": keep, "ts": time.time()}))
 
 
 def _wait_from(base, seconds, poll):

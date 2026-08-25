@@ -46,6 +46,12 @@ def _post(path, params, timeout=120):
 
 def _save_token(tok, expires_in):
     """갱신된 토큰을 keys.env에 되쓴다. 만료 예정일도 함께 적어 다음 갱신 판단에 쓴다."""
+    from keyfile import locked
+    with locked():   # 읽기~교체 전체를 직렬화 (2026-08-25 감사: IG 갱신과 lost update 경쟁)
+        _save_token_locked(tok, expires_in)
+
+
+def _save_token_locked(tok, expires_in):
     stamp = int(time.time()) + int(expires_in or 0)
     lines, seen_t, seen_e = [], False, False
     for line in open(KEYS, encoding="utf-8"):

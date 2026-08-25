@@ -144,11 +144,14 @@ def main():
         LOCK.unlink(missing_ok=True)   # 죽은 PID의 잔재 락 (죽어가던 세션의 finally와 경합 가능 — 2026-08-25 감사)
     # claude는 node 기반 → launchd의 빈 PATH에서 죽는다(2026-07-29 실사고: env: node not found).
     # 로그인 셸(zsh -l)을 통째로 경유해 사용자 PATH(node·claude 포함)를 복원한다.
+    # 락을 먼저 잡는다 — which claude(최대 30초) 동안 락이 비어 janitor가 "렌더 없음"으로
+    # 오판하던 공백 구간을 없앤다 (2026-08-25 감사). 실패 시 아래에서 해제한다.
+    LOCK.write_text(str(os.getpid()))
     chk = subprocess.run(["/bin/zsh", "-l", "-c", "which claude"], capture_output=True, text=True, timeout=30)
     if chk.returncode != 0 or not chk.stdout.strip():
+        LOCK.unlink(missing_ok=True)
         tg("⚠️ 숏츠 데일리: 로그인 셸에서도 claude CLI를 찾지 못해 기동 실패")
         sys.exit(1)
-    LOCK.write_text(str(os.getpid()))
     start_ts = time.time()
     try:
         for attempt in range(len(RETRY_DELAYS) + 1):

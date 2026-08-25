@@ -62,6 +62,9 @@ def refresh_token_if_due(token):
                    params={"grant_type": "ig_refresh_token", "access_token": token})
         new = resp.get("access_token")
         if new and new != token:
+            from keyfile import locked
+            _lk = locked()
+            _lk.__enter__()   # 읽기~교체 전체를 직렬화 (2026-08-25 감사: 스레드 갱신과 경쟁)
             # 원자적 재작성 (임시파일→rename) + re.sub 이스케이프 함정 회피 (2026-07-29 감사)
             lines = open(KEYS, encoding="utf-8").read().splitlines(keepends=True)
             out_lines, replaced = [], False
@@ -78,6 +81,7 @@ def refresh_token_if_due(token):
                 f.write("".join(out_lines))
             os.chmod(tmp, 0o600)   # 2026-08-14 감사: umask 기본값이면 장기 토큰이 644로 노출된다
             os.replace(tmp, KEYS)
+            _lk.__exit__(None, None, None)
             token = new
         os.makedirs(os.path.dirname(STATE), exist_ok=True)
         open(STATE, "w").write(str(int(time.time())))

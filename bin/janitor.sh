@@ -21,19 +21,20 @@ TODAY=$(date +%Y-%m-%d)
 # 오판했고(3차), kill -0 단독은 재사용 PID에 속았다(4차). 죽은 PID의 잔재 락은 무시하고 진행.
 # ⚠️ 락 파일명·내용(PID)은 bin/daily_runner.py LOCK 정의와 결합 — 바꾸면 여기도 고쳐라.
 LOCKF="$ROOT/logs/.daily.lock"
-if [ -f "$LOCKF" ]; then
-  lpid=$(cat "$LOCKF" 2>/dev/null)
+CARDLOCKF="$ROOT/logs/.card.lock"   # 카드 세션도 렌더 중이다 — 가드 밖이던 것 보완 (2026-08-25 감사)
+for _lk in "$LOCKF" "$CARDLOCKF"; do
+  [ -f "$_lk" ] || continue
+  lpid=$(cat "$_lk" 2>/dev/null)
   case "$lpid" in
-    ''|*[!0-9]*) : ;;                                   # PID 아님 — 잔재로 간주
-    *)
-      # PID 생존 + 정체 확인(카드 모드 러너는 .daily.lock 소유자가 아니다 — 5차: 모드까지 대조)
-      lcmd=$(ps -p "$lpid" -o command= 2>/dev/null)
-      case "$lcmd" in
-        *daily_runner*"--mode card"*) : ;;
-        *daily_runner*) exit 0 ;;                        # 영상 렌더 살아 있음
-      esac ;;
+    ''|*[!0-9]*) continue ;;                            # PID 아님 — 잔재로 간주
   esac
-fi
+  # PID 생존 + 정체 확인. 두 락 모두 검사한다 — 카드 세션도 렌더 중이고,
+  # 파일 상단이 선언한 계약("렌더 중이면 캐시를 건드리지 않는다")이 절반만 지켜지고 있었다.
+  lcmd=$(ps -p "$lpid" -o command= 2>/dev/null)
+  case "$lcmd" in
+    *daily_runner*) exit 0 ;;                            # 렌더(영상·카드) 살아 있음
+  esac
+done
 
 # bg_cache 상한 초과분 삭제 — stat 일괄 스냅샷(공백 파일명 안전·디렉터리 제외), mtime 오래된 것부터
 if [ -d "$CACHE" ]; then
@@ -61,6 +62,19 @@ fi
 # 30일 지난 렌더 산출물 / 60일 지난 로그
 find "$ROOT/out" -type f \( -name "*.mp4" -o -name "*.jpg" -o -name "*.png" \) -mtime +30 -delete 2>/dev/null
 find "$ROOT/logs" -type f -name "*.log" -mtime +60 -delete 2>/dev/null
+# ⚠️ 위 mtime 정리는 **계속 쓰이는 로그를 절대 못 지운다** — append마다 mtime이 갱신되기 때문이다.
+#    실제로 지워지는 건 버려진 daily-*.log 뿐이고, comment_dm.log 같은 상시 로그는 무한 증가한다
+#    (실측 16KB/일). 크기 기반 잘라내기를 더한다 (2026-08-25 감사). jsonl도 대상에 포함.
+for lf in "$ROOT/logs"/*.log "$ROOT/logs"/*.jsonl; do
+  [ -f "$lf" ] || continue
+  case "$lf" in *threads_stats.jsonl) continue;; esac   # 지표 시계열은 보존
+  sz=$(stat -f '%z' "$lf" 2>/dev/null || echo 0)
+  case "$sz" in ''|*[!0-9]*) continue;; esac
+  if [ "$sz" -gt 2097152 ]; then
+    tail -c 1048576 "$lf" > "$lf.trim" 2>/dev/null && mv "$lf.trim" "$lf" \
+      && echo "$(date '+%FT%T') janitor: $(basename "$lf") 회전(${sz}B → 1MB)"
+  fi
+done
 
 echo "$TODAY" > "$MARK"    # 하루 1회가 불변식 — 부분 실패여도 스탬프(오류는 로그로 남는다)
 exit 0

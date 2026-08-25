@@ -67,8 +67,20 @@ def run_once(verbose=True):
                                          headers={"User-Agent": "Mozilla/5.0 (studio-bot)"})
             with urllib.request.urlopen(req, timeout=20) as r:
                 events = json.load(r)
+            if events:
+                # ⚠️ /events는 파괴적 읽기다 — 워커가 반환과 동시에 KV에서 지운다.
+                #    _save는 이 함수 맨 끝이라, 그 사이 어디서 죽으면(절전 SIGTERM·ffmpeg 행·
+                #    미방어 KeyError) 이 댓글들은 어디에도 남지 않는다. 처리 전에 먼저 영속화한다.
+                #    (2026-08-25 감사: 복구 경로가 0인 유일한 지점이었다)
+                st["inbox"] = (st.get("inbox") or []) + events
+                _save(st)
     except Exception as e:
         print("[comment_dm] 이벤트 조회 실패:", str(e)[:120])
+    # 지난 실행이 처리하지 못하고 남긴 이벤트를 함께 소비한다(중복은 replied가 막는다)
+    _inbox = st.get("inbox") or []
+    if _inbox:
+        _seen_ids = {e.get("id") for e in events}
+        events = [e for e in _inbox if e.get("id") not in _seen_ids] + events
     def _alert(msg):
         try:
             import subprocess
@@ -77,16 +89,30 @@ def run_once(verbose=True):
         except Exception:
             pass
 
-    # 설정 동기화 — 워커 실시간 응답용 (토큰 갱신·규칙 변경 반영)
+    # 설정 동기화 — 워커 실시간 응답용 (토큰 갱신·규칙 변경 반영).
+    # 변경이 없으면 보내지 않는다 — 하루 144회 토큰 전송은 낭비이자 노출면이다 (2026-08-25 감사).
+    # 그리고 조용한 실패가 이어지면 워커가 낡은 토큰을 들고 DM이 무증상 사망하므로 연속 실패는 경보한다.
     try:
         if cnt and key:
+            import hashlib as _hl
             cfg = json.dumps({"token": tok, "rules": rules}).encode()
-            rq = urllib.request.Request("%s/dm_config?k=%s" % (cnt, key), data=cfg,
-                                        headers={"User-Agent": "Mozilla/5.0 (studio-bot)",
-                                                 "Content-Type": "application/json"}, method="POST")
-            urllib.request.urlopen(rq, timeout=20).read()
+            _sig = _hl.sha1(cfg).hexdigest()
+            if st.get("cfg_sig") != _sig:
+                rq = urllib.request.Request("%s/dm_config?k=%s" % (cnt, key), data=cfg,
+                                            headers={"User-Agent": "Mozilla/5.0 (studio-bot)",
+                                                     "Content-Type": "application/json"}, method="POST")
+                urllib.request.urlopen(rq, timeout=20).read()
+                st["cfg_sig"] = _sig
+                st["cfg_fail"] = 0
+                _save(st)
+                if verbose:
+                    print("[comment_dm] 설정 동기화 완료(변경 감지)")
     except Exception as e:
-        print("[comment_dm] 설정 동기화 실패(무해):", str(e)[:100])
+        st["cfg_fail"] = int(st.get("cfg_fail") or 0) + 1
+        print("[comment_dm] 설정 동기화 실패(%d회째):" % st["cfg_fail"], str(e)[:100])
+        if st["cfg_fail"] in (3, 30):   # 30분·5시간 지점에서만 알린다(경보 폭주 방지)
+            _alert("⚠️ 댓글DM 설정 동기화가 %d회 연속 실패 — 워커가 낡은 토큰을 들고 있을 수 있습니다: %s"
+                   % (st["cfg_fail"], str(e)[:120]))
 
     for ev in events:
         cid = ev.get("id")
@@ -180,15 +206,13 @@ def run_once(verbose=True):
                     replied[cid] = None
                 break
     # 2차 소스(REST 폴링 — 검수 승인 후 데이터가 열리면 자동으로 같이 동작)
-    # ⚠️ 이 시점엔 위 웹훅 경로가 이미 DM을 발송하고 replied에 기록했지만 _save는 아직이다.
-    #    여기서 5xx/429로 죽으면 상태가 저장되지 않아 다음 틱에 같은 사람에게 DM이 재발송된다.
-    #    아래 /comments 호출과 동일하게 방어한다 (2026-08-25 감사).
-    try:
-        media = api("GET", "/me/media", params={
-            "fields": "id,caption,timestamp", "limit": 15, "access_token": tok}).get("data", [])
-    except Exception as e:
-        print("[comment_dm] 미디어 조회 실패(무해 — 웹훅 경로는 이미 처리됨):", str(e)[:120], flush=True)
-        media = []
+    # ⚠️ 2026-08-25 감사: 여기서 /me/media?limit=15로 최근 15편을 받아 규칙과 대조했는데,
+    #    계정이 하루 4~6편을 올려 제휴 태깅된 편은 약 3일이면 창 밖으로 밀려난다.
+    #    실측 교집합 0 — 즉 "백업 폴러"가 존재하지 않으면서 하루 144회 호출만 낭비했고,
+    #    로그는 성공/고장 모두 "발송 0건"으로 같았다. 규칙의 미디어 ID를 직접 순회한다.
+    media = [{"id": mid} for mid in
+             dict.fromkeys(r.get("media") for r in rules
+                           if r.get("media") and r.get("media") != "any")]
     for m in media:
         mid = m["id"]
         applicable = [r for r in rules if r.get("media") in ("any", mid)]
@@ -231,8 +255,13 @@ def run_once(verbose=True):
                             c.get("username"), r["keyword"], str(e)[:150]))
                         replied[cid] = None   # 같은 댓글로 무한 재시도 방지 (수동 확인 후 상태 파일에서 제거)
                     break
+    st["inbox"] = []          # 이번 실행이 events를 끝까지 처리했다 — 재처리 대기분 비움
+    _before = st.get("replied") or []
     st["replied"] = list(replied)[-2000:]
-    _save(st)
+    # 실제로 바뀐 게 있을 때만 쓴다 — 매 틱 재작성하면 dm_state.json의 mtime이
+    # "마지막 처리 시각"이 아니라 "마지막 틱 시각"이 돼 생존 신호로 쓸 수 없다 (2026-08-25 감사).
+    if st["replied"] != _before or (st.get("inbox") or []) or sent:
+        _save(st)
     if verbose:
         print("[comment_dm] 완료 — 발송 %d건" % sent)
     return sent
