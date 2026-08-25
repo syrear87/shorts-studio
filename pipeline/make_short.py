@@ -1119,8 +1119,17 @@ def main():
                              "     → 해당 씬의 bg를 교체하라. 확실한 한국 자산이 없으면 "
                              "국적이 드러나지 않는 자연물(보름달·밤하늘·황금 들녘·벼·추수)로 가라." % _why)
                 if _unknown:
-                    print("경고: 문화 게이트 판정 불가(%s) — 프레임을 직접 눈으로 확인하라"
-                          % _unknown[0][1], flush=True)
+                    # 판정 불가 = 게이트가 죽은 상태로 통과시킨 것이다. 조용히 넘기면
+                    # 며칠간 무방비로 돌 수 있으므로 텔레그램으로 알린다 (2026-08-25 자체 점검).
+                    _m = "⚠️ 문화 게이트 판정 불가 — 게이트 없이 게시됨(%s). 한국 소재 편이니 프레임을 확인하세요: %s" \
+                         % (_unknown[0][1][:80], os.path.basename(out_mp4))
+                    print("경고: " + _m, flush=True)
+                    try:
+                        import subprocess as _sp2
+                        _sp2.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), _m],
+                                 check=False, timeout=30)
+                    except Exception:
+                        pass
                 else:
                     print("문화 게이트 통과: 한국 고유 소재, 외국 전통 요소 없음", flush=True)
             finally:
