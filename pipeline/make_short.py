@@ -1101,12 +1101,24 @@ def main():
         from culture_gate import is_korean_topic, check_frames
         _blob = " ".join([script.get("title", "")] +
                          [ln for sc in script["scenes"] for ln, _ in sc.get("lines", [])])
-        if is_korean_topic(_blob):
+        # 소재국이 한국이 아님이 명백한 편(중국산 배추·피사의 사탑 등)은 json에
+        # "culture_gate": false 로 끈다 — 그런 편에 한국 기준을 대면 정상 배경이 기각된다.
+        if script.get("culture_gate") is not False and is_korean_topic(_blob):
             import subprocess as _sp, tempfile as _tf, shutil as _sh
             _d = _tf.mkdtemp(prefix="culture_")
             try:
+                # 씬마다 중앙 1프레임 — 3지점 샘플은 6씬 중 최대 3씬만 덮어
+                # 씬 2·4의 위험 배경이 그대로 통과한다 (2026-08-25 감사). 호출당 약 5초.
+                _mids = []
+                for _sc in timeline:
+                    try:
+                        _mids.append((_sc["start"] + _sc["end"]) / 2.0)
+                    except Exception:
+                        pass
+                if not _mids:
+                    _mids = [1.0, total_dur * 0.45, max(0.0, total_dur - 4)]
                 _shots = []
-                for _t in (1.0, total_dur * 0.45, max(0.0, total_dur - 4)):
+                for _t in _mids:
                     _f = os.path.join(_d, "f%.0f.jpg" % (_t * 10))
                     _sp.run(["ffmpeg", "-v", "error", "-ss", "%.2f" % _t, "-i", out_mp4,
                              "-frames:v", "1", _f, "-y"], check=False, timeout=60)
@@ -1115,21 +1127,47 @@ def main():
                 _bad, _unknown = check_frames(_shots)
                 if _bad:
                     _why = " / ".join(w for _, w in _bad)
+                    # ⚠️ 산출물을 반드시 치운다 — 기각했는데 mp4가 out/에 남으면
+                    #    러너의 자동 복구(check_artifacts)가 "영상 있는데 미게시"로 읽고
+                    #    **기각된 바로 그 영상을 3채널에 무인 게시한다**. 게이트가 잡을수록
+                    #    사고가 나는 구조가 된다 (2026-08-25 감사 지적).
+                    try:
+                        _rej = os.path.join(ROOT, "out", "rejected")
+                        os.makedirs(_rej, exist_ok=True)
+                        os.replace(out_mp4, os.path.join(_rej, os.path.basename(out_mp4)))
+                        print("기각 산출물 격리: out/rejected/%s" % os.path.basename(out_mp4), flush=True)
+                    except Exception as _me:
+                        try:
+                            os.remove(out_mp4)
+                        except Exception:
+                            print("경고: 기각 산출물 정리 실패 — 수동 삭제 필요: %s (%s)"
+                                  % (out_mp4, str(_me)[:80]), flush=True)
                     sys.exit("기각: 한국 고유 소재인데 배경에 외국 전통 요소가 감지됐다 — %s\n"
                              "     → 해당 씬의 bg를 교체하라. 확실한 한국 자산이 없으면 "
                              "국적이 드러나지 않는 자연물(보름달·밤하늘·황금 들녘·벼·추수)로 가라." % _why)
                 if _unknown:
-                    # 판정 불가 = 게이트가 죽은 상태로 통과시킨 것이다. 조용히 넘기면
-                    # 며칠간 무방비로 돌 수 있으므로 텔레그램으로 알린다 (2026-08-25 자체 점검).
-                    _m = "⚠️ 문화 게이트 판정 불가 — 게이트 없이 게시됨(%s). 한국 소재 편이니 프레임을 확인하세요: %s" \
-                         % (_unknown[0][1][:80], os.path.basename(out_mp4))
-                    print("경고: " + _m, flush=True)
+                    # fail-CLOSED: 한국 고유 소재는 전체의 7%뿐이고, 디렉터 판정상
+                    # "슬롯 1개 손실" < "나락 한순간"이다. 자동 게시가 생긴 뒤로 fail-open은
+                    # **게이트가 죽은 채 아무도 안 보는 밤에 무인 게시**를 뜻한다 (2026-08-25 감사).
+                    _m = ("⚠️ 문화 게이트 판정 불가 — 한국 소재 편이라 게시를 보류합니다(%s): %s. "
+                          "네트워크·GEMINI_API_KEY 확인 후 재렌더하세요."
+                          % (_unknown[0][1][:80], os.path.basename(out_mp4)))
                     try:
                         import subprocess as _sp2
                         _sp2.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), _m],
                                  check=False, timeout=30)
                     except Exception:
                         pass
+                    try:
+                        _rej = os.path.join(ROOT, "out", "rejected")
+                        os.makedirs(_rej, exist_ok=True)
+                        os.replace(out_mp4, os.path.join(_rej, os.path.basename(out_mp4)))
+                    except Exception:
+                        try:
+                            os.remove(out_mp4)
+                        except Exception:
+                            pass
+                    sys.exit("기각: 문화 게이트 판정 불가 — %s" % _unknown[0][1][:120])
                 else:
                     print("문화 게이트 통과: 한국 고유 소재, 외국 전통 요소 없음", flush=True)
             finally:

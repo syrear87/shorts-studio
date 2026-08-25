@@ -27,10 +27,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 한국 고유 소재 — 이 낱말이 제목·대본에 있으면 배경 국적을 검사한다.
 KOREAN_TOPICS = (
     # 명절·절기
-    "추석", "한가위", "설날", "정월대보름", "단오", "한식", "동지", "삼짇날", "칠석",
+    "추석", "한가위", "설날", "정월대보름", "단오", "한식", "동짓날", "삼짇날", "칠석",
     # 의식주·전통
     "한복", "한옥", "온돌", "장독", "한지", "국악", "판소리", "사물놀이", "탈춤", "씨름",
-    "제사", "차례", "세배", "성묘", "돌잔치", "궁궐", "경복궁", "창덕궁", "종묘", "서낭",
+    "제사", "차례상", "차롓상", "세배", "성묘", "돌잔치", "궁궐", "경복궁", "창덕궁", "종묘", "서낭",
     # 음식
     "김치", "송편", "떡국", "비빔밥", "불고기", "막걸리", "된장", "고추장", "삼계탕",
     # 국가상징·역사
@@ -50,27 +50,51 @@ _PROMPT = (
 )
 
 
+# 부분문자열이면 오탐이 나는 낱말 — 어절 경계를 요구한다 (2026-08-25 감사 실측:
+#   "4차례 강진"(피사의 사탑)·"동지 열두 명"(안중근)·"세 차례 검사"(중국산 배추) 등
+#   228편 중 16편 발동에 6편이 오탐이었다. 외국 소재 편에 한국 기준을 적용하면
+#   정상 배경이 기각되고, 기각 산출물이 자동 게시로 이어질 수 있었다).
+_AMBIGUOUS = {"한식", "신라", "백제"}   # "차례"·"동지"는 낱말 자체를 좁혀 해결(차례상·동짓날)
+
+
 def is_korean_topic(*texts):
-    """제목·대본 등에 한국 고유 소재 낱말이 있으면 True."""
+    """제목·대본 등에 한국 고유 소재 낱말이 있으면 True.
+
+    - 모호한 낱말(차례·동지 등)은 앞뒤가 한글로 이어지지 않을 때만 인정한다.
+    - content json에 `"culture_gate": false` 를 두면 옵트아웃한다 —
+      소재국이 한국이 아님이 명백한 편(중국산 배추·피사의 사탑 등)에 쓴다.
+    """
     blob = " ".join(t for t in texts if t)
-    return any(k in blob for k in KOREAN_TOPICS)
+    for k in KOREAN_TOPICS:
+        if k in _AMBIGUOUS:
+            if re.search(r"(?<![가-힣])%s(?![가-힣])" % re.escape(k), blob):
+                return True
+        elif k in blob:
+            return True
+    return False
+
+
+_KEY_CACHE = []   # 이미지마다 keys.env를 다시 열지 않는다 (2026-08-25 감사)
 
 
 def _key():
+    if _KEY_CACHE:
+        return _KEY_CACHE[0]
     for line in open(os.path.join(ROOT, "keys.env"), encoding="utf-8"):
         line = line.strip()
         if line.startswith("GEMINI_API_KEY="):
-            return line.split("=", 1)[1].strip().strip('"')
+            _KEY_CACHE.append(line.split("=", 1)[1].strip().strip('"'))
+            return _KEY_CACHE[0]
     return None
 
 
 def judge_image(path, timeout=90):
     """이미지 1장 판정. 반환: (foreign: bool|None, 사유 문자열).
     foreign=None 은 '판정 불가'(게이트 고장) — 호출자는 통과시키되 경고를 남겨라."""
-    key = _key()
-    if not key:
-        return None, "GEMINI_API_KEY 없음"
     try:
+        key = _key()   # try 안 — keys.env 부재·권한 오류가 계약을 깨고 예외로 튀면
+        if not key:    #          호출부의 광범위 except가 "무해 통과"로 뭉갠다 (2026-08-25 감사)
+            return None, "GEMINI_API_KEY 없음"
         b = base64.b64encode(open(path, "rb").read()).decode()
         body = json.dumps({"contents": [{"parts": [
             {"text": _PROMPT},

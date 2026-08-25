@@ -212,6 +212,7 @@ def api_public(video, meta):
     # 디렉터 지정 매핑(2026-07-29): 제목=#shorts 없는 제목 / 설명=제목+본문 / 태그=소재 태그 5개
     #                             / 아동용 아님 / 공개
     title = clean_title(meta)
+    _want = _title_with_tags(title, topic_tags(meta))   # 아래 body와 멱등 가드가 함께 쓴다
     body = {
         "snippet": {
             # 제목 = 본제목 + 해시태그 5개 (유튜브 제목 상한 100자 — 넘치면 태그부터 잘라낸다)
@@ -233,7 +234,6 @@ def api_public(video, meta):
     #   업로드 순서가 [YT 업로드 → 썸네일 → sent.log 기록]이라, 그 사이에 세션이 죽으면
     #   러너의 자동 게시(check_artifacts)가 같은 영상을 두 번 올린다. 최근 업로드 제목과 대조해 막는다.
     #   의도적 재게시가 필요하면 환경변수 YT_FORCE=1 로 우회한다(오늘 추석 편 같은 배경 교체 재게시).
-    _want = _title_with_tags(title, topic_tags(meta))
     if not os.environ.get("YT_FORCE"):
         try:
             _ch = yt.channels().list(part="contentDetails", mine=True).execute()["items"][0]
@@ -243,6 +243,12 @@ def api_public(video, meta):
                 if _it["snippet"]["title"].strip() == _want.strip():
                     _vid = _it["snippet"]["resourceId"]["videoId"]
                     print("이미 게시됨(같은 제목) — 건너뜀: https://youtube.com/shorts/%s" % _vid, flush=True)
+                    # sent.log를 남기지 않으면 러너 check_artifacts가 계속 '미게시'로 읽어
+                    # 자동 복구가 매 슬롯 uploader를 재호출한다 (2026-08-25 감사)
+                    os.makedirs(os.path.join(ROOT, "logs"), exist_ok=True)
+                    with open(os.path.join(ROOT, "logs", "sent.log"), "a", encoding="utf-8") as _sf:
+                        _sf.write("%s %s\n" % (datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
+                                                os.path.basename(video)))
                     return _vid
         except Exception as _ge:
             print("중복 검사 실패(계속 진행):", str(_ge)[:120], flush=True)

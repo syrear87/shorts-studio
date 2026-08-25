@@ -109,8 +109,9 @@ def main():
             print("\n🚨 한국 고유 소재 감지 — 사진 후보의 외국 전통 요소를 미리 검사합니다", flush=True)
             checked = []
             for i, (name, q, dur, ori, mark) in enumerate(rows):
-                if not name.startswith("p"):
-                    checked.append((name, q, dur, ori, mark)); continue
+                # 영상 후보(q*.jpg)도 검사한다 — 미리보기 JPEG가 이미 저장돼 있고 형식도 같다.
+                # 8/25 사고의 원인은 "bg_query에 korean을 넣었는데 Pexels가 중국 사진을 반환"인데,
+                # 정작 그 검색 경로(영상)를 건너뛰면 게이트에 구멍이 남는다 (2026-08-25 감사).
                 foreign, why = judge_image(os.path.join(OUT, name))
                 if foreign is True:
                     mark += "  ⛔ 외국·타국 요소 감지 — 선택 금지(%s)" % why[:110]

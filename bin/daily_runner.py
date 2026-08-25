@@ -240,7 +240,12 @@ def check_artifacts(start_ts):
                 tg("⚠️ 지식 카드: 세션은 정상 종료했지만 캐러셀 게시 실측(IGCARD)이 없음%s — %s 확인"
                    % (" (로그에 기각 있음 — 자가수정 실패 가능)" if gate_rejected else "", LOG.name))
             return
-        new_mp4 = [p for p in (ROOT / "out").glob("*.mp4") if p.stat().st_mtime >= start_ts]
+        def _fresh(p_):   # janitor -delete와 경합해 파일이 사라져도 순회를 죽이지 않는다 (2026-08-25 감사)
+            try:
+                return p_.stat().st_mtime >= start_ts
+            except OSError:
+                return False
+        new_mp4 = [p for p in (ROOT / "out").glob("*.mp4") if _fresh(p)]
         if not new_mp4:
             tg("⚠️ 숏츠 데일리: 세션은 정상 종료했지만 새 영상 산출물이 없음%s — %s 확인"
                % (" (렌더 기각 후 자가수정 실패로 보임)" if gate_rejected else "", LOG.name))
@@ -257,6 +262,12 @@ def check_artifacts(start_ts):
             # 경보만 보내는 대신 여기서 직접 게시를 끝낸다 — 산출물이 있고 게이트를 통과했다는 뜻이므로
             # 남은 건 업로더 호출뿐이다. 실패하면 그때 경보한다.
             note = " (로그엔 발송 문구가 있음 — 자기 보고 불일치)" if ("발송 완료" in logtext or "phase0" in logtext) else ""
+            # 게이트가 기각한 편은 절대 자동 게시하지 않는다 — 산출물이 남아 있어도
+            # 그건 '게시해도 되는 영상'이 아니다 (2026-08-25 감사: 게이트가 잡을수록 사고 나는 구조)
+            if gate_rejected:
+                tg("⚠️ 숏츠 데일리: 게이트가 기각한 편이라 자동 게시하지 않는다 — 세션이 자가수정에 "
+                   "실패했으니 소재·배경을 고쳐 수동 재렌더가 필요하다 (%s)" % LOG.name)
+                return
             newest = max(new_mp4, key=lambda p_: p_.stat().st_mtime)
             meta = ROOT / "content" / (newest.stem + ".meta.json")
             if meta.exists():
@@ -277,8 +288,12 @@ def check_artifacts(start_ts):
             else:
                 tg("⚠️ 숏츠 데일리: 영상은 있는데 sent.log 발송 실측 기록이 없음%s — meta 파일도 없어 자동 게시 불가, %s 확인"
                    % (note, LOG.name))
-    except Exception:
-        pass
+    except Exception as e:
+        # 이 함수는 슬롯 증발에 대한 마지막 방어선이다(산출물 실측·경보·자동 게시 구제).
+        # 여기서 조용히 삼키면 경보도 구제도 사라지고 러너는 rc=0으로 끝난다 — 침묵은 목적과 정반대다.
+        # (2026-08-25 감사: janitor의 -delete와 glob/stat이 경합해 FileNotFoundError가 날 수 있다)
+        tg("⚠️ 숏츠 데일리: check_artifacts 자체 실패 — 산출물 검증이 수행되지 않았다 (%s): %s"
+           % (LOG.name, str(e)[:200]))
 
 
 if __name__ == "__main__":

@@ -246,8 +246,9 @@ def local_cover_frame(media):
             return None
         # 2026-08-14 디렉터: 커버는 훅이 아니라 '결론(반전) 페이지' — 구독(CTA) 직전 씬.
         # 끝에서 CTA+꼬리(~6.5s)를 제외한 마지막 13.5s 창을 스캔해 결론 자막 완성 시점을 잡는다.
+        # timeout 필수 — 이 경로는 10분 틱 안에서 돈다 (2026-08-25 감사: 타임아웃 없으면 틱 영구 정지)
         probe = subprocess.run(["ffprobe", "-v", "quiet", "-show_entries", "format=duration",
-                                "-of", "csv=p=0", path], capture_output=True, text=True)
+                                "-of", "csv=p=0", path], capture_output=True, text=True, timeout=60)
         dur = float(probe.stdout.strip())
         # 2026-08-16 디렉터 지적("씬 3으로 뽑혔거든?"): 창이 13.5s로 넓어 결론 앞 fact 씬까지 들어왔고,
         # 판정 기준이 '흰 픽셀 최대'라 자막이 더 긴 fact3이 결론을 이겼다.
@@ -259,7 +260,8 @@ def local_cover_frame(media):
         try:
             subprocess.run(["ffmpeg", "-y", "-ss", "%.2f" % w_start, "-t", "%.2f" % w_len,
                             "-i", path, "-vf", "fps=2,scale=270:480",
-                            "-loglevel", "error", os.path.join(tmp, "f%03d.jpg")], check=True)
+                            "-loglevel", "error", os.path.join(tmp, "f%03d.jpg")],
+                           check=True, timeout=120)
             from PIL import Image
             best_n, best_ink = None, -1
             for fn in sorted(os.listdir(tmp)):
@@ -278,7 +280,7 @@ def local_cover_frame(media):
             os.close(fd)
             try:
                 subprocess.run(["ffmpeg", "-y", "-ss", "%.2f" % t, "-i", path, "-frames:v", "1",
-                                "-q:v", "2", "-loglevel", "error", keep], check=True)
+                                "-q:v", "2", "-loglevel", "error", keep], check=True, timeout=60)
                 if os.path.getsize(keep) > 0:
                     return keep
             except Exception:
@@ -631,7 +633,13 @@ def main(once=False):
             d = http("https://api.telegram.org/bot%s/getUpdates?timeout=%d&offset=%d" % (TG["STUDIO_TG_TOKEN"], 0 if once else 50, offset + 1), timeout=70)
             for u in d.get("result", []):
                 offset = max(offset, u["update_id"])
-                _wf = open(OFFSET_F, "w"); _wf.write(str(offset)); _wf.close()   # flush 보장 (2026-08-25 감사)
+                # 원자적 기록 — "w"는 먼저 truncate하므로 그 사이에 죽으면 0바이트가 남고,
+                # 아래 except ValueError가 offset=0으로 되돌려 **직전 배치를 통째로 재처리**한다
+                # (허브 중복 등록·스티커 킷 중복 발송). 이웃 상태 파일들과 동일하게 tmp+replace로 통일.
+                _tmp = OFFSET_F + ".tmp"
+                with open(_tmp, "w") as _wf:
+                    _wf.write(str(offset))
+                os.replace(_tmp, OFFSET_F)
                 if u.get("callback_query"):
                     continue   # 승인 게이트 폐지 (2026-08-16) — 옛 버튼이 눌려도 무시
                 m = u.get("message") or {}

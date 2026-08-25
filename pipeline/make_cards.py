@@ -214,14 +214,27 @@ def render(script_path):
     #   한국 고유 소재일 때만 완성 카드를 비전 검사해 외국 전통 요소를 잡는다.
     try:
         from culture_gate import is_korean_topic, check_frames
-        if is_korean_topic(s.get("topic", ""), s.get("caption", "")):
+        if s.get("culture_gate") is not False and is_korean_topic(s.get("topic", ""), s.get("caption", "")):
             bad, unknown = check_frames(paths)
             if bad:
                 raise SystemExit("기각: 한국 고유 소재 카드에 외국 전통 요소가 감지됐다 — %s\n"
                                  "     → 이미지를 교체하라. 확실한 한국 자산이 없으면 "
                                  "국적이 드러나지 않는 것으로 가라."
                                  % " / ".join(w for _, w in bad))
-            print("문화 게이트 통과: 한국 고유 소재, 외국 전통 요소 없음", flush=True)
+            if unknown:
+                # 판정 불가를 무시하고 "통과"라고 찍으면, 게이트가 죽은 채 세션이 통과로
+                # 리포트한다 — 막으려던 8/25 허위 통과를 게이트가 재생산한다 (2026-08-25 감사)
+                _m = ("⚠️ 카드 문화 게이트 판정 불가 — 게이트 없이 게시됨(%s). 한국 소재 카드이니 "
+                      "이미지를 확인하세요" % unknown[0][1][:80])
+                print("경고: " + _m, flush=True)
+                try:
+                    import subprocess as _sp
+                    _sp.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), _m],
+                                   check=False, timeout=30)
+                except Exception:
+                    pass
+            else:
+                print("문화 게이트 통과: 한국 고유 소재, 외국 전통 요소 없음", flush=True)
     except SystemExit:
         raise
     except Exception as _e:

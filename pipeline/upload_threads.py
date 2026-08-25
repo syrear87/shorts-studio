@@ -179,13 +179,19 @@ def publish(video_url, text, timeout_s=300, replies=()):
     # 2026-08-25 21시 별자리 편이 스레드에서 영상 첨부에 실패해 텍스트로 대체 게시됐다 —
     # 스레드는 쿠팡 링크가 클릭되는 통로이자 도달이 가장 큰 채널이라 손실이 크다. 같은 재시도를 적용한다.
     last, pid = None, None
-    for _ in range(6):
-        time.sleep(4)
+    for _i in range(6):
+        if _i:
+            time.sleep(4)   # 첫 시도는 지연 없이 — 정상 경로를 4초 늦추지 않는다
         try:
             pid = _publish_container(me, tok, cid)
             break
         except Exception as e:
             last = e
+            # 4xx는 재시도해도 같은 결과다(토큰 만료·권한·잘못된 컨테이너). 즉시 포기해
+            # 24초를 태우지 않고, 서버가 이미 발행한 뒤 응답만 끊긴 경우의 중복 발행 위험도 줄인다.
+            _code = getattr(e, "code", None)
+            if isinstance(_code, int) and 400 <= _code < 500 and _code != 429:
+                break
     if pid is None:
         raise RuntimeError("스레드 영상 게시 실패: %s" % str(last)[:150])
     # 답글 체인 — 각 답글은 바로 앞 글에 달아 하나의 실로 읽히게 한다

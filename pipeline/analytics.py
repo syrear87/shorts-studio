@@ -132,5 +132,9 @@ def ig_online_followers_peak():
 if __name__ == "__main__":
     # ⚠️ 모듈 최상위에서 부르면 import만 해도 라이브 IG API가 호출된다. 또 main()이 sys.exit로
     #    빠지면 이 요약이 조용히 누락됐다 — 가드 안으로 모았다 (2026-08-25 감사).
-    main()
+    try:
+        main()
+    except SystemExit as e:   # "공개 영상이 없습니다" 등 — 아래 요약까지 막지 않는다 (2026-08-25 감사)
+        if e.code:
+            print(e.code)
     ig_online_followers_peak()

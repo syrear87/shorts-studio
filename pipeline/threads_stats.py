@@ -93,6 +93,19 @@ def main():
 
     snap = dict(acc)
     snap["ts"] = time.strftime("%Y-%m-%dT%H:%M:%S")
+    # ⚠️ 전부 None인 스냅샷을 쌓으면 "끊긴 것"이 아니라 "거짓 데이터가 쌓인 것"이 돼
+    #    다음날 증감이 조용히 사라지고, 스냅샷 존재 여부로는 탐지되지 않는다 (2026-08-25 감사).
+    #    토큰 만료·권한 변경이 이 형태로 나타나므로 실패로 끝내 dm 틱이 성공 도장을 못 찍게 한다.
+    if snap.get("followers_count") is None and snap.get("views") is None:
+        msg = "⚠️ 스레드 지표 조회 실패(전 항목 None) — 토큰 만료·권한 확인 필요. 스냅샷을 남기지 않음"
+        print(msg, flush=True)
+        try:
+            import subprocess
+            subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"), msg],
+                           check=False, timeout=30)
+        except Exception:
+            pass
+        sys.exit(1)
     with open(SNAP, "a", encoding="utf-8") as f:
         f.write(json.dumps(snap, ensure_ascii=False) + "\n")
 
