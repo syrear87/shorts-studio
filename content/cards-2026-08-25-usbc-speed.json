@@ -1,0 +1,26 @@
+{
+  "topic": "USB-C 케이블, 같은 모양인데 속도 20배 차이 — 서랍 속 케이블 확인법 [구매가능]",
+  "caption": "같은 USB-C인데 속도가 20배 차이 난다\n\n서랍에 굴러다니는 USB-C 케이블 대부분은 USB 2.0이다.\nUSB 2.0은 480Mbps, USB 3.2는 10Gbps.\n폰 번들 케이블도 대부분 USB 2.0이라\n비싼 폰 사놓고 파일은 느리게 옮기는 중일 수 있다.\n\n확인법: 케이블이나 포장에 SS 또는 5/10Gbps 표기가 있으면 3.0 이상.\n아무 표기 없는 번들 케이블은 USB 2.0일 확률이 높다.\n충전만 할 거면 상관없지만\n파일 옮길 일 있으면 USB 3.2 케이블 하나 사두면 된다.\n쿠팡에서 1~2만원.\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 🔔\n\n#USBC #USB케이블 #충전케이블 #테크팁 #가젯",
+  "threads_text": "같은 USB-C인데 속도가 20배 차이 난다\n\n1. 서랍에 굴러다니는 USB-C 케이블 대부분이 USB 2.0임\n2. USB 2.0은 480Mbps, USB 3.2는 10Gbps — 속도 20배 차이\n3. 폰 번들 케이블도 거의 다 USB 2.0이라 비싼 폰 사놓고 전송은 느림\n4. 케이블에 SS 마크나 5/10Gbps 표기 있으면 3.0 이상, 없으면 2.0\n5. 충전만 하면 상관없는데 파일 옮길 일 있으면 USB 3.2 하나 사둬야 됨\n6. 쿠팡에서 1~2만원이면 해결됨\n\n(출처: USB-IF 공식 규격, ITWorld·MacRumors 교차 확인)\n\n링크는 첫 답글에",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "같은 USB-C인데 속도가 20배 차이 난다",
+      "title_hl": ["20배"],
+      "body": "서랍에 굴러다니는 USB-C 케이블 대부분은 USB 2.0이다",
+      "body_hl": ["USB 2.0"],
+      "img": "assets/cards/usbc_cable_main.jpg",
+      "credit": "사진: ready made (Pexels)"
+    },
+    {
+      "kind": "end",
+      "title": "살 때 이것만 확인하면 된다",
+      "title_hl": ["이것만"],
+      "body": "USB 2.0 = 480Mbps (충전 전용이면 OK)\nUSB 3.2 = 10Gbps (파일 전송 필요하면 이거)\n케이블에 SS 마크나 속도 숫자 있으면 3.0 이상",
+      "body_hl": ["USB 2.0", "USB 3.2", "SS"],
+      "sub": "쿠팡에서 USB 3.2 케이블 1~2만원이면 된다",
+      "img": "assets/cards/usbc_cable_detail.jpg",
+      "credit": "사진: Kindel Media (Pexels)"
+    }
+  ]
+}
