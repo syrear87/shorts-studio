@@ -1,0 +1,76 @@
+{
+  "title": "태풍이 오는데 더 더워진다고?",
+  "narrator": "male",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": "photo:38973656",
+      "voice": "태풍이 오면 시원해질 거라고요? 오히려 더 더워집니다.",
+      "lines": [
+        ["태풍이 오면 시원해진다?", ["시원해진다?"]],
+        ["오히려 더 더워집니다", ["더워집니다"]]
+      ]
+    },
+    {
+      "kind": "body",
+      "bg": "photo:38396427",
+      "voice": "지금 한반도는 이중 열돔에 갇혀 있습니다. 위아래로 뜨거운 고기압 두 개가 덮고 있는 겁니다.",
+      "lines": [
+        ["한반도는 지금", []],
+        ["이중 열돔에 갇혀 있다", ["이중 열돔"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "photo:15255121",
+      "voice": "첫째, 일만 킬로미터 상공에 티베트 고기압이 뜨겁고 건조한 공기로 누르고 있습니다.",
+      "lines": [
+        ["상공 1만km 티베트 고기압이", ["티베트"]],
+        ["뜨거운 공기로 누른다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "photo:36885000",
+      "voice": "둘째, 아래쪽에서는 북태평양 고기압이 남쪽의 습한 공기를 계속 밀어 올리고 있습니다.",
+      "lines": [
+        ["아래에선 북태평양 고기압이", ["북태평양"]],
+        ["습한 공기를 밀어 올린다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "photo:34870511",
+      "voice": "셋째, 제18호 태풍 사우델이 945헥토파스칼까지 강해졌지만, 한반도를 직접 지나가지 않으면 이 열돔을 깨지 못합니다.",
+      "lines": [
+        ["태풍 사우델 945hPa", ["945hPa"]],
+        ["직접 지나가지 않으면", []],
+        ["열돔을 깨지 못한다", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": "photo:12478918",
+      "voice": "태풍이 한반도를 직접 지나지 않으면서 열돔 양쪽으로 뜨거운 공기를 밀어, 폭염이 더 길어질 수 있습니다. 오늘부터 이번 주 내내 폭염이 이어집니다.",
+      "lines": [
+        ["태풍이 직접 지나지 않으면", []],
+        ["뜨거운 공기가 양쪽으로 밀려", []],
+        ["오늘부터 폭염이 더 길어진다", ["오늘부터"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": "photo:37667805",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://imnews.imbc.com/replay/2026/nwdesk/article/6836597_37004.html",
+    "https://www.fnnews.com/news/202608130601349125",
+    "https://www.weather.go.kr/w/typhoon/ko/weather/typhoon_02.jsp"
+  ],
+  "bg_query": ["typhoon satellite cloud", "heat wave city skyline summer", "tibet plateau mountains aerial", "ocean waves tropical storm", "typhoon eye satellite view", "hot summer city people sweating", "sunrise city heatwave"]
+}
