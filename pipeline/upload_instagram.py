@@ -179,7 +179,17 @@ def r2_put(kv, path):
     2026-08-05 실측: 이 계정/앱 유형은 resumable(rupload) 거부, video_url 방식만 허용 —
     Meta가 URL에서 가져가면 삭제한다."""
     import boto3
-    key = "reels/%s" % os.path.basename(path)
+    # 파일 내용 해시를 키에 붙인다 — 같은 파일명으로 재렌더·재게시할 때 URL이 바뀌지 않으면
+    # 메타(스레드) CDN이 **첫 요청 때 가져간 옛 영상을 URL 기준으로 재사용**한다.
+    # 2026-08-25 실사고: 추석 편 배경을 교체해 재게시했는데 릴스는 새 영상, 스레드는 옛 영상(중국 한푸)이
+    # 올라갔다 — IG와 스레드가 캐시를 따로 갖고 있어 스레드만 캐시 히트했다. 내용이 바뀌면 URL도 바뀌게 한다.
+    import hashlib
+    _h = hashlib.sha1()
+    with open(path, "rb") as _f:
+        for _chunk in iter(lambda: _f.read(1 << 20), b""):
+            _h.update(_chunk)
+    _base, _ext = os.path.splitext(os.path.basename(path))
+    key = "reels/%s-%s%s" % (_base, _h.hexdigest()[:10], _ext)
     s3 = boto3.client("s3",
                       endpoint_url="https://%s.r2.cloudflarestorage.com" % kv["R2_ACCOUNT_ID"],
                       aws_access_key_id=kv["R2_ACCESS_KEY"],
