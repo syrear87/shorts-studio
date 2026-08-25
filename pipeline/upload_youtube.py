@@ -215,7 +215,7 @@ def api_public(video, meta):
     body = {
         "snippet": {
             # 제목 = 본제목 + 해시태그 5개 (유튜브 제목 상한 100자 — 넘치면 태그부터 잘라낸다)
-            "title": _title_with_tags(title, topic_tags(meta)),
+            "title": _want,
             # 2026-08-17 디렉터: "캡션과 제목을 분리한다" —
             #   제목 줄(+해시태그)은 title 필드가 이미 담당하므로 설명에 반복하지 않는다.
             #   설명에는 본문만 넣고, 본문 하단의 해시태그 줄도 제거한다(제목에 이미 있다).
@@ -229,6 +229,24 @@ def api_public(video, meta):
             "selfDeclaredMadeForKids": False,                 # "아니요, 아동용이 아닙니다"
         },
     }
+    # 🛡️ 멱등 가드 (2026-08-25 신설) — IG에는 있는데 YT에만 없었다.
+    #   업로드 순서가 [YT 업로드 → 썸네일 → sent.log 기록]이라, 그 사이에 세션이 죽으면
+    #   러너의 자동 게시(check_artifacts)가 같은 영상을 두 번 올린다. 최근 업로드 제목과 대조해 막는다.
+    #   의도적 재게시가 필요하면 환경변수 YT_FORCE=1 로 우회한다(오늘 추석 편 같은 배경 교체 재게시).
+    _want = _title_with_tags(title, topic_tags(meta))
+    if not os.environ.get("YT_FORCE"):
+        try:
+            _ch = yt.channels().list(part="contentDetails", mine=True).execute()["items"][0]
+            _up = _ch["contentDetails"]["relatedPlaylists"]["uploads"]
+            _recent = yt.playlistItems().list(part="snippet", playlistId=_up, maxResults=10).execute()
+            for _it in _recent.get("items", []):
+                if _it["snippet"]["title"].strip() == _want.strip():
+                    _vid = _it["snippet"]["resourceId"]["videoId"]
+                    print("이미 게시됨(같은 제목) — 건너뜀: https://youtube.com/shorts/%s" % _vid, flush=True)
+                    return _vid
+        except Exception as _ge:
+            print("중복 검사 실패(계속 진행):", str(_ge)[:120], flush=True)
+
     media = MediaFileUpload(video, chunksize=8 * 1024 * 1024, resumable=True, mimetype="video/mp4")
     req = yt.videos().insert(part="snippet,status", body=body, media_body=media)
     resp = None

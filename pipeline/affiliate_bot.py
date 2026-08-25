@@ -631,7 +631,7 @@ def main(once=False):
             d = http("https://api.telegram.org/bot%s/getUpdates?timeout=%d&offset=%d" % (TG["STUDIO_TG_TOKEN"], 0 if once else 50, offset + 1), timeout=70)
             for u in d.get("result", []):
                 offset = max(offset, u["update_id"])
-                open(OFFSET_F, "w").write(str(offset))
+                _wf = open(OFFSET_F, "w"); _wf.write(str(offset)); _wf.close()   # flush 보장 (2026-08-25 감사)
                 if u.get("callback_query"):
                     continue   # 승인 게이트 폐지 (2026-08-16) — 옛 버튼이 눌려도 무시
                 m = u.get("message") or {}
