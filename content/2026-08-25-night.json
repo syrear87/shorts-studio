@@ -1,0 +1,70 @@
+{
+  "title": "내일 새벽 동쪽에 빨간 점 둘이 나란한데, 정체가 완전히 다릅니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": 17808870,
+      "voice": "8월 26일 새벽, 동쪽에 별 셋이 한 줄로 뜹니다. 맨눈으로 다 보입니다.",
+      "lines": [
+        ["별 셋이 동쪽에 한 줄로 뜹니다", []],
+        ["8월 26일 새벽, 맨눈으로 보입니다", ["8월 26일"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "photo:34393113",
+      "voice": "화성, 베텔게우스, 리겔 순서입니다. 빨강, 빨강, 파랑 세 색이 위에서 아래로 줄 지어 뜹니다.",
+      "hl_pair": true,
+      "lines": [
+        ["화성 · 베텔게우스 · 리겔", []],
+        ["빨강, 빨강, 파랑이 줄 지어 뜹니다", ["빨강", "파랑"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 39056002,
+      "voice": "새벽 4시, 동쪽 지평선 위입니다. 화성이 오리온자리 한가운데를 지나가면서 생기는 정렬입니다.",
+      "lines": [
+        ["새벽 4시, 동쪽 지평선 위", []],
+        ["화성이 오리온자리를 지나가는 중", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 856359,
+      "voice": "빨간 점 둘은 정체가 완전히 다릅니다. 화성은 지구 옆 행성이고, 베텔게우스는 태양보다 약 700배 큰 별입니다.",
+      "lines": [
+        ["빨간 점 둘, 정체가 다릅니다", []],
+        ["화성은 행성", ["행성"]],
+        ["베텔게우스는 태양의 약 700배", ["700배"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 31673762,
+      "voice": "화성은 매일 조금씩 움직여서 이 직선은 이번 주가 한계입니다. 기상청 예보 기준 남부는 맑습니다. 내일 새벽, 동쪽을 보세요.",
+      "lines": [
+        ["이 직선은 이번 주가 한계", []],
+        ["기상청 기준, 남부는 맑습니다", []],
+        ["내일 새벽, 동쪽을 보세요", ["내일 새벽"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": 14869763,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://starwalk.space/en/news/night-sky-tonight-august",
+    "https://whenthecurveslineup.com/2026/07/24/2026-august-2-5-mars-passes-between-taurus-horns-during-august-morning-twilight/"
+  ],
+  "bg_query": ["stars night sky east horizon dawn", "Orion constellation Betelgeuse Rigel stars", "person stargazing looking up night sky", "Mars planet red glowing space", "sunrise morning clear sky horizon golden"]
+}
