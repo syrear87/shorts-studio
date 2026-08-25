@@ -7,7 +7,8 @@
 ## 시스템 구조
 - `DAILY_PROMPT.md` — 데일리 세션의 전체 지침 (트렌드 리서치 → 기획 5렌즈 경쟁(A뉴스/B스포츠·밈/C커뮤니티/D플랫폼/E증시) → 적대 토론 → 중간보고(텔레그램 2건) → 팩트체크(출처 2개, 제목·설명 포함) → 대본(70~90단어) → 배경 시각 선별(pick_bg) → 렌더 → 프레임 QA → 게시 → 리포트·커밋). **이 요약은 참고용 — 절차 정본은 DAILY_PROMPT.md다**
 - `pipeline/make_short.py` — 렌더러: **Azure Speech TTS**(SSML·단어 타이밍 동기, 키 없으면 edge-tts 폴백 — 같은 보이스, `narrator: male|female`, 성우별 속도 보정 여+8%/남+18%), 배경은 `bg_id`(pick_bg로 시각 선별) 우선·`bg_query` 검색 폴백, 키네틱 자막, 자체 BGM. **기계 게이트**: 길이 20~55초(50초 초과 시 경고), CTA 자막 2줄, WordBoundary 동기, 메타데이터 차단(-map_metadata -1)
-- `pipeline/pick_bg.py` — Pexels 후보 미리보기 저장 → 세션이 Read로 보고 `bg_id` 선택
+- `pipeline/pick_bg.py` — Pexels 후보 미리보기 저장 → 세션이 Read로 보고 `bg_id` 선택. **한국 고유 소재면 사진 후보를 문화 게이트로 사전 검사**해 위험한 것에 ⛔ 표시(2026-08-25)
+- `pipeline/culture_gate.py` — **한국 고유 소재에 외국(중국·일본 등) 이미지가 섞이는 것을 막는 기계 게이트** (2026-08-25 추석 편 중국 한푸 실사고로 신설). `is_korean_topic()`으로 소재를 감지하고, 걸리면 Gemini 비전으로 프레임·후보를 판정한다. **3중 배치**: ①pick_bg 후보 사전 필터 ②make_short 렌더 후 기각 ③make_cards 렌더 후 기각. 판정 불가(키 부재·네트워크)는 통과시키되 경고를 남긴다(fail-open — 게이트 고장이 슬롯을 죽이면 안 된다). 실측 검증: 한푸 사진 → 기각, 황금 벼 → 통과, 베트남·인도 농부 사진 → 기각.
 - `pipeline/upload_youtube.py` — preflight(길이·해상도 기계검증) 후 `config.json`의 `upload_mode`: `phase0_telegram`(현재) / `api_public`(감사 통과 후). `instagram: on`이면 릴스 업로드 체인(`upload_instagram.py`, 토큰은 keys.env)
 - `pipeline/threads_stats.py` — 스레드 성과 조회(읽기 전용): 7일 누적 지표·전일 대비 증감·상위 글. **결산 요청 시 반드시 포함**(2026-08-24 디렉터 지시). 스냅샷은 dm 틱이 매일 22시 이후 자동 1회 수집. 스냅샷은 logs/threads_stats.jsonl. ⚠️ 앱 인사이트는 **팔로워 100명까지 전면 잠금**(앱에 '100명이 되면 다시 방문하세요' 표시) — 그때까지 이 스크립트가 유일한 창구다. 조회 출처(추천/프로필/검색)는 100명 해금 후 앱에서 확인.
 - `pipeline/analytics.py` — 채널 성과 조회(읽기 전용): eng%·subs/1kE KPI, 훅부검 플래그. 근거 문서는 `content/PERFORMANCE.md`

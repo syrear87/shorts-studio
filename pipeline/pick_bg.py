@@ -98,6 +98,29 @@ def main():
             except Exception:
                 continue
 
+    # 🚨 문화 사전 필터 (2026-08-25 실사고) — 한국 고유 소재면 후보 단계에서 미리 걸러
+    #   세션이 애초에 위험한 그림을 고를 수 없게 한다(렌더 후 게이트는 마지막 방어선일 뿐).
+    #   사진 후보(p*.jpg)만 검사한다 — 영상 후보는 정지 프레임이 없어 여기선 판정 불가.
+    try:
+        from culture_gate import is_korean_topic, judge_image
+        _blob = " ".join([script.get("title", "")] +
+                         [ln for sc in script.get("scenes", []) for ln, _ in sc.get("lines", [])])
+        if is_korean_topic(_blob):
+            print("\n🚨 한국 고유 소재 감지 — 사진 후보의 외국 전통 요소를 미리 검사합니다", flush=True)
+            checked = []
+            for i, (name, q, dur, ori, mark) in enumerate(rows):
+                if not name.startswith("p"):
+                    checked.append((name, q, dur, ori, mark)); continue
+                foreign, why = judge_image(os.path.join(OUT, name))
+                if foreign is True:
+                    mark += "  ⛔ 외국·타국 요소 감지 — 선택 금지(%s)" % why[:110]
+                elif foreign is None:
+                    mark += "  ❔ 문화 판정 불가 — 직접 눈으로 확인"
+                checked.append((name, q, dur, ori, mark))
+            rows = checked
+    except Exception as _e:
+        print("경고: 문화 사전 필터 실행 실패(무해):", str(_e)[:120], flush=True)
+
     for name, q, dur, ori, mark in rows:
         print("%s  | query=%s | %ds | %s%s" % (name, q, dur, ori, mark))
     print("후보 %d개 저장 → %s" % (len(rows), OUT))

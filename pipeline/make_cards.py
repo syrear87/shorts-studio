@@ -210,6 +210,23 @@ def render(script_path):
         paths.append(p)
         if last_y[0] > max_y:
             sys.exit("기각: 카드 %d 텍스트가 하단 초과(y=%d > %d) — 본문을 줄여라" % (i, last_y[0], max_y))
+    # 🚨 문화 게이트 (2026-08-25 실사고) — 카드는 이미지가 주인공이라 영상보다 위험하다.
+    #   한국 고유 소재일 때만 완성 카드를 비전 검사해 외국 전통 요소를 잡는다.
+    try:
+        from culture_gate import is_korean_topic, check_frames
+        if is_korean_topic(s.get("topic", ""), s.get("caption", "")):
+            bad, unknown = check_frames(paths)
+            if bad:
+                raise SystemExit("기각: 한국 고유 소재 카드에 외국 전통 요소가 감지됐다 — %s\n"
+                                 "     → 이미지를 교체하라. 확실한 한국 자산이 없으면 "
+                                 "국적이 드러나지 않는 것으로 가라."
+                                 % " / ".join(w for _, w in bad))
+            print("문화 게이트 통과: 한국 고유 소재, 외국 전통 요소 없음", flush=True)
+    except SystemExit:
+        raise
+    except Exception as _e:
+        print("경고: 문화 게이트 실행 실패(무해, 통과 처리):", str(_e)[:120], flush=True)
+
     print("완료: %d장 → %s" % (total, out_dir))
     return paths
 

@@ -1093,6 +1093,43 @@ def main():
     # 인코딩·크기검사까지 끝난 뒤 중간 산출물 정리 — 무인 반복 실행의 디스크 무한 누적 차단 (2026-08-02 리뷰)
     if not args.keep_work:
         shutil.rmtree(work, ignore_errors=True)
+    # 🚨 문화 게이트 (2026-08-25 실사고 — 추석 편에 중국 한푸 배경이 게시됨)
+    #   한국 고유 소재일 때만, 완성본 프레임을 비전 모델로 검사해 외국 전통 요소를 잡는다.
+    #   세션의 눈(프레임 QA)은 8/25에 "통과"로 기록하고도 놓쳤다 — 기계가 한 번 더 본다.
+    #   판정 불가(키 부재·네트워크)는 통과시키되 경고를 남긴다(게이트 고장이 슬롯을 죽이면 안 된다).
+    try:
+        from culture_gate import is_korean_topic, check_frames
+        _blob = " ".join([script.get("title", "")] +
+                         [ln for sc in script["scenes"] for ln, _ in sc.get("lines", [])])
+        if is_korean_topic(_blob):
+            import subprocess as _sp, tempfile as _tf, shutil as _sh
+            _d = _tf.mkdtemp(prefix="culture_")
+            try:
+                _shots = []
+                for _t in (1.0, total_dur * 0.45, max(0.0, total_dur - 4)):
+                    _f = os.path.join(_d, "f%.0f.jpg" % (_t * 10))
+                    _sp.run(["ffmpeg", "-v", "error", "-ss", "%.2f" % _t, "-i", out_mp4,
+                             "-frames:v", "1", _f, "-y"], check=False, timeout=60)
+                    if os.path.exists(_f):
+                        _shots.append(_f)
+                _bad, _unknown = check_frames(_shots)
+                if _bad:
+                    _why = " / ".join(w for _, w in _bad)
+                    sys.exit("기각: 한국 고유 소재인데 배경에 외국 전통 요소가 감지됐다 — %s\n"
+                             "     → 해당 씬의 bg를 교체하라. 확실한 한국 자산이 없으면 "
+                             "국적이 드러나지 않는 자연물(보름달·밤하늘·황금 들녘·벼·추수)로 가라." % _why)
+                if _unknown:
+                    print("경고: 문화 게이트 판정 불가(%s) — 프레임을 직접 눈으로 확인하라"
+                          % _unknown[0][1], flush=True)
+                else:
+                    print("문화 게이트 통과: 한국 고유 소재, 외국 전통 요소 없음", flush=True)
+            finally:
+                _sh.rmtree(_d, ignore_errors=True)
+    except SystemExit:
+        raise
+    except Exception as _e:
+        print("경고: 문화 게이트 실행 실패(무해, 통과 처리):", str(_e)[:120], flush=True)
+
     print("완료: %s (%.1fs, %.1fMB, 배경=%s)"
           % (out_mp4, total_dur, final_mb, "영상" if video_bg else "그라데이션"))
 
