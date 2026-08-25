@@ -174,7 +174,20 @@ def publish(video_url, text, timeout_s=300, replies=()):
             raise RuntimeError("스레드 미디어 처리 실패: %s" % st.get("error_message"))
     else:
         raise RuntimeError("스레드 미디어 처리 시간 초과(%ds)" % timeout_s)
-    pid = _publish_container(me, tok, cid)
+    # FINISHED 직후에도 발행이 '아직 준비 안 됨'으로 튕기는 경우가 있다(upload_instagram의 9007과 같은 계열).
+    # 다른 경로(이미지·텍스트·캐러셀)는 전부 _publish_with_retry를 쓰는데 영상만 1회 호출이라
+    # 2026-08-25 21시 별자리 편이 스레드에서 영상 첨부에 실패해 텍스트로 대체 게시됐다 —
+    # 스레드는 쿠팡 링크가 클릭되는 통로이자 도달이 가장 큰 채널이라 손실이 크다. 같은 재시도를 적용한다.
+    last, pid = None, None
+    for _ in range(6):
+        time.sleep(4)
+        try:
+            pid = _publish_container(me, tok, cid)
+            break
+        except Exception as e:
+            last = e
+    if pid is None:
+        raise RuntimeError("스레드 영상 게시 실패: %s" % str(last)[:150])
     # 답글 체인 — 각 답글은 바로 앞 글에 달아 하나의 실로 읽히게 한다
     parent = pid
     for r in replies:
