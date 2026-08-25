@@ -1,0 +1,26 @@
+{
+  "topic": "갤럭시 S26 FE, 모레 밤 공개 — 같은 S26인데 칩이 한 세대 전이다 [신제품·타이밍경고형]",
+  "caption": "갤럭시 S26 FE, 모레 밤 공개 — 칩이 한 세대 전이다\n\n8월 27일 밤 9시, 삼성 공식 Galaxy Event.\nGalaxy S26 패밀리의 마지막 멤버가 나온다.\n\nS26은 2nm Exynos 2600.\nS26 FE는 3nm Exynos 2500.\n이름만 같고 칩 세대가 다르다.\n\n유럽 유출가 기준 50유로 인상.\nS25 FE 한국 출시가가 94.6만원이었으니\nS26 FE는 100만원을 넘길 수 있다.\n\n9월 1일 출시 예정이라는 유출도 있다.\n\n⚠️ 공식 발표 전 유출 정보가 포함돼 있습니다\n(출처: 삼성 뉴스룸 공식 초대장, FCC SM-S741U 인증, SamMobile, GSMArena)\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 🔔\n\n#갤럭시S26FE #삼성 #GalaxyS26 #엑시노스 #가성비플래그십",
+  "threads_text": "갤럭시 S26 FE, 모레 밤 공개 — 칩이 한 세대 전이다\n\n1. 8월 27일 밤 9시 삼성 공식 Galaxy Event — S26 패밀리 마지막 멤버 공개\n2. 근데 칩이 좀 이상함 — S26은 2nm Exynos 2600인데, S26 FE는 3nm Exynos 2500\n3. 이름만 같고 칩 세대가 다름\n4. 유럽 유출가 기준 50유로 올랐고, S25 FE 한국가가 94.6만원이었으니 100만원 넘을 수도\n5. 9월 1일 출시 예정이라는 유출도 있음\n6. FE가 '가성비 플래그십'이었는데, 가격은 오르고 칩은 구세대면 포지션이 애매해짐\n\n(출처: 삼성 뉴스룸 공식 초대장, FCC SM-S741U 인증, SamMobile 2026.08, GSMArena)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "갤럭시 S26 FE\n모레 밤 공개",
+      "title_hl": ["S26 FE", "모레"],
+      "body": "8월 27일 밤 9시\n삼성 공식 Galaxy Event\n\n'S26 패밀리의 새 멤버'\n근데 칩이 좀 이상하다",
+      "body_hl": ["8월 27일", "이상하다"],
+      "img": "assets/cards/s26fe_hero.jpg",
+      "credit": "렌더: Android Headlines / @OnLeaks"
+    },
+    {
+      "kind": "fact",
+      "title": "같은 S26인데\n칩이 한 세대 전",
+      "title_hl": ["S26", "한 세대 전"],
+      "body": "S26 = Exynos 2600 (2nm)\nS26 FE = Exynos 2500 (3nm)\n\n이름만 같고 세대가 다르다\n\nS25 FE 한국가 94.6만원\n유럽 유출가 기준 50유로 인상",
+      "body_hl": ["Exynos 2500", "94.6만원", "50유로 인상"],
+      "sub": "9월 1일 출시 예정 (유출)",
+      "img": "assets/cards/s26fe_detail.jpg",
+      "credit": "렌더: Android Headlines / @OnLeaks"
+    }
+  ]
+}
