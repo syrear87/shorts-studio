@@ -60,6 +60,24 @@ def check_meta(meta):
         problems.append("핵심 사실 불릿(·) 없음")
     if "출처" not in desc:
         problems.append("출처 줄 없음")
+    # 🔍 제목의 금액이 '한정어 없이' 홀로 서 있지 않은가 (2026-08-26 실사고 — 시청자 팩트 지적)
+    #   수능 문항 편: 설명란은 "교사 2명에게 3년간 총 4억"으로 정확했는데 제목은
+    #   "수학 문제를 4억에 샀는데"로 압축돼 **문제 1개 값**으로 읽혔다.
+    #   ⚠️ 수치가 설명란에 '있는지'만 보면 이 사고는 안 잡힌다(4억은 양쪽에 다 있었다).
+    #      설명란에서 그 금액 주변에 기간·인원 한정어가 붙어 있는데 제목엔 없을 때가 위험하다.
+    import re as _re
+    _dnorm, _tnorm = desc.replace(" ", ""), title.replace(" ", "")
+    # 누적·기간·복수 대상을 뜻하는 한정어. 설명란이 이런 조건을 달고 있는데 제목엔 없으면,
+    # 제목만 읽는 사람에겐 '단건 금액'으로 보인다 — 그게 이번 실사고다.
+    _QUAL = r"(?:\d+\s*(?:년간|개월간|일간|주간|명|곳|차례)|\d+년\s*\d+월부터|총\s*\d|누적|합계|매년|해마다)"
+    if _re.search(r"\d+(?:[.,]\d+)?\s*(?:억|만원|천만원|조)", title):
+        _quals = _re.findall(_QUAL, _dnorm)
+        if _quals and not _re.search(_QUAL, _tnorm):
+            problems.append(
+                "제목에 금액이 있는데 한정어가 없다 — 설명란은 '%s' 같은 누적·기간 조건을 달고 있다. "
+                "제목만 보면 단건 금액으로 오해된다(2026-08-26 실사고: '수학 문제를 4억에 샀는데' → "
+                "실제는 3년간 교사 여러 명 합계). 기간·인원·'총'을 제목에 넣어라"
+                % "·".join(dict.fromkeys(_quals))[:40])
     if problems:
         subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
                         "⛔ 게시 차단(설명 규격): %s" % ", ".join(problems)], check=False)
