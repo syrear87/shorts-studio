@@ -1,0 +1,26 @@
+{
+  "topic": "스위치2에 옛날 SD카드 꽂으면 게임이 안 돌아간다 — microSD Express 필수 [구매가능][타이밍경고형]",
+  "caption": "스위치2에 옛날 SD카드 꽂지 마세요\n\n복사해서 검색하세요:\n삼성 microSD Express 256GB 스위치2\n\n스위치2는 microSD Express라는 새 규격을 쓴다.\n기존 UHS-I/UHS-II 카드를 꽂으면\n물리적으로 들어가지만\n게임 저장·실행이 안 된다.\n스크린샷이랑 영상만 저장 가능.\n\n카드 겉면에 'EX' 마크가 있어야\n스위치2에서 게임이 돌아간다.\n\n삼성 256GB 기준 약 72,000원.\n마리오 카트 월드 로딩 19초 — 내장 메모리(17초)와 거의 같고\n게임 카트리지(24초)보다 빠르다.\n\n본체 내장 128GB는 대작 3~4개면 꽉 차니까\n스위치2 사면서 같이 사는 게 맞다.\n\n(출처: Nintendo 공식 지원 문서, Tom's Hardware 벤치마크, Engadget, 다나와 가격비교)\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 \ud83d\udd14\n\n#스위치2 #닌텐도 #microSD #마이크로SD #게임",
+  "threads_text": "스위치2에 옛날 SD카드 꽂지 마세요\n\n1. 스위치2는 microSD Express라는 새 규격을 씀\n2. 기존 UHS-I 카드를 꽂으면 물리적으로는 들어가는데 게임이 안 돌아감 — 스크린샷만 저장 가능\n3. 카드 겉면에 'EX' 마크가 있어야 스위치2에서 게임 저장·실행됨\n4. 삼성 256GB 기준 약 72,000원 — 속도는 내장 메모리랑 거의 같고 카트리지보다 빠름\n5. 본체 128GB는 대작 3~4개면 꽉 차니까 사실상 필수\n6. 검색할 때 '삼성 microSD Express 스위치2'로 치면 됨 — UHS 붙은 건 구형이라 주의\n\n(출처: Nintendo 공식 지원 문서, Tom's Hardware, Engadget, 다나와 최저가 기준)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "스위치2에\n옛날 SD카드 꽂지 마세요",
+      "title_hl": ["꽂지 마세요"],
+      "body": "물리적으로 들어가지만\n게임 저장·실행이 안 됩니다\n\n스크린샷만 저장 가능",
+      "body_hl": ["게임 저장·실행이 안 됩니다"],
+      "img": "assets/cards/switch2-microsd-hook.jpg",
+      "credit": "사진: Polina Tankilevitch (Pexels)"
+    },
+    {
+      "kind": "end",
+      "title": "microSD Express\n이걸로 사야 합니다",
+      "title_hl": ["Express"],
+      "body": "카드 겉면에 'EX' 마크 확인\n\n삼성 256GB 기준 약 72,000원\n\n로딩 속도 (마리오 카트 월드)\n내장 메모리: 17초\nmicroSD Express: 19초\n카트리지: 24초\n\n본체 128GB는 대작 3~4개면 꽉 참\n스위치2 사면서 같이 사는 게 맞음",
+      "body_hl": ["EX", "72,000원", "19초"],
+      "sub": "검색어: 삼성 microSD Express 256GB 스위치2",
+      "img": "assets/cards/switch2-microsd-detail.jpg",
+      "credit": "사진: Erik Mclean (Pexels)"
+    }
+  ]
+}
