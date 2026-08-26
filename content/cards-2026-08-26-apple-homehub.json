@@ -1,0 +1,26 @@
+{
+  "topic": "애플 첫 스마트홈 디스플레이, 매장까지 뜯어고친다 — 10월 출시 [한계붕괴형]",
+  "caption": "애플이 만든 적 없는 기기가 온다\n\n아마존 에코쇼 2017년, 구글 네스트허브 2018년.\n애플은 9년 동안 스마트홈 디스플레이가 없었다.\n\n올 10월, 7인치 정사각 디스플레이에 homeOS를 얹은\n애플 최초의 스마트홈 허브가 나온다.\nFace ID로 가족을 알아보고, 다가가면 화면이 바뀐다.\n\n이미 애플 스토어 매장 벽면(Avenues)을\n뜯어고치는 공사가 시작됐다.\n새 제품군을 위한 전용 코너를 만들고 있다는 뜻이다.\n\n예상가 $349(약 48만원).\n에코쇼8 $149, 네스트허브 맥스 $229.\n애플답게 두 배다.\n\n⚠️ homeOS는 WWDC 2026에서 공식 발표됐으나, 제품 출시일·가격은 Bloomberg(Mark Gurman) 등 업계 보도 종합이며 공식 발표 전입니다.\n(출처: Bloomberg Power On 2026.08.23, MacRumors, AppleInsider, Apple WWDC 2026)\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 🔔\n\n#애플홈허브 #homeOS #스마트홈 #애플 #AppleHomeHub",
+  "threads_text": "애플이 만든 적 없는 기기가 온다\n\n1. 아마존 에코쇼 2017년, 구글 네스트허브 2018년 — 애플만 9년 동안 스마트홈 화면이 없었음\n2. 올 10월에 7인치 정사각 디스플레이 + homeOS 조합으로 첫 스마트홈 허브 나옴\n3. Face ID 달려서 가족 얼굴 인식하고, 다가가면 그 사람 맞춤 화면으로 바뀜\n4. 벽 거는 버전이랑 탁상 스피커 버전 2종 — 탁상은 홈팟 미니 반 잘라놓은 모양\n5. 애플 스토어 매장 벽면 공사가 이미 시작됨 — 새 제품 코너 만드는 거라 10월이 거의 확정\n6. 예상가 $349(약 48만원) — 에코쇼8 $149의 두 배가 넘음\n\n(출처: Bloomberg Mark Gurman 2026.08.23, MacRumors, Apple WWDC 2026 homeOS 공식 발표)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "애플이 만든 적\n없는 기기가 온다",
+      "title_hl": ["없는 기기"],
+      "body": "스마트홈 디스플레이\n아마존 9년, 구글 8년.\n애플은 이제 시작한다 — 10월",
+      "body_hl": ["9년", "8년", "10월"],
+      "img": "assets/cards/apple-homehub-concept-1.png",
+      "credit": "컨셉 이미지 · MacRumors"
+    },
+    {
+      "kind": "fact",
+      "title": "매장 벽까지\n뜯어고치는 중",
+      "title_hl": ["뜯어고치는"],
+      "body": "7인치 정사각 디스플레이\nhomeOS (WWDC 공식 발표)\nFace ID — 가족 얼굴 인식\n다가가면 맞춤 화면 전환\n\n벽걸이 + 탁상 스피커 2종\nA18칩, FaceTime 카메라 내장",
+      "body_hl": ["homeOS", "Face ID", "A18칩"],
+      "sub": "예상가 $349 (약 48만원) · 에코쇼8 $149의 2배",
+      "img": "assets/cards/apple-homehub-concept-2.jpg",
+      "credit": "컨셉 이미지 · MacRumors"
+    }
+  ]
+}
