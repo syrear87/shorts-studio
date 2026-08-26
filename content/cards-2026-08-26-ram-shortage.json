@@ -1,0 +1,26 @@
+{
+  "topic": "폰값 올랐는데 메모리는 줄었다 — 모바일 DRAM 가격 70% 폭등, AI가 원인 [공유형]",
+  "caption": "폰값 올랐는데 메모리는 줄었다\n\n갤럭시 S26: 전작 대비 $100(약 14만원) 인상\n픽셀 11 프로: RAM 16GB에서 12GB로 삭감 + 가격 인상\n저가폰: 2026년 4GB 회귀 전망\n\n모바일 DRAM 가격이 작년 초 대비 70% 넘게 올랐다.\n원인은 AI다.\n삼성·SK하이닉스·마이크론이\nAI용 고대역메모리(HBM) 생산에 라인을 집중하면서\n폰용 DRAM 공급이 줄었다.\nHBM 이익률이 일반 DRAM의 2~5배라\n반도체 회사 입장에선 합리적 선택이지만\n그 비용은 폰 사는 사람한테 간다.\n\n폰 바꿀 계획이면 참고.\n\n(출처: Morgan Stanley, Android Authority, Engadget, TrendForce)\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 🔔\n\n#스마트폰 #RAM가격 #메모리부족 #AI #폰값인상",
+  "threads_text": "폰값 올랐는데 메모리는 줄었다\n\n1. 모바일 DRAM 가격이 작년 초 대비 70% 넘게 올랐음\n2. 갤럭시 S26은 전작보다 $100(약 14만원) 비싸졌고\n3. 픽셀 11 프로는 가격 올리면서 RAM을 16GB에서 12GB로 깎았음\n4. 저가폰은 아예 4GB로 돌아가는 중\n5. 원인이 AI — 삼성·SK하이닉스·마이크론이 AI용 고대역메모리(HBM) 생산에 라인을 몰아줌. HBM 이익률이 일반 DRAM의 2~5배라 당연한 선택인데 그 비용이 폰값으로 옴\n6. 폰 바꿀 타이밍이면 내년보다 올해가 나을 수 있음 — DRAM 가격은 더 오를 전망\n\n(출처: Morgan Stanley, Android Authority, Engadget, TrendForce)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "폰값 올랐는데\n메모리는 줄었다",
+      "title_hl": ["올랐는데", "줄었다"],
+      "body": "갤럭시 S26: 전작 대비 약 14만원 인상\n픽셀 11 프로: RAM 16GB → 12GB 삭감",
+      "body_hl": ["14만원", "16GB → 12GB"],
+      "img": "assets/cards/phone_resale_compare.jpg",
+      "credit": "사진: Chandan Kumar (Pexels)"
+    },
+    {
+      "kind": "end",
+      "title": "모바일 DRAM 가격\n1년 만에 70% 폭등",
+      "title_hl": ["70%"],
+      "body": "원인: AI 데이터센터\n\n삼성·SK하이닉스·마이크론이\nAI용 HBM 생산에 라인을 집중\n→ 폰용 DRAM 공급 감소\n\nHBM 이익률 = 일반 DRAM의 2~5배\n반도체 회사는 합리적 선택\n비용은 폰 사는 사람이 낸다",
+      "body_hl": ["AI 데이터센터", "2~5배"],
+      "sub": "폰 바꿀 계획이면 내년보다 올해",
+      "img": "assets/cards/phone_resale_money.jpg",
+      "credit": "사진: kaboompics.com (Pexels)"
+    }
+  ]
+}
