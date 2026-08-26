@@ -35,7 +35,11 @@ def body_without_tags(meta):
                      if not l.strip().startswith("#"))
 
 def check_meta(meta):
-    """설명 규격 검증 (2026-08-01 실사고: 99자·해시태그 0개로 발송돼 '너무 빈약하다' 지적)."""
+    """설명 규격 검증 (2026-08-01 실사고: 99자·해시태그 0개로 발송돼 '너무 빈약하다' 지적).
+
+    ⚠️ meta를 제자리에서 수정할 수 있다 — 채널 공통 태그는 차단 대신 자동 제거한다(2026-08-27).
+    """
+    import re as _re0
     desc = meta.get("description", "")
     problems = []
     # 2026-08-02 리뷰 [A17]: 제목만 무검증이던 비대칭 해소 (retitle.py와 동일 기준)
@@ -46,10 +50,23 @@ def check_meta(meta):
     ct = clean_title(meta).strip() if title else ""
     if title and not (5 <= len(ct) <= 100):
         problems.append("정리 후 제목 %d자 ('#shorts' 제거 후에도 5~100자여야 함)" % len(ct))
+    # 채널 공통 태그는 **차단하지 말고 자동으로 걷어낸다** (2026-08-27 개정).
+    #   판단이 필요 없는 기계 작업인데 차단하면 세션이 재시도하느라 슬롯이 지연되고
+    #   토큰을 쓴다. 실제로 8/22·8/25·8/27 세 번 반복돼 매번 재시도가 발생했다.
+    #   제거하고 경고만 남긴다 — 8/9~10 실사고(3건 게시)는 '제거'로도 똑같이 막힌다.
     banned = [t for t in ("지식", "상식", "1일1지식", "쇼츠", "shorts")
               if ("#" + t) in desc or t in [x.replace(" ", "") for x in meta.get("tags", [])]]
     if banned:
-        problems.append("채널 공통 태그 금지 위반: %s (DAILY_PROMPT 규칙 — 8/9~10 위반 3건 게시 실사고)" % ", ".join(banned))
+        for _b in banned:
+            desc = _re0.sub(r"#%s(?![가-힣A-Za-z0-9])" % _re0.escape(_b), "", desc)
+        desc = _re0.sub(r"[ \t]{2,}", " ", desc)
+        meta["description"] = desc
+        meta["tags"] = [x for x in meta.get("tags", [])
+                        if x.replace(" ", "") not in ("지식", "상식", "1일1지식", "쇼츠", "shorts")]
+        print("채널 공통 태그 자동 제거: %s (게시는 계속)" % ", ".join(banned), flush=True)
+        subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
+                        "ℹ️ 채널 공통 태그 자동 제거 후 게시: %s — 대본 단계에서 넣지 않도록 주의"
+                        % ", ".join(banned)], check=False)
     if "<" in title or ">" in title:
         problems.append("제목에 금지문자 <·> 포함")
     if desc.count("#") < 5:
