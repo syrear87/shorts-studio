@@ -1,0 +1,26 @@
+{
+  "topic": "맥 미니 M6 — 역대 가장 비싼 맥 미니가 왔다, 149만원 [공유형·타이밍경고형]",
+  "caption": "맥 미니가 역대 가장 비싸졌다 — 149만원\n\n애플이 첫 2nm 칩 M6를 맥 미니에 넣었다.\n12코어 CPU, 12코어 GPU, 듀얼 16코어 Neural Engine.\n\nM4 대비 CPU 40% 빠르고, GPU 2배, AI 4배.\nLLM 처리 속도는 M1 대비 13.5배.\n\n대신 시작가가 $899(한국 149만원).\n맥 미니 역대 가장 비싸다.\n\n사전주문은 이미 시작됐고, 9월 22일 출시.\n지금 구세대 맥 미니 사려던 사람은 멈춰라.\n\n(출처: Apple 뉴스룸 2026.08.25, apple.com/kr, AppleInsider)\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 \ud83d\udd14\n\n#맥미니 #M6 #애플 #2nm칩 #MacMini",
+  "threads_text": "맥 미니가 역대 가장 비싸졌다 — 149만원\n\n1. 애플이 맥 미니에 첫 2nm 칩 M6를 넣었음\n2. 12코어 CPU + 12코어 GPU + 듀얼 뉴럴엔진 — M4 대비 CPU 40%, GPU 2배, AI 4배\n3. LLM 처리 속도가 M1 대비 13.5배 — 로컬 AI 돌리는 사람한테는 거의 별세계\n4. 근데 시작가가 $899(한국 149만원) — 맥 미니 역사상 가장 비쌈\n5. 사전주문 시작됐고 9월 22일부터 배송\n6. 지금 맥 미니 구매 고민 중이었으면 무조건 이거 기다려야 함\n\n(출처: Apple 뉴스룸 공식 발표 2026.08.25, apple.com/kr)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "맥 미니\n역대 가장 비싸졌다",
+      "title_hl": ["맥 미니", "비싸졌다"],
+      "body": "시작가 149만원\n애플 첫 2nm 칩 M6 탑재\n\n사전주문 시작, 9월 22일 출시",
+      "body_hl": ["149만원", "2nm", "9월 22일"],
+      "img": "assets/cards/macmini-m6-hero.jpg",
+      "credit": "Apple Newsroom"
+    },
+    {
+      "kind": "fact",
+      "title": "뭐가 달라졌길래\n이 값이냐",
+      "title_hl": ["달라졌길래", "값"],
+      "body": "M6 = 12코어 CPU + 12코어 GPU\n듀얼 16코어 Neural Engine\n\nM4 대비\nCPU 40% / GPU 2배 / AI 4배\nLLM 13.5배(M1 대비)\n\n기본 16GB RAM, Wi-Fi 7\nThunderbolt 4 x3 + HDMI",
+      "body_hl": ["CPU 40%", "GPU 2배", "AI 4배", "13.5배"],
+      "sub": "M5 Pro 모델은 $1,699(약 235만원)부터",
+      "img": "assets/cards/macmini-m6-chip.jpg",
+      "credit": "Apple Newsroom"
+    }
+  ]
+}
