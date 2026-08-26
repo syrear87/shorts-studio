@@ -1,0 +1,77 @@
+{
+  "title": "ChatGPT 무제한이라는데, 진짜 무제한은 텍스트뿐입니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "bg_ids": [8480685, 34995393, 6898096],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "챗지피티 이미지 만들기, 안 됩니다. 무제한이라면서요?",
+      "lines": [
+        ["ChatGPT 이미지 만들기, 안 됩니다", []],
+        ["무제한이라면서요?", []]
+      ],
+      "bg_query": "person frustrated laptop screen"
+    },
+    {
+      "kind": "body",
+      "voice": "3주 전, 오픈에이아이가 무료 사용자 텍스트 무제한을 선언했습니다. 확인해 봤습니다.",
+      "lines": [
+        ["3주 전 OpenAI가", []],
+        ["무료 텍스트 무제한 선언", ["무제한"]]
+      ],
+      "bg_query": "technology announcement news screen"
+    },
+    {
+      "kind": "fact",
+      "voice": "모델이 더 강력해졌고, 복잡한 질문엔 생각하기 버튼도 생겼습니다. 여기까진 공짭니다.",
+      "lines": [
+        ["모델이 더 강력해졌고", []],
+        ["생각하기 버튼도 생겼습니다", []]
+      ],
+      "bg_query": "artificial intelligence technology glowing"
+    },
+    {
+      "kind": "fact",
+      "voice": "그런데 이미지 생성, 파일 첨부, 고급 음성은 여전히 횟수 제한입니다.",
+      "lines": [
+        ["이미지 생성, 파일 첨부", []],
+        ["고급 음성은 여전히 제한", ["제한"]]
+      ],
+      "bg_query": "digital lock access denied screen"
+    },
+    {
+      "kind": "fact",
+      "voice": "클로드와 제미나이가 무료를 키우자, 텍스트는 내줬습니다. 대신 이미지와 음성은 오픈에이아이의 핵심 수입원이라, 그대로 둔 겁니다.",
+      "lines": [
+        ["클로드·제미나이가 무료를 키우자", []],
+        ["이미지·음성은 수입원이라 그대로", ["수입원"]]
+      ],
+      "bg_query": "business competition strategy chess"
+    },
+    {
+      "kind": "twist",
+      "voice": "일 년 전엔 월 이십 달러짜리 기능이었습니다. 지금 이미지 한 번 만들어 보세요, 바로 막힙니다.",
+      "lines": [
+        ["1년 전엔 월 20달러짜리", ["20달러"]],
+        ["지금 이미지 만들어 보세요, 막힙니다", ["지금"]]
+      ],
+      "bg_query": "pricing paywall subscription phone"
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "매일 새로운 30초 지식",
+      "lines": [
+        ["오늘도 1일 1지식,", ["1일", "1지식,"]],
+        ["구독으로 받아보세요", []]
+      ]
+    }
+  ],
+  "sources": [
+    "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/",
+    "https://techcrunch.com/2026/08/06/openai-brings-unlimited-chatgpt-text-chats-to-free-users/"
+  ],
+  "description": "ChatGPT 무제한이 됐다는데, 이미지 만들려다 막힌 적 있으신가요? 진짜 무제한은 텍스트 대화뿐입니다.\n\n8월 6일(3주 전) OpenAI가 무료 사용자에게 GPT-5.6 Luna 기반 텍스트 대화 무제한을 선언했습니다. 복잡한 질문에 더 깊이 답하는 '생각하기(Think)' 버튼도 무료에 추가됐습니다.\n\n· 무제한 범위: 텍스트 대화만 — 이미지 생성·파일 업로드·고급 음성 모드는 횟수 제한 유지\n· 기본 모델 GPT-5.5 → GPT-5.6 Luna로 업그레이드, 사실 오류 62% 감소(OpenAI 자체 평가)\n· 유료(Plus $20/월)는 상위 모델 Sol + 사고 강도 슬라이더 제공 — 무료와 유료의 격차는 여전\n· 배경: Claude·Gemini가 무료 기능을 확대하자 OpenAI가 텍스트를 풀어 사용자 이탈 방어 — 이미지·음성은 핵심 수입원이라 유료 유지\n\n1년 전 월 $20이던 기능이 무료가 된 건 사실이지만, '무제한'의 범위를 아는 게 중요합니다.\n\n출처: OpenAI 공식 블로그·TechCrunch (2026-08-06)\n\n#ChatGPT #AI무제한 #OpenAI #GPT루나 #인공지능",
+  "threads_text": "ChatGPT 무제한이라는데, 진짜 무제한은 텍스트뿐입니다\n\n3주 전에 OpenAI가 무료 사용자 텍스트 무제한 열었음\n모델도 더 강력해졌고 생각하기 버튼도 생김\n근데 이미지 생성, 파일 첨부, 고급 음성은 여전히 횟수 제한\n클로드·제미나이한테 밀리니까 텍스트는 내줬는데 수입원인 이미지·음성은 그대로 둔 거\n1년 전만 해도 월 20달러짜리였음\n무제한이라는 말만 보고 뭐든 되는 줄 알면 막힘\n(OpenAI 2026-08-06)"
+}
