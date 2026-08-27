@@ -692,3 +692,8 @@
 ### 2026-08-27 (목) 14시 카드 — 애플 광택용 천 2세대, 모든 맥이 올랐는데 이것만 반값 (28,000원→15,000원) [신제품]
 - IG: https://www.instagram.com/p/DciAfm7mdj3/
 - 스레드: https://www.threads.com/@syusyu_channel/post/DciAjY4GVwD
+
+### 2026-08-27 (목) 16시 카드 — 맥세이프 차량 거치대, 빨판식은 여름에 접착력 절반 — 2만원이면 끝난다 [구매가능][타이밍경고형]
+- IG: https://www.instagram.com/p/DciOqvHmWLH/
+- 스레드: https://www.threads.com/@syusyu_channel/post/DciOtMumfJQ
+- 중복 검사: 최근 7일 제품 확인 완료 (차량 거치대 미사용)
