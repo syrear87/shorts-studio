@@ -688,3 +688,7 @@
 ### 2026-08-27 (목) 12시 카드 — macOS Golden Gate 인텔 맥 완전 종료 (3주 뒤 업데이트 끊긴다 — 탈락 모델·확인법·Rosetta 종료) [공유형·타이밍경고형]
 - IG: https://www.instagram.com/p/Dchy5rRGeOa/
 - 스레드: https://www.threads.com/@syusyu_channel/post/Dchy9ZyGQpT
+
+### 2026-08-27 (목) 14시 카드 — 애플 광택용 천 2세대, 모든 맥이 올랐는데 이것만 반값 (28,000원→15,000원) [신제품]
+- IG: https://www.instagram.com/p/DciAfm7mdj3/
+- 스레드: https://www.threads.com/@syusyu_channel/post/DciAjY4GVwD
