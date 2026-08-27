@@ -373,7 +373,18 @@ def publish_carousel(images, caption, publish=True, threads_text=None):
     keys, child_ids = [], []
     try:
         for p in images:
-            key = "cards/%s/%s" % (os.path.basename(os.path.dirname(p)), os.path.basename(p))
+            # 파일 내용 해시를 키에 붙인다 — 고정 키로 덮어쓰면 URL이 그대로라 메타 CDN이
+            # **첫 요청 때 가져간 옛 이미지를 재사용**한다. 2026-08-27 실사고: 아이폰 카드
+            # 이미지를 교체해 재게시했는데 IG·스레드 양쪽에 옛 이미지가 그대로 올라갔다
+            # (영상 r2_put에는 8/25에 같은 수정을 했는데 카드 경로만 빠져 있었다).
+            import hashlib as _hl
+            _h = _hl.sha1()
+            with open(p, "rb") as _f:
+                for _c in iter(lambda: _f.read(1 << 20), b""):
+                    _h.update(_c)
+            _stem, _ext = os.path.splitext(os.path.basename(p))
+            key = "cards/%s/%s-%s%s" % (os.path.basename(os.path.dirname(p)),
+                                        _stem, _h.hexdigest()[:10], _ext)
             s3.upload_file(p, kv["R2_BUCKET"], key, ExtraArgs={"ContentType": "image/png"})
             keys.append(key)
             url = kv["R2_PUBLIC_URL"].rstrip("/") + "/" + key
