@@ -1,0 +1,26 @@
+{
+  "topic": "애플 9월 9일 이벤트 공식 확정 — 아이폰 지금 사면 13일 뒤 후회한다 [공유형][타이밍경고형]",
+  "caption": "아이폰 지금 사면 13일 뒤 후회한다\n\n애플이 어제 공식 발표했다.\n9월 9일, 'Surprise and Shine' 이벤트.\n\niPhone 18 Pro + 접히는 아이폰 Ultra 동시 공개.\n첫 2nm 칩 A20 Pro, 가변 조리개 카메라,\n그리고 새 CEO 존 터너스의 첫 키노트.\n\n지금 아이폰 17 Pro 사려던 사람,\n13일만 기다려라.\n\n(출처: Apple 공식 초대장 2026.08.26, MacRumors, 9to5Mac, AppleInsider)\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 \ud83d\udd14\n\n#아이폰18Pro #아이폰울트라 #애플이벤트 #접는아이폰 #SurpriseAndShine",
+  "threads_text": "아이폰 지금 사면 13일 뒤 후회한다\n\n1. 애플이 어제 공식 발표함 — 9월 9일 'Surprise and Shine' 이벤트\n2. iPhone 18 Pro + 접히는 아이폰 Ultra 동시 공개\n3. 첫 2nm 칩 A20 Pro 탑재 — CPU·GPU 다 세대 교체\n4. 카메라에 가변 조리개 들어감 — 아이폰 역사상 처음\n5. 접히는 아이폰은 $1,999(약 280만원)부터라는 소문\n6. 새 CEO 존 터너스 첫 키노트이기도 함 — 팀 쿡은 9월 1일부로 회장\n7. 지금 아이폰 17 Pro 사려고 했으면 13일만 참으면 됨\n\n(출처: Apple 공식 초대장, MacRumors·9to5Mac·AppleInsider 2026.08.26)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "아이폰 지금 사면\n13일 뒤 후회한다",
+      "title_hl": ["지금 사면", "후회한다"],
+      "body": "애플, 9월 9일 이벤트 공식 확정\n'Surprise and Shine'\n\niPhone 18 Pro + 접히는 아이폰\n동시 공개",
+      "body_hl": ["9월 9일", "iPhone 18 Pro", "접히는 아이폰"],
+      "img": "assets/cards/iphone_event.jpg",
+      "credit": "9to5Mac"
+    },
+    {
+      "kind": "fact",
+      "title": "13일 뒤\n뭐가 나오길래",
+      "title_hl": ["13일", "나오길래"],
+      "body": "A20 Pro — 애플 첫 2nm 칩\n가변 조리개 카메라 (아이폰 최초)\n다이내믹 아일랜드 축소\n애플 자체 5G 모뎀 C2\n\n접히는 아이폰 Ultra\n7.8인치 내부 + 5.5인치 외부\n$1,999(약 280만원)부터",
+      "body_hl": ["2nm", "가변 조리개", "7.8인치", "$1,999"],
+      "sub": "새 CEO 존 터너스의 첫 키노트 — 팀 쿡은 회장으로",
+      "img": "assets/cards/iphone18promax_1.jpg",
+      "credit": "MacRumors / 9to5Mac"
+    }
+  ]
+}
