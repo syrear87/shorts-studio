@@ -1,0 +1,38 @@
+{
+  "topic": "macOS Golden Gate, 인텔 맥 완전 종료 — 3주 뒤 업데이트 버튼 사라진다 [공유형·타이밍경고형]",
+  "caption": "내 맥, 3주 뒤 업데이트가 끊긴다\n\nmacOS 27 'Golden Gate'부터\n인텔 맥은 전부 탈락이다.\n\nMacBook Pro 16인치(2019)\nMacBook Pro 13인치(2020)\niMac(2020), Mac Pro(2019)\n이 네 모델이 마지막 인텔 맥이었고\n올 가을 업데이트부터 보안 패치도 끝난다.\n\n확인법: 좌상단 > 이 Mac에 관하여 > '칩'에 M1 이상이면 생존.\n\n그리고 하나 더 — Rosetta 2(인텔 앱을 M칩에서 돌려주는 번역기)도\n이번 macOS가 마지막이다.\nmacOS 28부터는 인텔용 앱도 끝.\n\n중고 맥 살 생각 있으면 인텔 모델은 절대 사지 마라.\n\n(출처: Apple 공식 호환 목록 2026.06.08, MacRumors 2026.08.20·08.25)\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 🔔\n\n#맥북 #macOS #인텔맥 #GoldenGate #애플실리콘",
+  "threads_text": "내 맥, 3주 뒤 업데이트가 끊긴다\n\n1. macOS 27 'Golden Gate'가 인텔 맥 지원을 완전히 끊음\n2. 탈락 모델: MacBook Pro 16인치(2019)·13인치(2020), iMac(2020), Mac Pro(2019) — 이 네 개가 마지막 인텔 맥이었음\n3. 출시는 9월 중순 예상 — Mac mini·Mac Studio가 9/22 출시라 그 전에 OS 나와야 해서\n4. 보안 패치도 끝이라 인텔 맥은 사실상 수명 종료\n5. 확인법: 좌상단 > 이 Mac에 관하여 > '칩'이 M1 이상이면 생존\n6. Rosetta 2도 이번이 마지막 — macOS 28부터 인텔용 앱 번역 자체가 사라짐\n7. 중고 맥 볼 때 인텔 모델 사면 1년 뒤 앱도 못 돌림\n\n(출처: Apple 공식 호환 목록, MacRumors 2026.08.20·08.25)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "내 맥, 3주 뒤\n업데이트가 끊긴다",
+      "title_hl": [
+        "3주 뒤",
+        "끊긴다"
+      ],
+      "body": "macOS 27 'Golden Gate'\n인텔 맥 전부 탈락\n\n보안 패치도 이게 마지막",
+      "body_hl": [
+        "인텔 맥",
+        "마지막"
+      ],
+      "img": "assets/cards/macbook_closeup_intel.jpg",
+      "credit": "사진: Pexels"
+    },
+    {
+      "kind": "fact",
+      "title": "탈락 모델 + 확인법",
+      "title_hl": [
+        "탈락",
+        "확인법"
+      ],
+      "body": "MacBook Pro 16인치 (2019)\nMacBook Pro 13인치 (2020)\niMac (2020)\nMac Pro (2019)\n\n좌상단 > 이 Mac에 관하여\n'칩'이 M1 이상이면 생존",
+      "body_hl": [
+        "M1",
+        "생존"
+      ],
+      "sub": "Rosetta 2도 이번이 마지막 — 중고 맥은 M칩만 사라",
+      "img": "assets/cards/imac_desk_setup.jpg",
+      "credit": "사진: Karolina Grabowska (Pexels)"
+    }
+  ]
+}

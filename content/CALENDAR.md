@@ -684,3 +684,7 @@
 ### 2026-08-27 (목) 10시 카드 — 챗GPT 여행 포스터 (사진 한 장이 빈티지 이중노출 포스터로) [AI놀이·따라하기형]
 - IG: https://www.instagram.com/p/DchlmIqmfiv/
 - 스레드: https://www.threads.com/@syusyu_channel/post/DchlpbkGceS
+
+### 2026-08-27 (목) 12시 카드 — macOS Golden Gate 인텔 맥 완전 종료 (3주 뒤 업데이트 끊긴다 — 탈락 모델·확인법·Rosetta 종료) [공유형·타이밍경고형]
+- IG: https://www.instagram.com/p/Dchy5rRGeOa/
+- 스레드: https://www.threads.com/@syusyu_channel/post/Dchy9ZyGQpT
