@@ -1,0 +1,66 @@
+{
+  "title": "손톱을 먹은 쥐가 당신이 됩니다 — 진짜 전래동화입니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "bg_query": ["mouse rat close up dark night", "fire flame burning close up dark", "traditional Korean old house night dark lantern", "cat eyes close up dark mysterious", "tv screen dark room streaming"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": "photo:6468235",
+      "voice": "손톱을 먹은 쥐가 당신이 됩니다.",
+      "lines": [
+        ["손톱을 먹은 쥐가 당신이 됩니다", ["당신이"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 14071614,
+      "voice": "조선시대에는 손톱을 깎으면 반드시 불에 태웠습니다. 한국민족문화대백과에 실린 쥐둔갑 설화 때문입니다.",
+      "lines": [
+        ["손톱을 깎으면 반드시 불에 태웠습니다", []],
+        ["쥐둔갑 설화 때문입니다", ["쥐둔갑"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "photo:19029033",
+      "voice": "설화 속 도령이 버린 손톱을 먹은 들쥐는 도령의 얼굴로 변해 먼저 집에 돌아갑니다. 가족도 구분하지 못합니다.",
+      "lines": [
+        ["도령의 얼굴로 변해 집에 돌아갑니다", ["얼굴로"]],
+        ["가족도 구분하지 못합니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 9469824,
+      "voice": "진짜 도령은 쫓겨나고, 고양이를 데려와서야 쥐가 본모습을 드러냅니다. 어릴 때 들은 손톱 숨겨라가 이 이야기였습니다.",
+      "lines": [
+        ["고양이를 데려와서야 본모습을 드러냅니다", []],
+        ["'손톱 숨겨라'가 이 이야기였습니다", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 6955102,
+      "voice": "내일, 이 설화가 넷플릭스에서 깨어납니다. 들쥐, 8월 28일 공개.",
+      "lines": [
+        ["내일, 이 설화가 깨어납니다", []],
+        ["넷플릭스 '들쥐', 8월 28일 공개", ["들쥐"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": 3290180,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", []]
+      ]
+    }
+  ],
+  "sources": [
+    "https://encykorea.aks.ac.kr/Article/E0017056",
+    "https://about.netflix.com/ko/news/mousetrap-premieres-august-28"
+  ]
+}
