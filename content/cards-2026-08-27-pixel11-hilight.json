@@ -1,0 +1,26 @@
+{
+  "topic": "구글 픽셀 11 Pro HiLight — 폰 뒤집어 놨는데 빛이 난다, 알림등 10년 만에 부활 [신제품·한계붕괴형]",
+  "caption": "폰 뒤집어 놨는데 빛이 난다\n\n구글 픽셀 11 Pro에 알림등이 돌아왔다.\n카메라 바 안에 LED가 들어갔다.\n\n연락처별 색깔 지정 — 엄마는 빨강, 친구는 파랑.\n뒤집어 놔도 누가 전화했는지 안다.\n\n알림등 사라진 지 10년.\n구글이 'HiLight'란 이름으로 되살렸다.\n세계 첫 2nm 칩(Tensor G6)도 같이 왔다.\n\n국내 미판매 — Google Store(store.google.com)에서 직구 가능\n$1,099(약 150만원)부터, 150달러 넘으면 관세 대상\n검색어: Google Pixel 11 Pro\n\n(출처: Google 공식 서포트 페이지, 9to5Google, GSMArena)\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 🔔\n\n#픽셀11프로 #HiLight #알림등부활 #구글픽셀 #2nm칩",
+  "threads_text": "폰 뒤집어 놨는데 빛이 난다\n\n1. 구글 픽셀 11 Pro에 알림등이 돌아옴 — 이름은 'HiLight'\n2. 카메라 바 안에 LED가 들어가 있음\n3. 연락처별 색깔 지정 — 엄마는 빨강, 친구는 파랑 이런 식\n4. 뒤집어 놔도 누가 전화했는지 빛 색깔로 안다\n5. 제미나이 AI 쓸 때도 은은하게 빛남 — 답 생성 중이란 표시\n6. 알림등 사라진 지 10년인데 구글이 되살림\n7. 세계 첫 2nm 칩(Tensor G6) 탑재 — 이것도 꽤 큰 일\n8. 국내 미판매 — Google Store에서 직구, $1,099(약 150만원)부터\n\n(출처: Google 공식 서포트 페이지, 9to5Google·GSMArena 2026.08)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "폰 뒤집어 놨는데\n빛이 난다",
+      "title_hl": ["빛이 난다"],
+      "body": "구글 픽셀 11 Pro\nHiLight LED\n\n카메라 바 안에 알림등이 들어갔다\n사라진 지 10년, 구글이 되살렸다",
+      "body_hl": ["HiLight LED", "10년"],
+      "img": "assets/cards/pixel11pro_hilight1.jpg",
+      "credit": "이미지: GSMArena (Google Pixel 11 Pro)"
+    },
+    {
+      "kind": "fact",
+      "title": "사람마다\n색이 다르다",
+      "title_hl": ["색이 다르다"],
+      "body": "연락처별 색깔 지정\n엄마 전화 — 빨강\n친구 메시지 — 파랑\n업무 알림 — 하양\n\n뒤집어 놔도 누가 연락했는지 안다\n\n세계 첫 2nm 칩 Tensor G6\n국내 미판매 — Google Store 직구\n$1,099(약 150만원)부터",
+      "body_hl": ["빨강", "파랑", "2nm", "$1,099"],
+      "sub": "150달러 넘으면 관세 대상 — 검색어: Google Pixel 11 Pro",
+      "img": "assets/cards/pixel11pro_hilight2.jpg",
+      "credit": "이미지: GSMArena (Google Pixel 11 Pro)"
+    }
+  ]
+}

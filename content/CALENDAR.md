@@ -697,3 +697,8 @@
 - IG: https://www.instagram.com/p/DciOqvHmWLH/
 - 스레드: https://www.threads.com/@syusyu_channel/post/DciOtMumfJQ
 - 중복 검사: 최근 7일 제품 확인 완료 (차량 거치대 미사용)
+
+### 2026-08-27 (목) 20시 카드 — 구글 픽셀 11 Pro HiLight, 폰 뒤집어 놨는데 빛이 난다 — 알림등 10년 만에 부활 [신제품·한계붕괴형]
+- IG: https://www.instagram.com/p/DcipvjDmXS2/
+- 스레드: https://www.threads.com/@syusyu_channel/post/Dcipzb6mbfg
+- 중복 검사: 최근 7일 제품 확인 완료 (픽셀·구글 제품 미사용)
