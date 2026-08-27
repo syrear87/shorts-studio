@@ -57,14 +57,25 @@ def used_card_images(exclude=None, days=None):
 
 
 def check(script_path, cards, days=30):
-    """중복 이미지 목록을 돌려준다. [(파일명, 이전에 쓴 카드 json), ...]"""
+    """중복 이미지 목록을 돌려준다. [(파일명, 어디서 겹치는지), ...]
+
+    두 종류를 잡는다:
+      ① 다른 카드가 최근 days일 안에 쓴 이미지
+      ② **같은 카드 안에서 두 장 이상에 같은 이미지** — 캐러셀은 "페이지마다 다른 이미지"가
+         규칙인데 exclude로 자기 자신을 빼다 보니 이게 통과했다 (2026-08-27 전수 점검에서
+         qi2_charger_main.jpg가 1장·2장에 함께 쓰인 채 게시된 것이 확인됐다).
+    """
     used = used_card_images(exclude=script_path, days=days)
-    hits = []
-    for c in cards or []:
+    hits, seen = [], {}
+    for idx, c in enumerate(cards or []):
         img = (c or {}).get("img")
         if not img:
             continue
         name = os.path.basename(str(img))
+        if name in seen:
+            hits.append((name, "같은 카드 %d장·%d장 중복" % (seen[name] + 1, idx + 1)))
+            continue
+        seen[name] = idx
         if name in used:
-            hits.append((name, used[name]))
+            hits.append((name, "이전: %s" % used[name]))
     return hits

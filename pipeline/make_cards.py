@@ -136,7 +136,7 @@ def render(script_path):
         if _dups:
             sys.exit("기각: 이미 쓴 카드 이미지다 — %s\n"
                      "     → 같은 제품이어도 다른 컷을 받아라(공식 프레스킷의 다른 각도·유출 실물 등)."
-                     % " / ".join("%s (이전: %s)" % (n, f) for n, f in _dups))
+                     % " / ".join("%s (%s)" % (n, f) for n, f in _dups))
     except SystemExit:
         raise
     except Exception as _ie:
