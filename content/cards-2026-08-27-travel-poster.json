@@ -1,0 +1,37 @@
+{
+  "topic": "챗GPT 여행 포스터 — 사진 한 장이 빈티지 포스터가 된다 [AI놀이]",
+  "caption": "여행 사진 한 장이 빈티지 포스터로 바뀐다\n\n복사해서 쓰세요:\n\"Create a minimalist vintage-style double-exposure travel poster. The main subject is a stylish traveler depicted in a clear silhouette in profile, based on the attached photo. Layer the destination's landmarks inside the silhouette. Add the city name in large retro serif font at the top. Use a warm, faded color palette like 1960s airline posters.\"\n\n사진 첨부하고 도시 이름만 바꾸면 된다.\n무료 챗GPT도 가능 — 3시간에 3~10장 제한.\n여행지별로 만들어 놓으면 폰 배경화면으로도 쓸 만하다.\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 🔔\n\n#챗GPT #AI놀이 #여행포스터 #ChatGPT #이중노출",
+  "threads_text": "여행 사진 한 장이 빈티지 포스터로 바뀐다\n\n복사해서 쓰세요:\n\"Create a minimalist vintage-style double-exposure travel poster. The main subject is a stylish traveler depicted in a clear silhouette in profile, based on the attached photo. Layer the destination's landmarks inside the silhouette. Add the city name in large retro serif font at the top. Use a warm, faded color palette like 1960s airline posters.\"\n\n1. 챗GPT 열고 여행 사진 한 장 첨부\n2. 위 프롬프트 붙여넣기 — 도시 이름만 바꾸면 됨\n3. 내 실루엣 안에 여행지 랜드마크가 이중노출로 합성된다\n4. 위에 도시 이름이 60년대 항공사 포스터 폰트로 들어감\n5. 무료도 됨 — 3시간에 3~10장 제한이라 도시 하나씩 해보면 딱 맞음\n\n(출처: ChatGPT 4o 이미지 생성, orcarouter.ai·Medium 8월 트렌딩 프롬프트 검증)",
+  "reply_text": "뉴욕 — 자유의 여신상이 실루엣 안에 들어가고 색감이 진짜 60년대 항공 포스터 같다. 도쿄 — 도쿄타워 + 벚꽃이 실루엣 안에 겹쳐서 나옴. 영어 프롬프트가 퀄이 확실히 높고, 한글로 하면 실루엣이 안 나올 때가 있다",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "여행 사진 한 장이\n빈티지 포스터로 바뀐다",
+      "title_hl": ["빈티지 포스터"],
+      "body": "챗GPT에 사진 넣으면 60년대 항공사 포스터가 나온다",
+      "body_hl": ["60년대 항공사 포스터"],
+      "img": "assets/cards/travel_poster_hook.jpg",
+      "credit": "사진: Max Avans (Pexels)"
+    },
+    {
+      "kind": "fact",
+      "title": "이중노출 — 실루엣 안에\n여행지가 합성된다",
+      "title_hl": ["이중노출"],
+      "body": "내 옆모습 실루엣 안에\n랜드마크가 실루엣 안에 겹쳐 나온다\n\n도시 이름은 레트로 세리프체로\n포스터 상단에 자동 배치",
+      "body_hl": ["실루엣", "레트로 세리프체"],
+      "sub": "무료 챗GPT도 가능 — 3시간에 3~10장 제한",
+      "img": "assets/cards/travel_poster_result.jpg",
+      "credit": "사진: Moaz Tobok (Pexels)"
+    },
+    {
+      "kind": "end",
+      "title": "프롬프트 그대로 붙여넣으세요",
+      "title_hl": ["그대로"],
+      "body": "\"Create a minimalist vintage-style\ndouble-exposure travel poster.\nThe main subject is a stylish traveler\nin a clear silhouette in profile,\nbased on the attached photo.\"",
+      "body_hl": ["double-exposure", "silhouette"],
+      "sub": "사진 첨부 + 도시 이름만 바꾸면 끝",
+      "img": "assets/cards/travel_poster_method.jpg",
+      "credit": "사진: Matheus Bertelli (Pexels)"
+    }
+  ]
+}

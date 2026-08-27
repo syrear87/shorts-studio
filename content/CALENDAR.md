@@ -680,3 +680,7 @@
 - 10:00 Qi2 vs Qi2.2 무선충전기 가이드 게시 — 내 폰에 맞는 규격 확인법 [구매가능·공유형·타이밍경고형] https://www.instagram.com/p/Dcca4rbmTh1/ (스레드: https://www.threads.com/@syusyu_channel/post/Dcca9q4GahX)
 - 12:00 USB-C 케이블 속도 20배 차이 카드 게시 — 서랍 속 케이블 확인법 [구매가능·타이밍경고형] https://www.instagram.com/p/DccpNyfGQKZ/ (스레드: https://www.threads.com/@syusyu_channel/post/DccpRqbGZjb)
 - 20:00 갤럭시 S26 FE 모레 밤 공개 카드 게시 — 칩이 한 세대 전(Exynos 2500) [신제품·타이밍경고형] https://www.instagram.com/p/Dcdf41VGfKH/ (스레드: https://www.threads.com/@syusyu_channel/post/Dcdf8-0mbjn)
+
+### 2026-08-27 (목) 10시 카드 — 챗GPT 여행 포스터 (사진 한 장이 빈티지 이중노출 포스터로) [AI놀이·따라하기형]
+- IG: https://www.instagram.com/p/DchlmIqmfiv/
+- 스레드: https://www.threads.com/@syusyu_channel/post/DchlpbkGceS
