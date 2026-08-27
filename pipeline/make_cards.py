@@ -128,6 +128,20 @@ def render(script_path):
     except Exception as e:
         print("check_topic 게이트 실행 불가(%s) — REJECTED.md 수동 확인 필요" % e, flush=True)
     # 캡션 게이트 (2026-08-05 점검)
+    # 🖼️ 카드 이미지 재사용 게이트 (2026-08-27 실사고: 아이폰 카드가 8/20·8/23 이미지를
+    #    두 장 모두 재탕 — 디렉터가 피드에서 바로 알아봤다. 영상엔 있던 게이트가 카드엔 없었다)
+    try:
+        from card_history import check as _img_check
+        _dups = _img_check(script_path, s.get("cards"), days=30)
+        if _dups:
+            sys.exit("기각: 이미 쓴 카드 이미지다 — %s\n"
+                     "     → 같은 제품이어도 다른 컷을 받아라(공식 프레스킷의 다른 각도·유출 실물 등)."
+                     % " / ".join("%s (이전: %s)" % (n, f) for n, f in _dups))
+    except SystemExit:
+        raise
+    except Exception as _ie:
+        print("경고: 이미지 재사용 검사 실패(무해, 통과):", str(_ie)[:100], flush=True)
+
     cap = s.get("caption", "")
     if cap:
         if any(l.strip().startswith("태그:") for l in cap.splitlines()):
