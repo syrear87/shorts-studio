@@ -1,0 +1,70 @@
+{
+  "title": "1910년 8월 29일, 신문은 이 사실을 보도하지 못했다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": "photo:34799244",
+      "voice": "오늘은 달력에 아무것도 적혀 있지 않습니다. 116년 전 오늘, 대한제국이 사라졌습니다.",
+      "lines": [
+        ["달력에 아무것도 적혀 있지 않습니다", []],
+        ["116년 전 오늘, 대한제국이 사라졌습니다", ["사라졌습니다"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 12160812,
+      "voice": "한일병합조약은 8월 22일에 서명됐습니다. 그런데 발표는 일주일 뒤인 8월 29일이었습니다.",
+      "lines": [
+        ["서명은 8월 22일", ["8월 22일"]],
+        ["발표는 일주일 뒤 8월 29일", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 19217895,
+      "voice": "그 7일 동안 통감부는 모든 보도를 막았습니다. 기자들조차 26일 기자회견에서 처음 알았습니다.",
+      "lines": [
+        ["7일간 모든 보도를 막았습니다", ["모든 보도"]],
+        ["기자들도 26일에 처음 알았습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 32531983,
+      "voice": "나라를 되찾은 날 광복절은 공휴일입니다. 하지만 빼앗긴 날을 기념일로 만들자는 법안은 세 번 발의되고 세 번 다 통과되지 못했습니다.",
+      "lines": [
+        ["광복절은 공휴일입니다", []],
+        ["빼앗긴 날을 기념일로 만들자는 법안은", []],
+        ["세 번 다 통과되지 못했습니다", ["세 번"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 5555355,
+      "voice": "116년 전 그날, 아무도 이 사실을 말할 수 없었습니다. 오늘은 말할 수 있습니다. 8월 29일, 경술국치일입니다.",
+      "lines": [
+        ["그날은 말할 수 없었습니다", []],
+        ["오늘은 말할 수 있습니다", []],
+        ["8월 29일 경술국치일", ["경술국치일"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": "photo:16661298",
+      "sub": "1일 1지식 · 구독",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", []]
+      ]
+    }
+  ],
+  "sources": [
+    "https://ko.wikipedia.org/wiki/%ED%95%9C%EC%9D%BC%EB%B3%91%ED%95%A9%EC%A1%B0%EC%95%BD",
+    "https://contents.history.go.kr/mobile/nh/view.do?levelId=nh_042_0060_0050_0020",
+    "https://www.kyeongin.com/article/1704871"
+  ],
+  "bg_query": ["old newspaper vintage sepia", "empty dark room silence", "newspaper press printing old", "national assembly parliament building korea", "sunrise dawn memorial candle", "morning sky clouds peaceful"]
+}
