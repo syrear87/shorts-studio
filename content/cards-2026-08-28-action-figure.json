@@ -1,0 +1,37 @@
+{
+  "topic": "챗GPT 액션 피규어 — 셀카 한 장으로 나만의 피규어가 만들어진다 [AI놀이]",
+  "caption": "셀카 한 장으로 나만의 액션 피규어가 만들어진다\n\n복사해서 쓰세요:\n\"Use this photo to create a stylized action figure of myself in a plastic blister pack, designed like a premium collectible toy. The figure should have a friendly, relaxed smile and clearly recognizable facial features. Make the figure stand upright inside the packaging. The blister pack should feature a header with '내 이름' in large text, with 'Limited Edition' underneath.\"\n\n사진 첨부하고 이름만 바꾸면 된다.\n무료 챗GPT도 가능 — 하루 3장 제한.\n소품 추가하고 싶으면 프롬프트에 'Include accessories: laptop, coffee cup, headphones' 같이 적으면 된다.\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 🔔\n\n#챗GPT #AI놀이 #액션피규어 #ChatGPT #AI피규어",
+  "threads_text": "셀카 한 장으로 나만의 액션 피규어가 만들어진다\n\n복사해서 쓰세요:\n\"Use this photo to create a stylized action figure of myself in a plastic blister pack, designed like a premium collectible toy. The figure should have a friendly, relaxed smile and clearly recognizable facial features. Make the figure stand upright inside the packaging. The blister pack should feature a header with '내 이름' in large text, with 'Limited Edition' underneath.\"\n\n1. 챗GPT 열고 셀카 한 장 첨부\n2. 위 프롬프트 붙여넣기 — 이름만 바꾸면 됨\n3. 블리스터 팩 안에 내가 피규어로 서 있다\n4. 소품 넣고 싶으면 'Include accessories: 노트북, 커피, 이어폰' 추가\n5. 무료도 됨 — 하루 3장 제한이라 한 번에 잘 뽑아야 함\n6. 핵심은 정면 사진보다 반측면이 피규어답게 나온다\n\n(출처: ChatGPT GPT-4o 이미지 생성, Forbes·TechRepublic 2026 트렌딩 프롬프트 검증)",
+  "reply_text": "정장 셀카로 했더니 '비즈니스 에디션' 느낌 나고, 후드 입은 셀카로 하면 '스트릿 에디션'이 된다. 소품에 고양이 넣었더니 고양이도 미니 피규어로 같이 들어감. 영어 프롬프트가 퀄이 확실히 높고, 한글로 하면 패키지 글자가 깨질 때가 있다",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "셀카 한 장으로\n나만의 피규어가 만들어진다",
+      "title_hl": ["피규어"],
+      "body": "챗GPT에 사진 넣으면 블리스터 팩 안에 내가 서 있다",
+      "body_hl": ["블리스터 팩"],
+      "img": "assets/cards/action_figure_hook.jpg",
+      "credit": "사진: Erik Mclean (Pexels)"
+    },
+    {
+      "kind": "fact",
+      "title": "이름, 소품, 한정판 —\n전부 프롬프트로 넣는다",
+      "title_hl": ["한정판"],
+      "body": "패키지 상단에 내 이름\n하단에 'Limited Edition'\n소품도 지정 가능 — 노트북, 커피, 이어폰",
+      "body_hl": ["내 이름", "소품도 지정 가능"],
+      "sub": "무료 챗GPT도 가능 — 하루 3장 제한",
+      "img": "assets/cards/action_figure_box.jpg",
+      "credit": "사진: Erik Mclean (Pexels)"
+    },
+    {
+      "kind": "end",
+      "title": "프롬프트 그대로 붙여넣으세요",
+      "title_hl": ["그대로"],
+      "body": "\"Use this photo to create\na stylized action figure of myself\nin a plastic blister pack,\ndesigned like a premium\ncollectible toy.\"",
+      "body_hl": ["action figure", "blister pack"],
+      "sub": "사진 첨부 + 이름만 바꾸면 끝",
+      "img": "assets/cards/action_figure_method.jpg",
+      "credit": "사진: Anna Shvets (Pexels)"
+    }
+  ]
+}
