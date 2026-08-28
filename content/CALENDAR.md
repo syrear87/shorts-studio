@@ -702,3 +702,4 @@
 - IG: https://www.instagram.com/p/DcipvjDmXS2/
 - 스레드: https://www.threads.com/@syusyu_channel/post/Dcipzb6mbfg
 - 중복 검사: 최근 7일 제품 확인 완료 (픽셀·구글 제품 미사용)
+2026-08-28 09시 카드: 갤럭시 S26 FE 공식 발표 비교 카드 [공유형] (IG DckCw3CgeVJ)
