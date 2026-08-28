@@ -1,0 +1,68 @@
+{
+  "title": "같은 닌텐도인데 한국이 더 많이 올랐습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": 4523116,
+      "voice": "닌텐도 스위치 2, 9월 1일부터 11만 원 오릅니다.",
+      "lines": [
+        ["닌텐도 스위치 2, 9월 1일부터 11만 원 오릅니다", ["11만 원"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "photo:5632344",
+      "voice": "648,000원에서 758,000원. 8월 31일까지가 현재 가격입니다.",
+      "lines": [
+        ["648,000원에서 758,000원", ["758,000원"]],
+        ["8월 31일까지 현재 가격", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 7602132,
+      "voice": "한국만이 아닙니다. 미국, 유럽, 아시아까지 전 세계에서 동시에 가격이 올랐습니다.",
+      "lines": [
+        ["한국만이 아닙니다", []],
+        ["전 세계에서 동시에", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "photo:37368175",
+      "voice": "이유는 반도체입니다. 스위치 2에 들어가는 반도체 가격이 개발 초기보다 41% 올랐습니다.",
+      "lines": [
+        ["이유는 반도체", []],
+        ["개발 초기보다 41%", ["41%"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 4275306,
+      "hl_pair": true,
+      "voice": "그런데 인상률이 다릅니다. 미국은 11%인데, 한국은 17%입니다. 같은 기계인데 한국이 6%포인트 더 올랐습니다. 반도체에 원화 약세까지 겹쳤습니다.",
+      "lines": [
+        ["미국 11%, 한국 17%", ["11%", "17%"]],
+        ["같은 기계, 한국이 6%p 더", []],
+        ["반도체에 원화 약세까지 겹쳤습니다", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": 7774953,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.nintendo.com/kr/news/article/2AEPfcJnJReIjcYpHe94tp",
+    "https://zdnet.co.kr/view/?no=20260629112251"
+  ],
+  "bg_query": ["nintendo switch gaming console close up", "price tag shopping money korean won", "world map globe business international", "semiconductor chip circuit board close up", "korean won dollar bills currency exchange", "gaming controller colorful setup"]
+}
