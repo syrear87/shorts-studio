@@ -1,0 +1,26 @@
+{
+  "topic": "에어팟에 카메라가 달린다 — 애플이 macOS 업데이트에 데모 영상을 실수로 넣었다 [한계붕괴형·루머]",
+  "caption": "에어팟에 눈이 달린다\n\n애플이 macOS Tahoe 26.7 업데이트 파일에 에어팟 카메라 데모 영상을 실수로 넣었다.\n남자가 에어팟 끼고 책을 들자 시리가 말한다 — \"Visual Intelligence로 보이는 걸 저장하세요.\"\n\n줄기 양쪽에 카메라 각 1개, 해상도 640×640\n영상은 안 되고 사진만 — 사생활 논란 대비용 저해상도\n카메라 켜지면 표시등이 켜진다\n코드명 B790, 빠르면 9월 9일 아이폰 18 이벤트에서 공개\n\n⚠️ 아직 공식 발표가 아닌 유출 단계 정보입니다 (출처: macOS Tahoe 26.7 RC 데모 영상, Engadget, MacRumors, AppleInsider, Mark Gurman / Bloomberg)\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 🔔\n\n#에어팟 #AirPods #애플 #카메라에어팟 #VisualIntelligence",
+  "threads_text": "에어팟에 눈이 달린다\n\n1. 애플이 macOS 업데이트 파일에 에어팟 데모 영상을 실수로 넣어놨다\n2. 에어팟 줄기에 카메라가 달려있고, 시리가 \"보이는 걸 저장할게요\"라고 한다\n3. 해상도 640×640 — 영상은 안 되고 사진만 찍히는 저해상도 카메라\n4. 카메라 켜지면 표시등이 켜진다고 — 사생활 논란 미리 대비한 것\n5. 코드명 B790, 빠르면 9월 9일 아이폰 18 이벤트에서 같이 나올 수 있다\n6. 이게 중요한 이유는 루머가 아니라 애플 자체 파일에서 나왔다는 것\n\n(출처: macOS Tahoe 26.7 RC 데모 영상, Engadget·MacRumors·AppleInsider, Mark Gurman / Bloomberg)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "에어팟에\n눈이 달린다",
+      "title_hl": ["눈"],
+      "body": "줄기에 카메라 — 애플이 macOS에서 실수로 보여줬다",
+      "body_hl": ["카메라", "실수로"],
+      "img": "assets/cards/airpods_ultra_visual1.jpg",
+      "credit": "이미지: macOS Tahoe 26.7 RC 데모 (iClarified)"
+    },
+    {
+      "kind": "fact",
+      "title": "시리가 보이는 걸\n기억한다",
+      "title_hl": ["시리"],
+      "body": "카메라 2개 — 양쪽 줄기에 각 1개\n해상도 640×640 — 영상 안 됨, 사진만\n카메라 켜지면 표시등 점등\n코드명 B790 — 9월 공개 가능성",
+      "body_hl": ["640×640", "표시등", "9월"],
+      "sub": "빠르면 9월 9일 아이폰 18 이벤트",
+      "img": "assets/cards/airpods_ultra_case1.jpg",
+      "credit": "이미지: AppleInsider"
+    }
+  ]
+}
