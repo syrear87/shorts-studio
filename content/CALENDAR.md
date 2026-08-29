@@ -706,3 +706,4 @@
 2026-08-28 12시 카드: 에어팟 카메라 — 애플 macOS에서 자체 유출 [한계붕괴형·루머] (IG DckXFtLGXX6)
 2026-08-28 20시 카드: 보호필름 9H — 칼로 긁는 건 마케팅, 진짜 적은 주머니 속 모래 [구매가능][공유형] (IG DclPIzzGakn)
 | 2026-08-29 | 12시 카드 | 파나소닉 루믹스 L10, 209만원 컴팩트 카메라 (IG Dcm89hVmU57 / Threads Dcm9BZvGY_A) |
+| 2026-08-29 | 14시 카드 | 카시오 지샥 GM-H5600, 풀메탈 심박수 센서 (IG DcnYJufGYjZ / Threads DcnYNmHmbI9) |
