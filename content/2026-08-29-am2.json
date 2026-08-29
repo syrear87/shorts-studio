@@ -1,0 +1,67 @@
+{
+  "title": "내 대출이자가 은행 역대 최고 실적을 만들었습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": 37500921,
+      "voice": "한국 가계부채가 처음으로 2,000조 원을 넘었습니다. 이 빚에 붙는 이자가 어디로 가는지 아십니까.",
+      "lines": [
+        ["가계부채가 처음으로 2,000조를 넘었습니다", ["2,000조"]],
+        ["이 이자가 어디로 가는지 아십니까", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "photo:15256343",
+      "voice": "한국은행이 8월 19일 발표한 가계신용 잔액은 2,019조 8,000억 원입니다. 통계 작성 이래 최초로 2,000조를 넘었습니다.",
+      "lines": [
+        ["8월 19일 발표, 2,019조 8,000억 원", ["2,019조"]],
+        ["통계 작성 이래 최초", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "photo:37323647",
+      "voice": "전국 가구 수로 나누면 가구당 평균 약 8,250만 원입니다. 1인당으로 환산하면 약 2,000만 원꼴입니다.",
+      "lines": [
+        ["가구당 평균 약 8,250만 원", ["8,250만"]],
+        ["1인당 약 2,000만 원꼴", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "photo:5550019",
+      "voice": "그리고 이 부채에 붙는 이자는 은행으로 갑니다. 금융감독원이 8월 23일 발표한 국내 은행 이자이익은 상반기에만 32조 2,000억 원, 역대 최고 기록입니다.",
+      "lines": [
+        ["은행 이자이익 상반기 32조 2,000억 원", ["32조"]],
+        ["역대 최고 기록", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 11099870,
+      "voice": "부채는 내 통장에서 빠지고, 그 이자는 은행 실적이 됩니다. 오늘도 이자는 빠지고 있습니다.",
+      "lines": [
+        ["부채는 내 통장에서 빠지고", []],
+        ["오늘도 이자는 빠지고 있습니다", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": "photo:40402",
+      "sub": "1일 1지식 · 구독",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", []]
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.bok.or.kr/portal/bbs/P0000559/view.do?nttId=10085412",
+    "https://www.fss.or.kr/fss/kr/promo/bodobbs_view.jsp?seqno=25735"
+  ],
+  "bg_query": ["korean currency bills stacked money", "bank building exterior modern", "family home apartment residential korea", "bank office interior counter", "wallet empty coins bills stress", "sunrise city skyline morning"]
+}
