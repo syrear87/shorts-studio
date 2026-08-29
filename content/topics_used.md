@@ -191,3 +191,4 @@
 | 2026-08-29 | 14시 카드 | [게시] 카시오 지샥 GM-H5600 — 42년간 튼튼하기만 했던 지샥에 풀메탈 심박수 센서, Polar 알고리즘(심박·수면·VO2max), 200m 방수, 솔라충전, $385(약 53만원), 국내 미출시 직구, 한계붕괴형·공유형 (IG DcnYJufGYjZ / Threads DcnYNmHmbI9) | 테크(시계) | - |
 | 2026-08-29 | pm2 | [게시] 비 오는 날 수도관에 전류가 흐릅니다 — CDC 천둥 시 샤워 금지 권고, 낙뢰 전류가 금속 배관→수도꼭지 경로, NOAA 30분 대기 안전 기준, 한국 연간 낙뢰 10만 회 70% 6~8월(기상청), 타이밍경고형·당일성 (YT RTgyCVN0AFo / IG reel/DcnuHSljLlY / Threads DcnuMB7DP68) | 재난·기상 체감 | male |
 | 2026-08-29 | 20시 카드 | [게시] 챗GPT 그림판 밈 — 한국 디자이너 원재기(@grdnrush)가 Threads에 올린 프롬프트 하나로 시작, 샘 올트먼 리트윗→X 500만뷰→ChatGPT Images 2.0 공식 탑재. "가장 못 그리게 그려달라" 프롬프트로 셀카·반려동물을 90년대 그림판 스타일로 변환, 따라하기형 AI놀이 (IG Dcn0MrgGbq9 / Threads Dcn0PynGdi7) | AI놀이 | - |
+| 2026-08-29 | night | [게시] ChatGPT가 한국에서 1위를 빼앗겼습니다 — 오픈서베이 7월 한국 AI 만족도 제미나이 77% vs ChatGPT 71% 역전, 글로벌 MAU 점유율 46%(3년 만에 첫 50% 붕괴), 제미나이 28%+클로드 3→10% 성장, AI 삼국시대, 한계붕괴형+따라하기형 (YT aaVk_DVjHJs / IG reel/Dcn7U_FD0U9 / Threads Dcn7bBmFPKV) | AI 활용 | female |

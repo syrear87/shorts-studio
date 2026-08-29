@@ -1,0 +1,71 @@
+{
+  "title": "ChatGPT가 한국에서 1위를 빼앗겼습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": 15940565,
+      "voice": "ChatGPT가 한국에서 처음으로 1위를 빼앗겼습니다.",
+      "lines": [
+        ["ChatGPT가 한국 1위를 빼앗겼습니다", ["빼앗겼습니다"]],
+        ["처음입니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 9785299,
+      "voice": "오픈서베이 7월 조사, 한국인이 가장 만족하는 AI는 제미나이 77%, ChatGPT는 71%로 밀렸습니다.",
+      "lines": [
+        ["한국인이 가장 만족하는 AI", []],
+        ["제미나이 77%", ["77%"]],
+        ["ChatGPT 71%로 밀렸습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 7947393,
+      "voice": "세계 시장도 흔들립니다. ChatGPT 점유율이 3년 만에 처음으로 50% 아래인 46%까지 떨어졌습니다.",
+      "lines": [
+        ["세계 시장도 흔들립니다", []],
+        ["3년 만에 처음으로 50% 아래", ["50% 아래"]],
+        ["46%까지 떨어졌습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 36305973,
+      "voice": "제미나이 28%, 클로드는 5개월 만에 3%에서 10%로 뛰었습니다. AI 삼국시대가 열린 겁니다.",
+      "lines": [
+        ["제미나이 28%", []],
+        ["클로드 3%에서 10%로", []],
+        ["AI 삼국시대가 열린 겁니다", ["삼국시대"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 6353327,
+      "voice": "아직 ChatGPT만 쓰고 있다면, 내일 제미나이에 같은 질문 넣어보세요. 무료입니다.",
+      "lines": [
+        ["아직 ChatGPT만 쓰고 있다면", []],
+        ["제미나이에 같은 질문 넣어보세요", []],
+        ["무료입니다", ["무료"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": 27799507,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://blog.opensurvey.co.kr/article/ai-search-2025/",
+    "https://sensortower.com/blog/state-of-ai-2026"
+  ],
+  "bg_query": ["laptop screen chatbot AI interface", "smartphone AI assistant app search", "business data chart market share graph", "person comparing two phones side by side", "AI technology futuristic abstract light"]
+}
