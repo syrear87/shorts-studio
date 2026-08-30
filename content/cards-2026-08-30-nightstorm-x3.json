@@ -1,0 +1,26 @@
+{
+  "topic": "DVX Night Storm X3 — 칠흑에서 4K 풀컬러가 보인다, AI 듀얼 센서가 밤을 낮으로 바꾼다 [펀딩][한계붕괴형]",
+  "caption": "칠흑에서 4K 풀컬러가 보인다\n\nDVX Night Storm X3 — 0.0001 lux, 달빛도 없는 칠흑 속에서 4K 풀컬러 영상을 찍는 야간 투시경.\n\n비결은 두 개의 1인치 센서.\n흑백 Luma-X가 윤곽을 잡고, 컬러 Chroma-X가 색을 입히면\n20 TOPS AI 엔진이 픽셀 단위로 합성한다. 6K 업스케일링까지.\n\n1,500m 레이저 거리측정, 배터리 24시간, IP65 방수, USB-C 45분 급속충전.\n킥스타터 $1.7M 모금 후 현재 배송 중.\n\n$429(약 62만원) — dvx.red 공식몰 직구만 가능.\n150달러 넘는 직구는 관부가세 대상.\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우\n\n#야간투시경 #NightVision #DVX #NightStormX3 #가젯",
+  "threads_text": "칠흑에서 4K 풀컬러가 보인다\n\n1. DVX라는 브랜드에서 Night Storm X3 야간 투시경을 냈는데, 스펙이 좀 미쳤음\n2. 0.0001 lux — 달빛도 없는 완전한 칠흑에서 4K 풀컬러 영상이 나온다\n3. 비결은 센서가 두 개. 흑백 센서가 윤곽 잡고 컬러 센서가 색 입히면 AI가 합성\n4. 1,500m까지 레이저 거리측정. 배터리 24시간, 방수 IP65\n5. 킥스타터에서 $1.7M(약 24억원) 모금하고 지금 배송 시작\n6. 가격 $429(약 62만원) — dvx.red 공식몰 직구만 가능, 150달러 넘으면 관부가세 대상\n\n(출처: DVX 공식, Digital Camera World, RedShark News)\n매일 이런 테크 소식 하나씩 정리합니다",
+  "cards": [
+    {
+      "kind": "hook",
+      "img": "assets/cards/dvx_x3_product.jpg",
+      "title": "칠흑에서 4K 풀컬러가 보인다",
+      "title_hl": ["4K 풀컬러"],
+      "body": "DVX Night Storm X3 — 0.0001 lux에서도 선명한 컬러 영상, 1,500m 거리측정까지",
+      "body_hl": ["0.0001 lux", "1,500m"],
+      "credit": "DVX / Digital Camera World"
+    },
+    {
+      "kind": "fact",
+      "img": "assets/cards/dvx_x3_nightvision.jpg",
+      "title": "비결은 AI가 합치는 두 개의 눈",
+      "title_hl": ["두 개의 눈"],
+      "body": "흑백 센서가 윤곽을 잡고 컬러 센서가 색을 입히면 AI가 픽셀 단위로 합성한다. 배터리 24시간, IP65 방수, USB-C 급속충전. 킥스타터 $1.7M 돌파 후 현재 배송 중",
+      "body_hl": ["AI가 픽셀 단위로 합성"],
+      "sub": "$429(약 62만원) — dvx.red 직구만 가능",
+      "credit": "DVX / RedShark News"
+    }
+  ]
+}
