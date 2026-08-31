@@ -1,0 +1,26 @@
+{
+  "topic": "HONOR Robot Phone — 폰 카메라가 몸 밖으로 나와서 움직인다, 세계 최초 짐벌 내장 스마트폰 [신제품][한계붕괴형]",
+  "caption": "카메라가 폰 밖으로 나온다\n\nHONOR Robot Phone — 세계 최초로 카메라에 짐벌 팔이 달린 스마트폰.\n200MP 메인 카메라가 폰 위로 올라와서 4축으로 회전한다. 초당 360도. 사람을 자동 추적하고, 파노라마도, 별 궤적 촬영도 혼자 한다.\n\n짐벌 안에 부품 100개, 티타늄 모터. 영화 촬영 장비 ARRI와 협업해 시네마 색감(LogC3)까지 지원.\n\n200MP 망원(2.7배 광학) + 50MP 초광각 — 카메라 3개 합산 450MP.\n7,060mAh 배터리, 120W 충전, 스냅드래곤 8 Elite Gen 5.\n\n중국 출시 완료, 약 140만원(RMB 9,999). 글로벌 출시일은 미정.\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우\n\n#HONOR #RobotPhone #짐벌카메라 #스마트폰 #200MP",
+  "threads_text": "카메라가 폰 밖으로 나온다\n\n1. HONOR가 세계 최초로 짐벌 팔 내장 스마트폰을 출시함\n2. 200MP 카메라가 폰 뒤쪽에서 위로 올라와서 4축으로 움직임 — 초당 360도 회전\n3. 부품 100개에 티타늄 모터, 영화 장비 회사 ARRI랑 협업해서 시네마 색감까지 됨\n4. 사람 자동 추적, 파노라마, 별 궤적 촬영을 짐벌이 혼자 함 — 삼각대 필요 없음\n5. 200MP 망원(2.7배 광학) + 50MP 초광각까지 카메라 3개 합산 450MP\n6. 7,060mAh 배터리에 120W 충전, 스냅드래곤 8 Elite Gen 5\n7. 중국 출시가 약 140만원(RMB 9,999) — 글로벌 출시일은 아직 미정\n\n(출처: HONOR 공식, Android Authority, GSMArena, DPReview)",
+  "cards": [
+    {
+      "kind": "hook",
+      "img": "assets/cards/honor_robot_phone_gimbal.jpg",
+      "title": "카메라가 폰 밖으로 나온다",
+      "title_hl": ["밖으로 나온다"],
+      "body": "HONOR Robot Phone — 세계 최초 짐벌 팔 내장 스마트폰. 200MP 카메라가 폰 위로 올라와서 4축으로 회전한다. 초당 360도",
+      "body_hl": ["세계 최초", "4축", "360도"],
+      "credit": "Android Authority / HONOR"
+    },
+    {
+      "kind": "fact",
+      "img": "assets/cards/honor_robot_phone_camera.jpg",
+      "title": "티타늄 모터에 ARRI 시네마 색감",
+      "title_hl": ["ARRI"],
+      "body": "부품 100개짜리 짐벌 안에 티타늄 모터. 사람 자동 추적, 파노라마, 별 궤적까지 혼자 한다. 200MP 망원 + 50MP 초광각 — 카메라 3개 합산 450MP. 7,060mAh, 120W 충전. 중국 출시 약 140만원",
+      "body_hl": ["450MP", "140만원"],
+      "sub": "글로벌 출시일 미정 — 중국 8월 출시 완료",
+      "credit": "Android Authority / HONOR"
+    }
+  ]
+}
