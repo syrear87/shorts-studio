@@ -1,0 +1,74 @@
+{
+  "title": "AI가 게임기 가격까지 올렸습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": 855963,
+      "voice": "올해 맥북이 30만 원 올랐고, 게임기가 11만 원 올랐고, SSD도 54% 올랐습니다. 전부 같은 범인입니다.",
+      "lines": [
+        ["맥북 30만 원, 게임기 11만 원, SSD 54%", ["11만 원", "54%"]],
+        ["전부 같은 범인입니다", []]
+      ],
+      "hl_pair": true
+    },
+    {
+      "kind": "fact",
+      "bg": 7140928,
+      "voice": "AI 데이터센터 서버 한 대에 들어가는 메모리가 스마트폰 12만 대 분량입니다. 전 세계 메모리 매출의 70%가 AI에 쓰이고 있습니다.",
+      "lines": [
+        ["AI 서버 한 대에 들어가는 메모리", []],
+        ["스마트폰 12만 대 분량", []],
+        ["전 세계 메모리 매출 70%가 AI에", ["70%"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 6754824,
+      "voice": "삼성과 SK하이닉스가 AI 전용 메모리 생산에 공장을 몰면서, 우리가 쓰는 일반 메모리 가격이 2년 새 4배 뛰었습니다.",
+      "lines": [
+        ["삼성·SK하이닉스가", []],
+        ["AI 전용 메모리에 공장을 몰면서", []],
+        ["일반 메모리 가격 2년 새 4배", ["4배"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 4523113,
+      "voice": "오늘부터 닌텐도 스위치 2가 75만 8천 원입니다. 닌텐도가 직접 밝혔습니다. 메모리 부품 가격 상승이 주된 이유라고.",
+      "lines": [
+        ["오늘부터 스위치 2, 75만 8천 원", ["75만 8천 원"]],
+        ["닌텐도가 직접 밝혔습니다, 메모리 부품 가격", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 28315399,
+      "voice": "이 현상에 이름까지 생겼습니다. 칩플레이션. 반도체 가격이 모든 전자기기를 끌어올리는 시대가 왔습니다.",
+      "lines": [
+        ["이름까지 생겼습니다", []],
+        ["칩플레이션", ["칩플레이션"]],
+        ["반도체가 모든 전자기기를 끌어올리는 시대", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": 7668101,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://zdnet.co.kr/view/?no=20260629112251",
+    "https://www.jpmorgan.com/insights/global-research/artificial-intelligence/dram-memory-shortage-from-ai",
+    "https://www.cnbc.com/2026/05/08/nintendo-switch-2-price-hike-sales-fall-memory-crunch.html",
+    "https://www.trendforce.com/presscenter/news/20260331-12995.html",
+    "https://spectrum.ieee.org/dram-shortage"
+  ],
+  "bg_query": ["macbook laptop store display price", "data center server room blue lights", "semiconductor chip fabrication clean room", "nintendo switch 2 gaming console box", "electronics store shelves products", "gaming controller colorful setup"]
+}
