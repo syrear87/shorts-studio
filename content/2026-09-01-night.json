@@ -1,0 +1,81 @@
+{
+  "title": "경쟁하면 싸진다더니, 합치니까 10% 내렸습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "오늘부터 SRT가 사라졌습니다.",
+      "bg_id": 29117385,
+      "bg_query": "high speed train station platform",
+      "lines": [
+        ["오늘부터 SRT가 사라졌습니다", ["SRT"]]
+      ]
+    },
+    {
+      "kind": "body",
+      "voice": "2016년 수서역에서 첫 출발한 SRT. 경쟁하면 KTX 요금도 내릴 거라 했습니다.",
+      "bg_id": "photo:18208303",
+      "bg_query": "train departure station passengers",
+      "lines": [
+        ["2016년 수서역 첫 출발", []],
+        ["KTX 요금도 내릴 거라", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "10년간 KTX 요금은 SRT보다 비쌌습니다. 대신 앱 2개, 마일리지 2개, 예약 두 번이 남았습니다.",
+      "bg_id": "photo:3850253",
+      "bg_query": "smartphone screen booking app",
+      "lines": [
+        ["KTX 요금은 SRT보다 비쌌습니다", []],
+        ["앱 2개, 마일리지 2개", []],
+        ["예약 두 번이 남았습니다", ["두 번"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "오늘부터 코레일플러스 앱 하나로 전 노선 예약됩니다.",
+      "bg_id": "photo:14715657",
+      "bg_query": "modern train interior seats passenger",
+      "lines": [
+        ["코레일플러스 앱 하나로", ["코레일플러스"]],
+        ["전 노선 예약", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "그리고 KTX 요금을 SRT 수준으로 맞췄습니다. 평균 10% 인하입니다.",
+      "bg_id": "photo:4004373",
+      "bg_query": "railway ticket price display counter",
+      "lines": [
+        ["KTX → SRT 수준으로 인하", ["SRT 수준"]],
+        ["평균 10% 인하", ["10%"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "경쟁이 10년 동안 못 한 일을, 통합이 하루 만에 했습니다.",
+      "bg_id": 29117385,
+      "bg_query": "high speed train arriving fast motion",
+      "lines": [
+        ["경쟁이 10년 동안 못 한 일을", []],
+        ["통합이 하루 만에 했습니다", ["하루 만에"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "bg_id": 29117385,
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://news.sbs.co.kr/news/endPage.do?news_id=N1008686275",
+    "https://biz.heraldcorp.com/article/10856823",
+    "https://www.etnews.com/20260802000046",
+    "https://www.greened.kr/news/articleView.html?idxno=346605"
+  ],
+  "bg_query": ["high speed train station platform", "train departure station passengers", "smartphone screen booking app", "modern train interior seats", "railway ticket counter", "high speed train fast motion"]
+}
