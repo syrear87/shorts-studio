@@ -1,0 +1,26 @@
+{
+  "topic": "Clicks Communicator — 블랙베리 전 직원이 만든 물리 키보드 안드로이드폰, $499, Q4 2026 출시 [신제품][한계붕괴형]",
+  "caption": "키보드 달린 스마트폰이 돌아온다\n\nClicks Communicator — 블랙베리 전 직원이 공동 창업한 Clicks가 물리 QWERTY 키보드 안드로이드폰을 만들었다. 아이폰용 키보드 케이스 10만 대 넘게 판 회사가 아예 폰을 만든 것.\n\n4.03인치 AMOLED + 풀 QWERTY. 키가 기존보다 30% 커졌고, 스페이스바가 지문인식 센서다. 한국어 키보드 레이아웃도 있다.\n\nDimensity 8300, 8GB RAM, 256GB + microSD 2TB 확장. 50MP OIS 카메라, 4,000mAh 실리콘카본 배터리, Qi2 무선충전, 3.5mm 잭.\n\nAndroid 16 탑재, Android 20까지 업데이트 보장(5년 보안 업데이트).\n\n$499(약 65만원), 올해 4분기 출시 예정. clicks.tech에서 예약 가능.\n국내 미출시 — 해외 직구 전용. 관세·배송 별도.\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우\n\n#Clicks #Communicator #물리키보드 #블랙베리 #QWERTY",
+  "threads_text": "키보드 달린 스마트폰이 돌아온다\n\n1. Clicks Communicator — 블랙베리 전 직원이 진짜로 물리 키보드 안드로이드폰을 만들었음\n2. 이 회사가 아이폰용 키보드 케이스를 10만 대 넘게 팔았는데, 아예 폰 자체를 만든 것\n3. 4.03인치 AMOLED에 풀 QWERTY, 키가 기존보다 30% 커서 타이핑 제대로 됨\n4. 스페이스바가 지문인식 센서고, 옆에 Signal Light라는 LED가 앱별로 색이 달라짐\n5. 한국어 키보드 레이아웃도 있음 — QWERTY, AZERTY, QWERTZ, 한국어, 아랍어 지원\n6. Dimensity 8300, 256GB, microSD 2TB, 50MP OIS, Qi2 무선충전, 3.5mm 잭까지 다 있음\n7. $499(약 65만원), 올해 4분기 출시 예정 — clicks.tech에서 예약 가능\n\n(출처: Clicks 공식, Android Authority, TechCrunch, 9to5Google)",
+  "cards": [
+    {
+      "kind": "hook",
+      "img": "assets/cards/clicks_communicator_hero.jpg",
+      "title": "키보드 달린 스마트폰이 돌아온다",
+      "title_hl": ["돌아온다"],
+      "body": "Clicks Communicator. 블랙베리 전 직원이 만든 물리 QWERTY 키보드 안드로이드폰. 키보드 케이스 10만 대 판 회사가 아예 폰을 만들었다",
+      "body_hl": ["10만 대", "QWERTY"],
+      "credit": "Clicks Technology"
+    },
+    {
+      "kind": "fact",
+      "img": "assets/cards/clicks_communicator_family.jpg",
+      "title": "스페이스바가 지문인식이다",
+      "title_hl": ["지문인식"],
+      "body": "4.03인치 AMOLED + 풀 키보드. 키 30% 확대, 한국어 레이아웃 있음. Dimensity 8300, 256GB, microSD 2TB. 50MP OIS, Qi2 무선충전, 3.5mm 잭. $499(약 65만원), 올해 4분기 출시",
+      "body_hl": ["한국어", "$499", "4분기"],
+      "sub": "국내 미출시 — clicks.tech에서 직구 예약 가능",
+      "credit": "Clicks Technology"
+    }
+  ]
+}
