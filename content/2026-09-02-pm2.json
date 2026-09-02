@@ -1,0 +1,67 @@
+{
+  "title": "9월인데 열대야, 언제까지 이러냐고요? 5일만 버티세요",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "9월인데 열대야라고요? 오늘 밤입니다.",
+      "lines": [
+        ["9월인데 열대야라고요?", ["열대야"]],
+        ["오늘 밤입니다", []]
+      ],
+      "bg_query": "city night heat summer"
+    },
+    {
+      "kind": "fact",
+      "voice": "밤 최저 기온이 25도를 안 내려가면 열대야입니다. 제주는 올여름만 54일째고, 오늘 밤도 전국 곳곳이 25도를 넘깁니다.",
+      "lines": [
+        ["밤 최저 기온 25도를 안 내려가면 열대야", ["25도"]],
+        ["제주는 올여름만 54일째", []],
+        ["오늘 밤도 전국 곳곳이 25도를 넘깁니다", []]
+      ],
+      "bg_query": "thermometer hot summer night"
+    },
+    {
+      "kind": "fact",
+      "voice": "서울에서 9월 열대야는 100년에 세 번이었습니다. 그런데 2023년부터 3년 연속입니다.",
+      "lines": [
+        ["서울 9월 열대야 — 100년에 세 번", ["세 번"]],
+        ["2023년부터 3년 연속", []]
+      ],
+      "bg_query": "heat wave city skyline"
+    },
+    {
+      "kind": "fact",
+      "voice": "5일 뒤가 백로입니다. 이슬이 맺힐 만큼 서늘해진다는 절기고, 실측으로도 백로 뒤엔 아침 기온이 4도 넘게 떨어집니다.",
+      "lines": [
+        ["5일 뒤가 백로입니다", ["백로"]],
+        ["이슬이 맺힐 만큼 서늘해지는 절기", []],
+        ["실측 — 백로 뒤 아침 기온 4도↓", []]
+      ],
+      "bg_query": "morning dew grass autumn"
+    },
+    {
+      "kind": "twist",
+      "voice": "이번 주만 버티면 됩니다.",
+      "lines": [
+        ["이번 주만 버티면 됩니다", ["이번 주만"]]
+      ],
+      "bg_query": "cool autumn morning sunrise"
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://data.kma.go.kr/climate/tropicalNight/selectTropicalNightChart.do?pgmNo=105",
+    "https://www.jnuri.net/news/article.html?no=69872"
+  ],
+  "bg_query": "summer night city heat"
+}
