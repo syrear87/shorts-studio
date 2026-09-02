@@ -1,0 +1,26 @@
+{
+  "topic": "Shokz OpenFit Air 2 — 500원 동전보다 가벼운 오픈이어 이어폰, 7.2g에 소리도 안 샌다 [신제품][공유형]",
+  "caption": "이어폰 7.2g — 500원 동전보다 가볍다\n\nShokz OpenFit Air 2. 귀 안 막는 오픈이어인데 소리까지 안 샌다.\n\n500원 동전(7.7g)보다 가벼운 7.2g. 끼고 있는 줄도 모를 무게다. 귀를 완전히 열어두니 러닝할 때 차 소리가 들리고, 사무실에서 옆 사람이 말 걸어도 바로 대답된다.\n\n오픈이어 최대 약점이 소리 새는 건데, DirectPitch 기술로 음누출을 차단했다. OpenBass 2.0 듀얼 드라이버, IP55 방수, 8시간 재생 + 급속충전 10분에 3시간 추가.\n\n21만5천원. 사전예약 오늘(9/2) 마감, 내일(9/3)부터 정식 판매 (shokz.co.kr).\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 🔔\n\n#Shokz #OpenFitAir2 #오픈이어 #이어폰 #샥즈",
+  "threads_text": "이어폰 7.2g — 500원 동전보다 가볍다\n\n1. Shokz가 OpenFit Air 2를 내놨는데, 무게가 7.2g임\n2. 500원 동전이 7.7g이니까 그것보다 가벼운 이어폰\n3. 귀를 안 막는 오픈이어라 주변 소리가 들림 — 러닝하거나 사무실에서 쓰기 좋은 구조\n4. 오픈이어 최대 단점이 소리 새는 건데, DirectPitch라는 기술로 옆 사람한테 안 들리게 막았다고 함\n5. 배터리 8시간, 급속충전 10분 꽂으면 3시간 추가, IP55 방수\n6. 21만5천원, 사전예약 오늘(9/2) 마감 — 내일부터 정식 판매 (shokz.co.kr)\n\n(출처: Shokz 공식, SoundGuys, PRNewswire)",
+  "cards": [
+    {
+      "kind": "hook",
+      "img": "assets/cards/shokz_openfit_air2_hero.jpg",
+      "title": "이어폰 7.2g —\n500원 동전보다 가볍다",
+      "title_hl": ["500원 동전보다 가볍다"],
+      "body": "Shokz OpenFit Air 2. 귀 안 막는 오픈이어인데 소리까지 안 샌다. DirectPitch 음누출 차단 + OpenBass 2.0 듀얼 드라이버",
+      "body_hl": ["소리까지 안 샌다"],
+      "credit": "Shokz (공식 이미지)"
+    },
+    {
+      "kind": "fact",
+      "img": "assets/cards/shokz_openfit_air2_wearing.jpg",
+      "title": "콩나물 이어폰이 싫다면 —\n이게 답이다",
+      "title_hl": ["이게 답이다"],
+      "body": "IP55 방수 · 8시간 재생 · 급속충전 10분 = 3시간 추가 · 듀얼 마이크 AI 노이즈 리덕션. 21만5천원, 사전예약 오늘(9/2) 마감 — 내일부터 정식 판매",
+      "body_hl": ["사전예약 오늘(9/2) 마감"],
+      "sub": "shokz.co.kr",
+      "credit": "Shokz (공식 이미지)"
+    }
+  ]
+}
