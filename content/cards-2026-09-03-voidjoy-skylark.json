@@ -1,0 +1,25 @@
+{
+  "topic": "VoidJoy SkyLark S1 Pro — 스위치 조이콘이 혼자 움직이는 이유, 스틱 안에 닿는 부분이 있어서다. 그걸 없앤 컨트롤러 $49.99 [신제품]",
+  "caption": "스위치 조이콘 드리프트, 왜 생기나.\n스틱 안에 탄소 저항판이 있다. 수천 번 문지르면 닳는다.\n닳으면 저항값이 틀어진다. 조이콘이 혼자 움직인다.\n닌텐도가 소송까지 당했는데 스위치2에서도 같은 방식이다.\n\n이번에 IFA 2026에서 나온 VoidJoy SkyLark S1 Pro는 다르다.\nTMR(터널 자기저항) 센서를 썼다.\n스틱이 자석의 자기장만 읽는다 — 닿는 부분이 없다.\n닳을 게 없으니 드리프트가 구조적으로 불가능하다.\n\n113g, 두께 24mm. 주머니에 들어간다.\n스위치 · 스위치2 · PC · 안드로이드 · iOS 전부 된다.\n2.4GHz + 블루투스 + USB-C 유선 — 세 가지 연결.\n\n$49.99 (약 7만원) — JSAUX 공식몰에서 직구 가능.\n$150 이하라 관세 없음, 배송비 별도.\n검색어: VoidJoy SkyLark S1 Pro\n\n출처: JSAUX 공식 제품 페이지, TechPowerUp, PR Newswire, Windows Central\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 🔔\n\n#스위치 #조이콘드리프트 #게임패드 #IFA2026 #VoidJoy",
+  "threads_text": "스위치 조이콘 드리프트, 왜 생기나 — 스틱 안에 닿는 부분이 있어서다\n\n1. 조이콘 스틱 안에는 탄소 저항판이 들어있다\n2. 수천 번 문지르면 닳고, 닳으면 저항값이 틀어져서 혼자 움직인다\n3. 닌텐도가 소송까지 당했는데 스위치2에서도 같은 방식\n4. IFA 2026에서 나온 VoidJoy SkyLark S1 Pro는 TMR 센서를 쓴다\n5. 자석의 자기장만 읽어서 닿는 부분이 아예 없다 — 닳을 게 없으니 드리프트가 구조적으로 불가능\n6. 113g에 두께 24mm, 주머니에 넣는 크기\n7. 스위치·스위치2·PC·안드로이드·iOS 전부 호환\n8. $49.99 (약 7만원) — JSAUX 공식몰 직구, $150 이하라 관세 없음\n\n(출처: JSAUX 공식 제품 페이지, TechPowerUp, PR Newswire, Windows Central)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "조이콘이 혼자 움직이는 이유, 스틱 안에 있다",
+      "title_hl": ["혼자 움직이는 이유"],
+      "body": "탄소 저항판이 닳아서다. 이 컨트롤러는 닿는 부분 자체를 없앴다. $49.99",
+      "body_hl": ["닿는 부분 자체를 없앴다"],
+      "img": "assets/cards/voidjoy_skylark_hero.png",
+      "credit": "이미지: JSAUX / VoidJoy"
+    },
+    {
+      "kind": "fact",
+      "title": "TMR 센서 — 자기장만 읽는다, 닳을 게 없다",
+      "title_hl": ["닳을 게 없다"],
+      "body": "113g · 24mm · 스위치/스위치2/PC/안드로이드/iOS · 2.4G+BT+USB-C · JSAUX 공식몰 직구 (관세 없음)",
+      "body_hl": ["113g", "관세 없음"],
+      "img": "assets/cards/voidjoy_skylark_hand.jpg",
+      "credit": "이미지: JSAUX / TechPowerUp"
+    }
+  ]
+}
