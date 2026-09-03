@@ -1,0 +1,25 @@
+{
+  "topic": "젠하이저 MOMENTUM True Wireless 5 오늘 출시 — 429,000원, 배터리 갈아 끼우는 무선이어폰이 드디어 나왔다 [신제품][공유형]",
+  "caption": "무선이어폰은 2~3년 쓰면 배터리가 죽는다.\n교체? 안 된다. 수리? 안 된다. 새로 사는 수밖에 없었다.\n\n오늘 나온 젠하이저 MOMENTUM True Wireless 5는 배터리를 직접 갈 수 있다.\n이어폰이고 케이스고, 드라이버 하나면 된다.\n\n429,000원 — 에어팟 프로 3(349,000원)보다 8만원 비싸다.\n그 8만원에 뭐가 더 들었나?\n\n✔ 배터리 직접 교체 (업계 최초)\n✔ aptX Lossless — 유선급 음질을 무선으로\n✔ 블루투스 6.0 + 돌비 애트모스 헤드트래킹\n✔ 12시간 재생 (에어팟 프로 6시간의 2배)\n✔ IP54 방수 (에어팟 프로 IP44보다 한 등급 위)\n\n에어팟은 애플 생태계가 강점이고, 이건 음질과 수명이 강점이다.\n이어폰 2년마다 바꾸는 게 아까웠다면, 답이 나왔다.\n\n오늘(9/3) 네이버 브랜드스토어 선론칭.\n출처: Sennheiser 공식 뉴스룸, ecoustics, SoundGuys, ACROFAN\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우 🔔\n\n#젠하이저 #MOMENTUM5 #무선이어폰 #배터리교체 #신제품",
+  "threads_text": "무선이어폰, 2~3년 쓰면 배터리가 죽는다 — 오늘 나온 건 배터리만 갈면 된다\n\n1. 젠하이저 MOMENTUM True Wireless 5가 오늘 출시됐다\n2. 이어폰이고 케이스고 배터리를 직접 교체할 수 있다 — 프리미엄 무선이어폰 중 최초\n3. 429,000원인데, 에어팟 프로 3(349,000원)과 비교하면 이렇다\n4. 배터리 수명: 12시간 vs 6시간 (2배)\n5. 코덱: aptX Lossless vs AAC (음질 차이 크다)\n6. 방수: IP54 vs IP44\n7. 대신 애플 기기 연동은 에어팟이 압도적\n8. 2년마다 이어폰 새로 사는 게 아까웠다면 이게 답일 수 있다\n\n(출처: Sennheiser 공식 뉴스룸, ecoustics, SoundGuys, ACROFAN)",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "무선이어폰, 2년마다 새로 사는 시대가 끝났다",
+      "title_hl": ["2년마다"],
+      "body": "젠하이저가 오늘 출시한 이어폰, 배터리만 갈면 계속 쓴다. 429,000원",
+      "body_hl": ["배터리만 갈면"],
+      "img": "assets/cards/sennheiser_mtw5_v3.jpg",
+      "credit": "이미지: Sennheiser 공식 뉴스룸"
+    },
+    {
+      "kind": "vs",
+      "title": "429,000원 vs 349,000원 — 8만원 차이에 뭐가 다른가",
+      "title_hl": ["8만원 차이"],
+      "body": "배터리 12h vs 6h · aptX Lossless vs AAC · IP54 vs IP44 · 배터리 교체 가능 vs 불가. 대신 애플 연동은 에어팟이 압도적",
+      "body_hl": ["배터리 교체 가능 vs 불가"],
+      "img": "assets/cards/sennheiser_mtw5_case_v2.jpg",
+      "credit": "이미지: Sennheiser 공식 뉴스룸"
+    }
+  ]
+}
