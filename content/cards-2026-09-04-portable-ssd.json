@@ -1,0 +1,26 @@
+{
+ "topic": "외장 SSD — 아이클라우드 2년 구독료가 1TB SSD 한 개 값이다, 용량은 5배 [구매가능][공유형]",
+ "caption": "아이클라우드 200GB, 2년이면 10만원 나간다 — 같은 돈이면 1TB SSD를 산다\n\n매달 4,400원이라 안 아픈 것 같은데, 24개월 누적하면 105,600원.\n같은 돈이면 외장 SSD 1TB를 산다. 용량은 5배.\n\nUSB-C 포트가 있는 폰이면 케이블 하나로 바로 연결된다.\n아이폰 15 이후 USB-C, 갤럭시는 원래부터.\n파일 앱(iOS) 또는 내 파일(안드로이드)에서 사진 통째로 옮기면 끝.\n\n주의 하나 — 포맷이 exFAT이어야 아이폰·윈도우·맥 전부 인식한다.\nNTFS면 아이폰과 맥에서 안 읽힌다.\n\n클라우드는 싱크와 자동 백업이 편하지만, 사진 정리용이면 SSD가 가성비로 이긴다.\n\n(출처: Apple 공식 iCloud+ 요금 안내, Crucial 제품 사양, Apple 지원 문서)\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우\n\n#외장SSD #아이클라우드 #클라우드구독 #포터블SSD #테크팁",
+ "threads_text": "아이클라우드 200GB, 2년이면 10만원 나간다 — 같은 돈이면 1TB SSD를 산다\n\n1. 매달 4,400원이 안 아파 보이는데 24개월 곱하면 105,600원임\n2. 같은 돈이면 외장 SSD 1TB를 삼 — 용량은 5배\n3. USB-C 있는 폰이면 케이블 꽂고 파일 앱에서 사진 옮기면 끝 — 아이폰 15 이후, 갤럭시는 원래부터 됨\n4. 포맷만 exFAT으로 해두면 아이폰·맥·윈도우 전부 인식함 — NTFS면 아이폰이 못 읽음\n5. 클라우드는 싱크가 편한 거고, 사진 정리 백업용이면 SSD가 압도적으로 이김\n\n(출처: Apple 공식 iCloud+ 요금 안내, Crucial 제품 사양)",
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/portable_ssd_desk1.jpg",
+   "title": "아이클라우드 2년 = 외장 SSD 1TB",
+   "title_hl": ["SSD 1TB"],
+   "body": "200GB 월 4,400원 — 24개월이면 105,600원. 같은 돈이면 SSD 1TB를 산다. 용량은 5배",
+   "body_hl": ["105,600원", "5배"],
+   "credit": "Pexels / Avinash Kumar"
+  },
+  {
+   "kind": "fact",
+   "img": "assets/cards/portable_ssd_usbc1.jpg",
+   "title": "USB-C로 폰에 꽂으면 바로 된다",
+   "title_hl": ["바로 된다"],
+   "body": "아이폰 15 이후 USB-C라 외장 SSD 바로 연결. 갤럭시도 원래부터 가능. 포맷만 exFAT으로 맞추면 끝",
+   "body_hl": ["exFAT"],
+   "sub": "한 번 사면 구독료는 영원히 안 나간다",
+   "credit": "Pexels / Juan Gomez"
+  }
+ ]
+}
