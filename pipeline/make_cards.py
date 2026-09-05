@@ -283,6 +283,28 @@ def render(script_path):
     except Exception as _e:
         print("경고: 문화 게이트 실행 실패(무해, 통과 처리):", str(_e)[:120], flush=True)
 
+    # 가격 게이트 (2026-09-06 신설, shadow). 훅에 박힌 국내가가 근거 없이 나가는 걸 막는다 —
+    # 9/4 SSD 편이 사양서 가격을 실거래처럼 훅에 썼고 답글 20건 중 9건이 반박이었다.
+    # 기본은 경고만이다. PRICE_GATE_ENFORCE=1일 때만 실제로 막는다(오탐률 재고 나서 켠다).
+    try:
+        from price_gate import check as _pcheck, enforcing as _penf
+        _v, _fails, _warns = _pcheck(s)
+        for _w in _warns:
+            print("가격 게이트 ⚠ %s" % _w, flush=True)
+        if _v == "reject":
+            _msg = "가격 게이트: 훅의 국내가 근거가 부족하다\n" + "\n".join("  · " + f for f in _fails)
+            if _penf():
+                sys.exit("기각: " + _msg)
+            print("가격 게이트 [shadow] %s" % _msg, flush=True)
+            print("  → 지금은 경고만이다. claims[]·rebuttals[]를 채워라 "
+                  "(CARD_PROMPT §가격 게이트). 9/20부터 실제로 막힌다.", flush=True)
+        else:
+            print("가격 게이트 통과", flush=True)
+    except SystemExit:
+        raise
+    except Exception as _e:
+        print("경고: 가격 게이트 실행 실패(무해, 통과 처리):", str(_e)[:120], flush=True)
+
     print("완료: %d장 → %s" % (total, out_dir))
     return paths
 
