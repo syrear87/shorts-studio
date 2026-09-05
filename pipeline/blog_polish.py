@@ -51,13 +51,16 @@ def demote_markdown(html):
     실측상 새는 건 `**볼드**` 하나뿐이었다(86편 전수). 다른 문법은 안 나왔으므로
     넓게 잡지 않는다 — 정규식이 넓으면 본문의 별표(곱셈·각주)까지 먹는다.
     """
-    return re.sub(r"\*\*([^*\n]{1,120})\*\*",
+    # 같은 줄에 짝 없는 ** 둘(각주·거듭제곱)이 있으면 엉뚱하게 묶인다 — 공백으로 시작·끝나는
+    # 구간은 볼드가 아니다(마크다운 규칙)
+    return re.sub(r"\*\*(?!\s)([^*\n]{1,120}?)(?<!\s)\*\*",
                   '<strong style="%s">\\1</strong>' % STRONG_STYLE, html)
 
 
 def _subject(title):
     """제목에서 이미지 alt로 쓸 주어를 뽑는다 — 'Brand Model: 설명' 꼴이 많다."""
-    t = re.split(r"[:—\-–]", title.strip())[0].strip()
+    # 공백 없는 하이픈은 모델명이다 — "USB-C 케이블"이 "USB"로 잘렸다(2026-09-06 감사)
+    t = re.split(r"\s*[:—–]\s*|\s-\s", title.strip())[0].strip()
     if len(t) < 3 or len(t) > 40:
         t = title.strip()[:40]
     return t
@@ -79,7 +82,11 @@ def fill_alt(html, title, credit_as_alt=True):
         c = re.search(r"<figcaption[^>]*>(.*?)</figcaption>", tail, re.S)
         if c and credit_as_alt:
             cred = re.sub(r"<[^>]+>", "", c.group(1)).strip()[:40]
-        alt = "%s — %s" % (subj, cred) if cred else subj
+        # 스톡 사진에 제품명을 박으면 그 사진이 그 제품인 줄 읽힌다 — 일반형으로 쓴다.
+        if cred and re.search(r"pexels|unsplash|픽사베이|pixabay", cred, re.I):
+            alt = "%s 관련 이미지 — %s" % (subj, cred)
+        else:
+            alt = "%s — %s" % (subj, cred) if cred else subj
         alt = alt.replace('"', "'")
         return whole.replace('alt=""', 'alt="%s"' % alt)
 

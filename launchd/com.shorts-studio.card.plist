@@ -25,12 +25,6 @@
 		</dict>
 		<dict>
 			<key>Hour</key>
-			<integer>10</integer>
-			<key>Minute</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>Hour</key>
 			<integer>12</integer>
 			<key>Minute</key>
 			<integer>0</integer>

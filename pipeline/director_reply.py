@@ -151,8 +151,17 @@ def drain():
             base = int(open(OFF).read().strip() or 0)
         except Exception:
             base = 0
+    size = _size()
+    if size < base:
+        # 파일이 줄었다(테스트 줄 제거 등). _consume은 0으로 리셋해 **옛 메시지 전부를 새 지시로**
+        # 되살린다 — 2026-09-06 00:10 실사고: 그대로 두면 09:00 세션이 8월 잔재 14건을 받았다.
+        # 줄어든 파일은 EOF를 기준점으로 삼고 새 것만 기다린다.
+        _write_off(size)
+        print("[director_reply] 로그가 줄었다 — 기준점을 EOF로 맞춤(옛 메시지 재배달 방지)", flush=True)
+        return []
     msgs, new_off, _tail = _consume(base)
     _write_off(new_off)
+    msgs = [m for m in msgs if str(m or "").strip()]      # 사진·파일만 온 빈 메시지는 지시가 아니다
     if not msgs:
         print("[director_reply] 새 지시 없음", flush=True)
         return []

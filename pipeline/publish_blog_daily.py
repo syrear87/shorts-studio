@@ -42,7 +42,8 @@ def _save(d):
 
 
 def run(per_day=PER_DAY, force=False, dry=False):
-    from upload_blogger import _service, resolve_blog_id
+    from upload_blogger import _service, resolve_blog_id, _dry
+    dry = dry or _dry()          # DRY_RUN=1 환경변수도 dry다 (2026-09-06) — 공개·삭제가 실제로 나가는 경로
     today = datetime.date.today().isoformat()
     st = _stamp()
     if st.get("date") == today and not force:

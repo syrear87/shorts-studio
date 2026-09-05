@@ -45,6 +45,23 @@ PROMPT = """당신은 한국어 테크 블로그 글을 쓴다. 아래 원고를
    공개된 자료를 정리하는 입장으로 쓴다.
 3. 원고에 출처가 있으면 글 끝에 그대로 밝힌다. 없는 출처를 지어내지 마라.
 4. 광고 문구를 쓰지 마라. 판단은 독자가 한다.
+5. **판매 유도 어법 금지** (2026-09-06 디렉터: "무조건 이거 사야해 유도하지 말고 테크 정보를
+   전달하는 게 목적인 것처럼 보여야 함"): "무조건 사야" · "안 사면 손해" · "사야 합니다" ·
+   "강추" · "필수템" · "품절 전에" · "꼭 사세요" 금지.
+   대신 이렇게 쓴다 — "이런 게 있다" · "이럴 때 쓴다" · "고를 때 볼 것".
+6. **대결 구도 금지 — 「A보다 B가 낫다」로 쓰지 마라** (2026-09-06 디렉터 지정):
+   독자는 이미 A를 쓰고 있다. 그 선택을 틀렸다고 말하면 반박을 부른다.
+   ✗ "클라우드 대신 SSD" → ✓ "클라우드를 쓰는데 용량이 모자라면 이런 대안도 있다".
+   어느 쪽이 낫다는 **판정을 넣지 마라.** 조건("이럴 땐 이쪽")으로 쓴다.
+   자가검증: 이 문장이 **누구의 선택을 틀렸다고 말하나** — 답이 나오면 그 사람이 반박 댓글이다.
+7. **가격은 기준을 밝혀라.** 원고에 가격이 있으면 "○○ 기준 N원(YYYY-MM-DD 조회)"처럼
+   **판매처와 조회 시점**을 함께 쓴다. 원고에 판매처·시점이 없으면 **가격을 결론이나 제목에
+   쓰지 마라** — 본문에서 "원고 기준"이라고 밝히고 한 번만 언급한다.
+   (2026-09-04 사고: 사양서 가격을 실거래처럼 썼다가 정정했다. 블로그 글은 검색에 오래 남아
+   회수가 더 어렵다.)
+8. **국내 미출시 제품이면 세 가지에 답하라**: ①직구 총액(관세·배송 포함) ②지금 국내에서 살 수
+   있는 대안(없으면 "국내에 대체품 없음") ③국내 출시 전망("미정"도 답이다).
+   원고에 없는 내용을 지어내지 말고, 없으면 "원고에 정보 없음"이라고 쓴다.
 
 # 글 구조
 - 도입 2~3문장: 독자가 겪는 상황을 짚는다. 과장 금지.
@@ -329,7 +346,11 @@ def build(meta, blog_link=True):
                 '<p><span style="color:#888;font-size:0.9em;">%s</span></p>'
                 % (url, name, DISCLOSURE)
             )
-    return {"title": title, "html": html,
+    # 후처리는 여기서 — CLI(main)뿐 아니라 blog_autogen(운영 경로)도 build()를 쓴다.
+    # 2026-09-06 감사: polish가 main()에만 있어 실제 발행되는 글엔 적용되지 않고 있었다.
+    from blog_polish import polish
+    html, labels = polish(html, title, tags=(meta or {}).get("tags") or ())
+    return {"title": title, "html": html, "labels": labels,
             "new_numbers": fact_check(text_only, origin), "product": product}
 
 
@@ -374,10 +395,8 @@ def main():
         # 후처리 (2026-09-06): 마크다운 잔재를 HTML로 내리고, 빈 alt를 채우고,
         # 제품군 라벨을 붙인다. 공개 86편 전수에서 마크다운 7편·alt 공백 75편·
         # 라벨 없음 54편이 나왔다 — 발행 직전 한 곳에서 정리한다.
-        from blog_polish import polish
-        html, labels = polish(r["html"], r["title"], tags=(meta or {}).get("tags") or ())
-        print("후처리: 라벨 %s" % " / ".join(labels), flush=True)
-        res = publish(r["title"], html, labels=labels,
+        print("후처리: 라벨 %s" % " / ".join(r["labels"]), flush=True)
+        res = publish(r["title"], r["html"], labels=r["labels"],
                       draft="--publish" not in sys.argv)
         print("%s: %s" % ("공개 발행" if res["status"] == "live" else "초안 저장",
                           res["url"] or res["id"]))

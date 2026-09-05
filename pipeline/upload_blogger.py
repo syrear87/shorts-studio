@@ -67,6 +67,12 @@ def resolve_blog_id(blog_id=None):
              "\n".join("  %s  %s  %s" % b for b in found))
 
 
+def _dry():
+    """DRY_RUN=1이면 Blogger API에 쓰지 않는다 (2026-09-06, upload_threads 선례).
+    2026-09-05 'x' 게시 실사고 — 검증용 호출이 라이브에 나갔다. 블로그만 이 가드가 없었다."""
+    return os.environ.get("DRY_RUN") in ("1", "true", "True")
+
+
 def publish(title, html, labels=(), blog_id=None, draft=True):
     """글 발행 → 결과 dict. draft=True면 초안으로만 저장한다(기본).
 
@@ -76,6 +82,9 @@ def publish(title, html, labels=(), blog_id=None, draft=True):
         raise ValueError("제목이 비었다")
     if not (html or "").strip():
         raise ValueError("본문이 비었다")
+    if _dry():
+        print("[blogger][DRY_RUN] insert 생략: %r (%s, labels=%s)" % (title[:40], "draft" if draft else "LIVE", list(labels)), flush=True)
+        return {"id": "dry", "url": None, "status": "dry", "blog_id": blog_id}
     svc = _service()
     bid = resolve_blog_id(blog_id)
     body = {"title": title, "content": html}
@@ -100,6 +109,9 @@ def update(post_id, title=None, html=None, labels=None, blog_id=None):
 
     None인 항목은 건드리지 않는다 — 부분 수정이 기본이다.
     """
+    if _dry():
+        print("[blogger][DRY_RUN] update 생략: post %s" % post_id, flush=True)
+        return {"id": str(post_id), "url": None, "blog_id": blog_id}
     svc = _service()
     bid = resolve_blog_id(blog_id)
     cur = svc.posts().get(blogId=bid, postId=str(post_id)).execute()

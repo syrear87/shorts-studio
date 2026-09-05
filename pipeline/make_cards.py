@@ -142,6 +142,37 @@ def render(script_path):
     except Exception as _ie:
         print("경고: 이미지 재사용 검사 실패(무해, 통과):", str(_ie)[:100], flush=True)
 
+    # 판매 유도 어법은 caption 없이도 검사한다 — 스레드 전용 카드는 caption이 없을 수 있고,
+    # 그때 게이트가 통째로 건너뛰어졌다(2026-09-06 감사).
+    # 판매 유도 어법 게이트 (2026-09-06 디렉터 지시: "무조건 이거 사야해 유도하지 말고,
+    # 테크 정보를 전달하는 게 목적인 것처럼 보여야 함"). 우리는 무엇인지 알려주고
+    # 판단은 독자가 한다 — 사고 싶어지는 건 결과여야지 목적이면 안 된다.
+    # 해시태그는 검사에서 뺀다(#여름필수템 같은 통용 태그까지 걸린다).
+    # 카드 145장 전수에서 걸린 건 1장뿐이라 바로 기각으로 건다 — 고치는 값이 싸다.
+    # 2026-09-06 감사 반영: 부정형("무조건 사지 마라")은 정보 문장이라 빼고,
+    # 실제로 흔한 권유형("사세요·꼭 사라·구매 필수·놓치면 후회")을 넣었다.
+    _push = [(r"무조건\s*사(?!지\s*(마|말))", "무조건 사라"),
+             (r"안\s*사면\s*(손해|후회)", "안 사면 손해"),
+             (r"사야\s*(함|합니다|해요|한다|됨|돼)(?![가-힣])", "사야 한다"),
+             (r"강\s*추(?!천\s*(하지|안))", "강추"), (r"품절\s*전에", "품절 전에"),
+             (r"지금\s*(바로\s*)?담(아|으세요|기)", "장바구니 담기"),
+             (r"필수\s*템|구매\s*필수|필수\s*아이템", "필수템"),
+             (r"(?<!지 )(?<!지)사세요", "사세요"),
+             (r"사\s*두(세요|자)", "사두세요"),
+             (r"꼭\s*사(라|세요|야)", "꼭 사라"),
+             (r"놓치(면 후회|지 마세요|지 마라)", "놓치면 후회")]
+    _blob = re.sub(r"#\S+", " ", " ".join(
+        [s.get("topic", ""), s.get("caption", ""), s.get("threads_text", "")] +
+        [str(c.get(k, "")) for c in cards for k in ("title", "body", "sub")]))
+    for _pat, _name in _push:
+        _m = re.search(_pat, _blob)
+        if _m:
+            sys.exit("기각: 판매 유도 어법 「%s」 — %r\n"
+                     "  우리는 정보를 전하는 채널이지 파는 채널이 아니다"
+                     "(CARD_PROMPT §정보를 전하는 채널).\n"
+                     "  ✓ 이렇게 써라: \"이런 게 있다\" · \"이럴 때 쓴다\" · \"고를 때 볼 것\""
+                     % (_name, _blob[max(0, _m.start() - 24):_m.end() + 16].strip()))
+
     cap = s.get("caption", "")
     if cap:
         if any(l.strip().startswith("태그:") for l in cap.splitlines()):
@@ -149,28 +180,6 @@ def render(script_path):
         n_tags = cap.count("#")
         if not (3 <= n_tags <= 7):
             sys.exit("기각: 캡션 해시태그 %d개 — 3~7개(권장 5) 범위 밖" % n_tags)
-        # 판매 유도 어법 게이트 (2026-09-06 디렉터 지시: "무조건 이거 사야해 유도하지 말고,
-        # 테크 정보를 전달하는 게 목적인 것처럼 보여야 함"). 우리는 무엇인지 알려주고
-        # 판단은 독자가 한다 — 사고 싶어지는 건 결과여야지 목적이면 안 된다.
-        # 해시태그는 검사에서 뺀다(#여름필수템 같은 통용 태그까지 걸린다).
-        # 카드 145장 전수에서 걸린 건 1장뿐이라 바로 기각으로 건다 — 고치는 값이 싸다.
-        _push = [(r"무조건\s*사", "무조건 사라"), (r"안\s*사면\s*손해", "안 사면 손해"),
-                 (r"사야\s*(함|합니다|해요|한다)(?![가-힣])", "사야 한다"),
-                 (r"강\s*추(?![가-힣])", "강추"), (r"품절\s*전에", "품절 전에"),
-                 (r"지금\s*(바로\s*)?담(아|으세요|기)", "장바구니 담기"),
-                 (r"필수\s*템", "필수템"), (r"안\s*사면\s*후회", "안 사면 후회")]
-        _blob = re.sub(r"#\S+", " ", " ".join(
-            [s.get("topic", ""), cap, s.get("threads_text", "")] +
-            [str(c.get(k, "")) for c in cards for k in ("title", "body", "sub")]))
-        for _pat, _name in _push:
-            _m = re.search(_pat, _blob)
-            if _m:
-                sys.exit("기각: 판매 유도 어법 「%s」 — %r\n"
-                         "  우리는 정보를 전하는 채널이지 파는 채널이 아니다"
-                         "(CARD_PROMPT §정보를 전하는 채널).\n"
-                         "  ✓ 이렇게 써라: \"이런 게 있다\" · \"이럴 때 쓴다\" · \"고를 때 볼 것\""
-                         % (_name, _blob[max(0, _m.start() - 24):_m.end() + 16].strip()))
-
         if len(cap) > 2200:
             sys.exit("기각: 캡션 %d자 — 2200자 초과" % len(cap))
 
@@ -327,6 +336,13 @@ def render(script_path):
     except Exception as _e:
         print("경고: 가격 게이트 실행 실패(무해, 통과 처리):", str(_e)[:120], flush=True)
 
+    # 렌더 통과 정본 (2026-09-06): 모든 게이트를 지난 카드만 여기 적힌다. blog_autogen이
+    # 이 목록을 본다 — 종전엔 make_cards가 기각한 카드도 cards-*.json만 있으면 블로그 글이 됐다.
+    try:
+        with open(os.path.join(ROOT, "logs", "cards_ok.txt"), "a", encoding="utf-8") as _f:
+            _f.write(os.path.basename(script_path) + "\n")
+    except Exception:
+        pass
     print("완료: %d장 → %s" % (total, out_dir))
     return paths
 

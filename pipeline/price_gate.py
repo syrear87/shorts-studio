@@ -38,13 +38,19 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 정밀 국내가 — 쉼표가 박힌 금액만 '확인했다는 주장'으로 본다.
 # "19,900원"은 어느 판매처에서 본 값이지만 "2만원"은 어림이다.
 PRECISE_KRW = re.compile(r"(\d{1,3}(?:,\d{3})+)\s*원")
+# 어림 금액 — "10만원"·"2만원"·"3만 원". 단정이 아니라 어림이므로 **혼자서는** 걸지 않지만,
+# 등가 훅·대결 구도와 결합하면 근거를 요구한다. 2026-09-04 SSD 사고의 원문이 정확히
+# 「2년이면 10만원 나간다」였다 — 쉼표가 없어 종전 게이트를 그대로 통과했다.
+ROUND_KRW = re.compile(r"(\d{1,4})\s*만\s*원")
+# 등호 없는 등가 표현 — "="만 찾으면 사고 원문 「한 개 값이다」가 빠져나간다
+EQ_WORDS = ("＝", "≒", "≈", "한 개 값", "값이다", "같은 값", "똑같다", "맞먹", "와 같다", "과 같다")
 # 어림 표현 — 뒤에 이런 말이 붙으면 단정이 아니다
 HEDGE = ("이상", "부터", "안팎", "쯤", "정도", "내외", "대(", "대부터", "선", "가량", "남짓", "약")
 # 해외가 — 국내 실거래 주장이 아니다
 FOREIGN = re.compile(r"[$€£¥]|\bUSD\b|달러|유로|엔화|위안")
 # 대결 구도 — 가격을 무기로 비교하는 훅
-VERSUS = ("vs", "VS", "같은 돈이면", "보다 싸", "보다 비싸", "한 개 값", "값이다",
-          "절반 값", "돈이면", "차이다", "차이난다")
+VERSUS = ("vs", "VS", "같은 돈이면", "보다 싸", "보다 비싸", "절반 값", "돈이면",
+          "차이다", "차이난다")   # '한 개 값'·'값이다'는 EQ_WORDS로 옮겼다 — 등가는 대결의 강한 형태
 # 등가 훅 — "A = B" 또는 "A값이 곧 B"
 EQUATION = re.compile(r"[^\s=]{2,}\s*=\s*[^\s=]{2,}")
 
@@ -72,21 +78,38 @@ def hook_layer(d):
     return out
 
 
+_HEDGE_TAIL = re.compile(r"\s*(이상|부터|안팎|쯤|정도|내외|가량|남짓|대(?![가-힣])|선(?![가-힣]))")
+_HEDGE_HEAD = re.compile(r"(약|대략|어림잡아|한)\s*$")
+
+
 def _hedged(text, pos, end):
-    """그 금액 바로 뒤에 어림 표현이 붙었는가."""
-    tail = text[end:end + 6]
-    return any(tail.lstrip().startswith(h) for h in HEDGE)
+    """그 금액 앞뒤에 어림 표현이 붙었는가. 낱말 경계를 본다 —
+    종전엔 접두 검사만 해서 '19,900원 선착순'의 '선'을 어림으로 읽고(미탐),
+    '약 19,900원'은 앞의 '약'을 못 봐 정밀가로 읽었다(오탐). 2026-09-06 감사."""
+    return bool(_HEDGE_TAIL.match(text[end:]) or _HEDGE_HEAD.search(text[:pos]))
 
 
-def domestic_prices(text):
-    """훅 문장에서 '확인했다는 주장'으로 읽히는 국내가만 뽑는다."""
+def domestic_prices(text, rough=False):
+    """훅 문장의 국내가. rough=True면 어림 금액("10만원")도 포함한다.
+
+    기본은 정밀가(쉼표)만이다 — 어림가에 매번 판매처 근거를 요구하면 결번이 난다.
+    다만 **등가·대결 훅과 결합할 때는 어림가도 주장**이다. SSD 편이 그랬다."""
     if FOREIGN.search(text):
         return []
     out = []
     for m in PRECISE_KRW.finditer(text):
         if not _hedged(text, m.start(), m.end()):
             out.append(m.group(1))
+    if rough:
+        for m in ROUND_KRW.finditer(text):
+            if not _hedged(text, m.start(), m.end()):
+                out.append(m.group(0).replace(" ", ""))
     return out
+
+
+def _won(p):
+    """어림가는 이미 '원'을 달고 온다 — '10만원원'이 되지 않게."""
+    return p if p.endswith("원") else p + "원"
 
 
 def check_claims(d, prices):
@@ -100,15 +123,15 @@ def check_claims(d, prices):
                 hit = c
                 break
         if hit is None:
-            missing.append("%s원 — claims[]에 근거 없음" % p)
+            missing.append("%s — claims[]에 근거 없음" % _won(p))
             continue
         if hit.get("price_basis") not in BASIS_OK:
-            missing.append("%s원 — price_basis가 %r (판매처/공식가/해외가 중 하나여야)"
-                           % (p, hit.get("price_basis")))
+            missing.append("%s — price_basis가 %r (판매처/공식가/해외가 중 하나여야)"
+                           % (_won(p), hit.get("price_basis")))
         if not hit.get("price_checked"):
-            missing.append("%s원 — price_checked(확인 날짜) 없음" % p)
+            missing.append("%s — price_checked(확인 날짜) 없음" % _won(p))
         if not hit.get("source"):
-            missing.append("%s원 — source(확인한 판매처 URL) 없음" % p)
+            missing.append("%s — source(확인한 판매처 URL) 없음" % _won(p))
     return missing
 
 
@@ -167,23 +190,26 @@ def check(d):
 
     # ① 등가 훅 — 즉시 기각. 단 **훅 층에 돈 얘기가 있을 때만** 값의 등식으로 읽는다.
     hook_text = " ".join(t for _, t in hooks)
-    money_ctx = bool(PRECISE_KRW.search(hook_text)) or any(w in hook_text for w in PRICE_WORD)
+    # '원'을 부분문자열로 보면 원래·원인·직원·원룸·복원이 전부 돈 얘기가 된다(훅 층 13장 오탐).
+    money_ctx = bool(PRECISE_KRW.search(hook_text) or ROUND_KRW.search(hook_text)
+                     or re.search(r"[\d만천억]\s*원(?![가-힣])", hook_text)
+                     or any(w in hook_text for w in PRICE_WORD if w != "원"))
     for where, t in hooks:
+        if FOREIGN.search(t):
+            continue
         m = EQUATION.search(t)
-        if m and money_ctx and not FOREIGN.search(t):
+        eqw = next((w for w in EQ_WORDS if w in t), None)
+        if (m or eqw) and money_ctx:
+            shown = m.group(0)[:44] if m else eqw
             fails.append("등가 훅 (%s): %r — 두 값이 같다는 주장은 양쪽 실거래가 "
                          "다 맞아야 성립한다. 한쪽만 틀리면 훅 전체가 거짓이 된다."
-                         % (where, m.group(0)[:44]))
+                         % (where, shown))
 
     # ② 근거 없는 국내가
-    prices, versus_hit = [], False
-    for where, t in hooks:
-        p = domestic_prices(t)
-        if p:
-            prices += p
-        if any(v in t for v in VERSUS):
-            versus_hit = True
-    prices = sorted(set(prices))
+    versus_hit = any(any(v in t for v in VERSUS) or any(w in t for w in EQ_WORDS)
+                     or EQUATION.search(t) for _, t in hooks)
+    # 대결·등가 훅이면 어림가("10만원")도 주장으로 본다 — SSD 편의 오류가 정확히 거기 있었다.
+    prices = sorted(set(p for _, t in hooks for p in domestic_prices(t, rough=versus_hit)))
     if prices and (buyable or versus_hit):
         why = "[구매가능]" if buyable else "대결 구도"
         for msg in check_claims(d, prices):

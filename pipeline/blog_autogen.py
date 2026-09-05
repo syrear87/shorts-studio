@@ -14,6 +14,7 @@
 import glob
 import json
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -60,6 +61,14 @@ def _mark(name):
         f.write(name + "\n")
 
 
+def _rendered_ok():
+    p = os.path.join(ROOT, "logs", "cards_ok.txt")
+    try:
+        return set(l.strip() for l in open(p, encoding="utf-8") if l.strip())
+    except Exception:
+        return set()
+
+
 def pending():
     """아직 블로그 글이 없는 테크 카드 목록 (최신순)."""
     from blog_gate import judge
@@ -69,6 +78,11 @@ def pending():
     for f in sorted(glob.glob(os.path.join(ROOT, "content", "cards-*.json")), reverse=True):
         name = os.path.basename(f)
         if name in done or fails.get(name, 0) >= MAX_FAIL:
+            continue
+        # 2026-09-06부터의 카드는 make_cards 게이트를 **통과한 것만** 블로그로 간다(logs/cards_ok.txt).
+        # 그 전 카드는 정본이 없어 그대로 둔다 — 없는 기록으로 과거를 막으면 공급이 끊긴다.
+        m = re.search(r"(\d{4}-\d{2}-\d{2})", name)
+        if m and m.group(1) >= "2026-09-06" and name not in _rendered_ok():
             continue
         try:
             with open(f, encoding="utf-8") as fh:
@@ -132,7 +146,7 @@ def run(limit=MAX_PER_RUN):
                       % (name[6:-5], hit.split("  ")[0][:34], ", ".join(words[:5])), flush=True)
                 continue
             r = build(meta)
-            publish(r["title"], r["html"], labels=["IT·테크"], draft=True)
+            publish(r["title"], r["html"], labels=r.get("labels") or ["IT·테크"], draft=True)
             _mark(name)                       # 성공한 것만 기록 — 실패는 다음 슬롯에서 재시도
             titles.append(r["title"])         # 같은 실행 안에서도 중복이 나지 않게
             made += 1
