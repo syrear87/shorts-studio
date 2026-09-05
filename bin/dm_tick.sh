@@ -30,7 +30,10 @@ _run_capped() {  # _run_capped <초> <명령...>
   fi
   return $rc
 }
-_run_capped 300 .venv/bin/python3 pipeline/comment_dm.py
+# 2026-09-05 중단: 댓글→DM 자동화는 **인스타 댓글**을 폴링하는데, 9/3부터 카드가
+# 인스타에 안 나가면서(CARD_TO_IG=False) 유입 경로 자체가 사라졌다. 누적 발송 0건.
+# 10분마다 도는 빈 폴링이라 껐다. 카드를 인스타로 되돌리면 이 줄을 살린다.
+# _run_capped 300 .venv/bin/python3 pipeline/comment_dm.py
 _run_capped 300 .venv/bin/python3 pipeline/affiliate_bot.py --once
 # 디스크 위생 — 하루 1회 가드는 janitor.sh 내부가 소유 (2026-08-23 리뷰: 커플링 제거)
 _run_capped 300 bash bin/janitor.sh >> logs/janitor.log 2>&1

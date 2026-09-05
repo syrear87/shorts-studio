@@ -20,7 +20,9 @@ sys.path.insert(0, os.path.join(ROOT, "pipeline"))
 STAMP = os.path.join(ROOT, "logs", "blog_published.json")
 # 하루 발행 편수. 최근 7일 실측 공급이 7.7편/일(카드 8.0장 중 테크 게이트 통과분)이라
 # 5편으로는 매일 2.7편씩 적체가 늘어난다. 8편이면 신규를 소화하면서 밀린 초안도 조금씩 준다.
-PER_DAY = 8
+# 2026-09-05 어벤져스 권고: 하루 8편 자동 발행은 구글 scaled content abuse 프로필이다
+# (86편이 동일 H2 골격·alt 공백 75편). 색인·애드센스 심사 전까지 3편으로 낮춘다.
+PER_DAY = 3
 
 
 def _stamp():
