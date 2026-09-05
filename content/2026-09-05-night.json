@@ -1,0 +1,79 @@
+{
+  "title": "아직 낮에 30도인데, 밤은 이미 가을입니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": 7425994,
+      "voice": "모레부터 가을입니다. 아직 낮에 30도입니다.",
+      "lines": [
+        ["모레부터 가을입니다", ["가을"]],
+        ["아직 낮에 30도입니다", ["30도"]]
+      ]
+    },
+    {
+      "kind": "body",
+      "bg": 5984514,
+      "voice": "내일 모레가 백로입니다. 밤이 차가워져 풀잎에 이슬이 맺힌다는 뜻입니다.",
+      "lines": [
+        ["내일 모레가 백로입니다", ["백로"]],
+        ["밤이 차가워져", []],
+        ["풀잎에 이슬이 맺힌다는 뜻", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 31585787,
+      "voice": "서울 마지막 열대야는 8월 8일이었습니다. 17일 연속 열대야 뒤, 밤 기온이 25도 아래로 내려왔습니다.",
+      "lines": [
+        ["서울 마지막 열대야", []],
+        ["8월 8일이었습니다", ["8월 8일"]],
+        ["밤 기온이 25도 아래로", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 19320970,
+      "voice": "아침 16도, 낮 30도입니다. 하루에 14도가 바뀌는, 일교차가 가장 큰 구간입니다.",
+      "lines": [
+        ["아침 16도, 낮 30도", []],
+        ["하루에 14도가 바뀌는", ["14도"]],
+        ["일교차가 가장 큰 구간", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 18997337,
+      "voice": "이슬은 맑은 밤에만 맺힙니다. 구름이 있으면 지표가 안 식습니다.",
+      "lines": [
+        ["이슬은 맑은 밤에만", ["맑은 밤"]],
+        ["구름이 있으면", []],
+        ["지표가 안 식습니다", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 8928309,
+      "voice": "모레 아침 풀잎이 젖어 있으면, 여름은 진짜 끝난 겁니다. 낮은 아직 덥지만, 밤은 이미 가을입니다.",
+      "lines": [
+        ["모레 아침 풀잎이 젖어 있으면", []],
+        ["여름은 끝난 겁니다", ["끝난"]],
+        ["밤은 이미 가을입니다", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": 4364525,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://astro.kasi.re.kr/life/post/almanac",
+    "https://www.weather.go.kr/w/forecast/overall/mid-term.do",
+    "https://data.kma.go.kr/stcs/grnd/grndTaList.do"
+  ],
+  "bg_query": ["thermometer summer heat sun sky", "morning dew grass closeup drops", "city night heat tropical summer skyline", "autumn morning cold jacket sunrise street", "clear starry night sky field", "wet green grass sunrise autumn dew", "sunset clouds warm light"]
+}
