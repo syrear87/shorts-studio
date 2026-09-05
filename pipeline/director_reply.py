@@ -134,6 +134,34 @@ def collect(seconds=120, poll=5):
     return msgs
 
 
+def drain():
+    """읽지 않은 디렉터 지시를 전부 꺼내고 오프셋을 전진시킨다. 기다리지 않는다.
+
+    왜 mark/collect를 대체하나 (2026-09-06, 어벤져스 실행안 항목 12):
+      mark→준비작업→collect 3단 의식은 **그 슬롯 안에서 보낸 지시만** 잡는다.
+      슬롯이 끝난 뒤(예: 22시)에 디렉터가 쓴 지시는 다음 슬롯이 mark로 기준점을
+      다시 찍으면서 건너뛰어 **유실됐다.** drain은 오프셋 하나만 보므로 언제 온
+      지시든 다음 슬롯이 반드시 읽는다. 대기도 없다 — 있으면 주고 없으면 빈손이다.
+
+    슬롯 세션은 착수 직후 한 번, 게시 직전 한 번 부르면 된다.
+    """
+    base = 0
+    if os.path.exists(OFF):
+        try:
+            base = int(open(OFF).read().strip() or 0)
+        except Exception:
+            base = 0
+    msgs, new_off, _tail = _consume(base)
+    _write_off(new_off)
+    if not msgs:
+        print("[director_reply] 새 지시 없음", flush=True)
+        return []
+    print("[director_reply] 디렉터 지시 %d건 — 최우선으로 반영하라" % len(msgs), flush=True)
+    for m in msgs:
+        print("  ▶ " + str(m).replace("\n", " ")[:400], flush=True)
+    return msgs
+
+
 def wait(seconds=180, poll=5):
     """구형 단일 호출 — 지금 이후 도착분만 대기(오프셋 미영속). 새 코드는 mark/collect를 써라."""
     msgs, _ = _wait_from(_size(), seconds, poll)
@@ -141,7 +169,9 @@ def wait(seconds=180, poll=5):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1 and sys.argv[1] == "--mark":
+    if len(sys.argv) > 1 and sys.argv[1] == "--drain":
+        drain()
+    elif len(sys.argv) > 1 and sys.argv[1] == "--mark":
         mark()
     elif len(sys.argv) > 1 and sys.argv[1] == "--collect":
         sec = int(sys.argv[2]) if len(sys.argv) > 2 else 120
