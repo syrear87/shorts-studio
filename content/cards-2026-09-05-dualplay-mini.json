@@ -1,0 +1,26 @@
+{
+  "topic": "Acer Project DualPlay Mini — 게임기를 펼치면 키보드가 나온다, 8인치 핸드헬드가 노트북으로 변신한다. IFA 2026 컨셉 [한계붕괴형]",
+  "caption": "게임기를 펼치면 키보드가 나온다\n\nAcer Predator Project DualPlay Mini. 8인치 게이밍 핸드헬드인데 앞면 게임 패널을 들어올리면 안에 백라이트 키보드가 숨어 있다. 화면을 180도 돌리면 클램셸 노트북이 된다.\n\n스팀 덱이나 ROG Ally는 게임 전용이라 문서 작업은 못 한다. 이건 Windows 11이라 업무까지 된다.\n\nIFA 2024에서 처음 나와서 올해 세 번째 공개다. 에이서 관계자에 따르면 직원 한 명이 프로토타입을 1년째 출퇴근에 쓰고 있다고.\n\n아직 컨셉 단계 제품 — 가격, 출시일 미정. 하지만 에이서 관계자는 \"출시는 시간문제\"라고 말했다.\n\n이런 테크 소식, 매일 카드로 올라옵니다 — 팔로우\n\n#IFA2026 #Acer #DualPlayMini #게이밍핸드헬드 #테크",
+  "threads_text": "게임기를 펼치면 키보드가 나온다\n\n1. IFA 2026에서 에이서가 또 꺼내든 컨셉 — Project DualPlay Mini\n2. 8인치 게이밍 핸드헬드인데 앞면 게임 패널을 들어올리면 안에 키보드가 숨어 있음\n3. 화면 180도 돌리면 클램셸 노트북이 됨 — 에이서가 'Flip-and-Swivel'이라고 부르는 구조\n4. Windows 11이라 스팀 덱과 달리 업무도 되는 게 핵심\n5. 2024년에 처음 나와서 이번이 세 번째 공개인데, 에이서 직원 한 명이 프로토타입으로 1년째 밀라노-루가노 기차 출퇴근 중이라고\n6. 가격·출시일 미정 — 아직 컨셉이지만, 에이서 관계자는 출시는 시간문제라고 함\n\n(출처: Engadget·Notebookcheck·Tom's Guide 핸즈온, TechTimes)",
+  "cards": [
+    {
+      "kind": "hook",
+      "img": "assets/cards/acer_dualplay_mini_hero.jpg",
+      "title": "게임기를 펼치면\n키보드가 나온다",
+      "title_hl": ["키보드"],
+      "body": "Acer Predator Project DualPlay Mini. 8인치 핸드헬드의 게임 패널을 들어올리면 안에 백라이트 키보드가 숨어 있다. 화면 180도 회전 — 클램셸 노트북이 된다",
+      "body_hl": ["키보드가 숨어 있다", "노트북이 된다"],
+      "credit": "Tom's Guide (IFA 2026 핸즈온)"
+    },
+    {
+      "kind": "fact",
+      "img": "assets/cards/acer_dualplay_mini_keyboard.jpg",
+      "title": "게임기이자 노트북,\nWindows 11",
+      "title_hl": ["Windows 11"],
+      "body": "스팀 덱·ROG Ally는 게임 전용 — 이건 업무까지 된다. IFA 2024에서 처음 공개, 올해로 세 번째. 에이서 직원이 프로토타입으로 1년째 출퇴근 중. 가격·출시일 미정 — 컨셉 단계",
+      "body_hl": ["업무까지 된다", "1년째 출퇴근 중"],
+      "sub": "컨셉 제품 — 가격·출시일 미정",
+      "credit": "Tom's Guide (IFA 2026 핸즈온)"
+    }
+  ]
+}
