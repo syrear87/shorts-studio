@@ -46,6 +46,11 @@ _run_capped 240 .venv/bin/python3 pipeline/ledger.py >> logs/ledger.log 2>&1
 # 시스템은 그 사실을 알 수 없었다 — 디렉터가 말해줄 때까지. 정정이 늦은 게 아니라
 # 무인지였다. 자동 회신은 하지 않고, 반박이 임계를 넘은 글만 텔레그램으로 한 번 알린다.
 _run_capped 240 .venv/bin/python3 pipeline/reply_monitor.py >> logs/replies.log 2>&1
+
+# 프롬프트 정합성 (2026-09-05). 공통 규칙이 두 파일에 복사돼 있던 탓에 9/2 편성 변경이
+# 한쪽에만 반영됐고, 카드 세션이 사흘 동안 없어진 "영상 5편"을 읽었다. 정본은 RULES.md
+# 하나뿐이고, 본문이 정본과 어긋나면 여기서 잡아 알린다.
+_run_capped 60 .venv/bin/python3 bin/prompt_check.py --alert >> logs/prompt_check.log 2>&1
 # 디스크 위생 — 하루 1회 가드는 janitor.sh 내부가 소유 (2026-08-23 리뷰: 커플링 제거)
 _run_capped 300 bash bin/janitor.sh >> logs/janitor.log 2>&1
 

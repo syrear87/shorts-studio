@@ -13,7 +13,21 @@ if "--mode" in sys.argv:
     CARD_MODE = sys.argv[sys.argv.index("--mode") + 1] == "card"
 else:
     CARD_MODE = False   # 편성 v8 (2026-08-14): 카드 폐지 — 전 슬롯 영상. --mode card는 수동 호출용으로만 남긴다
-PROMPT_FILE = "CARD_PROMPT.md" if CARD_MODE else "DAILY_PROMPT.md"
+# 2026-09-05 정본 단일화: 공통 규칙은 RULES.md 하나에만 두고, 모드 파일 앞에 붙여 넘긴다.
+# 종전에는 같은 절이 두 파일에 복사돼 있었고 9/2 편성 변경이 한쪽에만 반영돼,
+# 카드 세션이 사흘 동안 이미 없어진 "영상 5편" 편성을 읽고 있었다.
+MODE_FILE = "CARD_PROMPT.md" if CARD_MODE else "DAILY_PROMPT.md"
+PROMPT_FILES = ["RULES.md", MODE_FILE]
+PROMPT_FILE = MODE_FILE   # (기존 로그·메트릭 호환)
+
+
+def prompt_sha():
+    """넘기는 프롬프트 전체(RULES+모드)의 해시. 한쪽만 바뀌어도 값이 바뀐다."""
+    import hashlib as _hl
+    h = _hl.sha256()
+    for f in PROMPT_FILES:
+        h.update((ROOT / f).read_bytes())
+    return h.hexdigest()[:12]
 LOCK = ROOT / "logs" / (".card.lock" if CARD_MODE else ".daily.lock")   # ⚠️ .daily.lock의 파일명·내용(PID)은 bin/janitor.sh 렌더 감지와 결합 (2026-08-23)
 LOG = ROOT / "logs" / ("daily-%s.log" % datetime.now().strftime("%Y%m%d-%H%M"))
 # 영상 75분: v12에서 영상 슬롯 간격이 120분(13:20→15:20)으로 좁아졌다. 실측 소요는 평균 30분·최대 48분이라
@@ -189,11 +203,10 @@ def main():
                 # 2026-08-27 계측 패치: 프롬프트 SHA-256 앞 12자를 남긴다. 토큰 절감 패치의
                 # 전/후를 로그만 보고 확실히 가르기 위해서다(프롬프트가 바뀌면 해시가 바뀐다).
                 try:
-                    import hashlib as _hl
-                    _ph = _hl.sha256((ROOT / PROMPT_FILE).read_bytes()).hexdigest()[:12]
+                    _ph = prompt_sha()
                 except Exception:
                     _ph = "?"
-                lf.write("[runner] prompt-sha %s (%s)\n" % (_ph, PROMPT_FILE))
+                lf.write("[runner] prompt-sha %s (%s)\n" % (_ph, " + ".join(PROMPT_FILES)))
                 lf.flush()
                 # CARD_MODE를 자식(claude 세션)에게도 넘긴다 (2026-09-05):
                 # upload_threads.publish_text가 이 값으로 카드 라인 여부를 판정한다 —
@@ -202,7 +215,8 @@ def main():
                 r = subprocess.run(
                     ["/bin/zsh", "-l", "-c",
                      'p="$(cat %s)"; print -r -- "[runner] prompt ${#p}자"; '
-                     'claude -p "$p" --model opus --permission-mode acceptEdits' % PROMPT_FILE],
+                     'claude -p "$p" --model opus --permission-mode acceptEdits'
+                     % " ".join(PROMPT_FILES)],
                     stdout=lf, stderr=subprocess.STDOUT, timeout=TIMEOUT, cwd=str(ROOT), env=_env)
             # 판정은 마지막 attempt 구간만 읽는다 — 이전 시도의 마커·본문과 섞임 방지 (2026-08-02 리뷰)
             text = LOG.read_text(errors="ignore").split("=== attempt ")[-1]
@@ -412,7 +426,7 @@ def log_slot_metrics(start_ts):
     """
     try:
         import hashlib, re as _re
-        ph = hashlib.sha256((ROOT / PROMPT_FILE).read_bytes()).hexdigest()[:12]
+        ph = prompt_sha()
         t = LOG.read_text(errors="ignore")
         # render~/gate~ 카운트는 제거했다 (2026-08-28 감사): claude -p는 최종 응답만
         # 로그에 남겨 'make_short.py' 같은 패턴이 로그에 없다 — 항상 0으로 찍히는
