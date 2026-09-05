@@ -32,8 +32,8 @@ GRAPH = "https://graph.instagram.com/v23.0"
 # 2건뿐이고(DECISIONS.md S-007), 카드가 나가는 **스레드(@daily_1_pick)와 블로그
 # (daily1pick.blogspot.com)는 미등록**이다. 등록 전까지 스레드 자동 부착을 멈춘다.
 # 디렉터가 앱에서 직접 다는 것도 같은 규정을 받으므로, 등록이 먼저다.
-# 디렉터가 파트너스에 두 매체를 등록하면 이 값을 True로 되돌린다.
-AFFILIATE_MEDIA_REGISTERED = False
+# 2026-09-05 디렉터가 파트너스 활동매체에 스레드·블로그를 등록 완료 → 게이트 해제.
+AFFILIATE_MEDIA_REGISTERED = True
 
 VIDEO_TO_THREADS = False   # 영상을 스레드에도 올릴 것인가 (현재: 인스타·유튜브 전용)
 CARD_TO_IG = False         # 카드를 인스타에도 올릴 것인가

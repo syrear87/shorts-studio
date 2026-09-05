@@ -35,6 +35,17 @@ _run_capped() {  # _run_capped <초> <명령...>
 # 10분마다 도는 빈 폴링이라 껐다. 카드를 인스타로 되돌리면 이 줄을 살린다.
 # _run_capped 300 .venv/bin/python3 pipeline/comment_dm.py
 _run_capped 300 .venv/bin/python3 pipeline/affiliate_bot.py --once
+
+# 연령 고정 성과 장부 — 게시물이 24h/72h/168h를 처음 지나는 틱에만 1회 기록 (2026-09-05).
+# 왜: "오늘 조회수"로 비교하면 게시 직후 편과 사흘 지난 편이 섞여 같은 날 같은 지표가
+# 문서마다 달랐다(8/29 릴스 중앙값 161 vs 456). 연령을 고정해야 편성·형식 판단이 성립한다.
+# 자체 멱등(이미 기록한 age는 건너뜀)이라 매 틱 호출해도 API를 거의 안 친다.
+_run_capped 240 .venv/bin/python3 pipeline/ledger.py >> logs/ledger.log 2>&1
+
+# 스레드 답글 수집·반박 감지 (2026-09-05). 9/4 SSD 카드에 반박 10건이 달렸는데
+# 시스템은 그 사실을 알 수 없었다 — 디렉터가 말해줄 때까지. 정정이 늦은 게 아니라
+# 무인지였다. 자동 회신은 하지 않고, 반박이 임계를 넘은 글만 텔레그램으로 한 번 알린다.
+_run_capped 240 .venv/bin/python3 pipeline/reply_monitor.py >> logs/replies.log 2>&1
 # 디스크 위생 — 하루 1회 가드는 janitor.sh 내부가 소유 (2026-08-23 리뷰: 커플링 제거)
 _run_capped 300 bash bin/janitor.sh >> logs/janitor.log 2>&1
 
