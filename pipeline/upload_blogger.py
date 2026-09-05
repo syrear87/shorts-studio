@@ -86,6 +86,34 @@ def publish(title, html, labels=(), blog_id=None, draft=True):
             "status": "draft" if draft else "live", "blog_id": bid}
 
 
+def get(post_id, blog_id=None):
+    """글 하나를 본문까지 읽어온다."""
+    return _service().posts().get(blogId=resolve_blog_id(blog_id), postId=str(post_id)).execute()
+
+
+def update(post_id, title=None, html=None, labels=None, blog_id=None):
+    """이미 발행된 글을 고친다 (2026-09-06 신설).
+
+    왜 필요한가: 초기 86편에 마크다운 잔재(`**볼드**`)와 빈 alt가 그대로 박혀 있었다.
+    발행 시점 코드를 고쳐도 **이미 나간 글은 그대로 남는다** — 검색엔진이 보는 건
+    지금 올라가 있는 HTML이다. 고칠 수단이 없으면 초기 글은 영영 기계 티를 달고 있다.
+
+    None인 항목은 건드리지 않는다 — 부분 수정이 기본이다.
+    """
+    svc = _service()
+    bid = resolve_blog_id(blog_id)
+    cur = svc.posts().get(blogId=bid, postId=str(post_id)).execute()
+    body = {"id": str(post_id),
+            "title": title if title is not None else cur.get("title"),
+            "content": html if html is not None else cur.get("content")}
+    if labels is not None:
+        body["labels"] = list(labels)
+    elif cur.get("labels"):
+        body["labels"] = cur["labels"]
+    post = svc.posts().update(blogId=bid, postId=str(post_id), body=body).execute()
+    return {"id": post.get("id"), "url": post.get("url"), "blog_id": bid}
+
+
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     if "--list" in sys.argv:

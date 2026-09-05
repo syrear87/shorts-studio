@@ -21,7 +21,10 @@ sys.path.insert(0, os.path.join(ROOT, "pipeline"))
 DONE_F = os.path.join(ROOT, "logs", "blog_generated.txt")
 FAIL_F = os.path.join(ROOT, "logs", "blog_gen_fail.json")
 MAX_FAIL = 3             # 이만큼 실패하면 포기 — 원고가 짧아 게이트에 막히는 카드는 계속 실패한다
-MAX_PER_RUN = 3          # 한 슬롯에서 최대 몇 편까지 만들지 — Gemini 쿼터와 슬롯 시간 보호
+MAX_PER_RUN = 2          # 한 슬롯에서 최대 몇 편까지 만들지 — Gemini 쿼터와 슬롯 시간 보호
+                         # 2026-09-06: 3→2. blog_gate에 검색 의도 판정이 붙어 카드의 52%만
+                         # 통과한다(종전엔 테크면 거의 전부). 후보가 절반이 됐는데 상한을
+                         # 그대로 두면 게이트에 막힌 카드를 매 슬롯 다시 시도하며 헛돈다.
 
 
 def _done():

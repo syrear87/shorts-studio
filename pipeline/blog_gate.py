@@ -81,6 +81,43 @@ def card_tags(meta):
     return out
 
 
+# 검색 의도 — 블로그로 오는 사람은 **사기 전에 알아보러** 온다 (2026-09-06 신설).
+# 공개 86편 중 구매 의도형이 29%뿐이었고 총조회는 53이었다. 루머·컨셉 글은
+# 검색 수요 자체가 없다 — "아직 안 나온 물건"을 검색하는 사람은 거의 없다.
+# ⚠️ 이 판정은 **보류**지 삭제가 아니다. 카드·영상으로는 그대로 나간다.
+INTENT_BUY = ("구매가능",)
+INTENT_WORDS = (
+    # 비교형
+    "vs", "VS", "비교", "차이", "뭐가 다른", "어떤 걸", "어느 게", "골라", "고를 때",
+    "추천", "대신", "보다 나은", "장단점",
+    # 가이드형
+    "방법", "하는 법", "설정", "쓰는 법", "활용", "확인할 것", "주의할 점", "가이드",
+    "정리", "총정리", "체크리스트", "따라하기",
+    # 문제해결형
+    "안 될 때", "안될 때", "오류", "해결", "고장", "느려", "발열", "배터리 광탈",
+    "먹통", "복구", "왜 안", "문제",
+    # 구매 타이밍형 — "지금 사도 되나"는 구매 직전 검색이다
+    "타이밍", "언제 사", "지금 사", "살 때", "사기 전", "기다려", "출시일", "가격 인하",
+)
+# 검색 수요가 없는 축 — 보류한다
+INTENT_HOLD = ("루머", "유출", "컨셉", "시제품", "프로토타입", "특허", "떡밥", "밈")
+
+
+def intent(meta):
+    """(통과여부, 사유). 블로그 글로 만들 만한 **검색 의도**가 있는가."""
+    text = _text_of(meta)
+    tags = card_tags(meta)
+    if tags & set(INTENT_BUY):
+        return True, "구매 가능"
+    hold = [w for w in INTENT_HOLD if w in text]
+    hit = [w for w in INTENT_WORDS if w in text]
+    if hit:
+        return True, "비교·가이드·문제해결형(%s)" % ", ".join(hit[:3])
+    if hold:
+        return False, "보류(삭제 아님) — 검색 수요가 낮은 축: %s" % ", ".join(hold[:3])
+    return False, "보류(삭제 아님) — 구매 가능도 아니고 비교·가이드·문제해결형도 아니다"
+
+
 def judge(meta, is_card=None):
     """(통과여부, 사유). 통과한 것만 블로그 글로 만든다."""
     text = _text_of(meta)
@@ -97,11 +134,15 @@ def judge(meta, is_card=None):
     hits = [w for w in TECH_WORDS if w in text]
     if is_card:
         tags = card_tags(meta)
-        if tags & CARD_TECH_TAGS:
-            return True, "카드 %s" % "·".join(sorted(tags & CARD_TECH_TAGS))
-        if hits:
-            return True, "테크 낱말 %s" % ", ".join(hits[:4])
-        return False, "카드지만 테크 신호가 없다"
+        tech = bool(tags & CARD_TECH_TAGS) or bool(hits)
+        if not tech:
+            return False, "카드지만 테크 신호가 없다"
+        ok, why = intent(meta)          # 2026-09-06: 검색 의도까지 본다
+        if not ok:
+            return False, why
+        base = ("카드 %s" % "·".join(sorted(tags & CARD_TECH_TAGS))) if (tags & CARD_TECH_TAGS) \
+            else ("테크 낱말 %s" % ", ".join(hits[:4]))
+        return True, "%s / %s" % (base, why)
 
     # 영상은 계열이 섞여 있다 — 테크 낱말 2개 이상을 요구한다
     if len(hits) >= 2:

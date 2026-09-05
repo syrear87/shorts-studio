@@ -371,7 +371,13 @@ def main():
 
     if "--publish" in sys.argv or "--draft" in sys.argv:
         from upload_blogger import publish
-        res = publish(r["title"], r["html"], labels=["IT·테크"],
+        # 후처리 (2026-09-06): 마크다운 잔재를 HTML로 내리고, 빈 alt를 채우고,
+        # 제품군 라벨을 붙인다. 공개 86편 전수에서 마크다운 7편·alt 공백 75편·
+        # 라벨 없음 54편이 나왔다 — 발행 직전 한 곳에서 정리한다.
+        from blog_polish import polish
+        html, labels = polish(r["html"], r["title"], tags=(meta or {}).get("tags") or ())
+        print("후처리: 라벨 %s" % " / ".join(labels), flush=True)
+        res = publish(r["title"], html, labels=labels,
                       draft="--publish" not in sys.argv)
         print("%s: %s" % ("공개 발행" if res["status"] == "live" else "초안 저장",
                           res["url"] or res["id"]))
