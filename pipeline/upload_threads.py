@@ -10,6 +10,7 @@
 #
 # 사용: from upload_threads import publish; publish(video_url, text)
 import json
+import re
 import os
 import time
 import urllib.parse
@@ -38,6 +39,13 @@ def _get(url, timeout=60):
 
 
 def _post(path, params, timeout=120):
+    # DRY_RUN=1 이면 실제 API를 치지 않는다 (2026-09-05 실사고: 세션이 게이트 검증용으로
+    # publish_text('x')를 호출했는데 그대로 라이브 계정에 'x'가 게시됐다 — 디렉터 발견).
+    # 모든 게시·답글이 이 함수를 지나므로 여기 한 곳이 테스트 안전선이다.
+    if os.environ.get("DRY_RUN") in ("1", "true", "True"):
+        print("[threads][DRY_RUN] POST %s %s" % (path, {k: (str(v)[:60] if k != "access_token" else "***")
+                                                       for k, v in params.items()}), flush=True)
+        return {"id": "dryrun-" + path.replace("/", "_")[-24:]}
     url = "%s/%s" % (API, path.lstrip("/"))
     data = urllib.parse.urlencode(params).encode()
     with urllib.request.urlopen(urllib.request.Request(url, data=data, method="POST"), timeout=timeout) as r:
@@ -104,7 +112,7 @@ def _publish_container(me, tok, cid):
     return pid
 
 
-def publish_image(image_url, text):
+def publish_image(image_url, text, replies=()):
     """이미지 1장 스레드 게시 (2026-08-20 — 카드도 스레드에 올린다: 제휴봇이
     IG 캡션 첫 줄로 스레드 글을 찾아 쿠팡 링크 답글을 달기 때문. IG API 게시는
     앱과 달리 스레드 자동 공유가 없어 여기서 직접 올린다)."""
@@ -112,12 +120,15 @@ def publish_image(image_url, text):
     me = _get("%s/me?fields=id&access_token=%s" % (API, tok))["id"]
     cid = _create(me, tok, {"media_type": "IMAGE", "image_url": image_url,
                             "text": text[:MAX_TEXT]})
-    return _publish_with_retry(me, tok, cid, "threads 이미지 게시 실패")
+    return _publish_with_retry(me, tok, cid, "threads 이미지 게시 실패", replies=replies)
 
 
-def _publish_with_retry(me, tok, cid, fail_msg, tries=6):
+def _publish_with_retry(me, tok, cid, fail_msg, tries=6, replies=()):
     """컨테이너 발행 재시도 후 permalink 조회 (2026-08-23 감사: permalink 조회 실패가
-    발행 성공을 뒤집고 같은 컨테이너를 재발행하던 것 분리 — 조회 실패는 성공을 뒤집지 않는다)."""
+    발행 성공을 뒤집고 같은 컨테이너를 재발행하던 것 분리 — 조회 실패는 성공을 뒤집지 않는다).
+
+    replies: 발행 뒤 이어 달 답글들 (2026-08-27 — 카드 경로에도 쿠팡 링크를 달 수 있게.
+      publish()에만 답글 체인이 있어서, 본문 상한을 넘긴 카드는 링크를 붙일 방법이 없었다)."""
     last, pid = None, None
     for _ in range(tries):
         time.sleep(4)
@@ -128,6 +139,18 @@ def _publish_with_retry(me, tok, cid, fail_msg, tries=6):
             last = e
     if pid is None:
         raise RuntimeError("%s: %s" % (fail_msg, str(last)[:150]))
+    parent = pid
+    for r in replies:
+        if not str(r).strip():
+            continue
+        try:
+            rid = _create(me, tok, {"media_type": "TEXT", "text": str(r)[:MAX_TEXT],
+                                    "reply_to_id": parent})
+            time.sleep(2)
+            parent = _publish_container(me, tok, rid)
+        except Exception as e:
+            print("[threads] 답글 실패(본문은 게시됨):", str(e)[:150], flush=True)
+            break
     try:
         link = _get("%s/%s?fields=permalink&access_token=%s" % (API, pid, tok)).get("permalink")
     except Exception:
@@ -136,21 +159,32 @@ def _publish_with_retry(me, tok, cid, fail_msg, tries=6):
 
 
 def publish_text(text):
-    """텍스트 단독 게시 (2026-08-23 스레드 성장 연구 — 네이티브 리스트형 글용)."""
+    """텍스트 단독 게시 (2026-08-23 스레드 성장 연구 — 네이티브 리스트형 글용).
+
+    2026-09-05: 영상 세션이 이 함수로 영화 소식을 스레드에 올려 계정 성격이 깨졌다
+    (「나홍진 호프」 — 테크 카드 사이에 영화 글). 스레드는 카드 라인 전용이므로,
+    카드 슬롯이 아닌 세션에서 부르면 거부한다. 결산·수동 글은 CARD_MODE=1로 실행하라.
+    """
+    import os
+    if os.environ.get("CARD_MODE") not in ("1", "true", "True"):
+        raise RuntimeError(
+            "스레드 텍스트 게시는 카드 라인 전용이다 (2026-09-05). "
+            "영상 세션은 유튜브·인스타에만 게시하라. "
+            "결산 등 의도된 수동 게시라면 CARD_MODE=1 로 실행할 것.")
     tok = token()
     me = _get("%s/me?fields=id&access_token=%s" % (API, tok))["id"]
     cid = _create(me, tok, {"media_type": "TEXT", "text": text[:MAX_TEXT]})
     return _publish_with_retry(me, tok, cid, "threads 텍스트 게시 실패")
 
 
-def publish_images(image_urls, text):
+def publish_images(image_urls, text, replies=()):
     """이미지 여러 장 캐러셀 게시 (2026-08-22 디렉터: "쓰레드에는 사진이 한장만 게시되네?" —
     카드 캐러셀 전 장을 스레드에도 그대로 올린다). 1장이면 단장 게시로 폴백."""
     urls = [u for u in image_urls if u]
     if not urls:
         raise ValueError("이미지 URL이 없다")
     if len(urls) < 2:   # 스레드 캐러셀은 2장부터
-        return publish_image(urls[0], text)
+        return publish_image(urls[0], text, replies=replies)
     tok = token()
     me = _get("%s/me?fields=id&access_token=%s" % (API, tok))["id"]
     children = [_create(me, tok, {"media_type": "IMAGE", "image_url": u,
@@ -158,7 +192,7 @@ def publish_images(image_urls, text):
     time.sleep(4)   # 자식 컨테이너 처리 대기
     car = _create(me, tok, {"media_type": "CAROUSEL", "children": ",".join(children),
                             "text": text[:MAX_TEXT]})
-    return _publish_with_retry(me, tok, car, "threads 캐러셀 게시 실패")
+    return _publish_with_retry(me, tok, car, "threads 캐러셀 게시 실패", replies=replies)
 
 
 def publish(video_url, text, timeout_s=300, replies=()):
@@ -216,7 +250,16 @@ def publish(video_url, text, timeout_s=300, replies=()):
         link = _get("%s/%s?fields=permalink&access_token=%s" % (API, pid, tok)).get("permalink")
     except Exception:
         link = None   # 조회 실패는 게시 성공을 뒤집지 않는다 (2026-08-23 감사)
-    return link or ("https://www.threads.net/@syusyu_channel/post/" + pid)
+    # 폴백 URL의 username을 하드코딩하지 않는다 (2026-09-02: 계정명을 syusyu_channel →
+    # daily_1_pick으로 바꾸면서 죽은 링크가 됐다). 계정 정보를 조회해 만들고, 그것도
+    # 실패하면 링크 없이 게시 id만 돌려준다 — 잘못된 URL보다 없는 편이 낫다.
+    if not link:
+        try:
+            _u = _get("%s/me?fields=username&access_token=%s" % (API, tok)).get("username")
+            link = ("https://www.threads.net/@%s/post/%s" % (_u, pid)) if _u else pid
+        except Exception:
+            link = pid
+    return link
 
 
 def find_recent_post(caption_hint, limit=8):
@@ -251,6 +294,15 @@ def reply_text(parent_id, text):
     return _publish_container(me, tok, cid)
 
 
+
+
+# 팔로우 유도 확인 기능은 제거했다 (2026-08-31 디렉터: "그냥 그런 문구 하지 말자.. 짜친다").
+# 8/28에 넣었다가 실제로 나가는 글을 보고 되돌렸다 — 스레드 본문은 출처 괄호로 끝낸다.
+
+
+# CLI 진입점은 파일 맨 끝에 둔다 (2026-08-28 감사: 모듈 하단 정의보다 위에 있어
+# `python3 upload_threads.py <url> <text>` 수동 재게시가 100% NameError로 죽었다.
+# import 경유는 모듈 전체가 먼저 실행돼 무사했지만, CLI는 정의 전에 publish()를 불렀다.)
 if __name__ == "__main__":
     import sys
     if len(sys.argv) < 3:

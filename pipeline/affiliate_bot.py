@@ -85,18 +85,36 @@ def match_media(product_name, limit=6):
       가장 많이 겹치는 편을 쓴다. 하나도 안 겹치면 최신 편으로 폴백한다."""
     d = http(f"{G}/{IG['IG_USER_ID']}/media?fields=id,permalink,caption,timestamp,media_type,media_url,thumbnail_url,children{{media_url}}&limit={limit}&access_token={IG['IG_ACCESS_TOKEN']}")
     items = d.get("data") or []
+    # 2026-08-29 플랫폼 분리: 카드가 인스타에 안 올라간다(CARD_TO_IG=False).
+    # 상품은 대부분 카드 소재이므로 IG 목록만 보면 매칭이 통째로 실패한다 —
+    # 스레드 최근 글도 같은 후보 풀에 넣는다(캡션 = 스레드 본문 첫 줄들).
+    try:
+        import upload_threads as _th
+        _tok = _th.token()
+        _me = _th._get("%s/me?fields=id&access_token=%s" % (_th.API, _tok))["id"]
+        _r = _th._get("%s/%s/threads?fields=id,text,timestamp,permalink,media_type&limit=%d&access_token=%s"
+                      % (_th.API, _me, limit, _tok))
+        for _p in (_r.get("data") or []):
+            items.append({"id": _p["id"], "permalink": _p.get("permalink", ""),
+                          "caption": _p.get("text") or "", "timestamp": _p.get("timestamp"),
+                          "media_type": _p.get("media_type"), "_threads": True})
+    except Exception as _e:
+        print("[affiliate_bot] 스레드 후보 조회 실패(무해): %s" % str(_e)[:80], flush=True)
     if not items:
         return None
     # 채점은 product_match 단일 정본 (2026-08-24: upload_instagram의 사본이 구판으로 남아
     # 앤커→관절 오매칭 재발 — 규칙 이력·상수는 product_match.py 참조)
-    from product_match import score as _pm_score
+    # 2026-08-27: 점수만 보면 '미국'·'미니'·브랜드 단독 일치가 정매칭과 같은 3~5점으로
+    # 통과한다(product_match.matches 주석의 실측). 정체 판정을 통과한 편만 후보로 둔다.
+    from product_match import score as _pm_score, matches as _pm_matches
     best, best_hit = None, 0
     for it in items:
-        hit = _pm_score(product_name, it.get("caption") or "")
+        cap = it.get("caption") or ""
+        if not _pm_matches(product_name, cap):
+            continue
+        hit = _pm_score(product_name, cap)
         if hit > best_hit:
             best, best_hit = it, hit
-    if best_hit < 3:
-        best = None
     # 2026-08-18: 매칭 실패 시 최신 편 폴백 폐지 — 디렉터가 링크를 보낸 시점에
     # 다음 편이 렌더 중이면 '최신 편'이 엉뚱한 편이다. 확신 없으면 붙이지 말고 물어라.
     if best:
@@ -178,7 +196,7 @@ def update_hub(items):
                   "}catch(e){}})();</script>" % cnt)
     html = """<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>1일 1지식 - 오늘의 추천</title><style>
+<title>1일 1픽 - 오늘의 추천</title><style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#fff;color:#111;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard',sans-serif;
 padding:56px 20px 40px;max-width:480px;margin:0 auto}
@@ -201,7 +219,7 @@ text-decoration:none;color:#111;transition:border-color .15s}
 .pg.on{background:#12192e;color:#fff;border-color:#12192e;font-weight:700}
 footer{color:#b3b8bf;font-size:11px;text-align:center;margin-top:34px;line-height:1.7}
 </style></head><body>
-<h1><span class="d1">1일</span> <span class="d2">1지식</span></h1><div class="underbar"></div><p class="sub" style="margin-top:14px">영상·카드에 나온 것들 — DM에서 받은 번호를 검색하세요</p>
+<h1><span class="d1">1일</span> <span class="d2">1픽</span></h1><div class="underbar"></div><p class="sub" style="margin-top:14px">카드에 나온 제품들 — DM에서 받은 번호를 검색하세요</p>
 <input class="search" id="q" type="search" inputmode="search" placeholder="번호나 제품명 검색 (예: 2)">
 %s
 <div class="pager" id="pager"></div>

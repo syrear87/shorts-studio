@@ -151,6 +151,26 @@ def render(script_path):
             sys.exit("기각: 캡션 해시태그 %d개 — 3~7개(권장 5) 범위 밖" % n_tags)
         if len(cap) > 2200:
             sys.exit("기각: 캡션 %d자 — 2200자 초과" % len(cap))
+
+    # %p 게이트 (2026-08-28 — 영상 렌더러(make_short)와 동일 규칙. CARD_PROMPT가
+    # "렌더러가 기계로 잡는다"고 약속하는데 카드 쪽엔 없어 거짓이었다):
+    # 두 비율의 차이를 '%'로 쓰면 상대 차이로 읽힌다 — '%포인트'로 써야 한다.
+    _pp_txt = " ".join([str(cap), str(s.get("threads_text") or "")] +
+                       [" ".join(str((c or {}).get(k) or "") for k in ("title", "body", "sub"))
+                        for c in cards])
+    _pp = re.search(r"(\d+(?:\.\d+)?)\s*%[^.!?\n]{0,60}?(\d+(?:\.\d+)?)\s*%"
+                    r"[^.!?\n]{0,40}?(\d+(?:\.\d+)?)\s*%\s*(?:만큼\s*)?"
+                    r"(?:더|차이|낮|높|올랐|올라|올렸|올린|인상|상승|하락|감소|증가|늘었|늘어|줄었|줄어|많|적게|적다|적었|내렸|내려|내린|앞선|앞서)",
+                    _pp_txt)
+    if _pp:
+        try:
+            _a, _b, _c = float(_pp.group(1)), float(_pp.group(2)), float(_pp.group(3))
+            if abs(abs(_a - _b) - _c) < 0.51:
+                sys.exit("기각: 두 비율의 차이를 '%%'로 썼다 — '%%포인트'로 고쳐라 (%s)"
+                         % _pp.group(0)[:60])
+        except ValueError:
+            pass
+
     base_name = os.path.splitext(os.path.basename(script_path))[0]
     out_dir = os.path.join(ROOT, "out", "cards", base_name)
     os.makedirs(out_dir, exist_ok=True)

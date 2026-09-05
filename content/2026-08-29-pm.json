@@ -1,0 +1,54 @@
+{
+  "title": "일본이 독도 이름으로 쌀을 팝니다, 20년째입니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "bg_ids": [38429896, 6701385, 38429904],
+  "bg_query": ["Dokdo island Korea ocean aerial", "Japanese rice packaging shelf supermarket", "Japan Shimane local government building", "Korea rice paddy golden harvest field", "Korean flag patriotic national pride", "Japanese supermarket product shelf"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "오늘 독도 이름 붙인 쌀이 일본에서 출시됐습니다.",
+      "lines": [
+        ["오늘 독도 이름 붙인 쌀이 출시됐습니다", ["독도"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "시마네현이 다케시마 쌀이라는 상품을 출시했습니다. 포장지에 일본 다케시마라고 적혀 있습니다.",
+      "lines": [
+        ["다케시마 쌀을 출시했습니다", ["다케시마"]],
+        ["포장지에 일본 다케시마라고 적혀 있습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "쌀만이 아닙니다. 2005년 다케시마의 날 조례를 만들고, 현청 식당에서는 다케시마 카레까지 팔고 있습니다.",
+      "lines": [
+        ["2005년 다케시마의 날 조례를 만들고", []],
+        ["다케시마 카레까지 팔고 있습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "관세 513%에 자급률 96%, 일본 쌀이 한국에 올 일은 없습니다.",
+      "lines": [
+        ["관세 513%에 자급률 96%", ["513%"]],
+        ["일본 쌀이 한국에 올 일은 없습니다", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "쌀이 오는 게 문제가 아닙니다. 그 이름이 20년째 일상에 스며드는 게 문제입니다.",
+      "lines": [
+        ["쌀이 오는 게 문제가 아닙니다", []],
+        ["이름이 20년째 스며드는 게 문제입니다", ["이름"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", []], ["구독으로 받아보세요", []]]
+    }
+  ]
+}

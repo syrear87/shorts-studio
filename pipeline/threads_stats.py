@@ -92,6 +92,9 @@ def main():
         for r in sorted(rows, key=lambda r: -r["views"])[:3]:
             print("   %s %s회(반응%d) %s" % (r["ts"][5:10], r["views"], r["eng"], r["head"]))
     print("- ⚠️ 조회 출처·팔로워 인구통계는 앱 인사이트에서만 확인 가능")
+    # 2026-09-05 실측: API가 35를 주는 시점에 앱은 37이었다. Threads의 followers_count는
+    # 갱신이 지연되므로 **앱 숫자가 정본**이다. 팔로워를 보고할 때는 이 지연을 명시하라.
+    print("- ⚠️ 팔로워 수는 API 갱신이 늦다 — 앱 숫자가 정본 (2026-09-05 실측: API 35 / 앱 37)")
 
     snap = dict(acc)
     snap["ts"] = time.strftime("%Y-%m-%dT%H:%M:%S")

@@ -217,12 +217,43 @@ def hook_full_ms(video, scan_s=5.0, fps=5):
         _sh.rmtree(tmp, ignore_errors=True)   # 2026-08-23 감사: hookscan_* 고아 디렉터리 9개 잔존 실측
 
 
+def wait_processed(yt, vid, timeout=180, interval=10):
+    """유튜브가 영상 처리를 마칠 때까지 기다린다 (2026-08-28 실사고).
+
+    사고: 업로드 **직후** 썸네일을 설정하면 API가 200을 돌려주지만 **실제로는 적용되지 않는다.**
+      영상이 아직 processing 상태라 무시되는데, 에러가 아니라서 로그에는 "미리보기 설정 완료"가
+      남는다 — 그래서 실패 기록이 하나도 없었는데 썸네일만 비어 있었다.
+      디렉터 실측: "시골 돈주는거랑 AI사주 썸네일 없어서 사주만 내가 썸네일 지정해놓음".
+      같은 코드로 처리 완료 뒤에 부르면 즉시 성공한다(당일 재현 확인).
+
+    타임아웃이면 그냥 진행한다 — 기다리다 슬롯을 죽이는 것보다 낫고, 최악이어도 종전과 같다.
+    """
+    import time as _t
+    for _ in range(max(1, timeout // interval)):
+        try:
+            r = yt.videos().list(part="status,processingDetails", id=vid).execute()
+            items = r.get("items") or []
+            if items:
+                st = (items[0].get("status") or {}).get("uploadStatus")
+                pr = (items[0].get("processingDetails") or {}).get("processingStatus")
+                if st == "processed" or pr == "succeeded":
+                    return True
+        except Exception:
+            pass
+        _t.sleep(interval)
+    print("[thumb] 처리 완료 대기 타임아웃 — 그대로 진행", flush=True)
+    return False
+
+
 def set_thumbnail(yt, vid, video, meta):
     """훅 자막이 다 뜬 프레임을 유튜브 미리보기로 올린다.
     시점은 자동 탐색(hook_full_ms)하고, meta에 ig_thumb_ms가 있으면 그것을 우선한다 —
     디렉터가 특정 시점을 지정한 편은 그 뜻을 존중한다.
-    실패해도 게시는 유지한다(커스텀 미리보기는 채널 인증이 필요할 수 있다)."""
+    실패해도 게시는 유지한다(커스텀 미리보기는 채널 인증이 필요할 수 있다).
+
+    **처리 완료를 먼저 기다린다** — 처리 중에 설정하면 조용히 무시된다(wait_processed 주석)."""
     import subprocess, tempfile, os as _os
+    wait_processed(yt, vid)
     ms = int(meta["ig_thumb_ms"]) if meta.get("ig_thumb_ms") else hook_full_ms(video)
     tmp_dir = tempfile.mkdtemp(prefix="ytthumb_")
     try:
@@ -231,6 +262,10 @@ def set_thumbnail(yt, vid, video, meta):
                         "-frames:v", "1", "-q:v", "2", "-loglevel", "error", tmp], check=True)
         from googleapiclient.http import MediaFileUpload
         yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(tmp, mimetype="image/jpeg")).execute()
+        # 되읽기 검증은 제거했다 (2026-08-28 감사): HD 업로드는 **자동 생성 썸네일에도
+        # maxres·standard 키가 항상 있어서** "maxres 없음 → 재시도" 판정이 절대 발화하지
+        # 않는 죽은 코드였다. 실효 대책은 위의 wait_processed(처리 완료 후 설정)뿐이다 —
+        # API가 커스텀/자동 여부를 구분해 주지 않으므로 되읽기로는 확인할 수 없다.
         print("미리보기 설정 완료 (%dms 지점)" % ms, flush=True)
     finally:
         import shutil as _sh

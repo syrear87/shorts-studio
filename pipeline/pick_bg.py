@@ -103,7 +103,10 @@ def main():
     #   사진 후보(p*.jpg)만 검사한다 — 영상 후보는 정지 프레임이 없어 여기선 판정 불가.
     try:
         from culture_gate import is_korean_topic, judge_image
-        _blob = " ".join([script.get("title", "")] +
+        # 2026-08-28 감사: title+자막만 보면 한국 소재 낱말이 나레이션·topic·chip에만 있는
+        # 편은 사전 필터가 발동하지 않았다 — 판정 재료를 넓힌다.
+        _blob = " ".join([str(script.get(k) or "") for k in ("title", "topic", "chip")] +
+                         [str(sc.get("voice") or "") for sc in script.get("scenes", [])] +
                          [ln for sc in script.get("scenes", []) for ln, _ in sc.get("lines", [])])
         if is_korean_topic(_blob):
             print("\n🚨 한국 고유 소재 감지 — 사진 후보의 외국 전통 요소를 미리 검사합니다", flush=True)

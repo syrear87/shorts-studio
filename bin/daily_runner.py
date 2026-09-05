@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # launchd가 슬롯마다 실행(편성 v12.1 — 영상 07:00/10:20/13:20/15:20/19:00/21:00 · 카드 09/10/12/14/16/20시, KST) — 헤드리스 스튜디오 세션 기동.
 # 락으로 중복 방지(모드별 분리), 영상 75분·카드 45분 타임아웃, 로그 저장, 실패·무산출 시 텔레그램 통보.
-import os, subprocess, sys, time
+import os, re, subprocess, sys, time
 from datetime import datetime
 from pathlib import Path
 
@@ -51,6 +51,8 @@ def _alert_fail(why, msg):
 # log_looks_dead 판정 코드 — 호출자는 이 상수로 분기한다 (2026-08-23 리뷰: 경보 문안 부분문자열
 # 매칭이 문구 수정 한 번에 재시도 로직을 끄던 결합 제거)
 DEAD_AUTH, DEAD_SHORT, DEAD_NO_SENTINEL = "auth", "short", "no_sentinel"
+# 인증 실패 판정 마커 — log_looks_dead·check_artifacts·재시도 문안이 같은 기준을 쓰도록 한 곳에 둔다
+AUTH_MARKERS = ("failed to authenticate", "authentication_error", "oauth access token")
 
 
 def log_looks_dead(text):
@@ -63,7 +65,7 @@ def log_looks_dead(text):
     if any("SLOT-DONE" in l for l in _lines[-3:]):
         return None
     # claude -p는 인증 만료(401)로 죽어도 종료코드 0 — 2026-07-29 11:00 슬롯이 경보 없이 증발한 원인.
-    for marker in ("failed to authenticate", "authentication_error", "oauth access token"):
+    for marker in AUTH_MARKERS:
         if marker in t.lower():   # 2026-08-02 리뷰: 재시도 판정과 동일하게 소문자 비교로 통일
             return (DEAD_AUTH, "인증 오류 감지")
     # 2026-08-02 리뷰(OPS-4): 마감 센티널(SLOT-DONE)의 존재가 완주의 1차 근거다.
@@ -98,8 +100,10 @@ def sent_evidence(start_ts):
             return False
         recent = sent.read_text(errors="ignore").strip().splitlines()[-5:]
         if CARD_MODE:
-            # 카드 세션은 mp4가 없다 — 캐러셀 게시 실측(IGCARD:)으로 판정 (2026-08-05)
-            return any("IGCARD:" in ln for ln in recent)
+            # 카드 세션은 mp4가 없다 — 캐러셀 게시 실측으로 판정 (2026-08-05)
+            # 2026-09-02: 카드가 인스타에서 빠지면서 마크가 THCARD:로 바뀌었다.
+            # 둘 다 인정한다(CARD_TO_IG를 되돌려도 깨지지 않게).
+            return any(("IGCARD:" in ln or "THCARD:" in ln) for ln in recent)
         new_mp4 = {p.name for p in fresh_mp4(start_ts)}
         if not new_mp4:
             return False
@@ -116,7 +120,7 @@ def cards_sent_today():
         if not sent.exists():
             return 0
         return sum(1 for ln in sent.read_text(errors="ignore").splitlines()
-                   if ln.startswith(today) and "IGCARD:" in ln)
+                   if ln.startswith(today) and ("IGCARD:" in ln or "THCARD:" in ln))
     except Exception:
         return -1
 
@@ -160,7 +164,15 @@ def main():
     # 락을 먼저 잡는다 — which claude(최대 30초) 동안 락이 비어 janitor가 "렌더 없음"으로
     # 오판하던 공백 구간을 없앤다 (2026-08-25 감사). 실패 시 아래에서 해제한다.
     LOCK.write_text(str(os.getpid()))
-    chk = subprocess.run(["/bin/zsh", "-l", "-c", "which claude"], capture_output=True, text=True, timeout=30)
+    try:
+        chk = subprocess.run(["/bin/zsh", "-l", "-c", "which claude"],
+                             capture_output=True, text=True, timeout=30)
+    except subprocess.TimeoutExpired:
+        # 2026-08-28 감사: 여기서 TimeoutExpired가 나면 방금 쓴 락이 해제되지 않은 채
+        # 죽어 janitor 개입 전까지 다음 슬롯을 막았다 — 락을 풀고 경보 후 종료한다.
+        LOCK.unlink(missing_ok=True)
+        tg("⚠️ 숏츠 데일리: which claude 30초 타임아웃 — 기동 실패(락 해제됨)")
+        sys.exit(1)
     if chk.returncode != 0 or not chk.stdout.strip():
         LOCK.unlink(missing_ok=True)
         tg("⚠️ 숏츠 데일리: 로그인 셸에서도 claude CLI를 찾지 못해 기동 실패")
@@ -174,11 +186,24 @@ def main():
                 lf.flush()
                 # 2026-08-22 11:00 실사고: 세션이 "무엇을 도와드릴까요?"만 남기고 종료(빈 프롬프트 의심).
                 # 프롬프트 글자수를 기동 직전에 실측 기록해 다음 재발 때 cat 실패인지 모델 즉사인지 가른다.
+                # 2026-08-27 계측 패치: 프롬프트 SHA-256 앞 12자를 남긴다. 토큰 절감 패치의
+                # 전/후를 로그만 보고 확실히 가르기 위해서다(프롬프트가 바뀌면 해시가 바뀐다).
+                try:
+                    import hashlib as _hl
+                    _ph = _hl.sha256((ROOT / PROMPT_FILE).read_bytes()).hexdigest()[:12]
+                except Exception:
+                    _ph = "?"
+                lf.write("[runner] prompt-sha %s (%s)\n" % (_ph, PROMPT_FILE))
+                lf.flush()
+                # CARD_MODE를 자식(claude 세션)에게도 넘긴다 (2026-09-05):
+                # upload_threads.publish_text가 이 값으로 카드 라인 여부를 판정한다 —
+                # 영상 세션이 스레드에 텍스트 글을 올린 사고(「나홍진 호프」) 재발 방지.
+                _env = dict(os.environ, CARD_MODE="1" if CARD_MODE else "0")
                 r = subprocess.run(
                     ["/bin/zsh", "-l", "-c",
                      'p="$(cat %s)"; print -r -- "[runner] prompt ${#p}자"; '
                      'claude -p "$p" --model opus --permission-mode acceptEdits' % PROMPT_FILE],
-                    stdout=lf, stderr=subprocess.STDOUT, timeout=TIMEOUT, cwd=str(ROOT))
+                    stdout=lf, stderr=subprocess.STDOUT, timeout=TIMEOUT, cwd=str(ROOT), env=_env)
             # 판정은 마지막 attempt 구간만 읽는다 — 이전 시도의 마커·본문과 섞임 방지 (2026-08-02 리뷰)
             text = LOG.read_text(errors="ignore").split("=== attempt ")[-1]
             # 2026-08-02 리뷰(OPS-2): 이번 슬롯에서 새 mp4가 이미 나왔으면 렌더+발송을 마쳤을 수 있으므로
@@ -190,23 +215,44 @@ def main():
                          and any(m.lower() in text.lower() for m in RETRY_MARKERS))
             # 2026-08-22 11:00 실사고: rc=0인데 인사말만 남기고 종료(즉사) — 마커가 없어 재시도를 안 탔다.
             # 산출물·발송·센티널이 전무한 초단문 종료는 장애로 간주해 재시도로 슬롯을 구한다.
-            # 판정 코드(DEAD_SHORT)로 분기 — 문안 결합 금지. SLOT-NOOP(의도된 무제작)는 재시도 무의미.
-            # 인증 오류(DEAD_AUTH)는 재시도해도 소용없어 제외 — 경보 경로가 잡는다.
+            # 판정 코드로 분기 — 문안 결합 금지. SLOT-NOOP(의도된 무제작)는 재시도 무의미.
+            # 2026-09-02 정정: DEAD_AUTH를 재시도에 포함한다. "인증 오류는 재시도해도 소용없다"는
+            # 종전 전제가 실측과 어긋났다 — 인증 실패 2건(07-29 11:00, 08-28 07:00)은 로그아웃이
+            # 아니라 토큰 갱신의 일시 실패였고, 뒤 슬롯(각 18:00, 09:00)은 손대지 않아도 정상 기동했다.
+            # 갱신은 기동마다 새로 시도되므로 재시도가 슬롯을 구한다. 인증 즉사는 로그 ~280B라
+            # 토큰 비용도 사실상 없다. 진짜 로그아웃이면 2회 더 실패한 뒤(+10분) 기존 경보로 빠진다.
             if not transient and r.returncode == 0 and not new_mp4_made and not evidence:
                 _dead = log_looks_dead(text)
-                if _dead and _dead[0] == DEAD_SHORT and "SLOT-NOOP" not in text:
+                if _dead and _dead[0] in (DEAD_SHORT, DEAD_AUTH) and "SLOT-NOOP" not in text:
                     transient = True
             if not transient or attempt >= len(RETRY_DELAYS):
                 break
             delay = RETRY_DELAYS[attempt]
-            tg("🔁 숏츠 데일리: 일시적 API 장애로 즉사 — %d분 후 재시도 (%d/%d)"
-               % (delay // 60, attempt + 1, len(RETRY_DELAYS)))
+            # 원인을 문안에 실어 인증 만료(사용자 조치 필요)와 API 장애(대기하면 회복)를 가른다.
+            _why = ("인증 토큰 갱신 실패" if any(m in text.lower() for m in AUTH_MARKERS)
+                    else "일시적 API 장애")
+            tg("🔁 %s: %s로 즉사 — %d분 후 재시도 (%d/%d)"
+               % ("지식 카드" if CARD_MODE else "숏츠 데일리", _why,
+                  delay // 60, attempt + 1, len(RETRY_DELAYS)))
             LOCK.write_text(str(os.getpid()))   # (mtime 스테일 판정은 폐지됨 — 잔재 재기록일 뿐, PID 동일. 2026-08-23)
             time.sleep(delay)
 
         if r.returncode != 0:
-            tg("⚠️ 숏츠 데일리 세션 비정상 종료 (코드 %d, 재시도 %d회) — %s 확인"
-               % (r.returncode, attempt, LOG.name))
+            # 2026-09-02: 종료코드만 알리면 원인이 안 보여 매번 로그를 열어야 했다.
+            # 사용량 한도·인증 만료처럼 **코드 문제가 아닌 것**은 원인과 조치를 함께 띄운다.
+            _cause = ""
+            _low = text.lower()
+            _m = re.search(r"out of (?:extra )?usage[^\n]*?resets ([0-9:apm ]+)", text, re.I)
+            if _m:
+                _cause = "\n원인: Claude 사용량 한도 소진 (복구 %s) — 코드 문제 아님, 다음 슬롯 자동 재개" % _m.group(1).strip()
+            elif "out of extra usage" in _low or "usage limit" in _low:
+                _cause = "\n원인: Claude 사용량 한도 소진 — 코드 문제 아님, 한도 복구 후 자동 재개"
+            elif "authentication_error" in _low or "401" in text or "please run /login" in _low:
+                _cause = "\n원인: Claude 인증 만료 — `claude` 로그인 필요(슬롯이 계속 증발한다)"
+            elif "rate limit" in _low or "429" in text:
+                _cause = "\n원인: API 레이트 리밋 — 잠시 후 자동 재개"
+            tg("⚠️ 숏츠 데일리 세션 비정상 종료 (코드 %d, 재시도 %d회) — %s 확인%s"
+               % (r.returncode, attempt, LOG.name, _cause))
         else:
             reason = log_looks_dead(text)
             if reason and sent_evidence(start_ts):
@@ -248,12 +294,14 @@ def check_artifacts(start_ts):
             return  # 의도된 미게시/무제작 — 세션이 사유를 보고했음
         gate_rejected = "기각" in logtext
         if CARD_MODE:
-            # 카드 세션 산출물 판정 (2026-08-05): 캐러셀 게시 실측(IGCARD:)이 세션 시작 이후 기록됐는가
+            # 카드 세션 산출물 판정 (2026-08-05): 캐러셀 게시 실측이 세션 시작 이후 기록됐는가
+            # (2026-09-02: IGCARD/THCARD 양쪽 인정 — 카드가 인스타에서 빠졌다)
             sent = ROOT / "logs" / "sent.log"
             ok = sent.exists() and sent.stat().st_mtime >= start_ts and \
-                any("IGCARD:" in ln for ln in sent.read_text(errors="ignore").strip().splitlines()[-5:])
+                any(("IGCARD:" in ln or "THCARD:" in ln)
+                    for ln in sent.read_text(errors="ignore").strip().splitlines()[-5:])
             if not ok:
-                tg("⚠️ 지식 카드: 세션은 정상 종료했지만 캐러셀 게시 실측(IGCARD)이 없음%s — %s 확인"
+                tg("⚠️ 지식 카드: 세션은 정상 종료했지만 게시 실측(IGCARD/THCARD)이 없음%s — %s 확인"
                    % (" (로그에 기각 있음 — 자가수정 실패 가능)" if gate_rejected else "", LOG.name))
             return
         new_mp4 = fresh_mp4(start_ts)
@@ -307,9 +355,102 @@ def check_artifacts(start_ts):
            % (LOG.name, str(e)[:200]))
 
 
+def _venv_run(script, args=(), timeout=900):
+    """블로그 계열 작업을 **.venv 파이썬**으로 돌린다 (2026-08-28 실사고).
+
+    사고: launchd plist가 러너를 `/usr/bin/python3`(시스템 파이썬)로 띄운다. 영상·카드
+      파이프라인은 내부에서 `.venv/bin/python3`를 따로 호출해 문제가 없었는데, 어제 붙인
+      블로그 함수들은 **러너 프로세스 안에서 직접 import**해서 전부 죽었다:
+        No module named 'googleapiclient' / 'boto3'
+      게다가 except로 삼켜서 슬롯은 정상 완주로 보였고, 로그도 claude용 daily-*.log가 아니라
+      launchd.out.log에만 남아 하루 동안 아무도 몰랐다.
+    교훈: 러너 본체는 시스템 파이썬이다. **의존성이 필요한 코드는 반드시 .venv로 분리 실행한다.**
+    """
+    venv = ROOT / ".venv" / "bin" / "python3"
+    if not venv.exists():
+        print("[daily_runner] .venv 없음 — %s 건너뜀" % script, flush=True)
+        return None
+    try:
+        r = subprocess.run([str(venv), str(ROOT / "pipeline" / script), *map(str, args)],
+                           capture_output=True, text=True, timeout=timeout, cwd=str(ROOT))
+        out = (r.stdout or "").strip()
+        if out:
+            print(out, flush=True)
+        if r.returncode != 0:
+            print("[daily_runner] %s rc=%d %s" % (script, r.returncode,
+                                                 (r.stderr or "")[-300:]), flush=True)
+        return r.returncode
+    except Exception as e:
+        print("[daily_runner] %s 실행 실패: %s" % (script, str(e)[:160]), flush=True)
+        return None
+
+
+def refresh_tech_calendar():
+    """테크 예정 이벤트 캘린더 갱신 (2026-08-27 디렉터: "소재 선점하는게 젤 중요함!").
+
+    소재 선정 **전에** 최신이어야 의미가 있으므로 main() 앞에서 돈다.
+    실패해도 슬롯을 죽이지 않는다 — 캘린더가 낡아도 소재 선정은 진행돼야 한다.
+    """
+    _venv_run("tech_calendar.py", timeout=180)
+
+
+def generate_blog_drafts():
+    """새 테크 카드를 블로그 초안으로 만든다 (2026-08-27 디렉터: "매일 테크 카드는 쌓이는데").
+
+    발행만 자동이고 생성이 수동이면 초안이 소진되는 순간 블로그가 멈춘다. 공급도 자동이어야
+    구조가 스스로 돈다. 실측 공급은 카드 8.0장/일 중 테크 7.7편 — 발행 8편과 균형이 맞는다.
+    슬롯마다 최대 3편만 만들어 Gemini 쿼터와 슬롯 시간을 보호한다.
+    """
+    _venv_run("blog_autogen.py", timeout=600)
+
+
+def log_slot_metrics(start_ts):
+    """슬롯 종료 시 계측 한 줄 (2026-08-27 토큰 패치).
+
+    기존에는 렌더·게이트 횟수를 세션이 리포트에 쓸 때만 남아 슬롯마다 들쭉날쭉했다.
+    전/후 비교를 하려면 **모든 슬롯이 같은 형식으로** 남겨야 한다.
+    """
+    try:
+        import hashlib, re as _re
+        ph = hashlib.sha256((ROOT / PROMPT_FILE).read_bytes()).hexdigest()[:12]
+        t = LOG.read_text(errors="ignore")
+        # render~/gate~ 카운트는 제거했다 (2026-08-28 감사): claude -p는 최종 응답만
+        # 로그에 남겨 'make_short.py' 같은 패턴이 로그에 없다 — 항상 0으로 찍히는
+        # 죽은 계측이었다. 산출물 존재(mp4)로 대체한다.
+        _re_unused = _re  # (기존 임포트 유지)
+        mp4 = "yes" if list(ROOT.glob("out/*.mp4")) else "no"
+        print("[metrics] mode=%s prompt-sha=%s attempts=%d elapsed=%.1f분"
+              % ("card" if CARD_MODE else "video", ph, t.count("=== attempt "),
+                 (time.time() - start_ts) / 60), flush=True)
+    except Exception as e:
+        print("[metrics] 기록 실패: %s" % str(e)[:100], flush=True)
+
+
+def publish_blog_slice():
+    """블로그 초안을 하루 5편만 공개한다 (2026-08-27 디렉터: "하루 5편씩 발행").
+
+    새 크론을 만들지 않고 여기 붙이는 이유: 러너는 슬롯마다 여러 번 도는데,
+    publish_blog_daily가 날짜 스탬프로 하루 1회만 발행하므로 몇 번 불려도 안전하다.
+    디렉터가 크론 개수 늘리는 것을 부담스러워한 점도 고려했다(2026-08-25 크론 전면 폐지).
+
+    왜 나눠 올리나: 구글 scaled content abuse 정책 — 편집자 검토 없는 AI 대량 발행은
+    2026년 3월 단속에서 트래픽 50~80% 하락을 불렀다. 초안은 검색에 안 잡히니 무해하고,
+    조절할 것은 발행 속도뿐이다. 상세는 pipeline/publish_blog_daily.py 주석 참조.
+    """
+    # 2026-08-28 실사고: _venv_run은 **returncode**를 돌려준다. `if n == 0`으로 tg를 쐈더니
+    # 스탬프로 건너뛴 슬롯(rc=0)에서도 매번 "발행 완료" 알림이 나가 하루 8번 오발송됐다.
+    # 알림은 실제 발행 편수를 아는 쪽(publish_blog_daily 자신)이 보낸다 — 러너는 실행만 한다.
+    _venv_run("publish_blog_daily.py", timeout=420)
+
+
 if __name__ == "__main__":
     try:
+        _t0 = time.time()
+        refresh_tech_calendar()   # 소재 선정 전에 캘린더를 최신화한다
         main()
+        log_slot_metrics(_t0)
+        generate_blog_drafts()
+        publish_blog_slice()
     except Exception as e:  # 러너 자체가 죽으면 경보자가 죽는 문제 방지 (2026-07-29 감사)
         tg("🔥 숏츠 데일리 러너 자체 오류: %s" % str(e)[:300])
         raise

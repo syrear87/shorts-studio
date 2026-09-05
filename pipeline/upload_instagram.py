@@ -5,13 +5,36 @@
 #  - 캡션 = 제목 + 본문 (유튜브 설명과 동일 포맷, 디렉터 지정 2026-07-29)
 #  - 장기 토큰(60일)은 마지막 갱신 7일 경과 시 자동 갱신해 keys.env를 업데이트
 # 사용: python3 pipeline/upload_instagram.py out/영상.mp4 content/영상.meta.json
-import json, os, subprocess, sys, time  # 2026-08-02 리뷰 [A18]: 미사용 re 제거
+import json
+import re, os, subprocess, sys, time  # 2026-08-02 리뷰 [A18]: 미사용 re 제거
 import urllib.request, urllib.parse, urllib.error
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KEYS = os.path.join(ROOT, "keys.env")
 STATE = os.path.join(ROOT, "logs", ".ig_token_refreshed")   # 새 토큰 투입 시 touch logs/.ig_token_refreshed 병행 (2026-08-02 리뷰 [A18])
-GRAPH = "https://graph.instagram.com/v23.0"   # 버전 고정 — 무버전 호출은 Meta 버전 폐기 시 무예고 파손 (2026-08-02 리뷰 [A18])
+GRAPH = "https://graph.instagram.com/v23.0"
+
+# ── 플랫폼 분리 편성 (2026-08-29 디렉터 지시) ─────────────────────────────
+#   "차라리 스레드는 영상 안 올리고 카드만 가고, 인스타/유튭은 영상만 가고 어때"
+#
+# 실측이 정확히 이 방향이다:
+#   스레드(8/24~ 각 30건) — 카드 평균 1,252회·반응 156  vs  영상 평균 498회·반응 37
+#                            → 카드가 조회 2.5배·반응 4.2배
+#   인스타(8/29)         — 릴스 중앙값 161회  vs  카드 중앙값 74회 → 릴스가 2.2배
+# 두 플랫폼의 선호가 정반대라, 각자 잘 받는 것만 보낸다. 부수 효과로 게시 빈도가
+# 양쪽 다 하루 12편 → 6편으로 절반이 되어, 인스타 도달 급락(8/25 706 → 8/29 161)의
+# 유력 원인인 과다 게시도 함께 걷힌다.
+#
+# 되돌리려면 이 두 값만 True로 바꾸면 된다.
+VIDEO_TO_THREADS = False   # 영상을 스레드에도 올릴 것인가 (현재: 인스타·유튜브 전용)
+CARD_TO_IG = False         # 카드를 인스타에도 올릴 것인가
+# 2026-09-02 최종 (디렉터: "빼라고 그러니깐"):
+#   8/30에 메타 보너스(사진·슬라이드 조회만 집계) 때문에 카드를 인스타로 되돌렸으나,
+#   실측 결과 그 근거가 무너졌다 — 카드 인스타 중앙값 113회 × 5장 × 30일 = 월 16,950회로
+#   보너스 요건(월 100만 회)의 **1.7%**다. 60배가 모자라 도달 가능성이 없다.
+#   게다가 9/2 두 축 전략에서 카드 축은 '스레드 + 블로그'라 인스타가 애초에 없었다.
+#   반응 낮은 게시물(릴스 213회의 절반)이 하루 5개씩 쌓이는 계정 부담도 덜어낸다.
+   # 버전 고정 — 무버전 호출은 Meta 버전 폐기 시 무예고 파손 (2026-08-02 리뷰 [A18])
 REFRESH_AFTER = 7 * 86400          # 7일마다 토큰 갱신
 MAX_THREADS = 500                  # 스레드 본문 상한 (2026-08-16)
 POLL_INTERVAL, POLL_MAX = 10, 30   # 처리 대기 최대 5분
@@ -36,6 +59,10 @@ def tg(msg):
 
 
 def api(method, path, params=None, data=None):
+    # DRY_RUN=1 이면 쓰기(POST/DELETE)를 실제로 보내지 않는다 (2026-09-05 — threads 쪽과 동일한 안전선)
+    if method.upper() != "GET" and os.environ.get("DRY_RUN") in ("1", "true", "True"):
+        print("[ig][DRY_RUN] %s %s" % (method, path), flush=True)
+        return {"id": "dryrun", "status_code": "FINISHED", "permalink": "dryrun"}
     url = GRAPH + path
     if params:
         url += "?" + urllib.parse.urlencode(params)
@@ -129,14 +156,44 @@ def build_caption(meta):
     return ("%s\n\n%s" % (head, "\n".join(body).strip()))[:2200]
 
 
+def _strip_tags(line):
+    """줄 끝의 해시태그 묶음을 떼어낸다 — 훅 문장만 남긴다.
+    #1 같은 순수 숫자 표기는 순위이지 태그가 아니므로 남긴다 (2026-08-28 감사)."""
+    return re.sub(r"(\s*#(?![0-9]+(?:\s|$))[^\s#]+)+\s*$", "", line or "").strip()
+
+
+def _caption_for_threads(caption):
+    """IG 캡션을 스레드 폴백 본문으로 쓸 때 해시태그를 걷어낸다 (2026-08-28 감사).
+
+    해시태그 제거 규칙이 native_threads_text에만 있고 폴백 두 곳(threads_parts의 head,
+    카드의 `or caption`)에는 없어서, threads_text가 없는 편은 태그가 그대로 스레드에 나갔다
+    — 실측: 08-28-am.meta.json이 threads_text 없이 실재해 잠복이 아니라 현행 구멍이었다."""
+    lines = []
+    for l in (caption or "").split("\n"):
+        t = l.strip()
+        if t.startswith("#"):        # 태그 전용 줄은 통째로 제거
+            continue
+        lines.append(_strip_tags(l) if "#" in l else l)
+    return "\n".join(lines).strip()
+
+
 def native_threads_text(threads_text, caption):
     """스레드 전용 본문 가드 (2026-08-23 성장 연구 — 뉴스체 캡션 복제 대신 1인칭 현지화 본문 사용).
     단 **첫 줄(훅)은 IG 캡션 첫 줄과 동일**해야 한다 — 제휴봇(find_recent_post)이 캡션 첫 줄로
-    스레드 글을 되찾아 쿠팡 링크를 달기 때문. 다르면 캡션 훅을 첫 줄로 강제 삽입한다."""
+    스레드 글을 되찾아 쿠팡 링크를 달기 때문. 다르면 캡션 훅을 첫 줄로 강제 삽입한다.
+
+    **해시태그는 스레드 본문에 넣지 않는다 (2026-08-28 실측 A/B)**: build_caption이 제목 뒤에
+    해시태그를 붙이는데(IG 피드는 첫 줄만 보여 태그도 함께 노출되므로 맞는 설계다),
+    그 줄이 그대로 스레드 훅으로 딸려 들어갔다. 실측 —
+      태그 0개 36건 평균 1,069회 · 태그 4개 22건 502회 · 태그 5개 2건 291회
+      영상만 비교해도 태그 없는 1건 1,481회 vs 태그 붙은 24건 484회(3배)
+    스레드는 인스타와 달리 해시태그 문화가 약하고, 태그가 붙으면 유통이 눌리는 것으로 보인다.
+    표본이 작아 단정은 못 하므로 **되돌리기 쉬운 형태로 적용하고 며칠 뒤 재측정한다.**
+    (제휴봇 매칭은 캡션 첫 줄의 앞부분으로 하므로 태그를 떼도 훅 문장은 그대로 남는다.)"""
     if not threads_text:
         return None
-    hook = (caption or "").split("\n")[0].strip()
-    first = threads_text.split("\n")[0].strip()
+    hook = _strip_tags((caption or "").split("\n")[0])
+    first = _strip_tags(threads_text.split("\n")[0])
     if hook and first != hook:
         return hook + "\n\n" + threads_text
     return threads_text
@@ -147,7 +204,7 @@ def threads_parts(meta):
     답글 = 쿠팡 링크. **쿠팡 링크가 없으면 답글을 달지 않는다.**
     스레드 상한 500자라 넘치면 블록 단위로 잘라낸다(잘랐음을 숨기지 않고 '…'로 표시).
     쿠팡 링크에는 대가성 문구가 법적 의무이므로 항상 같은 글에 붙인다."""
-    blocks = [b.strip() for b in build_caption(meta).split("\n\n") if b.strip()]
+    blocks = [b.strip() for b in _caption_for_threads(build_caption(meta)).split("\n\n") if b.strip()]
     keep = [b for b in blocks
             if not b.startswith("출처") and not b.lstrip().startswith("•")]
     head = ""
@@ -158,33 +215,47 @@ def threads_parts(meta):
         head = cand
     if not head:                      # 제목 한 줄도 넘치는 예외
         head = keep[0][:MAX_THREADS - 1] + "…" if keep else ""
-    link, name = affiliate_for(meta)
-    replies = ["%s\n%s\n\n%s" % (name, link, DISCLOSURE_TEXT)] if link else []
+    # 링크는 본문 말미가 원칙 — 답글은 거의 읽히지 않는다 (with_affiliate 주석)
+    head, replies = with_affiliate(head, meta)
     return head, replies
 
 
 from disclosure import DISCLOSURE as DISCLOSURE_TEXT   # 법정 고지 문구 단일 정본 (2026-08-25)
 
 
-def affiliate_for(meta):
+def affiliate_for(meta, text=None):
     """이 편과 짝이 되는 쿠팡 상품 (링크, 이름). 없으면 (None, None).
-    판정: 상품명 낱말이 이 편 캡션에 등장하는가 — 무관한 편에 상품을 붙이면 광고 계정이 된다
-    (2026-08-16 '직결 판정법'과 같은 기준)."""
-    import re as _re
-    try:
-        st = json.load(open(os.path.join(ROOT, "logs", "affiliate_state.json"), encoding="utf-8"))
-    except Exception:
-        return None, None
-    p = st.get("last_product") or {}
-    name, url = p.get("name"), p.get("url")
-    if not (name and url):
-        return None, None
-    # 2026-08-24 실사고: 여기 있던 자체 채점 사본이 영문 조각 소음으로 '앤커 충전기'를
-    # 관절 편에 3점 매칭 — 채점은 product_match 단일 정본만 쓴다.
-    from product_match import score
-    if score(name, build_caption(meta)) >= 3:
-        return url, name
-    return None, None
+
+    2026-08-27: 후보를 `last_product`(가장 최근 회신 1건)에서 **확보한 링크 풀 전체**로
+      넓혔다. 실측에서 hub_items에 15개가 쌓여 있는데 그중 1개만 후보라, 소재가 '폰 쿨러'여도
+      last_product가 '제습제'면 링크가 통째로 빠졌다. 판정은 affiliate_pool 단일 정본.
+
+    text: 스레드처럼 캡션과 다른 본문으로 게시하는 경로는 **실제 게시할 글**로 매칭한다.
+    """
+    from affiliate_pool import best
+    return best(text if text is not None else build_caption(meta))
+
+
+def with_affiliate(text, meta=None, limit=MAX_THREADS):
+    """스레드 본문 말미에 쿠팡 링크를 붙인다 → (본문, 답글목록).
+
+    2026-08-27 실사고: 링크가 **답글**로만 달렸는데, 답글은 원글 조회의 극히 일부만 본다.
+      실측 — 스레드 7일 조회 151,571회에 쿠팡 링크 클릭 12회(11일). 최근 글 25개 중
+      본문에 링크가 있는 글은 0개였다. 게다가 native_threads_text 경로(현재 대부분의 글)는
+      답글 체인 자체를 안 써서 링크가 아예 붙지 않았다.
+    상한(500자)을 넘으면 본문을 자르지 않고 답글로 폴백한다 — 내용을 상하게 하면서까지
+      넣을 이유는 없다. 고지 문구는 링크와 **같은 글**에 있어야 한다(법정 의무).
+    """
+    from affiliate_pool import attach, link_block
+    url, name = affiliate_for(meta or {}, text=text)
+    if not url:
+        return text, []
+    # 2026-08-31: 팔로우 유도 문구를 폐기하면서(디렉터: "짜친다") CTA를 맨 끝으로
+    # 옮기던 로직도 함께 제거했다. 본문은 출처로 끝나고 링크 블록이 그 뒤에 붙는다.
+    joined = attach(text, name, url, limit=limit)
+    if joined:
+        return joined, []
+    return text, [link_block(name, url)]
 
 
 def r2_put(kv, path):
@@ -318,11 +389,18 @@ def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, 
     # ── 스레드 동시 게시 (2026-08-16 디렉터: "릴스 올리면 쓰레드에도 자동으로")
     # R2 정리 '전에' 해야 한다 — 같은 공개 URL을 스레드가 다시 가져가기 때문이다.
     # 실패해도 릴스 게시는 이미 끝났으니 슬롯을 죽이지 않는다(경고만).
+    if not VIDEO_TO_THREADS:
+        print("[영상] 스레드 건너뜀 — 플랫폼 분리 편성 (2026-08-29)", flush=True)
+        _r2_cleanup(kv, s3, r2key)
+        return media_id
     try:
         import upload_threads
         _tt = native_threads_text(meta.get("threads_text"), build_caption(meta))
         if _tt:
-            th_link = upload_threads.publish(public_url, _tt)   # 현지화 본문 — 답글 체인 없이 단독 완결
+            # 2026-08-27: 이 경로가 '답글 체인 없이 단독 완결'이라 쿠팡 링크가 통째로 빠져 있었다.
+            # 최근 글 대부분이 이 경로다 — 스레드 25개 글 중 본문 링크 0개의 직접 원인.
+            _tt, _rep = with_affiliate(_tt, meta)
+            th_link = upload_threads.publish(public_url, _tt, replies=_rep)
         else:
             _head, _replies = threads_parts(meta)
             th_link = upload_threads.publish(public_url, _head, replies=_replies)
@@ -349,9 +427,48 @@ def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, 
     return media_id
 
 
-def publish_carousel(images, caption, publish=True, threads_text=None):
-    """지식 카드 캐러셀 게시 (2026-08-05 디렉터 승인 — 하루 3편 아침·점심·저녁).
-    images: PNG 경로 리스트(2~3장). 흐름: R2 업로드 → 아이템 컨테이너 → 캐러셀 컨테이너 → 게시 → R2 정리."""
+def _publish_threads_card(kv, keys, caption, threads_text, card_name, ig=True):
+    """카드 이미지를 스레드에 게시한다 (IG 게시 여부와 무관하게 같은 경로를 쓴다).
+    R2 정리(finally) 전에 호출해야 한다 — 스레드 컨테이너가 이미지 URL을 읽어야 하기 때문.
+    제휴봇이 IG 캡션 첫 줄로 스레드 글을 찾으므로 첫 줄은 캡션과 일치해야 한다."""
+    import datetime
+    try:
+        import upload_threads as _th
+        base = kv["R2_PUBLIC_URL"].rstrip("/")
+        _body, _rep = with_affiliate(
+            native_threads_text(threads_text, caption) or _caption_for_threads(caption),
+            {"caption": caption})
+        th_link = _th.publish_images([base + "/" + k for k in keys], _body, replies=_rep)
+        print("스레드 게시 완료:", th_link, flush=True)
+        if not ig:
+            # 스레드 전용 슬롯의 멱등 가드용 기록 (IGCARD가 안 남으므로)
+            with open(os.path.join(ROOT, "logs", "sent.log"), "a") as f:
+                f.write("%s THCARD:%s\n"
+                        % (datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S"), card_name))
+            tg("✅ 지식 카드 게시 완료 (스레드 전용)\n%s\n%s"
+               % (caption.split("\n")[0], th_link or ""))
+        return th_link
+    except Exception as _e:
+        print("스레드 게시 실패:", str(_e)[:150], flush=True)
+        tg("⚠️ 카드 스레드 게시 실패%s — 제휴 링크 답글이 안 붙을 수 있음\n%s"
+           % ("" if ig else " (이 슬롯은 스레드 전용이라 아무 데도 안 나갔다)", str(_e)[:150]))
+        return None
+
+
+def publish_carousel(images, caption, publish=True, threads_text=None, ig=None):
+    """지식 카드 캐러셀 게시.
+    images: PNG 경로 리스트(2~3장). 흐름: R2 업로드 → 아이템 컨테이너 → 캐러셀 컨테이너 → 게시 → R2 정리.
+
+    ig=False면 **인스타를 건너뛰고 스레드에만** 올린다 (2026-08-29 디렉터 지시:
+    "카드는 스레드는 유지, 인스타는 3장으로 줄입시다").
+    근거 — 인스타 릴스 중앙값이 8/25 706회 → 8/29 161회로 5일 만에 1/4이 됐고, 카드는
+    릴스의 40% 수준(74회)에서 계속 낮았다. 팔로워 1,141명에게조차 안 닿는 상태다.
+    같은 소재로 스레드(카드 최고편 2,529회·반응 22)와 유튜브(평균 588회)는 정상이므로
+    소재가 아니라 **인스타 계정 도달** 문제로 보고, 하루 12편(릴스 6+카드 6)의 1~2시간
+    간격 연속 게시를 과다 신호 후보로 잡아 카드 IG 노출을 3장으로 줄인다.
+    스레드는 카드가 잘 받고 있으므로 6장 전부 유지한다."""
+    if ig is None:
+        ig = CARD_TO_IG        # 기본값은 편성 스위치를 따른다 (2026-08-29)
     kv = load_keys()
     _validate_r2_config(kv)   # upload()와 동일 단일 가드 (2026-08-23 리뷰: 존재+오염 통합)
     token, user_id = kv.get("IG_ACCESS_TOKEN"), kv.get("IG_USER_ID")
@@ -360,9 +477,11 @@ def publish_carousel(images, caption, publish=True, threads_text=None):
     # 멱등 가드 (2026-08-05 점검): 같은 카드 묶음(디렉터리명)이 이미 게시됐으면 건너뜀
     card_name = os.path.basename(os.path.dirname(images[0]))
     sent_p = os.path.join(ROOT, "logs", "sent.log")
-    if os.path.exists(sent_p) and any(ln.rstrip().endswith("IGCARD:" + card_name)
+    # 스레드 전용 게시(ig=False)는 IGCARD 로그를 남기지 않으므로 THCARD로 따로 가드한다
+    _mark = "IGCARD:" if ig else "THCARD:"
+    if os.path.exists(sent_p) and any(ln.rstrip().endswith(_mark + card_name)
                                       for ln in open(sent_p, encoding="utf-8", errors="ignore")):
-        print("이미 게시됨(IGCARD:%s) — 건너뜀" % card_name)
+        print("이미 게시됨(%s%s) — 건너뜀" % (_mark, card_name))
         return "already-published"
     token = refresh_token_if_due(token)
     import boto3
@@ -402,6 +521,13 @@ def publish_carousel(images, caption, publish=True, threads_text=None):
                 time.sleep(3)
             else:
                 raise RuntimeError("아이템 컨테이너 처리 대기 초과")
+        if not ig:
+            # 인스타 건너뛰기 — R2 업로드는 이미 끝났으므로 스레드 게시로 직행한다.
+            print("[카드] 인스타 건너뜀 (스레드 전용 슬롯) — 2026-08-29 도달 회복 조치",
+                  flush=True)
+            media_id, perma = None, ""
+            _publish_threads_card(kv, keys, caption, threads_text, card_name, ig=False)
+            return "threads-only"
         cont = api("POST", "/%s/media" % user_id, data={
             "media_type": "CAROUSEL", "children": ",".join(child_ids),
             "caption": caption[:2200], "access_token": token})
@@ -446,15 +572,7 @@ def publish_carousel(images, caption, publish=True, threads_text=None):
         # 제휴봇이 IG 캡션 첫 줄로 스레드 글을 찾아 쿠팡 링크 답글을 달기 때문.
         # 첫 줄이 IG 캡션과 반드시 일치해야 find_recent_post 매칭이 된다.)
         # R2 정리(finally) 전에 실행 — 스레드 컨테이너가 이미지 URL을 읽어야 한다.
-        try:
-            import upload_threads as _th
-            base = kv["R2_PUBLIC_URL"].rstrip("/")
-            th_link = _th.publish_images([base + "/" + k for k in keys],
-                                         native_threads_text(threads_text, caption) or caption)
-            print("스레드 게시 완료:", th_link, flush=True)
-        except Exception as _e:
-            print("스레드 게시 실패(카드 자체는 게시됨):", str(_e)[:150], flush=True)
-            tg("⚠️ 카드는 게시됐지만 스레드 게시 실패 — 제휴 링크 답글이 안 붙을 수 있음\n%s" % str(_e)[:150])
+        _publish_threads_card(kv, keys, caption, threads_text, card_name, ig=True)
         tg("✅ 지식 카드 게시 완료\n%s\n%s" % (caption.split("\n")[0], perma))
         return media_id
     finally:
