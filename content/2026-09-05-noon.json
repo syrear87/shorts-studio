@@ -1,0 +1,76 @@
+{
+  "title": "한국 감독이 미국 극장 1,500개를 채웠습니다 — 곡성 때는 35개였습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "bg_query": ["movie theater audience night", "korean film director cinema award", "hollywood theater marquee neon lights", "movie premiere red carpet night", "cinema screen dark audience watching", "film festival trophy stage"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": "photo:14746411",
+      "voice": "한국 감독이 미국 극장 1,500개를 채웠습니다. 곡성 때는 35개였습니다.",
+      "lines": [
+        ["한국 감독이 미국 극장 1,500개를 채웠습니다", ["1,500개"]],
+        ["곡성 때는 35개였습니다", ["35개"]]
+      ]
+    },
+    {
+      "kind": "body",
+      "bg": "photo:8088376",
+      "voice": "나홍진 감독의 신작 호프. 10년 만의 복귀작입니다.",
+      "lines": [
+        ["나홍진 감독의 신작 호프", ["호프"]],
+        ["10년 만의 복귀작입니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "photo:7991233",
+      "voice": "곡성은 미국 35개관이었습니다. 호프는 1,500개관. 43배. 기생충 이후 한국어 영화 최대 규모입니다.",
+      "lines": [
+        ["곡성 35개관 → 호프 1,500개관 (43배)", ["43배"]],
+        ["기생충 이후 한국어 영화 최대 규모입니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "photo:11702566",
+      "voice": "이걸 해낸 건 독립 배급사 네온입니다. 기생충을 오스카 작품상까지 밀어 넣은 그 회사.",
+      "lines": [
+        ["독립 배급사 네온입니다", ["네온"]],
+        ["기생충을 오스카까지 밀어 넣은 그 회사", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "photo:20830201",
+      "voice": "디즈니도 워너도 아닌 독립 배급사가 한국어 영화에 1,500개 스크린을 건 겁니다.",
+      "lines": [
+        ["디즈니도 워너도 아닌 독립 배급사가", []],
+        ["한국어 영화에 1,500개 스크린을 건 겁니다", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": "photo:38507937",
+      "voice": "9월 9일 미국 개봉입니다. 같은 날 국내 CGV에서도 4DX로 다시 걸립니다. 극장에서 확인해 보세요.",
+      "lines": [
+        ["9월 9일 미국 개봉입니다", ["9월 9일"]],
+        ["국내 CGV에서도 4DX로 다시 걸립니다", []],
+        ["극장에서 확인해 보세요", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": "photo:7234293",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", []], ["구독으로 받아보세요", []]]
+    }
+  ],
+  "sources": [
+    "Variety — Neon Sets 1,500-Theater U.S. Release for Na Hong-Jin's 'Hope' (2026.09)",
+    "Box Office Mojo — The Wailing (곡성 미국 최대 35개관)",
+    "스포츠경향 — CGV 38개 극장 4DX 재상영 (2026.09.01)",
+    "이미지: 호프 공식 포스터(Neon)"
+  ]
+}
