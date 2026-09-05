@@ -26,6 +26,15 @@ GRAPH = "https://graph.instagram.com/v23.0"
 # 유력 원인인 과다 게시도 함께 걷힌다.
 #
 # 되돌리려면 이 두 값만 True로 바꾸면 된다.
+# ── 쿠팡 파트너스 매체 등록 게이트 (2026-09-05) ─────────────────────────
+# 파트너스 규정: **등록하지 않은 채널에서의 광고활동은 부정행위**이며 수익금 지급 중단·
+# 임의탈퇴 대상이다. 현재 활동매체 등록은 YouTube(@daily1know)·Instagram(syusyu_channel)
+# 2건뿐이고(DECISIONS.md S-007), 카드가 나가는 **스레드(@daily_1_pick)와 블로그
+# (daily1pick.blogspot.com)는 미등록**이다. 등록 전까지 스레드 자동 부착을 멈춘다.
+# 디렉터가 앱에서 직접 다는 것도 같은 규정을 받으므로, 등록이 먼저다.
+# 디렉터가 파트너스에 두 매체를 등록하면 이 값을 True로 되돌린다.
+AFFILIATE_MEDIA_REGISTERED = False
+
 VIDEO_TO_THREADS = False   # 영상을 스레드에도 올릴 것인가 (현재: 인스타·유튜브 전용)
 CARD_TO_IG = False         # 카드를 인스타에도 올릴 것인가
 # 2026-09-02 최종 (디렉터: "빼라고 그러니깐"):
@@ -246,6 +255,10 @@ def with_affiliate(text, meta=None, limit=MAX_THREADS):
     상한(500자)을 넘으면 본문을 자르지 않고 답글로 폴백한다 — 내용을 상하게 하면서까지
       넣을 이유는 없다. 고지 문구는 링크와 **같은 글**에 있어야 한다(법정 의무).
     """
+    if not AFFILIATE_MEDIA_REGISTERED:
+        print("[affiliate] 매체 미등록으로 부착 보류 — 파트너스에 스레드·블로그 등록 후 "
+              "AFFILIATE_MEDIA_REGISTERED=True (2026-09-05)", flush=True)
+        return text, []
     from affiliate_pool import attach, link_block
     url, name = affiliate_for(meta or {}, text=text)
     if not url:

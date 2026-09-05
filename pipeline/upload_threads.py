@@ -285,6 +285,36 @@ def find_recent_post(caption_hint, limit=8):
     return None
 
 
+def reply_correction(parent_id, text, approved=False):
+    """정정 답글 전용 — 디렉터 승인(approved=True) 없이는 게시하지 않는다 (2026-09-05 확정).
+
+    왜 분리했나: reply_text는 쿠팡 링크 답글도 쓰는 통로라, 거기에 승인 검사를 걸면
+    제휴 부착까지 막힌다. 정정만 따로 뺀다.
+    왜 승인이 필요한가: **스레드 답글은 API로 삭제할 수 없다.** 잘못 쓴 정정문은
+    되돌릴 방법이 없어 2차 사고가 된다(9/5 'x' 게시 사고에서 삭제 불가를 확인).
+    형식은 기계로 검사하고, 게시 여부는 사람이 정한다.
+    """
+    problems = []
+    t = (text or "").strip()
+    if not t.startswith("[정정]"):
+        problems.append("'[정정]'으로 시작하지 않음")
+    if len(t) > MAX_TEXT:
+        problems.append("%d자 (%d자 초과)" % (len(t), MAX_TEXT))
+    if re.search(r"@\w|당신|여러분|님께서|말씀하신", t):
+        problems.append("2인칭·멘션 포함 (특정인에게 답하지 말고 공지로 쓴다)")
+    if not re.search(r"\d{4}[.\-년]|\d{1,2}월\s?\d{1,2}일|기준", t):
+        problems.append("기준 시점 없음 (언제 확인한 값인지 밝혀라)")
+    if problems:
+        raise RuntimeError("정정문 형식 미달: " + " / ".join(problems))
+    if not approved:
+        raise RuntimeError(
+            "정정 답글은 디렉터 승인이 필요하다 (2026-09-05 확정, 월 2건 이하).\n"
+            "  절차: 정정문 초안을 텔레그램으로 보내고 'ok' 회신을 받은 뒤 approved=True로 호출.\n"
+            "  스레드 답글은 삭제가 불가능해 잘못 쓰면 되돌릴 수 없다.\n"
+            "  초안:\n" + t)
+    return reply_text(parent_id, t)
+
+
 def reply_text(parent_id, text):
     """기존 글에 텍스트 답글을 단다."""
     tok = token()
