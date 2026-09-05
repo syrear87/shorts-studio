@@ -211,6 +211,17 @@ def main():
                 # CARD_MODE를 자식(claude 세션)에게도 넘긴다 (2026-09-05):
                 # upload_threads.publish_text가 이 값으로 카드 라인 여부를 판정한다 —
                 # 영상 세션이 스레드에 텍스트 글을 올린 사고(「나홍진 호프」) 재발 방지.
+                # 컨텍스트 팩 (2026-09-06): 착수 전 통독 254,667자를 4천 자로 줄인 한 장.
+                # 슬롯 직전에 새로 만든다 — 어제 팩을 읽으면 오늘 소재가 중복된다.
+                try:
+                    subprocess.run([str(ROOT / ".venv/bin/python3"),
+                                    str(ROOT / "bin/context_pack.py")],
+                                   timeout=120, check=False, cwd=str(ROOT),
+                                   stdout=lf, stderr=subprocess.STDOUT)
+                except Exception as _e:
+                    lf.write("[runner] context_pack 실패(무해, 세션이 원본을 읽는다): %s\n"
+                             % str(_e)[:90])
+                lf.flush()
                 _env = dict(os.environ, CARD_MODE="1" if CARD_MODE else "0")
                 r = subprocess.run(
                     ["/bin/zsh", "-l", "-c",
