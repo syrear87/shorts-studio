@@ -1,0 +1,26 @@
+{
+ "topic": "Cheerble Match G1 — 급식기가 고양이 얼굴을 구분한다, 다른 고양이가 다가가면 뚜껑이 잠긴다 [한계붕괴형]",
+ "caption": "급식기가 고양이 얼굴을 구분한다\n\nCheerble Match G1 — 세계 최초 AI 시각인식 반려동물 급식기.\n적외선 카메라가 25cm 안에 든 고양이 얼굴을 인식하고, 등록된 고양이면 뚜껑을 열어준다.\n다른 고양이가 다가가면 물리적 돔 뚜껑이 닫힌 채 움직이지 않는다.\n\n최대 6마리 등록. 1,000마리 이상 학습 데이터 기반.\n인식은 기기 안에서 끝남 — 카메라 영상 클라우드 업로드 없음.\n정전 시에도 내장 배터리로 급식 유지.\n\n기존 대안: SureFlap 마이크로칩 급식기(쿠팡 10~15만원) — 목걸이 태그나 마이크로칩 필요.\n이건 목걸이 없이 얼굴만으로 된다.\n\n$259(약 35만원) + 관세/배송 약 5~7만원, 총 약 40~42만원.\n국내 미출시 — cheerble.com에서 직구 가능(Cheerble Match G1 검색).\n국내 출시 계획 미정.\n\nCES 2026 Best of CES 수상.\n자체 테스트 기준 인식 정확도 99.9% — 독립 검증은 아직 없음.\n\n(출처: Cheerble 공식, PR Newswire, Interesting Engineering)\n\n#고양이급식기 #다묘가정 #Cheerble #AI급식기 #테크",
+ "threads_text": "급식기가 고양이 얼굴을 구분한다\n\n1. 다묘 가정 사료 도둑 문제를 AI로 잡은 급식기가 나옴\n2. 적외선 카메라가 25cm 안에 든 고양이 얼굴을 보고, 등록된 고양이면 뚜껑을 열어줌\n3. 다른 고양이가 다가가면 투명 돔 뚜껑이 물리적으로 잠겨 있음 — 진짜 막힘\n4. 6마리까지 등록, 1,000마리 이상 학습 데이터 기반\n5. 영상은 기기 안에서만 처리됨 — 클라우드 안 감\n6. 기존에는 마이크로칩 급식기(목걸이 필요)뿐이었는데, 이건 목걸이 없이 됨\n7. $259(약 35만원), 국내 미출시 — cheerble.com 직구, 관세 별도\n8. CES 2026 Best of CES 수상. 정확도 99.9%는 자체 실험실 기준\n\n(출처: Cheerble 공식, PR Newswire, Interesting Engineering)",
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/cheerble_g1_hero.jpg",
+   "title": "급식기가\n고양이 얼굴을 구분한다",
+   "title_hl": ["고양이 얼굴"],
+   "body": "다른 고양이가 다가가면\n뚜껑이 잠긴다",
+   "body_hl": ["뚜껑이 잠긴다"],
+   "credit": "Cheerble"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/cheerble_g1_detail.jpg",
+   "title": "적외선 카메라가 얼굴을 보고\n주인이면 뚜껑을 연다",
+   "title_hl": ["주인이면"],
+   "body": "6마리 등록, 로컬 AI 처리\n목걸이/마이크로칩 필요 없음\n정전 시 내장 배터리로 급식 유지",
+   "body_hl": ["목걸이", "마이크로칩", "필요 없음"],
+   "sub": "$259 약 35만원 직구 cheerble.com CES 2026 수상",
+   "credit": "Cheerble"
+  }
+ ]
+}
