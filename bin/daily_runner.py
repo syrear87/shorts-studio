@@ -17,7 +17,30 @@ else:
 # 종전에는 같은 절이 두 파일에 복사돼 있었고 9/2 편성 변경이 한쪽에만 반영돼,
 # 카드 세션이 사흘 동안 이미 없어진 "영상 5편" 편성을 읽고 있었다.
 MODE_FILE = "CARD_PROMPT.md" if CARD_MODE else "DAILY_PROMPT.md"
-PROMPT_FILES = ["RULES.md", MODE_FILE]
+# ⚠️ 순서가 중요하다 (2026-09-06 09:00 실사고): RULES.md를 앞에 두자 프롬프트가
+# "# RULES — 공통 정본…" 문서 헤더로 시작했고, 세션이 이를 **읽어달라는 문서**로 읽어
+# "The project context is loaded. What do you need help with?"만 남기고 종료했다.
+# 모드 파일은 "너는 ~ 슬롯 세션이다. 이번 실행에서 ~하고 끝난다"로 시작한다 —
+# **임무가 첫 줄에 와야 한다.** 공통 규칙은 참조라 뒤에 와도 된다.
+PROMPT_FILES = [MODE_FILE, "RULES.md"]
+# 임무 한 줄을 러너가 직접 맨 앞에 박는다 — 파일이 무엇으로 시작하든 **첫 줄은 지시**여야 한다.
+# 2026-09-06 09:00: 프롬프트가 "# RULES — 공통 정본…"으로 시작하자 세션이 문서 열람 요청으로
+# 읽고 "What do you need help with?"만 남기고 종료했다. 파일 첫 줄에 의존하지 않는다.
+HEAD_FILE = ROOT / "logs" / ".prompt_head.txt"
+
+
+def write_head():
+    what = ("테크 카드 1건(2~3장 캐러셀)을 만들어 스레드·블로그에 게시"
+            if CARD_MODE else "지식 숏폼 1편을 만들어 유튜브·인스타에 게시")
+    HEAD_FILE.parent.mkdir(exist_ok=True)
+    HEAD_FILE.write_text(
+        "너는 숏츠 스튜디오의 %s 슬롯 세션이다. 작업 디렉토리는 ~/Dev/shorts-studio.\n"
+        "**지금 이 실행에서 %s하고 마감 리포트를 남기는 것이 이번 슬롯의 임무다.**\n"
+        "아래는 그 지시서다 — 읽어달라는 문서가 아니라 **따라야 할 절차**다. "
+        "질문하거나 대기하지 말고 착수하라. 무인 실행이라 답할 사람이 없다.\n\n"
+        "---\n\n" % ("카드" if CARD_MODE else "영상", what),
+        encoding="utf-8")
+    return str(HEAD_FILE.relative_to(ROOT))
 PROMPT_FILE = MODE_FILE   # (기존 로그·메트릭 호환)
 
 
@@ -27,6 +50,7 @@ def prompt_sha():
     h = _hl.sha256()
     for f in PROMPT_FILES:
         h.update((ROOT / f).read_bytes())
+    h.update(b"head-v1")
     return h.hexdigest()[:12]
 LOCK = ROOT / "logs" / (".card.lock" if CARD_MODE else ".daily.lock")   # ⚠️ .daily.lock의 파일명·내용(PID)은 bin/janitor.sh 렌더 감지와 결합 (2026-08-23)
 LOG = ROOT / "logs" / ("daily-%s.log" % datetime.now().strftime("%Y%m%d-%H%M"))
@@ -227,7 +251,7 @@ def main():
                     ["/bin/zsh", "-l", "-c",
                      'p="$(cat %s)"; print -r -- "[runner] prompt ${#p}자"; '
                      'claude -p "$p" --model opus --permission-mode acceptEdits'
-                     % " ".join(PROMPT_FILES)],
+                     % " ".join([write_head()] + PROMPT_FILES)],
                     stdout=lf, stderr=subprocess.STDOUT, timeout=TIMEOUT, cwd=str(ROOT), env=_env)
             # 판정은 마지막 attempt 구간만 읽는다 — 이전 시도의 마커·본문과 섞임 방지 (2026-08-02 리뷰)
             text = LOG.read_text(errors="ignore").split("=== attempt ")[-1]
