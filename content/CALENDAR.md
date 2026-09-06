@@ -710,3 +710,4 @@
 | 2026-08-29 | 20시 카드 | 챗GPT 그림판 밈, 한국 디자이너가 시작한 MS Paint AI놀이 (IG Dcn0MrgGbq9 / Threads Dcn0PynGdi7) |
 ### 2026-09-06 (토)
 - 16시 카드: HDMI 케이블 구매 가이드 [구매가능][공유형] — threads.com/@daily_1_pick/post/Dc7_Yo1GTPa
+- 20시 카드: Beyerdynamic AVENTHO Y — 무선 헤드폰 배터리 90시간 [한계붕괴형] — threads.com/@daily_1_pick/post/Dc8bdmgmQdK

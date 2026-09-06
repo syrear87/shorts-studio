@@ -1,0 +1,26 @@
+{
+ "topic": "Beyerdynamic AVENTHO Y — 무선 헤드폰 배터리가 90시간을 넘었다, ANC 켜도 60시간, $149.99 [한계붕괴형]",
+ "caption": "무선 헤드폰 배터리가 드디어 90시간을 넘었다\n\n바이어다이나믹 AVENTHO Y.\n배터리 90시간(ANC 끄면), ANC 켜도 60시간.\n에어팟 맥스 20시간, 소니 XM6 30시간 — 그 3배.\n5분 충전하면 6시간 쓴다.\n배터리 직접 갈아 끼울 수 있어서 몇 년 써도 성능 안 떨어짐.\n45mm 드라이버, 블루투스 6.0, 접으면 가방에 들어감.\n가격 $149.99 — 약 22만원.\n\n한국 미출시 — 아마존 직구 가능($150 미만 관세 면제 대상).\n국내 비슷한 급: Audio-Technica ATH-S300BT(90시간, 국내 6~7만원대).\n\n(출처: beyerdynamic 공식 제품 페이지, What Hi-Fi, Engadget 교차 확인)\n\n#무선헤드폰 #바이어다이나믹 #AVENTHOY #배터리90시간 #IFA2026",
+ "threads_text": "무선 헤드폰 배터리가 드디어 90시간을 넘었다\n\n1. 바이어다이나믹 AVENTHO Y — 배터리 90시간(ANC 켜면 60시간)\n2. 에어팟 맥스 20시간, 소니 XM6 30시간인데 이건 3배\n3. 가격 $149.99 — 약 22만원, 소니의 3분의 1\n4. 충전 5분이면 6시간 씀, 완충 1시간\n5. 배터리 직접 갈아 끼울 수 있음 — 배터리 죽어도 헤드폰을 안 버려도 됨\n6. 한국 미출시 — 아마존 직구 가능, $150 미만이라 관세 면제\n7. 국내 대안: Audio-Technica ATH-S300BT도 90시간이고 국내 6~7만원대에 있음\n\n(출처: beyerdynamic 공식, What Hi-Fi, Engadget)",
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/beyerdynamic_aventho_y_perspective.png",
+   "title": "무선 헤드폰 배터리가\n드디어 90시간을 넘었다",
+   "title_hl": ["드디어 90시간"],
+   "body": "배터리 90시간\nANC 켜도 60시간",
+   "body_hl": ["90시간", "60시간"],
+   "credit": "beyerdynamic"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/beyerdynamic_aventho_y_side.png",
+   "title": "에어팟 맥스  20시간\n소니 XM6  30시간\nAVENTHO Y  90시간",
+   "title_hl": ["90시간"],
+   "body": "5분 충전 = 6시간\n배터리 직접 교체 가능\n$149.99 — 약 22만원",
+   "body_hl": ["직접 교체", "$149.99"],
+   "sub": "한국 미출시 — 아마존 직구 가능(관세 면제)",
+   "credit": "beyerdynamic"
+  }
+ ]
+}
