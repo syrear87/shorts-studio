@@ -29,6 +29,11 @@ chk() {  # chk <설명> <있어야 하면 1> <패턴>
   else printf "  ✗ %s  (매치 %s건)\n" "$desc" "$n"; fail=$((fail+1)); fi
 }
 
+# 카드 슬롯인지 영상 슬롯인지 로그 자체에서 판정한다 — 종전엔 구분 없이 "유튜브 링크"를
+# 요구해 카드 슬롯이 매번 '확인 필요'로 떴다(2026-09-06 12:00 오탐).
+if grep -qF "CARD_PROMPT.md" "$LOG"; then MODE=card; else MODE=video; fi
+echo "[모드] $MODE"
+echo
 echo "[기본]"
 chk "세션이 마감 마커를 남겼다 (SLOT-DONE)"        1 "SLOT-DONE"
 chk "프롬프트가 비지 않았다"                        1 "[runner] prompt "
@@ -37,7 +42,8 @@ chk "즉사·한도 경보가 없다"                         0 "usage limit"
 echo
 echo "[9/5 밤에 넣은 새 체제]"
 chk "컨텍스트 팩이 생성됐다"                        1 "[context_pack]"
-chk "프롬프트가 RULES + 모드 두 벌로 조립됐다"      1 "RULES.md + "
+chk "공통 정본(RULES)이 조립에 포함됐다"           1 "RULES.md"
+chk "임무 헤더가 붙었다 (첫 줄이 지시)"            1 "임무헤더"
 
 echo
 echo "[산출물]"
@@ -45,7 +51,11 @@ if grep -qF "SLOT-NOOP" "$LOG"; then
   echo "  · 결번 슬롯이다 — 사유:"
   grep -oE "SLOT-NOOP[^|]*" "$LOG" | head -2 | sed 's/^/      /'
 else
-  chk "유튜브 링크가 남았다"                        1 "youtube.com/shorts"
+  if [ "$MODE" = card ]; then
+    chk "스레드 링크가 남았다"                      1 "threads.com/"
+  else
+    chk "유튜브 링크가 남았다"                      1 "youtube.com/shorts"
+  fi
 fi
 
 echo

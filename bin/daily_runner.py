@@ -230,7 +230,7 @@ def main():
                     _ph = prompt_sha()
                 except Exception:
                     _ph = "?"
-                lf.write("[runner] prompt-sha %s (%s)\n" % (_ph, " + ".join(PROMPT_FILES)))
+                lf.write("[runner] prompt-sha %s (임무헤더 + %s)\n" % (_ph, " + ".join(PROMPT_FILES)))
                 lf.flush()
                 # CARD_MODE를 자식(claude 세션)에게도 넘긴다 (2026-09-05):
                 # upload_threads.publish_text가 이 값으로 카드 라인 여부를 판정한다 —
