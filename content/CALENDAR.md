@@ -708,3 +708,5 @@
 | 2026-08-29 | 12시 카드 | 파나소닉 루믹스 L10, 209만원 컴팩트 카메라 (IG Dcm89hVmU57 / Threads Dcm9BZvGY_A) |
 | 2026-08-29 | 14시 카드 | 카시오 지샥 GM-H5600, 풀메탈 심박수 센서 (IG DcnYJufGYjZ / Threads DcnYNmHmbI9) |
 | 2026-08-29 | 20시 카드 | 챗GPT 그림판 밈, 한국 디자이너가 시작한 MS Paint AI놀이 (IG Dcn0MrgGbq9 / Threads Dcn0PynGdi7) |
+### 2026-09-06 (토)
+- 16시 카드: HDMI 케이블 구매 가이드 [구매가능][공유형] — threads.com/@daily_1_pick/post/Dc7_Yo1GTPa
