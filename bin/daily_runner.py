@@ -353,6 +353,20 @@ def check_artifacts(start_ts):
             if not ok:
                 tg("⚠️ 지식 카드: 세션은 정상 종료했지만 게시 실측(IGCARD/THCARD)이 없음%s — %s 확인"
                    % (" (로그에 기각 있음 — 자가수정 실패 가능)" if gate_rejected else "", LOG.name))
+                return
+            # 마감 리포트 필수 항목 (2026-09-07 신설): 게시는 됐는데 리포트가
+            # "SLOT-DONE — 카드 게시 완료" 한 줄로 끝나는 일이 반복됐다(9/7 14:00).
+            # 리포트가 없으면 중복 검사·팩트체크·가격 근거를 **실제로 했는지 확인할 길이 없다**
+            # — 9/4 가격 사고가 그렇게 지나갔다. 게시는 끝났으니 차단이 아니라 경보다.
+            _rep = logtext.split("=== attempt ")[-1]   # 이 분기에서 새로 뜬다 —
+            # _last는 위 NOOP 분기 안에서만 정의돼 여기선 NameError가 난다(2026-09-07 검증에서 잡음)
+            _need = [("소재", "소재"), ("스레드 URL", "threads.com/"),
+                     ("팩트체크", "팩트체크"), ("중복 검사", "중복"), ("훅 채점", "훅 채점")]
+            _miss = [n for n, k in _need if k not in _rep]
+            if _miss:
+                tg("⚠️ 지식 카드: 게시는 됐으나 마감 리포트에 %s 없음 — %s\n"
+                   "  기록이 없으면 검증도 불가하다(CARD_PROMPT §5 마감 템플릿)"
+                   % ("·".join(_miss), LOG.name))
             return
         new_mp4 = fresh_mp4(start_ts)
         if not new_mp4:
