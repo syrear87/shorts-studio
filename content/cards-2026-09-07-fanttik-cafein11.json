@@ -1,0 +1,27 @@
+{
+ "topic": "Fanttik Cafein 11 — 보조배터리처럼 생긴 에스프레소 머신이 나왔다, 20bar 135초 충전 1회에 8잔 [소유욕형]",
+ "series": "테크",
+ "caption": "보조배터리처럼 생긴 에스프레소 머신이 나왔다\n\nFanttik Cafein 11.\n20bar 펌프가 825g 텀블러 안에 들어가 있다.\n차가운 물을 넣어도 135초면 뜨거운 에스프레소가 나온다.\n배터리 13,500mAh — 한 번 충전에 8잔.\nUSB-C 30W 급속충전.\n네스프레소 캡슐도, 원두 가루도 된다.\n\n카페가 없는 곳에서 에스프레소가 필요할 때.\n캠핑장, 비행기, 사무실 — 콘센트 없이 된다.\n\n미국 $149.99(약 20만 원).\n국내 미출시 — 배대지 직구 시 총 약 22~23만 원.\n\n(출처: Fanttik 공식 사이트, Yanko Design 2026-08, Drinkhacker 리뷰)\n\n#휴대용에스프레소 #포터블커피 #텀블러에스프레소 #캠핑커피 #테크",
+ "threads_text": "보조배터리처럼 생긴 에스프레소 머신이 나왔다\n\n1. Fanttik Cafein 11 — 무게 825g, 진짜 텀블러 크기\n2. 20bar 펌프 내장 — 카페 에스프레소 머신이랑 같은 압력\n3. 차가운 물 넣어도 135초면 뜨거운 에스프레소 추출\n4. 배터리 13,500mAh — 한 번 충전에 8잔까지\n5. 네스프레소 캡슐도 되고 원두 가루도 됨\n6. USB-C 30W 급속충전 지원\n7. 미국 $149.99(약 20만 원), 국내 미출시라 배대지 직구만 가능 — 총 약 22~23만 원\n8. 국내 전동 휴대용 에스프레소는 OutIn Nano(약 16~20만 원, 해외직구)가 비슷한 급\n\n(출처: Fanttik 공식, Yanko Design 2026-08, Drinkhacker 리뷰)",
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/fanttik_cafein11_product.jpg",
+   "title": "보조배터리처럼 생긴\n에스프레소 머신이 나왔다",
+   "title_hl": ["보조배터리", "나왔다"],
+   "body": "20bar · 135초 · 충전 1회에 8잔\n콘센트 필요 없다",
+   "body_hl": ["콘센트 필요 없다"],
+   "credit": "Fanttik"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/fanttik_cafein11_detail.jpg",
+   "title": "Fanttik Cafein 11",
+   "title_hl": ["Cafein 11"],
+   "body": "배터리 13,500mAh  충전 1회에 8잔\nUSB-C 30W 급속충전\n캡슐 + 원두 가루 겸용\n무게 825g  텀블러 크기",
+   "body_hl": ["8잔", "캡슐 + 원두 가루 겸용"],
+   "sub": "미국 $149.99(약 20만 원) · 국내 미출시 · 배대지 직구 약 22~23만 원",
+   "credit": "Fanttik"
+  }
+ ]
+}
