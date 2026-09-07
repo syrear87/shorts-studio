@@ -13,7 +13,15 @@ n=0
 for f in logs/daily-"$DAY"-{1020,1320,2100}.log; do
   [ -f "$f" ] || continue
   slot=$(basename "$f" .log | sed "s/daily-$DAY-//")
-  line=$(grep -h "계열" "$f" | head -1 | sed 's/.*계열[^가-힣A-Za-z(]*//' | cut -c1-40)
+  # 대본 JSON의 series 필드가 정본이다 (2026-09-07). 로그 파싱은 형식이 슬롯마다 달라
+  # 오집계했다 — 13:20 공유성 편이 앞 슬롯 요약 때문에 "애국·정체성"으로도 잡혔다.
+  case "$slot" in 1020) sfx=am2;; 1320) sfx=noon;; 2100) sfx=night;; *) sfx="";; esac
+  js="content/$(date +%Y-%m-%d)-$sfx.json"
+  line=""
+  if [ -n "$sfx" ] && [ -f "$js" ]; then
+    line=$(sed -n 's/.*"series"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' "$js" | head -1)
+  fi
+  [ -z "$line" ] && line="(대본에 series 없음)"
   topic=$(grep -h "소재" "$f" | head -1 | sed 's/.*소재[^가-힣A-Za-z0-9]*//' | cut -c1-46)
   if grep -qE "SLOT-DONE" "$f"; then
     n=$((n+1)); printf "  %s  %-22s %s\n" "$slot" "${line:-(계열 미기재)}" "$topic"
