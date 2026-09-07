@@ -1,0 +1,69 @@
+{
+  "title": "한국이 유엔에 만들어달라고 한 기념일, 오늘입니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "한국이 유엔에 만들어달라고 한 국제 기념일이 있습니다. 오늘이 그 날입니다.",
+      "lines": [
+        ["한국이 유엔에 만들어달라고 한 기념일이 있습니다", ["유엔에"]],
+        ["오늘이 그 날입니다", []]
+      ],
+      "bg": 29509293
+    },
+    {
+      "kind": "fact",
+      "voice": "2019년 유엔 총회에서 한국이 결의안을 냈습니다. 매년 9월 7일을 맑은 공기의 날로 지정해달라고.",
+      "lines": [
+        ["2019년 유엔 총회에서", []],
+        ["한국이 결의안을 냈습니다", []],
+        ["매년 9월 7일, 맑은 공기의 날", ["9월 7일"]]
+      ],
+      "bg": "photo:37442715"
+    },
+    {
+      "kind": "fact",
+      "voice": "193개 회원국이 투표 없이 채택했습니다. 한국이 제안해서 만들어진 유엔 국제 기념일은 이것이 처음입니다.",
+      "lines": [
+        ["193개국이 투표 없이 채택", ["193개국"]],
+        ["한국이 만들어진 유엔 기념일", []],
+        ["이것이 처음입니다", ["처음입니다"]]
+      ],
+      "bg": "photo:35427330"
+    },
+    {
+      "kind": "fact",
+      "voice": "그런데 제안 당시 한국의 미세먼지 농도는 WHO 기준의 3배를 넘었습니다. OECD 회원국 중 최하위권이었습니다.",
+      "lines": [
+        ["제안 당시 한국 미세먼지", []],
+        ["WHO 기준의 3배를 넘었습니다", ["3배"]],
+        ["OECD 최하위권", []]
+      ],
+      "bg": 5941316
+    },
+    {
+      "kind": "twist",
+      "voice": "OECD에서 공기가 가장 나쁜 나라 중 하나가, 세계에 맑은 공기를 말하자고 했습니다. 가장 나쁘니까 가장 절실했던 겁니다.",
+      "lines": [
+        ["OECD에서 공기가 가장 나쁜 나라가", ["가장 나쁜"]],
+        ["맑은 공기를 말하자고 했습니다", []],
+        ["가장 나쁘니까 가장 절실했던 겁니다", ["절실했던"]]
+      ],
+      "bg": 12215487
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]],
+      "bg": "photo:19051966"
+    }
+  ],
+  "sources": [
+    "https://digitallibrary.un.org/record/3836683?ln=en",
+    "https://www.korea.net/NewsFocus/Society/view?articleId=179975",
+    "https://www.iqair.com/air-quality/south-korea"
+  ],
+  "bg_query": ["blue sky clouds aerial city", "united nations general assembly hall", "air pollution city smog haze", "clear sky nature morning sunrise", "blue sky wind turbine clean energy"]
+}
