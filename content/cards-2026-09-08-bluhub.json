@@ -6,16 +6,47 @@
  "threads_text": "노트북에서 블루레이가 사라진 지 10년, USB 허브 안에 돌아왔다\n\n1. BluHub — 블루레이 드라이브 + USB 허브를 하나로 합친 9-in-1 독\n2. BD/DVD/CD 읽기 쓰기 전부 된다. 100GB 블루레이 디스크까지 지원\n3. USB-A 4개, SD 슬롯, microSD 슬롯이 한 몸에 들어 있다\n4. 킥스타터에서 목표의 740배를 모았다 — $700 목표에 $517,709, 6,682명\n5. 동글 피로감이랑 물리 미디어 향수가 동시에 터진 거다\n6. 소매가 $129(약 17.5만원), 배송비 포함해도 $150 이하라 관세 없다\n7. 국내에서 외장 블루레이 + USB 허브 따로 사면 비슷하거나 더 나가는데, 이건 하나로 끝난다\n8. 11월 배송 예정. 다만 팀의 첫 킥스타터 프로젝트라 실배송은 지켜봐야 한다\n\n(출처: New Atlas, Tom's Hardware, Kickstarter 공식 페이지)",
  "cards": [],
  "factcheck": [
-  {"claim": "킥스타터 목표 $700 대비 $517,709 달성 (740배, 6,682명)", "sources": ["https://www.backerkit.com/projects/11185373/bluhub-9-in-1-blu-ray-hub-for-memories-ports-and-storage", "https://www.pledgebox.com/projects/bluhub-9-in-1-blu-ray-hub-for-memories-ports-and-storage"]},
-  {"claim": "BD-R 6x 쓰기, 100GB 디스크 지원, USB-A×4 + SD + microSD", "sources": ["https://newatlas.com/consumer-tech/bluhub-blu-ray-read-write-usb-sd-tf/", "https://www.yankodesign.com/2026/08/28/a-9-in-1-blu-ray-drive-usb-hub-that-turns-cheap-dvds-into-100gb-storage-you-own-forever/"]},
-  {"claim": "소매가 $129, 얼리버드 $59", "sources": ["https://www.yankodesign.com/2026/08/28/a-9-in-1-blu-ray-drive-usb-hub-that-turns-cheap-dvds-into-100gb-storage-you-own-forever/", "https://www.homecrux.com/bluhub-9-in-1-pc-mac-dock-on-kickstarter/410283/"]},
-  {"claim": "2026년 11월 배송 예정", "sources": ["https://www.pledgebox.com/projects/bluhub-9-in-1-blu-ray-hub-for-memories-ports-and-storage"]},
-  {"claim": "LA 3인 팀, 첫 킥스타터 프로젝트", "sources": ["https://www.pledgebox.com/projects/bluhub-9-in-1-blu-ray-hub-for-memories-ports-and-storage", "https://tech.yahoo.com/home-entertainment/articles/9-1-blu-ray-dock-210000364.html"]}
+  {
+   "claim": "킥스타터 목표 $700 대비 $517,709 달성 (740배, 6,682명)",
+   "sources": [
+    "https://www.backerkit.com/projects/11185373/bluhub-9-in-1-blu-ray-hub-for-memories-ports-and-storage",
+    "https://www.pledgebox.com/projects/bluhub-9-in-1-blu-ray-hub-for-memories-ports-and-storage"
+   ]
+  },
+  {
+   "claim": "BD-R 6x 쓰기, 100GB 디스크 지원, USB-A×4 + SD + microSD",
+   "sources": [
+    "https://newatlas.com/consumer-tech/bluhub-blu-ray-read-write-usb-sd-tf/",
+    "https://www.yankodesign.com/2026/08/28/a-9-in-1-blu-ray-drive-usb-hub-that-turns-cheap-dvds-into-100gb-storage-you-own-forever/"
+   ]
+  },
+  {
+   "claim": "소매가 $129, 얼리버드 $59",
+   "sources": [
+    "https://www.yankodesign.com/2026/08/28/a-9-in-1-blu-ray-drive-usb-hub-that-turns-cheap-dvds-into-100gb-storage-you-own-forever/",
+    "https://www.homecrux.com/bluhub-9-in-1-pc-mac-dock-on-kickstarter/410283/"
+   ]
+  },
+  {
+   "claim": "2026년 11월 배송 예정",
+   "sources": [
+    "https://www.pledgebox.com/projects/bluhub-9-in-1-blu-ray-hub-for-memories-ports-and-storage"
+   ]
+  },
+  {
+   "claim": "LA 3인 팀, 첫 킥스타터 프로젝트",
+   "sources": [
+    "https://www.pledgebox.com/projects/bluhub-9-in-1-blu-ray-hub-for-memories-ports-and-storage",
+    "https://tech.yahoo.com/home-entertainment/articles/9-1-blu-ray-dock-210000364.html"
+   ]
+  }
  ],
  "rebuttals": [
   "첫 킥스타터 프로젝트라 배송 안 될 수도 있는 거 아니냐 — 맞다, 리스크가 있고 본문에 명시했다",
   "외장 블루레이 드라이브 따로 사면 더 싸지 않냐 — 따로 사면 포트가 두 개 필요하고 부피도 커진다. 가격은 비슷하거나 따로가 더 나간다",
   "블루레이를 누가 아직 쓰냐 — 물리 미디어 수요가 실제로 있어서 6,682명이 돈을 걸었다. DVD/CD 백업 용도도 포함",
   "3D 프린트 외관이라 품질이 걱정된다 — Reddit에서도 나온 지적이고, 실제 양산품은 다를 수 있지만 리스크로 남겨둔다"
- ]
+ ],
+ "status": "withdrawn",
+ "status_note": "2026-09-08 디렉터 삭제 — 이미지 없이 텍스트로 나감. 이미지 붙여 카드로 재도전 가능."
 }

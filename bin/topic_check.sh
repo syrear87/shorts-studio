@@ -70,6 +70,11 @@ for f in (glob.glob(os.path.join('content', 'cards-*.json')) if LINE in ('all', 
         j = json.load(open(f, encoding='utf-8'))
     except Exception:
         continue
+    # 철회된 카드는 이력이 아니다 (2026-09-08): 게시가 취소됐으면 그 소재는 다시 쓸 수 있어야
+    # 한다. 카드 이력은 topics_used.md가 아니라 **파일 존재**로 판정하므로, 상태 태그를
+    # 고쳐도 안 풀렸다. status 필드를 여기서 본다.
+    if str(j.get("status", "")).lower() in ("withdrawn", "철회", "보류", "held"):
+        continue
     body = str(j.get('topic') or '') + ' ' + str(j.get('caption') or '')
     both = [k for k in keys if k in body]
     if len(both) >= 2:
