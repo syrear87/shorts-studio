@@ -1,0 +1,121 @@
+{
+ "title": "9월 9일 새벽, 달 옆에 점 하나가 붙는데 지구 1,321개가 들어갑니다",
+ "series": "공유성",
+ "chip": "오늘의 지식 · 1일 1지식",
+ "narrator": "male",
+ "scenes": [
+  {
+   "kind": "hook",
+   "voice": "달 옆에 점 하나가 보입니다. 별이 아닙니다. 지구 1,321개가 들어갑니다.",
+   "lines": [
+    [
+     "달 옆에 점 하나가 보입니다",
+     []
+    ],
+    [
+     "별이 아닙니다",
+     []
+    ],
+    [
+     "지구 1,321개가 들어갑니다",
+     ["1,321개"]
+    ]
+   ],
+   "bg_query": "crescent moon bright point night sky",
+   "bg_id": 16111978
+  },
+  {
+   "kind": "fact",
+   "voice": "9월 9일 새벽 3시, 달과 목성이 0.8도까지 붙습니다. 손가락 하나 폭보다 좁은 거리입니다.",
+   "lines": [
+    [
+     "9월 9일 새벽 3시",
+     []
+    ],
+    [
+     "달과 목성이 0.8도까지 붙습니다",
+     ["0.8도"]
+    ],
+    [
+     "손가락 하나 폭보다 좁은 거리입니다",
+     []
+    ]
+   ],
+   "bg_query": "moon planet conjunction night sky",
+   "bg_id": 18202296
+  },
+  {
+   "kind": "fact",
+   "voice": "그 점은 지구 1,321개가 들어가는 태양계 최대 행성입니다. 밤하늘에서 달과 금성 다음으로 밝습니다.",
+   "lines": [
+    [
+     "지구 1,321개가 들어가는",
+     ["1,321개"]
+    ],
+    [
+     "태양계 최대 행성",
+     []
+    ],
+    [
+     "달과 금성 다음으로 밝습니다",
+     []
+    ]
+   ],
+   "bg_query": "jupiter planet close up solar system",
+   "bg_id": 10125076
+  },
+  {
+   "kind": "fact",
+   "voice": "별과 결정적으로 다른 점이 있습니다. 거의 반짝이지 않습니다. 별은 점광원이라 대기에 흔들리는데, 행성은 크기가 커서 빛이 안정적입니다.",
+   "lines": [
+    [
+     "별과 결정적으로 다른 점",
+     []
+    ],
+    [
+     "거의 반짝이지 않습니다",
+     ["반짝이지"]
+    ],
+    [
+     "행성은 크기가 커서 빛이 안정적",
+     []
+    ]
+   ],
+   "bg_query": "stars twinkling dark sky long exposure",
+   "bg_id": 36362323
+  },
+  {
+   "kind": "twist",
+   "voice": "쌍안경이 있으면 목성 옆에 작은 점 4개가 줄지어 보입니다. 416년 전 갈릴레이가 처음 확인한 목성의 위성입니다. 동쪽 하늘에서 보입니다.",
+   "lines": [
+    [
+     "쌍안경이면 점 4개가 보입니다",
+     ["4개"]
+    ],
+    [
+     "416년 전 갈릴레이가 확인한 위성",
+     ["416년"]
+    ],
+    [
+     "동쪽 하늘에서 보입니다",
+     []
+    ]
+   ],
+   "hl_pair": true,
+   "bg_query": "binoculars stargazing night sky person",
+   "bg_id": 9127880
+  },
+  {
+   "kind": "cta",
+   "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+   "sub": "1일 1지식 · 구독",
+   "lines": [["오늘도 1일 1지식", ["1지식"]], ["구독으로 받아보세요", []]],
+   "bg_id": 9127880
+  }
+ ],
+ "sources": [
+  "https://astro.kasi.re.kr/life/pageView/7",
+  "https://www.kasi.re.kr/kor/publication/post/newsMaterial/32192"
+ ],
+ "bg_query": ["crescent moon bright point night sky", "moon planet conjunction night sky", "jupiter planet close up solar system", "stars twinkling dark sky long exposure", "binoculars stargazing night sky person"]
+}
