@@ -8,19 +8,32 @@ cd "$(dirname "$0")/.." || exit 1
 DAY=$(date +%Y-%m-%d)
 mapfile -t FILES < <(ls content/cards-"$DAY"-*.json 2>/dev/null) 2>/dev/null || FILES=($(ls content/cards-"$DAY"-*.json 2>/dev/null))
 N=${#FILES[@]}
-echo "=== $DAY 카드 $N/5장 ==="
+ALL=$N
+echo "=== $DAY 카드 (원본 $ALL건) ==="
 if [ "$N" -eq 0 ]; then
   echo "  (아직 없음 — 오늘 첫 장)"
 else
   for f in "${FILES[@]}"; do
+    # 철회된 카드는 세지 않는다 (2026-09-08) — 삭제된 게시가 쿼터를 잡아먹으면
+    # 남은 슬롯이 억지로 결번된다.
+    st=$(sed -n 's/.*"status"[[:space:]]*:[[:space:]]*"\([a-z]*\)".*/\1/p' "$f" | head -1)
+    if [ "$st" = "withdrawn" ]; then
+      t=$(sed -n 's/.*"topic"[[:space:]]*:[[:space:]]*"\(.*\)",*$/\1/p' "$f" | head -1)
+      printf "  ~ %s  ← 철회(집계 제외)\n" "${t:0:70}"
+      N=$((N-1)); continue
+    fi
     t=$(sed -n 's/.*"topic"[[:space:]]*:[[:space:]]*"\(.*\)",*$/\1/p' "$f" | head -1)
     printf "  · %s\n" "${t:0:100}"
   done
   echo
+  echo "  === 유효 카드 $N/5장 ==="
   echo "  [유형 태그]"
   for tag in 소유욕형 구매가능 공유형 타이밍경고형 한계붕괴형 AI놀이 따라하기 신제품 루머 펀딩 레트로; do
     c=0
-    for f in "${FILES[@]}"; do grep -q "\[$tag\]\|\[$tag·\|·$tag\]\|·$tag·" "$f" && c=$((c+1)); done
+    for f in "${FILES[@]}"; do
+      sed -n 's/.*"status"[[:space:]]*:[[:space:]]*"\([a-z]*\)".*/\1/p' "$f" | head -1 | grep -q withdrawn && continue
+      grep -q "\[$tag\]\|\[$tag·\|·$tag\]\|·$tag·" "$f" && c=$((c+1))
+    done
     [ "$c" -gt 0 ] && printf "    %-12s %d장\n" "$tag" "$c"
   done
 fi
