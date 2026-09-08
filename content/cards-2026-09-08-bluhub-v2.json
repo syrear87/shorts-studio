@@ -36,5 +36,7 @@
    "sub": "$129(약 17.5만원) · 11월 배송 · 국내 미출시",
    "credit": "BluHub / New Atlas"
   }
- ]
+ ],
+ "status": "published",
+ "status_note": "첫 판 cards-2026-09-08-bluhub.json은 이미지 없이 텍스트로 나가 철회됨. 이것이 정본."
 }

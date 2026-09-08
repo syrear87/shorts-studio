@@ -157,8 +157,26 @@ def cards_sent_today():
         sent = ROOT / "logs" / "sent.log"
         if not sent.exists():
             return 0
-        return sum(1 for ln in sent.read_text(errors="ignore").splitlines()
-                   if ln.startswith(today) and ("IGCARD:" in ln or "THCARD:" in ln))
+        lines = sent.read_text(errors="ignore").splitlines()
+        # 철회된 게시는 빼고, 텍스트 글(THTEXT)도 센다 (2026-09-08).
+        #  · THTEXT를 안 세면 텍스트 글이 하루 쿼터에 안 잡혀 5장을 넘길 수 있다.
+        #  · WITHDRAWN은 디렉터가 지운 게시다 — 슬롯을 쓴 건 맞지만 살아 있는 카드가 아니다.
+        #    같은 슬러그의 재게시(v2)가 따로 잡히므로 중복 계산을 막으려면 빼야 한다.
+        gone = set()
+        for ln in lines:
+            if ln.startswith(today) and "WITHDRAWN:" in ln:
+                gone.add(ln.split("WITHDRAWN:", 1)[1].split()[0])
+        n = 0
+        for ln in lines:
+            if not ln.startswith(today):
+                continue
+            for mark in ("IGCARD:", "THCARD:", "THTEXT:"):
+                if mark in ln:
+                    slug = ln.split(mark, 1)[1].split()[0]
+                    if slug not in gone:
+                        n += 1
+                    break
+        return n
     except Exception:
         return -1
 
