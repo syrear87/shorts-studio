@@ -1,0 +1,26 @@
+{
+ "topic": "ZWO Seestar S50 Pro — 밤하늘에 세워놓으면 은하가 알아서 찍힌다, 2.8kg에 4K 듀얼 카메라 [한계붕괴형]",
+ "caption": "카메라 없이 은하수가 드디어 찍혔다\n\nZWO Seestar S50 Pro — 2.8kg짜리 스마트 망원경.\n삼각대에 올리고 폰으로 대상을 고르면, 자동으로 추적하면서 장노출 촬영을 한다.\n4K 듀얼 카메라(1/1.2인치 텔레 + 63° 와이드), 환산 880mm, 배터리 9시간.\n도시 불빛 아래에서도 스태킹으로 성운이 올라온다.\n\n출시가 $899(약 122만원), 직구 시 관세·배송 포함 약 148~155만원.\n국내 미출시 — ZWO 공식 스토어(seestar.com)에서 직구만 가능.\n전작 S50은 $499(약 68만원)로 다나와 해외구매 등록.\n국내 출시 계획 없음(ZWO 한국 법인 없음, 전작도 직구 전용).\n\n(출처: ZWO 공식 스토어, Astrofaber 스펙 시트, Astronomy.com 리뷰)\n\n#스마트망원경 #Seestar #천체사진 #은하수 #별사진",
+ "threads_text": "카메라 없이 은하수가 드디어 찍혔다\n\n1. ZWO Seestar S50 Pro — 2.8kg짜리 스마트 망원경이 나왔음\n2. 삼각대에 올리고 폰에서 대상 고르면 끝 — 추적, 초점, 장노출 전부 알아서 함\n3. 4K 듀얼 카메라(환산 880mm), 도시 불빛 속에서도 스태킹으로 성운이 올라옴\n4. 배터리 9시간, 128GB 내장 — 밤새 찍어도 됨\n5. 출시가 $899(약 122만원), 직구 시 관세·배송 포함 약 150만원 — 전작 S50은 $499\n6. 국내 미출시, 직구만 가능(seestar.com) — 전작은 다나와 해외구매에 있음\n7. 국내 대안 딱히 없음 — 비슷한 급 Unistellar는 $2,499~(약 340만원~)이라 이쪽이 절반 이하\n\n(출처: ZWO 공식 스토어, Astrofaber, Astronomy.com)",
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/seestar_s50pro_nebula.jpg",
+   "title": "카메라 없이 은하수가\n드디어 찍혔다",
+   "title_hl": ["드디어 찍혔다"],
+   "body": "2.8kg짜리 망원경 하나\n세워놓으면 알아서 촬영한다",
+   "body_hl": ["알아서 촬영"],
+   "credit": "ZWO 공식"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/seestar_s50pro_product.jpg",
+   "title": "ZWO Seestar S50 Pro",
+   "title_hl": ["Seestar S50 Pro"],
+   "body": "4K 듀얼 카메라(환산 880mm)\n자동 추적 + 스태킹 — 도시에서도 성운이 보임\n배터리 9시간, 128GB, Wi-Fi로 폰 연동",
+   "body_hl": ["4K", "자동 추적", "9시간"],
+   "sub": "$899(약 122만원) — 직구 시 약 150만원\n전작 S50은 $499, 같은 급 Unistellar는 $2,499~",
+   "credit": "ZWO 공식"
+  }
+ ]
+}
