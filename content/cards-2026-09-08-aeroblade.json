@@ -1,0 +1,27 @@
+{
+ "topic": "Lenovo Project AeroBlade — 노트북에서 팬이 사라졌다, 14인치가 830g도 안 나간다 [한계붕괴형]",
+ "series": "테크",
+ "caption": "노트북에서 팬이 사라졌다\n\nLenovo Project AeroBlade.\nIFA 2026에서 공개된 컨셉 노트북.\n14인치 OLED인데 무게가 830g도 안 된다.\n두께 10mm 미만.\n\n비결은 팬리스 설계.\nFreore Systems의 AirJet — 반도체 칩 위에 올리는 고체 냉각 모듈.\n움직이는 부품이 없으니 소음도 없다.\nCPU는 인텔 Core Ultra 200 (Lunar Lake).\n\n아직 컨셉이라 출시일·가격 미정.\n하지만 방향은 분명하다 — 노트북의 한계가 바뀌고 있다.\n\n(출처: Notebookcheck, Tom's Hardware, Lenovo 공식 프레스)\n\n#레노버 #에어로블레이드 #팬리스 #노트북 #테크",
+ "threads_text": "노트북에서 팬이 사라졌다\n\n1. Lenovo Project AeroBlade — IFA 2026 공개 컨셉 노트북\n2. 14인치 OLED, 무게 830g 미만, 두께 10mm 미만\n3. 팬리스 설계 — Frore Systems AirJet 고체 냉각 모듈 사용\n4. 움직이는 부품 없으니 소음도 없음\n5. CPU는 인텔 Core Ultra 200 (Lunar Lake)\n6. 출시일·가격 미정 — 아직 컨셉 단계\n7. 노트북의 한계가 바뀌고 있다는 신호\n\n(출처: Notebookcheck, Tom's Hardware, Lenovo 공식 프레스)",
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/aeroblade_hero.jpg",
+   "title": "노트북에서 팬이 사라졌다\n14인치가 830g도 안 나간다",
+   "title_hl": ["팬이 사라졌다", "830g도 안 나간다"],
+   "body": "Lenovo Project AeroBlade\nIFA 2026 컨셉 노트북",
+   "body_hl": ["AeroBlade"],
+   "credit": "Android Authority (컨셉 이미지)"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/aeroblade_side.jpg",
+   "title": "Project AeroBlade",
+   "title_hl": ["AeroBlade"],
+   "body": "팬리스  Frore AirJet 고체 냉각\nOLED  14인치, 두께 10mm 미만\nCPU  인텔 Core Ultra 200",
+   "body_hl": ["팬리스", "고체 냉각"],
+   "sub": "컨셉 단계 — 출시일·가격 미정",
+   "credit": "Android Authority (컨셉 이미지)"
+  }
+ ]
+}
