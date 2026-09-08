@@ -1,0 +1,81 @@
+{
+  "title": "추석 국내산이 수입산이었습니다, 작년에만 373곳 적발",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "공유성",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "지금 전국 식품 매장에 단속반이 들어가고 있습니다. 추석 성수품 원산지 때문입니다.",
+      "lines": [
+        ["지금 전국에 단속반이 들어갔습니다", ["단속반"]],
+        ["추석 성수품 원산지 때문입니다", []]
+      ],
+      "bg_query": "korean traditional market fruit display",
+      "bg": 36133346
+    },
+    {
+      "kind": "body",
+      "voice": "지금 농관원이 전국 추석 성수품 원산지 특별단속에 들어갔습니다. 9월 7일부터 23일까지입니다.",
+      "lines": [
+        ["지금 전국 특별단속 중", []],
+        ["9월 7일부터 23일까지", []]
+      ],
+      "bg_query": "food inspection officer market korea",
+      "bg": 8675103
+    },
+    {
+      "kind": "fact",
+      "voice": "첫째, 2025년 추석 단속에서 373곳이 적발됐습니다. 그중 198곳은 형사입건됐습니다.",
+      "lines": [
+        ["2025년 추석 373곳 적발", ["373곳"]],
+        ["198곳 형사입건", []]
+      ],
+      "bg_query": "traditional korean market vendors stall",
+      "bg": 36718310
+    },
+    {
+      "kind": "fact",
+      "voice": "둘째, 가장 많이 걸린 품목은 배추김치 99건, 돼지고기 59건, 쇠고기 25건입니다.",
+      "lines": [
+        ["배추김치 99건", ["99건"]],
+        ["돼지고기 59건, 쇠고기 25건", []]
+      ],
+      "bg_query": "korean kimchi making preparation",
+      "bg": 11588425
+    },
+    {
+      "kind": "fact",
+      "voice": "셋째, 원산지를 속이면 최대 징역 7년 또는 벌금 1억 원입니다. 5년 내 재범은 징역 10년까지 올라갑니다.",
+      "lines": [
+        ["속이면 최대 징역 7년", ["징역 7년"]],
+        ["재범 시 최대 징역 10년", []]
+      ],
+      "bg_query": "korean court gavel law justice",
+      "bg": "photo:5668484"
+    },
+    {
+      "kind": "twist",
+      "voice": "올해는 배달앱과 온라인 쇼핑몰까지 단속 대상입니다. 의심되면 농관원 1588-8112로 신고하면 됩니다.",
+      "lines": [
+        ["배달앱·온라인몰도 단속 대상", ["배달앱"]],
+        ["의심되면 1588-8112 신고", ["1588-8112"]]
+      ],
+      "bg_query": "smartphone scanning food label origin",
+      "bg": 7287306
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]],
+      "bg": "photo:29381890"
+    }
+  ],
+  "sources": [
+    "https://view.asiae.co.kr/article/2026090611021076183",
+    "https://www.mt.co.kr/economy/2025/10/16/2025101610421732950",
+    "https://newsseoul.co.kr/news/view/1065586220441028"
+  ],
+  "bg_query": ["korean traditional market fruit", "food inspection officer", "kimchi preparation", "korean court law", "smartphone scanning food label"]
+}
