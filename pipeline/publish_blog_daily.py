@@ -18,6 +18,14 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "pipeline"))
 STAMP = os.path.join(ROOT, "logs", "blog_published.json")
+# 발행 정지 스위치 (2026-09-10 디렉터 지시). 이 파일이 있으면 공개를 하지 않는다.
+# 왜: 서치콘솔 확인 결과 94편 중 **색인 생성 0편**이고, 85편이 "발견됨 - 현재 색인이
+# 생성되지 않음"이다 — 구글이 URL은 알면서 크롤링조차 하지 않기로 한 상태다.
+# 이 상태에서 페이지를 더 늘리면 '대량 생산' 신호만 강해진다. 색인이 잡히기 시작할
+# 때까지 멈춘다. 초안 생성(blog_autogen)은 계속한다 — 초안은 검색에 안 잡혀 무해하고,
+# 재개할 때 바로 나갈 재고가 된다.
+# 재개: rm logs/.blog_publish_paused
+PAUSE = os.path.join(ROOT, "logs", ".blog_publish_paused")
 # 하루 발행 편수. 최근 7일 실측 공급이 7.7편/일(카드 8.0장 중 테크 게이트 통과분)이라
 # 5편으로는 매일 2.7편씩 적체가 늘어난다. 8편이면 신규를 소화하면서 밀린 초안도 조금씩 준다.
 # 2026-09-05 어벤져스 권고: 하루 8편 자동 발행은 구글 scaled content abuse 프로필이다
@@ -44,6 +52,14 @@ def _save(d):
 def run(per_day=PER_DAY, force=False, dry=False):
     from upload_blogger import _service, resolve_blog_id, _dry
     dry = dry or _dry()          # DRY_RUN=1 환경변수도 dry다 (2026-09-06) — 공개·삭제가 실제로 나가는 경로
+    if os.path.exists(PAUSE) and not force:
+        why = ""
+        try:
+            why = open(PAUSE, encoding="utf-8").read().strip()[:200]
+        except Exception:
+            pass
+        print("블로그 발행 정지 중 — 건너뜀%s" % (("\n  사유: " + why) if why else ""))
+        return 0
     today = datetime.date.today().isoformat()
     st = _stamp()
     if st.get("date") == today and not force:
