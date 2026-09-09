@@ -713,3 +713,5 @@
 ### 2026-09-06 (토)
 - 16시 카드: HDMI 케이블 구매 가이드 [구매가능][공유형] — threads.com/@daily_1_pick/post/Dc7_Yo1GTPa
 - 20시 카드: Beyerdynamic AVENTHO Y — 무선 헤드폰 배터리 90시간 [한계붕괴형] — threads.com/@daily_1_pick/post/Dc8bdmgmQdK
+### 2026-09-09 (화)
+- 09시 카드: Aurzen ZIP Pro — 빔프로젝터가 드디어 주머니에 들어갔다 [소유욕형] — threads.com/@daily_1_pick/post/DdC-Je3Ge6p
