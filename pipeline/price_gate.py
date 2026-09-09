@@ -23,8 +23,11 @@
   · 해외가 — "$79", "129달러" (국내 실거래 주장이 아니다)
   · 본문·뒷 카드의 가격 — 훅이 아니면 검사하지 않는다
 
-shadow 모드가 기본이다. `PRICE_GATE_ENFORCE=1`일 때만 실제로 막는다 —
-오탐률을 먼저 재고 나서 켠다(2026-09-20 예정).
+2026-09-10부터 **막는 것이 기본이다.** shadow로 147장을 재서 기각 4장(2.7%),
+그중 오탐 0건이었다 — 전환 기준("목록에 오탐이 0인가")을 이미 만족했고, 9/20까지
+기다리는 동안 같은 사고가 또 날 이유가 없다. 실제로 SSD 편은 이 게이트가 잡아내는
+카드였는데 하루 차이로 게이트보다 먼저 나갔고, 답글 25건 중 11건이 반박이었다.
+끄려면 `PRICE_GATE_ENFORCE=0` — 오탐으로 결번이 나면 그때 끄고 규칙을 고친다.
 """
 import datetime
 import glob
@@ -223,16 +226,18 @@ def check(d):
 
 
 def enforcing():
-    return os.environ.get("PRICE_GATE_ENFORCE") == "1"
+    """막을 것인가. 기본 True — 끄려면 PRICE_GATE_ENFORCE=0 (2026-09-10 전환)."""
+    return os.environ.get("PRICE_GATE_ENFORCE") != "0"
 
 
 SHADOW_LOG = os.path.join(ROOT, "logs", "price_gate.jsonl")
 
 
 def record(topic, verdict, fails, warns, path=""):
-    """shadow 기간의 판정을 남긴다 — 9/19에 오탐률을 세어 enforce를 결정한다.
+    """판정을 남긴다 — 오탐이 쌓이는지 계속 본다.
 
-    기록이 없으면 "느낌상 잘 도는 것 같다"로 켜게 된다. 그건 판정이 아니다.
+    기록이 없으면 "느낌상 잘 도는 것 같다"로 판단하게 된다. 그건 판정이 아니다.
+    enforce로 켠 뒤에도 계속 적는다 — 결번이 나면 여기서 원인을 센다.
     """
     try:
         with open(SHADOW_LOG, "a", encoding="utf-8") as f:
@@ -247,7 +252,7 @@ def record(topic, verdict, fails, warns, path=""):
 
 
 def report():
-    """shadow 기간 판정 요약 — enforce 결정의 근거."""
+    """판정 요약 — 오탐 감시용."""
     if not os.path.exists(SHADOW_LOG):
         print("아직 기록이 없다 — 카드를 렌더하면 쌓인다")
         return 0
@@ -264,7 +269,7 @@ def report():
         seen.add(r.get("file"))
         uniq.append(r)
     rej = [r for r in uniq if r["verdict"] == "reject"]
-    print("=== 가격 게이트 shadow — 카드 %d장 중 기각 %d장 (%.1f%%) ==="
+    print("=== 가격 게이트 — 카드 %d장 중 기각 %d장 (%.1f%%) ==="
           % (len(uniq), len(rej), len(rej) / max(1, len(uniq)) * 100))
     print()
     for r in rej:
@@ -272,7 +277,8 @@ def report():
         for f in r["fails"]:
             print("   · " + f.split(" — ")[0])
     print()
-    print("※ enforce 판정(2026-09-20): 이 목록을 눈으로 훑어 **오탐이 0인지** 본다.")
+    print("※ 2026-09-10부터 막는다. 이 목록에 **오탐**이 보이면 규칙을 고쳐라 —\n"
+          "   오탐 하나가 결번 하나다. 끄려면 PRICE_GATE_ENFORCE=0.")
     print("  오탐이란 '가격 근거가 실제로 충분한데 걸린 것'이다. 기각률이 낮은 게 아니라")
     print("  오탐이 없는 게 조건이다 — 하루 5장 중 1장 넘게 막히면 결번으로 자폭한다.")
     return 0

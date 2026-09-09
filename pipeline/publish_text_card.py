@@ -45,7 +45,7 @@ def main():
         msg = "가격 게이트: " + " / ".join(f[:90] for f in fails)
         if price_enf():
             sys.exit("기각: " + msg)
-        print("가격 게이트 [shadow] %s" % msg, flush=True)
+        print("가격 게이트 [경고·미차단] %s" % msg, flush=True)
     from hook_check import score as hook_score, MSG as HOOK_MSG
     g, notes = hook_score(s)
     print("훅 채점: %s — %s" % ({"strong": "◎", "weak": "△", "flat": "▽"}[g], HOOK_MSG[g]), flush=True)
