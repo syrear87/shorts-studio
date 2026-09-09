@@ -158,6 +158,12 @@ def run(per_day=PER_DAY, force=False, dry=False):
         except Exception:
             pass
         return 0
+    if not done:
+        # 초안이 있었는데 전부 중복 삭제·연기로 걸러져 0편이 됐다. 여기서 스탬프를 찍으면
+        # 그날이 '완료'로 도장돼 이후 슬롯이 전부 건너뛴다 — 오전에 초안이 비면 그날 블로그가
+        # 통째로 봉인된다 (2026-09-09 실사고: date=9/9 count=0, 이후 다섯 슬롯 전부 스킵).
+        print("발행 0편 — 스탬프 미기록, 다음 슬롯 재시도")
+        return 0
     _save({"date": today, "count": len(done), "titles": done})
     if done:
         # 알림은 실제 발행이 있을 때만 — 러너 쪽에서 쏘면 rc=0(스킵 포함)마다 오발송된다

@@ -28,6 +28,10 @@ STORE = os.path.join(ROOT, "logs", "threads_replies.jsonl")
 ALERTED = os.path.join(ROOT, "logs", ".reply_alerted")
 
 WINDOW_H = 72          # 답글은 게시 후 사흘이면 대개 끝난다
+REQ_TIMEOUT = 15       # 개별 조회 상한. upload_threads 기본값 60초로는 네 글만 막혀도
+                       # 틱 캡(240초)을 통째로 먹는다 (2026-09-09 08:39 실사고: 4×60=240 → SIGKILL)
+RETRIES = 2            # 일시적 타임아웃은 대개 한 번 더 치면 통과한다
+DEADLINE_S = 170       # collect 전체 상한. 캡에 죽는 대신 스스로 멈춰 남긴 건 다음 틱이 잇는다
 ALERT_MIN = 3          # 한 글에 반박이 이만큼 쌓이면 알린다
 ALERT_RATIO = 0.35     # 또는 답글의 이 비율 이상이 반박이면
 
@@ -85,17 +89,35 @@ def _tg(msg):
         pass
 
 
+def _fetch(t, url):
+    """짧은 상한으로 치고 한 번 재시도한다. 실패는 예외로 올려 호출부가 판단한다."""
+    last = None
+    for i in range(RETRIES):
+        try:
+            return t._get(url, timeout=REQ_TIMEOUT)
+        except Exception as e:
+            last = e
+            if i + 1 < RETRIES:
+                time.sleep(2)
+    raise last
+
+
 def collect():
     import upload_threads as t
     now = time.time()
+    started = time.monotonic()
     seen = _load_seen()
     tok = t.token()
-    me = t._get("%s/me?fields=id,username&access_token=%s" % (t.API, tok))
+    me = _fetch(t, "%s/me?fields=id,username&access_token=%s" % (t.API, tok))
     my_id, my_name = me["id"], me.get("username")
-    posts = t._get("%s/%s/threads?fields=id,text,timestamp&limit=25&access_token=%s"
+    posts = _fetch(t, "%s/%s/threads?fields=id,text,timestamp&limit=25&access_token=%s"
                    % (t.API, my_id, tok)).get("data", [])
     new_total, flagged = 0, []
     for p in posts:
+        if time.monotonic() - started > DEADLINE_S:
+            print("[replies] %.0f초 초과 — 남은 %d건은 다음 틱에서 잇는다"
+                  % (DEADLINE_S, len(posts) - posts.index(p)), flush=True)
+            break
         try:
             dt = datetime.datetime.fromisoformat((p.get("timestamp") or "").replace("Z", "+00:00"))
         except Exception:
@@ -103,7 +125,7 @@ def collect():
         if (now - dt.timestamp()) / 3600 > WINDOW_H:
             continue
         try:
-            rep = t._get("%s/%s/replies?fields=id,text,username,timestamp&access_token=%s"
+            rep = _fetch(t, "%s/%s/replies?fields=id,text,username,timestamp&access_token=%s"
                          % (t.API, p["id"], tok)).get("data", [])
         except Exception as e:
             print("[replies] %s 조회 실패: %s" % (p["id"], str(e)[:60]), flush=True)
@@ -188,7 +210,14 @@ if __name__ == "__main__":
     if "--report" in sys.argv:
         report()
     else:
-        n, flagged = collect()
+        # 망 일시 장애로 죽으면 dm_tick이 크래시(rc=1)로 보고 경보를 울린다. 답글 수집은
+        # 다음 틱이 이으면 그만이므로, 조회 실패는 로그만 남기고 정상 종료한다
+        # (2026-09-07 12:04 rc=1, 2026-09-09 08:39 240초 초과 — 둘 다 망 문제였다).
+        try:
+            n, flagged = collect()
+        except Exception as e:
+            print("[replies] 수집 실패(다음 틱 재시도): %s" % str(e)[:80], flush=True)
+            sys.exit(0)
         sent = alert(flagged)
         if n or sent:
             print("[replies] 새 답글 %d건 · 경보 %d건" % (n, sent), flush=True)
