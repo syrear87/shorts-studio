@@ -1,0 +1,26 @@
+{
+ "topic": "스마트 체중계 — 매일 올라서던 체중계가 이제 심전도를 찍는다, Withings Body Scan [공유형]",
+ "caption": "매일 올라서던 체중계가 이제 심전도를 찍는다\n\n체중만 재던 저울이 이제 병원급 검사를 한다.\nWithings Body Scan — 올라서서 90초면 6부위 체성분 + 6유도 심전도 + 신경 건강까지 측정.\n50g 단위 체중 정확도에 13개 주파수 생체전기 임피던스(BIS) 기술로 팔·다리·몸통 근육과 지방을 따로 잰다.\nFDA 승인 심방세동 감지 ECG가 체중계에 들어간 건 이 제품이 처음이다.\n바이오마커 40개 이상을 매일 아침 맨발로 확인하는 셈.\n\n2세대 Body Scan 2는 60개 이상 바이오마커, 혈압 패턴, 혈중 산소까지 추가.\n\n(출처: Withings 공식 사양, Live Science 리뷰, AthletechNews CES 2026 보도)\n\n#스마트체중계 #Withings #심전도 #체성분분석 #테크",
+ "threads_text": "매일 올라서던 체중계가 이제 심전도를 찍는다\n\n1. 체중만 재던 저울이 이제 90초 만에 병원급 검사를 함\n2. Withings Body Scan — 6부위 체성분 + FDA 승인 6유도 심전도 + 신경 건강 점수까지 측정\n3. 13개 주파수 생체전기 임피던스(BIS) 기술로 팔·다리·몸통 근육·지방을 따로 잼\n4. 50g 단위 체중 정확도, 심방세동 감지 ECG가 체중계에 들어간 건 이 제품이 처음\n5. 바이오마커 40개 이상 — 매일 아침 맨발로 올라서면 끝\n6. 2세대(Body Scan 2)는 60개 이상 바이오마커에 혈압 패턴, 혈중 산소까지 추가됨\n\n(출처: Withings 공식 사양, Live Science 리뷰, AthletechNews CES 2026 보도)",
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/smart_scale_1.jpg",
+   "title": "욕실 저울이\n이제 심전도를 찍는다",
+   "title_hl": ["저울이", "이제 심전도를"],
+   "body": "Withings Body Scan — 90초 만에\n6부위 체성분 + 6유도 ECG + 신경 건강",
+   "body_hl": ["90초", "6유도 ECG"],
+   "credit": "Pavel Danilyuk / Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/smart_scale_2.jpg",
+   "title": "체중계 안에 들어간 기술\n병원급 검사가 매일 아침 90초",
+   "title_hl": ["병원급", "90초"],
+   "body": "13개 주파수 BIS — 팔·다리·몸통 따로 측정\nFDA 승인 심방세동 감지\n50g 단위 체중 정확도\n바이오마커 40개 이상",
+   "body_hl": ["13개 주파수", "FDA 승인", "40개 이상"],
+   "sub": "2세대는 60개 바이오마커 + 혈압 패턴까지",
+   "credit": "Marta Branco / Pexels"
+  }
+ ]
+}
