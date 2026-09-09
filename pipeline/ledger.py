@@ -131,12 +131,52 @@ def collect_instagram(done, now_ts):
     return out
 
 
+# 유튜브만 호출 예산이 있다 (2026-09-10 YouTube API Services 통보): 하루 **100회**,
+# 호출 종류와 무관하게 1건당 1회. 종전 1,600은 '비용의 합'이라 업로드 한 번(1,600)이면
+# 끝이었지만, 지금은 업로드도 1회다 — 총량은 늘었으나 **읽기도 똑같이 1회씩 깎인다.**
+#
+# 종전 이 함수는 dm_tick(10분)마다 3회씩, 하루 432회를 썼다. 한도의 4배이고, 더 나쁜 것은
+# 새벽에 예산을 다 태우면 **오전 영상 업로드가 쿼터 부족으로 죽는다**는 점이다.
+# 조회수 수집이 게시를 굶기는 구조여서, 읽기 쪽을 예산 안으로 눌러야 한다.
+#
+# 안전한 이유: 기록 시점은 AGES ± GRACE_H(4시간) 창으로 판정한다. 2시간 간격이면 어떤 창도
+# 최소 두 번 만나므로 틱 하나를 놓쳐도 기록이 빠지지 않는다. 창보다 촘촘히 볼 이유가 없다.
+YT_MIN_GAP_H = 2
+YT_TICK_F = os.path.join(ROOT, "logs", ".ledger_yt_tick")
+YT_PLAYLIST_F = os.path.join(ROOT, "logs", ".yt_uploads_playlist")
+
+
+def _yt_uploads_playlist(yt):
+    """업로드 재생목록 id는 채널이 사는 동안 바뀌지 않는다 — 한 번만 묻고 캐시한다."""
+    try:
+        with open(YT_PLAYLIST_F, encoding="utf-8") as f:
+            v = f.read().strip()
+            if v:
+                return v
+    except Exception:
+        pass
+    ch = yt.channels().list(part="contentDetails", mine=True).execute()["items"][0]
+    up = ch["contentDetails"]["relatedPlaylists"]["uploads"]
+    try:
+        os.makedirs(os.path.dirname(YT_PLAYLIST_F), exist_ok=True)
+        with open(YT_PLAYLIST_F, "w", encoding="utf-8") as f:
+            f.write(up)
+    except Exception:
+        pass
+    return up
+
+
 def collect_youtube(done, now_ts):
+    try:
+        last = os.path.getmtime(YT_TICK_F)
+    except Exception:
+        last = 0
+    if (now_ts - last) / 3600.0 < YT_MIN_GAP_H:
+        return []
     from googleapiclient.discovery import build
     from google_creds import load_creds
     yt = build("youtube", "v3", credentials=load_creds())
-    ch = yt.channels().list(part="contentDetails", mine=True).execute()["items"][0]
-    up = ch["contentDetails"]["relatedPlaylists"]["uploads"]
+    up = _yt_uploads_playlist(yt)
     pl = yt.playlistItems().list(part="contentDetails", playlistId=up,
                                  maxResults=min(LOOKBACK, 50)).execute()
     ids = [i["contentDetails"]["videoId"] for i in pl.get("items", [])]
@@ -156,6 +196,11 @@ def collect_youtube(done, now_ts):
                 "comments": int(st.get("commentCount", 0)),
                 "title": sn.get("title", "")[:60],
             })
+    try:                     # 성공한 뒤에만 도장 — 실패하면 다음 틱이 곧바로 재시도한다
+        os.makedirs(os.path.dirname(YT_TICK_F), exist_ok=True)
+        open(YT_TICK_F, "w").close()
+    except Exception:
+        pass
     return out
 
 

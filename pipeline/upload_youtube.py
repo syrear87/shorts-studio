@@ -217,7 +217,7 @@ def hook_full_ms(video, scan_s=5.0, fps=5):
         _sh.rmtree(tmp, ignore_errors=True)   # 2026-08-23 감사: hookscan_* 고아 디렉터리 9개 잔존 실측
 
 
-def wait_processed(yt, vid, timeout=180, interval=10):
+def wait_processed(yt, vid, timeout=180, interval=30):
     """유튜브가 영상 처리를 마칠 때까지 기다린다 (2026-08-28 실사고).
 
     사고: 업로드 **직후** 썸네일을 설정하면 API가 200을 돌려주지만 **실제로는 적용되지 않는다.**
@@ -227,6 +227,10 @@ def wait_processed(yt, vid, timeout=180, interval=10):
       같은 코드로 처리 완료 뒤에 부르면 즉시 성공한다(당일 재현 확인).
 
     타임아웃이면 그냥 진행한다 — 기다리다 슬롯을 죽이는 것보다 낫고, 최악이어도 종전과 같다.
+
+    간격을 10초→30초로 늘렸다 (2026-09-10): 유튜브 쿼터가 '호출 횟수' 기준 하루 100회로
+    바뀌어 이 폴링만 최대 18회를 먹었다. 30초면 최대 6회이고, 실측 처리 시간은 대개
+    한두 번 안에 끝나므로 체감 차이가 없다.
     """
     import time as _t
     for _ in range(max(1, timeout // interval)):
