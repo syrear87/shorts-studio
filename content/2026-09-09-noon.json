@@ -1,0 +1,67 @@
+{
+  "title": "테트라포드에 한 번 빠지면 구조대도 3시간 걸립니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "재난기상체감·일반지식",
+  "bg_query": ["tetrapod breakwater waves ocean", "mossy concrete blocks seawall close up", "autumn coast beach korea aerial", "breakwater harbor safety barrier ocean", "family walking seaside autumn", "concrete wave breaker close up"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": 34648948,
+      "voice": "테트라포드에 한 번 빠지면 구조대가 와도 3시간이 걸립니다.",
+      "lines": [
+        ["구조에만 3시간", ["3시간"]],
+        ["테트라포드입니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 18561634,
+      "voice": "5년간 198건, 34명이 이 콘크리트 블록 사이에서 숨졌습니다.",
+      "lines": [
+        ["5년간 198건", ["198건"]],
+        ["34명이 숨졌습니다", ["34명"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 20681974,
+      "voice": "표면은 해조류로 미끄럽고, 블록 사이 공간은 깊고 좁습니다. 빠지면 혼자 올라올 수 없는 구조입니다.",
+      "lines": [
+        ["빠지면 올라올 수 없는 구조", []],
+        ["미끄럽고, 깊고, 좁습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 6967051,
+      "voice": "추석 연휴 해안가 방문객은 평소의 3배입니다. 가을 해양사고 인명피해만 5년간 179명, 4계절 중 가장 많습니다.",
+      "lines": [
+        ["추석 방문객 평소의 3배", []],
+        ["가을 인명피해 179명", ["179명"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 29930532,
+      "voice": "무단 출입 과태료가 100만원이지만, 진짜 문제는 돈이 아닙니다. 추석까지 보름, 바다에 가시면 테트라포드에는 올라가지 마세요.",
+      "lines": [
+        ["과태료 100만원이지만", ["100만원"]],
+        ["추석까지 보름, 올라가지 마세요", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": 8232691,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://www.ajunews.com/view/20260830220816399",
+    "https://news.sbs.co.kr/news/endPage.do?news_id=N1008566096",
+    "https://www.law.go.kr/법령/연안사고예방에관한법률",
+    "https://www.news-home.co.kr/news/articleView.html?idxno=73562"
+  ]
+}
