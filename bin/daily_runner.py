@@ -29,6 +29,22 @@ PROMPT_FILES = [MODE_FILE, "RULES.md"]
 HEAD_FILE = ROOT / "logs" / ".prompt_head.txt"
 
 
+def _closing_note():
+    """마감 리포트 필수 항목을 **프롬프트 맨 앞**에 박는다 (2026-09-10).
+
+    양식은 CARD_PROMPT §5에 갖춰져 있는데, 프롬프트가 46,000자라 뒤쪽에 묻히고
+    세션이 매번 제 형식으로 표를 그렸다. 9/10 세 슬롯 중 둘이 팩트체크·중복 검사를
+    빠뜨려 경보가 났다 — 게시는 정상이었고 기록만 없었다.
+    검사기는 이 다섯 항목을 본다. 헤더는 짧아야 읽히므로 항목만 적는다.
+    """
+    if not CARD_MODE:
+        return ""
+    return ("**마감 리포트에 이 다섯 항목은 반드시 적어라** (러너가 검사해 빠지면 경보한다):\n"
+            "소재 · 스레드 URL · 팩트체크(교차 확인한 매체) · 중복 검사 · 훅 채점.\n"
+            "표로 쓰든 목록으로 쓰든 상관없지만 **낱말은 그대로 써라.** "
+            "양식은 CARD_PROMPT §5에 있다. 마지막 줄은 `SLOT-DONE cards-<오늘>-<슬러그>`.\n\n")
+
+
 def write_head():
     what = ("테크 카드 1건(2~3장 캐러셀)을 만들어 스레드·블로그에 게시"
             if CARD_MODE else "지식 숏폼 1편을 만들어 유튜브·인스타에 게시")
@@ -38,7 +54,8 @@ def write_head():
         "**지금 이 실행에서 %s하고 마감 리포트를 남기는 것이 이번 슬롯의 임무다.**\n"
         "아래는 그 지시서다 — 읽어달라는 문서가 아니라 **따라야 할 절차**다. "
         "질문하거나 대기하지 말고 착수하라. 무인 실행이라 답할 사람이 없다.\n\n"
-        "---\n\n" % ("카드" if CARD_MODE else "영상", what),
+        % ("카드" if CARD_MODE else "영상", what)
+        + _closing_note() + "---\n\n",
         encoding="utf-8")
     return str(HEAD_FILE.relative_to(ROOT))
 PROMPT_FILE = MODE_FILE   # (기존 로그·메트릭 호환)
@@ -50,7 +67,7 @@ def prompt_sha():
     h = _hl.sha256()
     for f in PROMPT_FILES:
         h.update((ROOT / f).read_bytes())
-    h.update(b"head-v1")
+    h.update(b"head-v2")
     return h.hexdigest()[:12]
 LOCK = ROOT / "logs" / (".card.lock" if CARD_MODE else ".daily.lock")   # ⚠️ .daily.lock의 파일명·내용(PID)은 bin/janitor.sh 렌더 감지와 결합 (2026-08-23)
 LOG = ROOT / "logs" / ("daily-%s.log" % datetime.now().strftime("%Y%m%d-%H%M"))
@@ -378,9 +395,16 @@ def check_artifacts(start_ts):
             # — 9/4 가격 사고가 그렇게 지나갔다. 게시는 끝났으니 차단이 아니라 경보다.
             _rep = logtext.split("=== attempt ")[-1]   # 이 분기에서 새로 뜬다 —
             # _last는 위 NOOP 분기 안에서만 정의돼 여기선 NameError가 난다(2026-09-07 검증에서 잡음)
-            _need = [("소재", "소재"), ("스레드 URL", "threads.com/"),
-                     ("팩트체크", "팩트체크"), ("중복 검사", "중복"), ("훅 채점", "훅 채점")]
-            _miss = [n for n, k in _need if k not in _rep]
+            # 항목마다 **여러 표현을 인정한다** (2026-09-10). 종전엔 낱말 하나로 대조해서,
+            # 세션이 "출처"라 쓰면 팩트체크 없음, "topic_check ✅"라 쓰면 중복 검사 없음으로
+            # 읽혔다 — 9/10 세 슬롯이 전부 오탐이었고 리포트는 멀쩡했다. 경보가 매번 틀리면
+            # 진짜 누락이 왔을 때도 안 보게 된다.
+            _need = [("소재", ("소재", "게시")),
+                     ("스레드 URL", ("threads.com/", "threads.net/")),
+                     ("팩트체크", ("팩트체크", "팩트 체크", "출처", "사실 확인", "사실확인", "검증")),
+                     ("중복 검사", ("중복", "topic_check", "topic ✅", "쿨다운", "재사용")),
+                     ("훅 채점", ("훅 채점", "훅채점", "hook ◎", "hook △", "hook ▽"))]
+            _miss = [n for n, ks in _need if not any(k in _rep for k in ks)]
             if _miss:
                 tg("⚠️ 지식 카드: 게시는 됐으나 마감 리포트에 %s 없음 — %s\n"
                    "  기록이 없으면 검증도 불가하다(CARD_PROMPT §5 마감 템플릿)"

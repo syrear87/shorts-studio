@@ -3,7 +3,7 @@
 #  - phase0_telegram: API 업로드 금지(미감사 프로젝트 = private 잠금) → 텔레그램으로 완성본 발송
 #  - api_public: 감사 통과 후 videos.insert 공개 게시
 # 사용: python3 pipeline/upload_youtube.py out/2026-07-29.mp4 content/2026-07-29.meta.json
-import datetime, json, os, subprocess, sys  # 2026-08-02 리뷰: sent.log 기록용 datetime 추가
+import datetime, json, os, subprocess, sys, time  # 2026-08-02 리뷰: sent.log 기록용 datetime 추가
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -96,9 +96,28 @@ def check_meta(meta):
                 "실제는 3년간 교사 여러 명 합계). 기간·인원·'총'을 제목에 넣어라"
                 % "·".join(dict.fromkeys(_quals))[:40])
     if problems:
-        subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
-                        "⛔ 게시 차단(설명 규격): %s" % ", ".join(problems)], check=False)
-        sys.exit("설명 규격 미달: " + ", ".join(problems))
+        # 차단은 그대로 한다. 다만 **첫 차단은 텔레그램을 보내지 않는다** (2026-09-10).
+        # 세션은 막히면 설명을 고쳐 곧바로 다시 올리고 대개 성공한다 — 9/10 두 편 다 그랬다.
+        # 그런데 첫 시도마다 "⛔ 게시 차단"이 날아가니, 정상 동작이 사고처럼 보였다.
+        # 30분 안에 또 막히면 세션이 스스로 못 고치고 있다는 뜻이므로 그때 알린다.
+        # 슬롯이 끝까지 실패하면 러너가 산출물·sent.log로 따로 잡는다.
+        _msg = ", ".join(problems)
+        print("설명 규격 미달(차단): %s" % _msg, flush=True)
+        _f = os.path.join(ROOT, "logs", ".desc_block_last")
+        _repeat = False
+        try:
+            _repeat = (time.time() - os.path.getmtime(_f)) < 1800
+        except Exception:
+            pass
+        try:
+            open(_f, "w").close()
+        except Exception:
+            pass
+        if _repeat:
+            subprocess.run(["bash", os.path.join(ROOT, "bin", "tg-send.sh"),
+                            "⛔ 게시 차단(설명 규격) 반복 — 세션이 자가수정에 실패하고 있다: %s" % _msg],
+                           check=False)
+        sys.exit("설명 규격 미달: " + _msg)
     print("설명 규격 통과: %d자, 해시태그 %d개" % (len(desc), desc.count("#")))
 
 
