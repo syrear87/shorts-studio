@@ -1,0 +1,37 @@
+{
+ "topic": "자석 그립톡 — 충전기에 올려도 충전 안 되던 이유가 사라졌다, 그립톡이 자석으로 떼진다. 만원대부터 [구매가능][공유형]",
+ "threads_text": "충전기에 올려도 충전 안 되던 이유가 사라졌다 — 그립톡이 자석으로 떼진다\n\n1. 그립톡 쓰면 한 손 조작은 편한데, 무선충전기에 올려놓으면 충전이 안 되거나 느려짐\n2. 그립톡이 코일 사이에 끼어서 전력 전달을 막기 때문\n3. 자석 탈착식 그립톡이 나왔음 — 쓸 때 붙이고 충전할 때 떼면 됨\n4. PopSocket MagSafe, MOFT 스냅온 등 브랜드 제품은 3~5만원대\n5. 쿠팡에 호환 제품 만원대부터 있음 — 아이폰은 바로, 갤럭시는 자석 링 스티커 붙이면 됨\n6. 거치대 겸용도 있어서 책상에서 세워놓기까지 됨\n\n(출처: MakeUseOf·Bustle 제품 비교, 쿠팡 제품 검색 2026-09-10)",
+ "caption": "충전기에 올려도 충전 안 되던 이유가 사라졌다 — 그립톡이 자석으로 떼진다\n\n그립톡 쓰면 한 손 조작은 편한데, 무선충전기에 올려놓으면 충전이 안 되거나 느려진다.\n그립톡이 충전 코일 사이에 끼어서 전력 전달을 막기 때문이다.\n\n자석 탈착식 그립톡은 쓸 때 붙이고 충전할 때 떼면 된다.\n브랜드 제품(PopSocket MagSafe, MOFT)은 3~5만원대,\n쿠팡 호환 제품은 만원대부터.\n아이폰은 바로 붙고, 갤럭시는 자석 링 스티커(3천원)를 먼저 붙이면 된다.\n\n(출처: MakeUseOf·Bustle, 쿠팡 제품 검색 2026-09-10)\n\n#그립톡 #무선충전 #맥세이프 #폰액세서리 #자석그립",
+ "factcheck": [
+   {"claim": "일반 그립톡이 무선충전을 방해한다", "sources": ["https://www.makeuseof.com/popsocket-wireless-charging/", "https://www.bustle.com/life/best-alternatives-to-popsockets-for-wireless-charging"], "note": "그립톡이 폰과 충전 코일 사이에 물리적 장벽을 만들어 Qi 유도 충전 효율이 떨어지거나 충전 불가. 두 매체 모두 확인"},
+   {"claim": "자석 탈착식 그립톡이 이 문제를 해결한다", "sources": ["https://www.popsockets.com/pages/magsafe", "https://www.moft.us/products/snap-phone-grip-stand"], "note": "PopSocket PopGrip for MagSafe $30, MOFT Snap-On ~$25. 자석으로 부착·탈착 가능해 충전 시 제거"},
+   {"claim": "쿠팡 만원대 호환 제품 존재", "sources": ["https://www.coupang.com/np/search?q=맥세이프+그립+링"], "note": "검색 기준 2026-09-10. 브랜드 제품 외 호환 자석 그립 링 다수 1~2만원대 확인"},
+   {"claim": "갤럭시는 자석 링 스티커를 붙이면 호환", "sources": ["https://www.makeuseof.com/popsocket-wireless-charging/", "https://www.bustle.com/life/best-alternatives-to-popsockets-for-wireless-charging"], "note": "MagSafe 비내장 안드로이드 폰은 별도 자석 링 스티커(3천~5천원)로 호환 가능"}
+ ],
+ "rebuttals": [
+   "만원대라 했는데 쓸만한 브랜드 제품은 3만원 넘는다 — 호환 제품도 자석 강도가 충분한 것이 있고, PopSocket 공식 제품은 확실하지만 비쌈. 가격대 범위를 명시함",
+   "자석이 약해서 떨어지면 어떡하냐 — N52 네오디뮴 자석 기준 그립 자체 무게 정도는 충분히 지탱. 단 폰을 흔들면 빠질 수 있으므로 격한 운동 시에는 비추",
+   "MagSafe 없는 폰은 자석 링 붙이면 케이스 바꿀 때마다 다시 붙여야 한다 — 맞음. 케이스 안쪽에 붙이면 케이스째 교체 가능. MagSafe 내장 케이스를 쓰면 근본 해결"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/phone_hand_grip.jpg",
+   "title": "충전기에 올려도\n충전 안 되던 이유",
+   "title_hl": ["충전 안 되던"],
+   "body": "그립톡이 자석으로 떼진다\n충전할 때 떼고, 쓸 때 붙이고",
+   "body_hl": ["자석으로 떼진다"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/wireless_charging_pad.jpg",
+   "title": "자석 탈착식 그립톡",
+   "title_hl": ["탈착식"],
+   "body": "아이폰은 바로, 갤럭시는 자석 링 먼저\nPopSocket·MOFT 3~5만원\n호환 제품 만원대부터",
+   "body_hl": ["만원대부터"],
+   "sub": "무선충전 쓰면서 그립톡도 쓸 수 있다",
+   "credit": "Pexels"
+  }
+ ]
+}
