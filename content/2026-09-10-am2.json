@@ -1,0 +1,82 @@
+{
+  "title": "10년 전 경주 땅이 흔들렸는데, 당신 아파트는 아직 대비가 안 됐을 수 있습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "공유성",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "규모 5.8, 한반도 계기관측 이래 최대 지진이 경주를 흔들었습니다. 이번 주로 딱 10년입니다.",
+      "bg": "photo:15822254",
+      "bg_query": ["earthquake damaged building korea"],
+      "lines": [
+        ["최대 지진이 경주를 흔들었습니다", ["최대"]],
+        ["이번 주로 딱 10년입니다", []]
+      ]
+    },
+    {
+      "kind": "body",
+      "voice": "그 뒤로 내진 기준이 강화됐는데, 정작 내 아파트에는 적용이 됐을까요.",
+      "bg": 37500922,
+      "bg_query": ["seismograph earthquake measurement"],
+      "lines": [
+        ["내진 기준이 강화됐는데", []],
+        ["내 아파트에는 적용이 됐을까요", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "첫째, 한국에 내진설계 의무가 생긴 건 1988년입니다. 처음엔 6층 이상 건물에만 적용됐습니다.",
+      "bg": 36290717,
+      "bg_query": ["apartment building construction korea"],
+      "lines": [
+        ["내진설계 의무가 생긴 건 1988년", ["1988년"]],
+        ["처음엔 6층 이상만 적용됐습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "둘째, 경주 지진 이후 2017년에 기준이 바뀌어서, 2층 이상이면 전부 내진설계를 해야 합니다.",
+      "bg": 8471080,
+      "bg_query": ["building earthquake safety inspection"],
+      "lines": [
+        ["2017년에 기준이 바뀌어서", ["2017년"]],
+        ["2층 이상이면 전부 해야 합니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "셋째, 기존 건물에는 소급 적용이 안 됩니다. 민간 건축물 내진율은 아직 18.1%입니다.",
+      "bg": 7830155,
+      "bg_query": ["old apartment building exterior weathered"],
+      "lines": [
+        ["기존 건물에는 소급 적용이 안 됩니다", []],
+        ["민간 건축물 내진율은 아직 18.1%", ["18.1%"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "아파트 준공연도를 확인해 보세요. 2017년 이전, 6층 미만이라면 내진설계가 빠져 있을 수 있습니다. 건축물대장에서 바로 확인됩니다.",
+      "bg": 6473749,
+      "bg_query": ["person checking documents phone screen"],
+      "lines": [
+        ["준공연도를 확인해 보세요", ["확인"]],
+        ["건축물대장에서 바로 확인됩니다", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "bg": 37500922,
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://www.kma.go.kr/kma/news/press.jsp — 기상청, 2016.9.12 경주 규모 5.8",
+    "https://www.korea.kr/news/policyNewsView.do?newsId=148822427 — 내진설계 1988년 도입·2017년 강화",
+    "https://www.edaily.co.kr/News/Read?newsId=03854006645578480 — 경주지진 10년 워크숍, 공공 내진율 82.7%",
+    "https://www.asiatoday.co.kr/kn/view.php?key=20260730010011354 — 민간 건축물 내진율 18.1%"
+  ],
+  "bg_query": ["earthquake building damage", "seismograph reading", "korea apartment building old", "building safety inspection", "cracked concrete wall close", "person phone checking app"]
+}
