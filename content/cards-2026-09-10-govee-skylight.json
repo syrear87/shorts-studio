@@ -1,0 +1,40 @@
+{
+ "topic": "Govee Sky Ceiling Light — 창문 없는 방에 하늘이 생겼다, 478nm 파장으로 진짜 햇빛 효과, $399.99 [소유욕형]",
+ "threads_text": "방등이 하늘로 바뀌었다\n\n1. Govee가 IFA 2026에서 천장 조명을 하나 내놨는데, 켜면 진짜 하늘처럼 보임\n2. 478nm 파장을 따로 넣었음 — 하늘이 파란 이유가 이 파장대라서, 조명도 같은 색을 쏨\n3. 7,000루멘이면 일반 LED 방등의 2~3배 밝기인데, 눈부심 없이 퍼지게 나옴 (TÜV 저눈부심 인증)\n4. 시간대별로 색온도가 자동으로 바뀜 — 아침엔 시원한 빛, 저녁엔 따뜻한 빛\n5. 문제는 가격 — $399.99(약 55만원), 한국은 직구만 가능\n6. 해외 직구 시 관세·배송 포함하면 65만원 안팎\n\n(출처: Govee 공식 사이트, 9to5Toys·MacRumors 2026-09-03)",
+ "caption": "방등이 하늘로 바뀌었다\n\nGovee Sky Ceiling Light — IFA 2026에서 공개된 인공 채광 천장 조명.\n478nm 하늘색 파장 탑재, 7,000루멘, CRI 95.\nDaySync로 시간대별 색온도 자동 조절, Matter 호환.\n$399.99(약 55만원), 직구 시 관세·배송 포함 약 65만원.\n\n(출처: Govee 공식, 9to5Toys·MacRumors 2026-09-03)\n\n#Govee #SkyLight #천장조명 #인공채광 #스마트홈",
+ "factcheck": [
+   {"claim": "478nm 하늘색 파장 탑재", "sources": ["https://us.govee.com/products/govee-sky-ceiling-light", "https://9to5toys.com/2026/09/03/govee-sky-ceiling-light-and-cob-lights-2-pro-ifa-2026/"], "note": "공식 사이트: 'custom 478nm sky-blue spectrum' 명기, 9to5Toys 확인"},
+   {"claim": "7,000루멘, CRI 95", "sources": ["https://us.govee.com/products/govee-sky-ceiling-light", "https://www.amazon.com/Govee-Ceiling-Light-7000LM-Smart/dp/B0H334QZG9"], "note": "공식 사이트와 아마존 리스팅 동일"},
+   {"claim": "색온도 1,000K~10,000K", "sources": ["https://us.govee.com/products/govee-sky-ceiling-light", "https://www.macrumors.com/2026/09/03/govee-sky-ceiling-light/"], "note": "RGB 포함 전 범위, 백색광은 2700K-6500K"},
+   {"claim": "$399.99", "sources": ["https://us.govee.com/products/govee-sky-ceiling-light", "https://www.amazon.com/Govee-Ceiling-Light-7000LM-Smart/dp/B0H334QZG9"], "note": "공식 사이트와 아마존 동일가"},
+   {"claim": "TÜV Rheinland 저눈부심 인증 RG0", "sources": ["https://us.govee.com/products/govee-sky-ceiling-light"], "note": "공식 사이트 인증 표기"},
+   {"claim": "Matter 호환", "sources": ["https://us.govee.com/products/govee-sky-ceiling-light", "https://homekitnews.com/2026/09/04/govee-announces-matter-compatible-sky-ceiling-light-at-ifa-2026/"], "note": "공식 사이트와 HomeKit News 동시 확인"},
+   {"claim": "국내 미출시, 직구만 가능", "sources": ["https://www.coupang.com", "https://search.shopping.naver.com"], "note": "쿠팡·네이버쇼핑에서 'Govee Sky Ceiling Light' 검색 결과 없음 (2026-09-10 확인)"}
+ ],
+ "rebuttals": [
+   "55만원이면 그냥 창문 있는 집으로 이사하지 — 서재·작업실처럼 창문 없어도 쓰는 방이 대상, 인테리어 조명 가격대로는 비정상은 아님",
+   "LED 스카이라이트 패널 알리에서 10만원이면 되는데 — 478nm 전용 파장, AI 자동 색온도(DaySync), Matter 호환은 범용 LED 패널에 없음",
+   "설치 어렵지 않나 — 기존 천장 방등 자리에 교체 설치, 21인치 원형이라 일반 방등 규격과 비슷"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/govee_sky_ceiling_room.png",
+   "title": "방등이 하늘로\n바뀌었다",
+   "title_hl": ["바뀌었다"],
+   "body": "478nm — 하늘이 파란 이유가 이 파장이다\n같은 파장을 천장 조명에 넣었다",
+   "body_hl": ["478nm", "천장 조명에 넣었다"],
+   "credit": "Govee"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/govee_sky_ceiling_detail.png",
+   "title": "Govee Sky Ceiling Light",
+   "title_hl": ["Sky"],
+   "body": "7,000루멘 · CRI 95 · 눈부심 없음(TÜV 인증)\n시간대별 색온도 자동 조절\nMatter 호환 — 스마트홈에 바로 연결",
+   "body_hl": ["7,000루멘", "자동 조절"],
+   "sub": "$399.99(약 55만원) · 직구 시 관세 포함 약 65만원\n국내 출시 미정",
+   "credit": "Govee"
+  }
+ ]
+}
