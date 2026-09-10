@@ -1,0 +1,37 @@
+{
+  "topic": "챗GPT 80년대 사진 변환 — 내 얼굴 그대로, 헤어·옷·배경만 1985년으로 바뀐다 [AI놀이]",
+  "caption": "챗GPT에 셀카 올렸더니 1985년 사진이 나왔다\n\n복사해서 쓰세요:\n\"Using my uploaded photo, show me what I would have looked like around 1985. Preserve my identity, facial features, skin tone, age, and recognisable appearance. Reimagine my hair, clothing, accessories, and surroundings with bold, unmistakably mid-1980s styling. Make it feel like a genuine 1985 photograph with analogue grain, faded colour, direct flash, and subtle softness. Add a period-accurate 1980s red-orange date stamp in the lower corner. No modern objects or text.\"\n\n사진 한 장 올리고 이 프롬프트 붙여넣기만 하면 된다.\n무료 계정도 된다.\n머리·옷·배경이 바뀌고 얼굴만 그대로 — 필름 입자까지 깔린다.\n\n#챗GPT #AI놀이 #80년대 #레트로사진 #ChatGPT",
+  "threads_text": "챗GPT에 셀카 올렸더니 1985년 사진이 나왔다\n\n복사해서 쓰세요:\n\"Using my uploaded photo, show me what I would have looked like around 1985. Preserve my identity, facial features, skin tone, age, and recognisable appearance. Reimagine my hair, clothing, accessories, and surroundings with bold, unmistakably mid-1980s styling. Make it feel like a genuine 1985 photograph with analogue grain, faded colour, direct flash, and subtle softness. Add a period-accurate 1980s red-orange date stamp in the lower corner. No modern objects or text.\"\n\n1. 사진 한 장 올리고 이 프롬프트를 붙여넣으면 끝이다\n2. 얼굴·피부톤·나이는 유지되고 머리·옷·배경만 1985년으로 바뀐다\n3. 필름 입자, 바랜 색감, 플래시 번짐, 우측 하단 날짜 스탬프까지 깔린다\n4. 무료 계정도 된다 — GPT-4o 이미지 생성 기능 사용\n5. 인스타에서 Add Yours 스티커로 돌고 있다 — 지금 올리면 탄다\n\n(출처: India TV News, BusinessToday, TechJuice)",
+  "reply_text": "영어 프롬프트 그대로 써야 결과가 가장 자연스럽다. 한글로 번역해서 넣으면 1985년 감성이 좀 약해진다. 배경을 living room으로 바꾸고 싶으면 프롬프트 끝에 'in a cozy 1980s living room' 추가하면 된다. 사진은 정면 상반신이 제일 잘 나온다",
+  "cards": [
+    {
+      "kind": "hook",
+      "title": "챗GPT에 셀카 올렸더니\n1985년 사진이 나왔다",
+      "title_hl": ["챗GPT", "1985년"],
+      "body": "머리·옷·배경이 전부 80년대로 바뀌고 얼굴만 그대로 — 인스타에서 지금 난리다",
+      "body_hl": ["80년대", "얼굴만 그대로"],
+      "img": "assets/cards/80s_retro_album.jpg",
+      "credit": "사진: busrarchive (Pexels)"
+    },
+    {
+      "kind": "fact",
+      "title": "필름 입자까지 깔린다",
+      "title_hl": ["필름 입자"],
+      "body": "바랜 색감, 플래시 번짐,\n우측 하단 빨간 날짜 스탬프 —\n진짜 1985년 사진처럼 보인다",
+      "body_hl": ["날짜 스탬프", "1985년"],
+      "sub": "무료 계정도 된다 — GPT-4o 이미지 생성",
+      "img": "assets/cards/80s_phone_surprise.jpg",
+      "credit": "사진: Polina Zimmerman (Pexels)"
+    },
+    {
+      "kind": "end",
+      "title": "프롬프트 복사해서\n붙여넣기만 하면 끝",
+      "title_hl": ["복사해서"],
+      "body": "\"Using my uploaded photo,\nshow me what I would have\nlooked like around 1985.\nPreserve my identity,\nfacial features, skin tone.\nAdd a 1980s red-orange\ndate stamp in the corner.\"",
+      "body_hl": ["1985", "Preserve my identity"],
+      "sub": "사진 올리고 → 이거 붙여넣기 → 끝",
+      "img": "assets/cards/80s_typing_prompt.jpg",
+      "credit": "사진: Polina Tankilevitch (Pexels)"
+    }
+  ]
+}
