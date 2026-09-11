@@ -719,3 +719,4 @@
 - 12시 카드: Sonos Beam Ultra — 사운드바 스피커가 5개에서 9개로 바뀌었다 [한계붕괴형] — threads.com/@daily_1_pick/post/DdIavDAmZRz
 - 14시 카드: Xteink X3 — 보조배터리만 붙던 폰 뒤가 바뀌었다, 58g 전자잉크 리더기 [소유욕형] — threads.com/@daily_1_pick/post/DdIpL2UGaDM
 - 16시 카드: 블루투스 오디오 송수신기 — TV에서 무선이어폰 안 되던 이유가 사라졌다, 동글 하나 4만원 [구매가능][공유형] — threads.com/@daily_1_pick/post/DdI3VirGfxY
+- 20시 카드: Lockin V7 Max — 도어락 배터리가 사라졌다, 세계 최초 광학 무선충전 스마트락 [한계붕괴형] — threads.com/@daily_1_pick/post/DdJTZWpmRmx

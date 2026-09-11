@@ -1,0 +1,40 @@
+{
+ "topic": "Lockin V7 Max — 도어락 배터리가 사라졌다, 4m 거리에서 빛으로 충전하는 세계 최초 광학 무선충전 스마트락 [한계붕괴형]",
+ "blog_teaser": "AuraCharge가 정확히 어떤 원리인지, 한국 도어락과 뭐가 다른지는 블로그에 정리해뒀습니다",
+ "threads_text": "도어락 배터리가 사라졌다\n\n1. 한국 가정 도어락 배터리, 보통 6개월~1년에 한 번 갈아야 함 — 새벽에 방전되면 119 부르는 수밖에 없음\n2. CES 2026에서 나온 Lockin V7 Max는 배터리가 아예 없음\n3. 실내에 충전 유닛(AuraCharge)을 놓으면, 4m 거리에서 빛(광학 신호)으로 도어락에 전력을 보냄\n4. TUV·SGS 이중 인증 받은 눈 안전 광학이라 사람 눈에 해롭지 않음\n5. 정맥 인식·3D 안면인식·5인치 터치스크린까지 들어감 — 디자인은 frog design 창립자(애플 초기 디자인 설계한 Hartmut Esslinger)\n6. 예상가 약 $1,300(약 180만원) — 국내 출시 미정, 해외 직구만 가능\n7. 국내 도어락 평균 20~50만원이라 가격은 3배 이상이지만, 배터리 없는 도어락은 이게 세계 최초임\n\n(출처: Lockin 공식 보도자료, PCWorld·Engadget·GearBrain CES 2026 취재)",
+ "caption": "도어락 배터리가 사라졌다\n\nCES 2026 Best of Innovation 수상.\nLockin V7 Max — 세계 최초 광학 무선충전 스마트 도어락.\n\n실내에 놓는 AuraCharge 유닛이 4m 거리에서 빛으로 전력을 보낸다.\n배터리 교체도, 충전도 필요 없다.\n\n정맥 인식 + 3D 안면인식, 듀얼 5인치 터치스크린.\n디자인: frog design 창립자 Hartmut Esslinger.\n\n예상가 약 $1,300(약 180만원), 국내 출시 미정.\n\n(출처: Lockin 공식 보도자료 2026.01, PCWorld, Engadget, GearBrain)\n\n#도어락 #스마트락 #CES2026 #Lockin #테크",
+ "factcheck": [
+   {"claim": "세계 최초 광학 무선충전 스마트 도어락", "sources": ["https://www.prnewswire.com/news-releases/lockin-debuts-first-of-its-kind-optical-charging-smart-lock-with-eternal-zero-maintenance-power-at-ces-2026-302652127.html", "https://www.pcworld.com/article/3021688/lockin-v7-max-smart-lock-is-powered-by-light-waves-not-batteries.html"], "note": "Lockin 공식 PR 보도문 + PCWorld 취재 확인. first-of-its-kind optical-charging smart lock"},
+   {"claim": "CES 2026 Innovation Awards Best of Innovation 수상", "sources": ["https://www.engadget.com/home/smart-home/lockins-everlasting-vein-recognizing-smart-lock-doorbell-cam-combo-is-peak-ces-013431113.html", "https://www.gearbrain.com/lockin-v7-max-auracharge-smart-lock-2674972581.html"], "note": "Engadget, GearBrain 모두 CES 2026 Best of Innovation 수상 확인"},
+   {"claim": "4m 거리 무선 광학 충전, TUV Rheinland·SGS 이중 인증", "sources": ["https://www.prnewswire.com/news-releases/lockin-debuts-first-of-its-kind-optical-charging-smart-lock-with-eternal-zero-maintenance-power-at-ces-2026-302652127.html"], "note": "공식 보도문에서 four-meter range, dual safety certification 명시"},
+   {"claim": "Hartmut Esslinger 디자인 — frog design 창립자", "sources": ["https://www.pcworld.com/article/3021688/lockin-v7-max-smart-lock-is-powered-by-light-waves-not-batteries.html", "https://www.gearbrain.com/lockin-v7-max-auracharge-smart-lock-2674972581.html"], "note": "frog design 창립자이자 Apple Snow White 디자인 언어를 만든 인물. Apple 내부 직원이 아닌 외부 협업 디자이너"},
+   {"claim": "예상가 약 $1,300", "sources": ["https://robbsutton.com/lockin-v7-max-smart-lock-review/"], "note": "미디어 추정치. 공식 확정가는 아님 — 예상가로 표기"},
+   {"claim": "한국 도어락 배터리 교체 주기 6개월~1년", "sources": ["https://a-ha.io/questions/40a45f720aad6fe9ae21917b7ee1d8df", "https://gateman.kr/board_YAkt03/1792"], "note": "게이트맨 공식: AA 건전지 4~8개, 사용량에 따라 6개월~1년"}
+ ],
+ "rebuttals": [
+   "180만원이면 국산 도어락 3~4개 값인데 — 맞음, 국내 도어락 20~50만원 대비 3배 이상. 가격은 분명히 프리미엄이고, 지금은 세계 최초 기술에 대한 가격이라 대중화되면 내려올 가능성",
+   "배터리 교체가 그렇게 불편한가, 1년에 한 번인데 — 불편의 본질은 빈도가 아니라 타이밍. 새벽에 방전되면 문을 못 여는데, 그 사고가 예고 없이 온다는 게 문제. 비상 충전 포트가 있긴 하지만 보조배터리를 갖고 다녀야 함",
+   "광학 충전이면 충전 유닛이 고장나면 도어락도 죽는 거 아닌가 — 유효한 지적. 충전 유닛 전원이 끊기면 도어락 내부 백업 전원이 얼마나 가는지 공식 스펙에 명시 안 됨. 비상시 USB-C 외부 충전 가능"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/lockin_v7_max_detail.jpg",
+   "title": "도어락 배터리가\n사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "빛으로 충전하는 세계 최초 스마트 도어락\nCES 2026 Best of Innovation",
+   "body_hl": ["세계 최초"],
+   "credit": "Lockin / Phandroid"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/lockin_v7_max_main.jpg",
+   "title": "Lockin V7 Max",
+   "title_hl": ["V7 Max"],
+   "body": "실내 충전 유닛이 4m 거리에서 광학 신호로 전력 전달\n배터리 교체도 충전도 필요 없다\n정맥 인식 + 3D 안면인식 + 5인치 듀얼 터치스크린",
+   "body_hl": ["배터리 교체도 충전도 필요 없다"],
+   "sub": "예상가 약 $1,300(약 180만원), 국내 출시 미정",
+   "credit": "Lockin / Phandroid"
+  }
+ ]
+}
