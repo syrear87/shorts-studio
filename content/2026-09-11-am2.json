@@ -1,0 +1,76 @@
+{
+  "title": "공항에서 신발 벗는 이유, 9.11 때문이 아닙니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "series": "공유성",
+  "narrator": "male",
+  "bg_query": ["airport security checkpoint conveyor belt", "airplane cabin aisle passengers", "sneaker shoe close up xray scan", "airport departure board crowd walking", "airplane takeoff runway night", "airport security officer screening"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "오늘 9.11 25주기, 공항에서 신발 벗는 건 9.11 때문이 아닙니다.",
+      "lines": [
+        ["오늘 9.11 25주기입니다", []],
+        ["9.11 때문이 아닙니다", ["아닙니다"]]
+      ],
+      "bg": 27778672
+    },
+    {
+      "kind": "body",
+      "voice": "2977명이 희생된 그날, 전 세계 공항 보안이 완전히 바뀌었습니다.",
+      "lines": [
+        ["2977명이 희생된 그날", ["2977명"]],
+        ["공항 보안이 완전히 바뀌었습니다", []]
+      ],
+      "bg": 32654548
+    },
+    {
+      "kind": "fact",
+      "voice": "9.11 직후 61일 만에 TSA가 만들어졌습니다. 공항 보안을 연방 정부가 직접 맡게 된 겁니다.",
+      "lines": [
+        ["61일 만에 TSA가 만들어졌습니다", ["61일"]],
+        ["연방 정부가 직접 맡게 된 겁니다", []]
+      ],
+      "bg": 32654547
+    },
+    {
+      "kind": "fact",
+      "voice": "그런데 신발 검사는 3개월 뒤에 생겼습니다. 리처드 리드가 비행기에서 신발 폭탄에 불을 붙이려 한 겁니다.",
+      "lines": [
+        ["신발 검사는 3개월 뒤에 생겼습니다", ["3개월"]],
+        ["신발 폭탄에 불을 붙이려 한 겁니다", []]
+      ],
+      "bg": 7877137
+    },
+    {
+      "kind": "fact",
+      "voice": "그 뒤 24년째, 인천공항은 지금도 두꺼운 신발은 반드시 벗어야 합니다.",
+      "lines": [
+        ["그 뒤 24년째입니다", ["24년째"]],
+        ["두꺼운 신발은 반드시 벗어야 합니다", []]
+      ],
+      "bg": 12903821
+    },
+    {
+      "kind": "twist",
+      "voice": "그런데 올해 7월, 미국은 이 규정을 폐지했습니다. 원인을 만든 나라가 먼저 그만뒀고, 우리는 아직 벗고 있습니다.",
+      "lines": [
+        ["미국은 이 규정을 폐지했습니다", ["폐지"]],
+        ["우리는 아직 벗고 있습니다", []]
+      ],
+      "bg": 13606369
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", []], ["구독으로 받아보세요", []]],
+      "bg": 3696007
+    }
+  ],
+  "sources": [
+    "https://www.fbi.gov/history/artifacts/richard-reids-shoes",
+    "https://www.tsa.gov/about/employee-stories/day-tsa-history-november-19-2001",
+    "https://www.cnn.com/2025/07/08/travel/tsa-shoes-security-checkpoints/",
+    "https://www.fnnews.com/news/202412060919559089"
+  ]
+}
