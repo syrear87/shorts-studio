@@ -1,0 +1,38 @@
+{
+ "topic": "블루투스 오디오 송수신기 — TV에서 무선이어폰 안 되던 이유가 사라졌다, 동글 하나 4만원 [구매가능][공유형]",
+ "blog_teaser": "aptX Low Latency가 뭔지, 어떤 모델 고르면 입 싱크 안 어긋나는지는 블로그에 정리해뒀습니다",
+ "threads_text": "TV에서 무선이어폰, 안 되던 이유가 사라졌다 — 동글 하나\n\n1. TV에서 블루투스이어폰 연결하려다 포기한 사람 의외로 많음\n2. TV 블루투스가 오디오 송신을 안 하거나, 구형은 블루투스 자체가 없어서 그럼\n3. '블루투스 오디오 송수신기'라는 동글이 있음 — TV 오디오 단자에 꽂으면 무선이어폰으로 소리가 옴\n4. aptX Low Latency 지원 모델이면 입이랑 소리가 안 어긋남 — 아닌 모델은 영화 볼 때 입 따로 소리 따로\n5. 3.5mm·광단자 호환이라 TV 종류 상관없이 연결됨\n6. 쿠팡 COMS 제품 44,080원 — 로켓배송\n7. 추석에 부모님 TV에 달아드리면 밤에 이어폰으로 뉴스 볼 수 있음\n\n(출처: 쿠팡 제품 검색 2026-09-11, LG·삼성 TV 블루투스 공식 지원 사양)",
+ "caption": "TV에서 무선이어폰, 안 되던 이유가 사라졌다 — 동글 하나\n\nTV에서 블루투스이어폰 연결하려다 포기한 사람이 의외로 많다.\nTV 블루투스가 오디오 송신을 안 하거나, 구형 TV는 블루투스 자체가 없어서다.\n\n블루투스 오디오 송수신기를 TV 오디오 단자(3.5mm·광단자)에 꽂으면,\n무선이어폰으로 TV 소리가 나온다.\naptX Low Latency 지원 모델이면 입 싱크도 안 어긋남.\n\n쿠팡 COMS 제품 44,080원, 로켓배송.\n추석에 부모님 TV에 달아드리면 밤에 이어폰으로 뉴스 볼 수 있다.\n\n(출처: 쿠팡 제품 검색 2026-09-11, LG·삼성 TV 블루투스 지원 사양)\n\n#블루투스송수신기 #TV무선이어폰 #블루투스트랜스미터 #추석효도템 #테크",
+ "factcheck": [
+   {"claim": "TV 블루투스가 오디오 송신을 안 하는 경우가 있다", "sources": ["https://www.lg.com/us/support/help-library/lg-tv-how-to-connect-a-bluetooth-sound-device-CT10000018-20153210970160", "https://www.samsung.com/sec/support/model/QN55QN700AFXKR/"], "note": "LG·삼성 최신 TV는 블루투스 오디오 지원하지만, 구형이나 일부 모델은 미지원. LG 공식 가이드에서 Sound Out > Bluetooth Device 경로 확인"},
+   {"claim": "블루투스 오디오 송수신기 — 3.5mm·광단자 호환", "sources": ["https://avantree.com/blogs/knowledge/how-to-use-a-bluetooth-transmitter-for-tv", "https://soundbarhq.com/best-bluetooth-transmitters-with-low-latency/"], "note": "Avantree 공식 가이드에서 3.5mm AUX, 광단자(Toslink), RCA 입력 호환 확인"},
+   {"claim": "aptX Low Latency — 입 싱크 안 어긋남", "sources": ["https://www.qualcomm.com/products/features/aptx", "https://soundbarhq.com/best-bluetooth-transmitters-with-low-latency/"], "note": "aptX LL은 약 40ms 지연(SBC 기본 200ms 대비). Qualcomm 공식 사양"},
+   {"claim": "쿠팡 COMS 제품 44,080원", "sources": ["https://www.coupang.com/vp/products/8550070765"], "note": "COMS JA230, 쿠팡 Wow 회원가 44,080원 확인 (2026-09-11 검색). 로켓배송"}
+ ],
+ "rebuttals": [
+   "최신 TV는 블루투스 자체 지원하는데 — LG·삼성 2016년 이후 모델은 대부분 지원함, 연결 안 되면 Sound Out 설정 확인. 그래도 구형 TV나 오디오 송신 미지원 모델이 남아 있어서 이 동글이 의미 있음",
+   "유선 이어폰 꽂으면 되지 않나 — TV 거리에서 유선 3m 이상 필요하고 걸려 넘어질 위험. 무선은 소파에서 자유롭게 이동 가능",
+   "4만원이면 차라리 블루투스 지원 사운드바를 사겠다 — 사운드바는 10만원 이상이고 밤에 이어폰으로 듣는 용도와 다름. 가족이 자는 동안 혼자 듣는 용도는 이어폰이 맞음"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/tv_remote_dark_room.jpg",
+   "title": "TV에서 무선이어폰\n안 되던 이유가 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "동글 하나면 끝\n밤에 TV 소리 줄일 필요 없어진다",
+   "body_hl": ["동글 하나면 끝"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/wireless_earbuds_bt.jpg",
+   "title": "블루투스 오디오 송수신기",
+   "title_hl": ["송수신기"],
+   "body": "TV 오디오 단자에 꽂으면 끝\n3.5mm·광단자 호환, 어떤 TV든 연결\naptX LL 모델이면 입 싱크도 안 어긋남",
+   "body_hl": ["어떤 TV든"],
+   "sub": "쿠팡 COMS 44,080원, 로켓배송",
+   "credit": "Pexels"
+  }
+ ]
+}
