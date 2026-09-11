@@ -1,0 +1,39 @@
+{
+ "topic": "Xteink X3 — 전자책 리더기가 스마트폰 뒤에 붙는다, 58g 3.7인치 포켓 e-ink [소유욕형]",
+ "blog_teaser": "백라이트 없는데 왜 사는지, X4와 차이점은 블로그에 정리했습니다",
+ "threads_text": "보조배터리만 붙던 폰 뒤가 드디어 바뀌었다\n\n1. Xteink X3, 3.7인치 전자잉크 리더기인데 뒤에 자석이 달려서 폰에 붙음\n2. 킨들이 6인치짜리인데 이건 3.7인치. 무게 58g이면 카드 한 뭉치보다 가벼움\n3. 자이로스코프가 들어 있어서 흔들면 페이지가 넘어감. 한 손으로 됨\n4. 앱 없고 알림 없고 스토어도 없음. EPUB 파일 넣으면 그냥 읽기만 하는 기기\n5. 백라이트 없고 충전이 전용 자석 핀이라 호불호는 갈림\n6. 아마존 $79(약 11만원), 150달러 이하라 관세 면제. 국내 쿠팡에 X4(4.3인치)는 입점돼 있음\n\n(출처: Liliputing, Ebook Friendly, Xteink 공식)",
+ "caption": "보조배터리만 붙던 폰 뒤가 드디어 바뀌었다\n\n스마트폰에 자석으로 붙는 3.7인치 전자잉크 리더기.\n259 PPI, 무게 58g, 두께 5.1mm.\n자이로스코프로 흔들어서 페이지 넘김, 물리 버튼 조작.\n앱 없음, 알림 없음 — 읽기만 하는 기기.\n$79(약 11만원), 아마존 직구.\n\n(출처: Xteink 공식, Liliputing)\n\n#전자책 #이잉크 #Xteink #포켓리더 #미니멀",
+ "factcheck": [
+   {"claim": "3.7인치, 259 PPI, 58g, 5.1mm", "sources": ["https://ebookfriendly.com/xteink-x3-pocket-e-reader-guide-specs-comparisons/", "https://liliputing.com/xteink-x3-is-an-even-smaller-ereader-3-7-inch-e-ink-device-for-79/"], "note": "두 매체 일치. Ebook Friendly: 3.7-inch, 259 PPI, 58g, 5.1mm. Liliputing: 3.7 inches, over 250 PPI"},
+   {"claim": "650 mAh, 10~14일 배터리", "sources": ["https://ebookfriendly.com/xteink-x3-pocket-e-reader-guide-specs-comparisons/", "https://liliputing.com/xteink-x3-is-an-even-smaller-ereader-3-7-inch-e-ink-device-for-79/"], "note": "Liliputing: 650 mAh, up to two weeks. Ebook Friendly: 10-14 days"},
+   {"claim": "$79(세일 시 $69)", "sources": ["https://www.amazon.com/XTEINK-X3-Pocket-eBook-Reader/dp/B0GSZQTT5K", "https://ebookfriendly.com/xteink-x3-pocket-e-reader-guide-specs-comparisons/"], "note": "아마존 정가 $79, Ebook Friendly: often $69 on sale"},
+   {"claim": "자석으로 스마트폰에 부착", "sources": ["https://ebookfriendly.com/xteink-x3-pocket-e-reader-guide-specs-comparisons/", "https://liliputing.com/xteink-x3-is-an-even-smaller-ereader-3-7-inch-e-ink-device-for-79/"], "note": "Ebook Friendly: magnetic snap-on design for smartphones. Liliputing: magnets for phone attachment"},
+   {"claim": "자이로스코프 페이지 넘김, NFC", "sources": ["https://liliputing.com/xteink-x3-is-an-even-smaller-ereader-3-7-inch-e-ink-device-for-79/", "https://blog.the-ebook-reader.com/2026/05/28/xteink-x3-with-3-7-e-ink-screen-now-available-on-amazon/"], "note": "Liliputing: gyroscope shake-to-turn. 두 매체 모두 NFC 언급"}
+ ],
+ "rebuttals": [
+   "3.7인치에서 글을 읽겠다고? — 짧은 세션용이지 킨들 대체가 아님. 폰보다 눈이 덜 피로한 전자잉크라 출퇴근길에 쓰는 물건",
+   "백라이트도 없는데 뭘 읽나 — 전자잉크는 햇빛에서 오히려 종이처럼 잘 보임. 어두운 데서는 어차피 폰을 봄",
+   "12만원이면 중고 킨들을 산다 — 킨들은 주머니에 안 들어가고 폰에 안 붙음. 쓰임이 다른 물건"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/xteink_x3_hand.jpg",
+   "title": "보조배터리만 붙던 폰 뒤가\n드디어 바뀌었다",
+   "title_hl": ["드디어 바뀌었다"],
+   "body": "58g, 5.1mm — 자석으로 붙이는 전자책\n흔들면 페이지가 넘어간다",
+   "body_hl": ["58g", "흔들면 페이지가 넘어간다"],
+   "credit": "Xteink"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/xteink_x3_product.jpg",
+   "title": "Xteink X3",
+   "title_hl": ["X3"],
+   "body": "3.7인치 전자잉크 259 PPI\n배터리 2주, 16GB(최대 512GB)\n앱 없음, 알림 없음 — 읽기만",
+   "body_hl": ["259 PPI", "읽기만"],
+   "sub": "$79(약 11만원) 아마존 직구 · 관세 면제",
+   "credit": "Xteink"
+  }
+ ]
+}

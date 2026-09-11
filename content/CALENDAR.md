@@ -717,3 +717,4 @@
 - 09시 카드: Aurzen ZIP Pro — 빔프로젝터가 드디어 주머니에 들어갔다 [소유욕형] — threads.com/@daily_1_pick/post/DdC-Je3Ge6p
 ### 2026-09-11 (목)
 - 12시 카드: Sonos Beam Ultra — 사운드바 스피커가 5개에서 9개로 바뀌었다 [한계붕괴형] — threads.com/@daily_1_pick/post/DdIavDAmZRz
+- 14시 카드: Xteink X3 — 보조배터리만 붙던 폰 뒤가 바뀌었다, 58g 전자잉크 리더기 [소유욕형] — threads.com/@daily_1_pick/post/DdIpL2UGaDM
