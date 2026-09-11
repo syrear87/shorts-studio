@@ -1,0 +1,37 @@
+{
+ "topic": "DJI Neo 셀피 드론 — 셀카봉이 드론이 됐다, 135g짜리가 자격증 없이 손바닥에서 이륙한다 [구매가능][공유형]",
+ "threads_text": "셀카봉이 드론이 됐다 — 135g, 자격증 필요 없음\n\n1. DJI Neo, 무게 135g — 아이폰보다 가벼움\n2. 손바닥 위에 올려놓고 버튼 누르면 바로 이륙\n3. AI 트래킹으로 사람을 따라다니며 4K 촬영\n4. 조종기 없이 폰 앱으로 조종 가능\n5. 국내 정가 174,000원 — 쿠팡·다나와 구매 가능\n6. 250g 미만이라 한국에서 자격증·신고 둘 다 필요 없음\n\n(출처: DJI 공식 사이트·다나와·항공안전법 시행규칙 2026-09-11)",
+ "caption": "셀카봉이 드론이 됐다 — 135g, 자격증 필요 없음\n\nDJI Neo, 무게 135g. 아이폰보다 가벼운 드론이 손바닥에서 바로 이륙한다.\nAI 트래킹이 사람을 따라다니며 4K로 찍어주고, 조종기 없이 폰만으로 조종된다.\n\n국내 정가 174,000원 — 쿠팡·다나와 구매 가능.\n250g 미만이라 자격증도 신고도 필요 없다.\n\n(출처: DJI 공식 사이트·다나와·항공안전법 시행규칙 2026-09-11)\n\n#DJI네오 #셀피드론 #드론 #4K촬영 #가성비드론",
+ "factcheck": [
+   {"claim": "DJI Neo 무게 135g", "sources": ["https://store.dji.com/product/dji-neo", "https://www.tomsguide.com/reviews/dji-neo"], "note": "DJI 공식 스펙 135g, Tom's Guide 리뷰에서도 동일 확인"},
+   {"claim": "국내 가격 174,000원", "sources": ["https://www.coupang.com/np/search?q=DJI+Neo", "https://prod.danawa.com/info/?pcode=22135689"], "note": "쿠팡 174,000원대, 다나와 최저가 173,000원 확인 (2026-09-11)"},
+   {"claim": "4K 30fps 촬영, AI 트래킹", "sources": ["https://store.dji.com/product/dji-neo", "https://www.tomsguide.com/reviews/dji-neo"], "note": "4K/30fps, 1축 짐벌, QuickShots AI 추적 모드 공식 스펙"},
+   {"claim": "250g 미만 자격증·신고 불필요", "sources": ["https://www.law.go.kr/법령/항공안전법시행규칙", "https://www.ts2020.kr/drn/main.do"], "note": "250g 미만 무인기는 조종자격 면제, 2kg 미만은 신고 면제 (항공안전법 시행규칙)"}
+ ],
+ "rebuttals": [
+   "4K라 해도 액션캠 수준은 아니다 — 맞다, 1축 짐벌이라 격한 움직임엔 흔들림 있음. 하지만 셀피·브이로그 용도로는 충분",
+   "바람 불면 날아간다 — 135g이라 강풍엔 약함. 풍속 5단계 이하 권장, 실내·약풍 환경이 최적",
+   "비행시간 18분은 짧다 — 배터리 1개 기준. 추가 배터리 세트도 판매 중"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/dji_neo_main.png",
+   "title": "셀카봉이\n드론이 됐다",
+   "title_hl": ["드론이 됐다"],
+   "body": "135g — 자격증 필요 없음\n손바닥에서 이륙, 알아서 따라다니며 4K 촬영",
+   "body_hl": ["자격증 필요 없음", "알아서 따라다니며"],
+   "credit": "DJI"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/dji_neo_carousel.jpg",
+   "title": "DJI Neo",
+   "title_hl": ["Neo"],
+   "body": "174,000원 · 조종기 없이 폰으로 조종\n250g 미만 — 자격증·신고 불필요",
+   "body_hl": ["174,000원", "자격증·신고 불필요"],
+   "sub": "쿠팡·다나와 구매 가능",
+   "credit": "DJI"
+  }
+ ]
+}
