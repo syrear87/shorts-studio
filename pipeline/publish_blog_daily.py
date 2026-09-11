@@ -66,6 +66,20 @@ def run(per_day=PER_DAY, force=False, dry=False):
         print("오늘(%s) 이미 %d편 발행함 — 건너뜀" % (today, st.get("count", 0)))
         return 0
 
+    # 카드가 게시 직전에 자기 글을 공개한다(blog_link). 그만큼 여기서 빼지 않으면
+    # 하루 발행량이 두 배가 된다 (2026-09-11).
+    try:
+        from blog_link import published_today as _card_pub
+        _already = _card_pub()
+    except Exception:
+        _already = 0
+    if _already:
+        per_day = max(0, per_day - _already)
+        print("카드 경로로 오늘 %d편 공개됨 — 남은 쿼터 %d편" % (_already, per_day))
+    if per_day <= 0:
+        print("오늘 쿼터 소진 — 건너뜀")
+        return 0
+
     svc = _service()
     bid = resolve_blog_id()
     # 초안을 전부 가져와 **시의성 순**으로 고른다 (2026-08-27 디렉터 지시).

@@ -357,5 +357,18 @@ if __name__ == "__main__":
         s = json.load(open(args[0], encoding="utf-8"))
         if not s.get("caption"):
             sys.exit("기각: caption 없음 — 게시 불가")
+        # 블로그 글을 **게시 전에** 확보해 본문 맨 끝에 링크를 붙인다 (2026-09-11 디렉터 지시).
+        # 종전엔 카드가 먼저 나가고 블로그는 나중 슬롯에 초안으로 생겼다 — 카드를 본
+        # 하루 2,000명 중 누구도 블로그가 있다는 걸 알 길이 없었고 조회는 하루 2명이었다.
+        # 실패해도 카드는 그대로 나간다 — 링크는 있으면 좋은 것이지 게시 조건이 아니다.
+        _tt = s.get("threads_text")
+        try:
+            import blog_link
+            _url, _why = blog_link.ensure_article(s, os.path.basename(args[0]))
+            print("[blog_link] %s — %s" % (_url or "링크 없음", _why), flush=True)
+            if _url:
+                _tt = blog_link.append_link(_tt, _url, s.get("blog_teaser"))
+        except Exception as _e:
+            print("[blog_link] 실패(무해, 링크 없이 게시): %s" % str(_e)[:140], flush=True)
         from upload_instagram import publish_carousel
-        publish_carousel(paths, s["caption"], threads_text=s.get("threads_text"))
+        publish_carousel(paths, s["caption"], threads_text=_tt)
