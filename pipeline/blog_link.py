@@ -88,10 +88,23 @@ def ensure_article(meta, card_name):
     from make_blog import build
     from upload_blogger import publish
     r = build(meta)
-    res = publish(r["title"], r["html"], labels=r.get("labels") or ["IT·테크"], draft=False)
+    # 발행은 일시 장애(네트워크·Blogger 5xx)로 흔들린다. 두 번 더 친다 — 여기서 자가치유하면
+    # 슬롯을 중단하지 않아도 된다 (2026-09-12: 도어락 편이 한 번 실패해 링크 없이 나갔다).
+    import time as _t
+    res, last = None, None
+    for _i in range(3):
+        try:
+            res = publish(r["title"], r["html"], labels=r.get("labels") or ["IT·테크"], draft=False)
+            break
+        except Exception as _e:
+            last = _e
+            if _i < 2:
+                _t.sleep(3)
+    if res is None:
+        raise last            # 세 번 다 실패 — 호출부(make_cards)가 스레드 게시를 막는다
     url = res.get("url")
     if not url:
-        return None, "공개는 됐으나 주소를 못 받음"
+        raise RuntimeError("공개는 됐으나 주소를 못 받음")   # 정상 ‘링크 없음’이 아니라 오류다
     try:                       # autogen이 같은 카드로 또 만들지 않게
         with open(os.path.join(ROOT, "logs", "blog_generated.txt"), "a", encoding="utf-8") as f:
             f.write(card_name + "\n")

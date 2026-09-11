@@ -360,15 +360,21 @@ if __name__ == "__main__":
         # 블로그 글을 **게시 전에** 확보해 본문 맨 끝에 링크를 붙인다 (2026-09-11 디렉터 지시).
         # 종전엔 카드가 먼저 나가고 블로그는 나중 슬롯에 초안으로 생겼다 — 카드를 본
         # 하루 2,000명 중 누구도 블로그가 있다는 걸 알 길이 없었고 조회는 하루 2명이었다.
-        # 실패해도 카드는 그대로 나간다 — 링크는 있으면 좋은 것이지 게시 조건이 아니다.
+        # 두 경우를 가른다 (2026-09-12 도어락 재발 방지):
+        #  · 정상 ‘링크 없음’(게이트 보류 등) → ensure_article이 (None, 사유) 반환 → 그대로 게시.
+        #  · 일시 오류(네트워크·발행 5xx) → 예외 → **스레드를 올리지 않고 슬롯을 중단**한다.
+        #    링크 없이 스레드가 먼저 나가면 재시도해도 멱등 가드가 재게시를 막아 링크가 영영
+        #    안 붙는다(도어락 편이 그랬다). 중단하면 THCARD가 안 남아 다음 시도가 링크까지
+        #    붙여 깨끗이 재시도한다. ensure_article은 발행 성공 뒤에만 정상 반환하므로,
+        #    예외가 났다는 건 글이 안 만들어졌다는 뜻이라 중단이 안전하다.
         _tt = s.get("threads_text")
+        import blog_link
         try:
-            import blog_link
             _url, _why = blog_link.ensure_article(s, os.path.basename(args[0]))
-            print("[blog_link] %s — %s" % (_url or "링크 없음", _why), flush=True)
-            if _url:
-                _tt = blog_link.append_link(_tt, _url, s.get("blog_teaser"))
         except Exception as _e:
-            print("[blog_link] 실패(무해, 링크 없이 게시): %s" % str(_e)[:140], flush=True)
+            sys.exit("[blog_link] 블로그 확보 실패 — 스레드 게시 보류, 슬롯 재시도: %s" % str(_e)[:160])
+        print("[blog_link] %s — %s" % (_url or "링크 없음", _why), flush=True)
+        if _url:
+            _tt = blog_link.append_link(_tt, _url, s.get("blog_teaser"))
         from upload_instagram import publish_carousel
         publish_carousel(paths, s["caption"], threads_text=_tt)
