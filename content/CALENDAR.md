@@ -715,3 +715,5 @@
 - 20시 카드: Beyerdynamic AVENTHO Y — 무선 헤드폰 배터리 90시간 [한계붕괴형] — threads.com/@daily_1_pick/post/Dc8bdmgmQdK
 ### 2026-09-09 (화)
 - 09시 카드: Aurzen ZIP Pro — 빔프로젝터가 드디어 주머니에 들어갔다 [소유욕형] — threads.com/@daily_1_pick/post/DdC-Je3Ge6p
+### 2026-09-11 (목)
+- 12시 카드: Sonos Beam Ultra — 사운드바 스피커가 5개에서 9개로 바뀌었다 [한계붕괴형] — threads.com/@daily_1_pick/post/DdIavDAmZRz

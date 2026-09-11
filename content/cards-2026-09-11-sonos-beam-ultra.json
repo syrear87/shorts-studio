@@ -1,0 +1,40 @@
+{
+ "topic": "Sonos Beam Ultra — 사운드바 스피커가 5개에서 9개로 바뀌었다, 위에서 소리가 내려온다 [한계붕괴형]",
+ "blog_teaser": "기존 빔 2세대와 드라이버 구성이 어떻게 달라졌는지는 블로그에 비교표로 정리했습니다",
+ "threads_text": "사운드바 스피커가 5개에서 9개로 바뀌었다 — 위에서 소리가 내려온다\n\n1. 소노스 빔 울트라, 사운드바인데 위를 향하는 스피커가 2개 새로 들어감\n2. 기존 사운드바는 돌비 애트모스를 소프트웨어로 흉내냈는데, 이건 진짜 천장을 향해 소리를 쏜다\n3. 드라이버 5개짜리가 9개로 바뀌었고, 앰프도 9개 독립\n4. AI 스피치 기능이 대사만 골라내서 키워줌 — 영화 볼 때 대사 안 들려서 볼륨 높이는 문제가 끝남\n5. $699(약 95만원), 9/29 출시. 국내는 소노스코리아(silvermoon.kr) 유통\n\n(출처: Sonos 공식 발표, Engadget·ecoustics·TechRadar)",
+ "caption": "사운드바 스피커가 5개에서 9개로 바뀌었다 — 위에서 소리가 내려온다\n\n기존 사운드바는 돌비 애트모스를 소프트웨어로 흉내냈다.\n소노스 빔 울트라는 위를 향하는 트위터 2개가 천장에 소리를 반사시켜 진짜 높이감을 만든다.\n드라이버 5개 → 9개(트위터 5 + 우퍼 4), 앰프 9개 독립 탑재.\nAI가 대사만 골라 키워주는 스피치 기능도 추가.\n$699(약 95만원), 9/29 출시.\n\n(출처: Sonos 공식 발표, Engadget, ecoustics)\n\n#사운드바 #소노스 #돌비애트모스 #홈시어터 #BeamUltra",
+ "factcheck": [
+   {"claim": "드라이버 9개(트위터 5 + 우퍼 4), 앰프 9개", "sources": ["https://www.engadget.com/2248155/sonos-unveils-new-beam-ultra-soundbar-with-true-7-1-2-dolby-atmos/", "https://www.ecoustics.com/products/sonos-beam-ultra-soundbar-2026/"], "note": "Engadget: five tweeters (one center, two side-firing, two upward-firing) and four low-profile woofers. ecoustics: nine Class D amplifiers."},
+   {"claim": "7.1.2 Dolby Atmos", "sources": ["https://www.engadget.com/2248155/sonos-unveils-new-beam-ultra-soundbar-with-true-7-1-2-dolby-atmos/", "https://www.ecoustics.com/products/sonos-beam-ultra-soundbar-2026/"], "note": "두 매체 일치. 소노스 공식도 'true 7.1.2 Dolby Atmos' 표기"},
+   {"claim": "AI Speech Enhancement", "sources": ["https://www.engadget.com/2248155/sonos-unveils-new-beam-ultra-soundbar-with-true-7-1-2-dolby-atmos/", "https://www.ecoustics.com/products/sonos-beam-ultra-soundbar-2026/"], "note": "4단계 AI 음성 강화, 두 매체 일치"},
+   {"claim": "$699, 9/29 출시", "sources": ["https://www.ecoustics.com/products/sonos-beam-ultra-soundbar-2026/", "https://www.sonos.com/en-us/shop/beam-ultra"], "note": "ecoustics + 소노스 공식 스토어 일치. 프리오더 9/1, 일반 출시 9/29"},
+   {"claim": "Beam Gen 2는 드라이버 5개, 전용 상향 드라이버 없음", "sources": ["https://www.engadget.com/2248155/sonos-unveils-new-beam-ultra-soundbar-with-true-7-1-2-dolby-atmos/", "https://www.ecoustics.com/products/sonos-beam-ultra-soundbar-2026/"], "note": "ecoustics: 'Beam Gen 2 used five amplifiers and passive radiators'. 전용 상향 트위터는 Ultra가 최초"},
+   {"claim": "국내 유통 소노스코리아(silvermoon.kr)", "sources": ["https://silvermoon.kr/"], "note": "소노스 공식 한국 유통사. Beam Ultra 국내 출시일·가격은 미발표 상태"}
+ ],
+ "rebuttals": [
+   "95만원이면 TV를 새로 사는 게 낫다 — 사운드바는 TV와 독립 업그레이드 가능, TV를 바꿔도 계속 쓴다",
+   "천장이 낮으면 높이감이 없다 — 소노스 자동 보정(Trueplay)이 방 형태에 맞춰 조절하지만, 극단적으로 낮은 천장에서는 효과 감소 가능",
+   "소노스 앱이 예전에 욕을 먹었다 — 2024년 앱 리뉴얼 논란은 사실. 이후 주요 기능 복구, 하지만 사용자 평가 회복 중"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/sonos_beam_ultra_detail.jpg",
+   "title": "사운드바 스피커가\n5개에서 9개로 바뀌었다",
+   "title_hl": ["9개로 바뀌었다"],
+   "body": "위에서 소리가 내려온다\n천장에 반사시켜 진짜 7.1.2채널",
+   "body_hl": ["위에서 소리가 내려온다", "7.1.2채널"],
+   "credit": "Sonos"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/sonos_beam_ultra_black.jpg",
+   "title": "Sonos Beam Ultra",
+   "title_hl": ["Beam Ultra"],
+   "body": "위로 쏘는 트위터 2개 — 천장 반사로 높이감\nAI가 대사만 골라 키워준다\n$699(약 95만원), 9/29 출시",
+   "body_hl": ["AI가 대사만 골라", "$699"],
+   "sub": "국내는 소노스코리아(silvermoon.kr) 유통",
+   "credit": "Sonos / Audio Advice"
+  }
+ ]
+}
