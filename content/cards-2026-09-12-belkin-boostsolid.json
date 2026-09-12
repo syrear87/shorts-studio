@@ -1,0 +1,38 @@
+{
+ "topic": "Belkin UltraCharge Pro BoostSolid Cell — 보조배터리 안의 액체가 사라졌다, 부풀거나 불 붙는 원인을 겔로 바꿨다 [공유형]",
+ "blog_teaser": "반고체 배터리가 기존 리튬이온과 뭐가 다른지, 수명·안전성 비교표는 블로그에 정리해뒀습니다",
+ "threads_text": "보조배터리 안의 액체가 사라졌다\n\n1. 보조배터리가 볼록하게 부풀어서 버린 적 있으면 — 그 원인이 액체 전해질이 가스를 만들어서였음\n2. Belkin이 IFA 2026에서 그 액체를 겔로 바꾼 보조배터리를 내놓음 — BoostSolid Cell이라고 부름\n3. 반고체 상태라 가스 발생이 억제됨 — 부풀거나 불 붙는 위험이 줄어든다는 것\n4. 수명도 다름 — 기존 리튬이온은 300~500회 충방전하면 용량이 80%로 줄어드는데, 이건 1,000회까지 버팀 (제조사 수치)\n5. 두 모델 나옴 — 5천mAh 슬림형($69.99, 8.8mm, Qi2 무선충전), 1만mAh 디스플레이형($89.99, 60W USB-C)\n6. 국내 출시 미정 — 아마존에서 직구 가능, $150 미만이라 관세 면제 구간\n\n(출처: Belkin 공식 발표, TechRadar 핸즈온, Android Authority 반고체 배터리 해설)",
+ "caption": "보조배터리 안의 액체가 사라졌다\n\n리튬이온의 액체 전해질 → 겔로 교체.\n부풀거나 불 붙는 원인 자체를 바꿨다.\n\n5천mAh 슬림형 8.8mm — Qi2 무선충전, 폰 뒤에 자석으로 붙임.\n1만mAh 디스플레이형 — USB-C 60W, 노트북도 충전.\n\n수명: 기존 300~500회 → 1,000회(80% 유지, 제조사 수치).\n$69.99~$89.99, 국내 출시 미정.\n\n(출처: Belkin IFA 2026 공식, TechRadar, 9to5Google)\n\n#보조배터리 #반고체배터리 #Belkin #IFA2026 #테크",
+ "factcheck": [
+   {"claim": "반고체 배터리(semi-solid-state)는 액체 전해질을 겔 폴리머로 대체한 중간 단계 기술", "sources": ["https://www.androidauthority.com/semi-solid-state-batteries-explained-3675333/", "https://pmc.ncbi.nlm.nih.gov/articles/PMC10379277/"], "note": "학술 문헌과 매체 모두 겔 폴리머 매트릭스가 가스 발생을 억제한다고 설명"},
+   {"claim": "BPD024 5K 슬림형: 8.8mm, 5000mAh, 15W Qi2, $69.99 / BPB044 10K: 60W USB-C, $89.99", "sources": ["https://www.belkin.com/pr-belkin-ultra-charge-pro-semi-solid-state-power-banks.html", "https://www.techradar.com/phones/phone-accessories/belkin-has-announced-two-super-slim-semi-solid-state-power-banks-and-weve-already-had-an-early-look-at-them"], "note": "Belkin 공식 PR + TechRadar 핸즈온에서 동일 스펙 확인"},
+   {"claim": "1,000회 충방전 후 80% 용량 유지 (기존 리튬이온은 300~500회)", "sources": ["https://9to5google.com/2026/09/03/belkin-launches-new-solid-state-qi-2-batteries/", "https://www.batteryuniversity.com/article/bu-808-how-to-prolong-lithium-based-batteries/"], "note": "1,000회는 제조사 수치(독립 검증 미완). 기존 300~500회 기준선은 Battery University 등 다수 출처 확인"},
+   {"claim": "UL 2056:2025 인증, TSA 기내반입 적합", "sources": ["https://www.belkin.com/pr-belkin-ultra-charge-pro-semi-solid-state-power-banks.html", "https://www.androidheadlines.com/2026/09/belkin-power-banks-semi-solid-state-battery-tech-ifa-2026.html"], "note": "공식 PR에서 안전 인증 명시"}
+ ],
+ "rebuttals": [
+   "반고체라고 완전히 안전한 건 아니다 — 맞다. 위험을 '줄이는' 것이지 '없앤' 것이 아니다. Belkin도 helps reduce라고 쓴다",
+   "1,000회는 제조사 수치라 독립 검증이 없다 — 맞다. 출시 초기라 장기 테스트 결과가 아직 없고, 대본에도 '제조사 수치'로 명기했다",
+   "LiFePO4 보조배터리는 이미 2,000회 이상인데 — LiFePO4가 수명은 더 길지만 에너지 밀도가 낮아 크기가 커진다. 반고체는 슬림 폼팩터와 수명을 함께 노린 절충점"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/belkin_boostsolid_press.png",
+   "title": "보조배터리 안의\n액체가 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "부풀거나 불 붙는 원인\n겔로 바꿨다",
+   "body_hl": ["겔로 바꿨다"],
+   "credit": "Belkin"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/belkin_boostsolid_10k.jpg",
+   "title": "Belkin BoostSolid Cell",
+   "title_hl": ["BoostSolid"],
+   "body": "기존 리튬이온: 300~500회 → 용량 80%\n반고체 겔: 1,000회에도 80% 유지\n5K 슬림 $69.99 — 8.8mm, Qi2 무선충전\n10K $89.99 — USB-C 60W, 노트북도 충전",
+   "body_hl": ["1,000회"],
+   "sub": "국내 출시 미정 — 아마존 직구 가능 ($150 미만, 관세 면제 구간)",
+   "credit": "Belkin"
+  }
+ ]
+}
