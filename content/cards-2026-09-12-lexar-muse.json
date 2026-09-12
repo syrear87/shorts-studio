@@ -1,0 +1,39 @@
+{
+ "topic": "Lexar Muse — USB 꽂던 외장하드에서 USB가 사라졌다, 신용카드 두께 26.5g이 폰 뒤에 자석으로 붙는다 [한계붕괴형]",
+ "blog_teaser": "SnapLink 포고핀 케이블 원리랑 기존 포터블 SSD 두께 비교표는 블로그에 정리해뒀습니다",
+ "threads_text": "USB 꽂던 외장하드에서 USB가 사라졌다 — 신용카드 두께 26.5g이 폰 뒤에 자석으로 붙는다\n\n1. Lexar가 30주년 기념으로 IFA 2026에서 꺼낸 물건 — 이름은 Muse\n2. 두께 3.8mm, 가장자리는 1mm — 신용카드 두께가 0.76mm니까 진짜 비슷한 수준\n3. 무게 26.5g, 크기 80x48mm — 교통카드보다 약간 작음\n4. USB-C 포트가 없음 — 대신 자석으로 딱 붙는 포고핀 케이블(SnapLink)로 연결\n5. 동봉 슬리브에 N52 네오디뮴 자석이 들어있어서 맥세이프처럼 폰 뒤에 붙임\n6. 읽기 1,050MB/s, 쓰기 1,000MB/s — 아이폰 ProRes 4K 외부 직접 녹화도 됨\n7. 512GB·1TB 두 종류, Q4 출시 예정 — 예상가 $230~$380(약 31~52만원)\n8. 국내 Lexar 정식 유통이 있어서 출시되면 다나와·쿠팡에서 살 수 있을 것\n\n(출처: Lexar 공식 IFA 2026 발표, Tom's Hardware·TechPowerUp 교차확인)",
+ "caption": "USB 꽂던 외장하드에서 USB가 사라졌다 — 신용카드 두께 26.5g이 폰 뒤에 자석으로 붙는다\n\nLexar 30주년 기념작, Muse.\n두께 3.8mm, 가장자리 1mm.\n무게 26.5g, 크기 80x48mm.\n\nUSB-C 포트 없이 자석 포고핀 케이블로 연결.\n슬리브에 N52 자석이 있어 맥세이프처럼 폰 뒤에 붙는다.\n\n읽기 1,050MB/s, 쓰기 1,000MB/s.\n아이폰 ProRes 4K 외부 녹화 지원.\n512GB·1TB, Q4 출시 예정.\n\n(출처: Lexar IFA 2026 공식 발표, Tom's Hardware, TechPowerUp)\n\n#외장SSD #LexarMuse #포터블SSD #맥세이프 #테크",
+ "factcheck": [
+   {"claim": "두께 3.8mm(가장자리 1mm), 무게 26.5g, 크기 80x48mm", "sources": ["https://americas.lexar.com/news/lexar-unveils-muse-the-worlds-thinnest-portable-ssd-at-ifa-2026/", "https://www.tomshardware.com/pc-components/external-ssds/lexar-announces-worlds-thinnest-portable-ssd-in-celebration-of-the-brands-30th-anniversary-lexar-muse-drive-achieves-0-15-inch-thickness-with-proprietary-pogo-pin-cable-magnetic-sleeve-for-phone-mounting"], "note": "Lexar 공식 + Tom's Hardware 동일 수치 확인. 0.15인치 = 3.81mm"},
+   {"claim": "읽기 1,050MB/s, 쓰기 1,000MB/s (USB 10Gbps)", "sources": ["https://americas.lexar.com/news/lexar-unveils-muse-the-worlds-thinnest-portable-ssd-at-ifa-2026/", "https://www.techpowerup.com/352246/lexar-claims-the-worlds-thinnest-portable-ssd-with-the-muse-at-ifa-2026"], "note": "Lexar 공식 스펙 + TechPowerUp 동일 수치"},
+   {"claim": "512GB·1TB 두 종류, Q4 2026 출시 예정", "sources": ["https://americas.lexar.com/news/lexar-unveils-muse-the-worlds-thinnest-portable-ssd-at-ifa-2026/", "https://www.gizmochina.com/2026/09/07/lexar-muse-portable-ssd-unveiled-specs-price/"], "note": "Lexar 공식 발표 + Gizmochina 교차확인"},
+   {"claim": "SnapLink 마그네틱 포고핀 케이블, N52 네오디뮴 자석, 맥세이프 호환 슬리브", "sources": ["https://www.tomshardware.com/pc-components/external-ssds/lexar-announces-worlds-thinnest-portable-ssd-in-celebration-of-the-brands-30th-anniversary-lexar-muse-drive-achieves-0-15-inch-thickness-with-proprietary-pogo-pin-cable-magnetic-sleeve-for-phone-mounting", "https://petapixel.com/2026/09/08/meet-lexar-muse-the-credit-card-sized-ssd-for-your-iphone/"], "note": "SSD 자체에 USB-C 포트 없음, 슬리브 경유 맥세이프 부착"},
+   {"claim": "예상가 512GB $230, 1TB $380", "sources": ["https://www.gizmochina.com/2026/09/07/lexar-muse-portable-ssd-unveiled-specs-price/", "https://www.tomshardware.com/pc-components/external-ssds/lexar-announces-worlds-thinnest-portable-ssd-in-celebration-of-the-brands-30th-anniversary-lexar-muse-drive-achieves-0-15-inch-thickness-with-proprietary-pogo-pin-cable-magnetic-sleeve-for-phone-mounting"], "note": "Lexar 담당자 비공식 언급, 공식 확정가 아님. 스레드에 '예상가'로 명기"}
+ ],
+ "rebuttals": [
+   "USB-C 포트 없이 전용 케이블이면 케이블 잃어버리면 끝 아닌가 — 맞는 지적이다. SnapLink은 자석이라 떨어질 위험도 있고, 범용 USB-C를 못 쓰는 건 단점",
+   "3.8mm면 얇아서 떨어뜨리거나 구부러지지 않나 — 알루미늄 유니바디 단일 금속 가공이라 강성은 있겠지만 실사용 내구성은 출시 후 리뷰를 봐야 함",
+   "맥세이프에 붙인다는데 무선충전 간섭이나 발열은 없나 — SSD가 발열하면 쓰기 속도가 떨어질 수 있고, 폰 뒤에 붙이면 폰 발열과 합산될 수 있음"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/lexar_muse_ssd.jpg",
+   "title": "USB 꽂던 외장하드에서\nUSB가 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "두께 3.8mm, 무게 26.5g\n자석으로 폰 뒤에 붙인다",
+   "body_hl": ["폰 뒤에 붙인다"],
+   "credit": "Tom's Hardware"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/lexar_muse_phone.jpg",
+   "title": "Lexar Muse",
+   "title_hl": ["Muse"],
+   "body": "폰 뒤에 지갑처럼 붙인다\n자석 포고핀 케이블로 연결\n읽기 1,050MB/s, 4K ProRes 직접 녹화\n512GB·1TB, Q4 출시 예정",
+   "body_hl": ["지갑처럼 붙인다"],
+   "sub": "예상가 $230~$380(약 31~52만원), 국내 Lexar 유통 있음",
+   "credit": "Tom's Hardware"
+  }
+ ]
+}
