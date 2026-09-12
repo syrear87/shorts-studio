@@ -1,0 +1,40 @@
+{
+ "topic": "USB 데이터 차단기 — 충전하려고 꽂았는데 데이터 핀도 연결된다, 3천원이면 막는다 [구매가능][공유형]",
+ "blog_teaser": "USB 핀 4개 구조와 ChoiceJacking 원리, 추천 제품 3종 비교는 블로그에 정리해뒀습니다",
+ "threads_text": "USB에서 데이터 선이 사라졌다 — 전원만 남긴 3천원짜리 차단기\n\n1. USB 안에 선이 4개다 — 전원(VBUS, GND) 2개, 데이터(D+, D-) 2개\n2. 공항이나 카페 USB 포트에 꽂으면 전원만 오는 게 아니라 데이터 핀도 같이 연결됨\n3. FBI가 2023년에 공공 USB 충전기 사용을 공식 경고했고, KISA(한국인터넷진흥원)도 2025년에 보안공지를 냈다\n4. 확인된 실제 피해 사례는 아직 없지만, 학술적으로 가능성은 입증돼 있다(2025 ChoiceJacking 논문)\n5. USB 데이터 차단기는 데이터 핀 2개를 물리적으로 끊는 구조 — 전기만 통과한다\n6. 쿠팡 기준 3천원대부터, USB-A용과 USB-C용 둘 다 있다\n7. 이거 없으면 자기 충전기 + 콘센트 쓰면 됨 — 남의 USB 포트에 안 꽂으면 그만이다\n\n(출처: FBI Denver 공고 2023-04-06, KISA 보호나라 보안공지 2025, USB 2.0 규격 핀 배열)",
+ "caption": "USB에서 데이터 선이 사라졌다 — 전원만 남긴 3천원짜리 차단기\n\nUSB 안에 선이 4개.\n전원 2개, 데이터 2개.\n충전만 하려고 꽂아도 데이터 핀이 같이 연결된다.\n\nFBI(2023)와 KISA(2025)가 공공 USB 충전기 사용을 경고했다.\n확인된 피해 사례는 아직 없지만, 학술적으로 가능성은 입증됨.\n\nUSB 데이터 차단기는 데이터 핀만 물리적으로 끊는 구조.\n쿠팡 3천원대부터.\n\n(출처: FBI Denver 2023-04-06, KISA 보호나라 2025, USB 2.0 규격)\n\n#USB데이터차단기 #주스재킹 #공항충전 #추석여행 #테크",
+ "factcheck": [
+   {"claim": "FBI가 2023년 4월 6일 공공 USB 충전기 사용을 공식 경고", "sources": ["https://abcnews.com/Politics/fbi-warns-public-charging-stations/story?id=98503419", "https://www.nbcboston.com/investigations/consumer/fbi-warns-against-using-public-usb-charging-ports/3020228/"], "note": "FBI Denver 트윗: 'Avoid using free charging stations in airports, hotels or shopping centers.' 특정 사건이 아닌 예방 차원 경고"},
+   {"claim": "KISA(한국인터넷진흥원)가 2025년 ChoiceJacking 관련 보안공지 발행", "sources": ["https://www.boho.or.kr/kr/bbs/list.do?menuNo=205020&bbsId=B0000133", "https://view.asiae.co.kr/article/2025061821442108792"], "note": "아시아경제 2025-06-18 보도 확인. KISA 보호나라 보안공지"},
+   {"claim": "USB 2.0은 핀 4개(VBUS, D+, D-, GND)이며 데이터 차단기는 D+/D-를 물리적으로 차단", "sources": ["https://nordvpn.com/blog/usb-data-blocker/", "https://library.mosse-institute.com/articles/2023/08/usb-data-blockers.html"], "note": "USB 2.0 규격: 핀 1=VBUS(+5V), 핀 2=D-, 핀 3=D+, 핀 4=GND. 데이터 차단기는 핀 2,3을 물리적으로 미연결"},
+   {"claim": "실제 피해 사례는 확인되지 않았으며, 학술적 가능성만 입증", "sources": ["https://www.eset.com/blog/en/home-topics/privacy-and-identity-protection/juice-jacking-real-or-myth/", "https://www.malwarebytes.com/blog/news/2025/06/juice-jacking-warnings-are-back-with-a-new-twist/"], "note": "2025 그라츠 공대 ChoiceJacking 논문은 PoC(개념 증명). 실제 범죄 사례 0건(ESET, Malwarebytes 확인)"},
+   {"claim": "쿠팡 기준 USB 데이터 차단기 3천원대부터 판매", "sources": ["https://www.coupang.com/np/search?q=USB+%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%B0%A8%EB%8B%A8%EA%B8%B0"], "note": "쿠팡 검색 2026-09-12 기준, USB-A 차단기 2,900원~, USB-C 차단기 5,000원~ 확인"}
+ ],
+ "rebuttals": [
+   "실제 피해 사례가 없는데 불안 조장 아닌가 — FBI·FCC·KISA가 공식 경고한 사안이고, 2025년 학술 논문으로 가능성이 입증됐다. 카드에도 '확인된 피해 사례는 아직 없다'고 명시했다",
+   "요즘 폰은 꽂으면 충전 전용 선택이 뜨지 않나 — iOS와 Android 15 이후 기기는 기본적으로 충전 전용이지만, ChoiceJacking(2025)은 그 프롬프트를 우회하는 방법을 보여줬다. 구형 기기는 보호가 없다",
+   "보조배터리 들고 다니면 되지 않나 — 맞다. 카드에서도 '자기 충전기 쓰면 된다'고 안내했다. 데이터 차단기는 공공 포트를 꼭 써야 할 때를 위한 것이다",
+   "3천원짜리 중국산이 진짜 작동하나 — 구조가 극히 단순하다(데이터 핀 2개를 연결하지 않는 것). 전자 부품이 아니라 물리적 배선 차단이라 불량 가능성이 낮다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/usb_phone_charging.jpg",
+   "title": "USB에서 데이터 선이\n사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "USB 안에 선이 4개 — 전원 2개, 데이터 2개\n충전만 해도 데이터 핀이 같이 연결됐는데\n그 2개를 끊어버린 어댑터가 나왔다",
+   "body_hl": ["끊어버린"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/usb_connector_closeup.jpg",
+   "title": "USB 데이터 차단기",
+   "title_hl": ["데이터 차단기"],
+   "body": "데이터 핀만 물리적으로 끊는 구조\n전기만 통과, 데이터는 차단\nUSB-A용, USB-C용 둘 다 있다",
+   "body_hl": ["물리적으로 끊는"],
+   "sub": "쿠팡 3천원대부터",
+   "credit": "Pexels"
+  }
+ ]
+}

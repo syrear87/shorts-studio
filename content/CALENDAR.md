@@ -725,3 +725,5 @@
 - 09시 카드: NFC 태그 스티커 — 아이폰·갤럭시에 390원짜리 스티커가 나왔다 [구매가능][공유형]
 - 12시 카드: Lexar Muse — USB 꽂던 외장하드에서 USB가 사라졌다 [한계붕괴형]
 - 14시 카드: Belkin BoostSolid Cell — 보조배터리 안의 액체가 사라졌다, 반고체 겔로 수명 3배 [공유형] — threads.com/@daily_1_pick/post/DdLNZCOmQbu
+- 16시 카드: Divoom FlowToo — 알람시계가 달라졌다, 깨우기만 하던 게 재우기까지 한다 [소유욕형] — threads.com/@daily_1_pick/post/DdLcEHWGcGD
+- 20시 카드: USB 데이터 차단기 — USB에서 데이터 선이 사라졌다, 전원만 남긴 3천원짜리 차단기 [구매가능][공유형] — threads.com/@daily_1_pick/post/DdL37Q3mZzY
