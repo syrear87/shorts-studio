@@ -1,0 +1,38 @@
+{
+ "topic": "NFC 태그 스티커 — 아이폰·갤럭시에 390원짜리 스티커가 나왔다, 찍으면 폰이 알아서 움직인다 [구매가능][공유형]",
+ "blog_teaser": "NTAG213·215 차이, 아이폰·갤럭시 설정법, 추천 활용 장소 5곳은 블로그에 정리해뒀습니다",
+ "threads_text": "아이폰·갤럭시에 390원짜리 스티커 붙이는 게 나왔다 — 찍으면 폰이 알아서 움직인다\n\n1. 교통카드·애플페이에 쓰이는 NFC — 같은 기술이 스티커 형태로 팔림\n2. 스티커를 침대 옆에 붙여두고 폰을 갖다 대면 → 방해금지 켜지고, 알람 설정되고, 화면 어두워짐\n3. 아이폰은 단축어 앱 → 자동화 → NFC, 갤럭시는 모드와 루틴에서 설정\n4. 현관문·차량 거치대·책상에도 붙여서 외출 모드·운전 모드·업무 모드 자동 전환 가능\n5. NTAG215 기준 504바이트 저장, 읽기 거리 약 4cm, 배터리 없이 반영구 작동\n6. 다나와 기준 390원부터, 10개 묶음 3000원대 — 쿠팡·11번가에서 로켓배송\n7. 설정에 2분, 코딩 필요 없음 — 교통카드 찍듯 대기만 하면 됨\n\n(출처: NXP NTAG213/215/216 공식 데이터시트, 다나와·11번가 가격 검색 2026-09-12)",
+ "caption": "아이폰·갤럭시에 390원짜리 스티커 붙이는 게 나왔다 — 찍으면 폰이 알아서 움직인다\n\n교통카드·애플페이에 쓰이는 NFC.\n같은 기술이 스티커 형태로 팔린다.\n\n침대 옆에 붙여두고 폰을 갖다 대면\n방해금지 켜지고, 알람 설정되고, 화면 어두워진다.\n아이폰은 단축어 앱, 갤럭시는 모드와 루틴에서 설정.\n\n현관문·차량 거치대·책상에도 활용 가능.\nNTAG215 기준 504바이트, 배터리 없이 반영구 작동.\n다나와 기준 390원부터.\n\n(출처: NXP NTAG213/215/216 데이터시트, 다나와·11번가 가격 검색 2026-09-12)\n\n#NFC태그 #NFC스티커 #아이폰자동화 #갤럭시루틴 #테크",
+ "factcheck": [
+   {"claim": "NFC 태그 스티커가 교통카드·애플페이와 같은 NFC 기술 기반", "sources": ["https://www.nxp.com/docs/en/data-sheet/NTAG213_215_216.pdf", "https://www.rfidsilicone.com/ko/product/nfc-tags/"], "note": "NXP NTAG 시리즈는 ISO/IEC 14443 Type A, NFC Forum Type 2 규격 — 교통카드·모바일결제와 동일 주파수 13.56MHz"},
+   {"claim": "아이폰 단축어 앱에서 NFC 자동화 설정 가능 (iPhone XS 이후)", "sources": ["https://www.clien.net/service/board/cm_iphonien/14232998", "https://k7.sinsa.net/2026/04/18/%EC%95%84%EC%9D%B4%ED%8F%B0-nfc-%EC%BC%9C%EA%B8%B0-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C/"], "note": "단축어 앱 → 자동화 → NFC 경로 확인. iOS 13부터 지원, XS/XR 이후 모델"},
+   {"claim": "NTAG215 기준 504바이트 저장, 읽기 거리 약 4cm, 배터리 없음", "sources": ["https://www.nxp.com/docs/en/data-sheet/NTAG213_215_216.pdf", "https://www.asiarfid.com/difference-ntag213-ntag215-ntag216.html"], "note": "NXP 공식: NTAG215 user memory 504 bytes, 동작 주파수 13.56MHz, 패시브(무전원)"},
+   {"claim": "다나와 기준 390원부터, 10개 묶음 3000원대", "sources": ["https://search.danawa.com/dsearch.php?query=nfc+%ED%83%9C%EA%B7%B8+%EC%8A%A4%ED%8B%B0%EC%BB%A4", "https://www.11st.co.kr/products/2314284345"], "note": "다나와 최저가 390원(낱개), 11번가 250원부터 — 2026-09-12 검색 기준"}
+ ],
+ "rebuttals": [
+   "그냥 블루투스 자동화 쓰면 되지 않나 — 블루투스는 페어링된 기기 근처면 항상 반응해서 오작동이 잦음. NFC는 직접 갖다 대야(4cm) 의도한 순간에만 발동",
+   "스마트홈 허브가 있으면 필요 없지 않나 — 허브는 10만원 이상이고 설치가 복잡함. NFC 스티커는 390원, 앱 설정 2분이면 끝",
+   "한 번 설정하고 안 쓰게 되는 거 아닌가 — 침대 옆 수면 모드처럼 매일 같은 자리에서 반복하는 루틴이면 습관이 되기 쉬움"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img_query": "smartphone nfc tap sticker close up",
+   "title": "아이폰·갤럭시에\n390원짜리 스티커가 나왔다",
+   "title_hl": ["나왔다"],
+   "body": "390원짜리 스티커 하나\n폰이 알아서 움직인다",
+   "body_hl": ["알아서 움직인다"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img_query": "nfc tag sticker white round close up",
+   "title": "NFC 태그 스티커",
+   "title_hl": ["NFC 태그"],
+   "body": "침대 옆 → 수면 모드 자동 전환\n현관문 → 외출 모드 자동 전환\n차량 거치대 → 운전 모드 자동 전환\n아이폰: 단축어, 갤럭시: 모드와 루틴",
+   "body_hl": ["자동 전환"],
+   "sub": "다나와 390원부터, 배터리 없이 반영구",
+   "credit": "Pexels"
+  }
+ ]
+}
