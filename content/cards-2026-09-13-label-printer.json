@@ -1,0 +1,38 @@
+{
+ "topic": "미니 라벨 프린터 — 프린터에서 잉크가 사라졌다, 열로 찍는 손바닥 프린터 만원대부터 [구매가능][공유형]",
+ "blog_teaser": "감열식 원리와 라벨지 종류별 내구성 차이, 추천 모델 3종 비교는 블로그에 정리해뒀습니다",
+ "threads_text": "프린터에서 잉크가 사라졌다 — 열로 찍는 손바닥 프린터\n\n1. 프린터 하면 잉크 카트리지가 떠오르는데, 이건 잉크가 아예 없다\n2. 감열식(Direct Thermal)이라 프린트헤드가 종이 표면의 열변색 코팅에 열을 가하면 밀리초 단위로 흑색으로 변한다 — 영수증이 인쇄되는 원리랑 같다\n3. 잉크·리본·토너가 전부 필요 없으니 소모품은 라벨지(감열지) 한 가지뿐이다\n4. 손바닥 안에 들어오는 크기에 149g, 해상도 203 DPI, 블루투스로 폰에 연결하면 바로 출력\n5. 전용 앱에서 이름표, 수납 라벨, 바코드, QR코드를 디자인해서 뽑는다 — 커터가 내장돼 있어 스티커 형태로 바로 나온다\n6. 본체가 만원대부터 — 니임봇 D110 기준 쿠팡 18,000원대(공식총판 niimbot.co.kr은 36,900원), 라벨지 한 롤 5천원 안팎\n7. 잉크를 안 써서 번지지도 않고, 방수 합성 라벨지를 쓰면 냉장고 안에서도 버틴다\n8. 라벨지 종류: 일반 감열지(저렴, 직사광선에 약함) / 방수 합성지(내구성 높음, 단가 약간 높음) / 투명 라벨지(용기 붙임용)\n9. 단점 하나 — 일반 감열지는 직사광선에 오래 두면 글씨가 흐려진다, 영수증이 바래는 거랑 같은 원리. 영구 보관용에는 부적합\n10. 브라더 PT 시리즈처럼 라미네이트 테이프를 쓰면 내구성은 최강이지만 본체가 5만원대 이상이고 테이프도 만원대다. 가벼운 정리용이면 감열식이 가성비가 좋다\n\n(출처: 니임봇 한국 공식총판 niimbot.co.kr, Brother 감열 프린터 기술 설명, 쿠팡 실판매가 2026-09-13 확인)",
+ "caption": "프린터에서 잉크가 사라졌다 — 열로 찍는 손바닥 프린터\n\n잉크 카트리지 없이 열만으로 인쇄한다.\n영수증과 같은 감열식 원리.\n손바닥 크기, 149g.\n폰 앱에서 디자인해서 블루투스로 출력.\n\n니임봇 D110 기준 쿠팡 18,000원대.\n라벨지 한 롤 5천원 안팎.\n\n(출처: niimbot.co.kr, Brother 감열 프린터 기술 문서, 쿠팡 2026-09-13 확인)\n\n#라벨프린터 #미니프린터 #니임봇 #감열프린터 #테크",
+ "factcheck": [
+   {"claim": "감열식 프린터는 잉크/토너 없이 열로 인쇄한다", "sources": ["https://www.brother.co.uk/support/answers/how-do-thermal-label-printers-work", "https://www.hprt.com/Product/Label-Printers/Direct-Thermal-vs-Thermal-Transfer-Guide.html"], "note": "Direct thermal: 프린트헤드가 감열지 표면의 열변색 코팅에 열을 가하면 밀리초 단위로 흑색으로 변화. 잉크·리본·토너 불필요"},
+   {"claim": "니임봇 D110 본체 쿠팡 18,000원대 판매", "sources": ["https://www.donppu.com/hotpro/1151585", "https://niimbot.co.kr/product/76/"], "note": "돈뿌 핫딜 기록: 아이인 감열식 D110 18,000원(쿠팡). 니임봇 공식총판 가격은 36,900원. 가격대는 제조사·구성에 따라 18,000~37,000원"},
+   {"claim": "203 DPI 해상도, 블루투스 연결, 149g", "sources": ["https://www.amazon.com/NIIMBOT-Bluetooth-Organization-Wireless-Upgraded/dp/B0D1CBDFP3", "https://niimbot.co.kr/product/76/"], "note": "Amazon 제품 사양: 203 DPI, BPA-Free 감열지, Bluetooth 연결. 무게 149g"},
+   {"claim": "감열지는 직사광선에 오래 노출되면 글씨가 흐려진다", "sources": ["https://www.brother.co.uk/support/answers/how-do-thermal-label-printers-work", "https://www.hprt.com/Product/Label-Printers/Direct-Thermal-vs-Thermal-Transfer-Guide.html"], "note": "Direct thermal 단점: 열·자외선·습기에 장기 노출 시 변색. 영수증이 바래는 원리와 동일. 방수/합성 라벨지 사용 시 내구성 향상"}
+ ],
+ "rebuttals": [
+   "영수증 프린터랑 뭐가 다른가 — 원리는 같은 감열식이지만, 라벨 프린터는 커터 내장으로 스티커 형태 출력이 되고, 폰 앱에서 디자인·바코드·QR 생성이 가능하다. 영수증 프린터는 POS 연동 전용",
+   "라벨이 바래면 쓸모가 없지 않나 — 실내 수납용은 직사광선에 닿지 않아 수년간 유지된다. 야외·냉장고는 방수 합성 라벨지를 쓰면 해결. 영구 보관용에는 부적합",
+   "브라더 같은 대기업 제품이 더 낫지 않나 — 브라더 PT 시리즈는 라미네이트 테이프(내구성 최강)를 쓰지만 본체 5만원대 이상이고 테이프가 만원대다. 가벼운 정리용이면 감열식이 가성비가 더 좋다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/niimbot_d110_main.png",
+   "title": "프린터에서 잉크가\n사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "잉크 카트리지 없이 열만으로 인쇄한다\n영수증과 같은 감열식 원리\n손바닥 크기 149g, 폰에서 바로 출력",
+   "body_hl": ["열만으로"],
+   "credit": "niimbot.co.kr"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/niimbot_d110_usage.png",
+   "title": "미니 감열 라벨 프린터",
+   "title_hl": ["감열"],
+   "body": "블루투스로 폰 연결 → 앱에서 디자인 → 바로 출력\n이름표, 수납 라벨, 바코드, QR코드\n라벨지 한 롤 5천원 안팎",
+   "body_hl": ["바로 출력"],
+   "sub": "니임봇 D110 기준 쿠팡 만원대부터",
+   "credit": "niimbot.co.kr"
+  }
+ ]
+}
