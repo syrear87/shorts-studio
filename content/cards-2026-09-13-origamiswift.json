@@ -1,0 +1,38 @@
+{
+ "topic": "OrigamiSwift 접이식 마우스 — 마우스가 종이처럼 접힌다, 힌지 없이 4.5mm 40g [소유욕형]",
+ "blog_teaser": "4.5mm에서 클릭이 어떻게 되는지, 기존 접이식 마우스(Arc Mouse 등)와 두께·무게 비교는 블로그에 정리했습니다",
+ "threads_text": "마우스에서 힌지가 사라졌다 — 종이접기로 4.5mm, 40g\n\n1. 이름은 OrigamiSwift — 이름 그대로 종이접기 구조로 납작하게 접힘\n2. 접으면 4.5mm, 40g — 노트북 덮개 위에 올려놓고 같이 들고 다님\n3. 기계 힌지가 하나도 없음 — 기하학적 접기 구조에 후면 자석 플랩으로 고정\n4. 펼치면 0.5초 만에 삼각형 입체가 세워짐\n5. BT 5.2, 4,000 CPI, USB-C 충전, 배터리 최대 3개월\n6. $85(약 11.5만원) — 150달러 이하라 관세 없음, 배송 포함 약 13~15만원\n7. 국내 미출시, Yanko Design Shop(shop.yankodesign.com)에서 직구\n8. 국내 접이식 마우스는 Microsoft Arc Mouse(쿠팡 5~7만원대)가 있는데, 접혀도 이만큼 얇진 않음\n\n(출처: Yanko Design Shop 공식 제품 페이지, Hounslow Herald 리뷰)",
+ "caption": "마우스에서 힌지가 사라졌다 — 종이접기로 4.5mm, 40g\n\nOrigamiSwift.\n기계 힌지 없이 종이접기 구조로 접히는 마우스.\n접으면 4.5mm, 40g — 노트북 덮개 위에 올려놓고 다닌다.\n펼치면 0.5초 만에 입체 마우스.\n\nBT 5.2 / 4,000 CPI / USB-C 충전 / 배터리 3개월\n$85(약 11.5만원), 관세 없음\n국내 미출시 — shop.yankodesign.com 직구\n\n(출처: Yanko Design Shop, Hounslow Herald)\n\n#접이식마우스 #OrigamiSwift #폴딩마우스 #EDC #테크",
+ "factcheck": [
+   {"claim": "접었을 때 두께 4.5mm, 무게 40g", "sources": ["https://shop.yankodesign.com/products/origamiswift-folding-mouse", "https://hounslowherald.com/folding-flat-how-the-origamiswift-is-unfolding-a-travel-mouse-revolution-p32830-396.htm"], "note": "공식 제품 페이지 + Hounslow Herald 동일 수치 확인"},
+   {"claim": "BT 5.2, 4,000 CPI 적외선 센서, USB-C 충전, 배터리 최대 3개월", "sources": ["https://shop.yankodesign.com/products/origamiswift-folding-mouse", "https://hounslowherald.com/folding-flat-how-the-origamiswift-is-unfolding-a-travel-mouse-revolution-p32830-396.htm"], "note": "공식 스펙 + 매체 교차확인"},
+   {"claim": "기계 힌지 없이 기하학적 접기 구조 + 후면 자석 플랩", "sources": ["https://shop.yankodesign.com/products/origamiswift-folding-mouse", "https://www.yankodesign.com/2024/12/26/discover-the-ultimate-edc-mouse-foldable-design-for-effortless-productivity/"], "note": "공식 설명 및 Yanko Design 기사"},
+   {"claim": "가격 $85, 현재 구매 가능", "sources": ["https://shop.yankodesign.com/products/origamiswift-folding-mouse"], "note": "공식 쇼핑몰 확인, 국내 쿠팡·네이버쇼핑 검색 결과 없음 — 직구만 가능"}
+ ],
+ "rebuttals": [
+   "스크롤 휠이 없고 터치 방식인데 실사용 불편하지 않나 — 맞는 지적이다. 기존 휠에 익숙한 사용자에겐 적응 시간이 필요하고 정밀 스크롤은 약할 수 있다",
+   "4.5mm면 접었다 폈다 반복하면 소재가 늘어나거나 헐거워지지 않나 — 장기 내구성은 독립 실측 리뷰가 아직 없어 확인 불가, 제조사 주장만 있는 상태",
+   "11만원이면 로지텍 MX Anywhere 사는 게 낫지 않나 — 성능 마우스와 비교 대상이 아니다. 이건 EDC 캐리용 보조 마우스이고 로지텍은 메인 마우스"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/origamiswift_folded.jpg",
+   "title": "마우스에서\n힌지가 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "종이접기로 4.5mm, 40g\n접으면 명함 두께",
+   "body_hl": ["명함 두께"],
+   "credit": "Yanko Design"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/origamiswift_open.jpg",
+   "title": "OrigamiSwift",
+   "title_hl": ["OrigamiSwift"],
+   "body": "펼치면 0.5초 만에 입체 마우스\nBT 5.2 / 4,000 CPI / USB-C 충전\n배터리 최대 3개월\n$85(약 11.5만원), 직구 가능",
+   "body_hl": ["0.5초"],
+   "sub": "국내 미출시 — shop.yankodesign.com",
+   "credit": "Yanko Design"
+  }
+ ]
+}
