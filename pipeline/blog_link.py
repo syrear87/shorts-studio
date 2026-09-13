@@ -50,6 +50,38 @@ def _bump():
     return n
 
 
+MAP_F = os.path.join(ROOT, "logs", "blog_map.jsonl")   # {card, url, title} — 카드→글 정본
+
+
+def _mapped_url(card_name):
+    """이 카드로 이미 만든 글의 URL. 제목 대조(dedup)보다 앞선다 (2026-09-13).
+    자석 그립톡 카드가 글을 두 번 만들었다 — topic은 한국어, 옛 글 제목은 영어
+    (Magnetic Detachable Grip Tok)라 겹치는 낱말이 0개였다. 카드 이름은 언어와 무관하다."""
+    try:
+        with open(MAP_F, encoding="utf-8") as f:
+            for line in f:
+                try:
+                    r = json.loads(line)
+                except Exception:
+                    continue
+                if r.get("card") == card_name and r.get("url"):
+                    return r["url"]
+    except Exception:
+        pass
+    return None
+
+
+def _remember(card_name, url, title):
+    try:
+        os.makedirs(os.path.dirname(MAP_F), exist_ok=True)
+        with open(MAP_F, "a", encoding="utf-8") as f:
+            f.write(json.dumps({"card": card_name, "url": url, "title": title,
+                                "at": datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")},
+                               ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+
 def _live_posts():
     from upload_blogger import _service, resolve_blog_id
     svc = _service()
@@ -69,6 +101,9 @@ def _live_posts():
 
 def ensure_article(meta, card_name):
     """(url, 사유). url이 None이면 링크 없이 카드를 게시한다 — 슬롯을 죽이지 않는다."""
+    mapped = _mapped_url(card_name)
+    if mapped:
+        return mapped, "이 카드로 이미 만든 글(blog_map)"
     from blog_gate import judge
     ok, why = judge(meta, is_card=True)
     if not ok:
@@ -111,6 +146,7 @@ def ensure_article(meta, card_name):
     except Exception:
         pass
     _bump()
+    _remember(card_name, url, r["title"])
     return url, "새 글 공개: %s" % r["title"][:40]
 
 
