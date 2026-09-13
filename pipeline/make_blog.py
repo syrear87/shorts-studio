@@ -319,27 +319,50 @@ def boxed_summary(html):
     return html[:m.start()] + SUMMARY_BOX + m.group(1) + inner + "</div>" + html[m.end():]
 
 
-# 이 태그가 붙은 카드는 **특정 제품을 소개하는 글**이다. 여기에 다른 제품의 스톡 사진을
-# 넣으면 독자는 그게 그 제품인 줄 안다 — 실물이 없으면 차라리 이미지를 넣지 않는다.
-PRODUCT_TAGS = {"구매가능", "신제품", "루머", "펀딩"}
+# 특정 제품 글에 다른 제품의 스톡 사진을 넣으면 독자는 그게 그 제품인 줄 안다 — 실물이 없으면
+# 차라리 이미지를 넣지 않는다. 종전엔 [구매가능] 태그로 이걸 판정했는데(PRODUCT_TAGS), 그러면
+# 「멀티탭 서지보호」「NFC 태그 스티커」같은 **카테고리 소재**까지 제품 글로 묶여 이미지 없이
+# 나갔다 (2026-09-13 디렉터: "이미지도 없고"). 멀티탭 스톡 사진은 아무도 안 속는다.
+# 이제 topic 앞머리(— 이전)에 고유명사·모델명이 있을 때만 특정 제품으로 본다.
+# 캡션까지 훑지 않는 이유: 경쟁사 언급(PopSocket·Brother)·규격명(NTAG215)에 걸려 오탐한다.
+PRODUCT_TAGS = {"구매가능", "신제품", "루머", "펀딩"}   # (하위 호환 — 다른 곳에서 참조)
+_ACRO = {"USB", "NFC", "LED", "HDMI", "GAN", "AI", "TV", "PC", "OLED", "LCD", "UV", "CO2", "QI",
+         "QI2", "SSD", "HDD", "SD", "IPX", "ANC", "BT", "IR", "GPS", "CD", "DVD", "EV", "PD",
+         "IOS", "IP", "MICROSD", "USB-C", "TYPE-C", "LTE", "5G", "4K", "8K", "3D"}
+_PROPER = re.compile(r"\b[A-Z][a-z]{2,}[A-Za-z]*\b")           # Niimbot, Lockin, Neo, Xteink
+_MODEL = re.compile(r"\b[A-Za-z]{1,6}\d{1,4}[A-Za-z]{0,3}\b")   # D110, V7, X3, AP30, S50
+
+
+def specific_product(meta):
+    """topic 앞머리에 특정 제품을 가리키는 낱말이 있으면 그 낱말, 없으면 None(카테고리 소재)."""
+    head = re.sub(r"\[[^\]]*\]", "", str((meta or {}).get("topic") or "").split("—")[0])
+    for m in _PROPER.findall(head):
+        if m.upper() not in _ACRO:
+            return m
+    for m in _MODEL.findall(head):
+        if m.upper() not in _ACRO:
+            return m
+    return None
 
 
 def pick_images(meta, queries):
     """이 글에 넣을 사진 [(url, 크레딧), ...].
 
     ① 원고에 **실제 제품 사진**이 있으면 그것을 쓴다 (카드가 이미 공식 이미지를 확보해 둔다).
-    ② 없고 제품 소개 글이면 → **넣지 않는다.** 스톡으로 대체하면 오도다.
-    ③ 없고 일반 정보 글이면 → Pexels 가로 사진으로 분위기를 채운다.
+    ② 없고 **특정 제품** 글이면 → 넣지 않는다. 스톡으로 대체하면 오도다.
+    ③ 없고 카테고리·일반 정보 글이면 → Pexels 가로 사진. 크레딧에 「참고 이미지」를 붙여
+       실물이 아님을 밝힌다.
     """
     from blog_media import product_shots, photos_for
-    from blog_gate import card_tags
     real = product_shots(meta)
     if real:
         return real
-    if card_tags(meta) & PRODUCT_TAGS:
-        print("[make_blog] 제품 글인데 실물 사진이 없다 — 이미지 없이 간다", flush=True)
+    sp = specific_product(meta)
+    if sp:
+        print("[make_blog] 특정 제품 글(%s)인데 실물 사진이 없다 — 이미지 없이 간다" % sp, flush=True)
         return []
-    return photos_for(queries or [str((meta or {}).get("topic") or "")[:60]], count=3)
+    got = photos_for(queries or [str((meta or {}).get("topic") or "")[:60]], count=3)
+    return [(u, "참고 이미지 · " + (c or "")) for u, c in got]
 
 
 def build(meta, blog_link=True):

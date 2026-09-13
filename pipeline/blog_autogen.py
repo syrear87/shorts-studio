@@ -89,8 +89,19 @@ def pending():
                 meta = json.load(fh)
         except Exception:
             continue
-        if judge(meta, is_card=True)[0]:
-            out.append(f)
+        if not judge(meta, is_card=True)[0]:
+            continue
+        # 가격 게이트 (2026-09-13). 카드는 make_cards 렌더 때 이 게이트를 지나지만, 여기서
+        # 되살리는 **옛 카드**(게이트 도입 전)는 안 지났다. 9/4 SSD 편 — 답글 25건 중 11건이
+        # 반박이었고 가격 게이트가 6개 사유로 기각하는 카드 — 이 틈으로 블로그 글이 됐다.
+        # 블로그는 검색에 오래 남아 회수가 더 어렵다. 카드로 못 나갈 소재는 블로그로도 안 간다.
+        try:
+            from price_gate import check as _pcheck
+            if _pcheck(meta)[0] == "reject":
+                continue
+        except Exception:
+            pass
+        out.append(f)
     return out
 
 
