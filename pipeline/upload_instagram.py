@@ -440,7 +440,7 @@ def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, 
     return media_id
 
 
-def _publish_threads_card(kv, keys, caption, threads_text, card_name, ig=True):
+def _publish_threads_card(kv, keys, caption, threads_text, card_name, ig=True, extra_replies=()):
     """카드 이미지를 스레드에 게시한다 (IG 게시 여부와 무관하게 같은 경로를 쓴다).
     R2 정리(finally) 전에 호출해야 한다 — 스레드 컨테이너가 이미지 URL을 읽어야 하기 때문.
     제휴봇이 IG 캡션 첫 줄로 스레드 글을 찾으므로 첫 줄은 캡션과 일치해야 한다."""
@@ -451,6 +451,8 @@ def _publish_threads_card(kv, keys, caption, threads_text, card_name, ig=True):
         _body, _rep = with_affiliate(
             native_threads_text(threads_text, caption) or _caption_for_threads(caption),
             {"caption": caption})
+        # 본문에 안 들어간 블로그 링크는 답글로 (2026-09-13, blog_link.append_link ③ 경로)
+        _rep = list(_rep) + [r for r in (extra_replies or ()) if r]
         th_link = _th.publish_images([base + "/" + k for k in keys], _body, replies=_rep)
         print("스레드 게시 완료:", th_link, flush=True)
         if not ig:
@@ -468,7 +470,7 @@ def _publish_threads_card(kv, keys, caption, threads_text, card_name, ig=True):
         return None
 
 
-def publish_carousel(images, caption, publish=True, threads_text=None, ig=None):
+def publish_carousel(images, caption, publish=True, threads_text=None, ig=None, extra_replies=()):
     """지식 카드 캐러셀 게시.
     images: PNG 경로 리스트(2~3장). 흐름: R2 업로드 → 아이템 컨테이너 → 캐러셀 컨테이너 → 게시 → R2 정리.
 
@@ -539,7 +541,7 @@ def publish_carousel(images, caption, publish=True, threads_text=None, ig=None):
             print("[카드] 인스타 건너뜀 (스레드 전용 슬롯) — 2026-08-29 도달 회복 조치",
                   flush=True)
             media_id, perma = None, ""
-            _publish_threads_card(kv, keys, caption, threads_text, card_name, ig=False)
+            _publish_threads_card(kv, keys, caption, threads_text, card_name, ig=False, extra_replies=extra_replies)
             return "threads-only"
         cont = api("POST", "/%s/media" % user_id, data={
             "media_type": "CAROUSEL", "children": ",".join(child_ids),
@@ -585,7 +587,7 @@ def publish_carousel(images, caption, publish=True, threads_text=None, ig=None):
         # 제휴봇이 IG 캡션 첫 줄로 스레드 글을 찾아 쿠팡 링크 답글을 달기 때문.
         # 첫 줄이 IG 캡션과 반드시 일치해야 find_recent_post 매칭이 된다.)
         # R2 정리(finally) 전에 실행 — 스레드 컨테이너가 이미지 URL을 읽어야 한다.
-        _publish_threads_card(kv, keys, caption, threads_text, card_name, ig=True)
+        _publish_threads_card(kv, keys, caption, threads_text, card_name, ig=True, extra_replies=extra_replies)
         tg("✅ 지식 카드 게시 완료\n%s\n%s" % (caption.split("\n")[0], perma))
         return media_id
     finally:

@@ -337,6 +337,23 @@ def render(script_path):
     except Exception as _e:
         print("경고: 가격 게이트 실행 실패(무해, 통과 처리):", str(_e)[:120], flush=True)
 
+    # 스레드 본문 길이 게이트 (2026-09-13). 상한 500자를 넘기면 upload_threads가 뒤를 자르는데
+    # 세션이 이걸 몰라 783자짜리 본문이 중간에서 끊겨 나갔고, 블로그 링크(맨 끝)는 12장 중
+    # 10장에서 잘려 사라졌다. 400자로 막아 소개 한 줄 + URL 100자 몫을 남긴다.
+    # 가격 게이트처럼 렌더 단계에서 기각한다 — 게시 전에 세션이 줄일 수 있게.
+    try:
+        _tt_len = len((s.get("threads_text") or "").rstrip())
+        if _tt_len > 400:
+            sys.exit("기각: threads_text %d자 — 400자 이하로 줄여라. 스레드 상한 500자에서 블로그 "
+                     "링크 몫 100자를 빼면 본문은 400자다. 넘기면 링크가 잘려나간다 "
+                     "(2026-09-13 실사고: 12장 중 10장 링크 소실). 번호 항목을 줄이거나 문장을 짧게."
+                     % _tt_len)
+        print("본문 길이 통과 (%d/400자)" % _tt_len, flush=True)
+    except SystemExit:
+        raise
+    except Exception as _e:
+        print("경고: 본문 길이 게이트 실행 실패(무해):", str(_e)[:120], flush=True)
+
     # 렌더 통과 정본 (2026-09-06): 모든 게이트를 지난 카드만 여기 적힌다. blog_autogen이
     # 이 목록을 본다 — 종전엔 make_cards가 기각한 카드도 cards-*.json만 있으면 블로그 글이 됐다.
     try:
@@ -374,7 +391,9 @@ if __name__ == "__main__":
         except Exception as _e:
             sys.exit("[blog_link] 블로그 확보 실패 — 스레드 게시 보류, 슬롯 재시도: %s" % str(_e)[:160])
         print("[blog_link] %s — %s" % (_url or "링크 없음", _why), flush=True)
+        _link_reply = None
         if _url:
-            _tt = blog_link.append_link(_tt, _url, s.get("blog_teaser"))
+            _tt, _link_reply = blog_link.append_link(_tt, _url, s.get("blog_teaser"))
         from upload_instagram import publish_carousel
-        publish_carousel(paths, s["caption"], threads_text=_tt)
+        publish_carousel(paths, s["caption"], threads_text=_tt,
+                         extra_replies=[_link_reply] if _link_reply else ())

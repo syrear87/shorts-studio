@@ -114,15 +114,36 @@ def ensure_article(meta, card_name):
     return url, "새 글 공개: %s" % r["title"][:40]
 
 
+MAX_TEXT = 500          # 스레드 본문 상한 (upload_threads.MAX_TEXT와 같다)
+BODY_BUDGET = 400       # 세션이 지켜야 할 본문 상한 — 100자를 소개 한 줄 + URL 몫으로 남긴다
+
+
 def append_link(threads_text, url, teaser=""):
-    """스레드 본문 **맨 마지막**에 한 줄 소개 + 링크를 붙인다.
+    """스레드 본문 **맨 마지막**에 한 줄 소개 + 링크를 붙인다 → (본문, 답글로 넘길 링크|None).
 
     소개 문구는 카드 JSON의 blog_teaser를 쓴다 — 소재마다 달라야 한다
     (디렉터 2026-09-11: "각각 다르게 알맞게"). 같은 문구가 반복되면 링크 스팸으로 읽힌다.
-    """
-    t = (teaser or "").strip() or "자세한 정보는 블로그에 정리해뒀습니다"
-    return (threads_text or "").rstrip() + "\n\n" + t + "\n" + url
 
+    2026-09-13 실사고: 스레드 상한 500자를 넘기면 upload_threads가 뒤를 자르는데, 링크가
+    맨 끝이라 **링크부터 잘려나갔다.** 9/11~13 카드 12장 중 10장이 링크 없이 나갔다.
+    그래서 예산을 센다 — 순서대로 시도한다:
+      ① 소개 + URL 이 들어가면 그대로
+      ② 안 들어가면 소개를 떼고 URL만 (본문 우선, 링크는 살린다)
+      ③ URL조차 안 들어가면 본문은 그대로 두고 링크를 **답글**로 넘긴다 (호출부가 단다)
+    본문을 자르지 않는 이유: 세션이 쓴 문장을 기계가 중간에서 끊으면 글이 상한다.
+    본문이 애초에 400자를 넘지 않게 하는 게 정답이고, 그건 make_cards 렌더 게이트가 막는다.
+    """
+    body = (threads_text or "").rstrip()
+    t = (teaser or "").strip() or "자세한 정보는 블로그에 정리해뒀습니다"
+    full = body + "\n\n" + t + "\n" + url
+    if len(full) <= MAX_TEXT:
+        return full, None
+    bare = body + "\n\n" + url
+    if len(bare) <= MAX_TEXT:
+        print("[blog_link] 본문이 길어 소개 문구를 떼고 URL만 붙인다 (%d자)" % len(body), flush=True)
+        return bare, None
+    print("[blog_link] 본문 %d자 — 링크가 안 들어가 답글로 넘긴다" % len(body), flush=True)
+    return body, t + "\n" + url
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
