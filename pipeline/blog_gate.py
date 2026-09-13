@@ -128,7 +128,16 @@ def intent(meta):
         return False, "보류(삭제 아님) — 검색 수요가 낮은 축: %s" % ", ".join(hold[:3])
     if hit:
         return True, "비교·가이드·문제해결형(%s)" % ", ".join(hit[:3])
-    return False, "보류(삭제 아님) — 구매 가능도 아니고 비교·가이드·문제해결형도 아니다"
+    # 세션이 blog_teaser를 썼으면 통과 (2026-09-13). 이 게이트는 9/6에 '검색 수요 없는 글'을
+    # 거르려고 만들었는데, 지금 블로그 유입은 검색이 아니라 스레드 링크다(색인 0편, 링크로
+    # 하루 50~60명). 그런데 게이트가 topic 키워드만 보고 걷어차서, 세션이 "충전식으로 바꿀 때
+    # 확인할 것은 블로그에 정리해뒀습니다"라고 teaser까지 써놓은 에어더스터 편이 글도 링크도
+    # 없이 나갔다 — 독자에게 없는 글을 약속한 셈이다. teaser는 세션이 '쓸 깊이가 있다'고
+    # 판단한 신호다. 루머·컨셉·밈(hold)은 위에서 이미 막혔으니 여기 오는 건 hold가 아니다.
+    teaser = str((meta or {}).get("blog_teaser") or "").strip()
+    if len(teaser) >= 10:
+        return True, "세션이 blog_teaser로 깊이를 약속함"
+    return False, "보류(삭제 아님) — 구매 가능도 아니고 비교·가이드·문제해결형도 아니고 teaser도 없다"
 
 
 def judge(meta, is_card=None):
@@ -137,7 +146,14 @@ def judge(meta, is_card=None):
     if not text.strip():
         return False, "판정할 텍스트가 없다"
 
-    blocked = [w for w in BLOCK_WORDS if w in text]
+    # 제외 축은 **소재**(topic)로 판정한다 (2026-09-13). 본문 전체를 훑으면 스쳐가는 낱말에
+    # 걸린다 — Sonos 카드의 "앰프 9개 독립 탑재"가 독립운동용 '독립'에, 블루투스 송신기의
+    # "추석에 부모님 TV에 달아드리면"이 명절 특집용 '추석'에 걸려 블로그 글이 안 만들어졌다.
+    # 소재가 재난·정치·역사면 topic에 그 낱말이 있다. 본문에만 있으면 언급이지 소재가 아니다.
+    subject = str((meta or {}).get("topic") or (meta or {}).get("title") or "")
+    if not subject.strip():
+        subject = text            # topic이 없는 원고(영상 등)는 종전대로 전체를 본다
+    blocked = [w for w in BLOCK_WORDS if w in subject]
     if blocked:
         return False, "제외 축 소재: %s" % ", ".join(blocked[:4])
 
