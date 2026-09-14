@@ -1,0 +1,37 @@
+{
+ "topic": "모니터 라이트바 — 스탠드 빛이 모니터에 반사되고 있었다, 비대칭 렌즈가 빛을 45도로 꺾어 반사 없이 책상만 비춘다, 2만원부터 [구매가능][공유형]",
+ "blog_teaser": "비대칭 렌즈가 뭔지, 2만원짜리와 15만원짜리 차이는 블로그에 정리해뒀습니다",
+ "threads_text": "조명 위치를 바꿨더니 모니터 반사가 사라졌다\n\n1. 일반 스탠드는 빛이 사방으로 퍼져서 모니터에 반사된다\n2. 모니터 라이트바는 비대칭 렌즈로 빛을 45도 아래로만 보냄\n3. 모니터 위에 걸치는 구조라 책상도 안 좁아짐\n4. BenQ가 2017년에 15만원에 시작한 건데 지금 2만원대부터 있음\n5. 고를 때 '비대칭 광원' 여부만 보면 됨 — 없으면 반사 그대로다\n\n(출처: BenQ 공식, 다나와 모니터 조명 카테고리 16,900원~)",
+ "caption": "조명 위치를 바꿨더니 모니터 반사가 사라졌다\n\n일반 스탠드는 빛이 사방으로 퍼진다.\n모니터에 반사돼서 눈이 더 피곤해지는 구조다.\n모니터 라이트바는 비대칭 렌즈로 빛을 45도 아래로만 보낸다.\nBenQ가 2017년에 만든 기술인데 지금 2만원부터 있다.\n\n(출처: BenQ 공식, 다나와 모니터 조명 카테고리)\n\n#모니터라이트바 #스크린바 #데스크셋업 #눈건강 #테크",
+ "factcheck": [
+   {"claim": "BenQ ScreenBar 2017년 출시", "sources": ["https://www.benq.com/en-us/campaign/monitor-light-stories/evolution.html", "https://finance.yahoo.com/news/benq-inventor-monitor-light-launches-123000141.html"], "note": "BenQ가 모니터 조명 카테고리를 2017년에 최초 개발, 2018년 상용화"},
+   {"claim": "비대칭 렌즈가 빛을 약 45도 아래로 꺾어 모니터 반사를 방지한다", "sources": ["https://www.benq.com/en-us/campaign/monitor-light-stories/optical-tech.html", "https://ergovanta.com/blogs/news/monitor-light-bars-build-a-focused-workspace-without-the-glare"], "note": "비대칭 광학 렌즈(asymmetric optics)가 빛을 전방·하방으로만 보내 모니터 베일링 글레어(veiling glare) 방지"},
+   {"claim": "가성비 모니터 라이트바 16,900원부터", "sources": ["https://prod.danawa.com/list/?cate=15343227"], "note": "다나와 모니터조명 카테고리: 비맥스 TB-30Si 16,900원, 픽셀아트 TB-301S 19,300원(쿠팡 와우할인) — 2026-09-14 기준"}
+ ],
+ "rebuttals": [
+   "모니터 라이트바 2017년부터 있던 건데 왜 이제 소개하냐 — BenQ가 15만원이었을 때는 가성비가 안 맞았다. 2만원 이하로 내려온 건 최근이다",
+   "그냥 스탠드 끄면 되지 않냐 — 키보드랑 서류가 안 보이면 일을 못 한다. 라이트바는 모니터 반사 없이 책상만 비추는 게 핵심이다",
+   "비대칭 렌즈 없는 싸구려도 많지 않냐 — 맞다. 비대칭 광원 없으면 빛이 모니터에 그대로 반사돼서 스탠드랑 똑같다. 사양에서 확인해야 한다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/mlb_person_working__3.jpg",
+   "title": "조명 위치를 바꿨더니\n모니터 반사가 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "일반 스탠드는 빛이 사방으로 퍼진다\n모니터에 반사돼서 눈이 더 피곤해지는 구조\n조명을 켤수록 화면이 뿌옇게 보인다",
+   "body_hl": ["눈이 더 피곤해지는"],
+   "credit": "Pexels / cottonbro studio"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/monitor_lightbar_4.jpg",
+   "title": "빛의 방향이 바뀌면\n반사가 사라진다",
+   "title_hl": ["반사가 사라진다"],
+   "body": "모니터 라이트바는 비대칭 렌즈로 빛을 45도 아래로만 보낸다\nBenQ가 2017년에 만든 기술 — 지금은 2만원부터\n고를 때 '비대칭 광원' 여부만 확인하면 된다",
+   "body_hl": ["2만원", "비대칭 광원"],
+   "sub": "스탠드 위치가 처음부터 틀렸다",
+   "credit": "Pexels / Sai Krishna"
+  }
+ ]
+}
