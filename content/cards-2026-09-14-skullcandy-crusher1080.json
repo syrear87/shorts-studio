@@ -1,0 +1,38 @@
+{
+ "topic": "Skullcandy Crusher 1080 ANC — 노캔 헤드폰에서 보스만 되던 기술이 처음으로 밖으로 나왔다, Sound by Bose 첫 라이선스 $279.99 [한계붕괴형]",
+ "blog_teaser": "보스 QC와 직접 비교한 노캔 성능 수치랑 직구 관세 계산은 블로그에 정리해뒀습니다",
+ "threads_text": "노캔 헤드폰 — 보스만 되던 기술이 밖으로 나왔다\n\n1. 보스 QuietControl — 귀 모양에 맞춰 노캔 세기를 실시간 조절하는 기술\n2. 이게 다른 회사 헤드폰에 들어간 건 이번이 처음\n3. 스컬캔디 Crusher 1080 — $279.99(아마존 할인 $199.99)\n4. 노캔 실측 81%, 보스 QC 85% — 차이 4%p\n5. 국내 미출시, 직구 관세·배송 포함 약 33만원\n\n(출처: PR Newswire 공식 발표, SoundGuys 실측)",
+ "caption": "노캔 헤드폰 — 보스만 되던 기술이 밖으로 나왔다\n\n보스 QuietControl ANC —\n귀 모양에 맞춰 실시간 조절하는 기술.\n이게 다른 회사 제품에 들어간 건 이번이 처음이다.\n\nSkullcandy Crusher 1080 ANC\n$279.99, 아마존 할인가 $199.99(약 27만원)\n국내 미출시 — 직구 시 관세·배송 포함 약 33만원\n\n국내 대안: 보스 QC Headphones 38~44만원\n\n(출처: PR Newswire, SoundGuys, Engadget)\n\n#보스 #노이즈캔슬링 #스컬캔디 #헤드폰 #ANC",
+ "factcheck": [
+   {"claim": "Skullcandy Crusher 1080 ANC는 보스 자사 제품 외에 Sound by Bose 기술(QuietControl ANC·TrueSpatial·WaveForm)을 탑재한 최초의 헤드폰이다", "sources": ["https://www.prnewswire.com/news-releases/new-skullcandy-crusher-1080-anc-redefines-consumer-audio-with-mind-bending-bass-and-breakthrough-sound-by-bose-technologies-302826777.html", "https://www.soundguys.com/skullcandy-crusher-1080-anc-launch-160164/", "https://www.engadget.com/2215794/skullcandy-crusher-1080-review/"], "note": "PR Newswire: 'the very first headphone to offer a full suite of premium Sound by Bose audio technologies'. SoundGuys: 'Bose tech you can't get anywhere else'. Bose President Nick Smith 인용 포함"},
+   {"claim": "노캔 성능 실측 81%, 보스 QC Headphones(2nd Gen) 85.1%", "sources": ["https://www.soundguys.com/skullcandy-crusher-1080-anc-review-160375/", "https://www.soundguys.com/bose-quietcomfort-headphones-vs-skullcandy-crusher-1080-anc-161901/"], "note": "SoundGuys 실측 비교: 4%p 차이, 일상에서 체감 차이 미미"},
+   {"claim": "가격 $279.99, 아마존 할인가 $199.99", "sources": ["https://www.skullcandy.com/products/crusher-1080-anc-headphones", "https://www.soundguys.com/skullcandy-crusher-1080-anc-deal-162630/"], "note": "공식 사이트 $279.99, SoundGuys 딜 기사: $80 off = $199.99 역대 최저"},
+   {"claim": "배터리 ANC 켠 상태 50시간, 끈 상태 60시간", "sources": ["https://www.skullcandy.com/products/crusher-1080-anc-headphones", "https://www.prnewswire.com/news-releases/new-skullcandy-crusher-1080-anc-redefines-consumer-audio-with-mind-bending-bass-and-breakthrough-sound-by-bose-technologies-302826777.html"], "note": "공식 스펙 및 PR Newswire 교차 확인"}
+ ],
+ "rebuttals": [
+   "보스 QC 사면 되지 스컬캔디를 왜 사냐 — 보스 QC Headphones가 38~44만원인데 이건 직구 33만원, 국내 대안이 비싸면 이쪽이 합리적. 노캔 차이 4%p는 실사용에서 거의 체감 안 됨",
+   "국내 미출시인데 직구 번거롭지 않나 — 아마존 직구 자체는 어렵지 않지만 AS가 없다는 건 맞다. 전 모델 Crusher ANC 2가 국내 유통됐으니 후속 출시 가능성은 있다",
+   "스컬캔디가 보스급 음질을 낼 수 있나 — 노캔 기술은 보스 것이 맞고 실측도 81%로 검증됐지만, 음질 튜닝은 스컬캔디 고유의 Crusher Bass 중심이라 보스와 성격이 다르다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/skullcandy_crusher1080_hires.jpg",
+   "title": "노캔 헤드폰 — 보스만\n되던 기술이 밖으로 나왔다",
+   "title_hl": ["밖으로 나왔다"],
+   "body": "QuietControl — 귀 모양에 맞춰 노캔을 실시간 조절하는 기술\n보스만 쓸 수 있었는데, 이번에 처음 라이선스됐다\nSkullcandy Crusher 1080 ANC, $279.99",
+   "body_hl": ["처음 라이선스"],
+   "credit": "Skullcandy / PR Newswire"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/skullcandy_crusher1080_hero.jpg",
+   "title": "노캔 81% — 보스 85%와\n4%p 차이",
+   "title_hl": ["4%p 차이"],
+   "body": "ANC 켜고 50시간, 10분 충전에 4시간 재생\n아마존 할인가 $199.99(약 27만원)\n직구 시 관세·배송 포함 약 33만원",
+   "body_hl": ["50시간", "$199.99"],
+   "sub": "국내 미출시 — 전 모델은 국내 유통 이력 있음",
+   "credit": "SoundGuys"
+  }
+ ]
+}
