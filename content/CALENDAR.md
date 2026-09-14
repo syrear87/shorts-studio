@@ -727,3 +727,7 @@
 - 14시 카드: Belkin BoostSolid Cell — 보조배터리 안의 액체가 사라졌다, 반고체 겔로 수명 3배 [공유형] — threads.com/@daily_1_pick/post/DdLNZCOmQbu
 - 16시 카드: Divoom FlowToo — 알람시계가 달라졌다, 깨우기만 하던 게 재우기까지 한다 [소유욕형] — threads.com/@daily_1_pick/post/DdLcEHWGcGD
 - 20시 카드: USB 데이터 차단기 — USB에서 데이터 선이 사라졌다, 전원만 남긴 3천원짜리 차단기 [구매가능][공유형] — threads.com/@daily_1_pick/post/DdL37Q3mZzY
+
+### 2026-09-14 (일)
+- 09시 카드: Skullcandy Crusher 1080 ANC — 노캔 헤드폰에서 보스만 되던 기술이 처음으로 밖으로 나왔다 [한계붕괴형]
+- 12시 카드: TICKEY 클립온 e-ink 배지 — 이름표가 전자종이로 바뀌었다, 45g 컬러 e-ink [소유욕형] — threads.com/@daily_1_pick/post/DdQJ8WNme3k

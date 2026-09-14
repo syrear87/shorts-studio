@@ -1,0 +1,39 @@
+{
+ "topic": "TICKEY 클립온 e-ink 배지 — 키링에 화면이 달렸다, 45g 컬러 전자종이에 그림이 매일 바뀐다 [소유욕형]",
+ "blog_teaser": "e-ink 배지로 뭘 할 수 있는지, 이 팀이 전에 만든 Flexbar 출시 이력은 블로그에 정리했습니다",
+ "threads_text": "이름표가 전자종이로 바뀌었다 — 45g 컬러 e-ink 배지\n\n1. TICKEY — 우표 모양 3.7인치 컬러 전자종이 배지\n2. 가방, 목걸이, 냉장고 어디든 끼움 — 45g, 3.8mm\n3. 앱에서 픽셀아트·사진·밈 골라 넣으면 전원 꺼도 그대로\n4. NFC 내장이라 폰 갖다 대면 명함·링크 전달도 됨\n5. 킥스타터 $29(약 3.8만원)부터, 11월 배송 예정\n\n(출처: Kickstarter TICKEY 캠페인, Circuit Digest)",
+ "caption": "이름표가 전자종이로 바뀌었다 — 45g 컬러 e-ink 배지\n\nTICKEY.\n우표 모양 3.7인치 컬러 전자종이 배지.\n가방, 목걸이, 냉장고 어디든 끼운다. 45g, 3.8mm.\n\n앱에서 픽셀아트·사진·밈을 골라 넣으면\n전원 꺼도 화면 그대로.\nNFC 내장 — 폰 갖다 대면 명함·링크 전달.\n\n킥스타터 $29(약 3.8만원)부터\n150달러 이하라 관세 없음\n배송 포함 약 5~7만원\n국내 미출시 — kickstarter.com 직접 후원\n\n(출처: Kickstarter TICKEY, Circuit Digest, ENILINX 공식)\n\n#eink #전자종이 #TICKEY #킥스타터 #가젯",
+ "factcheck": [
+   {"claim": "3.7인치 컬러 e-paper, 720x480, 48+ 컬러", "sources": ["https://circuitdigest.com/news/tickey-is-a-small-clip-on-badge-with-an-e-ink-display-that-can-show-48-colors-built-on-an-esp32", "https://www.eniacelec.com/pages/ticket"], "note": "Circuit Digest + 공식 페이지 동일 스펙"},
+   {"claim": "무게 약 45g, 두께 3.8mm, 크기 111x62mm", "sources": ["https://circuitdigest.com/news/tickey-is-a-small-clip-on-badge-with-an-e-ink-display-that-can-show-48-colors-built-on-an-esp32"], "note": "Circuit Digest 확인 (약/approximately 표기)"},
+   {"claim": "ESP32-S3, WiFi, BT, NFC 내장", "sources": ["https://circuitdigest.com/news/tickey-is-a-small-clip-on-badge-with-an-e-ink-display-that-can-show-48-colors-built-on-an-esp32"], "note": "Circuit Digest 확인"},
+   {"claim": "킥스타터 얼리버드 $29, 2026년 11월 배송 예정", "sources": ["https://www.kickstarter.com/projects/enilinx/ticket-refresh-it-new-clip-it-on-carry-your-moment"], "note": "킥스타터 캠페인 페이지 직접 확인. $29 얼리버드 매진 여부 미확인"},
+   {"claim": "ENILINX 팀 — 전작 Flexbar(독립형 터치바) 배송 완료", "sources": ["https://www.kickstarter.com/projects/enilinx/flexbar-a-versatile-and-fully-customizable-touch-bar-solution", "https://appleinsider.com/articles/24/12/28/flexbar-review-could-be-the-heir-apparent-to-the-touch-bar-someday"], "note": "전작 킥스타터 캠페인 + AppleInsider 리뷰 확인, 배송 실적 있음"}
+ ],
+ "rebuttals": [
+   "e-ink라 색감이 OLED 수준은 아닐 텐데 실물 보면 실망하지 않나 — e-paper는 48색으로 사진보다 픽셀아트·일러스트에 적합하다. 실물은 종이에 인쇄한 느낌에 가깝다",
+   "킥스타터 제품이라 배송 안 될 수도 있지 않나 — ENILINX는 전작 Flexbar를 정상 배송했고 AppleInsider·Tom's Hardware 리뷰까지 받았다. 다만 킥스타터는 구매가 아니라 후원이라 리스크는 있다",
+   "비슷한 거 알리에서 더 싸게 살 수 있지 않나 — 클립온 컬러 e-ink 배지는 현재 소비자 제품으로 동급이 없다. 산업용 전자가격표(흑백)는 있으나 NFC·앱 연동·컬러는 없다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/tickey_press.jpg",
+   "title": "이름표가\n전자종이로 바뀌었다",
+   "title_hl": ["바뀌었다"],
+   "body": "45g 컬러 e-ink 배지\n원하는 그림으로 매일 바꾼다",
+   "body_hl": ["매일 바꾼다"],
+   "credit": "ENILINX / Kickstarter"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/tickey_nfc.jpg",
+   "title": "TICKEY",
+   "title_hl": ["TICKEY"],
+   "body": "3.7인치 컬러 전자종이, 48색\nNFC — 폰 대면 명함 전달\n3.8mm, 전원 꺼도 화면 유지\n$29(약 3.8만원)부터, 11월 배송",
+   "body_hl": ["3.8mm"],
+   "sub": "국내 미출시 — Kickstarter 직접 후원",
+   "credit": "ENILINX / Kickstarter"
+  }
+ ]
+}
