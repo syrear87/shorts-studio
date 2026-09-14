@@ -1,0 +1,38 @@
+{
+ "topic": "충전식 손난로 — 핫팩에 전원 버튼이 달렸다, USB-C 충전에 보조배터리 겸용, 만원대부터 [구매가능][공유형]",
+ "blog_teaser": "KC 인증 확인법이랑 용량별 발열 시간 비교는 블로그에 정리해뒀습니다",
+ "threads_text": "일회용 핫팩에서 '일회용'이 사라졌다\n\n1. 일회용 핫팩은 한 번 쓰면 끝 — 다시 살릴 수 없다\n2. 충전식 손난로는 USB-C로 충전, 4~12시간 발열, 55도까지\n3. 발열 끄면 보조배터리가 된다 — 폰 충전까지 됨\n4. 만원대부터 있지만 KC 인증 없는 제품은 화재 위험\n\n(출처: nosearch.com 전기손난로 리뷰, 쿠팡 실판매가 기준)",
+ "caption": "일회용 핫팩에서 '일회용'이 사라졌다\n\n일회용 핫팩은 한 번 쓰면 끝이다.\n충전식 손난로는 USB-C로 충전하면 4~12시간 발열.\n55도까지 올라가고, 안 쓸 때는 보조배터리로 폰 충전.\n만원대부터 있지만 KC 인증 확인은 필수.\n\n(출처: nosearch.com 전기손난로 리뷰, 쿠팡 실판매가 기준)\n\n#충전식손난로 #핫팩 #보조배터리 #가을준비 #테크",
+ "factcheck": [
+   {"claim": "충전식 손난로 가격대 만원대~4만원대", "sources": ["https://nosearch.com/recommendation/pick/living_etc/electric_hand_warmer"], "note": "nosearch.com 전기손난로 TOP4: Aniclear 9,900원, Royche 15,900원, Duino 35,800원"},
+   {"claim": "발열 온도 50~55도, 발열 시간 4~12시간", "sources": ["https://nosearch.com/recommendation/pick/living_etc/electric_hand_warmer"], "note": "Royche HW-04: 52도/4~11시간, Duino DN-HW01: 55도/9.5~12시간, Aniclear: 50도"},
+   {"claim": "USB-C 충전 및 보조배터리 겸용", "sources": ["https://nosearch.com/recommendation/pick/living_etc/electric_hand_warmer"], "note": "리뷰 제품 3종 모두 USB-C 충전+USB 출력(보조배터리) 기능 확인"},
+   {"claim": "KC 인증 없는 저가 제품 과충전 화재 위험", "sources": ["https://customer.ktl.re.kr/web/contents/K101010200.do"], "note": "충전식 손난로는 KC 전기용품 안전인증 대상. 미인증 제품 과충전·과전류 위험 실재"}
+ ],
+ "rebuttals": [
+   "일회용 핫팩이 더 싸지 않냐 — 개당 600원이라 매일 쓰면 한 달 2만원 가까이 나간다. 만원대 충전식은 한 시즌이면 본전이 나온다",
+   "보조배터리 겸용이라는데 용량이 너무 작지 않냐 — 5,000~10,000mAh라 폰 완충은 어렵지만 비상 충전에는 충분하다. 발열과 충전은 동시에 안 된다",
+   "리튬배터리라 폭발 위험 있지 않냐 — KC 인증 제품은 과충전·과방전·단락 보호 회로가 의무다. 미인증 저가품이 문제"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/hand_warmer_product1.jpg",
+   "title": "일회용 핫팩에서\n'일회용'이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "일회용 핫팩은 한 번 쓰면 끝이다\nUSB-C로 충전하면 4~12시간 발열\n55도까지 — 주머니에 넣으면 손이 따뜻하다",
+   "body_hl": ["4~12시간", "55도"],
+   "credit": "Sharper Image"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/hand_warmer_product2.jpg",
+   "title": "발열 끄면\n보조배터리가 된다",
+   "title_hl": ["보조배터리"],
+   "body": "만원대부터 — 한 시즌 핫팩비면 충전식 하나 산다\n안 쓸 때는 폰 충전까지 된다\nKC 인증 없는 저가 제품은 화재 위험 — 마크 확인 필수",
+   "body_hl": ["만원대", "KC 인증"],
+   "sub": "올겨울엔 핫팩 안 버려도 된다",
+   "credit": "Zippo"
+  }
+ ]
+}
