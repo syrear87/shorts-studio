@@ -1,0 +1,38 @@
+{
+ "topic": "Divoom FlowToo — 머리맡에 놓던 네 가지가 하나에 들어갔다, 스피커·백색소음·알람·타이머가 손바닥 크기에 합쳐졌다 [소유욕형]",
+ "blog_teaser": "백색소음 90종 목록이랑 포모도로 타이머가 집중에 실제로 되는지는 블로그에 정리해뒀습니다",
+ "threads_text": "알람시계가 달라졌다 — 깨우기만 하던 게, 재우기까지 한다\n\n1. 머리맡에 알람시계·블루투스 스피커·백색소음 기계·타이머 따로 놓고 있으면 — 이제 하나로 됨\n2. Divoom FlowToo라는 건데 2.26인치 픽셀 디스플레이가 달려 있어서 시계·음악·수면 장면 다 보여줌\n3. 백색소음만 90가지 넘음 — 빗소리·파도·모닥불·새 소리 같은 게 앱 없이 기기에서 바로 나옴\n4. 포모도로 타이머도 들어 있음 — 25분 집중 5분 휴식 루프를 화면에 띄워놓고 씀\n5. 아침엔 자연음 알람 + 화면 밝기가 서서히 올라오면서 깨워줌\n6. 10W 스피커에 8시간 배터리 — 생활방수 IPX4라 욕실에서도 됨\n7. 공식가 $99.99 (약 13만원대), 아마존 $89.99 — 국내는 네이버·쿠팡에서 Divoom 브랜드 검색\n\n(출처: Divoom 공식, Notebookcheck, Yanko Design)",
+ "caption": "알람시계가 달라졌다 — 깨우기만 하던 게, 재우기까지 한다\n\n블루투스 스피커 · 백색소음 · 알람시계 · 포모도로 타이머.\n2.26인치 픽셀 디스플레이에 시계·음악·수면 장면이 뜬다.\n\n백색소음 90가지 이상 — 앱 없이 기기에서 바로.\n자연음 알람 + 서서히 밝아지는 화면으로 기상.\n10W / 8시간 배터리 / IPX4 생활방수.\n\n$99.99 (약 13만원대).\n\n(출처: Divoom 공식, Notebookcheck, Yanko Design)\n\n#Divoom #FlowToo #백색소음 #알람시계 #테크",
+ "factcheck": [
+   {"claim": "10W 출력, 45mm 풀레인지 드라이버", "sources": ["https://divoom.com/products/divoom-flowtoo-premium-bedside-speaker-smart-sleep-clock", "https://www.notebookcheck.net/Divoom-unveils-FlowToo-3-in-1-Bluetooth-speaker-alarm-clock-with-Pomodoro-timer-soothing-white-noise-generator-for-relaxation-and-sleep.1354477.0.html"], "note": "공식 제품 페이지와 Notebookcheck 모두 동일 스펙 확인"},
+   {"claim": "90가지 이상 백색소음 사운드", "sources": ["https://divoom.com/products/divoom-flowtoo-premium-bedside-speaker-smart-sleep-clock", "https://xiaomitoday.com/divoom-introduces-flowtoo-portable-bluetooth-speaker-with-90-white-noise-sounds/"], "note": "Divoom 공식 90+ white noise sounds 명시, XiaomiToday에서 독립 확인"},
+   {"claim": "$99.99 MSRP, 아마존 $89.99", "sources": ["https://divoom.com/products/divoom-flowtoo-premium-bedside-speaker-smart-sleep-clock", "https://www.amazon.com/dp/B0H2LNQPWK"], "note": "공식 스토어 $99.99, 아마존 할인가 $89.99 확인 (2026-09-12 기준)"},
+   {"claim": "2.26인치 스마트 디스플레이, IPX4 방수, 8시간 배터리", "sources": ["https://www.yankodesign.com/2026/09/11/the-5-best-gadgets-of-september-2026-that-make-small-apartments-actually-livable/", "https://thegadgetflow.com/product/divoom-flowtoo-bedside-speaker/"], "note": "Yanko Design과 Gadget Flow 리뷰에서 2.26인치·IPX4·8시간 일치 확인"}
+ ],
+ "rebuttals": [
+   "머리맡에 폰 놓으면 다 되는데 왜 따로 사나 — 맞는 말이다. 차이는 폰을 충전하면서 쓸 수 있다는 것과 백색소음이 앱 전환 없이 물리 기기에서 나온다는 것. 폰으로 충분한 사람에겐 필요 없다",
+   "백색소음 앱은 무료인데 13만원은 비싸다 — 앱은 0원이다. 이건 스피커+디스플레이+타이머까지 합친 가격이라 비교 대상이 다르다. 스피커 기능이 필요 없으면 앱이 맞다",
+   "Divoom 제품 음질이 전문 스피커급은 아니지 않나 — 맞다. 10W 풀레인지 1개라 오디오 마니아용이 아니다. 머리맡에서 음악·자연음 듣는 용도로 설계된 것"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/divoom_flowtoo_front.jpg",
+   "title": "알람시계가 달라졌다\n깨우기만 하던 게, 재우기까지 한다",
+   "title_hl": ["달라졌다"],
+   "body": "백색소음 90가지 + 포모도로 타이머 +\n블루투스 스피커가 하나에 합쳐졌다",
+   "body_hl": ["하나에 합쳐졌다"],
+   "credit": "Divoom"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/divoom_flowtoo_lifestyle.jpg",
+   "title": "Divoom FlowToo",
+   "title_hl": ["FlowToo"],
+   "body": "백색소음 90가지 — 빗소리·파도·모닥불\n자연음 알람 + 서서히 밝아지는 화면\n포모도로 25분·5분 루프\n10W · 8시간 배터리 · IPX4 생활방수",
+   "body_hl": ["90가지"],
+   "sub": "$99.99 (약 13만원대) — 국내 네이버·쿠팡에서 Divoom 검색",
+   "credit": "Divoom"
+  }
+ ]
+}

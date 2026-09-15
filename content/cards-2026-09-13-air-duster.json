@@ -1,0 +1,37 @@
+{
+ "topic": "에어캔 속 '공기' — 공기가 아니라 냉매 가스(HFC-152a)다, 기울이면 액체가 쏟아져 기판이 얼어붙는다 [공유형]",
+ "blog_teaser": "HFC-152a가 뭔지, 캔 기울이면 왜 얼어붙는지, 충전식으로 바꿀 때 확인할 것은 블로그에 정리해뒀습니다",
+ "threads_text": "키보드 에어캔 기울이면 기판이 얼어붙는다\n\n1. 에어캔 속 '압축 공기'의 정체는 냉매 가스(HFC-152a)\n2. 캔 기울이면 액화 가스가 쏟아져 기판이 얼어붙는다\n3. 흡입 시 심장 부정맥 위험 — 미국 CPSC 공식 경고 대상\n4. 충전식 에어 더스터는 모터로 진짜 바람을 보냄\n5. 캔은 쓸 때마다 사고 충전식은 USB-C로 계속 쓴다\n\n(출처: Chemtronics, 미국 EPA 더스터 보고서)",
+ "caption": "키보드 에어캔 기울이면 기판이 얼어붙는다\n\n에어캔 속 '압축 공기'의 정체는 냉매 가스 HFC-152a.\n기울이면 액화 가스가 쏟아져 기판이 얼어붙는다.\n흡입 시 심장 부정맥 위험으로 미국 CPSC 경고 대상.\n\n충전식 에어 더스터는 모터로 진짜 바람을 보낸다.\n가스 없이, 잔여물 없이, USB-C로 충전해 계속 쓴다.\n\n(출처: Chemtronics, 미국 EPA)\n\n#에어더스터 #에어캔 #키보드청소 #전동에어더스터 #테크",
+ "factcheck": [
+   {"claim": "에어캔 속 주요 추진제는 HFC-152a(1,1-디플루오로에탄)이며 일반 공기가 아니다", "sources": ["https://www.chemtronicseu.com/ultimate-guide-to-canned-air-aerosol-dusters", "https://bestairdusters.com/what-is-inside-air-duster-cans/"], "note": "Chemtronics 공식: 'most aerosol dusters contain HFC-152a'. EPA 보고서도 HFC-152a/HFC-134a를 주요 추진제로 명시"},
+   {"claim": "캔을 기울이면 액화 추진제가 분출돼 동상을 유발할 수 있다", "sources": ["https://www.chemtronicseu.com/ultimate-guide-to-canned-air-aerosol-dusters", "https://science.howstuffworks.com/why-compressed-air-canisters-should-not-be-shaken.htm"], "note": "HFC-152a 끓는점 -24.7도. 액상 분출 시 급격한 기화로 주변 온도 급강하(단열 냉각). Chemtronics: 'liquid can cause frostbite'"},
+   {"claim": "흡입 시 심장 부정맥(심독성) 유발 가능, CPSC 경고 대상", "sources": ["https://www.epa.gov/sites/default/files/documents/dusters.pdf", "https://biologyinsights.com/what-is-in-a-duster-can-and-is-it-safe/"], "note": "EPA 보고서: HFC는 심독성 물질로 분류. SSDS(Sudden Sniffing Death Syndrome) 위험. 구체적 사망 건수는 출처마다 달라 수치 미기재"}
+ ],
+ "rebuttals": [
+   "에어캔을 제대로만 쓰면 괜찮지 않나 — 맞다. 수직으로 들고 짧게 분사하면 액화 가스가 나올 확률이 낮다. 다만 기울어지는 순간 액체가 쏟아지고 이건 제품 결함이 아니라 구조적 한계다",
+   "충전식 에어 더스터가 캔만큼 세냐 — 키보드·노트북 통풍구 먼지 수준이면 충분하다. 다만 PC 내부 깊은 곳이나 대용량 세척은 고출력 모델이 필요하고 가격이 올라간다",
+   "에어캔이 훨씬 싸지 않나 — 1캔 3천~9천원이고 금방 비는데, 충전식은 한 번 사면 수년 쓴다. 일 년에 캔 4개 이상 쓰면 충전식이 이득"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/keyboard_angle_1.jpg",
+   "title": "키보드 에어캔 기울이면\n기판이 얼어붙는다",
+   "title_hl": ["얼어붙는다"],
+   "body": "캔 속 '압축 공기'의 정체는 냉매 가스 HFC-152a\n기울이면 액화 가스가 쏟아져 기판이 얼어붙는다\n흡입 시 심장 부정맥 위험으로 CPSC 경고 대상",
+   "body_hl": ["냉매 가스", "얼어붙는다"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/tech_tools_1.jpg",
+   "title": "충전식 에어 더스터",
+   "title_hl": ["충전식"],
+   "body": "모터로 진짜 바람을 보내는 구조\n가스 없이 잔여물 없이 USB-C로 충전\n캔은 쓸 때마다 사고 충전식은 한 번 사면 끝",
+   "body_hl": ["진짜 바람", "한 번 사면 끝"],
+   "sub": "키보드 먼지 날리려고 쓰는 에어캔, 다시 보자",
+   "credit": "Pexels"
+  }
+ ]
+}

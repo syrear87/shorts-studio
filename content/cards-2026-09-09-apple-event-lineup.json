@@ -1,0 +1,15 @@
+{
+  "topic": "애플 이벤트 D-0 — 오늘 밤 6종 나오는데 기본 아이폰은 안 나온다, 2017년 이후 첫 분리 출시 [공유형]",
+  "threads_text": "애플이 9년 만에 아이폰 동시 출시를 깼다 — 기본 모델은 내년 봄\n\n1. 오늘(9/9) 나오는 것 — 아이폰 18 Pro·Pro Max, 접는 아이폰 Ultra, 에어팟, 애플워치\n2. 안 나오는 것 — 기본 아이폰 18은 2027년 봄으로 밀렸다\n3. 2017년(아이폰 8·X) 이후 전 모델 동시 출시가 처음 깨진다\n4. 접는 아이폰이 추가되면서 한 번에 6모델 — Pro를 먼저 빼서 연말 매출부터 잡는 구조\n5. 접는 아이폰 유출 예상가 $1,999~$2,500, Pro는 $999~$1,199\n6. 기본 아이폰 18과 아이폰 에어 2세대는 내년 봄 합류 예정\n\n(출처: MacRumors, 9to5Mac, gagadget.com, Geeky Gadgets)",
+  "caption": "애플이 9년 만에 아이폰 동시 출시를 깼다 — 기본 모델은 내년 봄\n\n오늘(9/9) Surprise and Shine 이벤트에서 아이폰 18 Pro·Pro Max, 접는 아이폰 Ultra, 에어팟, 애플워치가 공개될 예정이지만 기본 아이폰 18은 빠진다. 2027년 봄으로 밀렸다. 전 모델이 한꺼번에 나오지 않는 건 2017년 이후 9년 만.\n\n⚠️ 아직 공식 발표가 아닌 유출 기준 정보입니다\n출처: MacRumors, 9to5Mac, gagadget.com, Geeky Gadgets",
+  "factcheck": [
+    {"claim": "기본 아이폰 18은 2027년 봄으로 밀렸다", "sources": ["https://www.macrumors.com/guide/iphone-18-release-schedule/", "https://gagadget.com/en/721928-apple-is-delaying-the-base-iphone-18-to-spring-2027/", "https://www.technobaboy.com/2026/09/09/standard-iphone-18-delayed-spring-2027-launch-expected/"]},
+    {"claim": "전 모델 동시 출시가 깨진 건 2017년 이후", "sources": ["https://gagadget.com/en/721928-apple-is-delaying-the-base-iphone-18-to-spring-2027/", "https://www.knowyourmobile.com/news/apple/iphone-18-series/iphone-18-18e-air-2-launch/"]},
+    {"claim": "접는 아이폰 Ultra 예상가 $1,999~$2,500", "sources": ["https://www.macrumors.com/roundup/iphone-18/", "https://9to5mac.com/2026/09/03/apple-will-launch-six-major-new-products-next-week-heres-whats-coming/"]}
+  ],
+  "rebuttals": [
+    "유출이라 실제 발표가 다를 수 있다 — 모든 수치에 '유출 기준'을 붙였다",
+    "기본 모델 지연이 아니라 라인업 확장이다 — 본문에 6모델 구조를 설명했다",
+    "Pro 가격은 달러 기준이라 한국 출시가와 다를 수 있다 — 원화 환산을 넣지 않고 달러만 표기했다"
+  ]
+}

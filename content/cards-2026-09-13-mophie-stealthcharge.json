@@ -1,0 +1,38 @@
+{
+ "topic": "Mophie StealthCharge — 무선 충전기에서 열이 사라졌다, 발열 부품을 충전 패드 밖으로 빼 팬 없이 25W를 유지한다 [한계붕괴형]",
+ "blog_teaser": "Qi2.2가 뭔지, 기존 무선 충전기와 열 차이가 어떤지는 블로그에 정리해뒀습니다",
+ "threads_text": "무선 충전기에서 열이 사라졌다\n\n1. 무선 충전기 올려놓으면 폰이 뜨거워지는 거 — 열 때문에 속도가 줄어드는 구조였다\n2. Mophie가 발열 부품을 충전 패드 밖으로 빼버렸다\n3. 금속 프레임이 방열판 역할, 팬 없이 25W 풀속도 유지\n4. Qi2.2 인증 — 기존 15W에서 25W로 올린 새 규격\n5. $179.95, Apple Store 글로벌 판매 중\n\n(출처: Macworld, GlobeNewswire 공식 발표)",
+ "caption": "무선 충전기에서 열이 사라졌다\n\n발열 부품을 충전 패드 밖으로 빼\n금속 프레임이 방열판 역할을 한다.\n팬 없이 25W 풀속도 유지.\n\nQi2.2 인증 — 기존 15W에서 25W로 올린 새 규격.\n$179.95, Apple Store 글로벌 판매 중.\n\n(출처: Macworld, GlobeNewswire)\n\n#무선충전 #StealthCharge #Qi2 #Mophie #테크",
+ "factcheck": [
+   {"claim": "StealthCharge는 발열 부품을 충전 패드에서 스탠드 하부로 이전해 열을 분산한다", "sources": ["https://www.macworld.com/article/3178924/mophie-stealthcharge-4-in-1-wireless-charge-stand-review.html", "https://www.globenewswire.com/news-release/2026/06/16/3312483/0/en/mophie-introduces-stealthcharge-technology-in-the-all-new-4-in-1-wireless-charge-stand-3-in-1-wireless-charge-stand-and-roam-3-in-1-travel-charger-for-apple-devices-at-home-in-offi.html"], "note": "Macworld: 'moves heat-generating electronics from the charging pad into the stand base'. GlobeNewswire: 공식 발표 — dedicated heat sink + metal frame dissipation"},
+   {"claim": "팬 없이 25W 무선 충전 풀속도를 유지한다", "sources": ["https://www.cultofmac.com/reviews/mophie-4-in-1-wireless-charge-stand-review-stealthcharge", "https://www.macworld.com/article/3178924/mophie-stealthcharge-4-in-1-wireless-charge-stand-review.html"], "note": "Cult of Mac: 'sustained 25W charging without fans'. Macworld: 'cool and quiet'"},
+   {"claim": "가격 $179.95, Apple Store 글로벌 독점 판매", "sources": ["https://www.mophie.com/products/4-in-1-wireless-charge-stand-black", "https://www.globenewswire.com/news-release/2026/06/16/3312483/0/en/mophie-introduces-stealthcharge-technology-in-the-all-new-4-in-1-wireless-charge-stand-3-in-1-wireless-charge-stand-and-roam-3-in-1-travel-charger-for-apple-devices-at-home-in-offi.html"], "note": "mophie.com: $179.95. GlobeNewswire: exclusively available at Apple stores globally, Apple.com, and Mophie.com"},
+   {"claim": "Qi2.2 인증 — 최대 25W 무선 충전 규격", "sources": ["https://androidguys.com/news/mophie-introduces-new-qi2-2-chargers-with-stealthcharge-technology/", "https://www.belkin.com/kr/company/blog/qi2-wireless-charging-standard/"], "note": "AndroidGuys: Qi2.2 certified. Belkin KR: Qi2.2는 25W 무선 충전 지원 규격"}
+ ],
+ "rebuttals": [
+   "무선 충전이 뜨거운 게 문제가 되나 — 열은 배터리 수명을 줄인다. 리튬이온 배터리는 40도 이상에서 노화가 가속되고, 열 때문에 충전 속도가 자동으로 줄어들어 '15W인데 실제로는 7W'가 된다",
+   "그냥 유선 충전 쓰면 되지 않나 — 유선이 빠른 건 맞지만 Apple StandBy 모드처럼 무선 충전 상태에서만 되는 기능이 있고, 책상 위에 올려놓기만 하면 되는 편의성은 유선이 대체 못 한다",
+   "24만원이면 너무 비싸다 — 100W 벽 충전기가 포함이고, iPhone+Apple Watch+AirPods+USB-C 4대를 동시에 충전한다. 개별로 사면 비슷하거나 더 나간다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/mophie_stealthcharge_hero.jpg",
+   "title": "무선 충전기에서\n열이 사라졌다",
+   "title_hl": ["열이 사라졌다"],
+   "body": "폰 올리면 뜨거워지는 거 — 10년 넘게 못 고쳤다\n발열 부품을 패드 밖으로 빼는 걸로 끝났다\nMophie StealthCharge, 팬 없이 25W 풀속도",
+   "body_hl": ["패드 밖으로", "25W 풀속도"],
+   "credit": "Mophie"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/mophie_stealthcharge_lifestyle.jpg",
+   "title": "Qi2.2 — 무선 충전이\n25W 시대로 넘어갔다",
+   "title_hl": ["25W 시대"],
+   "body": "기존 15W → 25W, 새 규격 Qi2.2 인증\n금속 프레임 전체가 방열판 — 팬 소리 0\n$179.95(약 24만원), Apple Store 글로벌 판매 중",
+   "body_hl": ["방열판", "$179.95"],
+   "sub": "벨킨도 ChillBoost로 같은 문제를 푸는 중이다",
+   "credit": "Mophie"
+  }
+ ]
+}

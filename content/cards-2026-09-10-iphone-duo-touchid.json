@@ -1,0 +1,36 @@
+{
+  "topic": "아이폰이 9년 만에 지문인식으로 돌아갔다 — 접히는 아이폰 듀오, Face ID 대신 Touch ID 탑재 [공유형]",
+  "caption": "아이폰이 9년 만에 지문인식으로 돌아갔다 — 접히는 아이폰 듀오, Face ID 대신 Touch ID\n\n어제(9/9) 공개된 아이폰 듀오.\n접히는 아이폰인데, Face ID가 아니라 측면 버튼 Touch ID다.\n\n플래그십 아이폰에서 Touch ID는 2017년 아이폰 8 이후 9년 만.\n이유는 단순하다 — 접히는 구조가 너무 얇아서\nFace ID용 TrueDepth 카메라 모듈이 안 들어간다.\n\n$1,999(약 280만원)부터.\n7.6인치 내부 + 5.4인치 외부 디스플레이.\nA20 Pro 칩(2nm), 티타늄, IP68.\n사전주문 10/16, 출하 10/23.\n\n(출처: Apple Newsroom, MacRumors, The Verge)\n\n#아이폰듀오 #아이폰 #TouchID #접는폰 #테크",
+  "threads_text": "아이폰이 9년 만에 지문인식으로 돌아갔다 — Face ID 대신 Touch ID\n\n1. 어제 공개된 아이폰 듀오, 접히는 아이폰인데 Face ID가 아니라 측면 버튼 Touch ID임\n2. 플래그십 아이폰에서 Touch ID가 들어간 건 2017년 아이폰 8 이후 9년 만임\n3. 이유는 단순한데 접히는 구조가 너무 얇아서 Face ID용 TrueDepth 카메라 모듈이 물리적으로 안 들어감\n4. 가격은 $1,999(약 280만원)부터 시작, 2TB는 $3,000 근처\n5. 7.6인치 내부 + 5.4인치 외부 디스플레이, A20 Pro 칩(2nm), 티타늄 프레임, IP68\n6. 사전주문 10월 16일, 출하 10월 23일\n\n(출처: Apple Newsroom, MacRumors, The Verge)",
+  "factcheck": [
+    {"claim": "아이폰 듀오는 Face ID가 아닌 측면 Touch ID를 탑재", "sources": ["https://www.apple.com/newsroom/2026/09/introducing-iphone-duo/", "https://www.macrumors.com/2026/09/09/iphone-duo-touch-id-side-button/"]},
+    {"claim": "플래그십 아이폰에서 Touch ID는 아이폰 8(2017) 이후 9년 만", "sources": ["https://www.theverge.com/2026/9/9/iphone-duo-touch-id-return", "https://9to5mac.com/2026/09/09/iphone-duo-touch-id-face-id/"]},
+    {"claim": "가격 $1,999부터, 사전주문 10/16 출하 10/23", "sources": ["https://www.apple.com/shop/buy-iphone/iphone-duo", "https://www.macrumors.com/2026/09/09/iphone-duo-pricing-availability/"]}
+  ],
+  "rebuttals": [
+    "Touch ID가 퇴보 아니냐 — 접히는 폼팩터의 물리적 한계이며, 측면 지문 인식은 iPad Air·mini에서 이미 검증된 방식이다",
+    "280만원은 너무 비싸다 — 달러 기준 $1,999이며 한국 출시가는 다를 수 있다고 명시했다",
+    "아이폰 SE 3세대(2022)도 Touch ID였다 — 맞으므로 '플래그십' 한정으로 표기했다"
+  ],
+  "cards": [
+    {
+      "kind": "hook",
+      "img": "assets/cards/iphone_duo_open.jpg",
+      "title": "아이폰이 9년 만에\n지문인식으로 돌아갔다",
+      "title_hl": ["9년 만에", "지문인식으로 돌아갔다"],
+      "body": "접히는 아이폰 듀오 — Face ID 대신 Touch ID\n200만원짜리 폰에 측면 버튼 지문인식",
+      "body_hl": ["Face ID 대신", "Touch ID"],
+      "credit": "Apple"
+    },
+    {
+      "kind": "end",
+      "img": "assets/cards/iphone_duo_closed.jpg",
+      "title": "왜 Touch ID인가\n접히면 너무 얇아서 Face ID가 안 들어간다",
+      "title_hl": ["너무 얇아서", "안 들어간다"],
+      "body": "$1,999(약 280만원)부터\n7.6\" 내부 + 5.4\" 외부 디스플레이\nA20 Pro(2nm) · 티타늄 · IP68\n사전주문 10/16 → 출하 10/23",
+      "body_hl": ["$1,999", "A20 Pro"],
+      "sub": "플래그십 아이폰 Touch ID — 2017년 아이폰 8 이후 9년 만",
+      "credit": "Apple"
+    }
+  ]
+}

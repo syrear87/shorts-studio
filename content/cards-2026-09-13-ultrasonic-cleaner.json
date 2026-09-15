@@ -1,0 +1,37 @@
+{
+ "topic": "초음파 세정기 — 안경 천으로 닦으면 렌즈에 흠이 간다, 안경사가 쓰는 초음파 세정기가 만원대로 내려왔다 [구매가능][공유형]",
+ "blog_teaser": "안경 천이 왜 흠을 내는지, 초음파 세정 원리(캐비테이션), 만원대 제품 고를 때 확인할 것은 블로그에 정리해뒀습니다",
+ "threads_text": "안경 천으로 닦으면 렌즈에 흠이 간다\n\n1. 마른 천에 먼지가 갇히면 사포질 — ZEISS도 '마른 닦기 금지' 공식 권고\n2. 안경사가 쓰는 초음파 세정기는 40kHz 진동으로 기포가 때를 떼낸다\n3. 이게 만원대로 내려왔다 — USB 충전, 안경·시계·반지 다 된다\n4. 한국 성인 근시율 59.8% — 안경 안 쓰는 사람이 더 드물다\n\n(출처: ZEISS Vision Care, Nature 2025)",
+ "caption": "안경 천으로 닦으면 렌즈에 흠이 간다\n\n마른 천에 먼지가 갇히면 사포질이 된다.\nZEISS도 '마른 닦기 금지'를 공식 권고한다.\n\n안경사가 쓰는 초음파 세정기는 40kHz 진동으로\n기포가 때를 떼내는 구조.\n이게 만원대로 내려왔다.\n\n(출처: ZEISS Vision Care, Nature 2025)\n\n#초음파세정기 #안경관리 #안경세척 #렌즈관리 #테크",
+ "factcheck": [
+   {"claim": "마른 천으로 안경을 닦으면 미세 흠집이 생긴다", "sources": ["https://www.zeiss.com/vision-care/en/eye-health-and-care/health-prevention/whats-the-right-way-to-clean-and-care-for-your-glasses.html", "https://www.optometrists.org/general-practice-optometry/optical/guide-to-optical-lenses/scratched-lenses-what-can-i-do/"], "note": "ZEISS: 'never clean your glasses dry — particles on lens act as abrasive'. Optometrists.org: dust particles trapped in cloth cause micro-scratches"},
+   {"claim": "초음파 세정기는 40kHz 대역 진동으로 캐비테이션을 일으켜 오염을 제거한다", "sources": ["https://granbosonic.com/news/best-ultrasonic-cleaner-frequency-a-comprehensive-guide.html", "https://sonirity.com/ultrasonic-cleaning-frequency/"], "note": "40kHz는 안경·보석류 세정에 가장 널리 쓰이는 범용 주파수대"},
+   {"claim": "한국 성인 근시 유병률 약 59.8%", "sources": ["https://www.nature.com/articles/s41598-025-32048-0"], "note": "Nature 2025: 한국 KNHANES 데이터 기반, 성인 근시율 59.8%"}
+ ],
+ "rebuttals": [
+   "초음파 세정기까지 살 필요 있냐 — 물 헹굼+중성세제도 괜찮지만 나사 틈·코받침 사이는 브러시로도 안 닿는다. 초음파는 손이 못 가는 데를 기포로 긁어낸다",
+   "싼 건 고장 잘 나지 않나 — 구조가 단순해서(진동자+스테인리스 조) 고장률이 낮다. 다만 물 넣는 조가 플라스틱이면 공진이 약해 세정력이 떨어진다",
+   "렌즈 코팅이 벗겨지지 않나 — 40kHz 범용 주파수는 안경 세정에 표준으로 쓰이고, ZEISS·Nikon 등 렌즈 제조사도 초음파 세정을 권장한다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/glasses_cleaning_cloth.jpg",
+   "title": "안경 천으로 닦으면\n렌즈에 흠이 간다",
+   "title_hl": ["흠이 간다"],
+   "body": "마른 천에 먼지가 갇히면 사포질이 된다\nZEISS도 '마른 닦기 금지'를 공식 권고\n한국 성인 근시율 59.8% — 거의 다 해당된다",
+   "body_hl": ["사포질", "마른 닦기 금지"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/glasses_on_desk.jpg",
+   "title": "초음파 세정기\n만원대로 내려왔다",
+   "title_hl": ["만원대"],
+   "body": "안경사가 쓰는 40kHz 초음파 세정기\n기포가 나사 틈·코받침까지 때를 떼낸다\nUSB 충전, 안경·시계·반지 다 된다",
+   "body_hl": ["40kHz", "다 된다"],
+   "sub": "매일 쓰는 안경, 닦는 법부터 다시 보자",
+   "credit": "Pexels"
+  }
+ ]
+}
