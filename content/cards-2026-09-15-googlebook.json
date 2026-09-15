@@ -1,0 +1,40 @@
+{
+ "topic": "Googlebook — 노트북이 15년 만에 안드로이드로 바뀐다, 크롬북 후계 오늘 뉴욕에서 공개, 5개사 동시 출시 9/21 사전예약 [공유형]",
+ "blog_teaser": "크롬북과 뭐가 다른지, Magic Pointer가 뭔지는 블로그에 정리했습니다",
+ "threads_text": "노트북이 15년 만에 안드로이드로 바뀐다\n\n1. 구글이 크롬북 대신 '구글북(Googlebook)'을 내놓음\n2. OS가 통째로 바뀜 — 크롬OS에서 안드로이드 기반으로\n3. 폰에 깔린 앱이 노트북에서 그대로 돌아감\n4. 커서를 이메일 날짜에 대면 일정을 알아서 잡아줌 (Magic Pointer)\n5. Acer·ASUS·Dell·HP·Lenovo 5개사 동시 출시, 9/21 사전예약\n\n(출처: Google 공식, Phandroid, Chrome Unboxed, 9to5Google)",
+ "caption": "노트북이 15년 만에 안드로이드로 바뀐다\n\n구글이 크롬북 대신 '구글북(Googlebook)'을 내놓았다.\nOS가 통째로 바뀐다 — 크롬OS에서 안드로이드 기반으로.\n2011년 이후 15년간 이어온 크롬OS 노트북이 세대교체.\n\n폰에 깔린 앱이 노트북에서 그대로 돌아가고\n커서를 이메일 날짜에 대면 일정을 자동으로 잡아주는\nMagic Pointer가 들어간다.\n\nAcer·ASUS·Dell·HP·Lenovo 5개사 동시 출시\n9월 21일 사전예약 시작\n\n(출처: Google 공식, Phandroid, Chrome Unboxed, 9to5Google)\n\n#구글북 #Googlebook #크롬북 #노트북 #테크",
+ "factcheck": [
+  {"claim": "크롬북의 후속 플랫폼으로 Googlebook 발표", "sources": ["https://googlebook.google/", "https://www.droid-life.com/2026/05/12/googlebook-is-replacing-chromebook-coming-later-this-year/", "https://phandroid.com/2026/09/14/farewell-chromebooks-google-teases-its-more-expensive-googlebook-platform/"], "note": "Google 공식 사이트 + Droid-Life + Phandroid 교차 확인"},
+  {"claim": "안드로이드 기반 OS(Aluminium OS)로 전환, 기존 크롬OS 기기는 유지", "sources": ["https://www.buildmvpfast.com/blog/googlebooks-aluminium-os-chromeos-replacement-android-desktop-2026", "https://phandroid.com/2026/09/14/farewell-chromebooks-google-teases-its-more-expensive-googlebook-platform/"], "note": "buildmvpfast + Phandroid 교차 확인. ChromeOS는 기존 기기에서 계속 작동"},
+  {"claim": "제조 파트너 Acer·ASUS·Dell·HP·Lenovo 5개사", "sources": ["https://googlebook.google/", "https://chromeunboxed.com/acer-teases-its-first-googlebook-at-ifa-ahead-of-googles-press-event/"], "note": "Google 공식 사이트 파트너 로고 + Chrome Unboxed 확인"},
+  {"claim": "사전예약 9월 21일 시작", "sources": ["https://tech.sportskeeda.com/laptops/googlebook-launch-date-specs-prices", "https://www.gbnews.com/tech/googlebook-release-date-price-september-15"], "note": "sportskeeda + gbnews 교차 확인"},
+  {"claim": "9월 15일 뉴욕 미디어 프리뷰 이벤트", "sources": ["https://chromeunboxed.com/google-makes-it-official-googlebook-launch-event-set-for-september-in-nyc/", "https://www.thurrott.com/google/340537/google-to-hold-googlebook-event-on-september-15"], "note": "Chrome Unboxed + Thurrott 교차 확인"},
+  {"claim": "크롬OS 최초 상용화 2011년(약 15년)", "sources": ["https://en.wikipedia.org/wiki/ChromeOS"], "note": "Cr-48 프로토타입 2010년, 상용 크롬북 2011년 출시. 2026-2011=15년"}
+ ],
+ "rebuttals": [
+  "크롬북이 사라진다고 했는데 기존 크롬북은 어떻게 되나 — 기존 크롬OS 기기는 계속 지원된다. 신규 기기만 Googlebook으로 전환",
+  "한국에선 크롬북 안 쓰는데 왜 중요한가 — 전 세계 교육용 시장 1위가 크롬북이고, 안드로이드 앱 네이티브 지원은 윈도우·맥 사용자에게도 의미 있는 변화",
+  "안드로이드 앱이 노트북에서 된다는 건 크롬북도 이미 지원했는데 — 크롬북의 안드로이드 호환은 에뮬레이션이었고, Googlebook은 네이티브 안드로이드 기반이라 성능과 호환성이 근본적으로 다르다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/googlebook_acer_teaser.webp",
+   "title": "노트북이 15년 만에\n안드로이드로 바뀐다",
+   "title_hl": ["바뀐다"],
+   "body": "크롬북이\n오늘부터 사라진다",
+   "body_hl": ["사라진다"],
+   "credit": "Android Authority / Acer"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/googlebook_lenovo_front.jpg",
+   "title": "Googlebook",
+   "title_hl": ["Googlebook"],
+   "body": "크롬OS → 안드로이드 기반 전환\n폰 앱이 노트북에서 네이티브로 작동\nAI 커서 Magic Pointer 내장\n5개사 동시 출시, 9/21 사전예약",
+   "body_hl": ["안드로이드"],
+   "sub": "오늘 뉴욕에서 공개 · 한국 출시 미정",
+   "credit": "The Mac Observer / Lenovo"
+  }
+ ]
+}
