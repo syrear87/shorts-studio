@@ -76,6 +76,22 @@ def _source_meta(post):
     return None
 
 
+def _photo_queries(text):
+    """한국어 제목/topic → Pexels용 영어 검색어 2개. 원 경로는 원고 생성 때 Gemini가
+    `PHOTOS:` 줄로 주지만 초안엔 남지 않는다 — 한국어 검색은 Pexels에서 0건이라 다시 뽑는다."""
+    import re as _re
+    from make_blog import _gemini
+    try:
+        out = _gemini("다음 글 제목에 어울리는 Pexels 스톡 사진 검색어를 영어로 2개, "
+                      "각 2~4 단어, ' | '로만 구분해 한 줄로 답해라. 브랜드명·모델명은 빼고 "
+                      "일반 사물·장면으로. 제목: %s" % text[:120], timeout=60)
+        qs = [_re.sub(r"[^A-Za-z0-9 ]", " ", q).strip() for q in out.strip().splitlines()[0].split("|")]
+        return [q for q in qs if q][:2]
+    except Exception as e:
+        print("  [검색어 생성 실패] %s" % str(e)[:60])
+        return []
+
+
 def _ensure_images(svc, bid, post, dry):
     """이미지 없는 초안에 현행 게이트로 사진을 소급한다. 발행해도 되면 True.
 
@@ -93,13 +109,14 @@ def _ensure_images(svc, bid, post, dry):
         from make_blog import pick_images, decorate, specific_product
         meta = _source_meta(post)
         if meta:
-            imgs = pick_images(meta, [])
+            imgs = pick_images(meta, _photo_queries(str(meta.get("topic") or title)))
             if not imgs and specific_product(meta):
                 print("  [이미지 없음·정책] 특정 제품 글, 실물 없음 — 그대로 발행: %s" % title[:40])
                 return True
         else:
             from blog_media import photos_for
-            imgs = [(u, "참고 이미지 · " + (c or "")) for u, c in photos_for([title[:60]], count=3)]
+            imgs = [(u, "참고 이미지 · " + (c or ""))
+                    for u, c in photos_for(_photo_queries(title) or [title[:60]], count=3)]
     except Exception as e:
         print("  [이미지 소급 실패] %s — %s" % (title[:40], str(e)[:80]))
         imgs = []
