@@ -1,0 +1,38 @@
+{
+ "topic": "Epomaker RT75 — 키보드에 시계가 켜지는데 뽑으면 키 4개가 들어간다, 1.54인치 TFT 핫스왑 레트로 기계식 키보드 $92 [소유욕형]",
+ "blog_teaser": "개스킷 마운트 구조랑 6겹 흡음이 뭔지는 블로그에 정리했습니다",
+ "threads_text": "키보드에 시계가 켜지는데 — 뽑으면 키 4개가 들어간다\n\n1. Epomaker RT75 — 오른쪽 위에 1.54인치 TFT 화면\n2. 시계·GIF·시스템 정보 띄움 — 필요 없으면 통째로 빼고 스위치 4개 끼움\n3. 레트로 화이트 디자인에 녹색 악센트 키\n4. BT·2.4GHz·USB-C 무선 3모드, 배터리 5000mAh\n5. $92(약 12만원), 아마존 직구 가능, 관세 없음\n\n(출처: Epomaker 공식, KitGuru, EnosTech)",
+ "caption": "키보드에 시계가 켜지는데 — 뽑으면 키 4개가 들어간다\n\nEpomaker RT75.\n오른쪽 위에 1.54인치 TFT 화면.\n시계, GIF, 시스템 정보를 띄운다.\n\n필요 없으면 화면을 통째로 뽑고\n빈자리에 스위치 4개를 끼운다.\n키보드가 두 가지 모습으로 바뀐다.\n\n레트로 화이트 디자인, PBT 키캡\nBT·2.4GHz·USB-C 3모드 무선\n개스킷 마운트 + 6겹 흡음\n\n$92(약 12만원) — 아마존 직구 가능\n150달러 이하 관세 없음\n배송 포함 약 14~16만원\n\n(출처: Epomaker 공식, KitGuru, EnosTech)\n\n#키보드 #기계식키보드 #Epomaker #데스크셋업 #가젯",
+ "factcheck": [
+  {"claim": "1.54인치 TFT 디스플레이, 핫스왑으로 스위치 4개와 교체 가능", "sources": ["https://epomaker.com/products/epomaker-rt75", "https://www.kitguru.net/peripherals/keyboards/joao-silva/epomaker-announces-rt75-retro-wireless-mechanical-keyboard-with-hot-swappable-screen/", "https://us.amazon.com/EPOMAKER-RT75-Wireless-Mechanical-Keyboard/dp/B0H74XVZGF"], "note": "Epomaker 공식 + KitGuru + Amazon 동일 스펙"},
+  {"claim": "가격 $91.79~$93.49(스위치 옵션별)", "sources": ["https://epomaker.com/products/epomaker-rt75", "https://us.amazon.com/EPOMAKER-RT75-Wireless-Mechanical-Keyboard/dp/B0H74XVZGF"], "note": "Epomaker 공식 스토어 + Amazon 판매가 직접 확인"},
+  {"claim": "BT + 2.4GHz + USB-C 트리모드, 5000mAh 배터리, 유선/2.4GHz 1000Hz 폴링", "sources": ["https://epomaker.com/products/epomaker-rt75", "https://www.enostech.com/epomaker-rt75-retro-wireless-mechanical-keyboard/"], "note": "Epomaker 공식 + EnosTech 리뷰 교차 확인"},
+  {"claim": "개스킷 마운트 + 6겹 흡음(PORON 포함), PBT 키캡", "sources": ["https://epomaker.com/products/epomaker-rt75", "https://www.enostech.com/epomaker-rt75-retro-wireless-mechanical-keyboard/"], "note": "Epomaker 공식 스펙 + EnosTech 리뷰 확인"}
+ ],
+ "rebuttals": [
+  "12만원이면 무선 키보드 중 비싼 편 아닌가 — 핫스왑 스위치 + TFT 화면 + 개스킷 마운트 + 무선 3모드를 갖춘 기계식 키보드로는 경쟁력 있는 가격대다",
+  "화면 달린 키보드가 처음은 아닌데 — RT75의 차이는 화면을 빼고 키 4개를 끼울 수 있다는 것이다. 고정형 화면 키보드와 다르다. 모드에 따라 두 가지 레이아웃을 쓸 수 있다",
+  "한국에서 직구 말고 못 사나 — epomaker.kr 한국 사이트가 있으나 RT75 재고는 시점에 따라 다르다. 아마존 직구 시 $92 + 배송비 포함 약 14~16만원, 150달러 이하라 관세 면제"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/epomaker_rt75_screen.webp",
+   "title": "키보드에\n시계가 켜진다",
+   "title_hl": ["켜진다"],
+   "body": "뽑으면 그 자리에\n키 4개가 들어간다",
+   "body_hl": ["키 4개"],
+   "credit": "Epomaker / EnosTech"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/epomaker_rt75_hero.webp",
+   "title": "Epomaker RT75",
+   "title_hl": ["RT75"],
+   "body": "1.54인치 TFT — 시계·GIF·시스템 정보\n핫스왑 — 화면 빼고 스위치 4개 삽입\nBT·2.4GHz·USB-C 3모드 무선\n$92(약 12만원), 관세 없음",
+   "body_hl": ["핫스왑"],
+   "sub": "아마존 직구 가능 · epomaker.kr 확인",
+   "credit": "Epomaker / EnosTech"
+  }
+ ]
+}
