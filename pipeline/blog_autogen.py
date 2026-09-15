@@ -157,7 +157,10 @@ def run(limit=MAX_PER_RUN):
                       % (name[6:-5], hit.split("  ")[0][:34], ", ".join(words[:5])), flush=True)
                 continue
             r = build(meta)
-            publish(r["title"], r["html"], labels=r.get("labels") or ["IT·테크"], draft=True)
+            # 원본 카드 표식 — 발행 단계가 옛 초안에 이미지를 소급할 때 이걸로 원고를 되찾는다
+            # (2026-09-15: 9/9 옛 게이트로 만든 HDMI 초안이 9/15 사진 없이 그대로 공개됨)
+            html = r["html"] + "\n<!-- src:%s -->" % name
+            publish(r["title"], html, labels=r.get("labels") or ["IT·테크"], draft=True)
             _mark(name)                       # 성공한 것만 기록 — 실패는 다음 슬롯에서 재시도
             titles.append(r["title"])         # 같은 실행 안에서도 중복이 나지 않게
             made += 1

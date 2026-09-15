@@ -49,6 +49,81 @@ def _save(d):
     os.replace(tmp, STAMP)
 
 
+def _source_meta(post):
+    """초안 → 원본 카드 원고. autogen이 남긴 `<!-- src:파일 -->` 표식이 우선, 없으면(9/15 이전
+    초안) 카드 topic과 제목의 낱말 겹침으로 찾는다."""
+    import glob
+    import re as _re
+    content = post.get("content") or ""
+    m = _re.search(r"<!-- src:(cards-[\w.\-]+\.json) -->", content)
+    cands = [os.path.join(ROOT, "content", m.group(1))] if m else \
+        sorted(glob.glob(os.path.join(ROOT, "content", "cards-*.json")), reverse=True)
+    if m and not os.path.exists(cands[0]):
+        return None
+    from blog_dedup import is_dup
+    title = (post.get("title") or "").strip()
+    for path in cands:
+        try:
+            with open(path, encoding="utf-8") as f:
+                meta = json.load(f)
+        except Exception:
+            continue
+        if m:
+            return meta
+        dup, _hit, _w = is_dup(title, [str(meta.get("topic") or "")])
+        if dup:
+            return meta
+    return None
+
+
+def _ensure_images(svc, bid, post, dry):
+    """이미지 없는 초안에 현행 게이트로 사진을 소급한다. 발행해도 되면 True.
+
+    ① 이미 <img>가 있다 → 그대로.
+    ② 원고를 찾으면 make_blog.pick_images(현행 정책: 실물 → 특정 제품이면 없음 → 스톡).
+       특정 제품이라 정책상 이미지가 없는 글은 그대로 발행(9/13 결정).
+    ③ 원고를 못 찾으면 제목으로 스톡 검색.
+    ④ 그래도 0장이면(Pexels 장애 등) 이번 슬롯은 미루고 초안으로 남긴다."""
+    import re as _re
+    content = post.get("content") or ""
+    if _re.search(r"<img\b", content):
+        return True
+    title = (post.get("title") or "").strip()
+    try:
+        from make_blog import pick_images, decorate, specific_product
+        meta = _source_meta(post)
+        if meta:
+            imgs = pick_images(meta, [])
+            if not imgs and specific_product(meta):
+                print("  [이미지 없음·정책] 특정 제품 글, 실물 없음 — 그대로 발행: %s" % title[:40])
+                return True
+        else:
+            from blog_media import photos_for
+            imgs = [(u, "참고 이미지 · " + (c or "")) for u, c in photos_for([title[:60]], count=3)]
+    except Exception as e:
+        print("  [이미지 소급 실패] %s — %s" % (title[:40], str(e)[:80]))
+        imgs = []
+    if not imgs:
+        print("  [연기·사진 0장] %s — 다음 슬롯 재시도" % title[:44])
+        return False
+    html = decorate(content, imgs)
+    if dry:
+        print("  [dry·이미지 %d장 소급 예정] %s" % (len(imgs), title[:44]))
+        return True
+    try:
+        body = {"kind": "blogger#post", "id": post["id"], "title": post.get("title"),
+                "content": html}
+        if post.get("labels"):
+            body["labels"] = post["labels"]
+        svc.posts().update(blogId=bid, postId=post["id"], body=body).execute()
+        post["content"] = html
+        print("  [이미지 %d장 소급] %s" % (len(imgs), title[:44]))
+        return True
+    except Exception as e:
+        print("  [연기·초안 갱신 실패] %s — %s" % (title[:40], str(e)[:80]))
+        return False
+
+
 def run(per_day=PER_DAY, force=False, dry=False):
     from upload_blogger import _service, resolve_blog_id, _dry
     dry = dry or _dry()          # DRY_RUN=1 환경변수도 dry다 (2026-09-06) — 공개·삭제가 실제로 나가는 경로
@@ -164,6 +239,11 @@ def run(per_day=PER_DAY, force=False, dry=False):
 
     done = []
     for p in items:
+        # 초안은 생성 당시 게이트로 굳어 있다 — 게이트가 바뀐 뒤 발행되면 옛 판정이 그대로
+        # 나간다 (2026-09-15 실사고: 9/9 "제품 글이라 이미지 없이" 만든 HDMI 케이블 초안이
+        # 9/13 카테고리 스톡 허용 뒤인 9/15에 사진 없이 공개). 발행 직전에 다시 판정한다.
+        if not _ensure_images(svc, bid, p, dry):
+            continue
         if dry:
             print("[dry] %s" % (p.get("title") or "")[:52])
             continue
