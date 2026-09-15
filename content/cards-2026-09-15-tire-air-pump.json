@@ -1,0 +1,38 @@
+{
+ "topic": "전동 에어펌프 — 타이어 공기는 넣지 않아도 매달 빠진다, 고속도로에서 터지면 사망률 12배, 2만원대 전동 펌프면 3분에 채운다 [구매가능][공유형]",
+ "blog_teaser": "TPMS 경고등 뜻이랑 적정 공기압 수치는 블로그에 정리해뒀습니다",
+ "threads_text": "보조배터리 크기 에어펌프가 나왔다\n\n1. 타이어 공기는 안 넣어도 빠진다 — 매달 1~2 PSI씩 자연 감압\n2. 공기압 25% 부족하면 사고 위험 3배 (NHTSA)\n3. 고속도로에서 터지면 사망률이 일반 사고의 12배\n4. USB-C 충전, 2만원대 — 자전거·공에도 쓴다\n5. 추석 전에 한 번만 확인하면 된다\n\n(출처: NHTSA DOT HS 811617, 현대해상 교통기후환경연구소)",
+ "caption": "보조배터리 크기 에어펌프가 나왔다\n\n타이어 공기는 안 넣어도 매달 빠진다.\n고무가 공기를 투과하는 물리적 성질.\n공기압 25% 부족하면 사고 위험 3배.\n고속도로에서 터지면 사망률 12배.\n전동 에어펌프 2만원대, 3분이면 채운다.\n\n(출처: NHTSA, 현대해상 교통기후환경연구소)\n\n#타이어공기압 #전동에어펌프 #추석귀성길 #자동차안전 #테크",
+ "factcheck": [
+   {"claim": "타이어 공기압이 매달 1~2 PSI씩 자연 감압된다", "sources": ["https://www.tirerack.com/upgrade-garage/how-much-does-tire-air-pressure-change-over-time", "https://www.nhtsa.gov/vehicle-safety/tires"], "note": "고무의 공기 투과 특성(permeation)으로 인한 자연 감압. 업계 공통 수치(Tire Rack, NHTSA, Continental 등)"},
+   {"claim": "공기압 25% 이상 부족 시 타이어 관련 사고 위험 3배", "sources": ["https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/811617"], "note": "NHTSA 2012 보고서 DOT HS 811617, 2005-2007 사고 5,470건 분석"},
+   {"claim": "고속도로 타이어 파열 사고 사망률이 일반 교통사고의 12.3배", "sources": ["https://www.segye.com/newsView/20250805519094"], "note": "현대해상 교통기후환경연구소 분석, 고속도로 타이어 파열 사망률 11.5% vs 전체 교통사고 1.8%"},
+   {"claim": "전동 에어펌프 2만원대부터 구매 가능", "sources": ["https://www.coupang.com/np/search?q=%ED%9C%B4%EB%8C%80%EC%9A%A9+%EC%A0%84%EB%8F%99+%EC%97%90%EC%96%B4%ED%8E%8C%ED%94%84"], "note": "쿠팡 '휴대용 전동 에어펌프' 검색 기준 ACMEZING 등 26,800원대 — 2026-09-15 확인"}
+ ],
+ "rebuttals": [
+   "주유소에서 공기 넣으면 되지 왜 사냐 — 주유소 에어 호스가 관리 안 돼 오차가 크고, 셀프 주유소는 에어 기기가 아예 없는 곳도 많다. 추석 고속도로 휴게소에서 줄 서서 기다리는 것보다 트렁크에서 꺼내는 게 3분이다",
+   "TPMS 경고등 뜨면 그때 넣으면 되지 않나 — TPMS는 적정 대비 25% 이상 빠져야 경고가 뜬다. 그 전까지도 연비와 제동거리가 나빠지고 있었다. 경고등은 마지막 방어선이지 관리 기준이 아니다",
+   "타이어 터지는 건 오래된 타이어 문제 아니냐 — 공기압 부족 상태에서 고속 주행하면 타이어 옆면이 반복 변형돼 열이 쌓인다. 새 타이어도 공기압 부족이면 터진다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/tire_tread_closeup_1.jpg",
+   "title": "보조배터리 크기\n에어펌프가 나왔다",
+   "title_hl": ["나왔다"],
+   "body": "타이어 공기는 매달 1~2 PSI씩 자연 감압\n공기압 25% 부족하면 사고 위험 3배\n고속도로에서 터지면 사망률 12배",
+   "body_hl": ["3배", "12배"],
+   "credit": "Pexels / Evan Wisnewski"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/tire_road_closeup_1.jpg",
+   "title": "주유소 안 가도 된다\n전동 펌프 2만원대",
+   "title_hl": ["2만원대"],
+   "body": "손바닥 크기, USB-C 충전\n자동차 타이어 3분이면 채운다\n자전거·축구공·튜브에도 쓴다",
+   "body_hl": ["3분"],
+   "sub": "추석 전에 타이어 공기압 한 번만 확인하자",
+   "credit": "Pexels / Mike Bird"
+  }
+ ]
+}
