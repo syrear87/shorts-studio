@@ -1,0 +1,37 @@
+{
+ "topic": "버티컬 마우스 — 마우스 잡는 손목이 매일 42도 꺾이고 있었다, 세워서 잡으면 14도가 돌아온다, 만원대부터 [구매가능][공유형]",
+ "blog_teaser": "일반 마우스와 버티컬 마우스의 근육 부하 차이, 가격대별 추천은 블로그에 정리해뒀습니다",
+ "threads_text": "마우스에서 손목 꺾임이 사라졌다\n\n1. 일반 마우스를 잡으면 팔뚝 뼈 두 개가 교차된다 — 42도\n2. 버티컬 마우스로 바꾸면 28도 — 14도가 돌아온다\n3. 근육 부하도 14% 줄었음\n4. 단 손목터널증후군 예방 근거는 아직 없다\n5. 쿠팡에 만원대부터 있다\n\n(출처: Ergonomics Vol 56 No 8, Applied Ergonomics)",
+ "caption": "마우스에서 손목 꺾임이 사라졌다\n\n일반 마우스를 잡으면 팔뚝 뼈 두 개가 교차된다.\n이걸 전완 회내(pronation)라 하는데, 42도.\n버티컬 마우스는 28도 — 14도가 돌아온다.\n근육 부하 14% 감소.\n단 손목터널증후군 예방 근거는 아직 없다.\n쿠팡에 만원대부터.\n\n(출처: Ergonomics Vol 56, Applied Ergonomics)\n\n#버티컬마우스 #손목건강 #사무용품 #인체공학 #테크",
+ "factcheck": [
+   {"claim": "일반 마우스 사용 시 전완 회내(pronation) 약 42도", "sources": ["https://pubmed.ncbi.nlm.nih.gov/23777482/", "https://www.tandfonline.com/doi/abs/10.1080/00140139.2013.805251"], "note": "Ergonomics Vol 56 No 8 (2013): standard mouse pronation ~42°, vertical mouse ~28° — 14° 감소, 근육 부하 14% 감소"},
+   {"claim": "버티컬 마우스가 손목터널증후군을 예방한다는 근거는 없다", "sources": ["https://www.sciencedirect.com/science/article/abs/pii/S0003687014001598"], "note": "Applied Ergonomics (2014): vertical mouse reduces pronation but does NOT reduce carpal tunnel pressure — 자세 개선이지 치료가 아님"},
+   {"claim": "쿠팡에 만원대부터 판매", "sources": ["https://prod.danawa.com/info/?pcode=15425837"], "note": "쿠팡 홈플래닛 무선 버티컬 마우스 만원대, 로지텍 Lift 4만원대 — 2026-09-16 기준 다나와 확인"}
+ ],
+ "rebuttals": [
+   "버티컬 마우스가 뭐가 새롭냐 오래전부터 있었다 — 새로운 제품이 아니라 손목이 꺾이고 있었다는 사실이 포인트다. 실제로 써보면 첫날부터 차이를 느낀다",
+   "적응이 안 되고 오히려 불편하다는 사람도 있던데 — 맞다. 3~5일 적응기가 있고 정밀 작업(그래픽)에는 약하다. 사무용으로 쓸 때 효과가 크다",
+   "만원짜리는 내구성이 별로라던데 — 나무위키에도 소모품 취급하라는 말이 있다. 만원대는 써보고 맞으면 로지텍 Lift(4만원대)로 올리는 게 현실적이다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/vertical_mouse_solution.jpg",
+   "title": "마우스에서\n손목 꺾임이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "버티컬 마우스는 악수하듯 세워서 잡는다\n꺾임 42도 → 28도, 근육 부하 14% 감소\n만원대부터",
+   "body_hl": ["42도 → 28도", "14%"],
+   "credit": "Pexels / Primitive Spaces"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/vertical_mouse_problem.jpg",
+   "title": "일반 마우스는\n매일 42도 꺾이고 있었다",
+   "title_hl": ["42도"],
+   "body": "팔뚝 뼈 두 개가 교차된 상태로 8시간\n손목터널증후군 예방 근거는 아직 없지만\n자세가 바뀌는 건 논문이 확인했다",
+   "body_hl": ["뼈 두 개가 교차"],
+   "sub": "쿠팡에 '버티컬 마우스' 검색 — 만원대부터",
+   "credit": "Pexels / cottonbro studio"
+  }
+ ]
+}
