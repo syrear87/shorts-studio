@@ -1,0 +1,66 @@
+{
+  "title": "냉장고가 뚫은 지구의 구멍, 40년 만에 닫히고 있습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "series": "공유성",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "냉장고가 지구를 뚫었습니다. 오늘, 그 구멍이 40년 만에 닫히고 있습니다.",
+      "lines": [
+        ["냉장고가 지구를 뚫었습니다", ["지구를"]],
+        ["오늘, 40년 만에 닫히고 있습니다", ["오늘,"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "냉장고와 에어컨에 쓰이던 냉매, 프레온. 여기서 나온 염소 원자 1개가 오존 분자 10만 개를 파괴합니다.",
+      "lines": [
+        ["냉장고 냉매 프레온에서", []],
+        ["염소 원자 1개가", []],
+        ["오존 10만 개를 파괴합니다", ["10만"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "1987년 오늘 채택된 몬트리올 의정서. UN 역사상 모든 나라가 비준한 유일한 조약입니다.",
+      "lines": [
+        ["1987년 오늘 채택", []],
+        ["모든 나라가 비준한", ["모든"]],
+        ["UN 유일의 조약", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "남극의 오존 구멍이 줄고 있습니다. 2066년, 지금 태어난 아이가 40살이 되면 완전히 닫힙니다.",
+      "lines": [
+        ["남극 오존 구멍이 줄고 있습니다", []],
+        ["2066년, 지금 태어난 아이가", ["2066년"]],
+        ["40살 되면 완전히 닫힙니다", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "기후변화는 40년째 못 고치고 있습니다. 오존은 왜 됐을까요. 냉매는 다른 물질로 바꿀 수 있었습니다. 탄소는 에너지 그 자체라 바꿀 수 없었기 때문입니다.",
+      "lines": [
+        ["기후변화는 40년째 못 고칩니다", []],
+        ["냉매는 대체할 수 있었고", []],
+        ["탄소는 에너지 자체라 못 바꿉니다", ["에너지"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "UNEP 몬트리올 의정서 — https://www.unep.org/ozonaction/who-we-are/about-montreal-protocol",
+    "EPA 오존층 과학 — https://www.epa.gov/ozone-layer-protection/basic-ozone-layer-science",
+    "WMO/UNEP 2022 오존 평가 보고서 — https://csl.noaa.gov/assessments/ozone/2022/executivesummary/",
+    "UN 세계 오존층 보호의 날 — https://www.un.org/en/observances/ozone-day"
+  ],
+  "bg_query": ["earth atmosphere blue glow ozone", "refrigerator compressor closeup", "united nations assembly signing ceremony", "antarctica ice landscape aerial", "power plant smokestacks industrial"],
+  "bg_ids": [6651252, 38845657, 36692221, 35990540, 5669738]
+}
