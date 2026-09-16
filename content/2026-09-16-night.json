@@ -1,0 +1,67 @@
+{
+  "title": "추석 차례상에서 가장 한국적인 맛이 빠져 있습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "애국·정체성",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "다음 주 추석, 차례상에 고추가 없습니다. 나물에도 고춧가루를 넣지 않습니다.",
+      "bg": "photo:23355702",
+      "lines": [
+        ["다음 주 추석 차례상에 고추가 없습니다", ["고추가"]],
+        ["나물에도 고춧가루를 넣지 않습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "고추는 임진왜란 전후에 한반도에 들어왔습니다. 1614년 지봉유설에 처음 기록될 만큼 새로운 작물이었습니다.",
+      "bg": 8798276,
+      "lines": [
+        ["임진왜란 전후에 들어왔습니다", ["임진왜란"]],
+        ["1614년 지봉유설에 처음 기록", ["1614년"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "그런데 차례 규범은 그보다 먼저 굳어졌습니다. 16세기에 주자가례가 정착되면서 제사 음식이 정해졌습니다. 고추가 오기 전이었습니다.",
+      "bg": "photo:28099350",
+      "lines": [
+        ["차례 규범은 먼저 굳어졌습니다", []],
+        ["16세기, 고추가 오기 전", ["16세기"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "그래서 전통 차례상의 나물은 간장과 소금만으로 양념합니다. 고춧가루, 마늘, 파까지 전부 빠집니다.",
+      "bg": "photo:12481166",
+      "lines": [
+        ["나물은 간장과 소금만으로", []],
+        ["고춧가루 마늘 파까지 빠집니다", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "차례상은 400년 전 조선의 식탁입니다. 한국에서 가장 한국적인 맛이라 불리는 고추가 빠진 채, 지금도 명절마다 차려집니다.",
+      "bg": "photo:23355652",
+      "lines": [
+        ["400년 전 조선의 식탁", ["400년"]],
+        ["가장 한국적인 맛이 빠진 채", []],
+        ["지금도 명절마다 차려집니다", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "bg": "photo:23355652",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://encykorea.aks.ac.kr/Article/E0004008",
+    "https://contents.history.go.kr/front/km/view.do?levelId=km_010_0030_0020_0020",
+    "https://folkency.nfm.go.kr/topic/detail/7363"
+  ],
+  "bg_query": ["korean jesa table food traditional", "red chili pepper close up", "korean traditional hanok confucian", "korean namul soy sauce seasoning", "korean ancestral ritual table overhead"]
+}
