@@ -1,0 +1,43 @@
+{
+ "topic": "Fosi Audio DISC Nano — 사라졌던 CD 플레이어가 폰 뒤에서 돌아왔다, CD가 반쯤 드러난 채 돌아가는 세계 최소 포터블 CD 플레이어 [소유욕형]",
+ "blog_teaser": "CS43198 DAC이 뭔지, 4.4mm 밸런스드가 왜 다른지, 국내 직구 방법은 블로그에 정리했습니다",
+ "threads_text": "사라졌던 CD 플레이어가 폰 뒤에서 돌아왔다\n\n1. Fosi Audio DISC Nano — CD가 반쯤 드러난 채 돌아간다\n2. MagSafe 링으로 폰 뒤에 붙여서 들고 다닌다\n3. 블루투스로 무선 이어폰에 CD를 바로 쏜다\n4. CS43198 DAC, 4.4mm 밸런스드 출력\n5. $99.99(약 14만원), 9월 말 출시 — 직구 총 15만원 안팎\n\n(출처: Gear Patrol, The Absolute Sound, ecoustics)",
+ "caption": "사라졌던 CD 플레이어가 폰 뒤에서 돌아왔다\n\nFosi Audio DISC Nano.\nCD가 반쯤 드러난 채 돌아간다.\n세계에서 가장 작다고 한다 (제조사 주장).\n\nMagSafe 링이 달려서 폰 뒤에 자석으로 붙는다.\n블루투스로 무선 이어폰에 CD를 바로 스트리밍.\nCS43198 DAC + 3.5mm·4.4mm 밸런스드 출력.\nESP 전자식 충격 방지.\n800mAh, USB-C 충전.\n\n$99.99(약 14만원), 9월 말 미국 출시\n$150 이하라 관세 면제 — 배송비 포함 총 15만원 안팎\n국내 미출시, Fosi Audio 공식몰에서 직구\n\n(출처: Gear Patrol, The Absolute Sound, ecoustics, TWICE)\n\n#CD플레이어 #포터블오디오 #FosiAudio #레트로테크 #소유욕",
+ "factcheck": [
+   {"claim": "CS43198 DAC 탑재", "sources": ["https://www.gearpatrol.com/audio/fosi-audio-disc-nano-portable-cd-player/", "https://www.ecoustics.com/products/fosi-audio-s3-lite-canjam-socal-2026/"], "note": "Cirrus Logic CS43198. Gear Patrol + ecoustics 교차확인"},
+   {"claim": "3.5mm + 4.4mm 밸런스드 출력", "sources": ["https://www.gearpatrol.com/audio/fosi-audio-disc-nano-portable-cd-player/", "https://www.theabsolutesound.com/articles/fosi-audio-brings-a-wave-of-new-hifi-gear-to-canjam-socal-2026/"], "note": "3.5mm SE + 4.4mm balanced + optical digital out. Gear Patrol + The Absolute Sound 교차확인"},
+   {"claim": "블루투스 전송 지원", "sources": ["https://www.gearpatrol.com/audio/fosi-audio-disc-nano-portable-cd-player/", "https://stupiddope.com/2026/09/fosi-audio-disc-nano-gives-the-compact-cd-player-a-modern-reset/"], "note": "블루투스로 무선 이어폰·스피커에 CD 스트리밍 가능. 코덱 미공개"},
+   {"claim": "MagSafe 호환 링 마운트", "sources": ["https://www.gearpatrol.com/audio/fosi-audio-disc-nano-portable-cd-player/", "https://www.ecoustics.com/products/fosi-audio-s3-lite-canjam-socal-2026/"], "note": "MagSafe 링 마운트로 폰·MagSafe 호환 기기에 부착 가능"},
+   {"claim": "$99.99, 9월 말 출시", "sources": ["https://www.gearpatrol.com/audio/fosi-audio-disc-nano-portable-cd-player/", "https://www.twice.com/product/audio/fosi-audio-launches-four-new-audio-products"], "note": "미국 MSRP $99.99. late September 2026 출시 예정. Gear Patrol + TWICE 교차확인"},
+   {"claim": "800mAh 배터리, 약 2시간 재생", "sources": ["https://www.audioreviews.org/fosi-audio-introduces-four-new-products/", "https://www.hifipig.com/fosi-audio-marks-ninth-anniversary-with-four-new-products/"], "note": "800mAh, USB-C 충전. 런타임은 audioreviews 기준"},
+   {"claim": "반노출(half-exposed) CD 디자인", "sources": ["https://www.gearpatrol.com/audio/fosi-audio-disc-nano-portable-cd-player/", "https://www.ecoustics.com/products/fosi-audio-s3-lite-canjam-socal-2026/"], "note": "CD 디스크가 절반 노출된 상태로 재생. 이 구조 덕에 소형화 가능했다는 것이 제조사 설명. ecoustics는 '최소' 주장에 최종 치수 공개가 필요하다고 언급"},
+   {"claim": "ESP 전자식 충격 방지", "sources": ["https://www.gearpatrol.com/audio/fosi-audio-disc-nano-portable-cd-player/"], "note": "ESP(Electronic Skip Protection) — 이동 중 재생 안정성 향상"},
+   {"claim": "직구 시 관세 면제($150 이하)", "sources": ["https://www.customs.go.kr"], "note": "미국발 목록통관 물품 $150 이하 면세 기준. $99.99는 이 기준 이하"}
+ ],
+ "rebuttals": [
+   "스트리밍 시대에 CD 플레이어가 무슨 의미가 있냐 — 이건 실용이 아니라 감성이다. LP 턴테이블이 2026년에도 팔리는 이유와 같다. CD가 돌아가는 걸 보면서 듣는 경험은 스트리밍에 없다",
+   "2시간밖에 안 되면 쓸모없다 — CD 한 장이 보통 45~75분이니 앨범 하나는 끝까지 듣는다. 충전은 USB-C라 보조배터리로 된다. 이건 출퇴근길 한 앨범용이지 하루 종일 틀어놓는 기기가 아니다",
+   "14만원이면 비싸다, 쿠팡에 3만원짜리도 있다 — 3만원대는 DAC이 내장 범용칩이고 밸런스드 출력이 없다. CS43198 DAC과 4.4mm 밸런스드는 이 가격대에서 이례적이다. 음질이 목적이면 값어치가 다르다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/fosi_disc_nano_square.webp",
+   "title": "사라졌던 CD 플레이어가\n폰 뒤에서 돌아왔다",
+   "title_hl": ["돌아왔다"],
+   "body": "Fosi Audio DISC Nano\nCD가 반쯤 드러난 채 돌아간다\nMagSafe로 폰에 자석 부착",
+   "body_hl": ["반쯤 드러난 채", "자석 부착"],
+   "credit": "Fosi Audio / Gear Patrol"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/fosi_disc_nano_lead.webp",
+   "title": "디스크맨이 돌아왔는데\n이번엔 블루투스가 된다",
+   "title_hl": ["블루투스가 된다"],
+   "body": "CS43198 DAC + 4.4mm 밸런스드 출력\n블루투스로 무선 이어폰에 CD 스트리밍\nESP 충격 방지, 800mAh USB-C",
+   "body_hl": ["CS43198 DAC", "4.4mm 밸런스드"],
+   "sub": "$99.99(약 14만원), 9월 말 미국 출시\n$150 이하 관세 면제 — 배송 포함 총 15만원 안팎\n국내 대안: 쿠팡 포터블 CD 3~5만원대 (DAC·밸런스드 없음)",
+   "credit": "Fosi Audio / Gear Patrol"
+  }
+ ]
+}
