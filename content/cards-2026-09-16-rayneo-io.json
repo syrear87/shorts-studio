@@ -1,0 +1,40 @@
+{
+ "topic": "RayNeo iO — 스마트 안경에서 카메라가 사라졌다, 33g 선글라스보다 가볍다 [한계붕괴형]",
+ "blog_teaser": "33g이 가능했던 소재(마그네슘합금+티타늄)와 레이밴 메타·Xreal과 뭐가 다른지는 블로그에 정리했습니다",
+ "threads_text": "스마트 안경에서 카메라가 사라졌다\n\n1. 레이밴 메타도 구글도 카메라를 달았다 — 쓰고 나가면 시선이 따라온다\n2. RayNeo iO는 카메라를 뺐다, 33g\n3. 대신 눈앞에 초록 글자가 뜬다 — 알림·번역·일정\n4. 55개 국어 실시간 통역, 1초 안 걸린다\n5. 배터리 이틀, IP54 방수\n\n$499(약 67만원), 국내 미출시\n국내엔 구형 RayNeo Air 시리즈가 쿠팡에 있음\n\n(출처: RayNeo 공식, Engadget, TechPowerUp)",
+ "caption": "스마트 안경에서 카메라가 사라졌다\n\nRayNeo iO.\n카메라도 스피커도 없앴더니 33g이 됐다.\n선글라스보다 가볍다.\n\n눈앞에 초록색 글자가 뜬다.\n알림, 일정, 실시간 번역 55개 국어.\n렌즈 투과율 97% — 끼고 있는 걸 잊는다.\n마그네슘합금 프레임 + 항공급 티타늄 다리.\n\n$499(약 67만원), 국내 미출시 — 미국·일본 등 40개국\n국내엔 구형 RayNeo Air 시리즈가 쿠팡에 있음(비디오용, 별개 라인)\n\n(출처: RayNeo 공식, Engadget, TechPowerUp)\n\n#스마트안경 #AR안경 #RayNeo #웨어러블 #AI안경",
+ "factcheck": [
+   {"claim": "무게 33g", "sources": ["https://www.rayneo.com/products/rayneo-io-ai-glasses", "https://www.techpowerup.com/351785/rayneo-unveils-rayneo-io-smart-glasses-and-cinematic-rayneo-gt-series"], "note": "RayNeo 공식 + TechPowerUp 교차확인. 마그네슘알루미늄 합금(AZ91D)+티타늄 소재"},
+   {"claim": "카메라 없음, 스피커 없음", "sources": ["https://skarredghost.com/2026/09/10/rayneo-io-smart-glasses-review/", "https://www.heise.de/en/news/Smart-glasses-RayNeo-iO-rely-on-bone-conduction-and-AI-projection-11414974.html"], "note": "The Ghost Howls 핸즈온 리뷰 + heise.de 확인. 골전도는 마이크 입력용이지 오디오 출력 아님"},
+   {"claim": "55개 국어 실시간 통역", "sources": ["https://www.prnewswire.com/news-releases/rayneo-expands-consumer-ar-lineup-unveiling-rayneo-io-smart-glasses-and-cinematic-rayneo-gt-series-302856466.html", "https://www.engadget.com/2241335/rayneo-ar-smart-glasses-io-gt-series/"], "note": "55 languages / 109 accents, Timekettle BabelOS 3.0, 지연 약 1초. PR Newswire + Engadget 교차확인"},
+   {"claim": "렌즈 투과율 97%", "sources": ["https://www.rayneo.com/products/rayneo-io-ai-glasses", "https://www.techpowerup.com/351785/rayneo-unveils-rayneo-io-smart-glasses-and-cinematic-rayneo-gt-series"], "note": "Blue Lake 웨이브가이드. 공식 사양 + TechPowerUp 교차확인"},
+   {"claim": "$499 (런칭 프로모 $449), 2026-09-04 출시, 40개국", "sources": ["https://www.prnewswire.com/news-releases/rayneo-expands-consumer-ar-lineup-unveiling-rayneo-io-smart-glasses-and-cinematic-rayneo-gt-series-302856466.html", "https://retailnews.asia/tcl-affiliate-rayneo-launches-gt-and-io-smart-glasses-across-40-markets"], "note": "PR Newswire + RetailNews Asia 교차확인. 한국은 40개국에 미포함 — 쿠팡·네이버쇼핑 검색 결과 iO 미등재 (2026-09-16 확인)"},
+   {"claim": "배터리 이틀, 번역 6.2시간 연속", "sources": ["https://www.rayneo.com/products/rayneo-io-ai-glasses", "https://www.androidheadlines.com/2026/09/ive-worn-a-lot-of-smart-glasses-and-the-rayneo-io-is-the-lightest-pair-ive-tried-yet.html"], "note": "240mAh, 일반 사용 시 약 2일, AI 번역 연속 6.2시간. 공식 + Android Headlines 교차확인"}
+ ],
+ "rebuttals": [
+   "카메라 없으면 사진도 못 찍는데 왜 사냐 — 그래서 33g이 된 거다. 카메라·스피커가 무게와 프라이버시 부담의 원인이었고, 빼자 하루 종일 쓸 수 있는 안경이 됐다. 사진은 폰으로 찍는다",
+   "67만원짜리 안경은 너무 비싸다 — 레이밴 메타는 $299인데 화면이 없고, Xreal One Pro는 $599인데 87g이다. 화면 있는 올데이 웨어러블 중 33g은 이게 유일하니 비교 대상이 다르다",
+   "모노크롬 초록 디스플레이가 후져 보인다 — 풀컬러 디스플레이를 넣으면 전력과 무게가 올라간다. 23.5도 시야에 알림·번역 텍스트만 띄우는 용도라 모노크롬이 맞다. 영상을 보려면 GT Max(59도, 풀컬러)가 있다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/rayneo_io_hero.jpg",
+   "title": "스마트 안경에서\n카메라가 사라졌다",
+   "title_hl": ["카메라가 사라졌다"],
+   "body": "RayNeo iO — 33g\n선글라스보다 가볍다\n대신 눈앞에 글자가 뜬다",
+   "body_hl": ["33g", "글자가 뜬다"],
+   "credit": "RayNeo 공식"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/rayneo_io_detail.jpg",
+   "title": "카메라를 빼자\n하루 종일 쓸 수 있는 안경이 됐다",
+   "title_hl": ["하루 종일"],
+   "body": "55개 국어 실시간 통역 — 1초\n렌즈 투과율 97%, 배터리 이틀\nIP54 방수, 마그네슘합금+티타늄",
+   "body_hl": ["55개 국어", "97%"],
+   "sub": "$499(약 67만원), 국내 미출시 — 40개국 출시\n국내엔 구형 RayNeo Air가 쿠팡에 있음(비디오용, 별개)",
+   "credit": "RayNeo 공식"
+  }
+ ]
+}
