@@ -153,6 +153,13 @@ def judge(meta, is_card=None):
     subject = str((meta or {}).get("topic") or (meta or {}).get("title") or "")
     if not subject.strip():
         subject = text            # topic이 없는 원고(영상 등)는 종전대로 전체를 본다
+    elif (meta or {}).get("cards") and "—" in subject:
+        # 카드 topic은 「제품 — 훅 [태그]」 꼴이라 소재는 앞머리다. 훅에 든 낱말은 맥락이지
+        # 소재가 아니다 (2026-09-15 실사고: 점프 스타터 "명절 긴급출동 1위"의 '명절',
+        # 전동 에어펌프 "사망률 12배"의 '사망'에 걸려 [구매가능]+teaser 카드 2장이 링크 없이
+        # 나갔다 — 9/13 "topic만 본다" 수정으로도 못 막은 오탐). 영상 topic은 훅 자체가
+        # 소재라 종전대로 전체를 본다.
+        subject = subject.split("—", 1)[0]
     blocked = [w for w in BLOCK_WORDS if w in subject]
     if blocked:
         return False, "제외 축 소재: %s" % ", ".join(blocked[:4])
