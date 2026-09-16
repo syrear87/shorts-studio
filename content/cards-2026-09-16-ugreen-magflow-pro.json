@@ -1,0 +1,39 @@
+{
+ "topic": "UGREEN MagFlow Pro — 보조배터리에 수냉 쿨러가 들어갔다, 마이크로펌프가 액체를 돌려 열을 잡는다 [한계붕괴형]",
+ "blog_teaser": "수냉 구조가 어떻게 생겼는지, 일반 보조배터리랑 온도가 얼마나 차이 나는지는 블로그에 정리했습니다",
+ "threads_text": "보조배터리가 드디어 물로 식힌다\n\n1. 무선충전 빠르게 하면 폰이 뜨거워진다 — 배터리 수명 깎는 원인\n2. UGREEN이 보조배터리 안에 마이크로펌프를 넣었다\n3. 액체가 순환하면서 열을 빼간다 — PC 수냉의 축소판\n4. 투명 창으로 냉각액 흐르는 게 보인다\n5. Qi2 25W 무선충전, 기존 15W의 1.7배\n\n국내 미출시, 미국 $149.99(약 20만원, 관세 면제 구간)\n국내엔 일반 MagFlow(수냉 없음) 62,400원\n\n(출처: UGREEN 공식 보도자료, Notebookcheck, 9to5Toys)",
+ "caption": "보조배터리가 드디어 물로 식힌다\n\nUGREEN MagFlow Pro.\n10,000mAh 보조배터리 안에 마이크로펌프 액체냉각이 들어갔다.\nPC 그래픽카드에나 쓰던 수냉이 손바닥 크기로 줄었다.\nQi2 25W 무선충전 — 기존 15W에서 67% 빨라졌는데\n열은 업계 기준(48도)보다 10도 낮다.\n투명 창으로 냉각액 흐르는 게 보인다.\n\n국내 미출시 — 미국 $149.99(약 20만원)\n국내엔 일반 MagFlow(수냉 없음) 62,400원\n\n(출처: UGREEN IFA 2026 공식, Notebookcheck, 9to5Toys)\n\n#보조배터리 #수냉 #UGREEN #MagFlowPro #무선충전",
+ "factcheck": [
+   {"claim": "세계 최초 마이크로펌프 액체냉각 보조배터리", "sources": ["https://www.prnewswire.com/news-releases/ugreen-unveils-new-magflow-lineup-at-ifa-2026-with-worlds-first-micro-pump-liquid-cooled-qi2-25w-magnetic-power-bank-302867551.html"], "note": "UGREEN 공식 마케팅 클레임 — '세계 최초'는 제조사 주장"},
+   {"claim": "Qi2 25W 무선충전, 10000mAh", "sources": ["https://us.ugreen.com/products/magflow-pro-qi2-25w-magnetic-power-bank-10000mah", "https://www.notebookcheck.net/Ugreen-launches-world-s-first-liquid-cooled-power-bank-with-built-in-cable-and-display.1387269.0.html"], "note": "UGREEN 공식 제품 페이지 + Notebookcheck 교차확인"},
+   {"claim": "업계 기준 48도보다 최대 10도 낮은 온도", "sources": ["https://www.prnewswire.com/news-releases/ugreen-unveils-new-magflow-lineup-at-ifa-2026-with-worlds-first-micro-pump-liquid-cooled-qi2-25w-magnetic-power-bank-302867551.html"], "note": "UGREEN 보도자료: peak temperature up to 10°C below 48°C industry benchmark"},
+   {"claim": "미국 $149.99, 한국 미출시, 한국엔 일반 MagFlow 62400원", "sources": ["https://us.ugreen.com/products/magflow-pro-qi2-25w-magnetic-power-bank-10000mah", "https://kr.ugreen.com/collections/power-banks"], "note": "US 공식몰 $149.99 확인, KR 공식몰에 Pro 미등재 확인 (2026-09-16)"},
+   {"claim": "IFA 2026 런던에서 공개 (2026-09-04)", "sources": ["https://www.prnewswire.com/news-releases/ugreen-unveils-new-magflow-lineup-at-ifa-2026-with-worlds-first-micro-pump-liquid-cooled-qi2-25w-magnetic-power-bank-302867551.html", "https://9to5toys.com/2026/09/08/ugreen-world-first-liquid-cooled-qi2-2-magflow-pro-power-bank-launch-deal/"], "note": "PR Newswire + 9to5Toys 교차확인"}
+ ],
+ "rebuttals": [
+   "보조배터리에 수냉이 왜 필요한가 팬이면 되지 — 팬은 소음이 있고 먼지가 들어간다. 액체냉각은 무소음이고 밀폐라 보조배터리처럼 가방에 넣는 물건에 더 맞다",
+   "20만원짜리 보조배터리는 비싸다 — 일반 보조배터리(2-3만원대)와 쓰임이 다르다. 25W 무선충전을 쓰려는 사람 대상이고, 같은 급 Anker MagGo 2 Pro도 $109다. 빠른 충전에 냉각이 없으면 폰 배터리 수명이 줄어든다",
+   "기존 15W에서 25W로 바뀐 게 체감이 되나 — 아이폰 17 Pro 기준 무선 0→50%가 40분이다. 15W 시절엔 같은 충전에 1시간 이상 걸렸다. 출퇴근길에 차이가 크다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/ugreen_magflow_pro_hero.jpg",
+   "title": "보조배터리가\n드디어 물로 식힌다",
+   "title_hl": ["드디어", "물로 식힌다"],
+   "body": "UGREEN MagFlow Pro\n마이크로펌프가 액체를 돌린다\n세계 최초 수냉 보조배터리",
+   "body_hl": ["마이크로펌프", "세계 최초"],
+   "credit": "UGREEN 공식"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/ugreen_magflow_pro_detail.jpg",
+   "title": "25W 무선충전인데\n열은 업계 기준보다 10도 낮다",
+   "title_hl": ["10도 낮다"],
+   "body": "10,000mAh — Qi2 25W 무선 + 30W 유선\n투명 창으로 냉각액 흐르는 게 보인다\n220g, 16.2mm",
+   "body_hl": ["25W", "투명 창"],
+   "sub": "국내 미출시 — 미국 $149.99(약 20만원, 관세 면제 구간)",
+   "credit": "9to5Toys"
+  }
+ ]
+}

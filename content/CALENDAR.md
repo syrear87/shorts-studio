@@ -737,3 +737,4 @@
 ### 2026-09-16 (화)
 - 09시 카드: 버티컬 마우스 — 마우스 잡는 손목이 매일 42도 꺾이고 있었다 [구매가능][공유형]
 - 12시 카드: DJI Mic Mini 2S — 무선 마이크에서 녹음 깨짐이 사라졌다, 12g 32비트 플로트 [한계붕괴형] — threads.com/@daily_1_pick/post/DdVT9EpmT-K
+14시 카드: UGREEN MagFlow Pro — 보조배터리가 드디어 물로 식힌다, 수냉 쿨러 마이크로펌프 [한계붕괴형] — threads.com/@daily_1_pick/post/DdVhG-OmQ7H
