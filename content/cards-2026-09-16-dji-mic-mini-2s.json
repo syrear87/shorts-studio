@@ -1,0 +1,39 @@
+{
+ "topic": "DJI Mic Mini 2S — 무선 마이크에서 녹음 깨짐이 사라졌다, 12g짜리가 32비트 플로트로 저장한다 [한계붕괴형]",
+ "blog_teaser": "32비트 플로트가 왜 소리를 살리는지, 기존 모델과 뭐가 달라졌는지는 블로그에 정리했습니다",
+ "threads_text": "무선 마이크에서 녹음 깨짐이 사라졌다\n\n1. 영상 찍다 소리가 터지면 그 파일은 버렸다 — 클리핑\n2. DJI Mic Mini 2S는 32비트 플로트로 저장한다\n3. 32비트는 터진 소리도 나중에 줄일 수 있다 — 깨진 게 아니라 남아 있는 것\n4. 12g, 500원 동전보다 가볍다\n5. 14.5GB 내장이라 수신기 없이 혼자 녹음도 된다\n\n(출처: DJI 공식, TechRadar, Notebookcheck)",
+ "caption": "무선 마이크에서 녹음 깨짐이 사라졌다\n\nDJI Mic Mini 2S.\n12g짜리 핀마이크가 32비트 플로트로 녹음한다.\n소리가 터져도 파형이 살아 있어 나중에 줄일 수 있다.\n14.5GB 내장 — 수신기 없이 단독 녹음도 된다.\n배터리 11시간.\n국내 DJI 스토어 85,100원(송신기 단품).\n\n(출처: DJI 공식, TechRadar, Notebookcheck)\n\n#DJI #MicMini2S #무선마이크 #32비트플로트 #영상촬영",
+ "factcheck": [
+   {"claim": "DJI Mic Mini 2S 32비트 플로트 내장 녹음 지원", "sources": ["https://www.notebookcheck.net/DJI-launches-the-Mic-Mini-2S-with-32-bit-internal-recording-14-5GB-built-in-storage.1334126.0.html", "https://www.redsharknews.com/dji-mic-mini-2s-launch-price-specs"], "note": "Notebookcheck·RedShark 교차확인 — NPU 내장, 32-bit float"},
+   {"claim": "무게 12g, 크기 28.58×28.04×13.52mm", "sources": ["https://www.dji.com/mic-mini-2s/specs", "https://www.fonearena.com/blog/486734/dji-mic-mini-2s-price-features.html"], "note": "DJI 공식 스펙·Fonearena 교차확인"},
+   {"claim": "14.5GB 내장 저장, 단독 녹음 가능", "sources": ["https://www.notebookcheck.net/DJI-launches-the-Mic-Mini-2S-with-32-bit-internal-recording-14-5GB-built-in-storage.1334126.0.html", "https://www.geeky-gadgets.com/dji-mic-mini-2s-review/"], "note": "Mini 시리즈 최초 단독 녹음, 24비트 기준 약 28시간"},
+   {"claim": "국내 DJI 스토어 85,100원(송신기 단품), 130,000원(1TX+1RX)", "sources": ["https://www.autoview.co.kr/ko-kr/articles/101247"], "note": "2026-09-16 기준, Autoview KR 확인. 2TX+1RX+케이스 229,000원"},
+   {"claim": "배터리 11시간", "sources": ["https://www.geeky-gadgets.com/dji-mic-mini-2s-review/", "https://www.techradar.com/cameras/camera-accessories/dji-mic-mini-2s-arrives-here-are-5-upgrades-you-can-expect-over-the-regular-mic-mini-2"], "note": "송신기 11시간, 수신기 10시간, 케이스 포함 총 40시간"}
+ ],
+ "rebuttals": [
+   "32비트 플로트가 뭔지 모르겠다 — 녹음할 때 볼륨이 너무 크면 소리가 찢어지는데, 32비트는 그 찢어진 부분을 살릴 수 있는 포맷이다. 편집할 때 볼륨만 줄이면 원래 소리가 나온다",
+   "8만원이면 비싸다 핀마이크 만원에도 있다 — 만원짜리 유선은 깨지면 다시 찍어야 한다. 이건 깨져도 살릴 수 있으니 야외 촬영에서 재촬영이 줄어든다",
+   "DJI Neo 드론이랑 같은 DJI인데 또 DJI냐 — 제품군이 다르다. 드론은 카메라이고 이건 마이크다. 브랜드 쿨다운은 같은 카테고리에만 적용된다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/dji_mic_mini_2s_hero.jpg",
+   "title": "무선 마이크에서\n녹음 깨짐이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "DJI Mic Mini 2S — 12g\n32비트 플로트 녹음\n소리가 터져도 파형이 살아 있다",
+   "body_hl": ["32비트 플로트", "살아 있다"],
+   "credit": "DJI 공식"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/dji_mic_mini_2s_detail.jpg",
+   "title": "12g 안에\n녹음기가 통째로 들어갔다",
+   "title_hl": ["12g"],
+   "body": "14.5GB 내장 — 수신기 없이 단독 녹음\n배터리 11시간\n5분 충전으로 1시간 사용",
+   "body_hl": ["14.5GB", "11시간"],
+   "sub": "국내 DJI 스토어 85,100원(송신기 단품)",
+   "credit": "DJI 공식"
+  }
+ ]
+}
