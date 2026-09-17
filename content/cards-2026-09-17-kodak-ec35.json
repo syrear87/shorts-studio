@@ -1,0 +1,41 @@
+{
+ "topic": "Kodak EC35 — 코닥이 7가지 색 필름 카메라를 다시 만들었다, 슬라이드 커버를 밀면 렌즈가 열린다, 102g 47,000원 [소유욕형]",
+ "blog_teaser": "일회용 카메라와 뭐가 다른지, 색상별 실물 느낌, 국내 구매 방법은 블로그에 정리했습니다",
+ "threads_text": "일회용 카메라에서 '일회용'이 사라졌다\n\n1. Kodak EC35 — 코닥이 레토 프로젝트랑 만든 35mm 필름 카메라\n2. 슬라이드 커버 밀면 렌즈 열리는 그 구조가 그대로 들어있다\n3. 102g, AA 건전지 하나, 수동 필름 감기\n4. 일회용 카메라 두 번 사는 값이면 이건 계속 쓴다\n5. $34.99(약 47,000원), 국내 미출시 — 직구 총 5~6만원\n\n(출처: PetaPixel, B&H Photo, Kodak/Reto Project 공식)",
+ "caption": "일회용 카메라에서 '일회용'이 사라졌다\n\nKodak EC35.\n슬라이드 커버를 밀면 렌즈가 열린다.\n90년대 포인트앤슛 감성 그대로.\n\n25mm f/10 광각 고정초점.\n내장 플래시. AA 건전지 1개.\n102g — 재킷 주머니에 들어간다.\n\n7가지 색: 미드나이트 블랙, 바닐라 화이트, 버터 옐로우, 라벤더, 파우더 블루, 블러시 핑크, 아보카도 그린.\n\n$34.99(약 47,000원), 필름 번들 $45\n공식몰 직구: kodak.retopro.co\n$150 이하 관세 면제 — 배송 포함 5~6만원\n국내 대안: 코닥 M35 39,900원(코닥캐리어 한국)\n\n(출처: PetaPixel, B&H Photo, Kodak/Reto Project 공식)\n\n#코닥 #필름카메라 #KodakEC35 #레트로카메라 #소유욕",
+ "factcheck": [
+   {"claim": "가격 $34.99, 번들 $45", "sources": ["https://www.kodak.retopro.co/products/kodak-ec35-br-35mm-film-camera", "https://www.bhphotovideo.com/c/product/1990772-REG/kodak_rk0701_ec35_35mm_film_camera.html"], "note": "Reto Project 공식 스토어 + B&H Photo 교차확인. 번들은 Kodak Ultramax 400 필름 포함"},
+   {"claim": "102g, 119×65×41.5mm", "sources": ["https://kr.imboldn.com/%EC%BD%94%EB%8B%A5-ec35-%EC%B9%B4%EB%A9%94%EB%9D%BC/", "https://hiconsumption.com/tech/fiio-cp11-portable-cassette-player/"], "note": "임볼든 한국 + HiConsumption 등 복수 매체 동일 수치"},
+   {"claim": "25mm f/10 고정초점, 1/100초 고정셔터", "sources": ["https://www.kodak.com/en/consumer/product/cameras/film/ec35-film-camera/", "https://kr.imboldn.com/%EC%BD%94%EB%8B%A5-ec35-%EC%B9%B4%EB%A9%94%EB%9D%BC/"], "note": "Kodak 공식(25mm) + 임볼든(f/10, 1/100초) 교차확인"},
+   {"claim": "7가지 색상", "sources": ["https://www.kodak.retopro.co/products/kodak-ec35-br-35mm-film-camera", "https://www.bhphotovideo.com/c/product/1990772-REG/kodak_rk0701_ec35_35mm_film_camera.html"], "note": "Midnight Black, Vanilla White, Butter Yellow, Lavender, Powder Blue, Blush Pink, Avocado Green"},
+   {"claim": "RETO Production Ltd. 제조, 코닥 라이선스", "sources": ["https://www.kodak.com/en/consumer/product/cameras/film/ec35-film-camera/", "https://petapixel.com/2026/07/17/the-kodak-ec35-35mm-film-camera-brings-back-the-iconic-slide-cover/"], "note": "Kodak 공식 'RETO Production Ltd. manufactures and sells this product'"},
+   {"claim": "국내 미출시 — 코닥캐리어 한국에 EC35 없음", "sources": ["https://kodak.newcolumbus.co.kr/category/camera/49/"], "note": "2026-09-17 확인, 14개 카메라 중 EC35 미등록. M35(39,900원), F9(53,900원) 등은 있음"},
+   {"claim": "$150 이하 관세 면제", "sources": ["https://www.customs.go.kr"], "note": "미국발 목록통관 물품 $150 이하 면세 기준"}
+ ],
+ "rebuttals": [
+   "스마트폰이면 되는데 필름 카메라가 왜 필요하냐 — 필요 없다. 그게 이 물건의 정체다. LP 턴테이블이 2026년에도 팔리는 이유와 같다. 결과물이 아니라 찍는 과정이 주는 기분이 다르다",
+   "일회용 카메라 사는 게 낫지 않냐 — 코닥 펀세이버 일회용이 23,000원이다. 두 번이면 46,000원으로 EC35 한 대 값이다. 세 번부터 EC35가 싸다",
+   "아크릴 렌즈라 화질이 별로일 텐데 — 맞다. f/10 고정초점이라 빛 많은 야외에서만 제대로 나온다. 이건 화질을 쫓는 카메라가 아니라 일회용의 감성을 계속 쓰려는 카메라다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/kodak_ec35_yellow.jpg",
+   "title": "일회용 카메라에서\n'일회용'이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "Kodak EC35\n슬라이드 커버를 밀면 렌즈가 열린다\n102g — 재킷 주머니에 넣는 필름 카메라",
+   "body_hl": ["슬라이드 커버를 밀면", "주머니에"],
+   "credit": "Kodak / Reto Project / B&H Photo"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/kodak_ec35_detail.jpg",
+   "title": "일회용 카메라 두 번 값이면\n버리지 않는 필름 카메라가 된다",
+   "title_hl": ["버리지 않는"],
+   "body": "25mm 광각 + 내장 플래시, AA 건전지 1개\n35mm 필름만 갈아 끼우면 계속 쓴다",
+   "body_hl": ["갈아 끼우면 계속"],
+   "sub": "$34.99(약 47,000원), 필름 번들 $45\n공식몰 직구: kodak.retopro.co\n$150 이하 관세 면제 — 배송 포함 5~6만원\n국내 대안: 코닥 M35 39,900원(코닥캐리어 한국)",
+   "credit": "Kodak / Reto Project / B&H Photo"
+  }
+ ]
+}
