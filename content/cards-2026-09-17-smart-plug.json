@@ -1,0 +1,41 @@
+{
+ "topic": "스마트 플러그 — 추석에 집 비울 때, 만원이면 콘센트가 폰으로 켜지고 꺼진다 [구매가능][공유형]",
+ "blog_teaser": "TP-Link Tapo 시리즈 비교, 설치법, 외출 모드 설정법은 블로그에 정리했습니다",
+ "threads_text": "콘센트에서 이제 스위치가 사라졌다\n\n1. 스마트 플러그를 콘센트에 꽂으면 — 집 밖에서 폰으로 on/off 된다\n2. 외출 모드를 켜면 조명이 랜덤으로 켜졌다 꺼진다 — 빈집인 줄 모른다\n3. 타이머로 선풍기·가습기를 자동 off — 끄러 돌아갈 일이 없다\n4. TP-Link Tapo P100 만원대, 앱 무료, 공유기만 있으면 된다\n5. 만원이면 끝나는 걱정이었다\n\n(출처: TP-Link 공식, 다나와)",
+ "caption": "콘센트에서 이제 스위치가 사라졌다\n\n스마트 플러그를 콘센트에 꽂고 가전을 연결하면\n폰에서 켜고 끌 수 있다.\n\n외출 모드를 켜면 조명이 랜덤으로 켜졌다 꺼진다.\n빈집인 줄 모른다.\n\n타이머로 선풍기·가습기를 자동 off.\n끄러 돌아갈 일이 없다.\n\nTP-Link Tapo P100 — 13,150원\nTapo P100M(Matter 지원) — 14,230원\nTapo P110M(전력량 측정) — 15,030원\n\n만원이면 끝나는 걱정이었다.\n\n(출처: TP-Link 공식, 다나와)\n\n#스마트플러그 #스마트홈 #추석 #TapoP100 #IoT",
+ "claims": [
+   {"claim": "TP-Link Tapo P100 만원대", "price_basis": "판매처", "price_checked": "2026-09-17", "source": "https://www.danawa.com/"}
+ ],
+ "factcheck": [
+   {"claim": "TP-Link Tapo P100 13,150원", "sources": ["https://www.danawa.com/", "https://www.tp-link.com/kr/home-networking/smart-plug/tapo-p100/"], "note": "다나와 최저가 13,150원 교차확인. WiFi 2.4GHz, 최대 2,300W"},
+   {"claim": "외출 모드(Away Mode)로 조명 랜덤 점등", "sources": ["https://www.tp-link.com/kr/support/faq/2098/", "https://www.tp-link.com/kr/home-networking/smart-plug/tapo-p100/#overview"], "note": "TP-Link 공식 FAQ — Away Mode가 랜덤 시간에 기기를 켜고 꺼 빈집 방지"},
+   {"claim": "앱 무료, 공유기만 있으면 설치 가능", "sources": ["https://play.google.com/store/apps/details?id=com.tplink.iot", "https://www.tp-link.com/kr/home-networking/smart-plug/tapo-p100/"], "note": "Tapo 앱 무료, 별도 허브 불필요 — WiFi 공유기 직접 연결"},
+   {"claim": "타이머·스케줄 기능으로 자동 on/off", "sources": ["https://www.tp-link.com/kr/home-networking/smart-plug/tapo-p100/#overview", "https://www.tp-link.com/kr/support/faq/2098/"], "note": "공식 스펙 — 타이머, 스케줄, 카운트다운 기능 내장"}
+ ],
+ "rebuttals": [
+   "공유기가 꺼지면 무용지물 아니냐 — 추석에 공유기를 끄고 갈 일은 없다. 인터넷은 켜둬야 CCTV도 돌아간다. 혹시 정전이면 복전 후 자동 재연결된다",
+   "해킹 위험 있지 않냐 — TP-Link Tapo는 AES 128비트 암호화 + 클라우드 인증을 쓴다. 공유기 비밀번호만 제대로 걸면 일반 가정에선 충분하다",
+   "고전력 가전도 되냐 — Tapo P100 최대 2,300W까지 지원하지만 에어컨·전기히터 같은 난방기기는 안전상 쓰지 마라. 조명·선풍기·가습기 수준이 적합하다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/smart_plug_hook.jpg",
+   "title": "콘센트에서 이제\n스위치가 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "만원짜리 하나 꽂으면 — 집 밖에서 on/off\n외출 모드 켜면 조명이 알아서 켜졌다 꺼진다",
+   "body_hl": ["만원짜리", "알아서"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/smart_plug_end.jpg",
+   "title": "만원이면 끝나는\n걱정이었다",
+   "title_hl": ["끝나는"],
+   "body": "외출 모드 — 조명이 랜덤으로 켜졌다 꺼진다\n타이머 — 선풍기·가습기 자동 off",
+   "body_hl": ["외출 모드", "타이머"],
+   "sub": "TP-Link Tapo P100 — 13,150원\nTapo P100M(Matter) — 14,230원\n(출처: TP-Link 공식, 다나와)",
+   "credit": "Pexels"
+  }
+ ]
+}
