@@ -1,0 +1,39 @@
+{
+ "topic": "PlayStation Pulse — 소니가 헤드폰 회사를 사더니, PS5 헤드셋이 달라졌다, 40만원짜리 플래너 마그네틱 기술이 콘솔 헤드셋에 내려왔다 [한계붕괴형]",
+ "blog_teaser": "플래너 마그네틱이 일반 드라이버와 뭐가 다른지, Audeze 기존 제품과 비교한 표는 블로그에 있습니다",
+ "threads_text": "소니가 헤드폰 회사를 사더니, PS5 헤드셋이 달라졌다\n\n1. 2023년에 소니가 Audeze 인수 — 40만원대 헤드폰 만들던 곳\n2. 그 기술(플래너 마그네틱)이 PS5 헤드셋에 들어감\n3. 얇은 진동판이 자기장 사이에서 움직여서 왜곡이 적다\n4. 게임에서 발소리 방향이 더 정확해진다\n5. 2026년 연말 출시 예정, 가격 미정\n\n(출처: PlayStation Blog, Engadget, ecoustics)",
+ "caption": "소니가 헤드폰 회사를 사더니, PS5 헤드셋이 달라졌다\n\n2023년 8월, 소니가 Audeze를 인수했다.\n40만원대 플래너 마그네틱 헤드폰을 만들던 회사다.\n\n3년 뒤 그 기술이 PlayStation Pulse에 들어갔다.\n\n플래너 마그네틱이 뭐냐면 —\n일반 헤드폰은 코일이 붙은 둥근 진동판이 움직인다.\n플래너 마그네틱은 얇은 막 전체가 자기장 사이에서 움직인다.\n진동판이 균일하게 움직여서 왜곡이 적고\n발소리 같은 미세한 방향 정보가 더 정확하다.\n\n기존에도 Audeze Mobius(2018)가 있었지만\n콘솔 제조사가 직접 만든 건 이번이 처음이다.\n\nPulse: 드라이버당 마그넷 4개, PlayStation Link 무손실 무선\nPulse Edge: 마그넷 8개, ANC 탑재, 탈착식 붐 마이크\n\n2026년 연말 출시(Pulse), 2027년 초(Pulse Edge)\n가격 미정\n\n(출처: PlayStation Blog 2026-09-15, Engadget, ecoustics, SIE 공식 발표 2023-08-24)\n\n#PlayStation #PS5 #헤드셋 #플래너마그네틱 #Audeze",
+ "factcheck": [
+   {"claim": "소니(SIE)가 2023년 8월 Audeze 인수", "sources": ["https://sonyinteractive.com/en/press-releases/2023/sony-interactive-entertainment-to-acquire-audeze/", "https://www.businesswire.com/news/home/20230824336695/en/"], "note": "2023-08-24 SIE 공식 발표. BusinessWire 교차확인"},
+   {"claim": "PlayStation Pulse에 플래너 마그네틱 드라이버 탑재", "sources": ["https://blog.playstation.com/2026/09/15/introducing-the-next-line-of-ps5-audio-products-playstation-pulse-and-pulse-edge-wireless-headsets/", "https://www.engadget.com/2259911/sony-unveils-playstation-pulse-wireless-headsets-planar-magnetic-drivers/"], "note": "2026-09-15 PlayStation Blog 공식 발표. Pulse=마그넷 4개, Pulse Edge=마그넷 8개. Engadget 교차확인"},
+   {"claim": "콘솔 제조사가 직접 만든 플래너 마그네틱 게이밍 헤드셋은 처음", "sources": ["https://www.ecoustics.com/products/sony-playstation-pulse-headsets/", "https://www.gamesradar.com/hardware/headsets-headphones/playstation-is-doubling-down-on-planar-drivers-as-it-announces-a-new-duo-of-pulse-wireless-ps5-headsets/"], "note": "Audeze Mobius(2018)가 플래너 마그네틱 게이밍 헤드셋 최초. 그러나 Audeze는 서드파티. 콘솔 제조사 퍼스트파티로는 PlayStation이 최초. ecoustics, GamesRadar 참조"},
+   {"claim": "Audeze 헤드폰 가격대 $300-400", "sources": ["https://www.audeze.com/products/mobius", "https://headphones.com/blogs/announcements/audeze-to-be-acquired-by-sony-interactive"], "note": "Audeze Mobius $399, Maxwell $299. 공식 사이트 기준"},
+   {"claim": "2026년 연말 출시(Pulse), 2027년 초(Pulse Edge)", "sources": ["https://blog.playstation.com/2026/09/15/introducing-the-next-line-of-ps5-audio-products-playstation-pulse-and-pulse-edge-wireless-headsets/"], "note": "PlayStation Blog 원문: 'holiday season'(Pulse), 'early 2027'(Pulse Edge)"}
+ ],
+ "rebuttals": [
+   "Audeze Mobius가 2018년에 이미 했는데 처음이라고 하면 안 된다 — 본문에 Audeze Mobius 선행 사실을 명시했고 '콘솔 제조사 퍼스트파티 최초'로 한정했다. 기술 자체가 처음이라고 쓰지 않았다",
+   "가격도 모르는데 무슨 한계붕괴냐 — 기존 Audeze 게이밍 헤드셋이 $299-399이고, 소니가 인수해서 대량생산 라인에 올린 것이 핵심이다. 가격은 미정이라고 명시했다",
+   "PS5 없으면 의미 없는 소식 아니냐 — PlayStation Link뿐 아니라 블루투스도 지원하고, 3.5mm 유선 연결도 된다(Pulse Edge). 콘솔 전용이 아니다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/ps_pulse_2.jpg",
+   "title": "소니가 헤드폰 회사를 샀더니\nPS5 헤드셋이 달라졌다",
+   "title_hl": ["달라졌다"],
+   "body": "PlayStation Pulse\n40만원대 오디오파일 기술이\n콘솔 헤드셋에 내려왔다",
+   "body_hl": ["40만원대", "내려왔다"],
+   "credit": "Sony Interactive Entertainment / PlayStation Blog"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/ps_pulse_1.jpg",
+   "title": "2023년에 Audeze를 인수했다\n3년 뒤에 이것이 나왔다",
+   "title_hl": ["Audeze를 인수", "이것이 나왔다"],
+   "body": "플래너 마그네틱 — 얇은 막이 자기장 사이에서 움직인다\n왜곡이 적고 발소리 방향이 정확하다\nPulse: 마그넷 4개 + 무손실 무선\nPulse Edge: 마그넷 8개 + ANC",
+   "body_hl": ["플래너 마그네틱", "마그넷 4개", "마그넷 8개"],
+   "sub": "2026년 연말 출시(Pulse), 2027년 초(Pulse Edge)\n가격 미정 — 기존 Audeze는 $299~399였다",
+   "credit": "Sony Interactive Entertainment / PlayStation Blog"
+  }
+ ]
+}
