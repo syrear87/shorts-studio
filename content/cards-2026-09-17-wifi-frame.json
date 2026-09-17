@@ -1,0 +1,41 @@
+{
+ "topic": "WiFi 디지털 액자 — USB 없이 폰에서 보내면 바로 뜬다, 가족 30명이 한 액자에 사진을 보낸다, 10인치 69,000원 [구매가능][공유형]",
+ "blog_teaser": "앱 연결 방법, 국내 브랜드별 가격 비교, WiFi 없이도 되는지 여부는 블로그에 정리했습니다",
+ "threads_text": "디지털 액자에서 USB가 사라졌다\n\n1. 요즘 디지털 액자는 WiFi로 사진을 받는다 — 폰에서 보내면 거실 액자에 바로 뜬다\n2. Frameo 앱 하나로 가족 최대 30명이 같은 액자에 사진을 보낼 수 있다\n3. 한번 저장된 사진은 WiFi 꺼도 계속 나온다\n4. 10인치 IPS 기준 69,000원 — 카멜 CPF1010IPS\n5. USB 꽂고 빼던 시대는 끝났다\n\n(출처: Frameo 공식, 다나와, 카멜 공식)",
+ "caption": "디지털 액자에서 USB가 사라졌다\n\n요즘 디지털 액자는 WiFi로 사진을 받는다.\n폰에서 보내면 거실 액자에 바로 뜬다.\n\nFrameo 앱 하나로 가족 최대 30명이\n같은 액자에 사진을 보낼 수 있다.\n\n한번 저장된 사진은 WiFi 꺼도 계속 나온다.\n구독료 없다. 앱도 무료.\n\n10인치 IPS 기준 69,000원 — 카멜 CPF1010IPS\n유니콘 LF1010W는 79,000원대\n\nUSB 꽂고 빼던 시대는 끝났다.\n\n(출처: Frameo 공식, 다나와, 카멜 공식)\n\n#디지털액자 #와이파이액자 #카멜 #Frameo #가족선물",
+ "claims": [
+   {"claim": "카멜 CPF1010IPS 69,000원", "price_basis": "판매처", "price_checked": "2026-09-17", "source": "https://www.danawa.com/"}
+ ],
+ "factcheck": [
+   {"claim": "Frameo 앱으로 가족 최대 30명이 사진 전송 가능", "sources": ["https://frameo.net/", "https://play.google.com/store/apps/details?id=net.frameo.app"], "note": "Frameo 공식 — 'Invite up to 30 friends and family'. 앱 무료, 기본 기능 구독 없음"},
+   {"claim": "카멜 CPF1010IPS 10인치 69,000원", "sources": ["https://www.danawa.com/", "https://www.ssg.com/"], "note": "다나와·SSG 교차확인. 10.1인치 IPS, 1280×800, Frameo 탑재"},
+   {"claim": "WiFi 없이도 저장된 사진 재생 가능", "sources": ["https://frameo.net/faq", "https://www.reddit.com/r/digitalpictureframes/"], "note": "Frameo FAQ — 수신 시에만 WiFi 필요, 저장된 사진은 오프라인 재생"},
+   {"claim": "USB 없이 WiFi로 사진 수신하는 디지털 액자 시장 존재", "sources": ["https://frameo.net/", "https://www.danawa.com/"], "note": "카멜·유니콘·Aura 등 다수 브랜드가 WiFi 수신 방식 채택"}
+ ],
+ "rebuttals": [
+   "그냥 태블릿 거치하면 되지 않냐 — 10인치 태블릿이 30만원이고 매일 충전해야 한다. 디지털 액자는 7만원에 전원만 꽂으면 24시간 돌아간다. 거실에 묵혀둘 기기로 태블릿은 과하다",
+   "화질이 별로일 텐데 — 10인치 IPS 1280×800이면 1m 거리에서 사진 보기에 충분하다. 4K 모니터가 필요한 게 아니라 거실 선반 위에 사진이 바뀌는 게 목적이다",
+   "어르신이 앱을 쓸 수 있겠냐 — 앱은 사진 보내는 쪽이 깐다. 액자를 받는 어르신은 전원만 꽂으면 된다. 설정도 처음 한 번이면 끝이다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/wifi_frame_hook.jpg",
+   "title": "디지털 액자에서\nUSB가 사라졌다",
+   "title_hl": ["USB가 사라졌다"],
+   "body": "폰에서 보내면 거실 액자에 바로 뜬다\n가족 30명이 한 액자에 사진을 보낼 수 있다",
+   "body_hl": ["바로 뜬다", "30명"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/wifi_frame_end.jpg",
+   "title": "USB 꽂고 빼던 시대는\n끝났다",
+   "title_hl": ["끝났다"],
+   "body": "Frameo 앱 무료, 구독료 없음\nWiFi 꺼도 저장된 사진은 계속 나온다",
+   "body_hl": ["무료", "계속 나온다"],
+   "sub": "10인치 IPS 기준 69,000원 — 카멜 CPF1010IPS\n유니콘 LF1010W 79,000원대\n(출처: Frameo 공식, 다나와, 카멜 공식)",
+   "credit": "Pexels"
+  }
+ ]
+}
