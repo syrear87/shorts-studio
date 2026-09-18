@@ -1,0 +1,42 @@
+{
+ "topic": "블랙박스 SD카드 수명 — 녹화하는 척만 하는 블랙박스, SD카드가 6개월이면 죽는다 [구매가능][공유형]",
+ "blog_teaser": "일반 SD카드와 블랙박스 전용 카드의 수명 차이, 교체 주기 기준은 블로그에 정리했습니다",
+ "threads_text": "블랙박스 SD카드, 6개월 지나면 빈 파일만 남는다\n\n1. 일반 microSD는 블랙박스에서 6개월~1년이면 죽는다 — TLC 셀이 연속 쓰기를 못 버틴다\n2. 죽어도 화면은 정상이다 — 파일이 안 열리거나 비어 있다는 걸 사고 나야 안다\n3. 전용 카드(High Endurance)는 수명이 10배 이상 — 삼성 PRO Endurance 128GB가 43,800시간\n4. 쿠팡 기준 전용 카드 2만원대, 일반 카드 만원대 — 만원 차이로 수년 간다\n5. 추석 출발 전에 SD카드 포맷부터 하자\n\n(출처: ATP Inc, Notebookcheck, 삼성 공식, 쿠팡)",
+ "caption": "블랙박스 SD카드, 6개월 지나면 빈 파일만 남는다\n\n블랙박스 SD카드.\n24시간 쉬지 않고 덮어쓴다.\n일반 microSD는 6개월~1년이면 죽는다.\n\nTLC 셀의 쓰기 수명이 500~1,000회인데\n블랙박스는 하루에도 수십 번 같은 셀을 덮어쓴다.\n\n문제는 죽어도 티가 안 난다는 것.\n화면은 정상인데 파일이 비어 있거나 열리지 않는다.\n사고가 나야 알게 되는 침묵의 고장.\n\n블랙박스 전용 카드(High Endurance)는 다르다.\nMLC나 pSLC로 쓰기 수명이 10배 이상.\n삼성 PRO Endurance 128GB — 43,800시간 연속 녹화.\n쿠팡에서 2만원대.\n\n일반 128GB microSD는 만원대.\n만원 차이가 수년치 녹화 수명을 바꾼다.\n\n추석 장거리 출발 전에 SD카드부터 확인하자.\n\n(출처: ATP Inc, Notebookcheck, Samsung, 쿠팡)\n\n#블랙박스 #SD카드 #블랙박스SD카드 #추석운전 #차량용품",
+ "factcheck": [
+   {"claim": "일반 microSD(TLC)는 블랙박스에서 6개월~1년이면 수명 다함", "sources": ["https://www.atpinc.com/blog/why-sd-cards-fail-in-dashcam", "https://www.notebookcheck.net/MicroSD-cards-in-dashcams.571991.0.html"], "note": "ATP Inc(산업용 스토리지): TLC 카드는 연속 녹화 6~12개월 내 열화. Notebookcheck에서도 교차 확인"},
+   {"claim": "죽어도 화면은 정상 — 파일이 비어있거나 손상된 채 기록됨", "sources": ["https://www.dnhdashcam.com/dashcam-sd-card-failure/", "https://www.atpinc.com/blog/why-sd-cards-fail-in-dashcam"], "note": "Silent failure: 블랙박스 UI는 정상 표시, 실제 파일은 0바이트 또는 열리지 않음"},
+   {"claim": "삼성 PRO Endurance 128GB: 43,800시간 연속 녹화", "sources": ["https://semiconductor.samsung.com/consumer-storage/memory-cards/pro-endurance/", "https://www.notebookcheck.net/Samsung-Pro-Endurance-review.590280.0.html"], "note": "삼성 공식 스펙시트 43,800시간(약 5년). Notebookcheck 리뷰에서 실측 확인"},
+   {"claim": "쿠팡 기준 전용 카드 2만원대, 일반 카드 만원대", "sources": ["https://www.coupang.com/np/search?q=삼성+PRO+Endurance+128GB", "https://www.coupang.com/np/search?q=삼성+EVO+PLUS+128GB"], "note": "PRO Endurance 128GB 26,490원, EVO PLUS 128GB 17,290원 — 9,200원 차이"}
+ ],
+ "claims": [
+   {"text": "전용 카드 2만원대", "value": "26,490원", "price_basis": "판매처", "price_checked": "2026-09-18", "source": "https://www.coupang.com/np/search?q=삼성+PRO+Endurance+128GB"},
+   {"text": "일반 카드 만원대", "value": "17,290원", "price_basis": "판매처", "price_checked": "2026-09-18", "source": "https://www.coupang.com/np/search?q=삼성+EVO+PLUS+128GB"}
+ ],
+ "rebuttals": [
+   "블랙박스가 알아서 알려주지 않냐 — 대부분의 블랙박스는 SD카드 오류를 감지 못 한다. 화면은 정상이고 LED도 켜져 있다. 녹화 파일을 직접 꺼내 확인하지 않으면 모른다",
+   "그냥 싼 거 사서 자주 갈면 되지 않냐 — 가능은 하다. 하지만 교체 시점을 놓치면 사고 순간 녹화가 없다. 전용 카드는 만원 더 주고 교체 주기를 몇 년으로 늘리는 보험이다",
+   "내 블랙박스는 3년째 잘 되는데 — 운이 좋거나 녹화 시간이 짧은 것이다. 주차 감시 모드(24시간 연속 녹화)를 켠 차와 출퇴근만 하는 차는 SD 수명이 10배 이상 차이 난다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/dashcam_sd_hook.jpg",
+   "title": "블랙박스가\n녹화하는 척만 한다",
+   "title_hl": ["녹화하는 척"],
+   "body": "일반 SD카드는 6개월이면 죽는다\n죽어도 화면은 정상 — 사고 나야 안다",
+   "body_hl": ["6개월", "사고 나야 안다"],
+   "credit": "Unsplash"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/dashcam_sd_end.jpg",
+   "title": "만원 차이가\n수년치 녹화를 바꾼다",
+   "title_hl": ["만원 차이", "수년치"],
+   "body": "전용 카드(High Endurance) — 쓰기 수명 10배\n삼성 PRO Endurance 128GB: 43,800시간",
+   "body_hl": ["10배", "43,800시간"],
+   "sub": "쿠팡 2만원대 — 추석 전에 바꾸자",
+   "credit": "Unsplash"
+  }
+ ]
+}
