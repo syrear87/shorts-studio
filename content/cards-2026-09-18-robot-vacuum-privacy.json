@@ -1,0 +1,38 @@
+{
+ "topic": "ECOVACS DEEBOT X12S 프라이버시 쉴드 — 로봇청소기 카메라에 뚜껑이 달렸다, 2년 전 해킹으로 가정 내 카메라가 중계된 사건이 원인이다 [공유형]",
+ "blog_teaser": "2024년 해킹 사건의 전말과 로봇청소기 카메라 보호법은 블로그에 정리했습니다",
+ "threads_text": "로봇청소기가 해킹돼서 집 안을 중계했다 — 드디어 뚜껑이 달렸다\n\n1. 2024년 미국에서 에코백스 카메라가 해킹됐다\n2. 집 안이 중계됐고 스피커에서 욕설이 나왔다\n3. 다른 집에선 해킹된 청소기가 강아지를 쫓아다녔다\n4. 2년 뒤 같은 회사가 물리적 뚜껑을 달았다 — ECOVACS X12S\n5. 소프트웨어는 뚫리지만 눈에 보이는 뚜껑은 확인이 된다\n\n(출처: ABC News, Malwarebytes, ECOVACS 공식)",
+ "caption": "로봇청소기가 해킹돼서 집 안을 중계했다 — 드디어 뚜껑이 달렸다\n\n로봇청소기에는 카메라가 달려 있다.\n장애물을 피하려고.\n그런데 그 카메라가 해킹됐다.\n\n2024년 미국 — 에코백스 로봇청소기 카메라가 뚫렸다.\n누군가가 집 안을 실시간으로 봤다.\n스피커에서는 욕설이 나왔다.\n13살 아이가 옆에 있었다.\n다른 집에서는 청소기가 강아지를 쫓아다녔다.\n\n원인: 카메라 비밀번호를 앱에서만 확인하고\n서버에서는 검증하지 않았다.\n\n2년 뒤, 같은 회사가 답을 냈다.\nECOVACS DEEBOT X12S — 물리적 프라이버시 쉴드.\n소프트웨어가 아니라 눈에 보이는 뚜껑이다.\n닫으면 렌즈가 물리적으로 막힌다.\n\n(출처: ABC News, Malwarebytes, Kaspersky, ECOVACS)\n\n#로봇청소기 #프라이버시 #스마트홈 #해킹 #ECOVACS",
+ "factcheck": [
+   {"claim": "2024년 미국에서 ECOVACS Deebot X2가 해킹되어 카메라가 중계되고 스피커에서 욕설이 나옴", "sources": ["https://www.abc.net.au/news/2024-10-11/robot-vacuum-yells-racial-slurs-at-family-after-being-hacked/104445408", "https://www.malwarebytes.com/blog/news/2024/10/robot-vacuum-cleaners-hacked-to-spy-on-insult-owners", "https://www.kaspersky.com/blog/ecovacs-robot-vacuums-hacked-in-real-life/52837/"], "note": "미네소타주 변호사 Daniel Swenson의 실명 증언. 13살 아들이 옆에 있었다. LA에서는 강아지를 추격. ABC News, Malwarebytes, Kaspersky 3개 매체 교차 확인"},
+   {"claim": "원인: PIN 코드를 앱에서만 검증하고 서버에서 검증하지 않음 + 130m 내 블루투스 정적 키로 무단 접근 가능", "sources": ["https://www.malwarebytes.com/blog/news/2024/10/robot-vacuum-cleaners-hacked-to-spy-on-insult-owners", "https://www.kaspersky.com/blog/ecovacs-robot-vacuums-hacked-in-real-life/52837/"], "note": "보안 연구자 Dennis Giese, Braelynn Luedtke가 2023년 12월 에코백스에 제보했으나 10개월간 무응답"},
+   {"claim": "ECOVACS DEEBOT X12S에 물리적 프라이버시 쉴드(카메라 물리 커버) 탑재", "sources": ["https://www.androidpolice.com/ecovacs-deebot-x12s-omnicyclone-tackles-both-dust-mites-and-privacy-fears/", "https://wifihifi.com/ifa-2026-ecovacs-deebot-x12s-omnicyclone-has-a-privacy-shield/", "https://vacuumchef.com/ecovacs-unveils-deebot-x12s-omnicyclone-at-ifa-2026-bringing-deeper-carpet-cleaning-self-washing-mopping-and-hardware-based-privacy-to-the-home/"], "note": "IFA 2026에서 발표. ECOVACS 마케팅 디렉터 Michelle Jones: 'A cover you can see is easier to trust'"},
+   {"claim": "미국 가격 $1,299.99", "sources": ["https://9to5toys.com/2026/09/04/ecovacs-deebot-x12s-omnicyclone-robot-vacuum-and-mop-ifa-2026/", "https://www.ecovacs.com/us/shop/deebot-robotic-vacuum-cleaner/deebot-x12s-omnicyclone"], "note": "ECOVACS 공식 스토어 및 아마존 판매가 확인. 런칭 프로모션 $999.99"}
+ ],
+ "rebuttals": [
+   "소프트웨어 업데이트로 보안 패치하면 되지 않냐 — 2023년 12월에 취약점이 보고됐는데 에코백스가 10개월간 무응답이었다. 소프트웨어 패치는 제조사가 해줘야 하는데 안 해줄 수도 있다. 물리적 커버는 제조사에 의존하지 않는다",
+   "로봇청소기 카메라 해킹이 한국에서도 일어났냐 — 2024년 사건은 미국이지만 같은 제품이 한국에서도 팔린다. 취약점은 지역을 가리지 않고, 블루투스 130m 범위면 아파트 단지에서 가능하다",
+   "뚜껑 닫으면 청소할 때 장애물을 못 피하지 않냐 — 그렇다. 프라이버시 쉴드를 닫으면 카메라 기반 장애물 회피가 꺼진다. 청소할 때는 열고, 안 쓸 때는 닫는 구조다. 완벽한 해결은 아니지만 선택권이 생긴 것이다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/ecovacs_x12s_hook.jpg",
+   "title": "로봇청소기 카메라가\n해킹됐다",
+   "title_hl": ["해킹됐다"],
+   "body": "2024년 — 집 안이 중계됐고\n스피커에서 욕설이 나왔다",
+   "body_hl": ["중계", "욕설"],
+   "credit": "ECOVACS / WiFi HiFi"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/ecovacs_x12s_end.jpg",
+   "title": "카메라에 뚜껑이 달렸다",
+   "title_hl": ["뚜껑"],
+   "body": "ECOVACS X12S — 물리적 프라이버시 쉴드\n소프트웨어가 아니라 눈에 보이는 뚜껑",
+   "body_hl": ["물리적", "눈에 보이는"],
+   "sub": "같은 회사가 2년 만에 내놓은 답",
+   "credit": "ECOVACS / WiFi HiFi"
+  }
+ ]
+}
