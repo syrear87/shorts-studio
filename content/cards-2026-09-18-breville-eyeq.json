@@ -1,0 +1,39 @@
+{
+ "topic": "Breville Eye Q 토스터 — 토스터에 눈이 달렸다, 100년 만에 타이머가 사라졌다 [한계붕괴형]",
+ "blog_teaser": "1926년 팝업 토스터 이후 100년간 타이머였던 토스트 제어가 광학 센서로 바뀐 원리와 스펙을 정리했습니다",
+ "threads_text": "토스터에 눈이 달렸다 — 100년 만에 타이머가 사라졌다\n\n1. Breville Eye Q — 이중파장 LED가 빵 색을 초당 10회 스캔한다\n2. 원하는 색이 되면 자동으로 멈춘다 — 타이머가 필요 없다\n3. 1926년 팝업 토스터(Toastmaster 1B1) 이후 100년간 타이머였다\n4. 가격 $299.95(약 42만원), 1200W, 7단계 셰이드\n5. 같은 빵 같은 결과 — 냉동이든 상온이든 센서가 맞춘다\n\n(출처: Breville, Engadget, Tom's Guide)",
+ "caption": "토스터에 눈이 달렸다 — 100년 만에 타이머가 사라졌다\n\nBreville Eye Q 850 Auto.\n토스터 안에 이중파장 LED 광학 센서가 들어갔다.\n빵 표면의 색을 초당 10회 스캔한다.\n\n원하는 색에 도달하면 자동으로 멈춘다.\n타이머도, 레버 올리기도 필요 없다.\n\n1926년 Toastmaster 1B1이 팝업 토스터를 발명한 이후\n100년간 토스터의 제어 방식은 타이머였다.\nEye Q가 그걸 광학으로 바꿨다.\n\n7단계 셰이드 설정.\n냉동 빵이든 상온이든 센서가 상태를 읽고 맞춘다.\nAuto·Sourdough·Bagel·Timer 4가지 모드.\n\n$299.95, 약 42만원.\n1200W, 2.7kg.\n\n아직 국내 정식 출시 전이지만\nBreville Korea가 운영 중이라 들어올 가능성은 있다.\n\n(출처: Breville, Engadget, Tom's Guide, Gadget Guy AU)\n\n#토스터 #Breville #EyeQ #주방가전 #한계붕괴",
+ "factcheck": [
+   {"claim": "이중파장 LED 센서가 빵 색을 초당 10회 스캔", "sources": ["https://www.breville.com/us/en/products/toasters/bta850.html", "https://www.engadget.com/food/breville-eye-q-850-auto-toaster-review-a-perfect-piece-of-toast-every-time-143048498.html"], "note": "Breville 공식 'dual-wavelength LED optic sensors' + '10 times per second' 명시. Engadget 리뷰에서도 동일 확인"},
+   {"claim": "원하는 색 도달 시 자동 정지, 타이머 불필요", "sources": ["https://www.engadget.com/food/breville-eye-q-850-auto-toaster-review-a-perfect-piece-of-toast-every-time-143048498.html", "https://www.tomsguide.com/reviews/breville-the-eye-q-850-auto"], "note": "Engadget 'first of its kind' + Tom's Guide 'auto-eject at desired shade' 확인"},
+   {"claim": "1926년 Toastmaster 1B1이 최초 팝업 토스터", "sources": ["https://en.wikipedia.org/wiki/Toaster#Pop-up_toaster", "https://www.smithsonianmag.com/innovation/brief-history-of-the-toaster-180974297/"], "note": "1926년 Waters-Genter Company의 Toastmaster Model 1-A-1이 최초 자동 팝업 토스터로 기록"},
+   {"claim": "$299.95, 1200W, 2.7kg", "sources": ["https://www.breville.com/us/en/products/toasters/bta850.html", "https://www.engadget.com/food/breville-eye-q-850-auto-toaster-review-a-perfect-piece-of-toast-every-time-143048498.html"], "note": "Breville 공식 스펙 $299.95, 1200W, 5.95lbs(2.7kg). Engadget에서도 가격 확인"},
+   {"claim": "국내 미출시, Breville Korea 운영 중", "sources": ["https://www.breville.co.kr", "https://www.youtube.com/@BrevilleKorea"], "note": "Breville Korea 공식 사이트·유튜브 존재. Eye Q 모델은 2025년 CES 공개, 한국 출시 미확인"}
+ ],
+ "rebuttals": [
+   "42만원짜리 토스터가 말이 되냐 — 일반 토스터는 2~5만원이다. 하지만 매번 타는 빵을 버리는 사람이라면 식빵값+실패 스트레스를 계산해 봐라. 그래도 비싸면 100년 전 발명이 바뀌는 걸 구경만 해도 된다",
+   "타이머로도 충분하다 — 같은 빵이라도 냉동·상온·두께·수분에 따라 결과가 다르다. 타이머는 '시간'을 재지 '색'을 보지 않는다. Eye Q는 색을 본다",
+   "센서가 고장나면 그냥 비싼 토스터 아니냐 — Timer 모드가 있다. 센서 없이 일반 토스터처럼 쓸 수 있다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/breville_eyeq_hook.jpg",
+   "title": "토스터에\n눈이 달렸다",
+   "title_hl": ["눈이 달렸다"],
+   "body": "Breville Eye Q — 빵 색을 초당 10회 스캔\n원하는 색이 되면 자동 정지\n1926년 이후 100년 만에 타이머가 사라졌다",
+   "body_hl": ["초당 10회", "100년 만에"],
+   "credit": "cottonbro studio / Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/breville_eyeq_end.jpg",
+   "title": "100년간 타이머였다\n이제 눈이 본다",
+   "title_hl": ["100년간", "눈이 본다"],
+   "body": "이중파장 LED 광학 센서\n냉동이든 상온이든 색으로 판단\n7단계 셰이드 × 4모드",
+   "body_hl": ["이중파장 LED", "색으로 판단"],
+   "sub": "$299.95(약 42만원)\n국내 미출시 — Breville Korea 운영 중",
+   "credit": "Elviss Railijs Bitāns / Pexels"
+  }
+ ]
+}
