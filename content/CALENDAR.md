@@ -740,3 +740,6 @@
 14시 카드: UGREEN MagFlow Pro — 보조배터리가 드디어 물로 식힌다, 수냉 쿨러 마이크로펌프 [한계붕괴형] — threads.com/@daily_1_pick/post/DdVhG-OmQ7H
 - 16시 카드: RayNeo iO — 스마트 안경에서 카메라가 사라졌다, 33g 선글라스보다 가볍다 [한계붕괴형] — threads.com/@daily_1_pick/post/DdVviwWGeCF
 - 20시 카드: Fosi Audio DISC Nano — 사라졌던 CD 플레이어가 폰 뒤에서 돌아왔다 [소유욕형] — threads.com/@daily_1_pick/post/DdWKXf0me2d
+
+### 2026-09-18 (목)
+- 09시 카드: Tiny Vinyl Player — 레코드판이 손바닥 크기로 바뀌었다, BTS부터 리한나까지 100만 장 [소유욕형] — threads.com/@daily_1_pick/post/DdaI2J3D61T
