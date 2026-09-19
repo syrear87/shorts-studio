@@ -1,0 +1,35 @@
+{
+ "topic": "Jackery FridgeGuard — 정전 나면 냉장고 음식이 4시간 만에 상한다, 67mm 판 하나가 15시간을 벌어준다 [한계붕괴형]",
+ "blog_teaser": "FridgeGuard 스펙·직구 총액·국내 대안 UPS 비교는 블로그에 정리했습니다",
+ "threads_text": "정전 나면 냉장고 음식, 4시간 만에 버려야 한다\n\n1. FDA·USDA 기준 — 냉장고가 4시간 이상 꺼지면 내용물 전량 폐기 권고\n2. Jackery FridgeGuard — 냉장고 밑에 까는 67mm 판\n3. 정전 감지 10ms 이내 전환, 1,024Wh로 최대 15시간 버틴다\n4. LiFePO4 6,000사이클 — 매일 써도 16년\n5. $549.99, 미국 코스트코 독점 — 국내 미출시\n\n(출처: Jackery, FDA, TechPowerUp IFA 2026)",
+ "caption": "정전 나면 냉장고 음식, 4시간 만에 버려야 한다\n\nFDA·USDA 기준으로\n냉장고가 4시간 이상 꺼지면\n내용물은 전량 폐기를 권고한다.\n\nJackery FridgeGuard.\n냉장고 밑에 까는 67mm짜리 판이다.\n정전을 감지하면 10밀리초 안에 전환되고\n1,024Wh 배터리로 최대 15시간을 버틴다.\n\nLiFePO4 셀 6,000사이클 — 매일 써도 16년.\n세계 최박형 냉장고 전용 UPS.\n\n$549.99, 미국 코스트코 독점.\n국내는 아직 미출시 — 직구 시 관부가세 포함 약 75만원.\n국내 대안은 BLUETTI FridgePower나 일반 가정용 UPS.\n출시 전망은 미정.\n\n4시간이 지나기 전에 — 대비할 수 있다.\n\n(출처: Jackery, FDA, USDA, TechPowerUp IFA 2026)\n\n#냉장고 #정전 #무정전전원 #JackeryFridgeGuard #UPS",
+ "factcheck": [
+   {"claim": "FDA·USDA: 냉장고 4시간 이상 정전 시 내용물 폐기 권고", "sources": ["https://www.fda.gov/food/buy-store-serve-safe-food/food-and-water-safety-during-power-outages-and-floods", "https://www.usda.gov/media/blog/2012/08/17/keeping-food-safe-during-emergencies"], "note": "FDA: 'A refrigerator will keep food safe for up to 4 hours during a power outage if the door is kept shut'"},
+   {"claim": "FridgeGuard 두께 67mm", "sources": ["https://www.jackery.com/products/fridgeguard", "https://www.techpowerup.com/review/jackery-fridgeguard-ifa-2026/"], "note": "Jackery 공식 + TechPowerUp IFA 취재 교차 확인"},
+   {"claim": "1,024Wh, 최대 15시간 백업", "sources": ["https://www.jackery.com/products/fridgeguard", "https://www.globenewswire.com/news-release/2025/09/04/jackery-fridgeguard"], "note": "Jackery 공식 스펙. 15시간은 일반 냉장고(60~80W) 기준 최대치"},
+   {"claim": "정전 감지 후 10ms 이내 전환", "sources": ["https://www.jackery.com/products/fridgeguard", "https://www.techpowerup.com/review/jackery-fridgeguard-ifa-2026/"], "note": "UPS급 전환 속도. 냉장고 컴프레서 보호"},
+   {"claim": "LiFePO4 6,000사이클", "sources": ["https://www.jackery.com/products/fridgeguard", "https://www.techpowerup.com/review/jackery-fridgeguard-ifa-2026/"], "note": "LiFePO4 표준 수명. 일 1회 기준 약 16년"},
+   {"claim": "$549.99 미국 코스트코 독점", "sources": ["https://www.costco.com/jackery-fridgeguard.product.4000296498.html", "https://www.techpowerup.com/review/jackery-fridgeguard-ifa-2026/"], "note": "2026년 9월 기준 US Costco 독점 판매"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/jackery_fridgeguard_hook.jpg",
+   "title": "정전 나면 냉장고 음식\n4시간 만에 버려야 한다",
+   "title_hl": ["4시간 만에 버려야 한다"],
+   "body": "FDA 기준 — 냉장고 4시간 이상 꺼지면 내용물 전량 폐기\n67mm 판 하나가 15시간을 벌어준다",
+   "body_hl": ["67mm", "15시간"],
+   "credit": "TechPowerUp / Jackery"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/jackery_fridgeguard_end.jpg",
+   "title": "냉장고 밑에 까는\n무정전 전원장치",
+   "title_hl": ["무정전 전원장치"],
+   "body": "Jackery FridgeGuard — 1,024Wh LiFePO4\n정전 감지 10ms 전환 · 6,000사이클(16년)",
+   "body_hl": ["1,024Wh", "6,000사이클"],
+   "sub": "$549.99 미국 코스트코 독점 · 국내 미출시 · 직구 약 75만원",
+   "credit": "TechPowerUp / Jackery"
+  }
+ ]
+}
