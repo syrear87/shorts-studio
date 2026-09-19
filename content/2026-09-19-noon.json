@@ -1,0 +1,71 @@
+{
+  "title": "보름달이 달 표면을 가장 못 보여주는 밤입니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "series": "공유성",
+  "bg_query": ["full moon bright surface", "camera flash portrait flat", "half moon craters shadow terminator", "telescope moon observation night", "clear night sky half moon", "moon surface closeup"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": 30124245,
+      "voice": "보름달이 달 표면을 가장 못 보여주는 밤입니다.",
+      "lines": [
+        ["보름달이 못 보여줍니다", ["못"]],
+        ["달 표면을 가장 못 보여주는 밤입니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 3917780,
+      "voice": "카메라 플래시를 정면에서 터뜨리면 얼굴이 납작해집니다. 보름달도 똑같습니다. 태양이 정면에서 비추니 크레이터 그림자가 전부 사라집니다.",
+      "lines": [
+        ["플래시를 정면에서 터뜨리면", ["정면에서"]],
+        ["그림자가 사라진다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 39583058,
+      "voice": "반달에는 빛과 어둠이 만나는 경계선이 있습니다. 여기서 빛이 비스듬히 들어오면 높이 5km짜리 크레이터가 긴 그림자를 드리우며 입체로 떠오릅니다.",
+      "lines": [
+        ["빛과 어둠의 경계선", ["경계선"]],
+        ["크레이터가 입체로 떠오른다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 39582953,
+      "voice": "오늘은 국제 달 관측의 밤입니다. NASA가 매년 이맘때를 고릅니다. 지금 달의 59%가 빛나고 있어 경계선이 한가운데를 가로지릅니다.",
+      "lines": [
+        ["9월 19일, 국제 달 관측의 밤", []],
+        ["59%가 빛나는 달, 경계선이 한가운데", ["59%"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 36940605,
+      "voice": "보름달이 못 보여주는 달의 얼굴, 오늘 밤 반달이 전부 보여줍니다. 전국 대체로 맑습니다.",
+      "lines": [
+        ["보름달이 못 보여주는 달의 얼굴", ["못"]],
+        ["오늘 밤 반달이 전부 보여줍니다", []]
+      ],
+      "hl_pair": true
+    },
+    {
+      "kind": "cta",
+      "bg": 36940605,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://earthsky.org/astronomy-essentials/international-observe-the-moon-night/",
+    "https://www.space.com/stargazing/dont-wait-for-the-full-moon-heres-when-the-moon-looks-best-through-a-telescope",
+    "https://www.nasa.gov/centers-and-facilities/goddard/celebrate-international-observe-the-moon-night-with-nasa/",
+    "https://www.weather.go.kr/w/forecast/overall/short-term.do"
+  ]
+}
