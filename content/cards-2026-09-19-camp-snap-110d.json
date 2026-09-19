@@ -1,0 +1,33 @@
+{
+ "topic": "Camp Snap 110D — 디지털 카메라에서 화면이 사라졌다, 찍어도 바로 안 보인다 — 일부러. 1970년대 110 필름 카메라 디자인, $75 [소유욕형]",
+ "blog_teaser": "화면 없는 카메라가 왜 매력적인지, 다른 스크린리스 카메라와 비교는 블로그에 정리했습니다",
+ "threads_text": "디지털 카메라에서 화면이 사라졌다\n\n1. Camp Snap 110D — microSD에 저장되지만 화면이 없어서 그 자리에서 못 본다\n2. 일부러 뺐다 — 폰 내려놓고 순간에 집중하라는 콘셉트\n3. 1970년대 110 카메라 디자인, 주머니에 들어가는 크기\n4. 빈티지 필터 5종 내장, USB-C 충전\n5. $75(약 10만원), 한국 직배송 가능\n\n(출처: DPReview, PetaPixel, Camp Snap 공식)",
+ "caption": "디지털 카메라에서 화면이 사라졌다\n\nCamp Snap 110D.\n사진을 찍으면 microSD에 저장되지만\n뒷면에 화면이 없다.\n찍고 나서 바로 확인할 수 없다.\n\n일부러 뺐다.\n폰 내려놓고 순간에 집중하라는 카메라다.\n\n1970년대 110 필름 카메라를 닮은 디자인.\n주머니에 쏙 들어간다.\n빈티지 필터 5종이 카메라 안에 들어 있고\nUSB-C로 충전한다.\n\n$75(약 10만원). 한국 직배송 가능.\n$150 미만이라 관세도 없다.\n\n(출처: DPReview, PetaPixel, Camp Snap 공식)\n\n#CampSnap #110D #스크린리스카메라 #필름감성 #레트로카메라",
+ "factcheck": [
+   {"claim": "Camp Snap 110D 가격 $74.99", "sources": ["https://www.campsnapphoto.com/products/110d", "https://www.dpreview.com/news/camp-snaps-screen-free-110d-brings-a-1970s-film-camera-shape-to-digital-for-75/"], "note": "Camp Snap 공식 사이트 및 DPReview에서 $74.99 확인"},
+   {"claim": "8MP CMOS 센서, 빈티지 필터 5종(Standard/Vintage 1/Vintage 2/Analog/B&W)", "sources": ["https://www.dpreview.com/news/camp-snaps-screen-free-110d-brings-a-1970s-film-camera-shape-to-digital-for-75/", "https://petapixel.com/2026/09/17/the-camp-snap-110d-puts-the-experience-of-a-minox-into-a-digicam/"], "note": "DPReview: 8MP Type 1/3.2 CMOS, 4.2mm F2.0 lens. PetaPixel에서 동일 사양 확인"},
+   {"claim": "화면 없는 디지털 카메라 — 의도적으로 화면을 제거", "sources": ["https://the-gadgeteer.com/2026/09/17/camp-snap-110d-screen-free-digital-camera/", "https://www.techradar.com/cameras/compact-cameras/camp-snaps-new-110-style-digital-camera-is-straight-from-the-1970s-and-promises-to-fix-the-companys-previous-screen-free-cameras-biggest-problem"], "note": "The Gadgeteer, TechRadar: Camp Snap의 핵심 콘셉트가 화면 없는 디지털 카메라임을 확인"},
+   {"claim": "한국 직배송 가능", "sources": ["https://camp-snap.reamaze.com/kb/shipping-information/where-do-you-ship-to-for-international-shipping"], "note": "Camp Snap 배송 정책: South Korea 포함. $150 미만 소액면세 적용"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/camp_snap_110d_hook.jpg",
+   "title": "디지털 카메라에서\n화면이 사라졌다",
+   "title_hl": ["화면이 사라졌다"],
+   "body": "찍어도 바로 안 보인다 — 일부러\nCamp Snap 110D, $75",
+   "body_hl": ["일부러", "$75"],
+   "credit": "Camp Snap"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/camp_snap_110d_end.jpg",
+   "title": "1970년대 카메라가\n디지털로 돌아왔다",
+   "title_hl": ["디지털로 돌아왔다"],
+   "body": "8MP · 빈티지 필터 5종 · USB-C\n폰 없이 찍고, 나중에 확인한다",
+   "body_hl": ["빈티지 필터 5종", "나중에 확인"],
+   "sub": "한국 직배송 가능 · 관세 면제($150 미만)",
+   "credit": "Camp Snap"
+  }
+ ]
+}
