@@ -1,0 +1,34 @@
+{
+ "topic": "Fujifilm Instax Pal 2 — 87g짜리 카메라에 뷰파인더가 달렸다, 눈 감고 찍던 인스탁스 팔에 광학 뷰파인더가 생겼다 [소유욕형]",
+ "blog_teaser": "인스탁스 팔 1세대와 달라진 점, 국내 대안 비교는 블로그에 정리했습니다",
+ "threads_text": "눈 없이 찍던 카메라가 드디어 눈을 떴다\n\n1. 후지필름 인스탁스 팔 2 — 손바닥 안에 들어가는 카메라인데, 이번엔 광학 뷰파인더가 달려 나왔다\n2. 1세대는 뷰파인더가 없어서 대충 겨냥하고 찍었다 — 그게 재밌긴 한데 안 찍히면 아쉽잖아\n3. 10연사 찍으면 자동으로 플립북 애니메이션이 된다\n4. 87g, 37×42×92mm — USB 메모리보다 조금 큰 정도\n5. $169.95(약 23만원), 한국 미출시 — 1세대가 국내 13만원대에 있다\n\n(출처: Fujifilm 공식, HiConsumption, Digital Camera World)",
+ "caption": "눈 없이 찍던 카메라가 드디어 눈을 떴다\n\n후지필름 인스탁스 팔 2.\n1세대는 뷰파인더가 없었다.\n대충 겨냥하고 찍는 게 콘셉트였는데\n이번엔 광학 뷰파인더가 달려 나왔다.\n\n37×42×92mm, 87g.\n손가락 사이에 쏙 들어간다.\n10연사를 찍으면 플립북 애니메이션이 된다.\n\n$169.95(약 23만원). 한국 미출시.\n인스탁스 팔 1세대는 국내에서 13만원대.\n\n(출처: Fujifilm 공식, HiConsumption, Digital Camera World)\n\n#인스탁스팔2 #InstaxPal2 #후지필름 #미니카메라 #레트로카메라",
+ "factcheck": [
+   {"claim": "Instax Pal 2에 광학 뷰파인더 탑재 (1세대에는 없었음)", "sources": ["https://www.fujifilm.com/us/en/news/a-camera-that-fits-with-you-fujifilm-introduces-instax-pal-2-digital-camera", "https://fujiaddict.com/2026/09/15/fujifilm-instax-pal-2-experiential-digital-camera-announced/"], "note": "Fujifilm 공식 보도자료 및 FujiAddict에서 'Authentic Optical Viewfinder' 신규 탑재 확인"},
+   {"claim": "87g, 37.0×42.0×92.3mm", "sources": ["https://www.fujifilm.com/in/en/consumer/instax/cameras/pal2/specifications"], "note": "Fujifilm 인도 공식 사양 페이지에서 정확한 수치 확인"},
+   {"claim": "가격 $169.95, 2026년 9월 하순 미국 출시", "sources": ["https://www.fujifilm.com/us/en/news/a-camera-that-fits-with-you-fujifilm-introduces-instax-pal-2-digital-camera", "https://www.bhphotovideo.com/c/product/1999376-REG/fujifilm_16979564_instax_pal_2_digital.html"], "note": "Fujifilm 공식 보도자료 및 B&H 상품 등록 확인"},
+   {"claim": "10연사 플립북 애니메이션(instax Animation mode)", "sources": ["https://www.fujifilm.com/us/en/news/a-camera-that-fits-with-you-fujifilm-introduces-instax-pal-2-digital-camera", "https://hiconsumption.com/tech/fujifilm-instax-pal-2/"], "note": "공식 발표: 10 frames captured for flipbook-style animations"},
+   {"claim": "한국 미출시 (쿠팡·네이버쇼핑 검색 결과 없음, 2026-09-19 확인)", "sources": ["쿠팡 검색", "네이버쇼핑 검색"], "note": "인스탁스 팔2 검색 결과 판매 페이지 없음. 일본 10/9, 미국 9월 하순 출시"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/instax_pal2_hook.jpg",
+   "title": "눈 없이 찍던 카메라가\n드디어 눈을 떴다",
+   "title_hl": ["드디어 눈을 떴다"],
+   "body": "인스탁스 팔 2 — 87g\n뷰파인더가 없어서 대충 겨냥하고 찍었는데",
+   "body_hl": ["뷰파인더가 없어서"],
+   "credit": "Fujifilm"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/instax_pal2_end.jpg",
+   "title": "손바닥 안에서\n필름카메라처럼 찍힌다",
+   "title_hl": ["필름카메라처럼"],
+   "body": "10MP · f/2.2 · 10연사 플립북\n37×42×92mm, USB 메모리보다 조금 크다",
+   "body_hl": ["10연사 플립북"],
+   "sub": "$169.95(약 23만원) · 한국 미출시\n1세대는 국내 13만원대",
+   "credit": "Fujifilm"
+  }
+ ]
+}
