@@ -1,0 +1,33 @@
+{
+ "topic": "비상용 크랭크 라디오 — 정전 나면 스마트폰이 먼저 죽는다, 손잡이 돌리면 뉴스도 듣고 비상 전화도 건다, 2만원대 [구매가능]",
+ "blog_teaser": "크랭크 라디오 고를 때 확인할 것(주파수 대역·배터리 용량·USB 출력 규격)과 가격대별 비교는 블로그에 정리했습니다",
+ "threads_text": "충전기 없이 사는 라디오가 돌아왔다\n\n1. 정전 나면 스마트폰이 먼저 죽는다 — 충전도 안 되고 Wi-Fi도 끊긴다\n2. 크랭크 라디오는 손잡이를 돌리면 전기가 생긴다\n3. FM 수신 + LED 손전등 + 폰 비상 충전까지 한 대에\n4. 행안부 비상용품 목록에 라디오가 있다 — 2만원대부터\n5. 2022 서울 폭우 때 12,907세대가 정전됐다\n\n(출처: 행정안전부 국민재난안전포털, 2022 서울 폭우 12,907세대 정전 이데일리)",
+ "caption": "충전기 없이 사는 라디오가 돌아왔다\n\n충전이 안 되니까 배터리가 떨어지면 — 벽돌이다.\n공유기도 꺼지니까 Wi-Fi도 같이 죽는다.\n뉴스도 안 나오고. 전화도 안 된다.\n\n그때 뉴스를 듣고 비상 전화를 거는 유일한 방법이\n— 라디오다.\n\n크랭크 라디오.\n손잡이를 돌리면 전기가 생긴다.\n\nFM 수신 — 재난방송이 나온다.\nLED 손전등 — 어둠 속에서 볼 수 있다.\nUSB 출력 — 비상 전화 한 통분 충전.\n\n행정안전부가 비상대비용품 목록에 라디오를 넣어뒀다.\n아는 사람이 별로 없다.\n\n쿠팡 기준 2만 원대부터.\n\n2022년 서울 폭우 때 — 12,907세대가 정전됐다.\n태풍 시즌은 아직 안 끝났다.\n\n(출처: 행정안전부 국민재난안전포털 비상대비용품, 2022 서울 폭우 정전 이데일리 보도)\n\n#비상라디오 #크랭크라디오 #정전대비 #재난대비 #방재용품",
+ "factcheck": [
+   {"claim": "행정안전부 비상대비용품 목록에 라디오 등재", "sources": ["https://m.safekorea.go.kr/idsiSFK/neo/main_m/chk/emergencySupplies.html", "https://www.incheon.go.kr/safe/SAFE060101/view?nttNo=2045160&curPage=1"], "note": "국민재난안전포털 비상용품 목록에 라디오 명시. 인천시·서울시 비상행동요령에도 '라디오와 여분 건전지 준비' 권고"},
+   {"claim": "2022년 서울 폭우 12,907세대 정전", "sources": ["https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03932726632425680", "https://ko.wikipedia.org/wiki/2022%EB%85%84_%ED%95%9C%EA%B5%AD_%EC%A4%91%EB%B6%80_%EC%A7%91%EC%A4%91%ED%98%B8%EC%9A%B0"], "note": "2022.08.08~09 수도권 폭우 정전 38건, 피해 12,907세대 — 이데일리·위키백과 교차 확인"},
+   {"claim": "크랭크 라디오 2만원대부터 구매 가능", "sources": ["https://search.danawa.com/dsearch.php?query=%EC%9E%90%EA%B0%80%EB%B0%9C%EC%A0%84%EB%9D%BC%EB%94%94%EC%98%A4"], "note": "다나와 경유 확인. 최저가 12,730원(기본형), 주류 보급형 23,000~32,000원. '2만원대'는 보급형 기준 정확"},
+   {"claim": "크랭크로 폰 비상 충전 가능 (비상 전화 1통분)", "sources": ["https://thesurvivalresource.com/blog/how-to-use-portable-hand-crank-charger/", "https://www.primalsurvivor.net/hand-crank-phone-charger/"], "note": "3~5분 크랭크 = 약 2~4% 충전. 완충은 비현실적이나 SOS 전화 1~2통은 가능. 과장하지 않기 위해 '비상 전화 한 통분'으로 한정"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/crank_radio_hook.jpg",
+   "title": "충전기 없이 사는\n라디오가 돌아왔다",
+   "title_hl": ["충전기", "돌아왔다"],
+   "body": "정전 나면 스마트폰이 먼저 죽는다\n손잡이를 돌리면 전기가 생긴다 — 2만원대",
+   "body_hl": ["스마트폰", "2만원대"],
+   "credit": "Pexels / cottonbro studio"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/crank_radio_end.jpg",
+   "title": "손잡이를 돌리면\n전기가 생긴다",
+   "title_hl": ["손잡이", "전기"],
+   "body": "FM 수신 + LED 손전등 + 폰 비상 충전\n행안부 비상용품 등재 · 쿠팡 2만원대",
+   "body_hl": ["행안부", "2만원대"],
+   "sub": "2022 서울 폭우 — 12,907세대가 정전됐다",
+   "credit": "Pexels / Nancy Zjaba"
+  }
+ ]
+}
