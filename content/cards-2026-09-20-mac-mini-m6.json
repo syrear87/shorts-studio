@@ -1,0 +1,35 @@
+{
+ "topic": "Mac Mini M6 — 맥 미니가 월요일에 바뀐다, 2nm 칩이 처음 들어간다 — 그런데 149만 9천 원, 역대 최고가 [공유형][타이밍경고형]",
+ "blog_teaser": "M4 대비 바뀐 12가지랑 사야 할 사람·안 사도 될 사람 판단 기준은 블로그에 정리했습니다",
+ "threads_text": "맥 미니가 월요일에 바뀐다\n\n1. 9/22 맥 미니 M6 출고 시작 — 2nm 칩 들어간 첫 맥이다\n2. CPU 12코어 · GPU 12코어 · 뉴럴엔진 32코어, M4 대비 AI 4배\n3. 근데 시작 가격이 149만 9천 원 — M4 때 $499(약 80만 원)에서 $899로 올랐다\n4. M4 갖고 있으면 AI 안 돌리는 한 체감 차이 작다\n5. 지금 맥 미니 사려던 사람은 월요일 이후 M4 가격 내려가는지 보는 게 나을 수 있다\n\n(출처: Apple 공식 뉴스룸, 9to5Mac, MacRumors)",
+ "caption": "맥 미니가 월요일에 바뀐다\n\n9/22 맥 미니 M6 출고 시작.\n2nm 칩(TSMC N2)이 들어간 첫 맥이다.\nCPU 40% · GPU 2배 · AI 4배 — 숫자만 보면 압도적.\n\n근데 시작 가격이 149만 9천 원.\nM4 때 $499(약 80만 원대)에서 $899로 올랐다.\nWi-Fi 7, 블루투스 6.0, 2.5GbE 기본은 좋은데\n값이 2년 만에 80% 오른 건 생각할 거리다.\n\nM4 갖고 있으면 — AI 모델 안 돌리는 한 체감 차이 작다.\n지금 사려던 사람은 — 월요일 이후 M4 가격 움직임을 보는 게 낫다.\n\n(출처: Apple 뉴스룸, 9to5Mac, MacRumors)\n\n#맥미니 #M6 #애플 #2nm #MacMini",
+ "factcheck": [
+   {"claim": "맥 미니 M6 출고일 2026년 9월 22일", "sources": ["https://www.apple.com/newsroom/2026/08/apple-unveils-a-more-powerful-mac-mini-featuring-the-all-new-m6-and-m5-pro/", "https://www.geeky-gadgets.com/mac-mini-m6-release/"], "note": "Apple 공식 뉴스룸 8/25 발표, 배송 시작 9/22 확인"},
+   {"claim": "한국 시작 가격 1,499,000원(M6 16GB/256GB)", "sources": ["https://themacindex.com/kr/products/mac-mini", "https://www.apple.com/kr/shop/buy-mac/mac-mini"], "note": "The Mac Index 한국 가격 확인, Apple 한국 공식 스토어 URL에 가격 명시"},
+   {"claim": "미국 시작 가격 $899(M4 때 $499에서 인상)", "sources": ["https://techcrunch.com/2026/08/25/apples-latest-mac-mini-runs-on-a-new-m6-chip-and-starts-at-899/", "https://9to5mac.com/2026/08/25/m6-mac-mini-vs-m4-mac-mini-here-are-all-the-new-features/"], "note": "TechCrunch·9to5Mac에서 $899 확인. M4 Mac Mini 2024년 $499부터(Apple 공식)"},
+   {"claim": "M6 = TSMC 2nm(N2) 공정, 첫 소비자 애플실리콘", "sources": ["https://wccftech.com/apple-m6-2nm-chip-mac-mini-launch/", "https://www.trendforce.com/news/2026/08/26/news-apple-unveils-m6-its-first-2nm-chip-built-by-tsmc-with-30-ai-gpu-compute-boost-vs-m5/"], "note": "WCCFtech·TrendForce에서 TSMC N2 확인"},
+   {"claim": "M6 CPU 12코어(슈퍼2+성능4+효율6), GPU 12코어, 뉴럴엔진 32코어", "sources": ["https://www.notebookcheck.net/Apple-M6-Processor-Benchmarks-and-Specs.1400249.0.html", "https://9to5mac.com/2026/08/25/m6-mac-mini-vs-m4-mac-mini-here-are-all-the-new-features/"], "note": "Notebookcheck·9to5Mac 스펙 일치"},
+   {"claim": "M4 대비 CPU 40% · GPU 2배 · AI 4배 향상", "sources": ["https://www.cultofmac.com/buying-guides/m6-mac-mini-vs-m4-mac-mini-everything-changed", "https://9to5mac.com/2026/08/25/m6-mac-mini-vs-m4-mac-mini-here-are-all-the-new-features/"], "note": "Cult of Mac·9to5Mac 비교 기사에서 동일 수치 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/mac_mini_m6_hook.jpg",
+   "title": "맥 미니가\n월요일에 바뀐다",
+   "title_hl": ["월요일에 바뀐다"],
+   "body": "2nm 칩이 처음 들어간다\n근데 149만 9천 원 — 역대 최고가",
+   "body_hl": ["149만 9천 원"],
+   "credit": "Apple"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/mac_mini_m6_end.jpg",
+   "title": "M6가 달라진 건\n값도 달라진 건",
+   "title_hl": ["값도 달라진 건"],
+   "body": "CPU 40%↑ · GPU 2배 · AI 4배\n2nm · Wi-Fi 7 · 블루투스 6.0",
+   "body_hl": ["AI 4배"],
+   "sub": "M4 갖고 있으면 체감 차이 작다\n사려던 사람은 월요일 이후 M4 가격을 보라",
+   "credit": "Apple"
+  }
+ ]
+}
