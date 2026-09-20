@@ -1,0 +1,34 @@
+{
+ "topic": "GoPro Mission 1 Pro ILS — GoPro의 고정 렌즈가 22년 만에 빠졌다, 액션캠에 마이크로포서드 렌즈를 갈아 끼운다 [한계붕괴형]",
+ "blog_teaser": "MFT 호환 렌즈 추천이랑 기존 HERO 시리즈와 뭐가 다른지는 블로그에 정리했습니다",
+ "threads_text": "GoPro에서 렌즈가 빠졌다\n\n1. Mission 1 Pro ILS — GoPro 22년 역사에서 처음으로 렌즈를 갈아 끼운다\n2. 마이크로포서드(MFT) 마운트라 호환 렌즈가 300개 넘는다\n3. 8K 60fps · 4K 240fps · 50MP — 197g짜리 손바닥 시네마 카메라\n4. 전자 접점이 없어서 수동 초점·수동 조리개 렌즈만 된다\n5. $699.99, 한국 약 116만원대\n\n(출처: GoPro 공식, Engadget, Imaging Resource)",
+ "caption": "GoPro에서 렌즈가 빠졌다\n\n2004년 첫 HERO 이후 22년간 GoPro는 고정 렌즈였다.\nMission 1 Pro ILS — 마이크로포서드(MFT) 마운트가 들어갔다.\n호환 렌즈 300개 이상, 렌즈를 바꿔 끼우는 GoPro는 이게 처음이다.\n\n8K 60fps · 4K 240fps · 50MP 1인치 센서.\n197g — 손바닥 위의 시네마 카메라.\n다만 전자 접점이 없어 수동 초점·수동 조리개 렌즈만 쓸 수 있다.\n\n$699.99(GoPro 구독자 $599.99)\n한국 다나와 기준 약 116만원대.\n\n(출처: GoPro 공식, Engadget, Imaging Resource)\n\n#GoPro #Mission1 #MFT #액션캠 #시네마카메라",
+ "factcheck": [
+   {"claim": "GoPro 첫 카메라(HERO) 2004년 출시 — 22년간 고정 렌즈", "sources": ["https://en.wikipedia.org/wiki/GoPro", "https://gopro.com/en/us/shop/learn-cameras/mission-1-pro-ils"], "note": "GoPro 2002년 설립, 첫 HERO 2004년 9월 출시. Mission 1 Pro ILS는 2026년 9월 출시 — 22년"},
+   {"claim": "Mission 1 Pro ILS 마이크로포서드(MFT) 마운트, GoPro 최초 교환식 렌즈", "sources": ["https://investor.gopro.com/press-releases/press-release-details/2026/GoPro-Launches-MISSION-1-PRO-ILS-the-Worlds-Smallest-Most-Rugged-Compact-Cinema-Camera-with-Interchangeable-Lenses/default.aspx", "https://www.imaging-resource.com/news/gopro-mission-1-pro-ils-brings-interchangeable-lenses-to-action-cameras/"], "note": "GoPro 공식 보도자료 + Imaging Resource 확인. 전자 접점 없음(수동 렌즈만)"},
+   {"claim": "8K 60fps, 4K 240fps, 50MP 1인치 센서, 197g", "sources": ["https://gopro.com/en/us/shop/learn-cameras/mission-1-pro-ils", "https://camerajabber.com/photography-news/gopro-mission-1-pro-ils-price-specifications-and-availability-announced/"], "note": "GoPro 공식 스펙 페이지 + Camera Jabber 리뷰에서 동일 수치 확인"},
+   {"claim": "가격 $699.99(구독자 $599.99), 2026년 9월 2일 출시", "sources": ["https://investor.gopro.com/press-releases/press-release-details/2026/GoPro-Launches-MISSION-1-PRO-ILS-the-Worlds-Smallest-Most-Rugged-Compact-Cinema-Camera-with-Interchangeable-Lenses/default.aspx", "https://www.notebookcheck.net/New-GoPro-Mission-1-Pro-ILS-cinema-camera-released-globally-with-interchangeable-lenses.1379602.0.html"], "note": "GoPro IR 보도자료 + Notebookcheck에서 가격·출시일 확인"},
+   {"claim": "한국 다나와 기준 약 116만원대", "sources": ["https://gopro.com/ko/kr/shop/buy-cameras/mission-1-series"], "note": "GoPro Korea 공식 스토어에 Mission 1 시리즈 등록. 다나와 최저가 약 1,168,000원"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/gopro_mission1_ils_hook.jpg",
+   "title": "GoPro에서\n렌즈가 빠졌다",
+   "title_hl": ["렌즈가 빠졌다"],
+   "body": "22년간 고정이었던 렌즈가\n교환식으로 바뀌었다",
+   "body_hl": ["교환식"],
+   "credit": "GoPro"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/gopro_mission1_ils_end.jpg",
+   "title": "197g에\n8K가 들어갔다",
+   "title_hl": ["8K"],
+   "body": "MFT 마운트 · 호환 렌즈 300+\n50MP 1인치 · 4K 240fps",
+   "body_hl": ["300+"],
+   "sub": "수동 렌즈만 된다 — 전자 접점 없음\n$699.99, 한국 약 116만원대",
+   "credit": "GoPro"
+  }
+ ]
+}
