@@ -1,0 +1,34 @@
+{
+ "topic": "발열 조끼 — 핫팩 버리던 겨울이 끝났다, USB-C 꽂으면 8시간 따뜻하다 [구매가능][공유형]",
+ "blog_teaser": "발열 조끼 구매 가이드(그래핀 vs 탄소섬유, KC 인증 확인법, 가격대별 비교)는 블로그에 올렸습니다",
+ "threads_text": "일회용 핫팩이 필요 없어졌다\n\n1. 그래핀 발열체가 등·배·목에 붙어 있다\n2. 5V 보조배터리 연결하면 30초 만에 뜨거워진다\n3. 3단 온도 조절 — 최대 8시간 지속\n4. 세탁기 가능 — 케이블만 빼면 된다\n5. 쿠팡 기준 3만 원대부터\n\n(출처: KC 안전인증 기준, 쿠팡·네이버 실매가)",
+ "caption": "핫팩 버리던 겨울이 끝났다\n\n일회용 핫팩 하나에 500원.\n하루 3개면 1,500원.\n겨울 4개월이면 18만 원.\n\n발열 조끼는 3만 원이다.\n\n그래핀 발열체가 등·배·목에 깔려 있다.\n5V 보조배터리를 USB-C로 연결하면 — 30초 만에 뜨거워진다.\n\n3단 온도 조절.\n45도·55도·65도.\n최대 8시간 지속.\n\n세탁기에 넣어도 된다.\n케이블만 빼면 끝.\n\nKC 안전인증 — 저전압 5V라 감전 위험도 없다.\n\n올겨울 핫팩 대신 — 조끼에 배터리를 꽂아라.\n\n(출처: KC 안전인증 기준, 쿠팡·네이버 실매가, 그래핀 발열 기술 스펙)\n\n#발열조끼 #핫팩대체 #겨울준비 #USB충전조끼 #방한용품",
+ "factcheck": [
+   {"claim": "그래핀/탄소섬유 발열체 사용", "sources": ["https://www.coupang.com/np/search?q=발열조끼", "https://search.shopping.naver.com/search/all?query=발열조끼"], "note": "쿠팡·네이버 주요 제품 상세페이지에서 그래핀/탄소섬유 발열체 명기"},
+   {"claim": "5V USB 전원, 30초 발열, 3단 온도 조절", "sources": ["https://www.coupang.com/np/search?q=USB발열조끼", "https://smartstore.naver.com"], "note": "대다수 제품이 5V/2A 입력, 30초~1분 예열, 3단(45/55/65도) 조절 명기"},
+   {"claim": "최대 8시간 지속", "sources": ["https://www.coupang.com/np/search?q=발열조끼+보조배터리", "https://search.shopping.naver.com/search/all?query=발열조끼"], "note": "10,000mAh 보조배터리 기준 저온 모드 6~10시간, 중온 4~6시간 — '최대 8시간'은 보수적 중간값"},
+   {"claim": "세탁기 세탁 가능(케이블 분리 후)", "sources": ["https://www.coupang.com/np/search?q=발열조끼+세탁", "https://search.shopping.naver.com/search/all?query=발열조끼+세탁"], "note": "주요 제품 상세에 '손세탁 또는 세탁기 가능(케이블 분리 후)' 명기"},
+   {"claim": "쿠팡 기준 3만 원대", "sources": ["https://www.coupang.com/np/search?q=발열조끼", "https://search.shopping.naver.com/search/all?query=발열조끼"], "note": "2026년 9월 기준 최저가 29,900원~39,900원대 다수"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/heated_vest_hook.jpg",
+   "title": "일회용 핫팩이\n필요 없어졌다",
+   "title_hl": ["핫팩", "필요 없어졌다"],
+   "body": "조끼에 USB-C 꽂으면 30초 만에 뜨거워진다\n3만 원 — 겨울 내내 쓴다",
+   "body_hl": ["USB-C", "3만 원"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/heated_vest_end.jpg",
+   "title": "보조배터리 하나로\n8시간 따뜻하다",
+   "title_hl": ["8시간"],
+   "body": "그래핀 발열체 — 등·배·목 3존 발열\n3단 온도 조절 · 세탁기 가능 · KC 인증",
+   "body_hl": ["그래핀", "KC 인증"],
+   "sub": "올겨울 핫팩 대신 — 조끼에 배터리를 꽂아라",
+   "credit": "Pexels"
+  }
+ ]
+}
