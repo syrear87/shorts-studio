@@ -1,0 +1,35 @@
+{
+ "topic": "Atex Lourdes Gun Mobile — 마사지건에서 총 모양이 사라졌다, 에어팟 케이스처럼 생긴 170g에 온열까지 [소유욕형]",
+ "blog_teaser": "진동 3단·온열 2단 사양 비교랑 국내 미니 마사지건 대안은 블로그에 정리했습니다",
+ "threads_text": "마사지건에서 총 모양이 사라졌다\n\n1. 아텍스 루르드건 모바일 — 에어팟 케이스처럼 생겼는데 진동한다\n2. 170g, 72×40×96mm — 주머니에 넣는다\n3. 마사지건인데 온열 기능이 있다(42도/46도 2단)\n4. 진동 3단(최대 2,700rpm) + 5분 자동 꺼짐\n5. ¥8,800(약 8만원), 국내 미출시 — 미니 마사지건은 쿠팡에 2만원대부터\n\n(출처: 아텍스 공식, 가격닷컴, 가전Watch)",
+ "caption": "마사지건에서 총 모양이 사라졌다\n\n아텍스 루르드건 모바일.\n마사지건이라는데 총처럼 안 생겼다.\n에어팟 케이스를 키운 것 같은 모양에\n170g — 200mL 물병보다 가볍다.\n\n72×40×96mm. 주머니에 들어간다.\n진동 3단(최대 2,700rpm) + 온열 42~46도.\n마사지건에 히터가 같이 들어간 건 드물다.\n\n¥8,800(약 8만원). 일본 9/1 출시, 국내 미출시.\n국내 미니 마사지건은 쿠팡에 2만원대부터.\n\n(출처: 아텍스 공식, 가전Watch, 가격닷컴)\n\n#마사지건 #미니마사지건 #루르드 #가젯 #소유욕",
+ "factcheck": [
+   {"claim": "루르드건 모바일 AX-HX458, 무게 약 170g, 크기 72×40×96mm", "sources": ["https://news.kakaku.com/prdnews/cd=kaden/ctcd=2140/id=157996/", "https://kaden.watch.impress.co.jp/docs/news/2130643.html"], "note": "가격닷컴 신제품 뉴스 및 가전Watch 기사에서 동일 수치 확인"},
+   {"claim": "진동 3단계(1,900/2,300/2,700rpm), 진동폭 4mm", "sources": ["https://news.kakaku.com/prdnews/cd=kaden/ctcd=2140/id=157996/", "https://kaden.watch.impress.co.jp/docs/news/2130643.html"], "note": "양쪽 매체에서 동일 사양 확인"},
+   {"claim": "온열 2단계(약 42도/약 46도), 진동과 동시 사용 불가", "sources": ["https://kaden.watch.impress.co.jp/docs/news/2130643.html", "https://news.kakaku.com/prdnews/cd=kaden/ctcd=2140/id=157996/"], "note": "가전Watch: '히터와 진동의 동시 사용은 불가'"},
+   {"claim": "가격 ¥8,800(세금 포함), 2026년 9월 1일 발매", "sources": ["https://kaden.watch.impress.co.jp/docs/news/2130643.html", "https://www.fitgearsource.com/atex-unveils-lourdes-gun-mobile-compactest-and-lightest-massage-gun-in-the-series-launching-september-1-2026/"], "note": "가전Watch 및 FitGearSource 기사에서 동일 가격·발매일 확인"},
+   {"claim": "국내 미출시(쿠팡·네이버쇼핑 검색 결과 없음, 2026-09-20 확인)", "sources": ["쿠팡 검색 '루르드건 모바일'", "네이버쇼핑 검색 '루르드 마사지건 모바일'"], "note": "아텍스 코리아 공식몰(atexkorea.co.kr)에도 AX-HX458 미등록. 기존 마사지건 HX336은 판매종료 상태"},
+   {"claim": "국내 대안 — 미니 마사지건 2만원대부터(홈플래닛 등)", "sources": ["다나와 검색 '미니 마사지건'", "쿠팡 검색 '미니 마사지건'"], "note": "홈플래닛 RC-MG-202 등 쿠팡 판매 확인. 단 온열 기능 탑재 제품은 드묾"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/lourdes_gun_mobile_hook.jpg",
+   "title": "마사지건에서\n총 모양이 사라졌다",
+   "title_hl": ["총 모양이 사라졌다"],
+   "body": "루르드건 모바일 — 170g\n에어팟 케이스 같은 게 진동한다",
+   "body_hl": ["에어팟 케이스"],
+   "credit": "Atex"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/lourdes_gun_mobile_end.jpg",
+   "title": "42도 온열까지\n주머니에 들어간다",
+   "title_hl": ["주머니에 들어간다"],
+   "body": "72×40×96mm · 진동 3단 · 온열 2단\n200mL 물병보다 가벼운 170g",
+   "body_hl": ["200mL 물병보다 가벼운"],
+   "sub": "¥8,800(약 8만원) · 일본 9/1 출시\n국내 미니 마사지건은 2만원대부터",
+   "credit": "Atex"
+  }
+ ]
+}
