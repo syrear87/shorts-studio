@@ -1,0 +1,75 @@
+{
+  "title": "추석이 제삿날이 된 건 나중입니다, 원래는 대회였습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "애국·정체성",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "추석이 제삿날이 된 건 나중입니다. 약 2,000년 전 기록에 적힌 원래 추석은 대회였습니다.",
+      "lines": [
+        ["추석이 제삿날이 된 건 나중입니다", ["나중"]],
+        ["원래 추석은 대회였습니다", ["대회"]]
+      ],
+      "bg_query": ["korean chuseok autumn harvest moon night"],
+      "bg": 18202294
+    },
+    {
+      "kind": "fact",
+      "voice": "삼국사기에 기록이 있습니다. 서기 32년, 신라 6부를 두 팀으로 나눠 한 달간 베짜기 대결을 벌였습니다.",
+      "lines": [
+        ["삼국사기, 서기 32년", ["삼국사기"]],
+        ["신라 6부를 두 팀으로 나눠", []],
+        ["한 달간 베짜기 대결", []]
+      ],
+      "bg_query": ["korean traditional weaving loom fabric silk"],
+      "bg": 6653251
+    },
+    {
+      "kind": "fact",
+      "voice": "8월 15일, 베 짠 양을 따졌습니다. 진 팀이 이긴 팀에게 술과 음식을 내놓았고, 노래와 춤이 벌어졌습니다. 이 행사의 이름이 가배입니다.",
+      "lines": [
+        ["진 팀이 술과 음식을 내놓고", []],
+        ["노래와 춤이 벌어졌습니다", []],
+        ["이 행사의 이름, 가배", ["가배"]]
+      ],
+      "bg_query": ["korean traditional folk dance celebration feast"],
+      "bg": 36459509
+    },
+    {
+      "kind": "fact",
+      "voice": "한가위라는 이름은 이 가배에서 왔습니다. 가배가 가위로 변하고, 크다는 뜻의 한이 붙어 한가위가 됐습니다. 이것이 지금의 추석입니다.",
+      "lines": [
+        ["한가위라는 이름은", ["한가위"]],
+        ["가배에서 왔습니다", ["가배"]],
+        ["이것이 지금의 추석입니다", []]
+      ],
+      "bg_query": ["korean autumn golden rice field harvest"],
+      "bg": "photo:5750112"
+    },
+    {
+      "kind": "twist",
+      "voice": "차례와 성묘는 조선 중기 이후에 생긴 겁니다. 오늘 기억해두세요, 원래 추석은 함께 일하고 함께 노는 날이었습니다.",
+      "lines": [
+        ["차례와 성묘는 조선 중기 이후", []],
+        ["원래 추석은", []],
+        ["함께 일하고 함께 노는 날", ["함께"]]
+      ],
+      "bg_query": ["korean traditional village community gathering autumn"],
+      "bg": 13873058
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]],
+      "bg": "photo:14251881"
+    }
+  ],
+  "sources": [
+    "https://contents.history.go.kr/front/hm/view.do?levelId=hm_020_0110",
+    "https://encykorea.aks.ac.kr/Article/E0057862",
+    "https://www.hangeul.go.kr/webzine/202109/sub1_1.html"
+  ],
+  "bg_query": ["korean traditional weaving loom", "korean folk dance celebration", "korean autumn harvest golden field", "korean village community gathering", "full moon night korea autumn"]
+}
