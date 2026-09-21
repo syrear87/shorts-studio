@@ -1,0 +1,33 @@
+{
+ "topic": "Pokémon × G-SHOCK GA-110PKM-7AJR — 시계 바늘에 피카츄가 처음 들어갔다, 포켓몬 30주년 첫 풀사이즈 지샥 [소유욕형]",
+ "blog_teaser": "30마리 포켓몬 배치도와 국내 응모 당첨 후기는 블로그에 정리했습니다",
+ "threads_text": "시계 바늘에 피카츄가 처음 들어갔다\n\n1. 포켓몬 30주년 × 지샥 첫 풀사이즈 콜라보\n2. 반투명 밴드에 30마리 포켓몬, 9시 다이얼 = 몬스터볼\n3. 빨강·초록·파랑 — 초대 게임보이 3색\n4. $270(약 36만원), 한국은 8월 추첨 종료\n5. 포케볼 케이스 포함\n\n(출처: Casio, G-Central, Hypebeast Korea)",
+ "caption": "시계 바늘에 피카츄가 처음 들어갔다\n\nPokémon × G-SHOCK GA-110PKM-7AJR.\n포켓몬 30주년 기념, 첫 풀사이즈 지샥 콜라보.\n\n이전엔 Baby-G뿐이었다.\nGA-110 베이스에 빨강·초록·파랑 — 초대 게임보이 3색.\n\n반투명 밴드에 포켓몬 30마리가 새겨져 있다.\n9시 서브다이얼이 몬스터볼, 시곗바늘은 피카츄 뒷모습.\n\n미국 $270, 한국은 8월 11~12일 응모 추첨 완료.\n포케볼 모양 특별 케이스 포함.\n\n(출처: Casio, G-Central, Hypebeast Korea)\n\n#포켓몬 #지샥 #GSHOCK #한정판 #테크",
+ "factcheck": [
+   {"claim": "포켓몬 30주년(1996→2026)", "sources": ["https://www.g-central.com/pokemon-to-release-g-shock-ga-110pkm-7a-for-30th-celebration/", "https://www.casio.com/europe/corporate/casio-corporate/news/2026/pokemon-ga-110pkm-7a/"], "note": "1996년 적·녹 발매 기준 30주년, 양쪽 확인"},
+   {"claim": "첫 풀사이즈 G-SHOCK 콜라보(이전은 Baby-G)", "sources": ["https://www.g-central.com/pokemon-to-release-g-shock-ga-110pkm-7a-for-30th-celebration/", "https://www.ablogtowatch.com/casio-x-pokemon-30th-anniversary-g-shock-ga-110pkm-watch-hands-on/"], "note": "G-Central·aBlogtoWatch 모두 '첫 풀사이즈' 명시"},
+   {"claim": "미국 $270, 한국 추첨 8월 11~12일", "sources": ["https://the-gadgeteer.com/2026/06/28/pokemon-g-shock-ga-110pkm-7a/", "https://hypebeast.kr/2026/7/casio-g-shock-pokemon-ga-110pkm-7a-release-info"], "note": "미국 가격 $270 The Gadgeteer 확인, 한국 추첨 Hypebeast KR 확인"},
+   {"claim": "밴드에 포켓몬 30마리, 9시 다이얼 몬스터볼, 피카츄 시곗바늘", "sources": ["https://www.casio.com/europe/corporate/casio-corporate/news/2026/pokemon-ga-110pkm-7a/", "https://www.g-central.com/pokemon-to-release-g-shock-ga-110pkm-7a-for-30th-celebration/"], "note": "Casio 공식 보도자료·G-Central 일치"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/pokemon_gshock_hook.jpg",
+   "title": "시계 바늘에\n피카츄가 처음 들어갔다",
+   "title_hl": ["처음"],
+   "body": "포켓몬 30주년 × 지샥 첫 풀사이즈 콜라보\n밴드에 30마리가 새겨져 있다",
+   "body_hl": ["첫 풀사이즈"],
+   "credit": "Casio / Pokémon"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/pokemon_gshock_end.jpg",
+   "title": "9시 다이얼 = 몬스터볼\n시곗바늘 = 피카츄 뒷모습",
+   "title_hl": ["몬스터볼"],
+   "body": "빨강·초록·파랑 — 초대 게임보이 3색\n포케볼 특별 케이스 포함",
+   "body_hl": ["초대 게임보이"],
+   "sub": "Pokémon × G-SHOCK GA-110PKM-7AJR\n$270 · 한국 8월 추첨 종료",
+   "credit": "Casio / Pokémon"
+  }
+ ]
+}
