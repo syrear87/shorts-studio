@@ -1,0 +1,75 @@
+{
+  "title": "9월에 독감이 유행합니다 — 코로나가 남긴 빚입니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "series": "공유성",
+  "bg_query": ["autumn leaves september weather", "empty hospital corridor pandemic", "virus cell microscope 3d render", "elementary school children classroom", "nurse giving flu shot child arm"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "독감은 겨울 병입니다. 그런데 지금, 9월에 유행하고 있습니다.",
+      "lines": [
+        ["독감은 겨울 병입니다", []],
+        ["9월에 유행하고 있습니다", ["9월"]]
+      ],
+      "bg_query": "autumn leaves september weather",
+      "bg": 19084696
+    },
+    {
+      "kind": "fact",
+      "voice": "첫째, 코로나 3년 동안 마스크 덕에 독감에 안 걸렸습니다. 대신 면역 공백이 그만큼 쌓인 겁니다.",
+      "lines": [
+        ["코로나 3년, 독감에 안 걸렸습니다", []],
+        ["면역 공백이 쌓인 겁니다", ["면역"]]
+      ],
+      "bg_query": "empty hospital corridor pandemic",
+      "bg": 3192916
+    },
+    {
+      "kind": "fact",
+      "voice": "둘째, 올해 독감 바이러스 자체가 달라졌습니다. 새 독감 변이가 기존 면역을 피하기 때문에, 예전에 걸렸던 사람도 다시 걸립니다.",
+      "lines": [
+        ["올해 독감 바이러스가 달라졌습니다", []],
+        ["새 변이가 면역을 피하기 때문에", ["변이"]]
+      ],
+      "bg_query": "virus cell microscope 3d render",
+      "bg": 3986205
+    },
+    {
+      "kind": "fact",
+      "voice": "셋째, 지금 초등학생 1000명 중 75명이 독감 의심 환자입니다. 작년 같은 시기의 4배가 넘습니다.",
+      "lines": [
+        ["초등학생 1000명 중 75명", ["75명"]],
+        ["작년의 4배가 넘습니다", []]
+      ],
+      "bg_query": "elementary school children classroom",
+      "bg": 5734769
+    },
+    {
+      "kind": "twist",
+      "voice": "그래서 접종이 3주 앞당겨져 오늘 시작됐습니다. 올해는 14세까지 무료 대상이 넓어졌습니다. 코로나가 끝난 줄 알았는데, 빚은 아직 남아 있습니다.",
+      "lines": [
+        ["접종이 3주 앞당겨져 오늘 시작", []],
+        ["14세까지 무료 대상이 넓어졌습니다", []],
+        ["빚은 아직 남아 있습니다", ["빚"]]
+      ],
+      "bg_query": "nurse giving flu shot child arm",
+      "bg": 6067670
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식,", ["1일", "1지식,"]], ["구독으로 받아보세요", ["구독으로"]]],
+      "bg": 6067670
+    }
+  ],
+  "sources": [
+    "https://mediahub.seoul.go.kr/archives/2019389",
+    "https://www.khan.co.kr/article/202608251325001",
+    "https://www.fnnews.com/news/202609110934031126",
+    "https://www.medipharmhealth.co.kr/news/article.html?no=119566",
+    "https://academic.oup.com/cid/article/81/6/1173/7818201",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC13116714/"
+  ]
+}
