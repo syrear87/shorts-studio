@@ -1,0 +1,33 @@
+{
+ "topic": "차량용 자석 거치대 — 핸드폰 거치대에서 집게가 사라졌다, 올리면 붙고 들면 빠진다, 만원대부터 [구매가능][공유형]",
+ "blog_teaser": "아이폰·갤럭시별 호환 조건이랑 충전형·비충전형 비교는 블로그에 정리해뒀습니다",
+ "threads_text": "핸드폰 거치대에서 집게가 사라졌다\n\n1. 집게형 거치대 — 한 손으로 빼기 힘들고 케이스 끼면 안 맞음\n2. 자석형이 나왔는데 올리면 붙고 들면 빠짐\n3. 아이폰은 12부터 자석(MagSafe)이 내장이라 그냥 붙음\n4. 갤럭시는 자석이 없어서 MagSafe 케이스를 씌워야 됨\n5. 무선충전까지 되는 거치대도 있는데 2~3만원대\n6. 추석 귀성길 5시간, 이거 하나면 내비+충전 동시에 됨\n\n(출처: WPC Qi2 공식, Engadget Galaxy S25 Qi2 리뷰, 쿠팡 실매가 2026-09-21 확인)",
+ "caption": "핸드폰 거치대에서 집게가 사라졌다\n\n집게형 거치대 — 한 손으로 빼기 힘들다. 케이스 두꺼우면 안 맞는다.\n\n자석형 거치대가 나왔다.\n올리면 붙고 들면 빠진다.\n\n아이폰은 12부터 자석(MagSafe)이 내장이라 케이스 없이 붙는다.\n갤럭시는 자석이 없어서 MagSafe 케이스를 씌워야 된다.\n\n비충전형 만원대, 무선충전형(Qi2 15W) 2~3만원대.\n추석 귀성길 5시간, 올려두면 내비랑 충전이 동시에 된다.\n\n(출처: WPC Qi2 공식, Engadget, 쿠팡 실매가 확인)\n\n#차량거치대 #자석거치대 #MagSafe #추석 #귀성길",
+ "factcheck": [
+   {"claim": "아이폰 12부터 MagSafe 자석 내장", "sources": ["https://www.macrumors.com/guide/magsafe/", "https://en.wikipedia.org/wiki/MagSafe_(wireless_charger)"], "note": "2020년 10월 아이폰 12와 함께 발표. 내장 자석 링으로 충전기·거치대에 자력 정렬"},
+   {"claim": "갤럭시 S25/S26은 Qi2 Ready이지만 내장 자석 없음 — 케이스 필요", "sources": ["https://www.engadget.com/mobile/smartphones/the-samsung-galaxy-s25-doesnt-fully-support-qi2-on-its-own-180011574.html", "https://www.tomsguide.com/phones/samsung-phones/samsung-galaxy-s25-has-supports-qi2-charging-but-theres-a-big-catch"], "note": "S25·S26 모두 Qi2 인증이지만 자석 미내장. 전용 MagSafe 케이스(삼성 Clear Magnet Case 등) 장착 시에만 자석 정렬 작동"},
+   {"claim": "Qi2는 MagSafe와 호환", "sources": ["https://www.belkin.com/company/blog/is-magsafe-same-as-qi2/", "https://www.businesswire.com/news/home/20230419005032/en/Wireless-Power-Consortium-Approves-Release-of-the-Qi2-Standard"], "note": "Apple이 MagSafe 기술을 WPC에 제공해 Qi2 기반이 됨. 2023년 4월 19일 표준 승인"},
+   {"claim": "비충전형 자석 거치대 만원대, 충전형 2~3만원대", "sources": ["https://www.coupang.com/np/search?q=magsafe+차량용+거치대", "https://quasarzone.com/bbs/qb_saleinfo/views/1930206"], "note": "비충전형 약 9,990~10,500원, Qi2 15W 충전형 약 18,000~35,000원. 2026-09-21 쿠팡·퀘이사존 핫딜 기록 참조"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/magsafe_carmount_hook.jpg",
+   "title": "핸드폰 거치대에서\n집게가 사라졌다",
+   "title_hl": ["집게", "사라졌다"],
+   "body": "올리면 붙고 들면 빠진다\n자석이 집게를 대신한다",
+   "body_hl": ["자석"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/magsafe_carmount_end.jpg",
+   "title": "추석 귀성길\n내비+충전 동시에",
+   "title_hl": ["내비+충전", "동시에"],
+   "body": "아이폰 — 12부터 자석 내장, 그냥 붙는다\n갤럭시 — MagSafe 케이스 필요",
+   "body_hl": ["그냥 붙는다", "케이스 필요"],
+   "sub": "비충전형 만원대 · 충전형(Qi2 15W) 2~3만원대",
+   "credit": "Pexels"
+  }
+ ]
+}
