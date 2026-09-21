@@ -1,0 +1,34 @@
+{
+ "topic": "FiiO Snowsky Echo Nano — 스마트폰이 죽인 MP3 플레이어가 33g으로 돌아왔다, 금속 다이얼 돌리면 무손실 재생 [소유욕형]",
+ "blog_teaser": "DAC칩 CS43131 스펙이랑 USB DAC 모드 제한 사항은 블로그에 정리했습니다",
+ "threads_text": "스마트폰이 죽인 MP3 플레이어가 33g으로 돌아왔다\n\n1. FiiO Echo Nano — USB 메모리 크기 무손실 플레이어\n2. 위에 달린 금속 다이얼 돌리면 볼륨, 누르면 재생\n3. DSD256·FLAC, Cirrus Logic DAC칩 탑재\n4. microSD 256GB 확장, 배터리 7시간\n5. 아마존 $49.99(약 7만원, 관세 면제)\n\n(출처: FiiO, Headfonics, Audiophile Heaven)",
+ "caption": "스마트폰이 죽인 MP3 플레이어가 33g으로 돌아왔다\n\nFiiO Snowsky Echo Nano.\nUSB 메모리만 한 스틱에 무손실 플레이어가 들어갔다.\n\n위에 달린 금속 다이얼을 돌리면 볼륨,\n누르면 재생. 2000년대의 감성이 그대로다.\n\n33.5g, 81mm. 주머니에 넣으면 잊는 크기.\nDSD256·FLAC 네이티브 재생.\nCirrus Logic CS43131 DAC.\nmicroSD 256GB 확장, 배터리 7시간.\n\n아마존 직구 $49.99(약 7만원, 150달러 이하 관세 면제).\n국내 정식 유통 미확인.\n\n(출처: FiiO, Headfonics, Audiophile Heaven)\n\n#FiiO #EchoNano #MP3플레이어 #무손실 #테크",
+ "factcheck": [
+   {"claim": "무게 33.5g, 크기 81x20x11mm", "sources": ["https://headfonics.com/fiio-snowsky-echo-nano-review/", "https://www.fiio.com/newsinfo/1131387.html"], "note": "Headfonics·FiiO 공식 일치"},
+   {"claim": "DSD256·FLAC 네이티브 재생, Cirrus Logic CS43131 DAC", "sources": ["https://headfonics.com/fiio-snowsky-echo-nano-review/", "https://www.audiophile-heaven.com/2026/08/fiio-snowsky-echo-nano-dap-review-the-stick-music-player-experience.html"], "note": "두 매체 모두 CS43131 DAC, DSD256 확인"},
+   {"claim": "microSD 최대 256GB, 배터리 7시간(공칭)", "sources": ["https://headfonics.com/fiio-snowsky-echo-nano-review/", "https://www.audiophile-heaven.com/2026/08/fiio-snowsky-echo-nano-dap-review-the-stick-music-player-experience.html"], "note": "Headfonics 실측 6h+, Audiophile Heaven 실측 5~7h(볼륨·밝기 따라)"},
+   {"claim": "아마존 $49.99", "sources": ["https://www.amazon.com/SNOWSKY-CS43131-Lossless-Supporting-Expansion/dp/B0H2PBNHVX"], "note": "Amazon US 제품 페이지 실거래가 확인"},
+   {"claim": "국내 정식 유통 미확인", "sources": ["https://headfonics.com/fiio-snowsky-echo-nano-review/"], "note": "쿠팡·네이버쇼핑 검색 결과 없음(2026-09-21 확인), FiiO 한국 유통사 미입고"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/echo_nano_hook.jpg",
+   "title": "스마트폰이 죽인\nMP3 플레이어가 돌아왔다",
+   "title_hl": ["돌아왔다"],
+   "body": "33g 스틱에\n무손실이 들어간다",
+   "body_hl": ["무손실"],
+   "credit": "FiiO / Snowsky"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/echo_nano_end.jpg",
+   "title": "DSD256 · FLAC\n전용 DAC칩 탑재",
+   "title_hl": ["DSD256"],
+   "body": "금속 다이얼 돌리면 볼륨, 누르면 재생\nmicroSD 256GB · 배터리 7시간",
+   "body_hl": ["금속 다이얼"],
+   "sub": "FiiO Snowsky Echo Nano · $49.99\n아마존 직구 약 7만원(관세 면제)",
+   "credit": "FiiO / Snowsky"
+  }
+ ]
+}
