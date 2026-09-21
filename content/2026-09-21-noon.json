@@ -1,0 +1,71 @@
+{
+  "title": "추석 귀성길, 가장 많이 죽는 시간은 낮이 아닙니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "재난기상체감·일반지식",
+  "bg_query": ["empty highway dawn dark headlights", "highway traffic accident night police", "holiday traffic jam aerial cars", "tired driver yawning steering wheel night", "sunrise empty highway fog"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "추석 귀성길, 치사율이 가장 높은 시간대는 복잡한 낮이 아닙니다. 텅 빈 새벽입니다.",
+      "lines": [
+        ["치사율이 가장 높은 시간대는 낮이 아닙니다", []],
+        ["텅 빈 새벽입니다", ["새벽"]]
+      ],
+      "bg_query": "empty highway dawn dark headlights",
+      "bg": 26617030
+    },
+    {
+      "kind": "fact",
+      "voice": "도로교통공단 통계입니다. 새벽 0시에서 6시 사이 교통사고 치사율은 나머지 시간대의 3배가 넘습니다. 100건당 4.4명이 숨집니다.",
+      "lines": [
+        ["새벽 0시~6시 교통사고 치사율", []],
+        ["나머지 시간대의 3배, 100건당 4.4명", ["4.4명"]]
+      ],
+      "bg_query": "highway traffic accident night police",
+      "bg": 31720444
+    },
+    {
+      "kind": "fact",
+      "voice": "특히 연휴 첫날 새벽, 일찍 출발하려는 차가 몰리면서 사고가 집중됩니다. 5년간 추석 연휴 사망자는 181명입니다.",
+      "lines": [
+        ["연휴 첫날 새벽, 사고가 집중됩니다", []],
+        ["5년간 추석 연휴 사망자 181명", ["181명"]]
+      ],
+      "bg_query": "holiday traffic jam aerial cars",
+      "bg": 35114237
+    },
+    {
+      "kind": "fact",
+      "voice": "원인은 분명합니다. 고속도로 사망사고의 절반 이상이 졸음과 피로입니다. 차가 적으니 속도는 올라가고, 눈은 감깁니다.",
+      "lines": [
+        ["사망사고의 절반 이상이 졸음과 피로", []],
+        ["차가 적으니 속도는 올라가고, 눈은 감깁니다", []]
+      ],
+      "bg_query": "tired driver yawning steering wheel night",
+      "bg": 6331329
+    },
+    {
+      "kind": "twist",
+      "voice": "사고가 나도 발견이 늦는 그 새벽길이 가장 치명적입니다. 올해 추석 연휴는 9월 24일 수요일 시작, 출발 전 4시간 수면이 기준입니다.",
+      "lines": [
+        ["발견이 늦는 새벽길이 가장 치명적입니다", ["치명적"]],
+        ["추석 연휴 9월 24일 시작", []],
+        ["출발 전 4시간 수면이 기준입니다", []]
+      ],
+      "bg_query": "sunrise empty highway fog",
+      "bg": 20662158
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식,", ["1일", "1지식,"]], ["구독으로 받아보세요", ["구독으로"]]],
+      "bg": 20662158
+    }
+  ],
+  "sources": [
+    "https://koroad.or.kr/",
+    "https://news.kmib.co.kr/article/view.asp?arcid=0020712345&code=61121111"
+  ]
+}
