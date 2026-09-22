@@ -1,0 +1,34 @@
+{
+ "topic": "노트북 프라이버시 스크린 필름 — 카페 옆자리에서 내 화면이 다 보이고 있었다, 만원짜리 필름 한 장이 양옆을 까맣게 만든다, 13~16인치 만원대부터 [구매가능]",
+ "blog_teaser": "자석형·접착형 차이와 사이즈 고르는 법, 밝기 손해 줄이는 설정은 블로그에 정리했습니다",
+ "threads_text": "노트북 양옆에서 화면이 사라졌다 — 만원짜리 필름 한 장\n\n1. IPS 패널 시야각은 178도 — 카페 옆자리는 물론 뒷자리에서도 보인다\n2. 프라이버시 필름은 마이크로 루버로 30도 밖을 차단 — 정면만 보임\n3. 밝기 약 30% 줄어드는 게 단점\n4. 13~16인치 만원대부터, 자석 탈착형은 3~5만원\n5. 비번 칠 때 손으로 가리는 사람 많은데 화면 전체가 보이고 있었다\n\n(출처: Kensington, 3M, SlashGear 실측)",
+ "description": "카페·KTX·도서관에서 노트북을 열면 IPS 패널 기준 양옆 178도까지 보인다. 옆자리 사람이 의도하지 않아도 비밀번호, 메일, 메시지가 노출된다. 프라이버시 스크린 필름은 마이크로 루버(미세 수직 블라인드) 기술로 정면만 통과시키고, 30도 이상 각도에서는 화면을 까맣게 차단한다. 3M이 1990년대에 처음 상용화한 기술이다. 단점은 밝기가 약 30~32% 줄어든다는 것과 색감이 약간 탁해진다는 것이다. 유형은 세 가지다 — 접착식(붙이면 고정), 자석 탈착식(필요할 때만 붙였다 뗀다), 클립식(베젤에 거는 방식). 13~16인치 기준 무명 브랜드는 만원대, Kensington MagPro·Spigen Safe View 같은 자석 탈착형은 3~5만원이다.",
+ "caption": "노트북 양옆에서 화면이 사라졌다 — 만원짜리 필름 한 장\n\n노트북 IPS 패널 시야각은 178도.\n옆자리뿐 아니라 뒷자리에서도 보인다.\n\n프라이버시 필름은 마이크로 루버로\n30도 밖을 차단한다 — 정면만 보인다.\n밝기 약 30% 줄어드는 게 트레이드오프.\n\n접착식·자석 탈착식·클립식 세 가지.\n13~16인치 만원대부터.\n자석 탈착형(Kensington, Spigen)은 3~5만원.\n\n(출처: Kensington, 3M, SlashGear)\n\n#프라이버시필름 #노트북보안 #카페노트북 #보안필름 #테크",
+ "factcheck": [
+   {"claim": "IPS 패널 시야각 178도", "sources": ["https://www.kensington.com/news/security-blog/work-securely-with-kesington-privacy-screen-filters/", "https://veepn.com/blog/how-do-privacy-screens-work/"], "note": "IPS 패널 일반 시야각 178도는 디스플레이 업계 표준 사양. Kensington·VeePN 기술 설명에서 시야각 노출 위험 확인"},
+   {"claim": "프라이버시 필름 30도 밖 차단", "sources": ["https://www.gtelglass.com/blogs/news/privacy-screen-protector-types-angle-transmittance", "https://www.privacyfilter.com/news/industry/privacy-filter-angle-45privacy-screen-vs-30-privacy-screen.html"], "note": "표준형은 ±30도(총 60도), 45도형도 존재. Kensington MagPro·3M Gold 모두 30도 사양"},
+   {"claim": "밝기 약 30% 감소", "sources": ["https://www.slashgear.com/1842688/privacy-screen-protectors-reduce-screen-brightness/", "https://perfectsight.co/blogs/blog/are-privacy-screen-protector-good"], "note": "SlashGear 실측 32% 감소, Perfectsight도 유사 수치 확인"},
+   {"claim": "만원대부터, 자석형 3~5만원", "sources": ["https://www.coupang.com/np/search?q=%EB%85%B8%ED%8A%B8%EB%B6%81+%ED%94%84%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%8B%9C+%ED%95%84%EB%A6%84"], "note": "쿠팡 검색 기준 무명 브랜드 13~14인치 9,900~19,900원대, Kensington MagPro 14인치 44,900원, Spigen Safe View 49,900원 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/privacy_screen_hook.jpg",
+   "title": "카페 노트북, 양옆에서\n화면이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "만원짜리 필름 한 장\n정면만 보이고, 30도 밖은 까맣다",
+   "body_hl": ["만원짜리 필름 한 장"],
+   "credit": "Kensington"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/privacy_screen_end.jpg",
+   "title": "마이크로 루버가 빛의 방향을 차단\n정면은 선명 — 30° 넘으면 암전",
+   "title_hl": ["30° 넘으면 암전"],
+   "body": "밝기 약 30% 줄어드는 게 트레이드오프\n접착식 · 자석 탈착식 · 클립식 세 가지",
+   "body_hl": ["자석 탈착식"],
+   "sub": "13~16인치 만원대부터\n자석형(Kensington·Spigen) 3~5만원",
+   "credit": "Kensington MagPro"
+  }
+ ]
+}
