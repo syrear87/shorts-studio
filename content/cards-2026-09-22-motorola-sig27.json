@@ -1,0 +1,33 @@
+{
+ "topic": "Motorola Signature 27 — 스마트폰 뒷면이 유리에서 천으로 바뀌었다, 올리브색 패브릭에 200MP 카메라 [소유욕형]",
+ "blog_teaser": "팬톤 컬러 코드가 면직물(TCX) 기준인 이유는 블로그에 정리했습니다",
+ "threads_text": "스마트폰 뒷면이 유리에서 천으로 바뀌었다\n\n1. 모토로라 시그니처 27, 오늘 공개\n2. 뒷면이 올리브색 패브릭 질감 — 유리도 금속도 아니다\n3. 팬톤 컬러 코드가 TCX(면직물 기준)다\n4. 200MP 소니 LYTIA 센서, 100배 줌, 돌비 비전 촬영\n5. 2nm 스냅드래곤 8 Elite Gen 6 탑재 예정\n\n(출처: Motorola 공식 티저, 9to5Google, GSMArena)",
+ "caption": "스마트폰 뒷면이 유리에서 천으로 바뀌었다\n\nMotorola Signature 27, 오늘 공개.\n뒷면이 올리브색 패브릭 질감이다.\n유리도 금속도 아니다.\n\n팬톤 컬러 코드가 TCX — 면직물 위에 찍는 색 기준.\nCoal Smoke, Capulet Olive 두 가지.\n\n카메라는 200MP 소니 LYTIA, 100배 줌.\n돌비 비전 촬영까지.\n\n2nm 스냅드래곤 8 Elite Gen 6 탑재 예정.\n국내 출시 미정 — 모토로라가 한국에서 10년 넘게 부재.\n\n(출처: Motorola, 9to5Google, GSMArena)\n\n#모토로라 #Motorola #Signature27 #테크 #스마트폰",
+ "factcheck": [
+   {"claim": "오늘(9/22) 스냅드래곤 서밋에서 공개", "sources": ["https://9to5google.com/2026/09/18/motorola-signature-27-teaser-snapdragon/", "https://www.gsmarena.com/this_is_when_motorola_is_unveiling_the_signature_27-news-74681.php"], "note": "9to5Google·GSMArena 모두 9/22 Snapdragon Summit 확인"},
+   {"claim": "올리브색 패브릭 질감 뒷면, 팬톤 TCX 컬러(Coal Smoke 19-3914, Capulet Olive 18-0426)", "sources": ["https://www.techadvisor.com/article/3238888/motorola-signature-27-launch-confirmed-with-specs-and-colours-revealed.html", "https://gagadget.com/en/726757-motorola-signature-27-teased-with-200mp-sony-camera-and-grapheneos-support/"], "note": "TechAdvisor: TCX=Textile Cotton eXtended, 공식 티저 영상에서 팬톤 코드 확인"},
+   {"claim": "200MP 소니 LYTIA 센서, 100x Super Zoom, Dolby Vision", "sources": ["https://gagadget.com/en/726757-motorola-signature-27-teased-with-200mp-sony-camera-and-grapheneos-support/", "https://www.phonearena.com/news/motorola-signature-27-200-mp-camera-confirmed-snapdragon-8-elite-gen-6-pro-suggested_id183503"], "note": "공식 티저 렌즈 링에 '200MP · 100x Super Zoom · Dolby Vision · LYTIA' 각인 확인"},
+   {"claim": "스냅드래곤 8 Elite Gen 6(2nm) 탑재 예정", "sources": ["https://9to5google.com/2026/09/18/motorola-signature-27-teaser-snapdragon/", "https://www.phonearena.com/news/motorola-signature-27-200-mp-camera-confirmed-snapdragon-8-elite-gen-6-pro-suggested_id183503"], "note": "같은 날 퀄컴 서밋에서 칩 발표, 탑재 확실시 — '예정'으로 표기"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/motorola_sig27_end.webp",
+   "title": "스마트폰 뒷면이\n유리에서 천으로 바뀌었다",
+   "title_hl": ["천"],
+   "body": "모토로라 시그니처 27, 오늘 공개\n올리브색 패브릭 질감 — 유리도 금속도 아니다",
+   "body_hl": ["패브릭"],
+   "credit": "Motorola"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/motorola_sig27_hook.jpg",
+   "title": "카메라 링에 새겨진 숫자\n200MP · 100배 줌 · 돌비 비전",
+   "title_hl": ["200MP"],
+   "body": "소니 LYTIA 센서, 2nm 스냅드래곤 탑재 예정\n팬톤 코드가 면직물(TCX) 기준이다",
+   "body_hl": ["면직물"],
+   "sub": "Motorola Signature 27\n국내 출시 미정 — 가격 미발표",
+   "credit": "Motorola"
+  }
+ ]
+}
