@@ -1,0 +1,71 @@
+{
+  "title": "삼성전자 주주라면, 내일이 마지막입니다",
+  "narrator": "male",
+  "series": "재난기상체감·일반지식",
+  "bg_query": ["stock market trading screen", "stock exchange ticker board", "calendar deadline clock", "korean won bills coins", "stock market close bell"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "주식은 사고 이틀이면 내 겁니다. 그런데 이번 추석, 그 이틀이 일주일이 됩니다. 내일이 마지막입니다.",
+      "lines": [
+        ["주식은 이틀이면 내 겁니다", []],
+        ["이번 추석, 내일이 마지막입니다", ["마지막"]]
+      ],
+      "bg_query": "stock market trading screen",
+      "bg": 38440687
+    },
+    {
+      "kind": "fact",
+      "voice": "첫째, 삼성전자 3분기 배당, 기준일은 9월 30일입니다. 이날까지 주주명부에 이름이 있어야 배당을 받습니다.",
+      "lines": [
+        ["3분기 배당 기준일 9/30", ["9/30"]],
+        ["주주명부에 이름이 있어야 배당", []]
+      ],
+      "bg_query": "stock exchange ticker board",
+      "bg": 39383796
+    },
+    {
+      "kind": "fact",
+      "voice": "둘째, 문제는 추석입니다. 9월 24일부터 28일까지, 증시가 5일 연속 문을 닫습니다.",
+      "lines": [
+        ["추석 9/24~28", []],
+        ["증시가 5일 연속 닫습니다", ["5일"]]
+      ],
+      "bg_query": "calendar deadline clock",
+      "bg": 9057559
+    },
+    {
+      "kind": "fact",
+      "voice": "셋째, 그래서 마지막 매수일이 내일, 9월 23일 수요일로 당겨집니다. 연휴가 없었다면 28일까지였는데, 일주일이 앞당겨진 겁니다.",
+      "lines": [
+        ["마지막 매수일은 내일 9/23(수)", ["내일"]],
+        ["28일까지였는데 일주일 앞당겨짐", []]
+      ],
+      "bg_query": "korean won bills coins",
+      "bg": 7580445
+    },
+    {
+      "kind": "twist",
+      "voice": "삼성전자만이 아닙니다. 9월 결산 종목은 전부 같은 구조입니다. 이건 투자 권유가 아닙니다, 달력의 함정입니다.",
+      "lines": [
+        ["삼성전자만이 아닙니다", []],
+        ["이건 달력의 함정입니다", ["함정"]]
+      ],
+      "bg_query": "stock market close bell",
+      "bg": 38209367
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]],
+      "bg_query": "stock market close bell",
+      "bg": 38209367
+    }
+  ],
+  "sources": [
+    "https://finance.naver.com/item/main.naver?code=005930",
+    "https://www.samsung.com/sec/ir/dividend/",
+    "https://www.krx.co.kr/"
+  ]
+}
