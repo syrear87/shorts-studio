@@ -1,0 +1,80 @@
+{
+  "topic": "Ultrahuman Ring AIR — 갤럭시 링, 구독료 없는 라이벌이 나왔다, 2.4g 티타늄에 수면·심박수·혈중산소·체온·HRV 5종 측정, 구독료 0원 [공유형]",
+  "blog_teaser": "오우라·갤럭시 링이랑 뭐가 다른지 비교표는 블로그에 정리했습니다",
+  "threads_text": "갤럭시 링, 구독료 없는 라이벌이 나왔다\n\n1. Ultrahuman Ring AIR — 티타늄 2.4g, 반지 하나에 건강 센서 5종\n2. 수면·심박수·혈중산소·체온·HRV 측정, 100m 방수\n3. 오우라 링은 월 8천원 구독료가 있다 — 이건 없다\n4. 배터리 일반 4~6일, 절전 모드 8~9일\n5. 국내 미출시, 직구 $349(약 48만원+관세)\n6. 국내 대안은 갤럭시 링 399,200원\n\n(출처: Ultrahuman 공식, Wareable, Forbes)",
+  "caption": "갤럭시 링, 구독료 없는 라이벌이 나왔다\n\nUltrahuman Ring AIR.\n티타늄 2.4g, 손가락에 끼면 수면·심박수·혈중산소·체온·HRV를 잰다.\n\n오우라 링은 데이터를 보려면 월 $5.99를 내야 한다.\n이건 0원이다 — $349 한 번 사면 끝.\n\n배터리 4~6일, 100m 방수.\n사이즈 5~14, 무료 사이즈 키트 제공.\n\n국내 공식 판매 없음.\n직구 $349(약 48만원) + 관세·배송 약 7만원 = 총 약 55만원.\n국내 대안: 삼성 갤럭시 링 399,200원(구독료 없음).\n\n(출처: Ultrahuman, Wareable, Forbes)\n\n#스마트반지 #Ultrahuman #웨어러블 #수면측정 #테크",
+  "factcheck": [
+    {
+      "claim": "티타늄 소재, 무게 2.4~3.6g(사이즈별)",
+      "sources": [
+        "https://www.ultrahuman.com/global/ring/faq/",
+        "https://smart-rings.info/en/ring/ultrahuman-ring-air"
+      ],
+      "note": "공식 FAQ + 독립 스펙 사이트 교차 확인"
+    },
+    {
+      "claim": "수면·심박수·혈중산소(SpO2)·체온·HRV 5종 측정",
+      "sources": [
+        "https://www.ultrahuman.com/global/ring/faq/",
+        "https://www.wareable.com/fashion/best-smart-rings-1340"
+      ],
+      "note": "공식 센서 목록 + Wareable 리뷰 확인. 스트레스는 직접 점수가 아니라 HRV 기반 회복도"
+    },
+    {
+      "claim": "구독료 없음, $349 단일 구매",
+      "sources": [
+        "https://www.ultrahuman.com/ring/buy/global/",
+        "https://trackervs.com/pricing/ultrahuman-ring-price/"
+      ],
+      "note": "공식 가격 페이지 + TrackerVS 독립 확인"
+    },
+    {
+      "claim": "배터리 일반 4~6일, 절전 모드 8~9일",
+      "sources": [
+        "https://www.ultrahuman.com/global/ring/faq/",
+        "https://smart-rings.info/en/ring/ultrahuman-ring-air"
+      ],
+      "note": "공식 FAQ: approximately 4-6 days standard. Smart-Rings.info: Turbo 5-6일 / Chill 8-9일"
+    },
+    {
+      "claim": "100m 방수",
+      "sources": [
+        "https://www.ultrahuman.com/global/ring/faq/"
+      ],
+      "note": "공식 FAQ 확인"
+    },
+    {
+      "claim": "국내 미출시 — 쿠팡·네이버쇼핑 검색 결과 없음(2026-09-22 확인)",
+      "sources": [],
+      "note": "쿠팡·네이버쇼핑에서 울트라휴먼 링 검색 결과 없음"
+    },
+    {
+      "claim": "국내 대안: 삼성 갤럭시 링 399,200원",
+      "sources": [
+        "https://www.samsung.com/sec/galaxy-ring/"
+      ],
+      "note": "삼성 공식몰 가격 확인 필요 — 출시가 기준"
+    }
+  ],
+  "cards": [
+    {
+      "kind": "hook",
+      "img": "assets/cards/ultrahuman_ring_air_hook.jpg",
+      "title": "갤럭시 링\n구독료 없는 라이벌이 나왔다",
+      "title_hl": ["라이벌"],
+      "body": "2.4g 티타늄\n구독료 0원",
+      "body_hl": ["0원"],
+      "credit": "Pexels"
+    },
+    {
+      "kind": "end",
+      "img": "assets/cards/ultrahuman_ring_air_end.jpg",
+      "title": "Ultrahuman Ring AIR",
+      "title_hl": ["Ring AIR"],
+      "body": "수면 · 심박수 · 혈중산소\n체온 · HRV\n배터리 4~6일, 100m 방수",
+      "body_hl": ["5종"],
+      "sub": "직구 $349(약 55만원) · 국내 대안 갤럭시 링 40만원",
+      "credit": "Pexels"
+    }
+  ]
+}
