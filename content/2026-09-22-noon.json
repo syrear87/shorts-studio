@@ -1,0 +1,71 @@
+{
+  "title": "추석 고속도로, 통행료 0원인데 더 막힙니다",
+  "narrator": "male",
+  "series": "공유성",
+  "bg_query": ["highway traffic jam aerial korea", "toll gate highway korea", "highway cars congestion aerial", "highway toll booth barrier empty", "highway traffic sunset aerial dense"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "추석 고속도로, 올해는 통행료가 없습니다. 서울에서 부산까지 최대 10시간 반, 왜 더 막힐까요.",
+      "lines": [
+        ["통행료가 없습니다", []],
+        ["서울~부산 10시간 반, 왜?", ["10시간"]]
+      ],
+      "bg_query": "highway traffic jam aerial korea",
+      "bg": 35471095
+    },
+    {
+      "kind": "fact",
+      "voice": "면제 기간은 9월 24일부터 27일, 4일입니다. 이 기간 고속도로 하루 교통량은 605만 대, 평소보다 11.8퍼센트 많습니다.",
+      "lines": [
+        ["면제 기간 9/24~27, 4일", []],
+        ["하루 교통량 605만 대, +11.8%", ["605만"]]
+      ],
+      "bg_query": "toll gate highway korea",
+      "bg": 19452742
+    },
+    {
+      "kind": "fact",
+      "voice": "올해 연휴는 4일뿐입니다. 작년 11일에서 줄었고, 같은 수의 차가 더 짧은 기간에 몰립니다.",
+      "lines": [
+        ["올해 연휴는 4일뿐입니다", ["4일뿐"]],
+        ["같은 차가 짧은 기간에 몰립니다", []]
+      ],
+      "bg_query": "highway cars congestion aerial",
+      "bg": "photo:26630510"
+    },
+    {
+      "kind": "fact",
+      "voice": "2009년부터 17년째 매년 명절 통행료를 면제하고 있습니다. 그동안 감면된 금액, 5조 4천억 원입니다.",
+      "lines": [
+        ["17년째 명절 통행료 면제", []],
+        ["감면된 금액 5조 4천억 원", ["5조"]]
+      ],
+      "bg_query": "highway toll booth barrier empty",
+      "bg": 36153290
+    },
+    {
+      "kind": "twist",
+      "voice": "통행료는 도로의 가격입니다. 가격을 치우면 수요가 몰립니다. 짧은 연휴에 공짜까지 겹쳤습니다. 올해 추석, 더 막히는 이유입니다.",
+      "lines": [
+        ["통행료는 도로의 가격입니다", []],
+        ["짧은 연휴에 공짜까지 겹쳤습니다", []],
+        ["올해 추석, 더 막히는 이유입니다", ["이유"]]
+      ],
+      "bg_query": "highway traffic sunset aerial dense",
+      "bg": 12376634
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]],
+      "bg": 12376634
+    }
+  ],
+  "sources": [
+    "https://m.news.nate.com/view/20260603n22032",
+    "https://www.dailian.co.kr/news/view/1692585",
+    "https://www.fnnews.com/news/202609211005097429"
+  ]
+}
