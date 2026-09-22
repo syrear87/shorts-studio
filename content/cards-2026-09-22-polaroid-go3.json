@@ -1,0 +1,33 @@
+{
+ "topic": "Polaroid Go Gen 3 — 세계에서 가장 작은 즉석카메라가 렌즈를 갈았다, 뿌옇던 사진이 달라진다 [소유욕형]",
+ "blog_teaser": "인스탁스 미니와 비교, 필름 가격, 한국 구매처는 블로그에 따로 정리했습니다",
+ "threads_text": "세계에서 가장 작은 즉석카메라가 렌즈를 갈았다\n\n1. Polaroid Go Gen 3 — 손바닥 위 즉석카메라의 3세대\n2. 렌즈 51→64mm로 교체, LED→제논 플래시, 셀피 미러 추가\n3. 106.5×83.8×64.6mm, 251.9g — 주머니에 들어간다\n4. 필름 16장 $21.99 — 장당 약 1,800원\n5. $89.99 — 한국 무신사 159,000원 판매 중\n\n(출처: PetaPixel, Digital Camera World, Polaroid)",
+ "description": "폴라로이드 Go는 2021년 세계에서 가장 작은 아날로그 즉석카메라로 등장했다. 그런데 1·2세대의 공통 불만은 '사진이 뿌옇다'였다. 2026년 6월 나온 Gen 3는 렌즈를 51.1mm에서 63.75mm로 키우고, LED 플래시를 제논으로 바꿨다. 셀피 미러도 새로 달렸다. 충전은 USB-C. 크기는 106.5×83.8×64.6mm, 무게 251.9g으로 주머니에 들어간다. 전용 Go 컬러 필름은 16장에 $21.99, 장당 약 1,800원이다. 비교 대상인 인스탁스 미니 12는 본체가 더 싸지만($79.95) 필름 단가는 비슷하다. 가격은 $89.99, 한국에서는 C&C글로벌이 수입해 무신사에서 159,000원에 판매 중이다.",
+ "caption": "세계에서 가장 작은 즉석카메라가 렌즈를 갈았다\n\nPolaroid Go Gen 3.\n손바닥 위 즉석카메라의 3세대.\n\n1·2세대 공통 불만은 '사진이 뿌옇다'.\nGen 3는 렌즈를 51→64mm로 키웠다.\nLED 플래시를 제논으로 교체.\n셀피 미러도 새로 달렸다.\n\n106.5×83.8×64.6mm, 251.9g.\n주머니에 들어가는 즉석카메라.\n\n필름 16장 $21.99 — 장당 약 1,800원.\n$89.99 — 한국 무신사 159,000원.\n\n(출처: PetaPixel, Digital Camera World, Polaroid)\n\n#폴라로이드 #즉석카메라 #PolaroidGo #필름카메라 #테크",
+ "factcheck": [
+   {"claim": "세계에서 가장 작은 아날로그 즉석카메라", "sources": ["https://petapixel.com/2026/06/02/polaroid-go-generation-3-improves-the-worlds-smallest-instant-camera/", "https://www.digitalcameraworld.com/cameras/polaroid-go-gen-3-review"], "note": "PetaPixel·DCW 모두 world's smallest analog instant camera 표현 확인"},
+   {"claim": "렌즈 51.1→63.75mm, LED→제논 플래시, 셀피 미러 추가", "sources": ["https://petapixel.com/2026/06/02/polaroid-go-generation-3-improves-the-worlds-smallest-instant-camera/", "https://newatlas.com/cameras/polaroid-go-gen-3/"], "note": "PetaPixel: 63.75mm lens, xenon flash, selfie mirror 명시. New Atlas 동일 확인"},
+   {"claim": "$89.99, 한국 무신사 159,000원 판매 중", "sources": ["https://www.polaroid.com/products/polaroid-go-gen-3", "https://www.musinsa.com/"], "note": "Polaroid 공식 $89.99, 무신사 159,000원 실측 확인 (C&C글로벌 수입)"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/polaroid_go3_hook.jpg",
+   "title": "뿌옇기로 유명했던 폴라로이드가\n렌즈를 51→64mm로 키웠다",
+   "title_hl": ["51→64mm로 키웠다"],
+   "body": "세계에서 가장 작은 즉석카메라\nGen 3에서 제논 플래시까지 달렸다",
+   "body_hl": ["제논 플래시"],
+   "credit": "Polaroid / New Atlas"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/polaroid_go3_end.jpg",
+   "title": "렌즈 51→64mm\n제논 플래시 · 셀피 미러",
+   "title_hl": ["제논 플래시"],
+   "body": "106.5×83.8×64.6mm · 251.9g\n필름 16장 $21.99 — 장당 약 1,800원",
+   "body_hl": ["장당 약 1,800원"],
+   "sub": "Polaroid Go Gen 3 · $89.99\n한국 무신사 159,000원",
+   "credit": "Polaroid / New Atlas"
+  }
+ ]
+}
