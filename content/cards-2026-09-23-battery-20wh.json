@@ -1,0 +1,34 @@
+{
+ "topic": "아이폰18 프로맥스 배터리가 처음으로 비행기 규정을 넘었다 — 21.75Wh, 항공 운송 단일 셀 한도 20Wh 초과 [공유형]",
+ "blog_teaser": "20Wh 한도가 뭔지, 보조배터리 규정은 어떻게 다른지는 블로그에 정리해뒀습니다",
+ "threads_text": "아이폰18 프로맥스 배터리가 처음으로 비행기 규정을 넘었다\n\n1. 항공 운송에서 리튬이온 단일 셀은 20Wh까지만 허용된다\n2. 아이폰18 프로맥스 배터리 21.75Wh — 이 선을 처음 넘었다\n3. 애플 해결법: 출하 전 소프트웨어로 충전량을 20Wh 아래로 제한\n4. 개봉해서 활성화하면 전체 용량이 풀린다\n5. 샤오미 중국판이 글로벌판보다 배터리가 큰 이유도 이 규정 때문\n\n(출처: IATA 위험물 규정, GSMArena, MacRumors)",
+ "description": "국제항공운송협회(IATA) 규정상 리튬이온 배터리 단일 셀의 항공 운송 한도는 20Wh다. 20Wh를 넘으면 위험물(Section IA)로 분류돼 화물기 전용·특수 포장이 필요하다. 일반 스마트폰 전압(약 3.87V) 기준으로 20Wh는 약 5,200mAh에 해당한다. 아이폰18 프로맥스(미국 eSIM 모델)의 배터리는 5,567mAh·21.75Wh로, 스마트폰 중 처음으로 이 선을 넘었다. 유럽 물리 SIM 모델도 5,391mAh·21.06Wh로 한도 초과다. 애플은 소프트웨어로 충전량을 20Wh 아래로 제한한 채 출하하고, 사용자가 개봉·활성화하면 전체 용량이 풀리는 방식을 택했다. 설정 > 일반 > iPhone 전송 또는 재설정 > 출하 준비 경로에서 직접 전환할 수도 있다. 중국 스마트폰 제조사들은 이 규정 때문에 중국 내수용(6,000mAh 이상)보다 글로벌 출하 모델의 배터리를 줄여 왔다. 2026년 1월 기준 6,000mAh 이상 스마트폰이 전 세계 판매의 29%를 차지하며(2025년 1월 10%), 이 한도에 닿는 기기가 빠르게 늘고 있다.",
+ "caption": "아이폰18 프로맥스 배터리가 처음으로 비행기 규정을 넘었다\n\n배터리 21.75Wh.\n항공 운송 단일 셀 한도 20Wh를 처음 넘었다.\n\nIATA 규정상 20Wh 이상은 위험물로 분류된다.\n애플은 출하 전에 소프트웨어로 충전량을 깎아 보낸다.\n설정 > 일반 > 출하 준비 한 번이면 20Wh 아래로.\n개봉 후 활성화하면 전체 용량이 풀린다.\n\n중국 폰이 해외판보다 배터리가 작은 이유도 같다.\n6,000mAh 이상 폰이 전 세계 판매의 29%를 차지하는데,\n글로벌 출하분은 20Wh에 맞춰 줄여 보낸다.\n\n(출처: IATA 위험물 규정, GSMArena, MacRumors)\n\n#아이폰18 #배터리 #항공규정 #스마트폰 #테크",
+ "factcheck": [
+   {"claim": "아이폰18 프로맥스 배터리 5,567mAh·21.75Wh", "sources": ["https://www.gsmarena.com/heres_apples_clever_way_of_circumventing_20wh_battery_shipping_restrictions-news-74689.php", "https://www.macrumors.com/2026/09/18/iphone-18-pro-max-shipping-restriction/"], "note": "GSMArena: US eSIM 모델 5,567mAh(21.75Wh), EU 물리 SIM 모델 5,391mAh(21.06Wh) 확인"},
+   {"claim": "IATA 단일 셀 20Wh 한도 — 초과 시 위험물(Section IA) 분류", "sources": ["https://www.iata.org/contentassets/05e6d8742b0047259bf3a700bc9d42b9/lithium-battery-guidance-document.pdf", "https://www.hazmatuniversity.com/news/lithium-battery-air-transport-2026-iata-and-icao-compliance-guide/"], "note": "IATA 공식 배터리 가이드: Section IA = 단일 셀 >20Wh, 화물기 전용·PI 965 적용"},
+   {"claim": "애플 '출하 준비' 소프트웨어로 충전량을 20Wh 아래로 제한", "sources": ["https://www.macrumors.com/2026/09/18/iphone-18-pro-max-shipping-restriction/", "https://www.gsmarena.com/heres_apples_clever_way_of_circumventing_20wh_battery_shipping_restrictions-news-74689.php"], "note": "MacRumors: Settings > General > Transfer or Reset iPhone > Prepare to Ship 경로 확인. 활성화 시 해제"},
+   {"claim": "6,000mAh 이상 스마트폰이 2026년 1월 글로벌 판매의 29%", "sources": ["https://counterpointresearch.com/en/insights/Six-of-Top-10-6000mAh-Battery-Capacity-Smartphones-Featured-SiC-in-January-2026-as-Chinese-OEMs-Dominated", "https://www.gizmochina.com/2026/02/23/heres-xiaomi-phones-abroad-often-have-smaller-batteries-than-china-versions/"], "note": "Counterpoint Research: 2026년 1월 29%(2025년 1월 10%). Gizmochina: 중국 OEM이 글로벌판 배터리를 축소하는 이유로 항공 규정 명시"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/iphone18_battery_hook.jpg",
+   "title": "아이폰18 프로맥스 배터리가\n처음으로 비행기 규정을 넘었다",
+   "title_hl": ["아이폰18 프로맥스", "처음으로"],
+   "body": "배터리 21.75Wh\n항공 운송 단일 셀 한도는 20Wh",
+   "body_hl": ["21.75Wh", "20Wh"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/iphone18_battery_end.jpg",
+   "title": "애플은 출하 전에\n배터리를 소프트웨어로 깎는다",
+   "title_hl": ["소프트웨어로 깎는다"],
+   "body": "설정 > 출하 준비 한 번이면\n충전량이 20Wh 아래로 내려간다",
+   "body_hl": ["20Wh 아래로"],
+   "sub": "개봉 후 활성화하면 전체 용량 복원\n중국 폰이 해외판보다 배터리 작은 이유도 이것",
+   "credit": "Pexels"
+  }
+ ]
+}
