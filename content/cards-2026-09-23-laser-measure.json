@@ -1,0 +1,34 @@
+{
+ "topic": "레이저 거리측정기 — 줄자에서 줄이 사라졌다, 벽에 쏘면 40m를 0.2초에 재고 면적까지 나온다, 2만원대부터 [구매가능][공유형]",
+ "blog_teaser": "줄자 vs 레이저 측정기 비교, 제품별 오차 실측, 이사할 때 꼭 필요한 기능은 블로그에 정리했습니다",
+ "threads_text": "줄자에서 줄이 사라졌다\n\n1. 줄자 잡아줄 사람 없이 방 크기 재려면 벽에 대고 버튼 한 번이면 된다 — 레이저 거리측정기가 0.2초에 40m까지 잰다\n2. 오차 ±2mm. 줄자가 처지거나 꺾이면서 생기는 오차보다 정확하다\n3. 거리만 재는 게 아니다 — 가로·세로 두 번 쏘면 면적이 나오고, 세 번이면 부피까지 계산해준다\n4. 이사할 때 방 크기, 가구 들어갈지, 커튼 길이 — 줄자 꺼낼 일이 전부 이걸로 끝난다\n5. 쿠팡에 2만원대부터. 샤오미 미지아·머레이·BLUTEC 등\n\n(출처: Xiaomi 공식 사양, Metravi·MakaGiC 제품 사양서, 다나와 가격비교)",
+ "description": "레이저 거리측정기가 2만원대로 내려오면서 줄자를 대체하고 있다. 벽에 레이저를 쏘면 40m까지 0.2초 만에 거리를 재고, 오차는 ±2mm다. 줄자가 처지거나 꺾이면서 생기는 오차보다 정확하다.\n\n줄자의 구조적 한계는 세 가지다. 첫째, 긴 거리를 재려면 한쪽 끝을 잡아줄 사람이 필요하다. 혼자서 5m 넘는 거리를 줄자로 재면 줄이 처지면서 실제보다 길게 나온다. 둘째, 모서리나 가구 뒤를 측정하기 어렵다. 셋째, 면적이나 부피를 구하려면 측정값을 일일이 기억해서 곱해야 한다.\n\n레이저 거리측정기는 이 세 가지를 동시에 해결한다. 벽에 대고 버튼 하나를 누르면 레이저가 반대편 벽에 반사돼 돌아오는 시간으로 거리를 계산한다. 혼자서도 40m까지 잴 수 있고, 0.2초면 숫자가 뜬다. 가로·세로를 연속으로 쏘면 면적이 자동 계산되고, 세 번이면 부피까지 나온다. 피타고라스 모드가 있는 모델은 직접 닿을 수 없는 높이(예: 천장 높이)도 삼각법으로 측정한다.\n\n이사할 때 방 크기 재기, 가구가 들어갈지 확인하기, 커튼·블라인드 길이 재기, 벽지·장판 면적 계산하기 같은 상황에서 줄자를 꺼낼 일이 없어진다.\n\n구매 시 확인할 점은 세 가지다. 첫째, 측정 범위 — 가정용은 40m면 충분하다(방 대각선이 보통 5~7m). 100m 이상은 야외 공사용이라 비싸다. 둘째, 오차 — ±2mm가 소비자용 표준이고 ±1.5mm인 모델도 있다. 셋째, 충전 방식 — AAA 건전지를 쓰는 모델과 USB-C 충전식이 있는데, Xiaomi Mijia 같은 신형은 USB-C 충전이고 370mAh 배터리로 수천 회 측정이 가능하다.\n\n쿠팡에서 샤오미 미지아(26,500원)·머레이·BLUTEC ML40 등이 판매 중이며, 다나와에서도 가격비교가 가능하다.",
+ "caption": "줄자에서 줄이 사라졌다\n\n벽에 쏘면 40m를 0.2초에 잰다.\n오차 ±2mm. 줄자보다 정확하다.\n\n가로·세로 두 번 쏘면 면적,\n세 번이면 부피까지 자동 계산.\n\n이사할 때 방 크기, 가구 들어갈지,\n커튼 길이 — 줄자 꺼낼 일이 끝난다.\n\n쿠팡 2만원대부터.\n\n(출처: Xiaomi 공식, Metravi·MakaGiC 사양서)\n\n#레이저거리측정기 #줄자 #이사 #인테리어 #가젯",
+ "factcheck": [
+   {"claim": "40m 측정 범위, 측정 시간 0.2초", "sources": ["https://meskernel.net/en/product/laser-distance-meter/", "https://www.makagic.com/products/laser-measurement-tool-40m"], "note": "MakaGiC: 0.2초 측정 시간, 40m 범위 확인. Meskernel: 40m High-Precision 확인"},
+   {"claim": "오차 ±2mm", "sources": ["https://www.amazon.com/Distance-Handheld-Measuring-Electronic-Measurement/dp/B0CN9HSVPS", "https://www.metravi.com/product/ldm-40h-laser-distance-meter/"], "note": "S-40 모델 ±2mm, Metravi LDM-40H ±1.5mm. 다수 제조사 ±2mm 공통 사양"},
+   {"claim": "면적·부피 자동 계산 기능", "sources": ["https://www.mi.com/global/product/xiaomi-smart-laser-measure/specs/", "https://www.amazon.com/Distance-Handheld-Measuring-Electronic-Measurement/dp/B0CN9HSVPS"], "note": "Xiaomi 공식: 면적·부피·피타고라스 측정 지원. Amazon S-40: area, volume measurement 기능 명시"},
+   {"claim": "쿠팡 2만원대부터 구매 가능", "sources": ["https://www.fmkorea.com/8726324132", "https://prod.danawa.com/list/?cate=13241082"], "note": "샤오미 미지아 26,500원(에펨코리아 핫딜), 다나와 가격비교 등록 확인. 2026-09-23 조회"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/laser_measure_hook.jpg",
+   "title": "줄자에서\n줄이 사라졌다",
+   "title_hl": ["줄이 사라졌다"],
+   "body": "벽에 쏘면 40m를\n0.2초에 잰다",
+   "body_hl": ["0.2초"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/laser_measure_tape.jpg",
+   "title": "줄자 잡아줄 사람이\n필요 없어졌다",
+   "title_hl": ["필요 없어졌다"],
+   "body": "오차 ±2mm · 면적·부피 자동 계산\n이사·인테리어·가구 배치 한 손에 끝",
+   "body_hl": ["±2mm"],
+   "sub": "쿠팡 2만원대부터\n샤오미 미지아 · 머레이 · BLUTEC",
+   "credit": "Pexels"
+  }
+ ]
+}
