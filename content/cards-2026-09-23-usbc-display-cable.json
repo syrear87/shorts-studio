@@ -1,0 +1,34 @@
+{
+ "topic": "USB-C 전력 표시 케이블 — 충전 케이블에 화면이 달렸다, 몇 와트로 충전되는지 눈으로 본다, 만원대부터 [구매가능][공유형]",
+ "blog_teaser": "100W·240W 차이, 브랜드별 비교, 디스플레이 정확도 테스트는 블로그에 정리했습니다",
+ "threads_text": "충전 케이블에 화면이 달렸다\n\n1. USB-C 케이블 중간에 LED 화면이 박혀 있다 — 꽂으면 지금 몇 와트로 충전되는지 3초마다 표시된다\n2. 65W 충전기 샀는데 실제로 18W만 들어가는 경우가 있다 — 케이블이 20W짜리면 거기서 막힌다\n3. 느린 원인이 충전기인지 케이블인지 어댑터인지, 이 케이블 하나면 바로 보인다\n4. 쿠팡에 만원 안팎 — Baseus·Mcdodo·Toocki 등\n5. 단 데이터 속도는 대부분 USB 2.0이라 파일 전송용으로는 느리다\n\n(출처: ChargerLab, Gough's Tech Zone, Technology For You)",
+ "description": "USB-C 케이블 중간에 LED 디스플레이가 내장된 제품이 만원대로 내려왔다. 꽂으면 현재 충전 전력(W), 전압(V), 전류(A)가 3초 간격으로 표시된다. 65W GaN 충전기를 사놓고 실제로 18W만 들어가는 경우가 흔한데, 원인이 충전기인지 케이블인지 바로 알 수 있다. 100W PD 지원이 기본이고 UGREEN 신형은 240W까지 올라갔다. 다만 대부분 USB 2.0(480Mbps)이라 데이터 전송용으로는 느리다. Baseus·Mcdodo·Toocki·UGREEN 등 다수 브랜드가 만들고 있으며, 쿠팡에서 만원 안팎에 구매 가능하다.",
+ "caption": "충전 케이블에 화면이 달렸다\n\nUSB-C 케이블 중간에 LED 화면.\n꽂으면 지금 몇 와트로 충전되는지 뜬다.\n\n65W 충전기 샀는데 왜 느리지?\n실제로 18W만 들어가고 있었다.\n케이블이 병목이면 충전기가 비싼 거 소용없다.\n\n이 케이블 하나면\n느린 원인이 충전기인지 케이블인지 바로 보인다.\n\n100W PD 지원 기본, 240W급도 나왔다.\n쿠팡 만원 안팎.\n\n(출처: ChargerLab, Gough's Tech Zone)\n\n#USBC #충전 #케이블 #가젯 #테크",
+ "factcheck": [
+   {"claim": "LED 디스플레이가 W/V/A를 3초 간격으로 표시", "sources": ["https://goughlui.com/2024/09/22/quick-review-tested-toocki-100w-usb-c-to-usb-c-display-cable/", "https://www.technologyforyou.org/this-15-usb-c-cable-has-a-built-in-power-meter-and-i-keep-finding-uses-for-it/"], "note": "Gough's Tech Zone: Toocki 실측 리뷰, 3초 순환 표시 확인. TFY: 정확도 spot on"},
+   {"claim": "100W PD 기본, UGREEN 240W 지원", "sources": ["https://us.ugreen.com/products/usb-c-cable-240w-digital-display-480mbps", "https://www.chargerlab.com/perfect-for-iphone-15-a-usb-c-cable-with-led-display-buying-guide/"], "note": "UGREEN 공식: 240W PD 3.1 지원. ChargerLab: 다수 브랜드 100W 비교"},
+   {"claim": "대부분 USB 2.0(480Mbps), 영상출력 미지원", "sources": ["https://goughlui.com/2024/09/22/quick-review-tested-toocki-100w-usb-c-to-usb-c-display-cable/", "https://us.ugreen.com/products/usb-c-cable-240w-digital-display-480mbps"], "note": "Gough: USB 2.0 확인, eMarker chip 내장. UGREEN 240W도 480Mbps"},
+   {"claim": "쿠팡 만원 안팎에 구매 가능", "sources": ["https://www.coupang.com/", "https://search.danawa.com/dsearch.php?query=USB+C+%EC%A0%84%EB%A0%A5+%ED%91%9C%EC%8B%9C+%EC%BC%80%EC%9D%B4%EB%B8%94"], "note": "Toocki C-C 100W 디스플레이 케이블 쿠팡 10,900원 확인, 다나와 Baseus CATSK-B01 등록 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/usbc_display_cable_hook.jpg",
+   "title": "충전 케이블에\n화면이 달렸다",
+   "title_hl": ["화면이 달렸다"],
+   "body": "꽂으면 지금 몇 와트로\n충전되는지 눈으로 본다",
+   "body_hl": ["몇 와트"],
+   "credit": "Baseus"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/usbc_display_cable_end.jpg",
+   "title": "65W 충전기 샀는데\n왜 느리지?",
+   "title_hl": ["왜 느리지"],
+   "body": "케이블이 20W짜리면 거기서 막힌다\n이 케이블 하나면 병목이 바로 보인다",
+   "body_hl": ["바로 보인다"],
+   "sub": "100W PD 기본 · 240W급도 출시\n쿠팡 만원 안팎 · Baseus Mcdodo Toocki",
+   "credit": "Mcdodo"
+  }
+ ]
+}
