@@ -1,0 +1,35 @@
+{
+ "topic": "Luna Band — 피트니스 밴드에서 화면이 사라졌다, 24g에 배터리 10일, 구독료 없이 $149 [한계붕괴형]",
+ "blog_teaser": "Whoop·Fitbit Air·Galaxy Fit3와 비교한 표는 블로그에 정리했습니다",
+ "threads_text": "피트니스 밴드에서 화면이 사라졌다\n\n1. Luna Band — 화면 없이 24g, 배터리 10일\n2. 심박·HRV·체온·혈중산소 등 70개 지표 측정\n3. 구독료 없다 — Whoop은 매년 $199~359\n4. $149 한 번이면 끝, 전 세계 배송 시작\n5. 화면 없앴더니 배터리가 10배 됐다는 발상\n\n(출처: Android Police, The Gadgeteer, Tom's Guide)",
+ "description": "Luna Band는 화면을 아예 없앤 피트니스 트래커다. 무게 24g, 나일론 스트랩, 3색(오닉스 블랙·알로에 그린·데저트 베이지). 화면이 없으니 배터리가 10일 간다 — 애플워치는 하루다. 심박수·HRV·혈중산소·체온·스트레스 등 70개 이상 지표를 측정하고, AI 기반 LifeOS가 수면·활동·회복 데이터를 종합해 맞춤 가이드를 준다. 운동 모드 60개 이상, 5ATM 방수. 핵심은 구독료가 없다는 것이다. Whoop 5.0은 밴드값은 무료지만 매년 $199~359를 내야 한다. Luna는 $149 한 번이면 끝이다. IFA 2026에서 전 세계 배송을 발표했고 lunazone.com에서 직구할 수 있다. 한국에는 미출시 — $149에 배송비 포함 시 150달러 초과 가능성이 있어 관부가세 포함 약 25만~28만원 추정. 국내에서 구할 수 있는 화면 없는 트래커는 없다. 화면이 있는 대안으로 Galaxy Fit3(약 5만원대)가 있지만 컨셉이 다르다.",
+ "caption": "피트니스 밴드에서 화면이 사라졌다\n\nLuna Band.\n화면이 없다. 24g.\n대신 배터리가 10일이 됐다.\n\n애플워치 배터리가 하루인 이유가 화면이다.\n그걸 없앴더니 10일이 됐다.\n\n심박·HRV·혈중산소·체온 등 70개 지표 측정.\nAI가 수면·활동·회복을 종합해 맞춤 가이드.\n\n구독료가 없다.\nWhoop은 매년 $199~359를 내야 하는데\nLuna는 $149 한 번이면 끝이다.\n\nIFA 2026에서 전 세계 배송 시작.\n한국 미출시 — lunazone.com 직구 가능.\n관부가세 포함 약 25만~28만원 추정.\n\n(출처: Android Police, The Gadgeteer, Tom's Guide)\n\n#피트니스밴드 #LunaBand #웨어러블 #헬스트래커 #테크",
+ "factcheck": [
+   {"claim": "Luna Band 화면 없음, 24g, 배터리 10일", "sources": ["https://www.androidpolice.com/luna-band-worldwide-launch/", "https://the-gadgeteer.com/2026/09/04/luna-band-screenless-fitness-tracker/"], "note": "두 매체 모두 screenless 24g, 10-day battery 확인"},
+   {"claim": "$149, 구독료 없음", "sources": ["https://gadgetsandwearables.com/2026/09/04/luna-band-2/", "https://www.tomsguide.com/wellness/fitness-trackers/i-just-went-hands-on-with-the-luna-band-fitness-tracker-and-it-beats-the-whoop-5-0-in-3-big-ways"], "note": "$149/£129, no subscription fee — 4개 매체 일치"},
+   {"claim": "Whoop 구독 매년 $199~359", "sources": ["https://hiyd.ai/blogs/news/whoop-subscription-cost-2026", "https://trackervs.com/compare/whoop-vs-fitbit/"], "note": "Whoop One $199/yr, Peak $239/yr, 최상위 $359/yr"},
+   {"claim": "IFA 2026 전 세계 배송 시작", "sources": ["https://www.androidauthority.com/luna-band-global-shipping-3706511/", "https://www.androidheadlines.com/2026/09/luna-band-officially-starts-shipping-worldwide-no-subscription-required.html"], "note": "IFA 2026에서 worldwide shipping 발표, lunazone.com 직판"},
+   {"claim": "심박·HRV·혈중산소·체온 등 70개 지표", "sources": ["https://the-gadgeteer.com/2026/09/04/luna-band-screenless-fitness-tracker/", "https://trendblog.net/luna-band-launches-at-149-offering-60-workout-modes-without-subscription/"], "note": "70+ metrics, 60+ workout modes 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/luna_band_hook.jpg",
+   "title": "피트니스 밴드에서\n화면이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "대신 배터리가\n10일이 됐다",
+   "body_hl": ["10일"],
+   "credit": "Luna"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/luna_band_end.jpg",
+   "title": "24g · 구독료 없음\n$149 한 번이면 끝",
+   "title_hl": ["구독료 없음"],
+   "body": "심박 HRV 혈중산소 체온 등 70개 지표\nWhoop은 매년 $199~359 — 여긴 0원",
+   "body_hl": ["0원"],
+   "sub": "Luna Band · $149 (약 25만~28만원)\n한국 미출시 — lunazone.com 직구",
+   "credit": "Luna"
+  }
+ ]
+}
