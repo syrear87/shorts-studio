@@ -1,0 +1,34 @@
+{
+ "topic": "iFi GO Cable — 이어폰 줄이 앰프가 됐다, 16g 케이블에 DAC·앰프를 넣어 $79 [소유욕형]",
+ "blog_teaser": "GO Cable vs 동글 DAC 비교표·한국 구매처는 블로그에 정리했습니다",
+ "threads_text": "이어폰 줄이 앰프가 됐다\n\n1. iFi GO Cable — 케이블 안에 DAC·앰프가 들어있다\n2. ESS Sabre DAC, 32bit/384kHz, SNR 125dB\n3. 16g — 동글 DAC 따로 달 필요 없다\n4. $79, 한국 수입사 있음 (사운드캣·예스에이브이)\n5. 줄을 바꿨을 뿐인데 폰이 Hi-Fi 플레이어가 된다\n\n(출처: ecoustics, Gear Patrol)",
+ "description": "iFi GO Cable은 USB-C to 0.78mm 2-pin 이어폰 케이블인데, 케이블 안에 DAC과 앰프가 내장돼 있다. ESS Sabre DAC 탑재, 32-bit/384kHz PCM·DSD256 지원, SNR ≥125dBA, THD+N ≤0.004%. 출력 70mW@32Ω. OFHC 구리+순은 도체, 길이 1.37m, 무게 16g. 인라인 리모컨과 에코 캔슬링 마이크 내장. 가격 $79(약 10만원). 기존에는 폰에서 좋은 소리를 들으려면 동글 DAC을 따로 달아야 했다 — GO Cable은 케이블 자체가 DAC·앰프라서 동글이 필요 없다. 0.78mm 2-pin 커넥터라 Shure SE, Campfire, Moondrop 등 대부분의 IEM에 호환. iFi Audio는 영국 오디오 브랜드로 한국에 사운드캣·예스에이브이·PLSHOP·이어폰샵 등 공식 수입처가 있어 국내 구매 가능(정확한 국내가는 미정, 해외가 $79 기준 약 10만~13만원 예상).",
+ "caption": "이어폰 줄이 앰프가 됐다\n\niFi GO Cable.\n케이블 안에 DAC과 앰프가 들어있다.\n\n폰에서 좋은 소리를 들으려면\n동글 DAC을 따로 달아야 했다.\nGO Cable은 줄 자체가 DAC·앰프다.\n\nESS Sabre DAC · 32bit/384kHz\nSNR 125dB · 16g\n\n$79 — 약 10만원.\n한국 수입사 있음.\n사운드캣 · 예스에이브이.\n\n줄을 바꿨을 뿐인데\n폰이 Hi-Fi 플레이어가 된다.\n\n(출처: ecoustics, Gear Patrol)\n\n#이어폰 #DAC #iFi #오디오 #테크",
+ "factcheck": [
+   {"claim": "iFi GO Cable — 케이블에 DAC·앰프 내장, USB-C to 0.78mm 2-pin", "sources": ["https://www.ecoustics.com/products/ifi-audio-go-cable/", "https://www.gearpatrol.com/tech/audio/ifi-go-cable-review/"], "note": "ESS Sabre DAC, inline DAC/amp cable, USB-C to 0.78mm 2-pin 확인"},
+   {"claim": "$79, 16g, 1.37m, OFHC copper + pure silver", "sources": ["https://www.ecoustics.com/products/ifi-audio-go-cable/", "https://ifi-audio.com/products/go-cable/"], "note": "$79/£79, 16g, 1.37m, OFHC+silver 4개 사양 일치"},
+   {"claim": "32-bit/384kHz PCM, DSD256, SNR ≥125dBA", "sources": ["https://www.ecoustics.com/products/ifi-audio-go-cable/", "https://darko.audio/2026/09/ifi-go-cable/"], "note": "32/384 PCM, DSD256, SNR 125dB 스펙 확인"},
+   {"claim": "한국 수입사: 사운드캣, 예스에이브이 등", "sources": ["https://ifi-audio.com/where-to-buy/", "https://soundcat.co.kr/"], "note": "iFi 공식 where-to-buy에 한국 딜러 등록 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/ifi_go_cable_hook.jpg",
+   "title": "이어폰 줄이\n앰프가 됐다",
+   "title_hl": ["앰프가 됐다"],
+   "body": "16g 케이블 안에\nDAC이 들어있다",
+   "body_hl": ["DAC"],
+   "credit": "iFi Audio"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/ifi_go_cable_end.jpg",
+   "title": "ESS Sabre · 32bit/384kHz\nSNR 125dB — $79",
+   "title_hl": ["$79"],
+   "body": "동글 DAC 따로 달 필요 없다\n줄을 바꿨을 뿐인데 폰이 Hi-Fi가 된다",
+   "body_hl": ["Hi-Fi"],
+   "sub": "iFi GO Cable · $79 (약 10만원)\n한국 수입사 있음 — 사운드캣·예스에이브이",
+   "credit": "iFi Audio"
+  }
+ ]
+}
