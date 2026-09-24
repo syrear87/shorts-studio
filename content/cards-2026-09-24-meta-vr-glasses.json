@@ -1,0 +1,35 @@
+{
+ "topic": "Meta VR Glasses — VR 헤드셋에서 헤드가 사라졌다, 100g 안경에 5K 마이크로OLED, $1,299 [한계붕괴형]",
+ "blog_teaser": "퀘스트3과 뭐가 다른지, 왜 케이블이 필요한지, FOV 트레이드오프는 블로그에 정리했습니다",
+ "threads_text": "VR 헤드셋에서 헤드가 사라졌다\n\n1. 메타가 오늘 VR 안경을 공개함 — 100g\n2. 퀘스트3이 515g이니까 5분의 1로 줄었다\n3. 5K 마이크로OLED, 눈당 2412×2288 해상도\n4. 컴퓨팅은 주머니에 넣는 퍽이 처리 — 케이블 연결\n5. $1,299(약 178만 원), 2027년 봄 출시\n\n(출처: Meta Connect 2026, UploadVR, TechCrunch)",
+ "description": "메타가 2026년 9월 24일 Meta Connect에서 공개한 차세대 VR 헤드셋이다. 코드명 Project Phoenix. 핵심은 무게다 — 마그네슘 합금 프레임에 팬케이크 렌즈를 넣어 100g으로 줄였다. 퀘스트3(515g)의 5분의 1이다. 디스플레이는 5K 마이크로OLED(눈당 2412×2288, 37PPD). 시야각(FOV)은 70°×66°로 퀘스트3(103°×96°)보다 좁다 — 무게를 줄인 대가다. 무거운 프로세서(스냅드래곤 리얼리티 엘리트)·RAM 12GB·저장 128GB·배터리는 외부 퍽에 넣고 케이블로 연결한다. 퍽은 주머니에 넣거나 가방에 건다. 배터리는 영상 재생 기준 약 3시간. 컨트롤러 미포함 — 핸드트래킹 또는 터치플러스 컨트롤러(별도 구매)를 쓴다. $1,299, 2027년 봄 출시. 한국 출시일은 미정.",
+ "caption": "VR 헤드셋에서 헤드가 사라졌다\n\n메타가 오늘 공개한 Meta VR Glasses.\n무게 100g — 퀘스트3(515g)의 5분의 1.\n\n5K 마이크로OLED, 눈당 2412×2288.\n프로세서·배터리는 주머니 속 퍽에서 처리.\n시야각은 70°로 퀘스트3(103°)보다 좁다\n— 무게를 줄인 대가.\n\n$1,299(약 178만 원), 2027년 봄 출시.\n한국 출시일 미정.\n\n(출처: Meta Connect 2026, UploadVR, TechCrunch)\n\n#Meta #VR #메타 #VR안경 #테크",
+ "factcheck": [
+   {"claim": "무게 100g, 마그네슘 합금 프레임, 팬케이크 렌즈", "sources": ["https://www.explainx.ai/blog/meta-vr-glasses-1299-100-grams-spring-2027-hacker-news-reaction-2026", "https://kantan.news/news/technical-specifications-of-the-new-vr-glasses-unveiled-at-meta-connect-2026"], "note": "explainx·Kantan News 모두 ~100g, magnesium alloy, pancake lenses 확인"},
+   {"claim": "디스플레이 5K micro-OLED, 눈당 2412×2288, 37PPD", "sources": ["https://www.explainx.ai/blog/meta-vr-glasses-1299-100-grams-spring-2027-hacker-news-reaction-2026", "https://www.uploadvr.com/meta-vr-glasses-officially-announced-connect-2026/"], "note": "5.5MP per eye (2412×2288)=5,521,056 → 5K급. 37PPD는 explainx 확인"},
+   {"claim": "FOV 70°×66°, 퀘스트3 대비 좁음", "sources": ["https://www.explainx.ai/blog/meta-vr-glasses-1299-100-grams-spring-2027-hacker-news-reaction-2026"], "note": "Quest 3는 103°×96° vs VR Glasses 70°×66° — explainx에서 교차확인"},
+   {"claim": "칩셋 Snapdragon Reality Elite, 12GB RAM, 128GB 저장, 외부 퍽 연결", "sources": ["https://kantan.news/news/technical-specifications-of-the-new-vr-glasses-unveiled-at-meta-connect-2026", "https://www.explainx.ai/blog/meta-vr-glasses-1299-100-grams-spring-2027-hacker-news-reaction-2026"], "note": "tethered puck with SD Reality Elite, 12GB/128GB — 두 출처 일치"},
+   {"claim": "$1,299, 2027년 봄 출시", "sources": ["https://www.uploadvr.com/meta-vr-glasses-officially-announced-connect-2026/", "https://www.explainx.ai/blog/meta-vr-glasses-1299-100-grams-spring-2027-hacker-news-reaction-2026", "https://techcrunch.com/2026/09/23/meta-is-trying-vr-glasses-again-this-time-with-more-imax/"], "note": "세 매체 모두 $1,299~$1,300, Spring 2027 일치"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/meta_vr_glasses_hook.png",
+   "title": "VR 헤드셋에서\n헤드가 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "100g — 안경이 됐다",
+   "body_hl": ["100g"],
+   "credit": "Meta"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/meta_vr_glasses_end.jpg",
+   "title": "Meta VR Glasses\n퀘스트3의 5분의 1",
+   "title_hl": ["5분의 1"],
+   "body": "5K 마이크로OLED · 눈당 2412×2288\nFOV 70° — 무게를 줄인 대가",
+   "body_hl": ["5K"],
+   "sub": "$1,299(약 178만 원) · 2027년 봄 출시\n한국 출시일 미정",
+   "credit": "Meta / Fortune (Getty Images)"
+  }
+ ]
+}
