@@ -1,0 +1,35 @@
+{
+ "topic": "Logitech Yeti 2 — 유튜브에서 가장 많이 보이던 마이크가 17년 만에 바뀌었다, AI가 키보드 소리를 마이크 안에서 지운다, $160 [한계붕괴형]",
+ "blog_teaser": "기존 Yeti와 달라진 점 5가지, 소프트웨어 소음 제거와 뭐가 다른지는 블로그에 정리했습니다",
+ "threads_text": "유튜브에서 가장 많이 보이던 마이크가 17년 만에 바뀌었다\n\n1. Blue Yeti — 2009년에 나온 뒤 17년간 크게 안 바뀌었음\n2. 어제 로지텍이 Yeti 2를 발표함, $160(약 21만 원)\n3. AI 소음 제거가 마이크 안에 들어감 — 키보드·마우스 소리를 소프트웨어 없이 지움\n4. 3D 근접 센서가 거리를 감지해 게인·패턴을 자동 조절\n5. 컬러 LED 화면에 예티 캐릭터가 산다\n\n(출처: Engadget, Logitech 공식 보도, Stuff.tv)",
+ "description": "로지텍이 2026년 9월 23일 Logitech G PLAY 2026 행사에서 Yeti 2를 발표했다. 원조 Blue Yeti는 2009년 출시 이후 USB 마이크의 대명사였고, Yeti X·Yeti Nano 등 파생 모델은 있었지만 번호를 단 정식 후속작은 이번이 처음이다. 핵심은 두 가지 — ①AI 소음 제거가 마이크 내부에 들어갔다(키보드·마우스 클릭 등 배경소음을 온보드 처리, 별도 소프트웨어 불필요) ②3D 음성 근접 센서가 입과 마이크의 거리·방향을 감지해 게인·EQ·픽업 패턴을 실시간 자동 조정한다. 컬러 LED 화면이 추가됐고, 예티 캐릭터가 오디오 상태에 따라 표정이 바뀐다. 24-bit/48kHz, Blue VO!CE 프로파일 5개 저장, USB 연결. $160(약 21만 원). 출시일은 지역별 상이하며 한국 출시일·가격은 미정. Logitech은 2018년 Blue를 인수했고, 현재 Logitech G 산하에서 Blue 서브브랜드를 유지하고 있다.",
+ "caption": "유튜브에서 가장 많이 보이던 마이크가 17년 만에 바뀌었다\n\nBlue Yeti — 2009년 이후 USB 마이크의 대명사.\n번호 붙은 후속작은 17년 만에 처음.\n\nAI가 키보드·마우스 소리를 마이크 안에서 지운다.\n3D 센서가 거리를 감지해 게인·패턴 자동 조절.\n컬러 LED 화면에 예티 캐릭터가 산다.\n\n$160(약 21만 원) · 한국 출시일 미정.\n\n(출처: Engadget, Logitech 공식 보도, Stuff.tv)\n\n#Yeti2 #로지텍 #마이크 #BlueYeti #테크",
+ "factcheck": [
+   {"claim": "원조 Blue Yeti 2009년 출시", "sources": ["https://www.engadget.com/2265713/logitechs-yeti-2-brings-the-17-year-old-usb-mic-into-the-modern-age/", "https://happymag.tv/blue-yeti-usb-microphone/"], "note": "Engadget '17-year-old USB mic' (2026-2009=17), HappyMag 연혁 일치"},
+   {"claim": "Yeti 2 발표 2026-09-23, Logitech G PLAY 2026", "sources": ["https://www.globenewswire.com/news-release/2026/09/23/3367721/0/en/from-new-pro-gear-to-the-iconic-yeti-2-mic-logitech-g-unveils-fifteen-new-products-at-logitech-g-play-2026.html", "https://www.engadget.com/2265713/logitechs-yeti-2-brings-the-17-year-old-usb-mic-into-the-modern-age/"], "note": "GlobeNewswire 공식 보도 + Engadget 동시 보도"},
+   {"claim": "가격 $160", "sources": ["https://www.engadget.com/2265713/logitechs-yeti-2-brings-the-17-year-old-usb-mic-into-the-modern-age/", "https://www.stuff.tv/news/blue-yeti-2-revealed-podcast-microphone-sequel-adds-ai-proximity-sensor-and-a-cute-yeti-character/"], "note": "Engadget·Stuff.tv 모두 $160 / £140 일치. Maxi-Geek의 $249.95는 오기재 가능성 → 다수 출처 우선"},
+   {"claim": "AI 소음 제거 온보드, 3D 음성 근접 센서", "sources": ["https://www.engadget.com/2265713/logitechs-yeti-2-brings-the-17-year-old-usb-mic-into-the-modern-age/", "https://www.stuff.tv/news/blue-yeti-2-revealed-podcast-microphone-sequel-adds-ai-proximity-sensor-and-a-cute-yeti-character/"], "note": "두 매체 모두 on-board AI denoising + 3D voice proximity sensor 확인"},
+   {"claim": "Logitech이 2018년 Blue 인수", "sources": ["https://www.engadget.com/2265713/logitechs-yeti-2-brings-the-17-year-old-usb-mic-into-the-modern-age/", "https://www.globenewswire.com/news-release/2026/09/23/3367721/0/en/from-new-pro-gear-to-the-iconic-yeti-2-mic-logitech-g-unveils-fifteen-new-products-at-logitech-g-play-2026.html"], "note": "2018년 약 $1.17억에 인수 — 다수 매체 일치"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/yeti2_hook.jpg",
+   "title": "유튜브에서 가장 많이\n보이던 마이크가\n17년 만에 바뀌었다",
+   "title_hl": ["17년 만에"],
+   "body": "Blue Yeti — 2009년부터 안 바뀌었다",
+   "body_hl": ["2009년"],
+   "credit": "Engadget"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/yeti2_end.jpg",
+   "title": "Yeti 2\nAI가 소음을 지운다",
+   "title_hl": ["AI"],
+   "body": "키보드·마우스 소리를 마이크 안에서 제거\n3D 센서 — 거리 감지해 게인 자동 조절\nLED 화면에 예티 캐릭터가 산다",
+   "body_hl": ["마이크 안에서"],
+   "sub": "$160(약 21만 원) · 한국 출시일 미정",
+   "credit": "Engadget"
+  }
+ ]
+}
