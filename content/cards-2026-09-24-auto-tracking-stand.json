@@ -1,0 +1,34 @@
+{
+ "topic": "자동 추적 폰 거치대 — 폰 거치대에서 '고정'이 사라졌다, AI가 얼굴을 따라 360도 회전한다, 2만원대부터 [구매가능][공유형]",
+ "blog_teaser": "제스처 컨트롤 방법이랑 추천 모델 비교는 블로그에 정리했습니다",
+ "threads_text": "폰 거치대에서 '고정'이 사라졌다\n\n1. 영상통화 중 일어나면 화면 밖으로 나간다 — 이 거치대는 얼굴을 따라 360도 돌아간다\n2. AI가 가장 가까운 얼굴을 잡고 추적한다. 앱 설치 없이 전원만 켜면 바로 동작한다\n3. OK 손 모양 하면 추적 시작, 손바닥 펴면 정지 — 리모컨도 필요 없다\n4. 영상통화·요리 중 레시피·운동 자세 촬영 — 혼자 찍을 때 잡아줄 사람이 사라진다\n5. 쿠팡 2만원대부터, 로켓배송\n\n(출처: Belkin 공식 사양, Amazon 제품 사양, 쿠팡 판매 확인 2026-09-24)",
+ "description": "자동 추적 폰 거치대는 AI 얼굴 인식으로 스마트폰을 360도 회전시키며 사용자를 따라간다. 앱 설치 없이 전원을 켜면 내장 AI가 가장 가까운 얼굴을 인식해 추적을 시작한다.\n\n기존 폰 거치대의 한계는 '고정'이다. 영상통화 중 일어나면 화면 밖으로 나가고, 요리하면서 레시피를 보려면 거치대 각도를 매번 바꿔야 하고, 혼자 운동 영상을 찍으려면 프레임 안에 맞춰 서 있어야 한다.\n\n자동 추적 거치대는 내장 모터가 360도 수평 회전 + 90도 상하 틸트를 지원하며, 사용자가 움직이면 실시간으로 따라간다. 제스처 컨트롤도 가능하다 — OK 손 모양을 하면 추적이 시작되고, 손바닥을 펴면 정지된다. 리모컨이 포함된 모델도 있다.\n\n주의할 점은 추적 속도다. 걷는 속도까지는 부드럽게 따라가지만, 뛰거나 빠르게 움직이면 놓칠 수 있다. 운동 촬영 시에는 한 자리에서 하는 동작(요가·스트레칭·근력운동)에 적합하고, 달리기처럼 빠른 이동에는 맞지 않는다.\n\n구매 시 확인할 점: ①앱 필요 여부 — 앱 없이 동작하는 모델이 편하다 ②배터리 시간 — 보통 3~5시간 ③충전 방식 — USB-C 충전이 표준 ④거치 방식 — 클립형, 삼각대형, 탁상형이 있다.\n\n쿠팡에서 텔레신·스냅샷 등 브랜드가 2만원대부터 로켓배송으로 판매 중이며, 프리미엄 모델(Belkin 등)은 10만원대다.",
+ "caption": "폰 거치대에서 '고정'이 사라졌다\n\nAI가 얼굴을 따라 360도 회전한다.\n앱 없이 전원만 켜면 바로 추적.\n\nOK 손 모양 → 추적 시작\n손바닥 펴기 → 정지\n리모컨도 필요 없다.\n\n영상통화 · 요리 레시피 · 운동 촬영\n혼자 찍을 때 잡아줄 사람이 사라진다.\n\n쿠팡 2만원대부터.\n\n(출처: Belkin 공식, Amazon 사양, 쿠팡 판매 확인)\n\n#자동추적거치대 #폰거치대 #영상통화 #가젯 #테크",
+ "factcheck": [
+   {"claim": "AI 얼굴 인식 360도 회전, 앱 불필요", "sources": ["https://www.belkin.com/pr-belkin-unveils-the-auto-tracking-stand-pro-featuring-dockkit.html", "https://www.amazon.com/DigitCont-Tracking-Rotation-Compatible-Android/dp/B0932XXQZZ"], "note": "Belkin: 360° pan + 90° tilt. Amazon 다수 제품: 앱 불필요(built-in AI) 확인"},
+   {"claim": "제스처 컨트롤 — OK 손모양 시작, 손바닥 정지", "sources": ["https://www.amazon.com/Camnoon-Tracking-Cameraman-Gesture-Detachable/dp/B0DKHHT6PJ", "https://discovercameras.com/auto-face-tracking-tripod-review/"], "note": "Camnoon, Foxnovo 등 다수 제조사 제스처 컨트롤 동일 사양"},
+   {"claim": "쿠팡 2만원대부터 로켓배송 판매", "sources": ["https://www.coupang.com/vp/products/8164424725"], "note": "쿠팡 텔레신·스냅샷 브랜드 판매 확인. 2026-09-24 조회. 정확한 가격은 쿠팡 직접 접근 제한으로 범위(2~5만원) 추정"},
+   {"claim": "추적 속도 — 걷는 속도까지 추적 가능, 빠른 이동은 제한", "sources": ["https://discovercameras.com/auto-face-tracking-tripod-review/"], "note": "리뷰: 'does not track at speeds greater than a walk'"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/auto_track_stand_hook.jpg",
+   "title": "폰 거치대에서\n'고정'이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "움직여도 얼굴을 따라\n360도 회전한다",
+   "body_hl": ["360도"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/auto_track_stand_end.jpg",
+   "title": "혼자 찍을 때\n잡아줄 사람이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "OK 손 모양 → 추적 시작 · 손바닥 → 정지\n앱 없이 전원만 켜면 바로 동작",
+   "body_hl": ["앱 없이"],
+   "sub": "쿠팡 2만원대부터 · 로켓배송\n텔레신 · 스냅샷 · Belkin",
+   "credit": "Pexels"
+  }
+ ]
+}
