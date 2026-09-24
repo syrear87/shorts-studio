@@ -1,0 +1,34 @@
+{
+ "topic": "Ember Mug 3 — 커피 머그컵에서 앱이 사라졌다, 버튼 하나로 3시간째 안 식는다, $129.95 [소유욕형]",
+ "blog_teaser": "식기세척기 가능 여부, 배터리 수명, 2세대와 뭐가 달라졌는지는 블로그에 정리했습니다",
+ "threads_text": "커피 머그컵에서 앱이 사라졌다\n\n1. Ember Mug 3 — 밑바닥 버튼 누르면 52~63도 사이에서 온도가 바뀐다\n2. 2세대까지는 앱을 켜야 온도가 바뀌었는데, 3세대는 버튼만 누르면 된다\n3. 식기세척기 가능 — 전작은 손세척만 됐다\n4. 뚜껑 기본 포함, 코스터 위에선 무한 유지\n5. $129.95(약 17만 원) — 한국 미출시, ember.com 직구\n\n(출처: Ember 공식 보도자료, Yahoo Finance)",
+ "description": "Ember Mug 3는 2026년 9월 16일 출시된 스마트 보온 머그컵이다. 핵심 변화는 앱 없이 온도를 조절할 수 있게 된 것이다. 밑바닥 전원 버튼을 누르면 125~145도F(52~63도C) 사이 5단계로 바뀐다. 2세대까지는 반드시 앱을 열어야 했다. 식기세척기 사용이 가능해졌고(전작은 손세척만), 슬라이딩 뚜껑이 기본 포함된다(전작은 별도 구매). 충전 코스터 없이 최대 3시간 온도를 유지하고, 코스터 위에서는 무제한이다. 가격은 10oz $129.95, 14oz $149.95. 한국에는 공식 판매처가 없어 ember.com에서 직구해야 한다.",
+ "caption": "커피 머그컵에서 앱이 사라졌다\n\nEmber Mug 3.\n밑바닥 버튼을 누르면\n52~63도 사이에서 온도가 바뀐다.\n\n2세대까지는 앱을 켜야 온도가 바뀌었다.\n3세대는 버튼만 누르면 된다.\n\n식기세척기 가능 (전작은 손세척만).\n슬라이딩 뚜껑 기본 포함 (전작은 별도 구매).\n코스터 없이 3시간, 코스터 위에선 무제한 유지.\n\n$129.95(약 17만 원) — 한국 미출시.\nember.com에서 직구 가능.\n\n(출처: Ember 공식 보도자료, Yahoo Finance)\n\n#Ember #스마트머그 #커피 #테크 #가젯",
+ "factcheck": [
+   {"claim": "밑바닥 버튼으로 앱 없이 5단계 온도 조절(125~145도F)", "sources": ["https://www.prnewswire.com/news-releases/ember-launches-mug-3-its-third-generation-flagship-smart-mug-302879860.html", "https://finance.yahoo.com/technology/articles/ember-launches-mug-3-third-110000461.html"], "note": "PR Newswire·Yahoo Finance 모두 for the first time, adjust temperature without app 확인"},
+   {"claim": "식기세척기 사용 가능(top-rack), 전작은 hand wash only", "sources": ["https://www.prnewswire.com/news-releases/ember-launches-mug-3-its-third-generation-flagship-smart-mug-302879860.html", "https://ember.com/products/ember-mug-3"], "note": "공식 보도자료·제품 페이지 모두 top-rack dishwasher-safe 명시"},
+   {"claim": "슬라이딩 뚜껑 기본 포함, 코스터 없이 최대 3시간 유지", "sources": ["https://www.prnewswire.com/news-releases/ember-launches-mug-3-its-third-generation-flagship-smart-mug-302879860.html", "https://mensgear.net/ember-3-smart-mug"], "note": "Every Mug 3 includes a sliding lid, up to three hours on a single charge"},
+   {"claim": "10oz $129.95 / 14oz $149.95, 2026-09-16 출시", "sources": ["https://ember.com/products/ember-mug-3", "https://www.prnewswire.com/news-releases/ember-launches-mug-3-its-third-generation-flagship-smart-mug-302879860.html"], "note": "공식 페이지·보도자료 가격·날짜 일치"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/ember_mug3_hook.png",
+   "title": "커피 머그컵에서\n앱이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "버튼 하나로\n3시간째 안 식는다",
+   "body_hl": ["3시간째"],
+   "credit": "Ember"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/ember_mug3_end.png",
+   "title": "Ember Mug 3\n앱 없이 온도 조절",
+   "title_hl": ["앱 없이"],
+   "body": "버튼 5단계 52~63도 · 식기세척기 가능\n뚜껑 기본 포함 · 코스터 위 무제한 유지",
+   "body_hl": ["식기세척기 가능"],
+   "sub": "$129.95(약 17만 원) · 한국 미출시\nember.com 직구 가능",
+   "credit": "Ember"
+  }
+ ]
+}
