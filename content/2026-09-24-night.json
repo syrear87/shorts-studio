@@ -1,0 +1,68 @@
+{
+  "title": "절 벽 속에서 90년 만에 나온 태극기, 일장기를 뜯어 만들었습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "애국·정체성",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "절 벽 속에 90년간 숨어 있던 태극기가 있습니다.",
+      "bg_query": ["old Korean temple wall texture close up"],
+      "lines": [
+        ["태극기가 있습니다", ["태극기가"]],
+        ["90년간 절 벽 속에 숨어 있던", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "2009년 서울 진관사 칠성각을 수리하다 벽 안에서 태극기와 독립신문 등 20점이 쏟아졌습니다.",
+      "bg_query": ["old wooden building roof repair restoration Korea"],
+      "lines": [
+        ["2009년 칠성각을 수리하다", ["2009년"]],
+        ["태극기와 독립신문 등 20점이 쏟아졌습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "놀라운 건 재료입니다. 일장기의 흰 천을 뜯어 재봉틀로 덧대고 먹물로 태극을 그렸습니다.",
+      "bg_query": ["old fabric sewing needle thread close up vintage"],
+      "lines": [
+        ["일장기의 흰 천을 뜯어", ["일장기의"]],
+        ["재봉틀로 덧대고 먹물로 태극을", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "1919년 3·1운동 직후 만들어져 벽 속에 감춰졌고, 90년간 아무도 열지 못했습니다.",
+      "bg_query": ["old stone wall crack texture moss weathered"],
+      "lines": [
+        ["1919년 만들어져 벽 속에 감춰졌고", []],
+        ["90년간 아무도 열지 못했습니다", ["90년간"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "2021년 보물이 된 이 태극기, 올해 국보 승격이 추진되고 있습니다. 일장기를 뜯어 만든 이 깃발, 기억해 두세요.",
+      "bg_query": ["Korean national flag Taegeukgi waving wind blue sky"],
+      "lines": [
+        ["올해 국보 승격이 추진되고 있습니다", ["국보"]],
+        ["일장기를 뜯어 만든 이 깃발, 기억해 두세요", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", []],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.cha.go.kr/cop/bbs/selectBoardArticle.do?nttId=97879",
+    "https://www.hani.co.kr/arti/culture/culture_general/1146892.html"
+  ],
+  "bg_ids": ["photo:18223645", "photo:28860440", 6474187, "photo:28505125"],
+  "bg_query": ["old Korean temple wall", "wooden building restoration", "old fabric sewing", "stone wall crack", "Korean flag Taegeukgi blue sky"]
+}
