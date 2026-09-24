@@ -1,0 +1,68 @@
+{
+  "title": "추석 연휴 화재, 10건 중 3건은 부엌이 아니라 콘센트입니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "재난기상체감·일반지식",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "추석 연휴 화재, 열 건 중 세 건은 부엌이 아닙니다. 불은 콘센트에서 시작됩니다.",
+      "bg_query": ["old electrical outlet sparks fire close up"],
+      "lines": [
+        ["10건 중 3건은 부엌이 아닙니다", ["3건"]],
+        ["불은 콘센트에서 시작됩니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "소방청에 따르면 최근 5년간 추석 연휴에만 화재 2,412건, 인명피해 123명이 발생했습니다.",
+      "bg_query": ["fire truck emergency night residential area"],
+      "lines": [
+        ["최근 5년간 추석 연휴", []],
+        ["화재 2,412건 · 인명피해 123명", ["2,412건"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "원인 1위는 조리 부주의, 41.5%입니다. 이건 누구나 예상합니다.",
+      "bg_query": ["frying pan oil cooking fire kitchen close up"],
+      "lines": [
+        ["원인 1위 조리 부주의 41.5%", ["41.5%"]],
+        ["이건 누구나 예상합니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "문제는 2위입니다. 전기적 요인, 31.8%. 평소 방치된 콘센트에 연휴 동안 가전이 동시에 가동되며 과부하가 걸립니다.",
+      "bg_query": ["old power strip dust overload multiple plugs"],
+      "lines": [
+        ["2위 전기적 요인 31.8%", ["31.8%"]],
+        ["방치된 콘센트에 연휴 과부하", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "지난해 추석 연휴 화재는 644건, 전년보다 30% 늘었습니다. 오늘 고향 집에 도착하면 묵은 멀티탭부터 확인하십시오.",
+      "bg_query": ["old power strip multi outlet close up dusty"],
+      "lines": [
+        ["지난해 644건, 전년보다 30%", []],
+        ["고향 집 멀티탭부터 확인하십시오", ["멀티탭"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.newspim.com/news/view/20260922000256",
+    "https://www.mt.co.kr/policy/2026/09/23/2026092315051493694"
+  ],
+  "bg_ids": [7100861, 18270789, "photo:11007782"],
+  "bg_query": ["old electrical outlet sparks", "fire truck emergency", "frying pan cooking fire", "old power strip dust", "power strip close up dusty"]
+}
