@@ -1,0 +1,36 @@
+{
+ "topic": "CMF Watch 3 Pro — GPS 스마트워치가 10만 원 아래로 내려왔다, 듀얼밴드 GPS에 배터리 13일, 9만 원대 [구매가능][공유형]",
+ "blog_teaser": "듀얼밴드 GPS가 단일밴드와 뭐가 다른지, 배터리 13일 실사용 후기 요약은 블로그에 정리했습니다",
+ "threads_text": "스마트워치, 매일 충전하던 게 끝났다\n\n1. 러닝 궤적 찍으려고 GPS 달린 스마트워치 알아봤는데 다 30만 원 넘길래 포기했었다\n2. CMF Watch 3 Pro가 9만 3천 원인데 듀얼밴드 GPS(L1+L5)가 들어 있다 — 위성 2개 주파수라 건물 사이에서도 정확하다\n3. 배터리가 13일 간다. 매일 충전하던 게 2주에 한 번으로 바뀜\n4. 1.43인치 AMOLED에 심박수·혈중산소·수면 측정. IP68 방수. 51g\n5. 쿠팡·G마켓에서 국내 구매 가능\n\n(출처: Nothing 공식, GSMArena, 다나와 가격비교 2026-09-24 조회)",
+ "description": "GPS 내장 스마트워치는 러닝·등산·자전거 등 야외 운동의 궤적을 기록하는 핵심 기능이다. 문제는 가격이었다. GPS 내장 모델은 대부분 20만 원을 넘겼다.\n\nCMF Watch 3 Pro는 Nothing 산하 CMF 브랜드의 스마트워치로, 듀얼밴드 GPS(L1+L5)를 탑재하고도 국내 최저가 93,060원이다.\n\n듀얼밴드 GPS란 두 개의 위성 주파수(L1+L5)를 동시에 수신하는 방식이다. 단일밴드(L1만)보다 건물·나무 사이에서 위치 정확도가 높다. 한때 프리미엄 기능이었지만 칩셋 가격이 내려오면서 10만 원 이하 제품에도 들어가기 시작했다.\n\n배터리는 일반 사용 기준 13일, 고강도 운동 모드에서 10일이다. AOD(상시 디스플레이)를 켜면 4.5일로 줄어든다. 충전 빈도가 2주에 한 번이면 충전기 들고 다닐 필요가 없다.\n\n디스플레이는 1.43인치 AMOLED, 466x466px 해상도, 326ppi. AOD를 지원한다. 방수는 IP68(수심 1.5m, 30분). 무게는 51g이다.\n\n건강 기능은 심박수·혈중산소(SpO2)·수면 추적·스트레스 모니터링을 지원하고, 운동 모드는 131종이다. 블루투스 전화 수발신도 가능하다.\n\n주의할 점이 있다. NFC는 미탑재라 삼성페이·애플페이 같은 결제 기능은 없다. 구글 워치OS가 아니라 자체 OS라 앱 생태계가 제한적이다. 운동 기록과 건강 추적이 주 목적이라면 충분하지만, 결제·앱 설치가 필요하면 맞지 않는다.\n\n국내에서는 쿠팡·G마켓·옥션·롯데ON 등에서 구매할 수 있으며, 다나와 기준 최저가는 93,060원이다(2026-09-24 조회).",
+ "caption": "스마트워치, 매일 충전하던 게 끝났다\n\n듀얼밴드 GPS(L1+L5)에 배터리 13일.\n1.43인치 AMOLED, 심박수·혈중산소·수면 측정.\nIP68 방수. 51g.\n\nCMF Watch 3 Pro, 9만 3천 원.\n쿠팡·G마켓에서 국내 구매 가능.\n\n(출처: Nothing 공식, GSMArena)\n\n#스마트워치 #GPS워치 #CMF #Nothing #가성비",
+ "factcheck": [
+   {"claim": "듀얼밴드 GPS L1+L5 탑재", "sources": ["https://us.nothing.tech/products/cmf-watch-3-pro", "https://m.gsmarena.com/nothing_cmf_watch_3_pro-14217.php"], "note": "Nothing 공식: Dual-band L1+L5 GNSS 명시. GSMArena: GPS (L1, L5), GLONASS, Galileo, BDS, QZSS 확인"},
+   {"claim": "배터리 13일(일반), 10일(고강도)", "sources": ["https://us.nothing.tech/products/cmf-watch-3-pro", "https://www.engadget.com/wearables/nothings-99-cmf-watch-3-pro-offers-better-battery-life-and-ai-fitness-coaching-151058055.html"], "note": "Nothing 공식: Up to 13 days. Engadget: confirms 13 days typical use, 350mAh battery"},
+   {"claim": "1.43인치 AMOLED 466x466px", "sources": ["https://m.gsmarena.com/nothing_cmf_watch_3_pro-14217.php", "https://us.nothing.tech/products/cmf-watch-3-pro"], "note": "GSMArena: 1.43 inches, 466 x 466 pixels, 326 ppi 확인"},
+   {"claim": "IP68 방수", "sources": ["https://m.gsmarena.com/nothing_cmf_watch_3_pro-14217.php"], "note": "IP68 dust/water resistant (up to 1.5m for 30 mins)"},
+   {"claim": "무게 51g", "sources": ["https://m.gsmarena.com/nothing_cmf_watch_3_pro-14217.php"], "note": "51g (with strap) 확인"},
+   {"claim": "국내 최저가 93,060원", "sources": ["https://prod.danawa.com/info/?pcode=96060425"], "note": "다나와 가격비교 최저가 93,060원, G마켓 등 7개 판매처 확인. 2026-09-24 조회"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/cmf_watch3pro_hook.jpg",
+   "title": "스마트워치\n매일 충전하던 게 끝났다",
+   "title_hl": ["끝났다"],
+   "body": "배터리 13일 · 듀얼밴드 GPS\n9만 3천 원",
+   "body_hl": ["13일"],
+   "credit": "Nothing 공식"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/cmf_watch3pro_end.jpg",
+   "title": "2주에 한 번 충전하면\n끝이다",
+   "title_hl": ["2주에 한 번"],
+   "body": "1.43\" AMOLED · 심박수·혈중산소·수면\n131종 운동 모드 · IP68 방수 · 51g",
+   "body_hl": ["131종"],
+   "sub": "CMF Watch 3 Pro\n쿠팡·G마켓 국내 구매 가능",
+   "credit": "Nothing 공식"
+  }
+ ]
+}
