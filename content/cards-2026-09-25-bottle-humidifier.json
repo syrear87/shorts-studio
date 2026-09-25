@@ -1,0 +1,33 @@
+{
+ "topic": "페트병 가습기 — 가습기에서 물통이 사라졌다, 페트병 뚜껑 대신 USB 스틱을 끼우면 만원 이하로 책상 가습 [구매가능][공유형]",
+ "blog_teaser": "초음파 진동자의 원리, 습도 40% 미만이 피부·호흡기에 미치는 영향, 다나와 가격 비교는 블로그에 정리했습니다",
+ "threads_text": "USB 하나로 가습기에서 물통이 사라졌다\n\n1. 페트병 뚜껑 대신 USB 가습 스틱을 끼운다\n2. 초음파 진동자가 물을 1~5마이크로미터 입자로 쪼갠다\n3. 습도 40% 미만이면 피부 건조·호흡기 자극 — WHO 권장 40~60%\n4. 물통 필요 없다 — 생수병이 곧 물탱크\n5. 다나와 기준 7천원대부터\n\n(출처: WHO Indoor Air Quality Guidelines, 다나와)",
+ "description": "가습기하면 떠오르는 이미지가 있다. 큰 물통, 무거운 본체, 물 갈아주는 번거로움. 그런데 페트병 가습기는 그 공식을 뒤집었다. 500mL 생수병 뚜껑을 빼고 USB 가습 스틱을 끼우면 그게 곧 가습기다. 별도 물통이 필요 없다.\n\n원리는 초음파 진동이다. 내부의 압전소자(피에조 세라믹)가 1.7MHz — 초당 170만 번 진동하면서 물 표면을 때린다. 이 충격으로 물이 1~5마이크로미터(μm) 크기의 미세 입자로 쪼개져 수증기처럼 공기 중에 퍼진다. 열을 쓰지 않으므로 화상 위험이 없고, 소비전력도 2~3W 수준이라 노트북 USB 포트나 보조배터리로 충분히 돌릴 수 있다.\n\n왜 습도가 중요한가. WHO(세계보건기구)는 실내 적정 습도를 40~60%로 권장한다. 습도가 40% 아래로 내려가면 피부 수분 증발이 빨라져 건조함·가려움이 생기고, 비강 점막이 마르면서 호흡기 감염에 취약해진다. 미국 노스다코타주립대(NDSU) Extension에 따르면, 겨울철 난방으로 실내 습도가 20~30%까지 떨어지는 경우가 흔하며 이때 피부 건조·정전기·목 통증이 동반된다. 2023년 PMC에 게재된 리뷰 논문은 40% 미만의 저습도가 인플루엔자·코로나 바이러스의 공기 전파를 촉진한다는 역학 근거를 정리했다.\n\n다만 한계는 분명하다. 페트병 가습기의 가습량은 시간당 30~50mL 수준으로, 반경 약 1m의 개인 공간을 적시는 것이 한계다. 방 전체를 가습하려면 용량이 큰 전용 가습기가 필요하다. 그래서 이 제품의 포지션은 '책상 위 코앞 가습'이다. 사무실 책상, 차량 컵홀더, 침대 머리맡에 생수병 하나 꽂아두고 쓰는 식이다.\n\n가격은 놀라울 만큼 낮다. 다나와 기준 ETN 페트병 가습기 7,900원, 엠텍 MHU-110M 7,490원 등 만원 이하 모델이 다수 있다. 쿠팡·11번가에서는 5,000원대 모델도 보인다. 필터 교체가 필요 없고(면봉형 심지만 가끔 교체), 생수병을 바꿔 끼우면 물통 세척 고민도 사라진다. 환절기 책상 위가 건조하다면, 만원 이하로 시작할 수 있는 가장 가벼운 선택지다.",
+ "caption": "페트병이 가습기가 된다\n\n뚜껑 대신 USB 스틱을 끼운다.\n초음파 진동자가 물을 마이크로 입자로 쪼갠다.\n\nWHO 권장 습도: 40~60%.\n40% 미만 → 피부 건조 · 호흡기 자극.\n\n물통 필요 없다 — 생수병이 곧 물탱크.\n다나와 7천원대부터.\n\n(출처: WHO, 다나와)\n\n#가습기 #페트병가습기 #USB가습기 #환절기 #테크",
+ "factcheck": [
+   {"claim": "초음파 가습기는 1.7MHz 압전소자로 물을 1~5μm 입자로 분쇄", "sources": ["https://instacuppastore.com/blogs/main-page/ultrasonic-humidifier-what-it-means-how-it-works", "https://makerselectronics.com/product/atomizer-air-humidifier-transducer-ultrasonic-piezoelectric-1-7mhz-25mm/"], "note": "InstaCuppa 및 Makers Electronics — 1.7MHz 초음파 트랜스듀서, 물 입자 1~5μm 일치"},
+   {"claim": "WHO 권장 실내 습도 40~60%, 40% 미만 시 피부 건조·호흡기 자극", "sources": ["https://www.ndsu.edu/agriculture/extension/measure-humidity-level-avoid-dry-skin-respiratory-irritations-and-excess-moisture", "https://pmc.ncbi.nlm.nih.gov/articles/PMC10253274/"], "note": "NDSU Extension 및 PMC 2023 논문 — 40% 미만에서 피부·점막 건조, 호흡기 감염 취약성 증가 확인"},
+   {"claim": "페트병 USB 가습기 다나와 7천원대부터", "sources": ["https://search.danawa.com/dsearch.php?query=%ED%8E%98%ED%8A%B8%EB%B3%91+%EA%B0%80%EC%8A%B5%EA%B8%B0"], "note": "다나와 2026-09-25 실측 — ETN 페트병 가습기 7,900원, 엠텍 MHU-110M 7,490원 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/bottle_humidifier_hook.jpg",
+   "title": "가습기에서\n물통이 사라졌다\n— 페트병이면 된다",
+   "title_hl": ["물통이 사라졌다"],
+   "body": "USB 스틱 하나 꽂으면 끝 — 만원 이하",
+   "body_hl": ["만원 이하"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/bottle_humidifier_end.jpg",
+   "title": "USB 페트병 가습기\n책상 위가 촉촉해진다",
+   "title_hl": ["촉촉해진다"],
+   "body": "초음파 진동 → 물을 마이크로 입자로 쪼갠다\nWHO 권장 습도 40~60% · 40% 미만은 위험\n물통 필요 없다 — 생수병이 곧 물탱크",
+   "body_hl": ["물통 필요 없다"],
+   "sub": "다나와 7천원대부터 · ETN · 엠텍",
+   "credit": "Pexels"
+  }
+ ]
+}
