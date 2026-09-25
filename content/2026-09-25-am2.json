@@ -1,0 +1,72 @@
+{
+  "title": "보름달을 보는 밤에, 반달을 먹는 이유가 있습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "애국·정체성",
+  "bg_ids": ["photo:17464373", "photo:23355660", "photo:38047552"],
+  "bg_query": [
+    "songpyeon korean rice cake closeup",
+    "ancient manuscript old parchment texture",
+    "full moon night sky dark",
+    "jeju island stone wall landscape",
+    "pine needles rice cake steam"
+  ],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "보름달을 보는 밤에, 반달을 먹습니다.",
+      "lines": [
+        ["보름달 밤에, 반달을 먹습니다", ["반달"]],
+        ["왜 반달일까요?", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "1,366년 전 삼국사기에 기록이 남아 있습니다. 백제 멸망 직전, 궁궐 뜰에서 거북 한 마리가 나왔는데, 등에 글이 새겨져 있었습니다.",
+      "lines": [
+        ["1,366년 전 삼국사기에", ["1,366년"]],
+        ["거북 등에 글이 새겨져 있었다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "백제는 보름달, 신라는 반달. 점술가의 해석은 이랬습니다. 보름달은 다 찼으니 기울 일만 남았고, 반달은 아직 차는 중입니다.",
+      "hl_pair": true,
+      "lines": [
+        ["백제는 보름달, 신라는 반달", ["보름달", "반달"]],
+        ["보름달은 기울고, 반달은 차는 중", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "그 뒤 반달은 성장의 상징이 됐고, 송편에 담겼습니다. 그런데 제주도에서는 지금도 보름달 모양 송편을 빚습니다.",
+      "lines": [
+        ["반달은 성장의 상징이 됐고", []],
+        ["제주도는 보름달 모양 송편", ["제주도"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "지금 드시는 송편의 반달은, 아직 다 차지 않았다는 뜻입니다. 앞으로 좋은 일만 남았습니다.",
+      "lines": [
+        ["송편의 반달은", []],
+        ["아직 다 차지 않았다는 뜻", []],
+        ["앞으로 좋은 일만 남았습니다", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://db.history.go.kr/ancient/level.do?itemId=sg",
+    "https://eiec.kdi.re.kr/publish/naraView.do?fcode=00002000040000100012&cidx=6225",
+    "https://www.khs.go.kr/cop/bbs/selectBoardArticle.do?nttId=27513&bbsId=BBSMSTR_1008&mn=NS_01_09_01"
+  ]
+}
