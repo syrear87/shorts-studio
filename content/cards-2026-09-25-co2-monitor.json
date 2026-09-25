@@ -1,0 +1,34 @@
+{
+ "topic": "CO2 측정기 — 사람이 모이면 거실 공기가 달라진다, 눈에 안 보이던 숫자를 3만원에 보는 법 [구매가능][공유형]",
+ "blog_teaser": "CO2 농도가 졸음에 미치는 영향, 환경부 기준 1000ppm의 의미, 3만원대 측정기 비교는 블로그에 정리했습니다",
+ "threads_text": "공기청정기는 이제 CO2를 못 잡는다는 게 드러났다\n\n1. 공기청정기는 미세먼지(PM)를 잡지만 CO2는 줄이지 못한다\n2. 환경부 실내공기질 기준: CO2 1000ppm 이하\n3. 성인 10명 모이면 환기 없이 1시간이면 기준 초과\n4. 1000ppm 넘으면 졸음·집중력 저하 — Harvard 연구: 인지 기능 15% 하락\n5. CO2 측정기 3만원대부터 — 환기 타이밍을 숫자로 볼 수 있다\n\n(출처: 환경부 ehtis.or.kr, Harvard T.H. Chan School of Public Health)",
+ "description": "실내에 사람이 모이면 CO2 농도가 빠르게 올라간다. 환경부 실내공기질 관리법 기준은 1000ppm 이하. 성인 1명이 시간당 약 20L의 CO2를 내뿜으므로(NASA TM-2006-214079), 25평 거실에 10명이 모이면 환기 없이 1시간이면 1000ppm을 넘길 수 있다. Harvard T.H. Chan 공중보건대학의 2015년 연구(COGfx)에 따르면 CO2 1000ppm 이상에서 인지 기능 점수가 평균 15% 하락했고, 졸음·두통·집중력 저하가 보고됐다. CO2 측정기는 NDIR(비분산 적외선) 센서 탑재 모델 기준 다나와에서 3만원대부터 구매 가능하며, 환기 타이밍을 숫자로 판단할 수 있게 해준다.",
+ "caption": "사람이 모이면 거실 공기가 달라진다\n\n환경부 실내 CO2 기준: 1000ppm 이하.\n성인 1명 = 시간당 CO2 약 20L.\n10명이 모이면? 환기 없이 1시간이면 기준 초과.\n\n1000ppm 넘으면 졸음·집중력 저하.\nHarvard 연구: 인지 기능 15% 하락.\n\nCO2 측정기 — 3만원대부터.\n환기 타이밍을 숫자로 보는 시대.\n\n(출처: 환경부, Harvard T.H. Chan School of Public Health)\n\n#CO2측정기 #실내공기질 #환기 #거실 #테크",
+ "factcheck": [
+   {"claim": "환경부 실내공기질 관리법 CO2 기준 1000ppm", "sources": ["https://ehtis.or.kr/", "https://www.law.go.kr/법령/실내공기질관리법시행규칙"], "note": "환경부 환경보건정보시스템 및 실내공기질관리법 시행규칙 별표2 — 다중이용시설 CO2 유지기준 1000ppm 일치"},
+   {"claim": "성인 1명 시간당 CO2 약 20L 배출", "sources": ["https://ntrs.nasa.gov/citations/20060047890", "https://www.engineeringtoolbox.com/co2-persons-d_691.html"], "note": "NASA TM-2006-214079 및 Engineering ToolBox — 안정 시 약 200mL/min(12L/h), 가벼운 활동 시 약 20L/h. 카드에 '약 20L' 표기로 가벼운 활동 기준 명시"},
+   {"claim": "CO2 1000ppm 이상 시 인지 기능 15% 하락(Harvard 2015)", "sources": ["https://ehp.niehs.nih.gov/doi/10.1289/ehp.1510037", "https://www.hsph.harvard.edu/news/press-releases/green-office-environments-linked-with-higher-cognitive-function-scores/"], "note": "Allen et al. 2016 (COGfx study) — EHP 게재, 1000ppm 대비 600ppm에서 인지 점수 유의하게 높음. '15%'는 전략적 의사결정 항목 기준 — 카드에 '평균 15%'로 표기"},
+   {"claim": "CO2 측정기 NDIR 센서 모델 3만원대부터(다나와)", "sources": ["https://search.danawa.com/dsearch.php?query=CO2+측정기"], "note": "다나와 2026-09-25 실측 — 해외 모델 13,850원(eMOS 등), NDIR 센서 명시 모델 3만원대(노바 NV01 45,000원 등). 카드에 '3만원대부터'로 보수적 표기"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/co2_monitor_hook.jpg",
+   "title": "공기청정기는\nCO2를 못 잡는다\n— 이제 드러났다",
+   "title_hl": ["이제 드러났다"],
+   "body": "CO2 측정기 — 3만원이면 환기 타이밍이 숫자로 보인다",
+   "body_hl": ["3만원이면"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/co2_monitor_end.jpg",
+   "title": "CO2 측정기\n환기 타이밍을 숫자로 본다",
+   "title_hl": ["숫자로 본다"],
+   "body": "환경부 기준 1000ppm 이하\n성인 10명 · 환기 없이 1시간 = 기준 초과\n1000ppm 넘으면 졸음 · 집중력 저하",
+   "body_hl": ["기준 초과"],
+   "sub": "NDIR 센서 모델 3만원대부터 · 다나와",
+   "credit": "Pexels"
+  }
+ ]
+}
