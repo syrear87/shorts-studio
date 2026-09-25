@@ -1,0 +1,35 @@
+{
+ "topic": "Dyson CameraJet — 칫솔에 카메라가 들어갔다, 1mm² 렌즈가 초당 28장으로 이빨 사이를 찾고 0.1초 만에 세정액을 쏜다, 749,000원 [한계붕괴형]",
+ "blog_teaser": "1mm² 카메라가 치아 사이를 어떻게 찾는지, 기존 전동칫솔과 뭐가 다른지는 블로그에 정리했습니다",
+ "threads_text": "칫솔에 카메라가 들어갔다 — 이빨 사이를 보고 0.1초 만에 쏜다\n\n1. 다이슨이 처음으로 칫솔을 만들었다\n2. 안에 1mm² 카메라가 있다 — 초당 28장, 치과용 확대경 수준\n3. 이빨 사이를 찾으면 0.1초 안에 세정액을 쏜다 — 치실이 필요 없어진다\n4. 74만 9천 원. 온라인 품절\n5. 칫솔모 교체 2개에 4만 9천 원\n\n(출처: 다이슨 공식, PR Newswire, edaily)",
+ "description": "다이슨이 2026년 9월 1일 첫 구강 관리 제품 CameraJet을 출시했다. 청소기·에어컨·드라이어를 만들어 온 다이슨이 칫솔을 만든 것은 이번이 처음이다. 핵심 기술은 Gap Optical Targeting이다. 칫솔 머리 안에 1mm² 면적의 10만 픽셀 매크로 카메라가 들어 있다. 이 카메라가 초당 28장의 이미지를 촬영해 치아 사이 틈을 실시간으로 분석한다. 47만 장의 치아 이미지로 훈련한 AI 알고리즘(1,600만 줄 코드)이 치간을 감지하면, 0.1초(100ms) 안에 원뿔형 세정액을 정확히 그 틈에 분사한다. 기존 워터 플로서와 다른 점은 카메라가 틈을 찾아 자동으로 쏜다는 것이다. 세정액 탱크는 12.5ml 용량이고, 도킹 스테이션에 올리면 3초 만에 다시 채워진다. 칫솔 자체는 초당 245회 진동하는 소닉 모터를 쓰며, 듀얼 브러시 헤드(표면용+잇몸 라인용)로 구성된다. RFID 칩이 내장된 칫솔모가 사용 횟수를 자동 추적하고, 교체 시기를 알려준다. Wi-Fi(2.4GHz)와 블루투스로 MyDyson 앱에 연결하면 칫솔 카메라의 실시간 영상을 폰으로 볼 수 있다. 다이슨은 촬영된 이미지가 기기나 클라우드에 일절 저장되지 않는다고 밝혔다. 국내 가격 749,000원(미국 $499). 칫솔모 교체 2개입 49,000원. 세라믹 핑크, 세라믹 울트라 블루 두 가지 색상이다. 출시 직후 온라인 전량 품절됐다. 기존 프리미엄 전동칫솔 대비 치간 플라크를 최대 69% 더 제거한다고 주장한다(제조사 자체 테스트).",
+ "caption": "칫솔에 카메라가 들어갔다 — 이빨 사이를 보고 0.1초 만에 쏜다\n\n다이슨 CameraJet.\n1mm² 카메라 · 초당 28장 분석.\n치아 사이를 찾으면 0.1초 만에 세정액 분사.\n치실 없이 치간 관리.\n\n749,000원 · 온라인 품절.\n칫솔모 2개 49,000원.\n\n(출처: 다이슨 공식, PR Newswire, edaily)\n\n#다이슨 #CameraJet #전동칫솔 #테크 #가젯",
+ "factcheck": [
+   {"claim": "다이슨 첫 구강 관리 제품, 2026-09-01 출시", "sources": ["https://www.prnewswire.com/news-releases/dyson-camerajet-the-first-toothbrush-with-a-camera-and-a-jet-to-target-the-gaps-and-remove-plaque-between-your-teeth-302865389.html", "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03726086645578808"], "note": "PR Newswire 공식 보도자료 + edaily 기사 일치"},
+   {"claim": "10만 픽셀 매크로 카메라, 1mm² 면적, 초당 28장 분석", "sources": ["https://www.prnewswire.com/news-releases/dyson-camerajet-the-first-toothbrush-with-a-camera-and-a-jet-to-target-the-gaps-and-remove-plaque-between-your-teeth-302865389.html", "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03726086645578808"], "note": "PR Newswire '100k pixel macro lens, 28 live images per second' + edaily '100,000 pixels in 1mm² area' 일치"},
+   {"claim": "Gap Optical Targeting AI, 47만 장 치아 이미지 훈련", "sources": ["https://www.prnewswire.com/news-releases/dyson-camerajet-the-first-toothbrush-with-a-camera-and-a-jet-to-target-the-gaps-and-remove-plaque-between-your-teeth-302865389.html"], "note": "PR Newswire '470,000 dental images' — 제조사 자체 데이터"},
+   {"claim": "치간 감지 후 0.1초(100ms) 내 세정액 분사", "sources": ["https://www.prnewswire.com/news-releases/dyson-camerajet-the-first-toothbrush-with-a-camera-and-a-jet-to-target-the-gaps-and-remove-plaque-between-your-teeth-302865389.html", "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03726086645578808"], "note": "양쪽 'within 100ms' / '0.1초' 일치"},
+   {"claim": "국내 749,000원, 칫솔모 2개 49,000원, 온라인 품절", "sources": ["https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03726086645578808", "https://www.mt.co.kr/society/2026/09/03/2026090306145887241"], "note": "edaily '74만9000원', 머니투데이 '75만원짜리 다이슨 칫솔' — 일치. 품절은 edaily 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/dyson_camerajet_hook.jpg",
+   "title": "칫솔에 카메라가\n들어갔다",
+   "title_hl": ["카메라가"],
+   "body": "다이슨 CameraJet — 이빨 사이를 보고 0.1초 만에 쏜다",
+   "body_hl": ["0.1초"],
+   "credit": "Dyson"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/dyson_camerajet_end.jpg",
+   "title": "1mm² 카메라가\n치아 사이를 찾는다",
+   "title_hl": ["1mm²"],
+   "body": "초당 28장 분석 · AI가 치간 감지\n감지 즉시 세정액 원뿔 분사\n치실 없이 치간 관리",
+   "body_hl": ["28장"],
+   "sub": "749,000원 · 온라인 품절 · 칫솔모 2개 49,000원",
+   "credit": "Dyson"
+  }
+ ]
+}
