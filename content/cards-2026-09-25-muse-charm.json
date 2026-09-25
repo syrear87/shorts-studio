@@ -1,0 +1,35 @@
+{
+ "topic": "Meta Muse Charm — 다마고치가 30년 만에 돌아왔다, 에어팟 케이스 크기에 2인치 화면·지문 인식·AI 아바타, 열쇠고리에 달고 다니는 AI 비서, 12월 출시 예정 [소유욕형]",
+ "blog_teaser": "전 애플 디자인 수장이 이끄는 팀에서 이걸 왜 만들었는지는 블로그에 정리했습니다",
+ "threads_text": "다마고치가 30년 만에 돌아왔다\n\n1. Meta가 Muse Charm을 공개했다 — 저커버그가 무대에서 꺼냈다\n2. 에어팟 케이스 크기, 2인치 화면, 열쇠고리에 건다\n3. 지문 대면 AI 아바타가 깨어나서 말로 대화한다\n4. 폰 없이 독립 동작 — 일정·검색·결제까지\n5. 12월 출시 예정, 가격 미정\n\n(출처: TechCrunch, Trusted Reviews)",
+ "description": "Meta가 2026년 9월 23일 Meta Connect에서 Muse Charm을 공개했다. 마크 저커버그가 키노트 마지막 'one more thing'으로 꺼냈다. 에어팟 케이스만 한 크기에 약 2인치 터치스크린, 측면 지문 센서를 탑재한 소형 디바이스다. 화면에 커스텀 가능한 AI 아바타가 살고, 지문을 대면 바로 음성 대화가 시작된다. Meta의 Muse AI 에이전트가 내장돼 폰 없이 독립 동작하며, 일정 관리·검색·결제까지 처리한다. 전 애플 인터페이스 디자인 수장 앨런 다이가 이끄는 디자인랩과 Superintelligence AI 그룹이 협업했다. 아직 프로토타입 단계로 소수만 제작됐고, 12월 홀리데이 시즌 출시 목표. 가격 미정(비공식 $149.99 언급 있으나 공식 미확정). 국내 출시 미정이나 Meta 한국어 공식 페이지가 이미 존재한다.",
+ "caption": "다마고치가 30년 만에 돌아왔다\n\nMeta Muse Charm.\n에어팟 케이스만 한 크기, 2인치 터치스크린.\n열쇠고리에 달고 다닌다.\n\n지문만 대면 AI 아바타가 깨어나고,\n폰 없이 말로 일정·검색·결제까지.\n\n12월 출시 예정 · 가격 미정.\n\n(출처: TechCrunch, Trusted Reviews, Meta Connect 2026)\n\n#메타 #다마고치 #AI #MuseCharm #테크",
+ "factcheck": [
+   {"claim": "Meta Connect 2026에서 9/23 발표, 저커버그 'one more thing'으로 공개", "sources": ["https://www.trustedreviews.com/news/metas-new-muse-charm-turns-its-ai-agent-into-a-tamagotchi-like-keychain", "https://www.macrumors.com/2026/09/24/meta-did-a-one-more-thing-and-its-an-ai-tamagotchi/"], "note": "양쪽 모두 키노트 마지막 발표임을 확인"},
+   {"claim": "에어팟 케이스 크기, 약 2인치 터치스크린, 측면 지문 센서", "sources": ["https://www.trustedreviews.com/news/metas-new-muse-charm-turns-its-ai-agent-into-a-tamagotchi-like-keychain", "https://newatlas.com/consumer-tech/meta-muse-ai-agent-charm/"], "note": "Trusted Reviews: 'roughly the size of an Apple AirPods case, around 2 inches, fingerprint sensor in corner'. New Atlas: 'fingerprint sensor on side'"},
+   {"claim": "폰 없이 독립 동작, 일정·결제 가능", "sources": ["https://www.macrumors.com/2026/09/24/meta-did-a-one-more-thing-and-its-an-ai-tamagotchi/", "https://www.trustedreviews.com/news/metas-new-muse-charm-turns-its-ai-agent-into-a-tamagotchi-like-keychain"], "note": "저커버그: 'always available to talk to without requiring a phone or app'. Muse Secure VM 통한 일정·결제 접근 확인"},
+   {"claim": "전 애플 디자인 수장 앨런 다이 참여, Superintelligence AI 그룹 협업", "sources": ["https://www.bloomberg.com/news/articles/2026-09-23/meta-debuts-a-dedicated-palm-sized-muse-charm-device-to-use-ai-on-the-go"], "note": "Bloomberg: 'design lab led by former Apple Inc interface design chief Alan Dye and its Superintelligence AI group'"},
+   {"claim": "12월 출시 목표, 가격 미정, 프로토타입 소수 제작", "sources": ["https://www.trustedreviews.com/news/metas-new-muse-charm-turns-its-ai-agent-into-a-tamagotchi-like-keychain", "https://www.macrumors.com/2026/09/24/meta-did-a-one-more-thing-and-its-an-ai-tamagotchi/"], "note": "양쪽 모두 12월 목표 확인. 가격 비공식 $149.99 일부 매체 언급이나 공식 미확정. 'only a small number of units built'"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/muse_charm_hook.jpg",
+   "title": "다마고치가\n30년 만에 돌아왔다",
+   "title_hl": ["30년 만에 돌아왔다"],
+   "body": "Meta Muse Charm — 이번엔 말을 한다",
+   "body_hl": ["말을 한다"],
+   "credit": "Shacknews / Meta Connect 2026"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/muse_charm_end.jpg",
+   "title": "에어팟 케이스 크기\n지문 대면 대화 시작",
+   "title_hl": ["대화 시작"],
+   "body": "2인치 터치스크린 · 커스텀 AI 아바타\n폰 없이 독립 동작 — 일정·검색·결제\n전 애플 디자인 수장 앨런 다이 참여",
+   "body_hl": ["독립 동작"],
+   "sub": "12월 출시 예정 · 가격 미정",
+   "credit": "Ubergizmo / Meta Connect 2026"
+  }
+ ]
+}
