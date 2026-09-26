@@ -1,0 +1,68 @@
+{
+  "title": "토성의 고리가 돌아왔다, 작년엔 사라졌었습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "공유성",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "토성의 고리가 돌아왔습니다.",
+      "bg_query": ["saturn rings space close up"],
+      "lines": [
+        ["토성의 고리가 돌아왔습니다", ["돌아왔습니다"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "작년 3월, 27만 킬로미터짜리 고리가 지구에서 사라졌습니다. 토성이 기울어져 고리가 옆으로 보이는 해가 있는데, 두께가 겨우 10미터라 정면에서 보면 안 보입니다.",
+      "bg_query": ["saturn edge on rings thin space illustration"],
+      "lines": [
+        ["27만 km짜리 고리가", []],
+        ["지구에서 사라졌습니다", ["사라졌습니다"]],
+        ["두께 10미터, 정면에서 보면 안 보입니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "올해 고리가 다시 열렸습니다. 소형 망원경이면 분리된 띠가 보이고, 다음 기회는 2038년입니다.",
+      "bg_query": ["telescope night sky stars observation"],
+      "lines": [
+        ["올해 고리가 다시 열렸습니다", []],
+        ["다음 기회는 2038년", ["2038년"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "지금 토성은 올해 가장 밝습니다. 10월 4일 충을 앞두고, 맨눈에 금빛 점으로 보입니다.",
+      "bg_query": ["bright planet night sky golden dot"],
+      "lines": [
+        ["올해 가장 밝습니다", []],
+        ["맨눈에 금빛 점으로 보입니다", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "오늘 밤 추수달 바로 아래에 토성이 있습니다. 남쪽 하늘, 보름달 아래 금빛 점 — 올해 가장 찾기 쉬운 밤입니다.",
+      "bg_query": ["full moon bright night sky clear"],
+      "lines": [
+        ["오늘 밤 추수달 아래에 토성이", ["추수달"]],
+        ["올해 가장 찾기 쉬운 밤", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", []],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://earthsky.org/astronomy-essentials/saturn-at-opposition/",
+    "https://www.space.com/saturn-harvest-moon-september-2026"
+  ],
+  "bg_ids": ["photo:27678076", 31541397, 37723924, "photo:14618894", 30295405],
+  "bg_query": ["saturn rings space", "saturn edge on thin", "telescope night sky", "bright planet night", "full moon night sky"]
+}
