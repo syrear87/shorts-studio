@@ -86,6 +86,18 @@ RETRY_DELAYS = (180, 420)     # 3분 → 7분 (최대 2회 재시도)
 SAFE_RETRY_MAX_LEN = 800      # 이보다 로그가 길면 세션이 실제 작업을 했을 수 있으므로 재시도 금지(중복 게시 방지)
 
 
+def _oauth_token():
+    """keys.env의 CLAUDE_CODE_OAUTH_TOKEN (없으면 None — 종전대로 로그인 세션을 쓴다)."""
+    try:
+        for line in (ROOT / "keys.env").read_text(encoding="utf-8").splitlines():
+            k, _, v = line.partition("=")
+            if k.strip() == "CLAUDE_CODE_OAUTH_TOKEN" and v.strip():
+                return v.strip().strip('"')
+    except Exception:
+        pass
+    return None
+
+
 def tg(msg):
     # 2026-08-02 리뷰(OPS-1): 경보 발송 실패를 침묵시키지 않는다 — watchdog.py와 동일하게 로컬 파일에 기록.
     try:
@@ -282,6 +294,11 @@ def main():
                              % str(_e)[:90])
                 lf.flush()
                 _env = dict(os.environ, CARD_MODE="1" if CARD_MODE else "0")
+                # 장기 토큰 (2026-09-26): 브라우저 로그인 토큰은 갱신 실패로 끊긴다 — 9/25 21:00부터
+                # 7슬롯 증발. `claude setup-token`의 1년짜리 토큰을 keys.env에 두면 그걸 쓴다.
+                _tok = _oauth_token()
+                if _tok:
+                    _env["CLAUDE_CODE_OAUTH_TOKEN"] = _tok
                 r = subprocess.run(
                     ["/bin/zsh", "-l", "-c",
                      'p="$(cat %s)"; print -r -- "[runner] prompt ${#p}자"; '
@@ -332,11 +349,18 @@ def main():
             elif "out of extra usage" in _low or "usage limit" in _low:
                 _cause = "\n원인: Claude 사용량 한도 소진 — 코드 문제 아님, 한도 복구 후 자동 재개"
             elif "authentication_error" in _low or "401" in text or "please run /login" in _low:
-                _cause = "\n원인: Claude 인증 만료 — `claude` 로그인 필요(슬롯이 계속 증발한다)"
+                # 2026-09-26 디렉터: "로그아웃이 됐으면 나한테 얘길 해라" — 일반 비정상 종료 문안에
+                # 묻혀 로그아웃으로 읽히지 않았다. 조치가 필요한 유일한 장애라 따로 크게 띄운다.
+                tg("🔴 Claude 로그아웃됨 — 영상·카드 전 슬롯 중단 중\n"
+                   "조치: 맥미니 터미널에서 `claude` 실행 → `/login` → 1번(구독 계정)\n"
+                   "재발 방지: `claude setup-token` 토큰을 keys.env의 CLAUDE_CODE_OAUTH_TOKEN에 넣기\n"
+                   "(%s)" % LOG.name)
+                _cause = None
             elif "rate limit" in _low or "429" in text:
                 _cause = "\n원인: API 레이트 리밋 — 잠시 후 자동 재개"
-            tg("⚠️ 숏츠 데일리 세션 비정상 종료 (코드 %d, 재시도 %d회) — %s 확인%s"
-               % (r.returncode, attempt, LOG.name, _cause))
+            if _cause is not None:          # None = 로그아웃 전용 경보를 이미 보냈다
+                tg("⚠️ 숏츠 데일리 세션 비정상 종료 (코드 %d, 재시도 %d회) — %s 확인%s"
+                   % (r.returncode, attempt, LOG.name, _cause))
         else:
             reason = log_looks_dead(text)
             if reason and sent_evidence(start_ts):
