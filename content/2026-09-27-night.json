@@ -1,0 +1,71 @@
+{
+  "title": "KC 인증을 받은 말랑이에서, 기준치 7배 유해물질이 나왔습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "재난기상체감·일반지식",
+  "bg_ids": [6150661, 8490414, 8490546, 6150669],
+  "bg_query": ["colorful slime toy child hands", "laboratory safety testing equipment", "KC certification product label", "chemical test tube laboratory", "toy store shelf display children", "product warning label closeup"],
+  "sources": [
+    "https://www.ajunews.com/view/20260916075250228",
+    "https://www.fnnews.com/news/202609161501372712",
+    "https://www.atsdr.cdc.gov/toxprofiles/tp26-c2.pdf"
+  ],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "KC 인증 마크가 있는 말랑이에서, 유해물질이 기준치 7배 나왔습니다.",
+      "lines": [
+        ["KC 인증 말랑이에서 나왔습니다", []],
+        ["유해물질 기준치 7배", ["7배"]]
+      ]
+    },
+    {
+      "kind": "body",
+      "voice": "국가기술표준원이 슬라임과 말랑이 76개를 조사했습니다.",
+      "lines": [
+        ["슬라임과 말랑이 76개", []],
+        ["조사했습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "9개가 기준을 넘겼고, 그중 2개는 KC 인증 어린이 제품이었습니다.",
+      "lines": [
+        ["9개가 기준을 넘겼고", []],
+        ["KC 인증 어린이 제품 2개", ["2개"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "가장 많이 나온 건 붕소, 기준치의 7.2배입니다. 반복 접촉하면 구토와 설사를 일으킵니다.",
+      "lines": [
+        ["가장 많이 나온 건 붕소", []],
+        ["기준치의 7.2배", ["7.2배"]],
+        ["반복 접촉하면 구토와 설사", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "76개 중 39개는 14세 이상용입니다. 이 표기 하나면 KC 인증이 면제됩니다.",
+      "lines": [
+        ["39개는 14세 이상용", []],
+        ["KC 인증이 면제됩니다", ["면제"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "KC 인증은 14세 미만에만 적용됩니다. 말랑이 뒤를 보세요, 14세 이상이라 적혀 있습니다.",
+      "lines": [
+        ["KC 인증은 14세 미만에만", []],
+        ["말랑이 뒤를 보세요", ["보세요"]],
+        ["14세 이상이라 적혀 있습니다", ["14세 이상"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ]
+}
