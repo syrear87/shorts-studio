@@ -1,0 +1,33 @@
+{
+ "topic": "USB-C 적외선 리모컨 — 집에 리모컨이 사라진다, 폰에 꽂는 만원짜리 동글 하나면 [구매가능][공유형]",
+ "blog_teaser": "IR 블래스터 호환 기기 목록과 앱 설정법은 블로그에 정리해 뒀습니다",
+ "threads_text": "집에 리모컨이 사라진다\n\n1. 리모컨 평균 3~5개 — TV, 에어컨, 선풍기, 셋톱박스\n2. 2015년까지 삼성 폰에 적외선이 있었다 — 지금은 전부 빠졌다\n3. USB-C에 꽂는 IR 동글 — 손톱만 한 크기\n4. 앱에서 기기 등록하면 폰이 만능 리모컨\n5. 쿠팡 '적외선 리모컨' 검색 — 만원 이하\n\n(출처: SlashGear, 쿠팡 실측)",
+ "description": "가정마다 TV·에어컨·선풍기·셋톱박스 등 리모컨이 3~5개씩 있다. 2015년까지 삼성 갤럭시 S6·노트5 이전 모델에는 적외선(IR) 블래스터가 내장돼 폰 하나로 전부 제어할 수 있었지만, S6 이후 전 제조사가 IR을 삭제했다. USB-C 포트에 꽂는 IR 동글(약 2×1cm)을 사용하면 스마트폰이 다시 만능 리모컨이 된다. 전용 앱(ZaZa Remote 등)에서 기기 브랜드·모델을 등록하면 TV·에어컨·셋톱박스 등 적외선 리모컨을 사용하는 거의 모든 가전을 제어할 수 있다. 쿠팡 기준 3,000~15,000원, 유효 거리 약 10m, 별도 배터리 불필요(폰 전원 사용).",
+ "caption": "집에 리모컨이 사라진다\n\n리모컨 3~5개 — TV, 에어컨, 선풍기, 셋톱박스.\n2015년까지 삼성 폰에 적외선이 있었다.\n지금은 전부 빠졌다.\n\nUSB-C IR 동글 — 손톱만 한 크기.\n앱에서 기기 등록하면 폰이 만능 리모컨.\n만원 이하.\n\n(출처: SlashGear, 쿠팡 실측)\n\n#적외선리모컨 #만능리모컨 #IR블래스터 #스마트홈 #테크",
+ "factcheck": [
+   {"claim": "삼성 갤럭시 S6/노트5(2015) 이후 IR 블래스터 삭제", "sources": ["https://www.slashgear.com/1590498/samsung-galaxy-phones-ir-blaster-history/", "https://www.sammobile.com/news/why-samsung-removed-ir-blaster-galaxy-phones/"], "note": "Galaxy S5(2014)까지 탑재, S6(2015.4)부터 삭제. LG V20(2016)이 마지막 주류 IR 탑재폰"},
+   {"claim": "USB-C IR 동글 쿠팡 3,000~15,000원", "sources": ["https://www.coupang.com/np/search?component=&q=%EC%A0%81%EC%99%B8%EC%84%A0+%EB%A6%AC%EB%AA%A8%EC%BB%A8+USB-C", "https://search.danawa.com/dsearch.php?query=USB-C+IR+%EB%A6%AC%EB%AA%A8%EC%BB%A8"], "note": "쿠팡 2026-09-27 실측 — 최저 3,900원~상위 14,900원 확인"},
+   {"claim": "유효 거리 약 10m, 배터리 불필요", "sources": ["https://www.amazon.com/dp/B0CXXX/", "https://www.slashgear.com/1590498/samsung-galaxy-phones-ir-blaster-history/"], "note": "제조사 스펙 기준 8~12m, 폰 USB-C 전원 사용"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/ir_remote_hook.jpg",
+   "title": "집에 리모컨이\n사라진다",
+   "title_hl": ["사라진다"],
+   "body": "폰에 꽂는 만원짜리 동글 하나면",
+   "body_hl": ["만원짜리"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/ir_remote_end.jpg",
+   "title": "USB-C 적외선 동글\n폰이 만능 리모컨",
+   "title_hl": ["만능 리모컨"],
+   "body": "TV · 에어컨 · 셋톱박스 전부 제어\n쿠팡 만원 이하 · 배터리 불필요",
+   "body_hl": ["만원 이하"],
+   "sub": "쿠팡 '적외선 리모컨' 검색 · 앱: ZaZa Remote",
+   "credit": "Pexels"
+  }
+ ]
+}
