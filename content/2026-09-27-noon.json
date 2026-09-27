@@ -1,0 +1,68 @@
+{
+  "title": "일본 홈에서 농구 금메달 3개를 들고 옵니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "애국·정체성",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "어젯밤, 일본 홈에서 농구 결승 세 판이 열렸습니다. 한국이 전부 이겼습니다.",
+      "bg_query": ["basketball arena crowd cheering"],
+      "lines": [
+        ["결승 세 판이 열렸습니다", []],
+        ["한국이 전부 이겼습니다", ["전부"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "남자 5대5, 결승에서 일본을 67 대 57로 꺾었습니다. 이현중 선수, 혼자 27득점 18리바운드.",
+      "bg_query": ["basketball game indoor court players"],
+      "lines": [
+        ["일본을 67 대 57로 꺾었습니다", ["67 대 57"]],
+        ["이현중, 27득점", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "남자 3대3도 금메달입니다. 카타르를 19 대 10으로 눌렀습니다. 아시안게임 정식 종목이 된 이후, 사상 첫 우승입니다.",
+      "bg_query": ["3x3 basketball outdoor court game"],
+      "lines": [
+        ["3대3도 금메달입니다", []],
+        ["사상 첫 우승입니다", ["첫"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "그리고 여자 5대5. 일본과 5점 차 접전 끝에 75 대 70으로 이겼습니다. 4종목 중 금메달 3개, 농구 3관왕입니다.",
+      "bg_query": ["women basketball game celebration"],
+      "lines": [
+        ["75 대 70으로 이겼습니다", []],
+        ["금메달 3개, 3관왕입니다", ["3관왕"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "이걸 마지막으로 해낸 게 2014년 인천이었습니다. 12년 만에, 이번엔 일본 홈 아이치에서 해냈습니다.",
+      "bg_query": ["gold medal ceremony sports podium"],
+      "lines": [
+        ["12년 만에", ["12년"]],
+        ["일본 홈 아이치에서 해냈습니다", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", []],
+        ["구독으로 받아보세요", []]
+      ]
+    }
+  ],
+  "sources": [
+    "https://olympics.com/ko/asian-games/aichi-nagoya-2026/results/basketball",
+    "https://sports.news.naver.com/basketball/index"
+  ],
+  "bg_ids": [26626903, 7005855, 25916291, 6777203, 6532225, "photo:32141311"],
+  "bg_query": ["basketball arena crowd", "basketball indoor court", "3x3 basketball outdoor", "women basketball celebration", "gold medal ceremony", "subscribe channel"]
+}
