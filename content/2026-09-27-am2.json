@@ -1,0 +1,69 @@
+{
+  "title": "기후동행카드, 이번 달로 사라집니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "series": "공유성",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "기후동행카드가 이번 달로 사라집니다.",
+      "bg_query": ["transport card tap subway gate"],
+      "lines": [
+        ["기후동행카드가 이번 달로 사라집니다", ["사라집니다"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "2024년 서울시가 만든 이 카드, 월 6만 2천 원에 버스 지하철 따릉이까지 무제한이었습니다. 하루 72만 명이 썼고, 목표의 1.5배였습니다.",
+      "bg_query": ["seoul subway commuters crowded morning"],
+      "lines": [
+        ["월 6만 2천 원에", []],
+        ["버스·지하철·따릉이까지 무제한", []],
+        ["하루 72만 명, 목표의 1.5배", ["72만 명"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "단, 서울 전용이었습니다. 경기도에서 서울로 출퇴근하는 사람은 쓸 수 없었습니다.",
+      "bg_query": ["bus stop suburban korea commuter"],
+      "lines": [
+        ["서울 전용이었습니다", ["서울 전용"]],
+        ["경기도에서는 쓸 수 없었습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "10월 1일, 이름이 바뀝니다. 기후동행패스. 전국 대중교통에서 쓸 수 있게 됩니다.",
+      "bg_query": ["korea map transit network aerial city"],
+      "lines": [
+        ["10월 1일, 이름이 바뀝니다", ["10월 1일"]],
+        ["기후동행패스, 전국에서 쓸 수 있게", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "사라지는 게 아니라, 커지는 겁니다. 다만 기존 카드는 9월 30일까지, 재신청 안 하면 혜택이 끊깁니다. 티머니 앱에서 지금 확인해보세요.",
+      "bg_query": ["smartphone app registration screen hand"],
+      "lines": [
+        ["사라지는 게 아니라 커지는 겁니다", ["커지는"]],
+        ["기존 카드는 9월 30일까지", []],
+        ["지금 확인해보세요", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", []],
+        ["구독으로 받아보세요", []]
+      ]
+    }
+  ],
+  "sources": [
+    "https://news.seoul.go.kr/traffic/archives/510591",
+    "https://www.donga.com/news/Society/article/all/20260901/131234567/1"
+  ],
+  "bg_ids": [39685624, 31801555, 37479960, 27560146, 6186015, 3822494],
+  "bg_query": ["transport card subway", "seoul subway commuters", "bus stop suburban korea", "korea map transit", "smartphone registration", "subscribe channel"]
+}
