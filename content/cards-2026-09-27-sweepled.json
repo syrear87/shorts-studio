@@ -1,0 +1,35 @@
+{
+ "topic": "SweepLED 몰카 탐지기 — 몰카 탐지기가 절반 이상을 놓치고 있었다, KAIST가 만원짜리로 94%를 잡는다 [공유형]",
+ "blog_teaser": "UCL 실험에서 시판 탐지기 19종이 얼마나 놓쳤는지, SweepLED가 어떤 원리로 잡는지는 블로그에 정리했습니다",
+ "threads_text": "몰카 탐지기의 한계가 깨졌다 — 만원짜리 폰 케이스가 바꿨다\n\n1. 시판 몰카 탐지기 19종 테스트 — 59%를 못 찾았다 (UCL 연구)\n2. KAIST가 폰 케이스에 LED 15개를 달았다\n3. 방향별로 빛을 쏘면 렌즈만 특유한 반사를 만든다\n4. AI가 5초 안에 구분 — 카메라 꺼져 있어도\n5. 부품비 만원 이하. 아직 프로토타입\n\n(출처: ACM MobiSys 2026, KAIST 공식, UCL USENIX SOUPS)",
+ "description": "영국 UCL 연구팀이 시중 몰카 탐지기 19종을 34명 참가자와 함께 테스트한 결과, 도구를 사용해도 숨겨진 카메라의 59%를 찾지 못했다(USENIX SOUPS 발표). 기존 탐지기의 주된 방식인 적외선·RF 방식은 카메라가 꺼져 있거나 Wi-Fi를 사용하지 않으면 감지하지 못하기 때문이다. KAIST(한국과학기술원) 한준 교수 연구팀이 싱가포르국립대(NUS)·싱가포르경영대(SMU)와 공동으로 개발한 SweepLED는 다른 원리를 쓴다. 스마트폰 케이스에 LED 15개를 부착하고, 방향을 바꿔가며 빛을 쏜다. 카메라 렌즈는 일반 반사물과 달리 특유한 광학 반사 패턴을 만드는데, AI가 그 패턴을 학습해 렌즈와 일반 반사물을 구분한다. 물체 하나당 5초 이내에 판별하며 정확도는 93.9~95.1%(카메라 12개+일반 반사물 18개 대상 실험실 테스트). 전원이 꺼진 카메라도 렌즈가 노출돼 있으면 탐지한다. 핵심 부품비는 약 7달러(1만원 이하)다. 다만 현재는 연구 프로토타입 단계로 시판되지 않으며, 천이나 메시 뒤에 숨긴 카메라, 렌즈가 없는 센서, 극단적 각도에서는 탐지가 불가하다. 논문은 ACM MobiSys 2026에서 발표됐다(제1저자 윤종혁, 교신저자 한준).",
+ "caption": "몰카 탐지기의 한계가 깨졌다 — 만원짜리 폰 케이스가 바꿨다\n\nKAIST SweepLED.\nLED 15개 · 5초 탐지 · 정확도 94%.\n카메라가 꺼져 있어도 렌즈 반사로 잡는다.\n부품비 만원 이하 · 아직 프로토타입.\n\n(출처: KAIST 공식, ACM MobiSys 2026, UCL USENIX SOUPS)\n\n#몰카탐지기 #KAIST #SweepLED #숨은카메라 #테크",
+ "factcheck": [
+   {"claim": "시판 몰카 탐지기 19종 테스트, 59% 미탐지", "sources": ["https://www.usenix.org/conference/soups2024/presentation/harris", "https://www.digitaltrends.com/cool-tech/a-device-designed-to-find-hidden-cameras-could-leave-you-feeling-safer-than-you-really-are/"], "note": "UCL 주도 연구, 34명 참가자, 19종 시판 탐지기 — 도구 없이 67% 미탐지, 도구 사용 시에도 59% 미탐지"},
+   {"claim": "KAIST 한준 교수 연구팀, NUS·SMU 공동 개발", "sources": ["https://www.eurekalert.org/news-releases/1141846", "https://news.kaist.ac.kr/newsen/html/news/?mode=V&mng_no=66431"], "note": "KAIST 공식 보도자료, 교신저자 한준(KAIST 전산학부)"},
+   {"claim": "LED 15개, 정확도 93.9~95.1%, 5초 이내 탐지", "sources": ["https://doi.org/10.1145/3745756.3809236", "https://www.eurekalert.org/news-releases/1141846"], "note": "ACM MobiSys 2026 논문 + KAIST 보도자료 일치. 핸드헬드 93.9%, 고정 95.1%"},
+   {"claim": "부품비 약 7달러(만원 이하)", "sources": ["https://www.tomshardware.com/cameras/korean-researchers-build-usd7-hidden-camera-detector-gadget-uses-led-lights-and-ai-to-separate-reflections-from-lenses", "https://petapixel.com/2026/09/03/this-7-smartphone-accessory-can-spot-hidden-cameras-in-seconds/"], "note": "Tom's Hardware·PetaPixel 동일 수치, KAIST 보도자료 기반"},
+   {"claim": "꺼진 카메라도 탐지 가능(렌즈 노출 시)", "sources": ["https://doi.org/10.1145/3745756.3809236", "https://newatlas.com/good-thinking/sweepled-smartphone-device-detects-hidden-cameras/"], "note": "렌즈의 광학 구조를 탐지하므로 전원 무관. 천·메시 뒤는 불가"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/sweepled_hook.jpg",
+   "title": "몰카 탐지기의 한계가\n깨졌다",
+   "title_hl": ["깨졌다"],
+   "body": "시판 탐지기는 59%를 놓쳤다 — 만원짜리 폰 케이스가 바꿨다",
+   "body_hl": ["59%", "바꿨다"],
+   "credit": "KAIST / TechRadar"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/sweepled_end.png",
+   "title": "KAIST가 만원짜리로\n94%를 잡았다",
+   "title_hl": ["만원짜리", "94%"],
+   "body": "스마트폰에 LED 15개 · 5초 탐지\n카메라가 꺼져 있어도 렌즈 반사로 구분",
+   "body_hl": ["5초"],
+   "sub": "부품비 약 $7 · 프로토타입 단계 · 시판 시기 미정",
+   "credit": "Tom's Hardware"
+  }
+ ]
+}
