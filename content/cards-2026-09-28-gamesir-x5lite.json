@@ -1,0 +1,35 @@
+{
+ "topic": "GameSir X5 Lite — 스마트폰에 버튼이 돌아왔다, USB-C로 끼우면 게임기가 된다, 135g 2만원대 국내정발 [구매가능][공유형]",
+ "blog_teaser": "Hall Effect 조이스틱이 뭔지, 유선이 블루투스보다 나은 이유는 블로그에 정리했습니다",
+ "threads_text": "폰 게임 터치 조작이 드디어 끝났다\n\n1. GameSir X5 Lite. 폰 양옆에 끼우는 게임패드인데 USB-C 유선이라 입력 지연이 0이다\n2. 조이스틱이 Hall Effect 방식. 닌텐도 조이콘 드리프트 문제가 구조적으로 안 생긴다\n3. 135g. 폰보다 가볍고 충전하면서 게임된다(패스스루 충전)\n4. 아이폰 15·16, 갤럭시, 아이패드 미니까지 호환\n5. 국내정발 2만원대. 13만원짜리 Backbone의 1/4 가격\n\n(출처: GameSir 공식, TechRadar, AppleInsider 리뷰)",
+ "description": "GameSir X5 Lite는 스마트폰 양쪽에 끼워 물리 버튼으로 게임하는 신축형(telescopic) 모바일 게임 컨트롤러다. USB-C 유선 연결로 입력 지연이 사실상 0이고, 별도 배터리·충전 없이 꽂으면 바로 작동한다. 조이스틱에 Hall Effect 센서를 사용해 접촉 마모가 없어 조이콘 드리프트 같은 문제가 구조적으로 발생하지 않는다(단, 트리거는 일반 멤브레인). 무게 135.4g, 폰 장착 폭 105~213mm로 아이폰 15·16·갤럭시·아이패드 미니 7까지 호환된다. 패스스루 충전 지원. 미국 공식가 $34.99지만 한국은 아리스노보(ArísNOVO) 국내정발로 쿠팡·지마켓에서 2만원대(핫딜 시 19,000원대)에 구매 가능하다. Backbone One($99~$149)의 1/4 수준이다.",
+ "caption": "폰 게임 터치 조작이 드디어 끝났다\n\nGameSir X5 Lite.\nUSB-C 유선 · Hall Effect 조이스틱 · 135g.\n아이폰 15·16 + 갤럭시 + 아이패드 미니.\n국내정발 2만원대.\n\n(출처: GameSir 공식, TechRadar, AppleInsider)\n\n#게임패드 #모바일게임 #GameSir #가젯 #테크",
+ "factcheck": [
+   {"claim": "USB-C 유선 연결, 배터리 없이 폰 전원으로 작동", "sources": ["https://gamesir.com/products/gamesir-x5-lite", "https://www.bestbuy.com/product/gamesir-x5-lite-mobile-gaming-controller-phone-controller-android-ios-iphone-15-16-hall-effect-joystick-lightweight-ergonomic-black/J3Q5QYHZ95"], "note": "공식 페이지 + Best Buy 리스팅 교차 확인. 배터리 None, 패스스루 충전 Yes"},
+   {"claim": "조이스틱 Hall Effect 방식 — 트리거는 멤브레인", "sources": ["https://gamesir.com/products/gamesir-x5-lite", "https://appleinsider.com/articles/25/04/30/gamesir-x5-lite-review-good-iphone-controller-unbeatable-price"], "note": "공식 페이지에 Hall Effect Joystick 명기. Tom's Guide 리뷰에서 트리거는 Hall Effect 아님 확인"},
+   {"claim": "무게 135.4g, 폰 장착 폭 105~213mm", "sources": ["https://gamesir.com/products/gamesir-x5-lite", "https://www.bestbuy.com/product/gamesir-x5-lite-mobile-gaming-controller-phone-controller-android-ios-iphone-15-16-hall-effect-joystick-lightweight-ergonomic-black/J3Q5QYHZ95"], "note": "공식 스펙 시트 교차 확인"},
+   {"claim": "한국 국내정발(아리스노보), 쿠팡·지마켓 2만원대", "sources": ["https://www.coupang.com/vp/products/8679868027", "https://www.fmkorea.com/index.php?document_srl=8066703322"], "note": "쿠팡 아리스노보 국내정발 리스팅 확인. 에펨코리아 핫딜 17,740원 실측. 2026-09-28 확인"},
+   {"claim": "Backbone One 미국 정가 $99", "sources": ["https://playbackbone.com", "https://slickdeals.net/f/18673375"], "note": "Backbone 공식 + SlickDeals 교차 확인. X5 Lite $34.99 대비 약 1/3. 한국 기준 Backbone 13만원대 vs X5 Lite 2만원대 = 약 1/4~1/5"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/gamesir_x5lite_hook.jpg",
+   "title": "폰 게임 터치 조작이\n드디어 끝났다",
+   "title_hl": ["드디어 끝났다"],
+   "body": "USB-C로 끼우면 버튼이 돌아온다 · 135g · 2만원대",
+   "body_hl": ["2만원대"],
+   "credit": "TechRadar / GameSir"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/gamesir_x5lite_end.jpg",
+   "title": "Hall Effect 조이스틱\n드리프트가 안 생긴다",
+   "title_hl": ["드리프트가 안 생긴다"],
+   "body": "아이폰 15·16 + 갤럭시 + 아이패드 미니\nUSB-C 유선 · 충전하면서 게임 가능\n국내정발(아리스노보) 쿠팡 2만원대",
+   "body_hl": ["국내정발", "2만원대"],
+   "sub": "Backbone One 13만원대의 1/4 가격",
+   "credit": "Cult of Mac / GameSir"
+  }
+ ]
+}
