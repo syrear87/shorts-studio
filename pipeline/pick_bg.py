@@ -125,6 +125,39 @@ def main():
     except Exception as _e:
         print("경고: 문화 사전 필터 실행 실패(무해):", str(_e)[:120], flush=True)
 
+    # 🎯 실물 후보를 **먼저** 보여준다 (2026-09-29). 9/28 규칙에 "커먼즈 먼저"를 넣었는데도
+    #   첫 적용 슬롯(스타십 편)이 Pexels만 돌려 훅 화면에 우주왕복선이 나갔다 — 세션은 기본
+    #   도구의 출력만 본다. 그래서 기본 도구가 실물 후보를 같이 내놓게 했다.
+    #   검색어: 대본의 real_query(고유명사·영문명 — "SpaceX Starship", "Jingwansa Taegukgi")가
+    #   정본이고, 없으면 bg_query 앞 3개로 대신한다(일반 검색어라 적중률이 낮다).
+    real_q = script.get("real_query") or queries[:3]
+    if isinstance(real_q, str):
+        real_q = [real_q]
+    try:
+        from fetch_commons import search as _cs, _get as _cget
+        import re as _re
+        print("\n🎯 실물 후보 (위키미디어 커먼즈 — 자유 라이선스, 먼저 검토하라)", flush=True)
+        _n = 0
+        for qi, rq in enumerate(real_q[:4]):
+            found, _sk = _cs(rq, n=3)
+            for i, it in enumerate(found):
+                name = "c%d_%d.jpg" % (qi, i)
+                try:
+                    with _cget(_re.sub(r"/\d+px-", "/480px-", it["url"]), timeout=60) as r_, \
+                            open(os.path.join(OUT, name), "wb") as f_:
+                        f_.write(r_.read())
+                except Exception:
+                    continue
+                _n += 1
+                print('%s  | query=%s | %s | %s  →  "bg": "commons:%s"'
+                      % (name, rq, it["license"], it["title"][5:50], it["title"]))
+        if not _n:
+            print("  (실물 후보 없음 — real_query에 고유명사·영문명을 넣어 다시 돌려라. 그래도 없으면 "
+                  "Pexels는 **같은 대상**일 때만 쓰고, 아니면 소재를 바꿔라)")
+        print()
+    except Exception as _e:
+        print("경고: 커먼즈 후보 조회 실패(무해):", str(_e)[:120], flush=True)
+
     for name, q, dur, ori, mark in rows:
         print("%s  | query=%s | %ds | %s%s" % (name, q, dur, ori, mark))
     print("후보 %d개 저장 → %s" % (len(rows), OUT))
