@@ -1,0 +1,35 @@
+{
+ "topic": "iMac M6 — 아이맥이 2년 만에 바뀐다, M5를 건너뛰고 M6으로 간다, 이르면 10월 [타이밍경고형][루머]",
+ "blog_teaser": "M4 아이맥과 M6 예상 스펙 비교, 지금 살지 기다릴지 판단 기준은 블로그에 정리했습니다",
+ "threads_text": "아이맥이 2년 만에 바뀐다 — M5를 건너뛰고 M6으로 간다\n\n1. 현행 아이맥은 2024년 10월에 나온 M4. 거의 2년째 그대로다\n2. 다음 아이맥은 M5를 건너뛰고 바로 M6이 들어간다는 소문 (Bloomberg)\n3. M6은 2nm 공정이 유력. 현행 M4는 3nm\n4. 디자인·화면 변화는 없고 새 색상 추가 소문\n5. 출시는 이르면 10월. 확정은 아니다\n6. 지금 아이맥 고민 중이면 한 달은 기다려볼 만하다\n\n(출처: Bloomberg Mark Gurman, MacRumors 2026.08, 9to5Mac 2026.08)",
+ "description": "현행 iMac은 M4 칩(2024년 10월 출시)으로 거의 2년째 동일 모델이 판매 중이다. Bloomberg의 Mark Gurman과 복수 매체에 따르면 Apple은 M5를 건너뛰고 M6 칩을 탑재한 신형 iMac을 2026년 가을(이르면 10월)에 출시할 예정이다.\n\niMac은 Apple Silicon 전환 이후 칩 세대를 건너뛴 전례가 있다. M1(2021년 4월) → M3(2023년 11월) → M4(2024년 10월)로, M2를 건너뛰었다. 이번에도 같은 패턴이 반복된다. 이유는 iMac이 연 1회 이하 갱신 주기를 유지하기 때문이다 — 칩 세대가 1년 미만 주기로 바뀌면 올인원 데스크톱은 따라가지 않는다.\n\nM6 칩은 TSMC의 2nm(N2) 공정 기반으로 추정된다. 현행 M4는 3nm(N3E) 공정이다. 2nm로 전환하면 트랜지스터 밀도가 올라가고, 같은 성능에서 전력 소비가 줄거나 같은 전력에서 성능이 오른다. 다만 iMac은 데스크톱이라 전력 제한이 노트북보다 느슨해, 일반 사용자가 체감할 차이는 크지 않을 수 있다.\n\n디자인 변경은 없다는 소문이다. 2021년 M1 iMac에서 도입한 24인치 4.5K 디스플레이, 11.5mm 두께 디자인이 그대로 유지된다. 대신 새 색상이 추가될 가능성이 보도됐다. 현행 7색(블루·퍼플·핑크·오렌지·옐로·그린·실버)에서 일부 색이 교체되거나 추가될 수 있다.\n\n현행 iMac M4 국내 시작가는 199만 원(10코어 GPU, 16GB 메모리, 256GB SSD 기준). 상위 모델은 최대 319만 원까지 간다. 신형도 비슷한 가격대가 될 것으로 예상된다 — M3에서 M4로 넘어갈 때 시작가는 동결됐다.\n\n지금 아이맥을 사야 하는가. 이르면 10월에 같은 값에 더 빠른 칩이 들어간다는 소문이다. 급하지 않다면 한 달은 기다려볼 만하다. 이미 M4 iMac을 쓰고 있다면 바꿀 이유가 크지 않다 — 칩만 바뀌고 나머지는 그대로다. 이 정보는 아직 Apple의 공식 발표가 아닌 루머 단계다.",
+ "caption": "아이맥이 2년 만에 바뀐다 — M5를 건너뛰고 M6으로 간다\n\niMac M6. 이르면 10월 출시 소문.\nM5 건너뛰기는 이번이 처음이 아니다 — M2도 건너뛰었다.\n2nm 공정 · 디자인 변화 없음 · 새 색상 추가 소문.\n현행 M4 iMac 국내 199만 원부터.\n\n⚠️ 아직 공식 발표가 아닌 루머 단계 정보입니다\n(출처: Bloomberg Mark Gurman, MacRumors, 9to5Mac)\n\n#아이맥 #iMac #M6 #애플 #타이밍",
+ "factcheck": [
+   {"claim": "현행 iMac은 M4 칩, 2024년 10월 출시", "sources": ["https://www.apple.com/kr/shop/buy-mac/imac", "https://www.macrumors.com/roundup/imac/"], "note": "Apple 공식 스토어 + MacRumors 교차 확인"},
+   {"claim": "다음 iMac은 M5를 건너뛰고 M6 탑재 예정", "sources": ["https://9to5mac.com/2026/08/23/apple-refreshed-imac-m6-chip-new-colors/", "https://www.macrumors.com/2026/08/23/m6-imac-this-year-new-colors/"], "note": "Bloomberg Gurman 보도 기반, 9to5Mac + MacRumors 교차 확인. 루머 단계"},
+   {"claim": "이르면 10월 출시 예상", "sources": ["https://www.macrumors.com/2026/08/10/new-macbook-pro-refreshed-imacs-october/", "https://9to5mac.com/2026/08/27/m6-release-schedule-heres-every-new-mac-and-ipad-launching-next/"], "note": "MacRumors·9to5Mac 모두 'likely October' 표현. 확정 아님"},
+   {"claim": "iMac은 과거에도 M2를 건너뛴 전례", "sources": ["https://www.macrumors.com/roundup/imac/", "https://en.wikipedia.org/wiki/IMac"], "note": "iMac 세대: M1(2021) → M3(2023) → M4(2024). M2 건너뜀 확인"},
+   {"claim": "현행 iMac M4 국내 시작가 199만 원", "sources": ["https://www.apple.com/kr/shop/buy-mac/imac", "https://saledoctor.co.kr/blog/2024/11/18/imac-m4/"], "note": "Apple Korea 공식 + 세일박사 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/imac_m6_hook.jpg",
+   "title": "아이맥, 2년 만에 바뀐다",
+   "title_hl": ["바뀐다"],
+   "body": "M5를 건너뛰고 바로 M6으로 — 이르면 10월?",
+   "body_hl": ["M6"],
+   "credit": "Apple"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/imac_m6_end.jpg",
+   "title": "지금 사면 아깝다",
+   "title_hl": ["아깝다"],
+   "body": "현행 M4 → 다음은 M6 (M5 건너뜀)\n2nm 공정 · 새 색상 추가 소문\n디자인·화면 변화는 없다는 소문",
+   "body_hl": ["M6", "2nm"],
+   "sub": "M2도 건너뛴 전례가 있다 — 현행 199만 원, 신형도 비슷할 가능성",
+   "credit": "Apple"
+  }
+ ]
+}
