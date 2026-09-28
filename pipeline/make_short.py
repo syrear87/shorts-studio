@@ -946,6 +946,17 @@ def main():
                     if p is None:
                         sys.exit("기각: 지정 사진 %s 다운로드 실패" % b)
                     cache[b] = {"kind": "photo", "path": p}
+                elif isinstance(b, str) and b.startswith("commons:"):
+                    # 2026-09-28: 소재의 실물 사진(위키미디어 커먼즈, 자유 라이선스) → 켄 번즈
+                    from fetch_commons import fetch as fetch_commons
+                    p = fetch_commons(b.split(":", 1)[1])
+                    if p is None:
+                        sys.exit("기각: 커먼즈 배경 %s — 라이선스·출처·해상도 불가 또는 다운로드 실패" % b)
+                    # 가로 실물 사진은 세로로 잘라 채우면 유물이 반만 보인다(진관사 태극기 시험, 2026-09-28)
+                    # → 'fit': 흐린 같은 사진을 바탕에 깔고 원본 전체를 자막 아래에 띄워 천천히 민다.
+                    with Image.open(p) as _im:
+                        _w, _h = _im.size
+                    cache[b] = {"kind": "fit" if _w / _h > 0.8 else "photo", "path": p, "wh": (_w, _h)}
                 elif isinstance(b, str) and (b.startswith("file:") or b.startswith("file!:")):
                     # 로컬 파일 배경 (make_long.py와 동일 스킴, 2026-08-12)
                     p = b.split(":", 1)[1]
@@ -1033,7 +1044,7 @@ def main():
     if video_bg:
         nb = len(bg_items)
         for it in bg_items:
-            if it["kind"] in ("photo", "still"):
+            if it["kind"] in ("photo", "still", "fit"):
                 cmd += ["-loop", "1", "-i", it["path"]]
             else:
                 cmd += ["-stream_loop", "-1", "-i", it["path"]]
@@ -1061,6 +1072,23 @@ def main():
                     "zoompan=%s:d=%d:s=%dx%d:fps=%d,eq=saturation=0.88:brightness=-0.02,"
                     "setsar=1,trim=duration=%.3f,setpts=PTS-STARTPTS[b%d]"
                     % (i, W * 2, H * 2, W * 2, H * 2, styles[i % 3], fr, W, H, FPS, seg, i))
+            elif it["kind"] == "fit":
+                # 실물 전체 보기 (2026-09-28): 자막존(0.40~0.54H) 아래에 원본을 온전히 띄우고
+                # 뒤에는 같은 사진을 흐리게 채운다. 전경은 8% 슬로우 줌으로 '움직이는' 화면.
+                _iw, _ih = it["wh"]
+                FH = min(720, int(1000 * _ih / _iw)) // 2 * 2
+                FW = min(1000, int(FH * _iw / _ih)) // 2 * 2
+                FY = 1040
+                zi = 0.08 / max(seg * FPS, 1)
+                parts.append(
+                    "[%d:v]fps=%d,split=2[fa%d][fb%d];"
+                    "[fa%d]scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d,"
+                    "boxblur=30:3,eq=brightness=-0.12:saturation=0.75,setsar=1[fc%d];"
+                    "[fb%d]scale=%d:%d,zoompan=z='min(1.0+%.7f*on,1.08)':x='iw/2-(iw/zoom/2)':"
+                    "y='ih/2-(ih/zoom/2)':d=1:s=%dx%d:fps=%d,setsar=1[fd%d];"
+                    "[fc%d][fd%d]overlay=(%d-%d)/2:%d,trim=duration=%.3f,setpts=PTS-STARTPTS[b%d]"
+                    % (i, FPS, i, i, i, W, H, W, H, i, i, FW * 2, FH * 2, zi, FW, FH, FPS, i,
+                       i, i, W, FW, FY, seg, i))
             elif it["kind"] == "still":
                 # 고정 배경: 줌·이동 없이 그대로 (문제 화면·비교 도판 — 2026-08-15)
                 # 이미 1080x1920로 만든 도판이므로 확대·크롭하지 않는다 (잘림 방지, 2026-08-15)

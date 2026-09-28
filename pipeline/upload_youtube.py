@@ -377,11 +377,37 @@ def api_public(video, meta):
                     "✅ 오늘의 숏츠 게시 완료\n%s\n%s" % (title, url)], check=False)
     return vid
 
+def _add_commons_credits(meta, meta_p):
+    """커먼즈 실사 배경의 저작자 표기를 설명란 끝에 붙인다 (2026-09-28 — CC BY·BY-SA·공공누리
+    1유형은 표기가 의무다. Pexels는 채널 정보란 일괄 표기로 갈음하지만 BY 계열은 작품마다 붙인다).
+    대본 json(meta와 같은 이름)의 씬 bg에서 commons: 항목을 찾는다."""
+    sp = meta_p.replace(".meta.json", ".json")
+    try:
+        sc = load(sp)
+    except Exception:
+        return
+    bgs = [str(x.get("bg") or x.get("bg_id") or "") for x in sc.get("scenes", [])] + \
+          [str(x) for x in (sc.get("bg_ids") or [])]
+    titles = []
+    for b in bgs:
+        if b.startswith("commons:") and b[8:] not in titles:
+            titles.append(b[8:])
+    if not titles:
+        return
+    sys.path.insert(0, os.path.join(ROOT, "pipeline"))
+    from fetch_commons import credit_line
+    lines = [l for l in (credit_line(t) for t in titles) if l and l not in meta["description"]]
+    if lines:
+        meta["description"] = meta["description"].rstrip() + "\n\n" + "\n".join(lines)
+        print("[credits] 커먼즈 저작자 표기 %d줄 추가" % len(lines), flush=True)
+
+
 def main():
     if len(sys.argv) < 3:
         sys.exit("사용: upload_youtube.py <video.mp4> <meta.json>")
     video, meta_p = sys.argv[1], sys.argv[2]
     meta = load(meta_p)
+    _add_commons_credits(meta, meta_p)
     check_meta(meta)
     preflight(video)
     cfg = load(os.path.join(ROOT, "config.json"))
