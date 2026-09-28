@@ -1,0 +1,64 @@
+{
+  "title": "38선을 먼저 넘은 건 미군이 아닙니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "애국·정체성",
+  "bg_query": ["korean military parade soldiers", "korean soldiers marching formation", "DMZ korea border marker", "korean armed forces ceremony flag", "autumn park people relaxing korea"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "38선을 먼저 넘은 건 미군이 아닙니다.",
+      "bg": 29242638,
+      "lines": [
+        ["38선을 먼저 넘은 건 미군이 아닙니다", ["미군이"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "1950년 인천상륙작전 성공 이후, 한국군은 서울을 되찾고 북으로 진격했습니다.",
+      "bg": 37185137,
+      "lines": [
+        ["1950년 인천상륙작전 이후", []],
+        ["서울을 되찾고 북으로 진격", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "10월 1일, 제3사단 23연대가 강원도 양양에서 38선을 최초로 돌파했습니다. UN군 전체에서 가장 먼저였습니다.",
+      "bg": "photo:28493543",
+      "lines": [
+        ["10월 1일, 제3사단 23연대가", []],
+        ["38선을 최초로 돌파", ["최초로"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "이 날이 국군의 날이 됐습니다. 1990년에 공휴일에서 빠졌다가, 2024년에 하루만 돌아왔습니다.",
+      "bg": 34548640,
+      "lines": [
+        ["이 날이 국군의 날", []],
+        ["2024년, 하루만 돌아왔다", ["하루만"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "이번 주 목요일이 그날입니다. 공휴일은 아니지만, 연차 이틀 쓰면 개천절 대체공휴일까지 5일 쉽니다.",
+      "bg": 5382693,
+      "lines": [
+        ["이번 주 목요일이 그날", []],
+        ["연차 이틀이면 5일 쉽니다", ["5일"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "bg": 5382693,
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://korea.kr/news/pressReleaseView.do?newsId=156424253",
+    "https://gonggam.korea.kr/newsContentView.es?mid=a10201000000"
+  ]
+}
