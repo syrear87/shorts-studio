@@ -1,0 +1,35 @@
+{
+ "topic": "Hypershell Halo — 무릎에 모터가 달렸다, 2.6kg 소비자용 외골격이 4관절을 밀어주고 배낭에 접힌다, $2,299 [한계붕괴형]",
+ "blog_teaser": "1,490W 피크 출력의 작동 원리, 군용 외골격과 뭐가 다른지, 직구 시 총비용은 블로그에 정리했습니다",
+ "threads_text": "무릎에 끼는 외골격이 나왔다 — 2.6kg, 배낭에 접힌다\n\n1. Hypershell Halo. 소비자용 전신 하체 외골격이 나왔다\n2. 양쪽 무릎 + 양쪽 엉덩이, 4관절을 동시에 보조한다\n3. 카본파이버+티타늄 프레임 2.6kg — 배낭 안에 접힌다(8L 이하)\n4. AI가 초당 2,500회 보폭을 읽고 200ms 앞을 예측해 힘을 건다\n5. 배터리 1개로 20km. 무릎 피로 40% 감소(제조사 테스트)\n6. $2,299. 11월 출시. 한국 미정\n\n(출처: PR Newswire, Forbes, Hypershell 공식)",
+ "description": "Hypershell이 IFA 2026(9월 3일)에서 소비자용 전신 하체 외골격 Halo를 공개했다. 양쪽 무릎과 양쪽 엉덩이, 총 4개 관절을 동시에 보조하는 최초의 소비자 제품이다. 프레임은 카본파이버와 티타늄으로 만들어 무게 2.6kg이다. 접으면 8리터 이하로 줄어들어 배낭에 넣을 수 있다. 착용 20초, 탈착 5초. AI 엔진 HyperIntuition 2.0이 초당 2,500회 센서를 읽어 200ms 앞의 동작을 예측하고, 오르막·내리막·계단에 맞춰 실시간으로 출력을 조절한다. 피크 합산 출력 1,490W. 제조사 테스트에서 무릎 피로를 40% 줄였다고 주장한다. 교체형 배터리 PocketVolt(370g, 72Wh)로 1회 충전 20km 주행, 충전 1.5시간이다. IP54 방수. 가격 $2,299(Origin Edition, 첫 200대). 2026년 11월 미국·유럽·중국 출시 예정이며, 한국은 초기 출시국에 포함되지 않는다. IFA 2026에서 21개 어워드를 수상했다. 경쟁 제품으로 Dnsys X1, Arc'teryx Skip MO/GO 등이 있으나 4관절 동시 보조는 Halo가 유일하다.",
+ "caption": "무릎에 끼는 외골격이 나왔다 — 2.6kg, 배낭에 접힌다\n\nHypershell Halo.\n소비자용 전신 하체 외골격.\n양쪽 무릎 + 엉덩이 4관절 보조.\n카본파이버+티타늄 2.6kg · 배낭에 접힘.\n\nAI가 초당 2,500회 보폭 분석.\n무릎 피로 40% 감소.\n배터리 20km · $2,299.\n\n(출처: PR Newswire, Forbes, Hypershell 공식)\n\n#외골격 #Hypershell #웨어러블 #테크 #가젯",
+ "factcheck": [
+   {"claim": "IFA 2026(9/3) 공개, 소비자용 4관절 하체 외골격", "sources": ["https://www.prnewswire.com/news-releases/hypershell-launches-halo-the-worlds-first-consumer-full-leg-exoskeleton-at-ifa-2026-302867890.html", "https://www.forbes.com/sites/technology/2026/09/03/hypershell-halo-exoskeleton-ifa-2026/"], "note": "PR Newswire 공식 보도자료 + Forbes 기사 일치. 'world's first consumer full-leg exoskeleton powering all 4 lower-body joints'"},
+   {"claim": "카본파이버+티타늄 프레임 2.6kg, 접으면 8L 이하", "sources": ["https://www.prnewswire.com/news-releases/hypershell-launches-halo-the-worlds-first-consumer-full-leg-exoskeleton-at-ifa-2026-302867890.html", "https://www.tomsguide.com/health-fitness/hypershell-halo-exoskeleton-ifa-2026"], "note": "PR Newswire '2.6 kg carbon fiber-titanium frame, folds to under 8 liters' + Tom's Guide 일치"},
+   {"claim": "AI 초당 2,500회 분석, 200ms 예측, 피크 1,490W", "sources": ["https://www.prnewswire.com/news-releases/hypershell-launches-halo-the-worlds-first-consumer-full-leg-exoskeleton-at-ifa-2026-302867890.html"], "note": "PR Newswire 'HyperIntuition 2.0: 2,500 sensor reads/sec, 200ms predictive' — 제조사 자체 데이터"},
+   {"claim": "배터리 20km, 72Wh, 무릎 피로 40% 감소", "sources": ["https://www.prnewswire.com/news-releases/hypershell-launches-halo-the-worlds-first-consumer-full-leg-exoskeleton-at-ifa-2026-302867890.html", "https://www.techlicious.com/blog/hypershell-halo-exoskeleton-ifa-2026/"], "note": "PR Newswire '20 km range, 72 Wh PocketVolt' + Techlicious 일치. 40% 감소는 제조사 자체 랩 테스트"},
+   {"claim": "$2,299 Origin Edition, 11월 출시, 한국 미포함", "sources": ["https://www.prnewswire.com/news-releases/hypershell-launches-halo-the-worlds-first-consumer-full-leg-exoskeleton-at-ifa-2026-302867890.html", "https://www.forbes.com/sites/technology/2026/09/03/hypershell-halo-exoskeleton-ifa-2026/"], "note": "PR Newswire '$2,299 Origin Edition first 200 units, November 2026' + Forbes 일치. 초기 출시국에 한국 없음"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/hypershell_halo_hook.jpg",
+   "title": "무릎에 끼는\n외골격이 나왔다",
+   "title_hl": ["외골격이"],
+   "body": "2.6kg 카본 프레임 — 4관절을 밀어주고 배낭에 접힌다",
+   "body_hl": ["2.6kg"],
+   "credit": "Hypershell"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/hypershell_halo_end.jpg",
+   "title": "배낭에 접히는\n소비자용 외골격",
+   "title_hl": ["배낭에"],
+   "body": "양쪽 무릎+엉덩이 4관절 동시 보조\nAI가 초당 2,500회 보폭을 읽는다\n무릎 피로 40% 감소 · 배터리 20km",
+   "body_hl": ["4관절"],
+   "sub": "$2,299 · 11월 출시 · 한국 미정",
+   "credit": "Hypershell"
+  }
+ ]
+}

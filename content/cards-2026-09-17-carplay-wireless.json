@@ -1,0 +1,38 @@
+{
+ "topic": "무선 카플레이 어댑터 — 차에 탈 때마다 꽂던 케이블이 사라진다, USB에 어댑터 하나 꽂으면 카플레이가 무선이 된다, 2만원대부터 [구매가능][공유형]",
+ "blog_teaser": "유선 vs 무선 지연 비교, 브랜드별 가격표, 내 차 호환 확인법은 블로그에 정리했습니다",
+ "threads_text": "차에 탈 때마다 꽂던 케이블이 사라진다\n\n1. 유선 카플레이 차량 USB에 어댑터 하나 꽂으면 — 그다음부터 폰은 주머니에 둔 채 카플레이가 뜬다\n2. 원리가 재밌다 — 차는 유선으로 연결된 줄 알고, 어댑터가 몰래 WiFi로 폰과 연결한다\n3. 2015~2023년 출시 차량 대부분이 유선 전용이라 타겟이 넓다\n4. 알리 2만원대부터, 국내 브랜드 5만원대 — 체감 지연은 거의 없다\n5. 추석 귀성길 전에 꽂아두면 내비 켤 때마다 선 찾을 일이 없다\n\n(출처: Apple CarPlay 공식, Carlinkit, OTTOCAST)",
+ "caption": "차에 탈 때마다 꽂던 케이블이 사라진다\n\n유선 카플레이 차량 USB에 어댑터 하나를 꽂아두면\n그다음부터 폰은 주머니에 둔 채 카플레이가 뜬다.\n\n차는 유선으로 연결된 줄 알고\n어댑터가 몰래 WiFi로 폰과 통신한다.\n\n2015~2023년 출시 차량 대부분이 유선 전용.\n무선 카플레이는 2019년부터 고급 차종에만 들어갔다.\n\nCarlinkit — 알리 2만원대 / 11번가 5만원대\nOTTOCAST — 국내 공식몰 운영, 1~2일 배송\n이지넷 NEXTU — 국내 브랜드, 5~7만원대\n\n(출처: Apple CarPlay 공식, Carlinkit, OTTOCAST)\n\n#카플레이 #무선카플레이 #추석 #귀성길 #차량용품",
+ "factcheck": [
+   {"claim": "유선 카플레이를 무선으로 변환하는 어댑터가 존재한다", "sources": ["https://carlinkitcarplay.com/", "https://ottocast.kr/"], "note": "Carlinkit(2014년 설립, 글로벌 10만+ 고객), OTTOCAST(한국 공식몰 운영) 등 다수 브랜드 확인"},
+   {"claim": "어댑터가 BT로 페어링 후 WiFi로 데이터 전송하는 구조", "sources": ["https://www.engadget.com/2246396/", "https://cartechstudio.com/blogs/wireless-car-connectivity/wired-to-wireless-carplay-adapter"], "note": "차량은 USB 유선 연결로 인식, 어댑터가 중간에서 BT+WiFi 브릿지 역할"},
+   {"claim": "2015~2023년 출시 차량 대부분이 유선 전용 카플레이", "sources": ["https://www.apple.com/ios/carplay/available-models/", "https://addcarwidgets.com/carplay-statistics"], "note": "무선 CarPlay는 2019년부터 일부 고급 차종에만 탑재. Apple 공식 지원 차종 800개+ 모델"},
+   {"claim": "알리 2만원대, 국내 브랜드 5~7만원대", "sources": ["https://plan.danawa.com/info/?nPlanSeq=10222", "https://www.11st.co.kr/products/7849520490"], "note": "다나와 기획전, 11번가 가격 확인. 알리 US $11~16, 국내 이지넷 5~7만원대"}
+ ],
+ "rebuttals": [
+   "블루투스라 지연 심하지 않냐 — 실측 50~150ms, 내비·전화는 체감 없다. 음악 넘기기 시 0.8초 정도 딜레이가 있지만 며칠이면 익숙해진다",
+   "아무 차나 되냐 — 유선 카플레이가 탑재된 차에서만 작동한다. 카플레이 자체가 없는 차에 추가하는 장치가 아니다. Apple 공식 지원 차종 목록에서 확인 가능",
+   "알리 2만원짜리 품질이 괜찮냐 — 4시간 사용 문제없었다는 후기 존재. 다만 초기 연결에 20~30초 걸릴 수 있고, 국내 AS가 안 된다. 국내 브랜드는 AS 가능하지만 5만원대"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/carplay_wireless_hook.jpg",
+   "title": "차에 탈 때마다 꽂던\n케이블이 사라진다",
+   "title_hl": ["사라진다"],
+   "body": "USB에 어댑터 하나 꽂아두면\n카플레이가 무선이 된다",
+   "body_hl": ["어댑터 하나", "무선"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/carplay_wireless_end.jpg",
+   "title": "차를 속이는 구조가\n2만원대부터",
+   "title_hl": ["2만원대"],
+   "body": "차는 유선인 줄 안다 — 어댑터가 WiFi로 폰과 통신\n2015~2023년 차 대부분 해당",
+   "body_hl": ["WiFi로 폰과 통신", "대부분 해당"],
+   "sub": "Carlinkit — 알리 2만원대 / 국내 5만원대\nOTTOCAST — 국내몰 운영, 1~2일 배송\n(출처: Apple 공식, Carlinkit, 다나와)",
+   "credit": "Pexels"
+  }
+ ]
+}

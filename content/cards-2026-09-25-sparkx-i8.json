@@ -1,0 +1,35 @@
+{
+ "topic": "Creality SPARKX i8 — 3D 프린터는 한 색만 찍는다, 그게 끝났다. 4색 필라멘트로 32가지 색, 버리는 재료 0g, $289 [한계붕괴형]",
+ "blog_teaser": "QuarTeks 시스템이 퍼지 타워를 없앤 원리, 기존 멀티컬러 3D 프린터와 뭐가 다른지는 블로그에 정리했습니다",
+ "threads_text": "3D 프린터는 한 색만 찍는다 — 그게 끝났다\n\n1. Creality가 SPARKX i8을 인디고고에 올렸다, $289(약 38만 원)\n2. 4가지 필라멘트로 최대 32가지 색을 찍는다 — CMYK 풀컬러\n3. 색 전환 시 버리던 재료가 0g — 공유 경로 1mm 미만, 기존 대비 30배 짧다\n4. 색 전환 1초 미만. 3000번 색 전환 테스트를 18시간에 끝냄\n5. 13개 센서 + AI 카메라가 필라멘트 상태를 실시간 감시\n\n(출처: 3DPrint.com, PR Newswire)",
+ "description": "Creality가 2026년 9월 21일 인디고고에서 SPARKX i8을 론칭했다. 핵심은 QuarTeks 컬러 체인지 시스템 — 노즐 안에 4개 독립 채널이 있고 공유 경로가 1mm 미만(약 2mm³)으로 기존 대비 30배 짧다. 덕분에 색 전환 시 버리던 퍼지 타워(prime tower)가 필요 없고 외부 재료 낭비가 0g이다. 4가지 필라멘트(CMYK)로 16~32가지 색 조합을 만들어낸다. 색 전환 속도 1초 미만. 3000번 색 전환 테스트를 약 18시간에 완료해 외부 피드 시스템 대비 500% 빠르다고 주장한다. 13개 센서와 AI 비전 카메라가 필라멘트 상태를 실시간 감시하고, 필라멘트 자동 리필도 지원한다. 인디고고 슈퍼 얼리버드 $289, 정가 $399. 10월 출하·11월 배송 예정.",
+ "caption": "3D 프린터는 한 색만 찍는다 — 그게 끝났다\n\nCreality SPARKX i8.\n4가지 필라멘트로 최대 32가지 색.\nCMYK 풀컬러 3D 프린팅.\n\n색 전환 시 버리던 재료 = 0g.\n공유 경로 1mm 미만, 기존 대비 30배 짧다.\n색 전환 1초 미만.\n\n$289(약 38만 원) · 인디고고 · 10월 출하 예정.\n\n(출처: 3DPrint.com, PR Newswire)\n\n#3D프린터 #Creality #SPARKX #멀티컬러 #테크",
+ "factcheck": [
+   {"claim": "SPARKX i8 인디고고 론칭 2026-09-21, 슈퍼 얼리버드 $289, 정가 $399", "sources": ["https://3dprint.com/333385/creality-launches-sparkx-i8-on-indiegogo/", "https://www.prnewswire.com/news-releases/creality-launches-sparkx-i8-on-indiegogo-at-289-bringing-fastest-no-purge-waste-printing-302884861.html"], "note": "3DPrint.com은 $309 early bird 언급, PR Newswire는 $289 super early bird 언급 — 티어별 차이. 정가 $399 양쪽 일치"},
+   {"claim": "QuarTeks 공유 경로 1mm 미만(약 2mm³), 기존 대비 30배 짧음", "sources": ["https://3dprint.com/333385/creality-launches-sparkx-i8-on-indiegogo/", "https://www.prnewswire.com/news-releases/creality-launches-sparkx-i8-on-indiegogo-at-289-bringing-fastest-no-purge-waste-printing-302884861.html"], "note": "양쪽 모두 'less than 1 mm, approximately 2 mm³', '30 times shorter' 일치"},
+   {"claim": "외부 퍼지 낭비 0g, 퍼지 타워 불필요", "sources": ["https://3dprint.com/333385/creality-launches-sparkx-i8-on-indiegogo/", "https://www.prnewswire.com/news-releases/creality-launches-sparkx-i8-on-indiegogo-at-289-bringing-fastest-no-purge-waste-printing-302884861.html"], "note": "'0 g external waste under optimal conditions' — optimal conditions 단서 있음, 카드에 반영"},
+   {"claim": "4색 필라멘트로 16~32가지 색 조합, CMYK", "sources": ["https://3dprint.com/333385/creality-launches-sparkx-i8-on-indiegogo/", "https://www.prnewswire.com/news-releases/creality-launches-sparkx-i8-on-indiegogo-at-289-bringing-fastest-no-purge-waste-printing-302884861.html"], "note": "양쪽 모두 '16 or even 32 color combinations' 일치"},
+   {"claim": "3000번 색 전환 테스트 약 18시간, 외부 피드 대비 500% 빠름", "sources": ["https://3dprint.com/333385/creality-launches-sparkx-i8-on-indiegogo/", "https://www.prnewswire.com/news-releases/creality-launches-sparkx-i8-on-indiegogo-at-289-bringing-fastest-no-purge-waste-printing-302884861.html"], "note": "양쪽 일치 — 제조사 자체 테스트 수치임을 감안"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/sparkx_i8_hook.jpg",
+   "title": "3D 프린터는\n한 색만 찍는다\n— 그게 끝났다",
+   "title_hl": ["그게 끝났다"],
+   "body": "Creality SPARKX i8 — 4가지 필라멘트로 32가지 색",
+   "body_hl": ["32가지 색"],
+   "credit": "3DPrint.com"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/sparkx_i8_end.jpg",
+   "title": "SPARKX i8\n버리는 재료가 0이 됐다",
+   "title_hl": ["0이 됐다"],
+   "body": "색 전환 경로 1mm 미만 — 기존 대비 30배 짧다\n퍼지 타워 불필요 · 색 전환 1초 미만\n13개 센서 + AI 카메라 실시간 감시",
+   "body_hl": ["30배 짧다"],
+   "sub": "$289(약 38만 원) · 인디고고 · 10월 출하",
+   "credit": "3DPrint.com"
+  }
+ ]
+}

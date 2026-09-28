@@ -1,0 +1,33 @@
+{
+ "topic": "스마트키 신호차단 파우치 — 스마트키가 집 안에 있어도 차가 열린다, 릴레이 어택 장비 하나로 주차장에서 수초 만에 훔친다 [구매가능][공유형]",
+ "blog_teaser": "릴레이 어택 원리와 패러데이 파우치 선택법, 차종별 대응은 블로그에 정리했습니다",
+ "threads_text": "내 차 스마트키, 9만원이면 뚫린다\n\n1. 릴레이 어택 — 집 밖에서 장비로 키 신호를 잡아 증폭하면 차가 알아서 열린다\n2. 영국에서 2019년 14% → 2024년 70%로 급증\n3. 장비값이 9만원도 안 된다\n4. 패러데이 파우치에 키를 넣으면 전파가 차단된다\n5. 알루미늄 호일 2~3겹도 되지만 틈이 생기면 뚫린다\n\n(출처: ABI, LockCar UK, SLNT 독립 테스트)",
+ "caption": "내 차 스마트키, 9만원이면 뚫린다\n\n릴레이 어택.\n집 밖에서 장비 하나로 스마트키 신호를 잡아 증폭하면\n차는 키가 바로 옆에 있다고 착각한다.\n문이 열리고, 시동이 걸리고, 수초 만에 사라진다.\n\n영국 기준 2019년에 차량 절도의 14%였던 게\n2024년에 70%가 됐다.\n장비값이 9만원도 안 된다.\n\n패러데이 파우치에 키를 넣으면 전파가 차단된다.\n알루미늄 호일 2~3겹도 임시 방편이 된다.\n최신 차는 UWB 디지털키로 거리를 정밀 측정해 막는다.\n\n추석에 차 세워두고 가기 전에 — 키가 어디 있는지 한번 확인하자.\n\n(출처: ABI, LockCar UK, SLNT, PCWorld, IACR)\n\n#스마트키 #릴레이어택 #패러데이파우치 #차량도난방지 #추석",
+ "factcheck": [
+   {"claim": "영국 릴레이 어택 비중 2019년 14% → 2024년 70%", "sources": ["https://lockcar.co.uk/keyless-car-theft-uk-statistics-2025/", "https://wecovr.com/guides/uk-car-theft-keyless-risk/"], "note": "ABI(Association of British Insurers) 데이터 기반. LockCar UK와 WeCovr 가이드에서 교차 확인"},
+   {"claim": "릴레이 장비값 £50(약 9만원) 미만", "sources": ["https://lockcar.co.uk/keyless-car-theft-uk-statistics-2025/", "https://gpsbob.com/blogs/news/car-theft-uk-2026-gps-tracker"], "note": "LockCar UK: relay device costs less than £50"},
+   {"claim": "패러데이 파우치가 신호를 차단한다", "sources": ["https://slnt.com/blogs/insights/do-faraday-bags-work-these-4-tests-reveal-the-truth", "https://bitsofreason.org/faraday-pouches/"], "note": "SLNT 독립 테스트: 품질 파우치는 효과적. 저가 파우치는 몇 주 뒤 라이닝 열화로 실패"},
+   {"claim": "알루미늄 호일 2~3겹이 전자기파를 차단한다", "sources": ["https://www.pcworld.com/article/2958813/how-wrapping-keys-in-aluminum-foil-protects-your-car-from-thieves.html", "https://acs.studentorg.berkeley.edu/blog/foil-car-keys-the-10-cent-kitchen-solution-to-stop-high-tech-auto-thieves-in-seconds/"], "note": "PCWorld: 작동하나 주름·틈이 있으면 효과 감소. 전용 파우치보다 신뢰성 낮음"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/smartkey_relay_hook.jpg",
+   "title": "내 차 스마트키\n9만원이면 뚫린다",
+   "title_hl": ["스마트키", "9만원이면 뚫린다"],
+   "body": "릴레이 어택 — 장비 하나로 키 신호를 증폭\n영국 차량 절도의 70%가 이 수법",
+   "body_hl": ["9만원", "70%"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/smartkey_relay_end.jpg",
+   "title": "신호를 막으면\n문은 열리지 않는다",
+   "title_hl": ["신호를 막으면"],
+   "body": "패러데이 파우치에 키를 넣으면 전파가 차단된다\n알루미늄 호일 2~3겹도 임시 방편",
+   "body_hl": ["패러데이 파우치", "알루미늄 호일"],
+   "sub": "추석에 차 세워두기 전에 — 키 위치부터 확인",
+   "credit": "Pexels"
+  }
+ ]
+}

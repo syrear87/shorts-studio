@@ -1,0 +1,33 @@
+{
+ "topic": "TechPod RePod C1 — 애플이 죽인 클릭 휠이 애플워치에서 부활했다, 돌리면 진짜 디지털 크라운이 돌아간다 [공유형]",
+ "blog_teaser": "tinyPod와 차이점, 호환 모델 정리, 직구 방법은 블로그에 따로 정리했습니다",
+ "threads_text": "애플이 죽인 클릭 휠이 애플워치에서 부활했다\n\n1. TechPod RePod C1 — 애플워치를 끼우면 아이팟이 된다\n2. 클릭 휠이 장식이 아니다 — 기계식으로 디지털 크라운에 물려 진짜 스크롤된다\n3. CNC 항공 알루미늄, 뒷면 열려 심박·NFC·충전 그대로\n4. 시리즈 4~11 + 울트라 전 세대 호환\n5. $59.90 — 한국 미출시, 아마존 직구 가능\n\n(출처: TechPod, Yanko Design, Gadget Flow)",
+ "description": "애플이 2014년 아이팟 클래식을 단종한 뒤 클릭 휠은 사라졌다. TechPod RePod C1은 애플워치를 끼우면 아이팟 모양이 되는 CNC 항공 알루미늄 케이스다. 핵심은 아래쪽 클릭 휠이 장식이 아니라 기계식으로 디지털 크라운에 물려 실제 스크롤 입력이 된다는 점이다. 돌리면 메뉴가 진짜 움직인다. 경쟁 제품 tinyPod는 휠이 디지털 크라운과 연결되지 않아 장식에 그쳤는데, RePod는 기계식 연동으로 이 한계를 넘었다. 뒷면이 열려 있어 심박 센서, ECG, NFC(애플페이), 충전 기능이 모두 그대로 작동한다. 사이즈는 40mm부터 49mm(울트라)까지 7종으로 시리즈 4~11과 울트라 1·2·3 전 세대를 호환한다. 가격은 $59.90(울트라용 $69.90). 한국에는 공식 출시되지 않았고 아마존 직구로 구할 수 있다. 직구 시 관부가세 포함 약 9만~10만 원 선이다.",
+ "caption": "애플이 죽인 클릭 휠이 애플워치에서 부활했다\n\nTechPod RePod C1.\n애플워치를 끼우면 아이팟이 된다.\n\n아래 클릭 휠은 장식이 아니다.\n기계식으로 디지털 크라운에 물려서\n돌리면 진짜 메뉴가 스크롤된다.\n\ntinyPod는 휠이 디지털 크라운과 연결되지 않았다.\nRePod는 기계식 연동으로 이 한계를 넘었다.\n\nCNC 항공 알루미늄 본체.\n뒷면이 열려 있어 심박·ECG·NFC·충전 그대로.\n시리즈 4부터 울트라 3까지 전 세대 호환.\n\n$59.90 — 한국 미출시, 아마존 직구 가능.\n관부가세 포함 약 9만~10만 원.\n\n(출처: TechPod, Yanko Design, Gadget Flow)\n\n#애플워치 #아이팟 #iPod #클릭휠 #테크",
+ "factcheck": [
+   {"claim": "클릭 휠이 기계식으로 디지털 크라운에 연결돼 실제 스크롤 입력", "sources": ["https://www.yankodesign.com/2026/07/24/this-60-apple-watch-case-is-the-ipod-apple-never-replaced/", "https://thegadgetflow.com/product/techpod-repod-apple-watch-case/"], "note": "Yanko Design·Gadget Flow 모두 mechanical linkage to Digital Crown 확인"},
+   {"claim": "CNC 항공 알루미늄, 뒷면 열려 심박·ECG·NFC·충전 유지", "sources": ["https://www.yankodesign.com/2026/07/24/this-60-apple-watch-case-is-the-ipod-apple-never-replaced/", "https://www.gadgetreview.com/the-repod-c1-turns-apple-watch-into-the-ipod-apple-killed"], "note": "Gadget Review: open-back preserves HR, ECG, NFC, charging"},
+   {"claim": "시리즈 4~11 + 울트라 1/2/3 호환, $59.90", "sources": ["https://www.itechpod.com/products/repod-apple-watch-ipod-case", "https://www.amazon.com/TechPod-RePod-Aluminum-Apple-Protective/dp/B0GQ9WPYQL"], "note": "공식 사이트 7사이즈(40~49mm), Amazon $59.99 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/repod_c1_hook.jpg",
+   "title": "애플이 죽인 클릭 휠이\n애플워치에서 부활했다",
+   "title_hl": ["부활했다"],
+   "body": "돌리면 진짜\n디지털 크라운이 돌아간다",
+   "body_hl": ["진짜"],
+   "credit": "TechPod"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/repod_c1_end.jpg",
+   "title": "기계식 클릭 휠\n진짜 스크롤 입력",
+   "title_hl": ["기계식"],
+   "body": "CNC 항공 알루미늄 · 심박 NFC 충전 유지\n시리즈 4~11 + 울트라 전 세대 호환",
+   "body_hl": ["전 세대 호환"],
+   "sub": "TechPod RePod C1 · $59.90\n아마존 직구 가능 (한국 미출시)",
+   "credit": "TechPod"
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+{
+ "topic": "Googlebook D-0 — 마우스 커서가 AI가 됐다, 구글북 오늘 예약 시작 $999 [공유형]",
+ "blog_teaser": "크롬북과 뭐가 다른지, Magic Pointer 작동 방식, 5개 제조사별 비교는 블로그에 정리했습니다",
+ "threads_text": "크롬북이 죽고 구글북이 왔다\n\n1. Googlebook — 크롬OS 버리고 안드로이드 기반으로 전환, 오늘(9/21) 예약 시작\n2. Magic Pointer — 마우스 커서에 제미나이가 붙었다, 화면 위 아무 요소나 가리키면 AI가 설명한다\n3. Glowbar — 화면 상단 LED 바가 AI 상태를 실시간 표시\n4. $999(약 136만원)부터, Acer·ASUS·Dell·HP·Lenovo 5개사 동시 출시\n5. 기존 크롬북은 계속 지원 — 구글북은 별도 라인\n\n(출처: Google, Engadget, Android Authority)",
+ "caption": "크롬북이 죽고 구글북이 왔다\n\n구글이 크롬OS를 버렸다.\nGooglebook — 안드로이드 기반 노트북의 새 카테고리.\n오늘(9/21) 예약 시작, $999(약 136만원)부터.\n\nMagic Pointer — 마우스 커서에 제미나이가 붙었다.\n화면 위 아무 것이든 가리키면 AI가 요약·번역·설명한다.\nGlowbar — 화면 상단 LED 바가 AI 응답 상태를 보여준다.\n\nAcer·ASUS·Dell·HP·Lenovo 5개사 동시 출시.\n기존 크롬북은 계속 지원된다 — 구글북은 별도 라인.\n\n(출처: Google, Engadget, Android Authority)\n\n#Googlebook #구글북 #MagicPointer #크롬북 #AI노트북",
+ "factcheck": [
+   {"claim": "Googlebook 예약 2026년 9월 21일 시작", "sources": ["https://www.engadget.com/computing/laptops/googles-new-googlebook-laptops-are-available-for-preorder-starting-at-999-120035498.html", "https://www.androidauthority.com/googlebook-preorder-available-4075123/"], "note": "Engadget·Android Authority 모두 9/21 예약 시작 확인"},
+   {"claim": "시작 가격 $999", "sources": ["https://www.engadget.com/computing/laptops/googles-new-googlebook-laptops-are-available-for-preorder-starting-at-999-120035498.html", "https://www.digitalcitizen.life/googlebook-laptops-everything-you-need-to-know/"], "note": "Engadget $999 확인, Digital Citizen도 동일 가격"},
+   {"claim": "5개 OEM(Acer·ASUS·Dell·HP·Lenovo) 동시 출시", "sources": ["https://blog.google/products/android/googlebook/", "https://www.androidauthority.com/googlebook-preorder-available-4075123/"], "note": "Google 공식 블로그 + Android Authority에서 5개사 확인"},
+   {"claim": "Magic Pointer — 마우스 커서에 제미나이 연동, 화면 요소 AI 설명", "sources": ["https://www.androidauthority.com/googlebook-preorder-available-4075123/", "https://blog.google/products/android/googlebook/"], "note": "Android Authority: Magic Pointer는 제미나이 기반 커서 기능"},
+   {"claim": "기존 크롬북은 계속 지원, 구글북은 별도 카테고리", "sources": ["https://support.google.com/googlebookhelp/answer/15816498", "https://www.engadget.com/computing/laptops/googles-new-googlebook-laptops-are-available-for-preorder-starting-at-999-120035498.html"], "note": "Google FAQ: Chromebooks are not going away"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/googlebook_d0_hook.jpg",
+   "title": "마우스 커서가\nAI가 됐다",
+   "title_hl": ["AI가 됐다"],
+   "body": "크롬북이 죽고\n구글북이 왔다",
+   "body_hl": ["구글북"],
+   "credit": "Google"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/googlebook_d0_end.jpg",
+   "title": "오늘 예약 시작\n$999부터",
+   "title_hl": ["$999"],
+   "body": "Magic Pointer · Glowbar\nAcer·ASUS·Dell·HP·Lenovo 5개사",
+   "body_hl": ["5개사"],
+   "sub": "크롬북은 계속 지원 — 구글북은 별도 라인\n한국 출시 미확인, 약 136만원대",
+   "credit": "Google"
+  }
+ ]
+}

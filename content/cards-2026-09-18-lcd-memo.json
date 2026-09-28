@@ -1,0 +1,40 @@
+{
+ "topic": "LCD 메모패드 — 충전기 없이 5만 번 지우는 메모장, 5천원이면 종이·잉크 없이 수년 쓴다 [구매가능][공유형]",
+ "blog_teaser": "전력 없이 글씨가 유지되는 콜레스테릭 LCD 원리와 국내 가격대를 블로그에 정리했습니다",
+ "threads_text": "충전기 없이 5만 번 지우는 메모장, 종이가 사라졌다\n\n1. 버튼 하나 누르면 5만 번 지우고 다시 쓴다 — 종이·잉크 0\n2. 글씨 쓸 때 전력이 0이다 — 지울 때만 전기를 쓴다\n3. 원리는 콜레스테릭 LCD: 전류 없이도 화면이 유지되는 쌍안정 액정\n4. CR2025 동전 배터리 하나로 1~2년 간다\n5. 다나와 기준 5천원대부터 — 포스트잇 몇 묶음 값이면 수년 쓴다\n\n(출처: Kent Displays, 다나와, ecoustics)",
+ "caption": "충전기 없이 5만 번 지우는 메모장, 종이가 사라졌다\n\nLCD 전자 메모패드.\n버튼 하나 누르면 화면이 깨끗이 지워진다.\n그걸 5만 번 반복할 수 있다.\n\n놀라운 건 글씨를 쓸 때 전력이 0이라는 것.\n지울 때만 전기를 쓴다.\n\n원리는 콜레스테릭 LCD.\n액정이 스타일러스 압력에 반응해 빛을 반사하고\n전류 없이도 그 상태를 유지한다 — 쌍안정.\n\n지울 땐 DC 펄스 한 번이면 전체가 리셋된다.\nCR2025 동전 배터리 하나로 1~2년.\n\n2010년 미국 Kent Displays가 Boogie Board로 시작.\n지금은 글로벌 시장 28억 달러(2025).\n\n한국에선 다나와 기준 5천원대부터.\n포스트잇 몇 묶음 값이면 수년 쓸 수 있다.\n\n(출처: Kent Displays, 다나와, ecoustics, Dataintelo)\n\n#LCD메모패드 #전자노트 #부기보드 #메모패드 #문구덕후",
+ "factcheck": [
+   {"claim": "5만 번 지우고 다시 쓸 수 있다", "sources": ["https://ecoustics.com/boogie-board-writing-tablets/", "https://www.kentdisplays.com/products"], "note": "제조사 Kent Displays 50,000~100,000 erase cycles 명시. ecoustics 리뷰에서도 50,000+ 확인"},
+   {"claim": "글씨 쓸 때 전력 0, 지울 때만 전기 사용", "sources": ["https://www.kentdisplays.com/technology", "https://ecoustics.com/boogie-board-writing-tablets/"], "note": "콜레스테릭 LCD 쌍안정(bistable) 특성 — 압력으로 액정 배열 변경, 전류 없이 유지. 지울 때 DC 펄스로 리셋"},
+   {"claim": "CR2025 동전 배터리로 1~2년 사용", "sources": ["https://ecoustics.com/boogie-board-writing-tablets/", "https://gykids.com/boogie-board-jot-review/"], "note": "GY Kids 리뷰 + ecoustics 교차확인. 하루 수십 회 지우기 기준"},
+   {"claim": "다나와 기준 5,000원대부터 구매 가능", "sources": ["https://search.danawa.com/dsearch.php?query=LCD+메모패드", "https://www.coupang.com"], "note": "다나와 최저가 5,480원(8.5인치 기본형). 쿠팡에서도 5,000~30,000원대 다수"},
+   {"claim": "2010년 Kent Displays가 Boogie Board 출시", "sources": ["https://www.kentdisplays.com/about", "https://ecoustics.com/boogie-board-writing-tablets/"], "note": "Kent Displays(오하이오) 2010년 첫 Boogie Board 출시. 2025년 Buffalo Games에 인수"},
+   {"claim": "글로벌 시장 28억 달러(2025)", "sources": ["https://dataintelo.com/report/lcd-writing-tablet-market/"], "note": "Dataintelo 보고서: 2025년 $2.8B → 2034년 $6.1B 전망"}
+ ],
+ "rebuttals": [
+   "태블릿PC나 아이패드가 있는데 이걸 왜 쓰냐 — LCD 메모패드는 저장이 안 된다. 대신 전원이 필요 없고 5천원이다. 냉장고 메모·아이 낙서·전화 메모처럼 '쓰고 바로 지우는' 용도에선 아이패드를 꺼내는 게 과하다",
+   "5천원짜리가 품질이 되겠냐 — 기본 원리(콜레스테릭 LCD)는 고가형과 같다. 차이는 필압 감도와 부분 지우기 유무. 메모 용도면 8.5인치 기본형으로 충분하다",
+   "화면 캡처가 안 되면 기록이 안 남지 않냐 — 맞다, 이건 일회용 메모지의 대체재다. 기록 보관이 필요하면 폰 카메라로 찍거나 블루투스 탑재 상위 모델(Sync)을 쓰면 된다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/lcd_memo_hook.jpg",
+   "title": "포스트잇이\n5만 번 지워진다",
+   "title_hl": ["5만 번"],
+   "body": "LCD 메모패드 — 버튼 하나로 화면 리셋\n글씨 쓸 때 전력은 0\n동전 배터리 하나로 1~2년",
+   "body_hl": ["전력은 0", "1~2년"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/lcd_memo_end.jpg",
+   "title": "종이 0장, 잉크 0ml\n포스트잇 몇 묶음 값",
+   "title_hl": ["0장", "0ml"],
+   "body": "콜레스테릭 LCD — 전류 없이 화면 유지\n지울 때만 DC 펄스 한 번\nCR2025 배터리 1개로 끝",
+   "body_hl": ["콜레스테릭 LCD", "DC 펄스"],
+   "sub": "다나와 5,000원대~\n포스트잇 값이면 수년 쓴다",
+   "credit": "Pexels"
+  }
+ ]
+}

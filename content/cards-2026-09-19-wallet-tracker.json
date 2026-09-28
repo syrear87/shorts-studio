@@ -1,0 +1,33 @@
+{
+ "topic": "카드형 지갑 추적기 — 에어태그가 지갑에 안 들어가는 이유가 사라졌다, 2.5mm 카드가 나왔다 [구매가능][공유형]",
+ "blog_teaser": "카드형 추적기 비교(Chipolo CARD vs AirTag vs Tile Slim)와 호환 네트워크 정리는 블로그에 올렸습니다",
+ "threads_text": "에어태그가 지갑에 안 들어가는 이유가 사라졌다\n\n1. 에어태그 두께 8mm — 카드칸에 안 들어간다\n2. 카드형 추적기가 2.5mm로 나왔다 — 신용카드 3장 두께\n3. Qi 무선충전이라 배터리를 안 갈아 끼운다\n4. 1년 쓰고 패드에 올리면 끝\n5. 추석에 지갑 잃어버리면 폰으로 찾는다\n\n(출처: Chipolo 공식, Tom's Guide 비교 리뷰)",
+ "caption": "에어태그가 지갑에 안 들어가는 이유가 사라졌다\n\n에어태그 두께 8mm.\n지갑 카드칸에 넣으면 불룩하게 튀어나온다.\n\n카드형 추적기가 2.5mm로 나왔다.\n85.2×53.6mm — 신용카드와 거의 같은 크기.\n신용카드 3장 두께.\n\nQi 무선충전이라 배터리를 갈아 끼울 필요가 없다.\n1년 쓰고 충전 패드에 올리면 끝.\n\nBluetooth 120m, 110dB 스피커, IP67 방수.\nApple 나의 찾기·Google 네트워크 둘 다 된다.\n\n추석에 지갑 잃어버리기 전에 — 한 장 끼워두자.\n\n(출처: Chipolo 공식 스펙, Tom's Guide, Apple)\n\n#지갑추적기 #에어태그 #카드형추적기 #분실방지 #추석",
+ "factcheck": [
+   {"claim": "에어태그 두께 8mm", "sources": ["https://www.apple.com/airtag/specs/", "https://www.tomsguide.com/reviews/apple-airtag"], "note": "Apple 공식 스펙: 직경 31.9mm, 높이 8.00mm. Tom's Guide 리뷰에서 교차 확인"},
+   {"claim": "Chipolo CARD Point 두께 2.5mm, 85.2×53.6mm", "sources": ["https://chipolo.net/en/products/chipolo-card-point", "https://chipolo.net/en/products/chipolo-card"], "note": "Chipolo 공식 사이트 스펙시트. CARD Point(Apple)와 CARD(Google) 동일 폼팩터"},
+   {"claim": "Qi 무선충전, 1년 배터리", "sources": ["https://chipolo.net/en/products/chipolo-card-point", "https://www.tomsguide.com/reviews/chipolo-card-point"], "note": "Chipolo 공식: Qi wireless rechargeable, up to 1 year battery life"},
+   {"claim": "120m 블루투스, 110dB 스피커, IP67", "sources": ["https://chipolo.net/en/products/chipolo-card-point", "https://chipolo.net/en/products/chipolo-card"], "note": "Chipolo 공식 스펙시트에서 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/wallet_tracker_hook.jpg",
+   "title": "에어태그가\n지갑에 안 들어간다",
+   "title_hl": ["에어태그", "안 들어간다"],
+   "body": "두께 8mm — 카드칸에 넣으면 불룩하게 튀어나온다\n2.5mm 카드형이 나왔다",
+   "body_hl": ["8mm", "2.5mm"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/wallet_tracker_end.jpg",
+   "title": "잃어버리면\n폰이 찾아준다",
+   "title_hl": ["폰이 찾아준다"],
+   "body": "Qi 무선충전 — 1년 쓰고 패드에 올리면 끝\nBluetooth 120m · IP67 방수",
+   "body_hl": ["무선충전", "IP67"],
+   "sub": "추석에 지갑 잃어버리기 전에 — 한 장 끼워두자",
+   "credit": "Pexels"
+  }
+ ]
+}
