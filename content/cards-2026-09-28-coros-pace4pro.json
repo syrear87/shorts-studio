@@ -1,0 +1,37 @@
+{
+ "topic": "COROS PACE 4 Pro — GPS 워치 배터리가 60시간을 넘겼다, 43g 티타늄에 사파이어 글라스, $449 [공유형]",
+ "blog_teaser": "가민 FR970과 스펙 비교표, 국내 유통사 정보, 직구 시 총비용은 블로그에 정리했습니다",
+ "threads_text": "매일 꽂던 시계 충전기가 사라졌다 — GPS 켜고 60시간\n\n1. COROS PACE 4 Pro. 43g 티타늄 GPS 러닝워치\n2. 배터리 60시간(고정밀 GPS). 듀얼밴드 모드도 40시간\n3. 1.47인치 AMOLED, 3,500니트. 직사광에서도 보인다\n4. 사파이어 글라스 + TC4 티타늄 합금 베젤. $449\n5. 국내 유통사 코로스코리아(coroskorea.co.kr) 있음. PACE 4 일반형 399,000원 판매 중, Pro는 출시 대기\n\n(출처: COROS 공식, Forbes, Tom's Guide)",
+ "description": "COROS가 9월 22일 PACE 4 Pro를 $449에 출시했다. TC4 티타늄 합금 베젤에 사파이어 글라스를 씌웠고, 나일론 밴드 기준 무게 43g이다. 1.47인치 LTPO AMOLED 디스플레이(466x466, 3,500니트)에 적응형 1-60Hz 주사율. 배터리는 고정밀 GPS 모드 60시간, 듀얼밴드 최대 정밀 모드 40시간, 일상 사용 21일. 32GB 저장 공간에 오프라인 지도를 넣을 수 있다. 경쟁 제품인 가민 Forerunner 970은 $749.99로 $300 더 비싸다. 국내 공식 유통사 코로스코리아(Joyworks Inc.)가 PACE 4 일반형을 399,000원에 판매 중이며, PACE 4 Pro는 국내 출시 대기 상태다.",
+ "caption": "매일 꽂던 시계 충전기가 사라졌다 — GPS 켜고 60시간\n\nCOROS PACE 4 Pro.\n43g 티타늄 · 사파이어 글라스.\n$449 — GPS 60시간.\n\n1.47인치 AMOLED 3,500니트.\n듀얼밴드 GPS · 32GB 지도.\n국내 유통사 있음(coroskorea.co.kr).\n\n(출처: COROS 공식, Forbes, Tom's Guide)\n\n#GPS워치 #러닝워치 #COROS #티타늄 #가젯",
+ "factcheck": [
+   {"claim": "43g(나일론 밴드 기준), TC4 티타늄 합금 베젤, 사파이어 글라스", "sources": ["https://coros.com/pace4pro/specs", "https://the5krunner.com/2026/09/22/coros-pace-4-pro-specifications/"], "note": "COROS 공식 스펙 페이지 + the5krunner 교차 확인. 실리콘 밴드는 51g"},
+   {"claim": "배터리 60시간 고정밀 GPS, 40시간 듀얼밴드 최대 정밀", "sources": ["https://coros.com/pace4pro/specs", "https://www.active.com/running/articles/coros-pace-4-pro-review"], "note": "COROS 공식 스펙 + Active.com 리뷰 일치. AOD 사용 시 45h/30h"},
+   {"claim": "$449, 9월 22일 출시", "sources": ["https://coros.com/buy/pace4pro", "https://www.forbes.com/sites/andrewwilliams/2026/09/22/coros-pace-4-pro-takes-on-garmin-forerunner-970-at-a-lower-price/"], "note": "COROS 공식 스토어 가격 + Forbes 기사 출시일 교차 확인"},
+   {"claim": "1.47인치 LTPO AMOLED 466x466, 3,500니트, 적응형 1-60Hz", "sources": ["https://coros.com/pace4pro", "https://www.wareable.com/sport/coros-pace-4-pro-debuts-with-bigger-display-and-more-battery-life"], "note": "COROS 공식 + Wareable 교차 확인"},
+   {"claim": "32GB 저장 공간, 오프라인 지도 지원", "sources": ["https://the5krunner.com/2026/09/22/coros-pace-4-pro-specifications/", "https://www.irunfar.com/coros-pace-4-pro-review"], "note": "the5krunner + iRunFar 리뷰 교차 확인"},
+   {"claim": "가민 Forerunner 970 $749.99", "sources": ["https://www.forbes.com/sites/andrewwilliams/2026/09/22/coros-pace-4-pro-takes-on-garmin-forerunner-970-at-a-lower-price/", "https://www.garmin.com/en-US/p/forerunner970"], "note": "Forbes 비교 기사 + 가민 공식 가격"},
+   {"claim": "국내 유통사 코로스코리아, PACE 4 일반형 399,000원", "sources": ["https://coroskorea.co.kr/category/coros-pace/62/"], "note": "코로스코리아 공식 사이트에서 PACE 4 가격 확인. Pro 가격은 미정"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/coros_pace4pro_hook.jpg",
+   "title": "매일 꽂던 시계 충전기가\n사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "GPS 켜고 60시간 — 43g 티타늄, $449",
+   "body_hl": ["43g"],
+   "credit": "ActionHub / COROS"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/coros_pace4pro_detail.jpg",
+   "title": "달걀보다 가벼운\n티타늄 GPS 워치",
+   "title_hl": ["티타늄"],
+   "body": "1.47인치 AMOLED 3,500니트\n듀얼밴드 GPS · 32GB 오프라인 지도\n일상 21일 · GPS 60시간",
+   "body_hl": ["3,500니트", "60시간"],
+   "sub": "국내 유통사 코로스코리아 · PACE 4 Pro 출시 대기 중",
+   "credit": "ActionHub / COROS"
+  }
+ ]
+}
