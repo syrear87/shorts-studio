@@ -1,0 +1,36 @@
+{
+ "topic": "Beats 360 — 헤드폰에서 이어쿠션이 빠진다, 닳으면 끝이던 구조가 끝났다, 국내 579,000원 9/24 출시 [한계붕괴형]",
+ "blog_teaser": "에어팟 맥스와 스펙 비교, 쿠션 키트 6종 조합 정리는 블로그에 있습니다",
+ "threads_text": "헤드폰 이어쿠션, 닳으면 끝이었다 — 끝났다\n\n1. Beats 360. 이어쿠션이랑 헤드밴드를 빼서 갈아 끼울 수 있다\n2. 운동용 니트 쿠션, 일상용 가죽 쿠션이 따로 있음. 빼서 세탁도 된다\n3. IPX4 방수라 오버이어로 운동해도 쿠션이 안 죽는다\n4. ANC 전작 대비 1.75배, 배터리 32시간\n5. 국내 579,000원. 교체 쿠션 키트 85,000원\n\n(출처: Beats 공식 보도자료, MacRumors, 씨넷코리아)",
+ "description": "Beats가 첫 모듈형 오버이어 헤드폰 Beats 360을 9/22 발표, 9/24 국내 매장 판매 개시했다. 이어쿠션과 헤드밴드 쿠션을 자석 방식으로 탈착·교체할 수 있어, 닳으면 통째로 교체하던 기존 구조를 바꿨다. 운동용 퍼포먼스 니트(통기성·메모리폼)와 일상용 울트라플러시(엔지니어드 가죽) 두 종류 쿠션을 제공하며, 4색(Black·Cloud·Pink·Sky) + 추가색(Navy·Volt) 조합으로 256가지 외관 조합이 가능하다. IPX4 방수로 Beats 오버이어 최초로 운동 중 착용이 공식 지원된다. ANC은 Beats Studio Pro 대비 1.75배, 배터리 32시간(ANC+공간음향), 5분 충전으로 1시간 재생(Fast Fuel). 양쪽 이어컵이 각각 독립 배터리·안테나·프로세서를 내장해 헤드밴드는 전원 케이블만 지나간다. 무게 약 300g, Bluetooth 5.3, USB-C, 재활용 플라스틱 80%. 국내가 579,000원, 쿠션 키트 85,000원(런칭 프로모 10/31까지). 한국 포함 100개국 이상 동시 출시.",
+ "caption": "헤드폰 이어쿠션, 닳으면 끝이었다 — 끝났다\n\nBeats 360.\n이어쿠션·헤드밴드 교체 — 256가지 조합.\n운동용 니트 / 일상용 가죽 쿠션.\nIPX4 방수 · ANC 1.75배 · 32시간 배터리.\n국내 579,000원 · 쿠션 키트 85,000원.\n\n(출처: Beats 공식 보도자료, MacRumors, 씨넷코리아)\n\n#비츠360 #Beats360 #헤드폰 #오버이어 #테크",
+ "factcheck": [
+   {"claim": "이어쿠션·헤드밴드 교체 가능 — Beats 오버이어 최초 모듈형 디자인", "sources": ["https://www.beatsbydre.com/company/press/beats-360", "https://www.macrumors.com/2026/09/22/beats-360-headphone-launch/"], "note": "Beats 공식 보도자료 + MacRumors 교차 확인"},
+   {"claim": "ANC이 Beats Studio Pro 대비 1.75배", "sources": ["https://www.beatsbydre.com/company/press/beats-360", "https://www.tomsguide.com/audio/headphones/beats-360-review"], "note": "공식 보도자료 수치 + Tom's Guide 리뷰 확인"},
+   {"claim": "배터리 32시간(ANC+공간음향), Fast Fuel 5분=1시간", "sources": ["https://www.beatsbydre.com/company/press/beats-360", "https://www.engadget.com/2265152/beats-360-headphones-review/"], "note": "공식 수치 + Engadget 리뷰 확인"},
+   {"claim": "IPX4 방수, 무게 약 300g", "sources": ["https://www.beatsbydre.com/company/press/beats-360", "https://www.macrumors.com/2026/09/22/beats-360-headphone-launch/"], "note": "공식 + MacRumors 교차 확인"},
+   {"claim": "국내 579,000원, 쿠션 키트 85,000원, 9/24 국내 매장 판매", "sources": ["https://www.cnet.co.kr/view/?no=20260923150721", "https://www.bodnara.co.kr/bbs/article.html?num=214573"], "note": "씨넷코리아 + 보드나라 한국 매체 교차 확인"},
+   {"claim": "4색(Black·Cloud·Pink·Sky) + 추가 Navy·Volt, 256가지 조합", "sources": ["https://www.beatsbydre.com/company/press/beats-360", "https://www.macrumors.com/2026/09/22/beats-360-headphone-launch/"], "note": "공식 보도자료 수치"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/beats360_hook.jpg",
+   "title": "헤드폰 이어쿠션\n닳으면 끝이었다, 끝났다",
+   "title_hl": ["끝났다"],
+   "body": "빼서 씻고, 갈아 끼우고, 색까지 바꾼다",
+   "body_hl": ["갈아 끼우고"],
+   "credit": "Beats"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/beats360_end.jpg",
+   "title": "Beats 360 — 579,000원",
+   "title_hl": ["579,000원"],
+   "body": "운동용 니트 / 일상용 가죽 쿠션 교체\nIPX4 방수 · ANC 1.75배 · 32시간\n쿠션 키트 85,000원 · 9/24 국내 출시",
+   "body_hl": ["교체", "IPX4"],
+   "sub": "양쪽 이어컵에 독립 배터리·안테나·칩 내장 — 헤드밴드는 선만 지나간다",
+   "credit": "Beats"
+  }
+ ]
+}
