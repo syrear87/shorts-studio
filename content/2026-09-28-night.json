@@ -1,0 +1,67 @@
+{
+  "title": "오늘 낮 27도인데, 목요일 새벽 5도입니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "재난기상체감·일반지식",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "오늘 서울 낮 27도. 4일 뒤 목요일 새벽, 5도입니다.",
+      "bg": 19039679,
+      "lines": [
+        ["오늘 서울 낮 27도", ["27도"]],
+        ["목요일 새벽, 5도", ["5도"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "기상청 10월 2일 예보입니다. 올가을 처음으로 기온이 한 자릿수로 떨어집니다.",
+      "bg": 30762714,
+      "lines": [
+        ["기상청 10월 2일 예보", []],
+        ["올가을 첫 한 자릿수", ["한 자릿수"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "원인은 찬 대륙 고기압입니다. 이번 주 중반부터 북쪽 한기가 남하해 밤 기온을 끌어내립니다.",
+      "bg": 6878135,
+      "lines": [
+        ["찬 대륙 고기압이 남하", []],
+        ["밤 기온을 끌어내립니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "그런데 낮 기온은 20도 이상입니다. 하루 안에 일교차가 15도 넘게 벌어집니다.",
+      "bg": 34552116,
+      "lines": [
+        ["낮 기온은 20도 이상", []],
+        ["일교차 15도 이상", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "추위가 오는 게 아닙니다. 여름과 겨울이 하루 안에 공존하는 겁니다. 오늘 밤부터, 나흘간입니다.",
+      "bg": 19638763,
+      "hl_pair": true,
+      "lines": [
+        ["추위가 오는 게 아닙니다", []],
+        ["여름과 겨울이 하루 안에 공존", ["여름과", "겨울이"]],
+        ["오늘 밤부터, 나흘간", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "bg": 35575372,
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://www.weather.go.kr/w/forecast/overall/short-term.do?stnId=109",
+    "https://health.kdca.go.kr/healthinfo/biz/health/ntcnInfo/healthSourc/thtimtCntnts/thtimtCntntsView.do?thtimt_cntnts_sn=74"
+  ],
+  "bg_query": ["warm autumn city sunset golden hour", "cold frost morning thermometer", "arctic wind cold sky clouds aerial", "sunny autumn park leaves warm light", "cold morning breath fog city street"]
+}
