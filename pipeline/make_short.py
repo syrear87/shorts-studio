@@ -527,6 +527,13 @@ def main():
                  "각도를 바꿔도 금지다, 소재를 교체하라" % ", ".join(hits))
 
     # 0) 자막 구조 하드게이트 (2026-07-29 실사고: CTA 3줄이 구독 문구와 겹침)
+    # 0-0z) 생활정보·실용 소재 기계 게이트 (2026-09-28 — 4주 80편 실측, topic_gate.py 주석)
+    from topic_gate import judge as _topic_judge
+    _tok, _twhy = _topic_judge(script.get("title"), script.get("topic_gate_override"))
+    if not _tok:
+        sys.exit("기각: " + _twhy)
+    print("소재 게이트: %s ✓" % _twhy, flush=True)
+
     # 2026-08-02 리뷰: 스키마 누락은 KeyError 원시 traceback 대신 명시적 '기각:'으로 —
     #                 헤드리스 세션이 로그만 보고 자가 수정하는 유일한 피드백 채널
     if not script.get("scenes"):

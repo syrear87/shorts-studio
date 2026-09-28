@@ -89,4 +89,12 @@ if hits:
 else:
     print('✅ 최근 %d일 안에 같은 소재 없음 [%s 라인] (대조: %s)'
           % (DAYS, LINE, ', '.join(keys[:6])))
+# 영상 라인은 생활정보 게이트도 여기서 미리 본다 (2026-09-28) — 렌더 단계(make_short)에서
+# 같은 판정으로 기각되므로, 대본 쓰기 전에 알려 슬롯 시간을 아낀다. 핵심어가 아니라
+# **예정 제목**을 넣으면 가장 정확하다.
+if LINE == 'video':
+    sys.path.insert(0, 'pipeline')
+    from topic_gate import judge
+    ok, why = judge(q)
+    print(('✅ 소재 게이트: ' if ok else '⛔ 소재 게이트: ') + why)
 PY
