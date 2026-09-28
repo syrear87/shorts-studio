@@ -438,6 +438,9 @@ def build(meta, blog_link=True):
     # 2026-09-06 감사: polish가 main()에만 있어 실제 발행되는 글엔 적용되지 않고 있었다.
     from blog_polish import polish
     html, labels = polish(html, title, tags=(meta or {}).get("tags") or ())
+    # 글끼리 잇는 링크 (2026-09-28) — 색인 0의 원인이 크롤 우선순위로 판정됐다(blog_related 주석)
+    from blog_related import append as _related
+    html = _related(html, title, labels)
     return {"title": title, "html": html, "labels": labels,
             "new_numbers": fact_check(text_only, origin), "product": product}
 
