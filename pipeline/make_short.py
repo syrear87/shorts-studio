@@ -309,7 +309,8 @@ def make_glow(r, color, alpha):
     ImageDraw.Draw(im).ellipse([r * 0.3, r * 0.3, s - r * 0.3, s - r * 0.3], fill=color + (alpha,))
     return im.filter(ImageFilter.GaussianBlur(r * 0.35))
 
-def render(script, timeline, out_dir, total_dur, channel_chip, video_bg, fx_underline=False, light_bg=False):
+def render(script, timeline, out_dir, total_dur, channel_chip, video_bg, fx_underline=False, light_bg=False,
+           hook_style="classic"):
     """video_bg=True → 투명 오버레이 PNG(+스크림), False → 그라데이션 JPG."""
     if not video_bg:
         BG = make_bg()
@@ -331,6 +332,21 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg, fx_unde
         return c
 
     CHIP = make_chip(channel_chip)
+    # 훅 라벨 스타일 (2026-09-28 인스타 부흥 A/B): 훅 구간에는 상단 채널 칩 대신 **소재 라벨**
+    # (예: "아시안게임 농구")을 앰버 채움 칩으로 크게 띄우고 훅 자막을 키운다. 근거: 인스타 릴스
+    # 평균 시청 5.6초·공유 0 — 첫 화면에서 '무슨 얘기인지'가 안 보여 넘긴다. 반면 비팔로워
+    # 도달은 스포츠·국가 소재에서만 났다(소재가 곧 클릭 이유). 기본값 classic은 종전 그대로.
+    LABEL = None
+    if hook_style == "label" and script.get("hook_label"):
+        _lf = load_font(56, hook=True)
+        _tmp = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
+        _bb = _tmp.textbbox((0, 0), script["hook_label"], font=_lf)
+        _pw, _ph = int(_bb[2] - _bb[0] + 88), 112
+        LABEL = Image.new("RGBA", (_pw, _ph), (0, 0, 0, 0))
+        _dl = ImageDraw.Draw(LABEL)
+        _dl.rounded_rectangle([0, 0, _pw - 1, _ph - 1], radius=24, fill=ACCENT + (245,))
+        _dl.text((_pw / 2, _ph / 2 - 3), script["hook_label"], font=_lf, fill=(14, 18, 33, 255), anchor="mm")
+    F_HOOK = load_font(112, hook=True) if LABEL is not None else F_BIG
     frames_dir = os.path.join(out_dir, "frames")
     # 이전 런 잔여 고번호 프레임(f01500+)이 ffmpeg 입력에 섞이지 않게 비우고 시작 (2026-08-02 리뷰)
     shutil.rmtree(frames_dir, ignore_errors=True)
@@ -378,7 +394,11 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg, fx_unde
             im.alpha_composite(GA, (ax - 520, ay - 520))
             im.alpha_composite(GB, (bx - 640, by - 640))
         d = ImageDraw.Draw(im)
-        im.alpha_composite(CHIP, ((W - CHIP.width) // 2, 150))
+        _in_hook = LABEL is not None and (t < timeline[0]["end"])
+        if _in_hook:
+            im.alpha_composite(LABEL, ((W - LABEL.width) // 2, int(H * 0.25)))
+        else:
+            im.alpha_composite(CHIP, ((W - CHIP.width) // 2, 150))
 
         si = None
         for idx, tl in enumerate(timeline):
@@ -392,7 +412,8 @@ def render(script, timeline, out_dir, total_dur, channel_chip, video_bg, fx_unde
             sc, tl = script["scenes"][si], timeline[si]
             local = max(0.0, t - tl["start"])
             fade = clamp((tl["end"] - t) / 0.20, 0, 1) if tl["end"] - t < 0.20 else 1.0
-            font = F_BIG if sc.get("kind") in ("hook", "cta") else F_MED
+            font = (F_HOOK if (si == 0 and sc.get("kind") == "hook") else F_BIG) \
+                if sc.get("kind") in ("hook", "cta") else F_MED
             y_cursor = H * 0.40
             if si in fact_nums:
                 a = clamp(local / 0.3, 0, 1)
@@ -503,6 +524,8 @@ def main():
     ap.set_defaults(fx_xfade=True, fx_zoom=True)   # 2026-08-09 디렉터 채택 ("0+1+2로") — 기본 on
     ap.add_argument("--fx-underline", action="store_true", help="강조어 ACCENT 밑줄")
     ap.add_argument("--light-bg", action="store_true", help="흰 도판 배경용 약한 스크림 (2026-08-15)")
+    ap.add_argument("--hook-style", choices=("classic", "label"), default=None,
+                    help="훅 스타일 — label: 소재 라벨 칩+큰 훅 (json hook_label 필요, 2026-09-28 A/B)")
     ap.add_argument("--fx-sfx", action="store_true", help="배경 전환 소프트 스윕음 (-18dB)")
     ap.add_argument("--no-fx-cine", dest="fx_cine", action="store_false", help="시네마틱 톤 끄기")
     ap.set_defaults(fx_cine=True)   # 2026-08-11 디렉터 채택 ("영상은 일단 ㅇㅋ") — 기본 on
@@ -998,7 +1021,8 @@ def main():
                 print("경고: 배경 구간 %.1fs — 한 구도 12초 초과는 이탈 구간이 된다. bg_ids 수를 늘려라" % sl, flush=True)
 
     # 3) 렌더 + BGM
-    render(script, timeline, work, total_dur, script.get("chip", "오늘의 지식 · 1일 1지식"), video_bg, fx_underline=args.fx_underline, light_bg=args.light_bg)
+    render(script, timeline, work, total_dur, script.get("chip", "오늘의 지식 · 1일 1지식"), video_bg, fx_underline=args.fx_underline, light_bg=args.light_bg,
+           hook_style=args.hook_style or script.get("hook_style", "classic"))
     bgm = os.path.join(work, "bgm.wav")
     twist_spans = [(tl["start"], tl["end"]) for sc_, tl in zip(script["scenes"], timeline)
                    if sc_.get("kind") == "twist"]
