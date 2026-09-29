@@ -1,0 +1,68 @@
+{
+  "title": "64년간 아무도 못 한 기록, 안세영이 오늘 깼습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "스포츠결과",
+  "bg_query": ["badminton player court smash", "badminton shuttlecock close up", "asian games sports arena crowd", "badminton match indoor court", "gold medal ceremony podium", "sports stadium lights celebration"],
+  "real_query": ["안세영 배드민턴", "An Se-young badminton"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "64년간 아무도 못 깬 기록이 있습니다. 오늘, 깨졌습니다.",
+      "bg": 8053495,
+      "lines": [
+        ["64년간 아무도 못 깬 기록이 있습니다", ["64년간"]],
+        ["오늘 깨졌습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "배드민턴이 아시안게임 정식 종목이 된 건 1962년입니다. 그 뒤로 여자 단식을 2회 연속 우승한 선수는 한 명도 없었습니다.",
+      "bg": 5991157,
+      "lines": [
+        ["1962년 정식 종목이 된 건", []],
+        ["여자 단식 2연패는 0명", ["0명"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "결승 상대는 세계 랭킹 3위 야마구치 아카네. 개최국 일본의 홈 관중 앞이었습니다.",
+      "bg": 8053652,
+      "lines": [
+        ["상대는 세계 3위 야마구치 아카네", ["3위"]],
+        ["개최국 일본의 홈 관중 앞", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "1세트는 21대 17, 쉽지 않은 접전이었습니다. 그런데 2세트, 21대 9. 일방적으로 완파했습니다.",
+      "bg": 8053314,
+      "lines": [
+        ["1세트 21:17 쉽지 않은 접전", []],
+        ["2세트 21:9 일방적 완파", ["완파"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "파리 올림픽 금메달 이후 협회와 갈등을 겪었던 안세영이, 상대의 홈에서, 64년 만의 최초 2연패를 이뤄냈습니다.",
+      "bg": 7006068,
+      "lines": [
+        ["올림픽 금메달 이후 갈등을 겪었던 안세영", []],
+        ["상대의 홈에서 64년 만의 최초 2연패", ["2연패"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "bg": "photo:7267585",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", []], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://www.bwfbadminton.com/news-single/2026/09/29/an-se-young-defends-asian-games-title",
+    "https://www.yna.co.kr/view/AKR20260929",
+    "https://en.wikipedia.org/wiki/Badminton_at_the_Asian_Games",
+    "https://sports.news.naver.com/badminton"
+  ]
+}
