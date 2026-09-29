@@ -69,10 +69,19 @@ def pick(title, labels, n=3, posts=None):
     return [(t, u) for _s, _d, t, u in scored[:n]]
 
 
+def _crawl_url(u):
+    """링크는 ?m=1 주소로 건다 (2026-09-29 서치콘솔 실측). 구글은 모바일 크롤러만 쓰는데
+    데스크톱 주소는 302로 ?m=1에 넘어가고, 9/10 데스크톱 주소 요청 5편은 전부 '리디렉션
+    오류'였다. 9/28 ?m=1 주소 요청 1편은 1분 만에 크롤·색인됐고 구글이 정본으로 고른 것도
+    ?m=1 주소였다. 크롤러가 따라갈 링크는 리디렉션 없이 바로 200이 나는 쪽이어야 한다."""
+    return u if "?m=" in u else u + "?m=1"
+
+
 def section(items):
     if not items:
         return ""
-    li = "".join('<li><a href="%s">%s</a></li>' % (u, re.sub(r"[<>]", "", t)) for t, u in items)
+    li = "".join('<li><a href="%s">%s</a></li>' % (_crawl_url(u), re.sub(r"[<>]", "", t))
+                 for t, u in items)
     return '\n<h3>%s</h3>\n<ul>%s</ul>\n' % (HEADING, li)
 
 
