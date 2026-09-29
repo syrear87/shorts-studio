@@ -1,0 +1,70 @@
+{
+  "title": "금속탐지기에 안 잡히는 지뢰가 있습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "애국·정체성",
+  "bg_query": ["DMZ korea barbed wire fence", "military patrol border night", "landmine warning sign field", "korean soldiers border patrol", "barbed wire fence misty morning"],
+  "real_query": "DMZ demilitarized zone korea",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "금속탐지기에 안 잡히는 지뢰가 있습니다.",
+      "bg": 6581406,
+      "lines": [
+        ["금속탐지기에 안 잡히는 지뢰가 있습니다", ["지뢰가"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "나무나 플라스틱으로 케이스를 만듭니다. 금속 부품이 거의 없어서, 탐지기에 신호가 뜨지 않습니다.",
+      "bg": "commons:File:Korea DMZ sentry.jpg",
+      "lines": [
+        ["나무나 플라스틱으로", []],
+        ["케이스를 만듭니다", []],
+        ["탐지기에 신호가 뜨지 않습니다", ["신호가"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "2015년 DMZ에서 이 지뢰가 터졌습니다. 한국군 부사관 두 명이 다리에 중상을 입었고, 합참은 북한이 순찰로에 묻은 것으로 결론 냈습니다.",
+      "bg": 13740590,
+      "lines": [
+        ["2015년 DMZ에서", []],
+        ["이 지뢰가 터졌습니다", ["지뢰가"]],
+        ["북한이 순찰로에 묻은 것으로 결론", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "한반도 DMZ에는 약 200만 발의 지뢰가 묻혀 있습니다. 세계에서 가장 촘촘한 지뢰밭, 다 치우려면 200년이 걸립니다.",
+      "bg": 5549436,
+      "lines": [
+        ["약 200만 발의 지뢰가 묻혀 있습니다", ["200만"]],
+        ["세계에서 가장 촘촘한 지뢰밭", []],
+        ["다 치우려면 200년이 걸립니다", ["200년이"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "지난주, 그 DMZ에서 또 지뢰가 터졌습니다. 장병 세 명이 부상했고, 합참은 지금 북한 지뢰 가능성이 매우 높다고 보고 있습니다. 부상 장병들의 쾌유를 빕니다.",
+      "bg": 34634811,
+      "lines": [
+        ["지난주, 또 지뢰가 터졌습니다", []],
+        ["지금 북한 지뢰 가능성이 매우 높다고", ["지금"]],
+        ["부상 장병들의 쾌유를 빕니다", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "bg": 5549436,
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", []], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://www.aljazeera.com/news/2015/8/10/south-korea-north-placed-dmz-mines-that-maimed-troops",
+    "https://www.voakorea.com/a/4595253.html",
+    "https://www.yna.co.kr/view/AKR20260928"
+  ]
+}
