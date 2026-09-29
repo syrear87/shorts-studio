@@ -1,0 +1,68 @@
+{
+  "title": "AI가 실험하고 논문까지 씁니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "공유성",
+  "bg_query": ["science laboratory research equipment", "AI artificial intelligence data visualization", "scientist working lab modern", "computer code data analysis screen", "seoul convention conference hall"],
+  "real_query": "AI science research laboratory",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "실험을 설계하고, 결과를 분석하고, 논문까지 씁니다. 과학자 얘기가 아닙니다.",
+      "bg": 854323,
+      "lines": [
+        ["실험을 설계하고 논문까지 씁니다", []],
+        ["과학자 얘기가 아닙니다", ["아닙니다"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "올해 7월, 스탠퍼드가 만든 AI 바이오옴니가 세계 최고 권위 과학 저널 사이언스에 실렸습니다.",
+      "bg": 4121620,
+      "lines": [
+        ["스탠퍼드가 만든 AI 바이오옴니", []],
+        ["사이언스에 실렸습니다", ["사이언스에"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "이 AI는 연구 질문을 받으면, 스스로 문헌을 찾고, 가설을 세우고, 데이터를 분석합니다.",
+      "bg": 30064790,
+      "lines": [
+        ["스스로 문헌을 찾고 가설을 세우고", ["스스로"]],
+        ["데이터를 분석합니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "이미 전 세계 만 개 이상의 연구실이 쓰고 있고, 올 2월에는 GPT-5가 생물 실험 3만 6천 건을 혼자 설계하고 실행했습니다.",
+      "bg": 8534740,
+      "lines": [
+        ["전 세계 만 개 연구실이 쓰고 있고", []],
+        ["GPT-5가 실험 3만 6천 건을 혼자 실행", ["3만 6천"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "지금 서울에서 세계 최대 AI 과학 학회가 열리고 있습니다. 주제는 자율형 연구 에이전트. AI가 과학자를 대체하느냐가 아닙니다. 과학자가 AI 없이 연구할 수 있느냐, 이미 그게 질문입니다.",
+      "bg": 8244321,
+      "lines": [
+        ["지금 서울에서 세계 최대 AI 과학 학회", []],
+        ["주제는 자율형 연구 에이전트", []],
+        ["과학자가 AI 없이 연구할 수 있느냐가 질문입니다", ["질문입니다"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "bg": 8533380,
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", []], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://news.stanford.edu/stories/2026/07/biomni-ai-powered-biomedical-co-scientist",
+    "https://www.science.org/doi/10.1126/science.adz4351",
+    "https://www.digitaltoday.co.kr/en/view/108023/"
+  ]
+}
