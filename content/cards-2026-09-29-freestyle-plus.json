@@ -1,0 +1,36 @@
+{
+ "topic": "Samsung The Freestyle+ — 빔프로젝터에서 하얀 벽이 사라졌다, AI가 벽 색깔을 읽고 색감을 고친다, $1,199 국내 미출시 [한계붕괴형]",
+ "blog_teaser": "전작 대비 밝기 비교, AI OptiScreen 3종 기능 정리, 국내 대안 가격표는 블로그에 있습니다",
+ "threads_text": "빔프로젝터에서 하얀 벽이 사라졌다\n\n1. 삼성 더 프리스타일+. AI가 벽 색깔을 읽고 색감을 자동으로 고쳐준다\n2. 기울어져도 알아서 잡는다. 초점도 자동. 놓기만 하면 됨\n3. 밝기 430 ISO 루멘 — 전작의 약 2배. 1kg\n4. 국내 미출시. 미국 $1,199(약 160만원 + 관세·배송 약 30만원 = 총 190만원대)\n5. 국내 대안: 전작 더 프리스타일 2세대 65만원(삼성 공식)\n\n(출처: 삼성 공식 제품 페이지, Engadget, Neowin)",
+ "description": "삼성이 포터블 프로젝터 더 프리스타일+를 CES 2026에서 공개, 7월 미국 출시했다. 핵심은 AI OptiScreen — Wall Calibration(벽 색깔 감지 후 색감·밝기 자동 보정), 3D Auto Keystone(기울기 자동 보정), Real-time Focus(연속 자동 초점) 3종이 내장돼, 하얀 벽이나 스크린 없이도 색이 맞는다. 밝기 430 ISO 루멘으로 전작(230 ANSI 루멘)의 약 1.87배. 1080p DLP, 30~100인치 투사, 무게 1.0kg. 미국 $1,199.99, 영국 GBP 849~999. 한국 미출시(2026-09-29 기준, 삼성 코리아 확인). 국내 대안은 전작 더 프리스타일 2세대(SP-LFCF3LAXXKR, 삼성 공식 65만원) — 다만 AI OptiScreen 미탑재.",
+ "caption": "빔프로젝터에서 하얀 벽이 사라졌다\n\n삼성 The Freestyle+.\nAI가 벽 색깔을 읽고 색감을 자동 보정한다.\n기울기·초점도 자동. 놓기만 하면 됨.\n430 ISO 루멘 · 1080p · 1.0kg · $1,199.\n국내 미출시 — 전작 2세대 65만원(삼성 공식).\n\n(출처: 삼성 공식, Engadget, Neowin)\n\n#삼성프리스타일 #빔프로젝터 #TheFreestyle #프로젝터 #테크",
+ "factcheck": [
+   {"claim": "AI OptiScreen 탑재 — Wall Calibration(벽 색깔 감지·보정), 3D Auto Keystone, Real-time Focus", "sources": ["https://www.samsung.com/us/projectors/the-freestyle/the-freestyle-portable-projector-sku-sp-lff3hlaxxza/", "https://www.engadget.com/2217299/samsung-freestyle-plus-projector/"], "note": "삼성 공식 제품 페이지 + Engadget 교차 확인"},
+   {"claim": "밝기 430 ISO 루멘", "sources": ["https://www.samsung.com/uk/projectors/the-freestyle/the-freestyle-sp-lff3hlaxxxu/", "https://www.neowin.net/news/samsung-the-freestyle-debuts-with-430-iso-lumens-and-ai-optiscreen/"], "note": "삼성 UK 스펙 페이지 + Neowin 교차 확인. 전작 230 ANSI는 Projector Central 확인"},
+   {"claim": "미국 $1,199.99", "sources": ["https://www.samsung.com/us/projectors/the-freestyle/the-freestyle-portable-projector-sku-sp-lff3hlaxxza/", "https://www.engadget.com/2217299/samsung-freestyle-plus-projector/"], "note": "삼성 US 공식 + Engadget 교차 확인"},
+   {"claim": "1080p DLP, 1.0kg, 30~100인치", "sources": ["https://www.samsung.com/uk/projectors/the-freestyle/the-freestyle-sp-lff3hlaxxxu/", "https://www.engadget.com/2217299/samsung-freestyle-plus-projector/"], "note": "삼성 UK 스펙 + Engadget 교차 확인"},
+   {"claim": "한국 미출시, 전작 2세대 65만원", "sources": ["https://www.samsung.com/sec/projectors/", "https://www.samsung.com/sec/projectors/the-freestyle/sp-lfcf3laxxkr/"], "note": "삼성 코리아 프로젝터 카테고리 직접 확인 — Freestyle+는 없고, 2세대만 65만원 판매 중 (2026-09-29 확인)"},
+   {"claim": "전작 약 230 ANSI 루멘 → 약 1.87배 증가", "sources": ["https://www.projectorcentral.com/samsung-freestyle_2nd_gen.htm", "https://www.samsung.com/uk/projectors/the-freestyle/the-freestyle-sp-lff3hlaxxxu/"], "note": "Projector Central 전작 스펙 + 삼성 UK 신형 스펙. 측정 기준(ANSI vs ISO)이 달라 '약 2배'로 표기"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/freestyle_plus_hook.jpg",
+   "title": "빔프로젝터에서\n하얀 벽이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "AI가 벽 색깔을 읽고 색감을 고친다",
+   "body_hl": ["벽 색깔을 읽고"],
+   "credit": "Samsung"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/freestyle_plus_end.jpg",
+   "title": "Samsung The Freestyle+ — $1,199",
+   "title_hl": ["$1,199"],
+   "body": "430 ISO 루멘(전작 약 2배) · 1080p · 1.0kg\n기울기·초점·벽 색깔 전부 AI 자동\n국내 미출시 — 전작 2세대 65만원(삼성 공식)",
+   "body_hl": ["전부 AI 자동"],
+   "sub": "직구 시 약 190만원대(관세·배송 포함) — 전작에 AI 보정 없이 65만원이니 벽 색깔 보정이 130만원인 셈",
+   "credit": "Samsung"
+  }
+ ]
+}
