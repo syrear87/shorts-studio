@@ -1,0 +1,35 @@
+{
+ "topic": "Bose Noise Cancelling Wired Earbuds — 유선 이어폰에 노이즈캔슬링을 넣었다, 11년 만의 유선 복귀, $99 [공유형]",
+ "blog_teaser": "에어팟 프로와 스펙 비교, USB-C DAC 성능 분석은 블로그에 있습니다",
+ "threads_text": "유선 이어폰이 11년 만에 돌아왔다 — 노캔까지 달고\n\n1. Bose가 유선 이어폰을 다시 만든다. 11년 만이다\n2. USB-C 유선인데 노이즈캔슬링이 된다. 배터리 없이\n3. 24bit/48kHz 하이레졸루션. 블루투스론 불가능한 음질\n4. 마이크 4개로 통화 품질도 챙겼다\n5. $99. 10월 15일 출시\n\n(출처: Bose 공식, ecoustics, Tom's Guide)",
+ "description": "Bose가 2026년 9월 28일 유선 노이즈캔슬링 이어폰 'Noise Cancelling Wired Earbuds'를 발표했다. Bose가 유선 이어폰을 내놓는 것은 2015년 QuietComfort 20 이후 11년 만이다. USB-C 유선 연결로 배터리 없이 기기에서 전원을 받아 ANC을 구동한다. QuietControl ANC에 마이크 4개를 탑재했고, UAC2 프로토콜로 24bit/48kHz 하이레졸루션 오디오를 지원한다. 128cm USB-C 케이블, 인라인 리모컨에 물리 버튼 배치. 컬러는 Black, White Smoke, 한정 Dewdrop Mint 3종. 미국 출시가 $99, 유럽 €99.95. 10월 15일 출시 예정, Bose.com과 Best Buy에서 사전주문 가능. 국내 출시는 미확인 — 직구 시 관부가세 포함 약 13~14만원대 예상.",
+ "caption": "유선 이어폰이 11년 만에 돌아왔다 — 노캔까지 달고\n\nBose Noise Cancelling Wired Earbuds.\nUSB-C 유선 · 배터리 없이 ANC.\n24bit/48kHz 하이레졸루션.\n마이크 4개 · 인라인 리모컨.\n$99 · 10월 15일 출시.\n\n(출처: Bose 공식, ecoustics, Tom's Guide)\n\n#Bose #유선이어폰 #노이즈캔슬링 #USBC #테크",
+ "factcheck": [
+   {"claim": "Bose 유선 이어폰 11년 만의 복귀 (2015 QC20 이후)", "sources": ["https://www.ecoustics.com/headphones/bose-noise-cancelling-wired-earbuds/", "https://www.forbes.com/sites/marksparrow/2026/09/28/bose-noise-cancelling-wired-earbuds/"], "note": "ecoustics '11 years' 명시 + Forbes 교차 확인"},
+   {"claim": "USB-C 유선, 배터리 없이 ANC 구동", "sources": ["https://www.bose.com/pressroom/noise-cancelling-wired-earbuds", "https://www.tomsguide.com/audio/earbuds/bose-noise-cancelling-wired-earbuds"], "note": "Bose 공식 + Tom's Guide 교차 확인"},
+   {"claim": "24bit/48kHz UAC2 하이레졸루션", "sources": ["https://www.bose.com/pressroom/noise-cancelling-wired-earbuds", "https://www.ecoustics.com/headphones/bose-noise-cancelling-wired-earbuds/"], "note": "Bose 공식 스펙 + ecoustics 확인"},
+   {"claim": "$99, 10월 15일 출시", "sources": ["https://www.bose.com/pressroom/noise-cancelling-wired-earbuds", "https://www.bloomberg.com/news/articles/2026-09-28/bose-wired-earbuds"], "note": "Bose 공식 + Bloomberg 교차 확인"},
+   {"claim": "QuietControl ANC, 마이크 4개", "sources": ["https://www.bose.com/pressroom/noise-cancelling-wired-earbuds", "https://www.tomsguide.com/audio/earbuds/bose-noise-cancelling-wired-earbuds"], "note": "공식 스펙 + Tom's Guide 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/bose_wired_anc_hook.jpg",
+   "title": "유선 이어폰이\n11년 만에 돌아왔다",
+   "title_hl": ["돌아왔다"],
+   "body": "Bose가 다시 유선을 만든다 — 노캔까지 달고",
+   "body_hl": ["노캔까지"],
+   "credit": "Bose"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/bose_wired_anc_end.jpg",
+   "title": "Bose Wired ANC — $99",
+   "title_hl": ["$99"],
+   "body": "USB-C 유선 · 배터리 없이 ANC\n24bit/48kHz 하이레졸루션\n마이크 4개 · 10월 15일 출시",
+   "body_hl": ["배터리 없이", "하이레졸루션"],
+   "sub": "국내 미출시 — 직구 시 관부가세 포함 약 13~14만원대",
+   "credit": "Bose"
+  }
+ ]
+}
