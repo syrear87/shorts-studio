@@ -1,0 +1,35 @@
+{
+ "topic": "Sonos Beam Ultra — 사운드바에서 소리가 위에서 내려온다, 천장에 스피커 없이, 업파이어링 트위터 2개가 천장 반사로 7.1.2 애트모스, $699 [한계붕괴형]",
+ "blog_teaser": "전작 Beam Gen 2와 달라진 점 9가지, 국내 직구 총비용 계산은 블로그에 정리해뒀습니다",
+ "threads_text": "TV 스피커 입체음향, 흉내 내던 게 끝났다\n\n1. Sonos Beam Ultra. 위로 쏘는 트위터 2개가 천장에 부딪혀 내려온다\n2. 전작은 소프트웨어로 높이감을 흉내 냈다. 이건 물리 드라이버 9개가 한다\n3. 7.1.2 돌비 애트모스. AI가 대사만 골라 올리는 기능도 들어감\n4. $699(약 94만원). 국내 미출시 — 직구 관세 포함 약 115만원\n5. 국내엔 LG 사운드 스위트 129.9만원(업파이어링 있음)\n\n(출처: Sonos 공식 보도자료, Engadget)",
+ "description": "Sonos가 Beam Ultra를 9/1 발표, 9/29 출하 개시했다. Beam 시리즈 최초로 상향 발사 트위터 2개를 탑재해 천장 반사 방식의 돌비 애트모스 7.1.2 높이감을 구현한다. 전작 Beam Gen 2(드라이버 5개)는 소프트웨어 가상 처리로 높이감을 흉내 냈지만, Beam Ultra는 드라이버 9개(트위터 5 + 우퍼 4)로 물리적 높이 채널을 만든다. AI Speech Enhancement(4단계 대사 강조), Wi-Fi 6, Bluetooth 5.3 신규 탑재. 크기 750×63×105mm, 무게 2.88kg. $699. 국내 공식 판매 채널 없음 — 직구 시 관세(8%)+부가세(10%)+배송 포함 약 115만원. 국내 대안으로 LG 사운드 스위트(129.9만원, 업파이어링 지원)가 있다.",
+ "caption": "TV 스피커 입체음향, 흉내 내던 게 끝났다\n\nSonos Beam Ultra.\n위로 쏘는 트위터 2개 — 천장 반사 7.1.2 애트모스.\n드라이버 5개→9개. AI 대사 강조 탑재.\n$699(약 94만원) · 국내 미출시.\n\n(출처: Sonos 공식 보도자료, Engadget)\n\n#소노스 #SonosBeamUltra #사운드바 #돌비애트모스 #테크",
+ "factcheck": [
+   {"claim": "Beam Ultra에 상향 발사 트위터 2개 탑재, 드라이버 총 9개(트위터 5+우퍼 4)", "sources": ["https://newsroom.sonos.com/269788-sonos-welcomes-beam-ultra-and-sonos-ace-ultra-to-its-system/", "https://www.engadget.com/2248155/sonos-unveils-new-beam-ultra-soundbar-with-true-7-1-2-dolby-atmos/"], "note": "Sonos 공식 보도자료 + Engadget 교차 확인"},
+   {"claim": "7.1.2 돌비 애트모스, 천장 반사 방식 높이 채널", "sources": ["https://newsroom.sonos.com/269788-sonos-welcomes-beam-ultra-and-sonos-ace-ultra-to-its-system/", "https://www.whathifi.com/tv-home-cinema/soundbars/sonos-beam-ultra-soundbar"], "note": "공식 보도자료 + What Hi-Fi 리뷰 확인"},
+   {"claim": "전작 Beam Gen 2는 드라이버 5개, 소프트웨어 가상 처리 방식 Atmos", "sources": ["https://www.trustedreviews.com/versus/sonos-beam-ultra-vs-beam-gen-2", "https://www.engadget.com/2248155/sonos-unveils-new-beam-ultra-soundbar-with-true-7-1-2-dolby-atmos/"], "note": "Trusted Reviews 비교 기사 + Engadget 교차 확인"},
+   {"claim": "$699, 9/1 발표 9/29 출하", "sources": ["https://newsroom.sonos.com/269788-sonos-welcomes-beam-ultra-and-sonos-ace-ultra-to-its-system/", "https://www.forbes.com/sites/marksparrow/2026/09/22/sonos-ships-new-beam-ultra-soundbar-and-ace-ultra-wireless-headphones/"], "note": "공식 보도자료 가격 + Forbes 출하 확인"},
+   {"claim": "LG 사운드 스위트 사운드바 국내 출고가 129.9만원, 업파이어링 지원", "sources": ["https://www.lg.co.kr/media/release/29915", "https://www.mt.co.kr/industry/2026/03/05/2026030508021223458"], "note": "LG 공식 보도자료 + 머니투데이 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/sonos_beam_ultra_hook.jpg",
+   "title": "TV 스피커 입체음향\n흉내 내던 게 끝났다",
+   "title_hl": ["끝났다"],
+   "body": "천장에 스피커 없이, 소리가 위에서 내려온다",
+   "body_hl": ["위에서 내려온다"],
+   "credit": "Sonos"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/sonos_beam_ultra_end.jpg",
+   "title": "Sonos Beam Ultra — $699",
+   "title_hl": ["$699"],
+   "body": "업파이어링 트위터 2개 · 드라이버 5→9개\n7.1.2 돌비 애트모스 · AI 대사 강조\n국내 미출시 — 직구 약 115만원",
+   "body_hl": ["5→9개", "7.1.2"],
+   "sub": "국내 대안: LG 사운드 스위트 129.9만원(업파이어링 있음)",
+   "credit": "Engadget / Sonos"
+  }
+ ]
+}
