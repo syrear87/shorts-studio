@@ -1,0 +1,36 @@
+{
+ "topic": "Logitech MX Master 4 — 사무실 마우스가 7년 만에 바뀌었다, 마우스에 진동이 생겼다, Haptic Sense 엄지 패널 + Actions Ring 단축키, $119.99 국내 179,000원 [공유형]",
+ "blog_teaser": "MX Master 3S에서 뭐가 달라졌는지 항목별로 비교한 표는 블로그에 정리해뒀습니다",
+ "threads_text": "사무실 마우스가 7년 만에 바뀌었다 — 이번엔 진동한다\n\n1. MX Master 3이 2019년이었는데 드디어 4가 나왔다\n2. 엄지 밑에 진동 패널이 들어갔다. 단축키 실행하면 물리적으로 됐다고 알려준다\n3. 액션 링이라는 게 생겼는데, 커서 위에서 바로 도구가 뜬다\n4. 1분 충전에 3시간, 완충하면 70일. 클릭 소음은 90% 줄었다\n5. 국내 179,000원. 3S보다 4만원 올랐다\n\n(출처: Logitech 공식, Engadget, Tom's Hardware)",
+ "description": "Logitech MX Master 4는 MX Master 3(2019) 이후 7년 만의 정식 세대 교체 제품이다. 핵심 변화는 Haptic Sense — 엄지 아래 패널에 진동 모터가 들어가 단축키·알림에 촉각 피드백을 준다. Actions Ring은 커서 위치에서 앱별 도구를 바로 띄우는 오버레이로, 마우스 이동을 63% 줄인다고 Logitech이 주장한다. 8000 DPI 다크필드 센서로 유리 위에서도 추적 가능. MagSpeed 스크롤 휠은 초당 1,000줄 처리, 래칫 모드 87% 정밀도 향상. 배터리 70일(1분 충전 3시간). 클릭 소음은 MX Master 3 대비 90% 감소. 150g, USB-C Logi Bolt 수신기 포함. 미국 $119.99 / 한국 179,000원(다나와 최저가 152,150원). MX Master 3S(139,000원 출시가)보다 약 4만원 인상.",
+ "caption": "사무실 마우스가 7년 만에 바뀌었다\n\nMX Master 4.\n엄지 밑에 진동이 들어갔다 — 단축키를 누르면 손끝으로 알려준다.\n1분 충전에 3시간, 완충하면 70일.\n\n국내 179,000원 · 다나와 최저가 152,150원\n\n(출처: Logitech 공식, Engadget, Tom's Hardware)\n\n#로지텍 #MXMaster4 #사무용마우스 #햅틱마우스 #테크",
+ "factcheck": [
+   {"claim": "MX Master 3(2019) 이후 7년 만의 세대 교체", "sources": ["https://www.logitech.com/en-us/shop/p/mx-master-4", "https://www.engadget.com/computing/accessories/the-logitech-mx-master-4-is-here-with-haptic-feedback-less-rubber-and-the-same-shape-070129314.html"], "note": "MX Master 3는 2019년 9월 출시. MX Master 3S는 2022년 5월 출시(마이너 리프레시). MX Master 4는 2026년 9월 30일 출시. 넘버링 기준 3→4가 7년."},
+   {"claim": "Haptic Sense — 엄지 패널 진동 피드백", "sources": ["https://www.logitech.com/en-us/shop/p/mx-master-4", "https://www.tomshardware.com/peripherals/gaming-mice/logitech-launches-mx-master-4-flagship-productivity-mouse-the-best-mouse-weve-tested-adds-haptic-feedback-circular-action-ring-shortcuts"], "note": "Logitech 공식 + Tom's Hardware 리뷰 교차 확인. Haptic Sense는 Logi Options+ 앱 필요"},
+   {"claim": "70일 배터리, 1분 충전 3시간", "sources": ["https://www.logitech.com/en-us/shop/p/mx-master-4", "https://www.engadget.com/computing/accessories/the-logitech-mx-master-4-is-here-with-haptic-feedback-less-rubber-and-the-same-shape-070129314.html"], "note": "Logitech 공식 스펙 + Engadget 교차 확인"},
+   {"claim": "8000 DPI, 유리 위 추적 가능, 150g", "sources": ["https://www.logitech.com/en-us/shop/p/mx-master-4"], "note": "Logitech 공식 스펙시트. 유리 최소 두께 4mm"},
+   {"claim": "국내 179,000원, 다나와 최저가 152,150원", "sources": ["https://prod.danawa.com/info/?pcode=98766185", "https://www.coupang.com/vp/products/9101803314"], "note": "다나와 가격비교·쿠팡 검색 2026-09-30 확인"},
+   {"claim": "클릭 소음 MX Master 3 대비 90% 감소", "sources": ["https://www.logitech.com/en-us/shop/p/mx-master-4"], "note": "Logitech 공식. MX Master 3(2019)과의 비교이며, 3S(2022)와의 비교가 아님에 주의"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/mx_master_4_hook.jpg",
+   "title": "사무실 마우스가\n7년 만에 바뀌었다",
+   "title_hl": ["7년 만에"],
+   "body": "이번엔 진동한다",
+   "body_hl": ["진동한다"],
+   "credit": "Logitech"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/mx_master_4_detail.png",
+   "title": "MX Master 4",
+   "title_hl": ["4"],
+   "body": "엄지 밑 Haptic Sense — 단축키 촉각 피드백\nActions Ring — 커서에서 도구 바로 띄움\n1분 충전 3시간 · 완충 70일\n8000 DPI · 유리 위에서도 추적",
+   "body_hl": ["Haptic Sense", "70일"],
+   "sub": "179,000원 · 다나와 최저가 152,150원",
+   "credit": "Logitech"
+  }
+ ]
+}
