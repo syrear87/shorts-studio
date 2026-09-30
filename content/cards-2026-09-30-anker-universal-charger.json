@@ -1,0 +1,36 @@
+{
+ "topic": "Anker Universal Charger — 여행 짐에서 어댑터가 빠진다, 충전기 하나에 미국·유럽·영국 플러그가 접혀 있다, 100W GaN 4포트 LCD 디스플레이, $79.99 국내 미출시 [공유형]",
+ "blog_teaser": "국내에서 살 수 있는 여행용 올인원 충전기 비교표와 직구 관세 계산은 블로그에 정리해뒀습니다",
+ "threads_text": "충전기에서 어댑터가 사라졌다\n\n1. 앤커 유니버셜 충전기. 미국·유럽·영국 플러그가 충전기에 접혀 있다\n2. 밀면 나오고, 동시에 2개 안 나오게 잠금\n3. 100W GaN이라 노트북도 충전. C타입 3개 + A타입 1개\n4. LCD에 현지 전압·충전 와트 실시간 표시\n5. $79.99(약 11만원), 직구 관세 없음($150 이하)\n\n(출처: Anker 공식, The Gadgeteer 리뷰)",
+ "description": "Anker Universal Charger(A140A)는 2026년 9월 IFA에서 공개된 4-in-1 여행용 GaN 충전기다. 미국/일본(Type A), 유럽(Type C), 영국(Type G) 플러그가 본체에 슬라이드 방식으로 내장돼 있어 별도 어댑터 없이 3개 지역 콘센트에 직접 꽂는다. 동시에 2개 이상 플러그가 나오지 않는 인터록 안전장치가 있다. 호주(Type I) 플러그는 미포함. 100W GaN 출력(USB-C 3포트 + USB-A 1포트), 1.3인치 LCD 디스플레이(현지 전압·실시간 충전 와트·온도 표시), 262g. $79.99. 국내 미출시 — 아마존 직구 가능, $150 이하라 관세 없음. 국내 유사품: 엘디엑크스 5포트 해외 여행용 멀티플러그(45W, 약 24,000원) 등이 있으나 와트수가 절반 이하.",
+ "caption": "충전기에서 어댑터가 사라졌다\n\nAnker Universal Charger.\n미국·유럽·영국 플러그가 충전기 안에 접혀 있다.\n밀면 나오고, 100W라 노트북도 된다.\n\n$79.99(약 11만원), 직구 관세 없음.\n국내 유사품은 45W 이하가 대부분 — 100W 올인원은 아직 없다.\n\n(출처: Anker 공식, The Gadgeteer, Engadget)\n\n#앤커 #여행충전기 #유니버셜충전기 #GaN충전기 #테크",
+ "factcheck": [
+   {"claim": "미국/일본·유럽·영국 3종 플러그가 본체에 슬라이드 방식으로 내장", "sources": ["https://www.anker.com/products/a140a-100w-4-in-1-global-travel-charger", "https://the-gadgeteer.com/2026/09/28/anker-nano-universal-charger-100w-travel-adapter/"], "note": "Anker 공식 + The Gadgeteer 핸즈온 리뷰 교차 확인. AU 플러그 미포함도 확인"},
+   {"claim": "100W GaN 출력, USB-C 3포트 + USB-A 1포트", "sources": ["https://www.anker.com/products/a140a-100w-4-in-1-global-travel-charger", "https://9to5toys.com/2026/09/07/all-new-anker-4-in-1-100w-universal-smart-display-charger-now-up-for-grabs/"], "note": "Anker 공식 스펙시트 + 9to5Toys 판매 개시 기사 교차 확인. 100W는 총합 최대치(동시 충전 시 분배)"},
+   {"claim": "$79.99, IFA 2026(9월) 공개, 아마존 판매 중", "sources": ["https://www.anker.com/products/a140a-100w-4-in-1-global-travel-charger", "https://www.engadget.com/2249913/anker-charging-gadgets-at-ifa-2026/"], "note": "Anker 공식 가격 + Engadget IFA 보도 교차 확인"},
+   {"claim": "1.3인치 LCD 디스플레이 — 현지 전압·충전 와트·온도 표시", "sources": ["https://www.anker.com/products/a140a-100w-4-in-1-global-travel-charger", "https://the-gadgeteer.com/2026/09/28/anker-nano-universal-charger-100w-travel-adapter/"], "note": "Anker 공식 + The Gadgeteer 핸즈온 교차 확인"},
+   {"claim": "262g, 95x50x40mm", "sources": ["https://www.anker.com/products/a140a-100w-4-in-1-global-travel-charger"], "note": "Anker 공식 스펙시트"},
+   {"claim": "한국 미출시, 쿠팡·네이버쇼핑 검색 결과 없음(2026-09-30 확인)", "sources": ["https://www.anker.com/products/a140a-100w-4-in-1-global-travel-charger"], "note": "Anker Korea(ankerkorea.co.kr)·쿠팡·네이버쇼핑 검색 결과 없음 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/anker_universal_charger_hook.jpg",
+   "title": "충전기에서\n어댑터가 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "충전기에 3개국 플러그가 접혀 있다",
+   "body_hl": ["접혀 있다"],
+   "credit": "Anker"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/anker_universal_charger_detail.jpg",
+   "title": "Anker Universal Charger",
+   "title_hl": ["Universal Charger"],
+   "body": "100W GaN · C타입 3 + A타입 1\nLCD에 전압·와트 실시간 표시\n미국·유럽·영국 플러그 내장 (호주 미포함)\n262g — 250ml 캔 한 개 무게",
+   "body_hl": ["100W GaN", "LCD"],
+   "sub": "$79.99(약 11만원) · 직구 관세 없음 · 국내 미출시",
+   "credit": "Anker"
+  }
+ ]
+}
