@@ -1,0 +1,34 @@
+{
+ "topic": "USB-C 충전식 AA 건전지 — 충전식 건전지에서 충전기가 사라졌다, 건전지 옆구리에 USB-C 포트, 90분 완충 1000회, 국내 2만원대 [구매가능][공유형]",
+ "blog_teaser": "에네루프이랑 뭐가 다른지, 어떤 기기에 맞는지는 블로그에 정리했습니다",
+ "threads_text": "충전식 건전지에서 충전기가 사라졌다\n\n1. AA 건전지 옆구리에 USB-C 포트가 있음\n2. 케이블 꽂으면 90분이면 완충\n3. 1000번 넘게 쓰니까 일회용 안 사도 됨\n4. 전압 1.5V라 에네루프(1.2V)에서 안 되던 기기도 돌아감\n5. 대신 포트가 공간 먹어서 용량은 일반 AA의 60%\n\n(출처: Pale Blue 공식, 이투데이)",
+ "description": "USB-C 포트가 내장된 충전식 AA 리튬이온 건전지. 별도 충전기 없이 USB-C 케이블만 꽂으면 90분 만에 완충되고, 1000회 이상 재충전 가능하다. 기존 NiMH 충전식 건전지(에네루프 등)는 1.2V라 일부 기기에서 전압 부족이 있었는데, 이 건전지는 1.5V 정전압 출력이라 알카라인과 동일하게 작동한다. 대신 USB-C 포트가 건전지 내부 공간을 차지해 용량이 1700mAh(2550mWh)로 알카라인 AA(약 2800mAh) 대비 약 60% 수준이다. 리모컨, 시계, 무선 키보드 같은 저전력 기기에 적합하고, 고전력 기기(카메라 플래시, 게임패드)에는 런타임이 짧을 수 있다. 대표 브랜드 Pale Blue(미국) AA 4팩 $28.99. 국내에서는 소매드 등 브랜드가 네이버쇼핑에서 AA 4개입 20,700원에 판매 중이다.",
+ "caption": "충전식 건전지에서 충전기가 사라졌다\n\nUSB-C 충전식 AA 건전지.\n90분 완충 · 1000회 이상 재사용.\n1.5V 정전압 — 에네루프(1.2V)보다 호환 기기 많음.\n국내 AA 4개입 약 2만원대.\n\n(출처: Pale Blue 공식, 이투데이)\n\n#충전식건전지 #USBC #테크 #에코",
+ "factcheck": [
+   {"claim": "USB-C 포트 내장, 90분 완충, 1000회 이상 재충전", "sources": ["https://paleblueearth.com/products/pale-blue-lithium-rechargeable-aa-batteries", "https://www.etoday.co.kr/news/view/1754928"], "note": "Pale Blue 공식 스펙 + 이투데이 리뷰 교차 확인"},
+   {"claim": "1.5V 정전압 출력 (NiMH 에네루프는 1.2V)", "sources": ["https://paleblueearth.com/products/pale-blue-lithium-rechargeable-aa-batteries", "https://www.amazon.com/paleblue-Rechargeable-Lithium-Batteries-4-Pack/dp/B0H2N6V9TH"], "note": "Pale Blue 공식 + Amazon 제품 상세 교차 확인. 에네루프 1.2V는 Panasonic 공식 스펙"},
+   {"claim": "용량 2550mWh(1700mAh), 알카라인 대비 약 60%", "sources": ["https://paleblueearth.com/products/pale-blue-lithium-rechargeable-aa-batteries", "https://www.clien.net/service/board/kin/17788029"], "note": "공식 스펙 + 클리앙 사용자 리뷰에서 용량 감소 확인"},
+   {"claim": "국내 소매드 AA 4개입 20,700원(네이버쇼핑)", "sources": ["https://www.clien.net/service/board/jirum/17342176"], "note": "클리앙 지름게시판 네이버쇼핑 가격 게시"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/usbc_battery_main.jpg",
+   "title": "충전식 건전지에서\n충전기가 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "AA 옆구리에 USB-C가 달렸다",
+   "body_hl": ["USB-C"],
+   "credit": "Pale Blue"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/usbc_battery_charging.jpg",
+   "title": "90분 완충, 1000번 재사용",
+   "title_hl": ["1000번"],
+   "body": "1.5V 정전압 — 에네루프(1.2V)보다 호환 넓음\n용량은 알카라인의 60% — 리모컨·시계에 적합\nAA 4개입 약 2만원대(국내)",
+   "body_hl": ["1.5V", "60%", "2만원대"],
+   "sub": "Pale Blue AA 4팩 $28.99 · 국내 소매드 등 2만원대",
+   "credit": "Pale Blue"
+  }
+ ]
+}
