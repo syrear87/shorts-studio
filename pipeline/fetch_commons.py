@@ -62,7 +62,10 @@ def info(title):
         return None, "라이선스 불가(%s)" % lic
     if BAD_SOURCE.search(credit):
         return None, "출처 불명(%s)" % credit[:30]
-    if min(ii.get("width", 0), ii.get("height", 0)) < MIN_SIDE:
+    # 세로 사진은 세로 화면에 그대로 맞으니 짧은 변 기준을 낮춘다 (2026-09-30: 안세영 861x1579가
+    # 1000 기준에 걸려 빠졌다 — 정작 인물 사진은 대부분 세로다)
+    _w, _h = ii.get("width", 0), ii.get("height", 0)
+    if (_h > _w and (_w < 700 or _h < 1200)) or (_h <= _w and min(_w, _h) < MIN_SIDE):
         return None, "해상도 부족(%sx%s)" % (ii.get("width"), ii.get("height"))
     return {"title": p["title"], "url": ii.get("thumburl") or ii["url"], "license": lic,
             "artist": artist[:60] or "미상", "page": ii.get("descriptionurl", ""),

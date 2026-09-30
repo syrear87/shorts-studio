@@ -919,6 +919,17 @@ def main():
         # 씬별 배경 (2026-08-07 디렉터: "각 페이즈마다 알맞은 영상" — 롱폼에서 검증된 방식을 쇼츠로).
         # 각 씬이 "bg"로 자기 화면을 지정한다: 숫자=Pexels 영상, "photo:<id>"=사진(켄 번즈).
         # 연속 씬이 같은 bg면 병합 — 전환은 정확히 씬 경계에서 일어난다.
+        # 훅 첫 화면 실물 게이트 (2026-09-30): real_query를 적어 놓고도 훅을 Pexels로 채운 편이
+        # 이틀 연속 나왔다(스타십 편 훅=우주왕복선, 안세영 편=다른 선수 스톡). 커먼즈에 실물이
+        # 있었다. 훅이 실물(commons·nasa·file)이 아니면 그 이유를 대본에 적게 한다 — 무심코
+        # 넘어가던 선택을 의식적인 결정으로 바꾼다.
+        _h0 = str(script["scenes"][0].get("bg"))
+        if script.get("real_query") and not _h0.startswith(("commons:", "nasa:", "file")) \
+                and len(str(script.get("hook_bg_reason") or "").strip()) < 10:
+            sys.exit("기각: 훅 첫 화면이 실물이 아니다(bg=%s) — pick_bg.py의 🎯 실물 후보(c*.jpg)를 "
+                     "훅에 써라. 실물이 정말 없으면 대본에 \"hook_bg_reason\": \"사유 10자 이상\"을 "
+                     "적어라(예: '커먼즈에 해당 인물 사진 없음'). 특정 인물 소재에 다른 사람 스톡을 "
+                     "그 인물처럼 쓰는 것은 사유가 되지 않는다." % _h0)
         seen = used_bg_ids(exclude_script=args.script_json)
         dup = [str(sc["bg"]) for sc in script["scenes"] if str(sc["bg"]) in seen]
         if dup:
@@ -990,6 +1001,12 @@ def main():
                 print("경고: 배경 %s 구간 %.1fs — 한 구도 12초 초과는 이탈 구간이 된다. 연속 씬에 같은 bg를 몰아주지 마라" % (b_, e_ - s_), flush=True)
         print("씬별 배경: 구간 %d개 (고유 화면 %d개)" % (len(groups), len(cache)), flush=True)
     elif not args.no_bg_video:
+        # 2026-09-30: 씬별 bg 없이 bg_ids 폴백으로 50초짜리 한 화면이 나갔다(3중 감소 편 —
+        # 공장 한 컷). DAILY_PROMPT가 "신규 제작은 반드시 씬별 bg"라고 한 지 한 달인데 새어 나갔다.
+        # 20초 넘는 편은 기계로 막는다.
+        if total_dur > 20 and not script.get("allow_single_bg"):
+            sys.exit("기각: 씬별 배경(scene[\"bg\"])이 없다 — %.0f초를 한 화면으로 끌면 이탈 구간이 된다. "
+                     "pick_bg.py 후보에서 씬마다 다른 그림을 골라 전 씬에 \"bg\"를 넣어라" % total_dur)
         ids = script.get("bg_ids") or ([script["bg_id"]] if script.get("bg_id") else [])
         if ids:
             # 배경 재사용 하드게이트 (2026-08-05): 다른 편에서 쓴 배경이면 기각 (사진 포함)
