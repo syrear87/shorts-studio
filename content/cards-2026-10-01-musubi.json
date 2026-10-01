@@ -1,0 +1,36 @@
+{
+ "topic": "Looking Glass Musubi — 디지털 액자에서 평면이 사라졌다, 사진이 유리 안에서 입체로 뜬다, 안경 없는 홀로그램 $149 [소유욕형]",
+ "blog_teaser": "2D 사진에서 3D를 뽑는 AI 깊이 추출 원리와 기존 디지털 액자와의 차이는 블로그에 있습니다",
+ "threads_text": "디지털 액자에서 평면이 사라졌다\n\n1. Looking Glass Musubi. 스마트폰 사진을 넣으면 액자 안에서 입체로 뜬다\n2. 안경도 헤드셋도 필요 없다 — 맨눈으로 어떤 각도에서든 3D\n3. AI가 사진에서 깊이를 추출해 홀로그램으로 바꾸는 구조\n4. 7인치, 사진 1,000장, 배터리 3시간, USB-C로 넣으면 끝\n5. 구독료 없고 클라우드도 안 쓴다 — 사진은 기기 안에만\n6. $149, 미국 직구 배송 포함 약 23만원 (미국발 $200 이하 면세)\n\n(출처: Looking Glass Factory 공식, New Atlas, Engadget)",
+ "description": "Looking Glass Factory의 Musubi는 7인치 홀로그램 사진·영상 액자다. 일반 스마트폰 사진을 USB-C로 넣으면 기기 내 AI가 깊이 정보를 추출해 홀로그램으로 변환한다. 특수 안경이나 헤드셋 없이 맨눈으로 여러 각도에서 3D 입체 사진을 볼 수 있다.\n\n핵심 기술은 Hololuminescent Display(HLD)다. 2D 디스플레이 레이어와 3D 홀로그래픽 볼륨을 결합해 여러 시청자가 동시에 볼 수 있는 홀로그램을 만든다. 변환은 기기 내에서 로컬로 처리되며 클라우드 전송이나 구독이 필요 없다.\n\n사진 1,000장 저장, 30초 영상 클립 지원, 배터리 3시간(유선 사용 시 무제한), USB-C 유선 전송. 세로 모드 전용이다. SID 2026 올해의 디스플레이 상을 받았다.\n\n가격은 $149. 미국 뉴욕에서 발송되며 한국에서는 공식 스토어(lookingglassfactory.com)에서 직구할 수 있다. 미국발 $200 이하 면세 기준에 해당돼 배송비 포함 약 23만원이면 관세 없이 받을 수 있다. 국내에 유사한 소비자용 홀로그램 액자 제품은 없다. 킥스타터에서 첫 생산분이 매진됐고 현재 2차 생산분을 판매 중이다.",
+ "caption": "디지털 액자에서 평면이 사라졌다\n\nLooking Glass Musubi.\n스마트폰 사진이 유리 안에서 입체로 뜬다.\n안경도 헤드셋도 없이, 맨눈으로.\n\n7인치 · 사진 1,000장 · 배터리 3시간\n구독료 없음 · USB-C 전송 · $149\n\n국내 미출시 — lookingglassfactory.com에서 직구\n미국발 $200 이하 면세, 배송 포함 약 23만원\n\n#홀로그램 #디지털액자 #LookingGlass #Musubi #가젯",
+ "factcheck": [
+   {"claim": "7인치 홀로그램 디스플레이, 안경 없이 3D 시청 가능", "sources": ["https://lookingglassfactory.com/software/musubi-app", "https://newatlas.com/consumer-tech/looking-glass-musubi-photo-frame-hologram/"], "note": "공식 사이트 + New Atlas 리뷰 교차 확인"},
+   {"claim": "사진 1,000장 저장, 30초 영상 지원, 배터리 3시간", "sources": ["https://checkout.lookingglassfactory.com/products/musubi", "https://www.engadget.com/ar-vr/looking-glass-musubi-showcases-its-holographic-display-in-a-consumer-friendly-package-130000304.html"], "note": "공식 스토어 스펙 + Engadget 교차 확인"},
+   {"claim": "$149 소비자 가격", "sources": ["https://checkout.lookingglassfactory.com/products/musubi", "https://newatlas.com/consumer-tech/looking-glass-musubi-photo-frame-hologram/"], "note": "공식 스토어 판매가 + New Atlas 확인"},
+   {"claim": "SID 2026 올해의 디스플레이 상 수상", "sources": ["https://lookingglassfactory.com/", "https://radiancefields.com/looking-glass-launches-musubi"], "note": "공식 사이트 + Radiance Fields 교차 확인"},
+   {"claim": "USB-C 유선 전송, 구독 없음, 클라우드 미사용", "sources": ["https://checkout.lookingglassfactory.com/products/musubi", "https://www.auganix.org/xr-news-looking-glass-musubi-holographic-photo-frame/"], "note": "공식 스펙 + Auganix 교차 확인"},
+   {"claim": "미국발 직구 시 $200 이하 면세 (한미 FTA)", "sources": ["https://www.customs.go.kr/", "https://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%EC%9D%98_%EA%B4%80%EC%84%B8"], "note": "관세청 기준: 미국발 목록통관 면세 $200 이하"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/musubi_hook.jpg",
+   "title": "디지털 액자에서\n평면이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "스마트폰 사진이 유리 안에서 입체로 뜬다 — 안경 없이",
+   "body_hl": ["입체로 뜬다"],
+   "credit": "Looking Glass Factory"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/musubi_end.jpg",
+   "title": "Looking Glass Musubi\n$149 · 약 23만원",
+   "title_hl": ["$149"],
+   "body": "7인치 · 사진 1,000장 · 배터리 3시간\n구독 없음 · USB-C 전송 · 클라우드 안 씀",
+   "body_hl": ["1,000장", "구독 없음"],
+   "sub": "국내 미출시 — lookingglassfactory.com 직구\n미국발 $200 이하 면세 · SID 올해의 디스플레이 상",
+   "credit": "Looking Glass Factory"
+  }
+ ]
+}
