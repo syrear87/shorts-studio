@@ -1,0 +1,36 @@
+{
+ "topic": "Boox Picco — 전자책 리더기가 처음으로 스마트폰보다 작아졌다, 4인치 E-ink 58g MagSafe로 폰 뒤에 붙는 초소형 리더기, $99.99 [공유형]",
+ "blog_teaser": "E-ink가 눈에 덜 피로한 원리와 국내에서 살 수 있는 전자책 리더기 비교는 블로그에 정리했습니다",
+ "threads_text": "전자책 리더기가 처음으로 스마트폰보다 작아졌다\n\n1. Boox Picco. 105.5 x 62mm — 아이폰보다 세로가 4cm 짧음\n2. 58g, 뒤에 자석이 있어서 폰에 그대로 붙임\n3. E-ink라 햇빛에서도 보이고 눈 안 피로함. 물리 버튼으로 페이지 넘김\n4. microSD 최대 2TB까지 — 책 수천 권도 들어감\n5. $99.99(약 13만원), 11월 출하. 150달러 이하라 관세 없음\n\n(출처: Boox 공식, Engadget, Android Authority)",
+ "description": "Boox Picco는 Boox의 새 라인업 'Tiles' 시리즈 첫 제품이다. 3.97인치 ePaper 디스플레이(480x800, 235 PPI)에 크기 105.5 x 62 x 5.5mm, 무게 58g으로 신용카드보다 약간 크다.\n\n뒷면에 MagSafe 호환 자석이 내장돼 스마트폰 뒤에 부착해 사용할 수 있다. E-ink 디스플레이라 직사광선 아래에서도 잘 보이고 눈의 피로가 적다. 물리적 페이지 넘김 버튼과 터치스크린을 모두 갖추고, 따뜻한색과 시원한색 전환이 가능한 프론트라이트가 있다.\n\n16GB microSD 카드가 포함돼 있고 최대 2TB까지 확장 가능하다. WiFi와 블루투스를 지원하며 USB-C로 파일을 전송한다. Android 대신 커스텀 OS를 탑재해 전자책 읽기에 특화됐고, 뽀모도로 타이머와 할 일 목록 등 부가 기능이 있다.\n\n$99.99로 9월 28일부터 공식 스토어(shop.boox.com)에서 사전 예약 중이며 11월 출하 예정이다. $150 이하이므로 미국발 직구 시 관세 면세 대상이다. 배송비 포함 약 14~15만원.\n\n국내 대안으로는 Boox Poke6(6인치, 쿠팡 192,000원)가 있으나 4인치급 초소형 전자책 리더기는 국내에 없다. Boox는 SSG·EQL Store·InnoSpace One을 통해 한국에서 유통 중이라 Picco도 정식 출시될 가능성이 있으나 시기는 미정이다.",
+ "caption": "전자책 리더기가 처음으로 스마트폰보다 작아졌다\n\nBoox Picco.\n4인치 E-ink 화면에 자석으로 폰 뒤에 붙는다.\n58g. 신용카드보다 약간 큰 크기.\n\n3.97인치 · 235 PPI · 물리 버튼\n16GB microSD 포함 · 최대 2TB\nWiFi · 블루투스 · USB-C · 프론트라이트\n\n$99.99 · 약 13만원 · 11월 출하\n$150 이하 면세 · shop.boox.com 사전 예약 중\n\n국내 대안: Boox Poke6(6인치, 쿠팡 192,000원)\n4인치급 초소형은 국내에 없음\n\n#Boox #Picco #전자책 #이북리더 #가젯",
+ "factcheck": [
+   {"claim": "3.97인치 ePaper, 480x800, 235 PPI, 크기 105.5x62x5.5mm, 58g", "sources": ["https://shop.boox.com/products/picco", "https://www.androidauthority.com/boox-picco-tiniest-e-reader-pre-order-3715885/"], "note": "공식 스토어 스펙 + Android Authority 교차 확인"},
+   {"claim": "MagSafe 호환 자석 내장, 스마트폰 뒤에 부착 가능", "sources": ["https://www.notebookcheck.net/Boox-Picco-unveiled-Petite-3-97-e-reader-with-Pomodoro-microSD-and-MagSafe.1410557.0.html", "https://www.techspot.com/news/114020-boox-launches-picco-tiny-100-e-reader-attaches.html"], "note": "Notebookcheck + TechSpot 교차 확인"},
+   {"claim": "$99.99 가격, 9/28 사전 예약 시작, 11월 출하 예정", "sources": ["https://shop.boox.com/products/picco", "https://www.engadget.com/2268196/you-can-now-preorder-the-tiny-boox-picco-ereader/"], "note": "공식 판매 페이지 + Engadget 교차 확인"},
+   {"claim": "16GB microSD 포함, 최대 2TB 확장, WiFi+BT, USB-C", "sources": ["https://shop.boox.com/products/picco", "https://goodereader.com/blog/onyx-boox/onyx-boox-picco-will-cost-100-and-release-by-end-of-2026"], "note": "공식 스펙 + Good e-Reader 교차 확인"},
+   {"claim": "미국발 $150 이하 면세 기준 해당", "sources": ["https://www.customs.go.kr/", "https://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%EC%9D%98_%EA%B4%80%EC%84%B8"], "note": "관세청: 미국발 목록통관 면세 한도 $200 이하"},
+   {"claim": "국내 대안 Boox Poke6 쿠팡 192,000원", "sources": ["https://search.danawa.com/dsearch.php?query=onyx+boox"], "note": "다나와 검색 확인. 쿠팡 최저가 기준 2026-01 기준으로 시세 변동 가능"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/boox_picco_main.jpg",
+   "title": "전자책 리더기가 처음으로\n스마트폰보다 작아졌다",
+   "title_hl": ["작아졌다"],
+   "body": "4인치 E-ink, 58g — 자석으로 폰 뒤에 붙인다",
+   "body_hl": ["58g"],
+   "credit": "Boox"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/boox_picco_lifestyle.jpg",
+   "title": "Boox Picco\n$99.99 · 약 13만원",
+   "title_hl": ["$99.99"],
+   "body": "3.97인치 235PPI · 물리 버튼 · 프론트라이트\nmicroSD 최대 2TB · WiFi · 블루투스",
+   "body_hl": ["2TB"],
+   "sub": "11월 출하 · shop.boox.com 사전 예약 중\n$150 이하 면세 · 국내 대안 Boox Poke6(19.2만원)",
+   "credit": "Boox"
+  }
+ ]
+}
