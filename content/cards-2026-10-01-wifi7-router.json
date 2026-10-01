@@ -1,0 +1,34 @@
+{
+ "topic": "WiFi 7 공유기 — 공유기를 3년째 안 바꿨으면, 기가 인터넷 속도의 절반을 버리고 있다, 7만원대면 WiFi 7 공유기가 온다 [구매가능][공유형]",
+ "blog_teaser": "WiFi 5·6·7 세대별 실측 속도 차이와, 내 공유기 세대 확인하는 법은 블로그에 정리했습니다",
+ "threads_text": "공유기, 이제 안 바꾸면 기가 인터넷 요금을 헛낸다\n\n1. 기가 인터넷 깔아도 WiFi 5 공유기면 실측 300~500Mbps. 절반을 공유기가 먹는다\n2. WiFi 7(802.11be)은 이론 최대 46Gbps. 가정용은 실측 1~2Gbps 나온다\n3. ipTIME BE3600M이 69,900원. 듀얼밴드 WiFi 7이 7만원대까지 내려왔다\n4. 확인법: 공유기 뒷면 802.11ac=WiFi5, ax=WiFi6, be=WiFi7\n5. 3년 넘은 공유기 쓰면 인터넷 요금만큼 속도를 버리는 중\n\n(출처: ipTIME 공식, 베타뉴스 리뷰, 다나와 2026-10-01 확인)",
+ "description": "매달 기가 인터넷 요금을 내면서 정작 속도의 절반을 공유기가 잡아먹고 있다면? WiFi 5(802.11ac) 공유기는 이론 최대 1.3Gbps지만 실측은 300~500Mbps에 그친다. 벽 하나만 지나면 200Mbps 아래로 떨어지기도 한다.\n\nWiFi 세대가 올라갈수록 속도·동시접속·지연이 개선된다. WiFi 6(802.11ax)는 OFDMA로 다중 기기 동시 통신, WiFi 7(802.11be)은 MLO(Multi-Link Operation)로 2.4·5·6GHz 대역을 동시에 묶어 이론 최대 46Gbps, 가정용 실측 1~2Gbps를 낸다.\n\n2024년까지 WiFi 7 공유기는 20만원대였지만, 2026년 10월 현재 ipTIME BE3600M이 69,900원(다나와 최저가)이다. 듀얼밴드(2.4+5GHz) WiFi 7로 실측 1Gbps급. 트라이밴드가 필요하면 ipTIME BE5100M이 109,000원이다.\n\n내 공유기 세대 확인법: 뒷면 스티커의 규격 표기를 보면 된다. 802.11ac = WiFi 5, 802.11ax = WiFi 6, 802.11be = WiFi 7. 3년 넘은 공유기는 대부분 WiFi 5 이하다.\n\nipTIME은 2000년 설립된 한국 네트워크 장비 브랜드(EFM네트웍스)로, 국내 가정용 공유기 시장 점유율 1위다.",
+ "caption": "공유기를 3년째 안 바꿨으면\n기가 인터넷 요금을 헛내고 있다\n\n기가 인터넷 깔아도\nWiFi 5 공유기면 실측 300~500Mbps\n절반을 공유기가 먹는다\n\nWiFi 7(802.11be)\n이론 최대 46Gbps\n가정용 실측 1~2Gbps\n\nipTIME BE3600M — 69,900원\n듀얼밴드 WiFi 7이\n7만원대까지 내려왔다\n\n확인법: 공유기 뒷면\n802.11ac = WiFi 5\n802.11ax = WiFi 6\n802.11be = WiFi 7\n\n#공유기 #WiFi7 #인터넷속도 #ipTIME #기가인터넷",
+ "factcheck": [
+   {"claim": "WiFi 5(802.11ac) 실측 300~500Mbps, WiFi 7(802.11be) 이론 최대 46Gbps", "sources": ["https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7", "https://betanews.net/article/1498"], "note": "Wi-Fi Alliance 공식 + 베타뉴스 WiFi 7 공유기 리뷰에서 세대별 실측 비교 확인"},
+   {"claim": "ipTIME BE3600M 69,900원, BE5100M 109,000원", "sources": ["https://prod.danawa.com/list/?cate=15229930", "https://iptime.com/iptime/?page_id=210&uid=24959"], "note": "다나와 가격비교 + ipTIME 공식 제품 페이지 2026-10-01 확인"},
+   {"claim": "ipTIME(EFM네트웍스) 국내 가정용 공유기 시장 점유율 1위", "sources": ["https://www.etnews.com/20240315000127", "https://iptime.com/iptime/?page_id=126"], "note": "전자신문 시장 점유율 보도 + ipTIME 공식 연혁"},
+   {"claim": "WiFi 7 MLO(Multi-Link Operation)로 다중 대역 동시 운용", "sources": ["https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7", "https://tilnote.io/pages/66e4ffd0c4fbd66e58b72da4"], "note": "Wi-Fi Alliance MLO 설명 + tilnote 정리 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/wifi7_router_hook.jpg",
+   "title": "기가 인터넷이 느린 이유가\n공유기였다",
+   "title_hl": ["공유기였다"],
+   "body": "WiFi 5 공유기 하나가\n속도의 절반을 먹고 있었다",
+   "body_hl": ["절반을 먹고"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/wifi7_router_speed.jpg",
+   "title": "WiFi 7 공유기가\n7만원대로 내려왔다",
+   "title_hl": ["7만원대"],
+   "body": "ipTIME BE3600M — 69,900원\n듀얼밴드 WiFi 7, 실측 1Gbps급",
+   "body_hl": ["69,900원"],
+   "sub": "확인법: 공유기 뒷면 802.11ac=WiFi5, ax=6, be=7\n3년 넘었으면 교체 시점",
+   "credit": "Pexels"
+  }
+ ]
+}
