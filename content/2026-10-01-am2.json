@@ -1,0 +1,77 @@
+{
+  "title": "미국한테 배운 원전을, 미국에 되팝니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "시사",
+  "bg_query": ["nuclear power plant aerial", "nuclear reactor construction site", "cooling tower power plant", "Korean nuclear plant Kori", "UAE Barakah nuclear power plant", "energy summit handshake"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "지금, 한국이 미국에 원전을 짓습니다. 270조 원 규모입니다.",
+      "bg": 6534500,
+      "lines": [
+        ["한국이 미국에 원전을 짓습니다", []],
+        ["270조 원 규모", ["270조"]]
+      ]
+    },
+    {
+      "kind": "body",
+      "voice": "어제 발표된 한미 에너지 투자입니다. 원전 8기, 가스 발전, 천연가스를 합산한 금액입니다.",
+      "bg": 6468634,
+      "lines": [
+        ["한미 에너지 투자 — 270조 원", []],
+        ["원전 8기 + 가스 발전 + 천연가스", ["8기"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "한국 원전은 1978년에 시작됐습니다. 고리 1호기, 미국 웨스팅하우스가 설계한 수입 원전이었습니다.",
+      "bg": "commons:File:Sodium Reactor Experiment - Construction of the reactor.jpg",
+      "lines": [
+        ["1978년, 고리 1호기", []],
+        ["미국 웨스팅하우스가 설계한 수입 원전", ["수입"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "그 기술을 독자 개발해 APR1400이라는 한국형 원자로를 만들었고, 2009년 UAE에 4기를 수출하며 원전 수출국이 됐습니다.",
+      "bg": 29491854,
+      "lines": [
+        ["독자 개발 — APR1400", ["APR1400"]],
+        ["2009년 UAE에 4기 수출", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "이번엔 원전 기술의 종주국에 되팔겠다는 겁니다. 학생이 선생님 집을 짓겠다고 나선 셈입니다.",
+      "bg": 8426047,
+      "lines": [
+        ["원전 기술의 종주국에 되팔겠다는 겁니다", []],
+        ["선생님 집을 짓겠다고 나선 셈", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "단, 270조 중 확정 계약은 30조, 11퍼센트뿐입니다. 나머지는 아직 양해각서입니다.",
+      "bg": 31716190,
+      "lines": [
+        ["확정 계약은 30조 — 11%뿐", ["11%뿐"]],
+        ["나머지는 아직 양해각서", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "bg": 6534500,
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", []],
+        ["구독으로 받아보세요", ["구독으로"]]
+      ]
+    }
+  ],
+  "sources": [
+    "https://nocutnews.co.kr/news/6585289",
+    "https://www.mediapen.com/news/view/1127140"
+  ]
+}
