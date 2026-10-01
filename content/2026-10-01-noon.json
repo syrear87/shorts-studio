@@ -1,0 +1,68 @@
+{
+  "title": "같은 해에 빠진 두 기념일, 하나만 돌아왔습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "애국·정체성",
+  "bg_query": ["Korean military parade ceremony", "Korean national holiday celebration", "South Korea Armed Forces Day", "Korean soldiers marching formation", "Hangul Day Korea celebration"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "오늘은 국군의 날입니다. 그런데 달력에 빨간 날이 아닙니다.",
+      "bg": "commons:File:Armed Forces Day of South Korea (1973) 6.jpg",
+      "lines": [
+        ["오늘은 국군의 날입니다", []],
+        ["달력에 빨간 날이 아닙니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "국군의 날은 1956년에 제정됐고, 1976년에 법정공휴일로 지정됐습니다. 군인만 기념하는 날이 아니라, 전 국민이 쉬는 날이었습니다.",
+      "bg": 29117383,
+      "lines": [
+        ["1956년 제정, 1976년 법정공휴일", []],
+        ["전 국민이 쉬는 날이었습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "그런데 1991년, 정부가 10월 공휴일이 너무 많다며 공휴일에서 빼 버렸습니다. 개천절, 한글날, 국군의 날. 셋 중 둘이 한꺼번에 빠졌습니다.",
+      "bg": "commons:File:March 1st celebrations Ceremony 02 (8518334806).jpg",
+      "lines": [
+        ["1991년, 공휴일에서 빠졌습니다", ["1991년"]],
+        ["한글날과 국군의 날 — 둘 다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "한글날은 2013년에 돌아왔습니다. 22년 만이었습니다. 그런데 국군의 날은 아직입니다.",
+      "bg": 31801551,
+      "lines": [
+        ["한글날 — 2013년 돌아왔습니다", []],
+        ["국군의 날은 아직입니다", ["아직"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "2024년, 34년 만에 딱 하루 임시공휴일로 돌아온 적이 있습니다. 하지만 그 하루가 마지막이었습니다. 올해 국군의 날은, 다시 평일입니다.",
+      "bg": "photo:8579797",
+      "lines": [
+        ["2024년, 34년 만에 하루 임시공휴일", []],
+        ["올해는 다시 평일입니다", ["평일"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "bg": "commons:File:Armed Forces Day of South Korea (1973) 6.jpg",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", []],
+        ["구독으로 받아보세요", []]
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.law.go.kr/법령/관공서의공휴일에관한규정",
+    "https://ko.wikipedia.org/wiki/국군의_날"
+  ]
+}
