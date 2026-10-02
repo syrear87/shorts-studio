@@ -1,0 +1,36 @@
+{
+ "topic": "지문인식 자물쇠 — 자물쇠에서 열쇠가 사라졌다, 지문이면 0.5초에 열린다, USB-C 충전 2만원대부터 [구매가능][공유형]",
+ "blog_teaser": "지문인식 자물쇠 고를 때 꼭 볼 세 가지 — IP등급, 지문 등록 수, 비상 해제 방식은 블로그에 있습니다",
+ "threads_text": "자물쇠에서 열쇠가 사라졌다\n\n1. 지문인식 자물쇠. 손가락 대면 0.5초에 열린다\n2. USB-C 충전. 한 번 충전으로 2500~3000회 잠금 해제\n3. 지문 최대 10~20개 등록. 가족이나 동료랑 같이 쓸 수 있다\n4. IP66 방수. 비 맞아도 된다\n5. 쿠팡 2만원대부터. 헬스장 라커, 캐리어, 창고에 딱이다\n\n(출처: Anytek, ABUS 공식, Bayometric)",
+ "description": "지문인식 자물쇠가 2만원대까지 내려왔다. 반도체 정전식 센서가 지문의 능선 패턴을 읽어 0.5초 안에 잠금을 해제한다. 지문 데이터는 본체에 암호화 저장되며 클라우드로 나가지 않는다. USB-C 한 번 충전으로 2,500~3,000회 해제가 가능해 매일 2~3번 쓰면 대기 포함 약 1년 간다. 방수 등급은 IP66 이상이 대부분이라 야외 창고나 자전거에 걸어도 된다. 다만 보안 강도는 편의 수준이다 — 볼트커터로 고리를 자르는 물리 공격에는 일반 자물쇠와 같고, 센서 품질이 낮은 저가 제품은 젤라틴 지문 복제에 취약하다는 연구도 있다. 금고용이 아니라 헬스장 라커, 캐리어, 사물함처럼 편의가 중요한 곳에 쓸 물건이다.",
+ "caption": "자물쇠에서 열쇠가 사라졌다\n\n지문이면 0.5초에 열린다.\nUSB-C 충전 1회로 3000번.\n지문 최대 20개 등록.\nIP66 방수 — 비 맞아도 된다.\n쿠팡 2만원대부터.\n\n(출처: Anytek, ABUS, Bayometric)\n\n#지문자물쇠 #스마트자물쇠 #가젯 #테크 #캠핑",
+ "factcheck": [
+   {"claim": "반도체 정전식 센서로 0.5초 안에 잠금 해제", "sources": ["https://www.bayometric.com/how-do-fingerprint-door-locks-work/", "https://www.abus.com/int/Consumer/Padlocks/By-series/Fingerprint-locks"], "note": "Bayometric: capacitive semiconductor sensor captures ridge pattern. ABUS 및 Tapplock 공식 0.8초 이내. 대부분 0.5~1초 범위"},
+   {"claim": "USB-C 한 번 충전으로 2500~3000회 해제", "sources": ["https://www.amazon.com/dp/B07GBYN8QF", "https://www.amazon.com/dp/B0DY4DD6JQ"], "note": "Anytek P3: 2500회, NexusLab: 3000회. 제품마다 편차 있으나 대부분 2000~3000회 범위"},
+   {"claim": "IP66 방수 등급", "sources": ["https://www.amazon.com/dp/B07GBYN8QF", "https://www.abus.com/int/Consumer/Padlocks/By-series/Fingerprint-locks"], "note": "Anytek P3 IP66, ABUS Touch 시리즈 IP68. IP66은 분사수 방수, 비 정도는 충분"},
+   {"claim": "쿠팡 2만원대부터 구매 가능", "sources": ["https://www.coupang.com/np/search?q=지문인식+자물쇠"], "note": "쿠팡 검색 결과 17,700원~. 2만원대 주력 제품 다수 확인. G마켓 19,800원~"},
+   {"claim": "지문 데이터는 본체에 암호화 저장, 클라우드 전송 없음", "sources": ["https://www.bayometric.com/how-do-fingerprint-door-locks-work/"], "note": "fingerprint template stored locally in encrypted memory"},
+   {"claim": "저가 제품은 젤라틴 지문 복제에 취약할 수 있다", "sources": ["https://arxiv.org/pdf/2404.02150"], "note": "학술 연구에서 alginate/gelatin spoof 공격으로 70%+ 성공률 보고. 다만 이는 범용 지문 센서 연구이며 고급 제품은 anti-spoof 기능 내장"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/fingerprint_lock_1.jpg",
+   "title": "자물쇠에서\n열쇠가 사라졌다",
+   "title_hl": ["열쇠가 사라졌다"],
+   "body": "지문이면 0.5초 · USB-C 충전 · 2만원대",
+   "body_hl": ["0.5초", "2만원대"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/fingerprint_lock_2.jpg",
+   "title": "한 번 충전으로 3000번\n방수 IP66 — 비 맞아도 된다",
+   "title_hl": ["3000번"],
+   "body": "지문 최대 20개 등록\n헬스장 라커 · 캐리어 · 창고 · 자전거\n편의용이지 금고용은 아니다",
+   "body_hl": ["20개", "편의용"],
+   "sub": "쿠팡 2만원대 · Anytek · ABUS · FIPILOCK",
+   "credit": "Pexels"
+  }
+ ]
+}
