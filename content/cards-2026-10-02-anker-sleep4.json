@@ -1,0 +1,35 @@
+{
+ "topic": "Anker Soundcore Sleep Earbuds 4 — 이어폰 끼고 잘 때 못 듣던 화재경보가 끝났다, 충전 케이스가 대신 듣기 시작했다, Smart Sensing Case AI 감지 3g ANC $229 [공유형]",
+ "blog_teaser": "화재경보를 못 듣는 상황이 왜 위험한지, 국내 대안 비교는 블로그에 정리했습니다",
+ "threads_text": "이어폰 끼고 잘 때 못 듣던 화재경보가 끝났다\n\n1. 수면 이어폰 끼고 자는 사람 많은데, 한밤중 화재경보 울리면 못 듣는다\n2. Anker Sleep Earbuds 4. 충전 케이스에 마이크가 달렸다\n3. 케이스가 화재경보·아기 울음을 AI로 구분하면, 이어폰이 자동으로 투명 모드로 바뀐다\n4. 3g. 옆으로 자도 안 아프다\n5. $229(약 31만원). 국내 미출시. 직구 관세 포함 약 40만원\n\n(출처: Soundcore 공식, The Gadgeteer, ecoustics)",
+ "description": "Anker Soundcore Sleep Earbuds 4. 수면 전용 무선 이어폰. Smart Sensing Case(충전 케이스)에 AI 마이크를 내장해 화재경보와 아기 울음소리를 감지하면 자동으로 투명 모드로 전환한다. 이어폰 무게 약 3g, 접촉 면적은 전작 A30 대비 20% 축소. ANC(200~800Hz 대역 기존 대비 3~5dB 개선), 배터리 스트리밍 기준 8~11시간. $229. 미국·유럽 2026년 10월 출시. 한국 출시일 미정. 직구 시 관세·배송 포함 약 40만원(관세 8%+부가세 10%, 배송비 약 2만원 기준). 국내 대안: Anker Soundcore Sleep A30(179,000원, Anker Korea) — 단 화재경보 감지 기능 없음. 전작 대비 코골이 적응형 마스킹 기능 추가.",
+ "caption": "이어폰 끼고 잘 때 못 듣던 화재경보가 끝났다\n\nAnker Soundcore Sleep Earbuds 4.\n충전 케이스에 AI 마이크 내장.\n화재경보·아기 울음 감지하면 투명 모드 자동 전환.\n3g · ANC · $229.\n\n(출처: Soundcore 공식, The Gadgeteer, ecoustics)\n\n#수면이어폰 #앵커 #화재경보 #ANC #테크",
+ "factcheck": [
+   {"claim": "Smart Sensing Case가 화재경보·아기 울음을 AI로 감지해 투명 모드 전환", "sources": ["https://www.soundcore.com/blogs/sleep/soundcore-sleep-earbuds-4-vs-sleep-earbuds-4-pro", "https://the-gadgeteer.com/2026/09/09/soundcore-sleep-earbuds-4-pro-snore-masking-sleep-tracking/"], "note": "Soundcore 공식 블로그 + The Gadgeteer 교차 확인. 화재경보 감지는 Standard 모델(Sleep 4)의 기능이며 Pro 모델은 SleepHub AMOLED 케이스를 대신 탑재"},
+   {"claim": "이어폰 무게 약 3g, 접촉 면적 A30 대비 20% 축소", "sources": ["https://www.soundguys.com/anker-earbuds-at-ifa-2026-162403/", "https://stuff.co.za/2026/09/03/anker-soundcores-new-sleep-earbuds-4-look-like-a-solid-a30-upgrade/"], "note": "SoundGuys + Stuff 교차 확인"},
+   {"claim": "$229, 미국·유럽 2026년 10월 출시, 한국 미출시", "sources": ["https://www.soundguys.com/anker-earbuds-at-ifa-2026-162403/", "https://www.ecoustics.com/products/soundcore-ifa-2026/"], "note": "SoundGuys $229 확인. 한국: 쿠팡·네이버쇼핑 'Soundcore Sleep Earbuds 4' 검색 결과 없음(2026-10-02)"},
+   {"claim": "ANC 200~800Hz 대역 3~5dB 개선, 배터리 8~11시간", "sources": ["https://www.soundguys.com/anker-earbuds-at-ifa-2026-162403/", "https://stuff.co.za/2026/09/03/anker-soundcores-new-sleep-earbuds-4-look-like-a-solid-a30-upgrade/"], "note": "SoundGuys + Stuff 교차 확인"},
+   {"claim": "국내 대안 Anker Sleep A30 179,000원", "sources": ["https://ankerkorea.co.kr/"], "note": "Anker Korea 공식 스토어 확인(2026-10-02). A30에는 Smart Sensing Case(화재경보 감지) 없음"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/anker_sleep4_case.jpg",
+   "title": "이어폰 끼고 잘 때\n못 듣던 화재경보가 끝났다",
+   "title_hl": ["끝났다"],
+   "body": "충전 케이스가 대신 듣기 시작했다",
+   "body_hl": ["대신 듣기"],
+   "credit": "Soundcore / ecoustics.com"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/anker_sleep4_ifa.jpg",
+   "title": "케이스에 마이크가 달렸다\nAI가 화재경보를 구분한다",
+   "title_hl": ["AI"],
+   "body": "3g · ANC · 코골이 적응형 마스킹\n$229(약 31만원) · 직구 관세 포함 약 40만원",
+   "body_hl": ["3g"],
+   "sub": "국내 미출시 · 국내 대안 Sleep A30 17.9만원(화재경보 감지 없음)",
+   "credit": "Soundcore / Ubergizmo IFA 2026"
+  }
+ ]
+}
