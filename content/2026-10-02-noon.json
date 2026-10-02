@@ -1,0 +1,74 @@
+{
+  "title": "내일 개천절, 같은 결승에서 같은 상대를 세 번째로 만납니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "공유성",
+  "real_query": ["Asian Games football Korea Japan final", "Toyota Stadium Nagoya"],
+  "hook_bg_reason": "커먼즈에 아시안게임 축구 결승 사진 없음, 한국 태극기 영상 사용",
+  "culture_gate": false,
+  "bg_ids": [39121286, 7005912, "commons:File:Nagoya Grampus game in Toyota Stadium 100814.JPG"],
+  "bg_query": ["football stadium crowd cheering night", "soccer match scoreboard 2-1", "asian games football celebration gold medal", "football trophy golden ceremony", "Toyota Stadium Nagoya Japan exterior night", "korean flag stadium celebration"],
+  "sources": [
+    "SBS News — Japan Again: South Korean Football to Play for 4th Consecutive Asian Games Gold (2026-10-01)",
+    "OCA — Korea aims for fourth consecutive Asian Games gold in men's football (2026-10-01)",
+    "Hangzhou 2022 공식 — Republic of Korea beats Japan 2-1 (2023-10-07)",
+    "Slate — Son Heung-min: South Korea beats Japan 2-1 at the Asian Games (2018-09-01)"
+  ],
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": 12163086,
+      "hook_bg_reason": "커먼즈에 아시안게임 축구 결승 사진 없음, 한국 태극기 영상 사용",
+      "voice": "내일 개천절에, 한국 축구가 일본 땅에서 일본을 만납니다.",
+      "lines": [
+        ["내일은 개천절입니다", ["개천절"]],
+        ["한국 축구가 일본 땅에서", []],
+        ["일본을 만납니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 27561584,
+      "voice": "2018년 자카르타 아시안게임 결승, 상대는 일본이었습니다. 정규시간을 0 대 0으로 버틴 뒤, 연장전에서 2 대 1로 뒤집었습니다.",
+      "lines": [
+        ["2018 자카르타 결승", []],
+        ["상대는 일본", []],
+        ["연장전에서 2 대 1로 뒤집었습니다", ["2 대 1"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 30099008,
+      "voice": "4년 뒤 2022년 항저우 결승, 또 일본이었습니다. 이번에는 정규시간 안에 2 대 1로 잡았습니다.",
+      "lines": [
+        ["2022 항저우 결승, 또 일본", []],
+        ["정규시간 안에 2 대 1", ["2 대 1"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 7005912,
+      "voice": "세 번 연속 결승 상대가 일본입니다. 내일 이기면 아시안게임 남자 축구 역사상 어떤 나라도 해내지 못한 4연속 우승입니다.",
+      "lines": [
+        ["세 번 연속 결승 상대가 일본", []],
+        ["이기면 역사상 첫 4연속 우승", ["4연속 우승"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 39121286,
+      "voice": "경기장은 일본 나고야 도요타 스타디움, 내일 저녁 7시 30분입니다. 건국을 기념하는 개천절에, 일본 원정에서 4연속 우승을 겁니다.",
+      "lines": [
+        ["일본 나고야, 내일 저녁 7시 30분", []],
+        ["개천절에, 4연속 우승을 겁니다", ["4연속 우승"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": 12163086,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", []]]
+    }
+  ]
+}
