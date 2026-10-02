@@ -1,0 +1,35 @@
+{
+ "topic": "Technics EAH-A1000 — 헤드폰 드라이버에 액체가 들어갔다, 스피커에만 있던 자성유체 기술이 오버이어 헤드폰에 처음 왔다, 40mm 자성유체 드라이버 ANC 45시간 LDAC $449 [한계붕괴형]",
+ "blog_teaser": "자성유체가 뭔지, Sony XM6랑 뭐가 다른지는 블로그에 풀어뒀습니다",
+ "threads_text": "헤드폰 드라이버에 처음으로 액체가 들어갔다\n\n1. Technics EAH-A1000. 40mm 드라이버에 자성유체를 채웠다\n2. 자석 입자가 섞인 오일이 보이스코일을 잡아줘서 왜곡이 준다\n3. 스피커에선 수십 년 된 기술인데 오버이어 헤드폰은 이번이 처음\n4. $449(약 60만원). ANC 45시간. LDAC\n5. 국내 대안: Sony XM6 48만원대(다나와 최저)\n\n(출처: SoundGuys, Engadget, Technics 공식)",
+ "description": "Technics가 EAH-A1000을 발표했다. 40mm 자성유체(Magnetic Fluid) 드라이버를 탑재한 플래그십 무선 노이즈캔슬링 오버이어 헤드폰이다. 자성유체는 자석 입자가 섞인 오일로, 보이스코일과 자석 사이에 채워 코일의 흔들림을 억제하고 왜곡을 줄인다. Technics는 이 기술을 하이파이 스피커에서 수십 년간 사용했고 이어폰(TZ700, AZ100)에도 적용했으나, 오버이어 헤드폰에 넣은 것은 이번이 처음이다. 탄소섬유 콘형 진동판, SST(Symmetrical Surround Technology) 에지, 바플 플랫 구조 채용. ANC(적응형, 마이크 8개), 배터리 약 45시간(ANC 켠 상태), LDAC·Dolby Atmos, 멀티포인트 3대 동시 연결, USB 오디오 지원. $449. 일본 66,000엔(세금 포함), 11/19 발매. 한국 출시일 미정. 직구 시 관세·배송 포함 약 75만원. 국내 대안: Sony WH-1000XM6 다나와 최저 478,690원(2026-10-02 확인).",
+ "caption": "헤드폰 드라이버에 처음으로 액체가 들어갔다\n\nTechnics EAH-A1000.\n자성유체 40mm 드라이버 · ANC 45시간.\nLDAC · Dolby Atmos · 멀티포인트 3대.\n$449 · 일본 11/19 발매.\n\n(출처: Technics 공식, SoundGuys, Engadget)\n\n#테크닉스 #헤드폰 #자성유체 #ANC #오디오",
+ "factcheck": [
+   {"claim": "40mm 자성유체(Magnetic Fluid) 드라이버 — Technics 오버이어 헤드폰 최초 적용", "sources": ["https://www.soundguys.com/technics-eah-a1000-headphones-launched-163985/", "https://www.engadget.com/2271430/technics-brings-magnetic-fluid-drivers-to-new-eah-a1000-headphones/"], "note": "SoundGuys + Engadget 교차 확인. 이어폰(TZ700, AZ100)에는 사용했으나 오버이어는 이번이 처음. '세계 최초'가 아닌 'Technics 최초'로 한정"},
+   {"claim": "자성유체 = 자석 입자가 섞인 오일, 보이스코일과 자석 사이에 채워 왜곡을 억제", "sources": ["https://www.technics.com/global/home/60th-anniversary/technics-brand-story/the-story-of-technics-true-wireless-earbuds.html", "https://www.engadget.com/2271430/technics-brings-magnetic-fluid-drivers-to-new-eah-a1000-headphones/"], "note": "Technics 공식 브랜드 스토리 + Engadget 기술 설명 교차 확인"},
+   {"claim": "$449 / 일본 66,000엔(세금 포함) / 한국 미출시", "sources": ["https://www.soundguys.com/technics-eah-a1000-headphones-launched-163985/", "https://kakaku.com/item/J0000051590/"], "note": "SoundGuys $449 + kakaku.com 일본가 66,000엔. 한국: 쿠팡·네이버쇼핑 '테크닉스 EAH-A1000' 검색 결과 없음(2026-10-02)"},
+   {"claim": "ANC 약 45시간(켠 상태), LDAC 지원", "sources": ["https://www.soundguys.com/technics-eah-a1000-headphones-launched-163985/", "https://thepcenthusiast.com/technics-eah-a1000-flagship-headphones-magnetic-fluid-drivers/"], "note": "SoundGuys + PC Enthusiast 교차 확인"},
+   {"claim": "국내 대안: Sony WH-1000XM6 다나와 최저 478,690원", "sources": ["https://prod.danawa.com/info/?pcode=92622830", "https://store.sony.co.kr/product-view/130258270"], "note": "다나와 최저가 478,690원 + 소니스토어 529,000원(10/31까지 프로모션). 2026-10-02 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/technics_a1000_main.jpg",
+   "title": "헤드폰 드라이버에 처음으로\n액체가 들어갔다",
+   "title_hl": ["액체"],
+   "body": "스피커에만 있던 자성유체 기술이\n오버이어 헤드폰에 처음 왔다",
+   "body_hl": ["처음"],
+   "credit": "Technics / thepcenthusiast.com"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/technics_a1000_driver.jpg",
+   "title": "자석 입자가 섞인 오일이\n보이스코일을 잡는다",
+   "title_hl": ["보이스코일"],
+   "body": "ANC 45시간 · LDAC · Dolby Atmos\n멀티포인트 3대 · $449(약 60만원)\n직구 관세·배송 포함 약 75만원",
+   "body_hl": ["45시간"],
+   "sub": "국내 미출시 · 일본 11/19 발매 · 국내 대안 Sony XM6 48만원대",
+   "credit": "Technics / thepcenthusiast.com"
+  }
+ ]
+}
