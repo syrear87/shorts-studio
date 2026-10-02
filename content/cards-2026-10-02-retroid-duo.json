@@ -1,0 +1,35 @@
+{
+ "topic": "Retroid Pocket Duo — 닌텐도가 버린 듀얼 스크린이 OLED 120Hz로 돌아왔다, 5.5+4.5인치 AMOLED 접이식 핸드헬드 $249~$269 [소유욕형]",
+ "blog_teaser": "DS·3DS 호환성 비교랑 직구할 때 관세 계산은 블로그에 정리했습니다",
+ "threads_text": "닌텐도가 버린 듀얼 스크린이 돌아왔다\n\n1. Retroid Pocket Duo. 닌텐도 DS처럼 접히는 듀얼 스크린인데 양쪽 다 OLED 120Hz\n2. 위 5.5인치 1080p, 아래 4.5인치 960p. DS·3DS 비율 그대로\n3. $249(프리오더)~$269. 관세·배송 포함 약 45만원\n4. 듀얼 스크린 핸드헬드는 닌텐도가 2020년에 접은 뒤로 없었다\n5. 10월 중순 배송. goretroid.com 직구\n\n(출처: goretroid.com 공식, RetroDodo, Notebookcheck)",
+ "description": "Retroid가 Pocket Duo를 발표했다. 닌텐도 DS·3DS 이후 6년 만에 등장한 듀얼 스크린 클램셸 핸드헬드다. 상단 5.5인치 1080p AMOLED 120Hz(16:9) + 하단 4.5인치 960p AMOLED 120Hz(4:3) 구성으로 DS·3DS 에뮬레이션에 최적화됐다. Qualcomm Dragonwing Q-7790 프로세서, 8GB LPDDR4x RAM, 128GB UFS2.1 스토리지, 6000mAh 배터리(27W 충전), 액티브 쿨링, Wi-Fi 6E + BT 5.4, Android 16. 5가지 색상(GC·16Bit·Black·Ice Blue·Clear Purple). $269(프리오더 코드 DUO 적용 시 $249, 10/15 만료). 10월 중순 배송 시작. 국내 미출시 — goretroid.com 직구만 가능. 직구 총액 관세·배송 포함 약 45만원. 국내에 듀얼 스크린 레트로 핸드헬드 대안은 없음. Duo Lite($149~$169)도 동시 출시.",
+ "caption": "닌텐도가 버린 듀얼 스크린이 돌아왔다\n\nRetroid Pocket Duo.\nOLED 120Hz 두 장 · DS 폼팩터.\n5.5인치+4.5인치 AMOLED.\n$249~$269 · 10월 중순 배송.\ngoretroid.com 직구.\n\n(출처: goretroid.com, RetroDodo, Notebookcheck)\n\n#레트로게임 #핸드헬드 #닌텐도DS #듀얼스크린 #가젯",
+ "factcheck": [
+   {"claim": "듀얼 AMOLED 120Hz: 상단 5.5인치 1080p(16:9) + 하단 4.5인치 960p(4:3)", "sources": ["https://www.goretroid.com/products/retroid-pocket-duo-handheld", "https://retrododo.com/retroid-pocket-duo-duo-lite-full-specifications-finally-revealed/"], "note": "goretroid.com 공식 스펙 + RetroDodo 교차 확인"},
+   {"claim": "가격 $269, 프리오더 코드 DUO 적용 시 $249(10/15 만료)", "sources": ["https://www.goretroid.com/products/retroid-pocket-duo-handheld", "https://www.notebookcheck.net/Retroid-announces-pricing-for-the-Pocket-Duo-and-Pocket-Duo-Lite.1395674.0.html"], "note": "공식 스토어 가격 + Notebookcheck 교차 확인"},
+   {"claim": "Qualcomm Dragonwing Q-7790, 8GB LPDDR4x, 128GB UFS2.1, 6000mAh", "sources": ["https://www.goretroid.com/products/retroid-pocket-duo-handheld", "https://retrocatalog.com/retro-handhelds/retroid-pocket-duo"], "note": "공식 스펙 페이지 기준"},
+   {"claim": "닌텐도 3DS 계열(듀얼 스크린 핸드헬드) 2020년 단종", "sources": ["https://en.wikipedia.org/wiki/New_Nintendo_2DS_XL", "https://en.wikipedia.org/wiki/Nintendo_3DS"], "note": "New 2DS XL 2020년 생산 종료, 3DS 온라인 서비스 2024년 종료"},
+   {"claim": "10월 중순 배송 시작, 국내 미출시(직구만)", "sources": ["https://www.goretroid.com/products/retroid-pocket-duo-handheld"], "note": "공식 스토어 shipping 안내. Retroid 이전 제품도 국내 정식 출시 없음. 쿠팡·네이버쇼핑 검색 결과 없음(2026-10-02 확인)"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/retroid_duo_main.jpg",
+   "title": "닌텐도가 버린\n듀얼 스크린이 돌아왔다",
+   "title_hl": ["돌아왔다"],
+   "body": "6년 전 단종된 DS 폼팩터가\nOLED 120Hz 두 장으로 부활",
+   "body_hl": ["OLED 120Hz"],
+   "credit": "goretroid.com"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/retroid_duo_detail.jpg",
+   "title": "OLED 두 장에 120Hz\n$249부터",
+   "title_hl": ["$249"],
+   "body": "5.5인치 1080p + 4.5인치 960p\n8GB RAM · 6000mAh · Android 16\n관세·배송 포함 직구 약 45만원",
+   "body_hl": ["45만원"],
+   "sub": "goretroid.com 직구 · 10월 중순 배송 · 국내 듀얼 스크린 대안 없음",
+   "credit": "goretroid.com"
+  }
+ ]
+}
