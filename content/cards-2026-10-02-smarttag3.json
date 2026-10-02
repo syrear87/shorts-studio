@@ -1,0 +1,35 @@
+{
+ "topic": "Galaxy SmartTag3 — 분실방지 태그에서 '갤럭시 전용'이 사라졌다, 삼성 태그가 처음으로 아이폰에서 작동한다, BT 6.0 60m 방향 찾기 9.15g 790일 배터리 44,000원 10/7 국내 출시 [공유형]",
+ "blog_teaser": "에어태그2와 비교한 표랑 iOS에서 안 되는 기능 정리는 블로그에 있습니다",
+ "threads_text": "분실방지 태그에서 '갤럭시 전용'이 사라졌다\n\n1. 삼성 스마트태그3 어제 공개. 처음으로 아이폰에서도 쓸 수 있다\n2. 집에 갤럭시랑 아이폰 같이 쓰면 태그 하나로 공유 가능\n3. 블루투스 6.0으로 60m 밖에서 방향 안내 — 전작의 3배\n4. 9.15g, 배터리 790일. 4.4만원, 10/7 국내 출시\n\n(출처: 삼성 뉴스룸, 머니투데이, Android Authority)",
+ "description": "Samsung Galaxy SmartTag3. 분실방지 블루투스 트래커. 삼성 스마트태그 시리즈 최초로 iOS(아이폰) 기기를 지원한다. 블루투스 6.0 채널 사운딩 기술로 최대 60m 거리에서 컴퍼스 뷰(방향+거리)를 제공하며 전작 대비 탐색 거리 3배. 부피 35% 축소, 무게 33% 감소(9.15g, 31x31x8.2mm). 교체형 CR2032 배터리, 일반 모드 550일·절전 모드 790일. IP67 방수방진. NFC 분실 모드(발견자가 스캔하면 소유자 연락처 확인 가능). UWB 지원. 44,000원(4개 번들 149,600원). 국내 10월 7일 출시, 미국 11월 초 $29.99. iOS 제한: Compass View·Ring Phone·Left Behind Alert 미지원.",
+ "caption": "분실방지 태그에서 '갤럭시 전용'이 사라졌다\n\n삼성 스마트태그3.\n처음으로 아이폰에서도 작동한다.\n60m 밖에서 방향을 찾고, 배터리는 790일.\n4.4만원 · 10/7 국내 출시.\n\n(출처: 삼성전자 뉴스룸, 머니투데이, Android Authority)\n\n#스마트태그3 #삼성 #분실방지 #아이폰호환 #테크",
+ "factcheck": [
+   {"claim": "SmartTag3가 삼성 스마트태그 최초로 iOS 기기 호환 지원", "sources": ["https://news.samsung.com/kr/%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90-%EB%8D%94-%EC%9E%91%EA%B3%A0-%EC%A0%95%EA%B5%90%ED%95%B4%EC%A7%84-%EA%B0%A4%EB%9F%AD%EC%8B%9C-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%83%9C%EA%B7%B83-%EA%B3%B5", "https://www.etnews.com/20261001000049"], "note": "삼성전자 뉴스룸(1차 공식) + 전자신문 교차 확인. iOS에서 Compass View·Ring Phone·Left Behind Alert는 미지원"},
+   {"claim": "블루투스 6.0 채널 사운딩으로 최대 60m 탐색, 전작 대비 3배", "sources": ["https://news.samsung.com/global/samsung-galaxy-smarttag3-makes-it-easier-to-keep-track-of-what-matters", "https://www.mt.co.kr/tech/2026/10/01/2026100108324932291"], "note": "삼성 글로벌 뉴스룸(1차) + 머니투데이 교차 확인"},
+   {"claim": "부피 35% 축소, 무게 33% 감소, 9.15g, 31x31x8.2mm", "sources": ["https://www.androidauthority.com/samsung-smarttag-3-iphone-support-longer-range-3716430/", "https://www.ddaily.co.kr/page/view/2026100110110600948"], "note": "Android Authority(실물 확인) + 디지털데일리 교차 확인"},
+   {"claim": "CR2032 배터리 일반 550일, 절전 790일, IP67", "sources": ["https://news.samsung.com/global/samsung-galaxy-smarttag3-makes-it-easier-to-keep-track-of-what-matters", "https://www.g-enews.com/article/Industry/2026/10/2026100108193047113084322ec9_1"], "note": "삼성 글로벌 뉴스룸(1차) + 글로벌이코노믹 교차 확인"},
+   {"claim": "국내 가격 44,000원, 4개 번들 149,600원, 10월 7일 국내 출시", "sources": ["https://www.newspim.com/news/view/20261001000133", "https://www.ddaily.co.kr/page/view/2026100110110600948"], "note": "뉴스핌 + 디지털데일리 교차 확인. 미국 $29.99(11월 초)는 Samsung 글로벌 뉴스룸 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/smarttag3_main.jpg",
+   "title": "분실방지 태그에서\n'갤럭시 전용'이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "삼성 태그가 처음으로 아이폰에서 작동한다",
+   "body_hl": ["처음으로", "아이폰"],
+   "credit": "Stephen Schenck / Android Authority"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/smarttag3_detail.jpg",
+   "title": "60m 밖에서도 방향을 찾는다\n전작의 3배",
+   "title_hl": ["3배"],
+   "body": "9.15g · 배터리 790일 · IP67 방수\n44,000원 · 10월 7일 국내 출시",
+   "body_hl": ["790일"],
+   "sub": "iOS 제한: 컴퍼스 뷰·벨 울리기·분리 알림 미지원",
+   "credit": "Stephen Schenck / Android Authority"
+  }
+ ]
+}
