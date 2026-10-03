@@ -1,0 +1,33 @@
+{
+ "topic": "Amazon Kindle Click — 전자책에서 버튼을 없앤 아마존이 버튼만 따로 팔기 시작했다, 킨들 최초 공식 블루투스 리모컨 $34.99 10/28 출시 [공유형]",
+ "blog_teaser": "킨들 버튼의 역사랑 서드파티 리모컨 비교는 블로그에 정리해뒀습니다",
+ "threads_text": "전자책에서 사라졌던 버튼이, 리모컨으로 돌아왔다\n\n1. 아마존이 킨들 최초 공식 리모컨 Kindle Click 발표\n2. 2024년 킨들 오아시스 단종 — 물리 버튼 완전 전멸\n3. 2년 만에 그 버튼이 $34.99 별매 액세서리로 부활\n4. 이불 속, 러닝머신 위, 비행기 안에서 화면 안 만지고 넘김\n5. USB-C 충전, 2024년 이후 킨들 호환, 10/28 출시\n\n(출처: aboutamazon.com, TechCrunch, Android Authority)",
+ "description": "Amazon Kindle Click. 킨들 최초 공식 블루투스 페이지 넘김 리모컨. 2024년 킨들 오아시스(마지막 물리 버튼 모델) 단종 후 2년 만에 버튼을 별매 액세서리로 부활시킨 제품. 앞/뒤 페이지 넘김 + 밝기 조절 + 슬립모드 지원. USB-C 충전, 손목 스트랩 포함. 2024년 이후 킨들 모델 호환. $34.99(약 47,000원), 10월 28일 출시. 국내 미출시 — amazon.com 직구 가능, amazon.co.jp 경유 가능. 서드파티 리모컨은 수년 전부터 존재했으나 아마존 공식은 처음.",
+ "caption": "전자책에서 사라졌던 버튼이, 리모컨으로 돌아왔다\n\n킨들 최초 공식 리모컨, Kindle Click.\n화면 안 만지고 페이지를 넘긴다.\n$34.99(약 47,000원) · 10/28 출시.\n\n(출처: aboutamazon.com, TechCrunch, Android Authority)\n\n#킨들 #KindleClick #전자책 #아마존 #테크",
+ "factcheck": [
+   {"claim": "킨들 최초 공식 블루투스 페이지 넘김 리모컨", "sources": ["https://www.aboutamazon.com/news/devices/new-kindle-lineup-2026", "https://www.androidauthority.com/2026-kindle-3718066/"], "note": "aboutamazon.com 1차 공식 발표 + Android Authority: 'Amazon is getting in on the action, too' — 이전 공식 리모컨 없음 확인"},
+   {"claim": "가격 $34.99, USB-C 충전, 10월 28일 출시, 2024년 이후 킨들 호환", "sources": ["https://www.aboutamazon.com/news/devices/new-kindle-lineup-2026", "https://techcrunch.com/2026/10/01/amazon-introduces-kindle-click-a-35-remote-for-hands-free-reading/"], "note": "aboutamazon.com 1차 공식 + TechCrunch 교차 확인. 배터리 지속 시간은 공식 미표기('weeks' 서술만)로 미사용"},
+   {"claim": "2024년 킨들 오아시스 단종이 마지막 물리 버튼 킨들", "sources": ["https://www.androidauthority.com/amazon-kills-kindle-oasis-3491465/", "https://www.engadget.com/mobile/tablets/the-kindle-oasis-will-be-discontinued-as-amazon-says-goodbye-to-page-turn-buttons-213538052.html"], "note": "Amazon 공식 성명(Devon Corvasce → The Verge): 'all of our devices are touch-forward' + Engadget 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/kindle_click_product.jpg",
+   "title": "전자책에서 사라졌던 버튼이\n리모컨으로 돌아왔다",
+   "title_hl": ["돌아왔다"],
+   "body": "2024년 물리 버튼 전멸, 2년 만에 아마존 공식 리모컨으로 부활",
+   "body_hl": ["2년 만에", "부활"],
+   "credit": "Amazon / aboutamazon.com"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/kindle_click_detail.jpg",
+   "title": "화면 안 만지고 넘긴다\nKindle Click",
+   "title_hl": ["Kindle Click"],
+   "body": "$34.99(약 47,000원) · USB-C 충전\n2024년 이후 킨들 호환 · 10/28 출시",
+   "body_hl": ["47,000원"],
+   "sub": "국내 미출시 — amazon.com·amazon.co.jp 직구 가능",
+   "credit": "Brian Heater / TechCrunch"
+  }
+ ]
+}
