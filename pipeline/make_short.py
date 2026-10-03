@@ -924,7 +924,9 @@ def main():
         # 있었다. 훅이 실물(commons·nasa·file)이 아니면 그 이유를 대본에 적게 한다 — 무심코
         # 넘어가던 선택을 의식적인 결정으로 바꾼다.
         _h0 = str(script["scenes"][0].get("bg"))
-        if script.get("real_query") and not _h0.startswith(("commons:", "nasa:", "file")) \
+        # 2026-10-03: 게이트를 real_query 유무에 걸었더니 세션들이 real_query를 아예 안 쓰기
+        # 시작했다(9/30~10/3 다섯 편 전부 생략 → 게이트 무력화). 조건 없이 훅을 본다.
+        if not _h0.startswith(("commons:", "nasa:", "file")) \
                 and len(str(script.get("hook_bg_reason") or "").strip()) < 10:
             sys.exit("기각: 훅 첫 화면이 실물이 아니다(bg=%s) — pick_bg.py의 🎯 실물 후보(c*.jpg)를 "
                      "훅에 써라. 실물이 정말 없으면 대본에 \"hook_bg_reason\": \"사유 10자 이상\"을 "
