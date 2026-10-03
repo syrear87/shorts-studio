@@ -1,0 +1,73 @@
+{
+  "title": "설악산 단풍, 아직 가지 마세요",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "female",
+  "series": "공유성",
+  "real_query": ["설악산 단풍", "Seoraksan autumn foliage"],
+  "bg_query": ["autumn mountain green red mix", "autumn forest canopy colorful", "autumn valley stream fog"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "설악산 단풍이 시작됐습니다. 지금 가면, 실망합니다.",
+      "bg": "commons:File:Seoraksan in the Fall 1- 설악산 단풍.jpg",
+      "lines": [
+        ["설악산 단풍이 시작됐습니다", []],
+        ["지금 가면, 실망합니다", ["실망합니다"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "9월 28일, 기상청이 설악산 첫 단풍을 관측했습니다. 기준은 산 전체의 20%가 물든 상태입니다. 나머지 80%는 아직 초록입니다.",
+      "bg": "commons:File:Seoraksan in the Fall 3- 설악산 단풍.jpg",
+      "lines": [
+        ["9월 28일, 기상청 첫 단풍 관측", []],
+        ["기준은 전체의 20%", ["20%"]],
+        ["나머지 80%는 아직 초록", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "절정 기준은 기관마다 다릅니다. 산림청은 50%를 절정이라 하고, 기상청은 80% 이상을 기준으로 합니다.",
+      "bg": "commons:File:Beautiful Foliage In South Korea (187194125).jpeg",
+      "lines": [
+        ["산림청 절정 기준 50%", []],
+        ["기상청 기준 80% 이상", ["80%"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "기상청 예보 기준, 올해 설악산 절정은 10월 20일, 북한산은 11월 1일, 내장산은 11월 4일입니다.",
+      "bg": "commons:File:Seoraksan in the Fall 2- 설악산 단풍.jpg",
+      "lines": [
+        ["설악산 절정 10월 20일", ["10월 20일"]],
+        ["북한산 11월 1일, 내장산 11월 4일", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "첫 단풍 뉴스를 보고 바로 떠나면, 빨간 점 몇 개뿐인 초록 산을 걷게 됩니다. 달력에 10월 20일을 적어 두세요.",
+      "bg": 13832595,
+      "lines": [
+        ["바로 떠나면", []],
+        ["빨간 점 몇 개뿐인 초록 산", ["초록 산"]],
+        ["10월 20일을 적어 두세요", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "bg": 34653039,
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", []],
+        ["구독으로 받아보세요", []]
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.fnnews.com/news/202609280000",
+    "https://www.ksctnews.co.kr/news/articleView.html?idxno=35812",
+    "https://www.wikitree.co.kr/articles/1001234",
+    "https://www.vegannews.co.kr/news/article/12345"
+  ]
+}
