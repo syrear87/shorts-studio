@@ -1,0 +1,36 @@
+{
+ "topic": "HOVERAir VERSA — 짐벌 카메라에 날개를 끼우면 드론이 된다, 1/1.3인치 4K60fps 230g, $449 [소유욕형]",
+ "blog_teaser": "짐벌 모드와 드론 모드 스펙 비교, 한국 비행 규제 정리는 블로그에 있습니다",
+ "threads_text": "짐벌 카메라가 처음으로 날았다\n\n1. HOVERAir VERSA. 3축 짐벌 카메라인데 프로펠러 키트 끼우면 셀카 드론으로 변신한다\n2. 1/1.3인치 센서에 4K 60fps. 다이나믹 레인지 17.5스톱\n3. 짐벌으로 180분, 드론으로 14분. 합체 무게 230g\n4. $449(약 65만원)부터. 인디고고 캠페인 중, 10월 배송\n5. 250g 미만이라 미국 FAA 무등록 비행 가능. 한국은 2kg 미만 무신고 비행\n\n(출처: New Atlas, DroneDJ, Notebookcheck)",
+ "description": "HOVERAir(중국 선전 Zero Zero Infinity)가 VERSA를 인디고고에 출시했다. 3축 짐벌 핸드헬드 카메라에 프로펠러 프레임(Flight Kit)을 끼우면 셀카 드론이 되는 2-in-1 제품이다. 1/1.3인치 센서, 4K 60fps, f/2.0 16mm 등가, 다이나믹 레인지 17.5스톱, 10비트 H-Log 지원. 짐벌 모드 배터리 180분, 비행 모드 14분. Flight Kit 합체 무게 230g으로 FAA 250g 등록 기준 아래다. 한국은 2kg 미만 드론이 무신고 비행 가능(비행 구역 제한은 별도). 인디고고 기본 가격 $449(짐벌만), FlyMore Combo $629(Flight Kit+여분 배터리), Creator Combo $799. 10월 배송 예정. 세계 최초 짐벌+드론 하이브리드 제품이라 직접 경쟁 제품이 없다. 기존 HOVERAir X1(125g 셀카 드론)의 후속이 아니라 별도 라인이다.",
+ "caption": "짐벌 카메라가 처음으로 날았다\n\nHOVERAir VERSA.\n3축 짐벌 + 드론 2-in-1.\n1/1.3인치 4K60fps 17.5스톱.\n짐벌 180분 · 드론 14분 · 230g.\n$449~$629 · 10월 배송.\n\n(출처: New Atlas, DroneDJ, Notebookcheck)\n\n#짐벌카메라 #셀카드론 #HOVERAir #가젯 #크라우드펀딩",
+ "factcheck": [
+   {"claim": "3축 짐벌 카메라에 Flight Kit(프로펠러 프레임) 끼우면 드론이 되는 2-in-1", "sources": ["https://newatlas.com/consumer-tech/hoverair-versa-full-specs-indiegogo/", "https://dronedj.com/2026/08/19/hoverair-gimbal-camera-drone-versa/"], "note": "New Atlas + DroneDJ 교차 확인. pogo-pin 접점으로 원클릭 합체"},
+   {"claim": "1/1.3인치 센서, 4K 60fps, f/2.0 16mm 등가, 다이나믹 레인지 17.5스톱", "sources": ["https://www.imaging-resource.com/news/hoverair-versa-raises-over-240000-on-indiegogo-in-just-one-day/", "https://www.notebookcheck.net/Hoverair-Versa-launches-on-Indiegogo-Self-flying-gimbal-camera-with-AI-auto-tracking-10-bit-H-LOG-and-up-to-17-5-stops-dynamic-range.1372080.0.html"], "note": "Imaging Resource + Notebookcheck 교차 확인"},
+   {"claim": "짐벌 모드 180분, 비행 모드 14분, Flight Kit 합체 무게 230g", "sources": ["https://newatlas.com/consumer-tech/hoverair-versa-full-specs-indiegogo/", "https://www.notebookcheck.net/Hoverair-Versa-launches-on-Indiegogo-Self-flying-gimbal-camera-with-AI-auto-tracking-10-bit-H-LOG-and-up-to-17-5-stops-dynamic-range.1372080.0.html"], "note": "230g은 FAA 250g 기준 아래. 비행 시간 일부 매체 15분 표기 — 보수적으로 14분 채택"},
+   {"claim": "인디고고 기본 $449, FlyMore Combo $629, Creator Combo $799, 10월 배송", "sources": ["https://dronedj.com/2026/08/19/hoverair-gimbal-camera-drone-versa/", "https://newatlas.com/consumer-tech/hoverair-versa-full-specs-indiegogo/"], "note": "DroneDJ + New Atlas 가격 교차 확인"},
+   {"claim": "세계 최초 짐벌+드론 2-in-1 제품", "sources": ["https://www.notebookcheck.net/HoverAir-Versa-A-DJI-and-Insta360-alternative-combining-camera-and-drone.1355622.0.html", "https://www.digitalcameraworld.com/drones/hoverair-versa-is-it-a-drone-or-is-it-a-gimbal-camera-why-not-both-at-once"], "note": "여러 매체가 세계 최초로 표현. 직접 경쟁 제품 없음"},
+   {"claim": "한국 2kg 미만 드론 무신고 비행 가능", "sources": ["https://www.law.go.kr/법령/항공안전법시행규칙", "https://drone.onestop.go.kr"], "note": "항공안전법 시행규칙 무인비행장치 신고 면제 기준 2kg 이하. 비행 구역 제한(공항·비행금지구역)은 별도 적용"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/hoverair_versa_hook.jpg",
+   "title": "짐벌 카메라가\n처음으로 날았다",
+   "title_hl": ["처음으로 날았다"],
+   "body": "3축 짐벌 카메라 + 프로펠러 키트 = 셀카 드론",
+   "body_hl": ["셀카 드론"],
+   "credit": "New Atlas / HOVERAir"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/hoverair_versa_end.jpg",
+   "title": "짐벌 180분, 드론 14분\n230g에 4K 60fps",
+   "title_hl": ["230g"],
+   "body": "1/1.3인치 센서 · 17.5스톱 HDR\n$449~$629 · 10월 배송\n한국 2kg 미만 무신고 비행 가능",
+   "body_hl": ["$449", "무신고"],
+   "sub": "인디고고 캠페인 진행 중 · HOVERAir(선전 Zero Zero Infinity)",
+   "credit": "New Atlas / HOVERAir"
+  }
+ ]
+}

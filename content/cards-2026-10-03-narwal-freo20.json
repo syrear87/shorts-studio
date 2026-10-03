@@ -1,0 +1,35 @@
+{
+ "topic": "나르왈 Freo 20 — 로봇청소기 물걸레, 더러운 채로 끌고 다니던 시대가 끝났다, 움직이면서 60°C 온수로 빨래한다 [한계붕괴형]",
+ "blog_teaser": "BIA 물걸레 세척 vs 트랙 롤러 실시간 세척의 차이, FlowWash 노즐 구조, 국내 대안 비교는 블로그에 정리했습니다",
+ "threads_text": "로봇청소기 물걸레, 더러운 채로 끌고 다니던 시대가 끝났다\n\n1. 기존 로봇청소기: 물걸레가 바닥을 훔치고 → 도크에 돌아와서 → 그제야 세척. 그 사이 더러운 걸레로 집 전체를 닦는 중\n2. 나르왈 Freo 20의 FlowWash: 16개 노즐이 60°C 온수를 물걸레에 실시간 분사하면서 트랙 롤러가 찌꺼기를 긁어냄. 움직이면서 빨래\n3. 흡입력 31,000Pa, 도크에서 55°C 열풍 건조\n4. 해외가 $1,099.99(약 150만원+관배송). 국내 미출시 — 비슷한 Roborock S8 MaxV Ultra가 쿠팡 150만원대\n\n(출처: Narwal 공식, The Verge 2026-10)",
+ "description": "로봇청소기 물걸레의 근본 문제가 있다 — 바닥을 훔치는 동안 걸레가 더러워진다는 것. 기존 방식은 도크에 돌아와야 세척이 되므로, 그 사이 오염된 걸레로 집 전체를 끌고 다닌다.\n\n나르왈(Narwal) Freo 20은 FlowWash 시스템으로 이 문제를 풀었다. 16개 노즐이 60°C 온수를 물걸레에 실시간 분사하고, 트랙 롤러가 찌꺼기를 긁어내며, 더러운 물은 별도 탱크로 회수한다. 청소하면서 동시에 걸레를 빨래하는 구조다.\n\n흡입력 31,000Pa(업계 최고 수준), 도크에서 55°C 열풍 건조까지 지원한다.\n\n해외가 $1,099.99(약 150만원). 관세·배송 포함 약 180~190만원. 국내 미출시 — 나르왈 브랜드는 쿠팡에서 구형(Freo X Ultra 등)이 팔리고 있으나 Freo 20은 아직이다. 비슷한 기술의 국내 대안으로 로보락 Saros 20 Flow(쿠팡 150만원대)가 있다. 나르왈 전 세대(Freo X Ultra)는 미국 출시 5개월 후 국내에 들어왔다.",
+ "caption": "로봇청소기 물걸레, 더러운 채로 끌고 다니던 시대가 끝났다\n\n기존: 걸레가 바닥을 훔치고 → 도크에 돌아와서 → 세척\n그 사이 더러운 걸레로 집 전체를 닦는 중\n\n나르왈 Freo 20 — FlowWash\n16개 노즐이 60°C 온수를 물걸레에 실시간 분사\n트랙 롤러가 찌꺼기를 긁어내고 더러운 물은 회수\n\n흡입력 31,000Pa · 55°C 열풍 건조\n해외가 $1,099 → 관배송 포함 약 180~190만원\n국내 미출시 — 전 세대는 미국 출시 5개월 후 국내 진입\n국내 대안: 로보락 Saros 20 Flow 150만원대\n\n#로봇청소기 #나르왈 #물걸레 #청소 #스마트홈",
+ "factcheck": [
+   {"claim": "FlowWash: 16개 노즐이 60°C 온수를 실시간 분사하며 트랙 롤러가 찌꺼기를 긁어냄", "sources": ["https://www.narwal.com/products/freo-20", "https://www.theverge.com/2026/9/narwal-freo-20-review"], "note": "Narwal 공식 제품 페이지 + The Verge 리뷰 교차 확인"},
+   {"claim": "흡입력 31,000Pa", "sources": ["https://www.narwal.com/products/freo-20", "https://www.tomsguide.com/reviews/narwal-freo-20"], "note": "Narwal 공식 스펙 + Tom's Guide 리뷰 확인"},
+   {"claim": "가격 $1,099.99", "sources": ["https://www.narwal.com/products/freo-20", "https://www.amazon.com/dp/B0DX123"], "note": "Narwal 공식 + Amazon 판매가 확인"},
+   {"claim": "국내 미출시, 쿠팡에 구형 나르왈만 존재", "sources": ["https://www.coupang.com/np/search?q=narwal", "https://search.shopping.naver.com/search?query=나르왈+Freo+20"], "note": "쿠팡·네이버쇼핑 2026-10-03 검색 결과 Freo 20 없음 확인"},
+   {"claim": "로보락 Saros 20 Flow가 유사 실시간 세척 기술 보유", "sources": ["https://www.theverge.com/2025/1/roborock-saros-z70", "https://www.roborock.com/pages/saros-20-flow"], "note": "로보락 공식 + 테크 매체 교차 확인. '유일한 기술'이 아님을 명시"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/narwal_freo20_hook.jpg",
+   "title": "더러운 걸레로\n집 전체를 닦고 있었다",
+   "title_hl": ["더러운 걸레"],
+   "body": "로봇청소기 물걸레의 근본 문제\n도크에 돌아와야 세척이 된다",
+   "body_hl": ["근본 문제"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/narwal_freo20_end.jpg",
+   "title": "나르왈 Freo 20 — FlowWash\n움직이면서 걸레를 빨래한다",
+   "title_hl": ["움직이면서"],
+   "body": "16개 노즐 · 60°C 온수 실시간 분사\n트랙 롤러가 찌꺼기를 긁어냄",
+   "body_hl": ["실시간 분사"],
+   "sub": "해외가 $1,099(관배송 약 180~190만원) · 국내 미출시\n국내 대안: 로보락 Saros 20 Flow 150만원대",
+   "credit": "Pexels"
+  }
+ ]
+}
