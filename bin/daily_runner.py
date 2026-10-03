@@ -81,7 +81,10 @@ CARD_QUOTA = 5   # 하루 카드 상한 (v12.1 2026-08-24 디렉터: "카드 6�
 # 일시적 API 장애(529 과부하·429 한도·연결 오류)는 몇 분이면 풀린다 → 재시도로 슬롯을 구한다.
 # 2026-07-30 17:00 실사고: 529 Overloaded로 즉사, 재시도가 없어 슬롯 하나가 통째로 증발.
 RETRY_MARKERS = ("529", "overloaded", "rate_limit", "429", "Connection error",
-                 "ECONNRESET", "ETIMEDOUT", "socket hang up", "500 Internal")
+                 "ECONNRESET", "ETIMEDOUT", "socket hang up", "500 Internal",
+                 # 2026-10-03: 10/1 09시 카드가 "Unable to connect to API (ENOTFOUND)"(DNS 일시 장애)로
+                 # 즉사했는데 재시도 목록에 없어 슬롯이 그대로 증발했다
+                 "Unable to connect", "ENOTFOUND", "EAI_AGAIN", "ECONNREFUSED")
 RETRY_DELAYS = (180, 420)     # 3분 → 7분 (최대 2회 재시도)
 SAFE_RETRY_MAX_LEN = 800      # 이보다 로그가 길면 세션이 실제 작업을 했을 수 있으므로 재시도 금지(중복 게시 방지)
 
