@@ -1,0 +1,35 @@
+{
+ "topic": "LG Signature OLED T — TV를 끄면 유리가 된다, 77인치 투명 OLED가 거실에 섰다, 국내 출시 약 1억원 [소유욕형]",
+ "blog_teaser": "투명 OLED 원리(ITO 배선·IGZO 트랜지스터)와 일반 TV 대비 장단점 비교는 블로그에 정리했습니다",
+ "threads_text": "TV에서 화면이 사라졌다\n\n1. LG가 만든 77인치 투명 OLED — 꺼지면 뒤가 비친다\n2. 투명도 45%. 보통 LCD 투명 패널이 10%니까 4.5배 선명\n3. 뒤에 검은 대비 스크린 올리면 일반 OLED처럼 작동\n4. 화면에 선 하나 안 꽂혀 있음 — Zero Connect Box가 영상·음향을 무선 전송\n5. 국내 출시 완료, 약 1억원. 미국 $59,999\n\n(출처: LG Display 공식, Forbes, Tom's Guide)",
+ "description": "TV에서 화면이 사라졌다. LG Signature OLED T는 전원을 끄면 77인치 유리판이 된다. 투명도 45% — LCD 투명 패널(10%)의 4.5배다.\n\n비밀은 OLED 구조에 있다. 백라이트가 필요 없어 픽셀 사이로 빛이 통과한다. 배선은 투명 도전체(ITO)와 IGZO 트랜지스터로 시야를 가리지 않는다.\n\n뒤에 내장된 모터 대비 스크린을 올리면 일반 OLED처럼 완전한 블랙이 나온다. 내리면 투명, 올리면 TV — 같은 패널로 두 가지 모드다.\n\nZero Connect Box가 영상·음향을 무선으로 전송해 화면에 꽂히는 선은 전원 케이블 하나뿐이다.\n\n2024 CES 최고 혁신상, 미국 $59,999(약 8,200만원). 한국에서는 2026년 6월 LG 베스트샵 등 전문 매장을 통해 출시됐으며 약 1억원이다.",
+ "caption": "TV에서 화면이 사라졌다\n\n77인치 OLED — 끄면 뒤가 비치고\n검은 스크린 올리면 일반 TV로\n\n투명도 45% (LCD 투명 패널의 4.5배)\nOLED라 백라이트가 없어 빛이 통과\n\nZero Connect Box — 영상·음향 무선 전송\n화면에 꽂히는 선은 전원 케이블 하나\n\n2024 CES 최고 혁신상\n미국 $59,999 · 국내 약 1억원\n\n#투명TV #OLED #LG #디스플레이 #테크",
+ "factcheck": [
+   {"claim": "77인치 4K OLED, 투명도 45%", "sources": ["https://www.lgdisplay.com/eng/product/tv-display/transparent-oled", "https://www.slashgear.com/1863498/lg-transparent-tv-technology-explained/"], "note": "LG Display 공식 + SlashGear 교차 확인. LCD 투명 패널 10% 대비 4.5배"},
+   {"claim": "미국 가격 $59,999, 한국 약 1억원", "sources": ["https://www.forbes.com/sites/johnarcher/2024/12/20/lg-actually-puts-its-jaw-dropping-transparent-77-inch-oled-tv-on-sale/", "https://www.mt.co.kr/amp/industry/2026/06/24/2026062408414094055"], "note": "Forbes 미국 출시가 + 머니투데이 한국 출시가 교차 확인"},
+   {"claim": "Zero Connect Box로 무선 영상/음향 전송", "sources": ["https://www.lg.com/us/tvs/lg-oled77t4pua-oled-4k-tv/", "https://www.bestbuy.com/product/lg-signature-77-class-oled-t-transparent-4k-uhd-smart-webos-tv-with-true-wireless-video-audio-transfer-2024/JJ8VPZTSJ2"], "note": "LG 공식 제품 페이지 + Best Buy 교차 확인"},
+   {"claim": "2024 CES 최고 혁신상 수상", "sources": ["https://www.oled-info.com/lg-starts-offering-its-transparent-signature-oled-t-tv-60000-price-tag", "https://www.tomsguide.com/news/lg-transparent-oled-tv-signature-oled-t-ces-2024"], "note": "OLED-info + Tom's Guide 교차 확인"},
+   {"claim": "한국 2026년 6월 LG 베스트샵 등 전문 매장 출시", "sources": ["https://www.mt.co.kr/amp/industry/2026/06/24/2026062408414094055"], "note": "머니투데이 보도. 쿠팡·하이마트 일반 진열 확인 불가 — 전문 매장/맞춤 설치 채널"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/lg_oled_t_hook.jpg",
+   "title": "TV에서\n화면이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "77인치 OLED — 끄면\n뒤가 비친다",
+   "body_hl": ["뒤가 비친다"],
+   "credit": "LG / Tom's Guide"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/lg_oled_t_end.jpg",
+   "title": "LG Signature OLED T\n투명도 45% — LCD의 4.5배",
+   "title_hl": ["45%"],
+   "body": "검은 스크린 올리면 일반 TV로\nZero Connect Box — 선 하나 없이 무선",
+   "body_hl": ["선 하나 없이"],
+   "sub": "2024 CES 최고 혁신상\n미국 $59,999 · 국내 약 1억원",
+   "credit": "LG / Tom's Guide"
+  }
+ ]
+}
