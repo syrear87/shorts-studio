@@ -1,0 +1,37 @@
+{
+ "topic": "eufy Window Camera E10 — 보안카메라 설치에서 공사가 사라졌다, 창문 안쪽에 붙이면 밖을 본다, 64g 2.5K 반사 방지 $79.99 [공유형]",
+ "blog_teaser": "창문 카메라가 밤에 반사 없이 찍히는 원리와 설치 시 주의할 점은 블로그에 정리해뒀습니다",
+ "threads_text": "보안카메라 설치에서 공사가 사라졌다\n\n1. eufy E10. 창문 안쪽에 붙이면 밖을 본다\n2. 64g. 스티커로 붙이고 1분이면 끝난다\n3. 2.5K에 f/1.0 야간 컬러 촬영. 반사 방지 설계라 유리 너머도 선명하다\n4. 사람·차·동물 AI가 구분한다. 월 구독료 없음\n5. $79.99(약 11만원). 11월 출하 예정, 국내 미출시\n\n(출처: eufy 공식, Engadget)",
+ "description": "아파트에 보안카메라를 달려면 외벽에 구멍을 뚫거나 관리사무소 허가를 받아야 했다. eufy(Anker 산하 스마트홈 브랜드)가 IFA 2026에서 공개한 Window Camera E10은 창문 안쪽 유리면에 스티커로 붙이는 구조다. 68mm 정사각형에 64g — 1분이면 설치가 끝난다. 창문 카메라의 최대 약점이던 야간 반사를 해결하기 위해 반사 방지 스티커와 제로갭 마운트를 넣었고, f/1.0 대구경 렌즈로 조명 없이 컬러 야간 촬영이 된다. 해상도는 2.5K(2688x1520), 화각 125도. AI가 사람·차·동물을 구분해 알림을 보내며 microSD(최대 256GB) 로컬 저장이라 월 구독료가 없다. 클라우드는 선택 사항이다. 전원은 USB-C 유선(케이블 3m 포함)이므로 콘센트에서 선을 끌어와야 한다. 현재 eufy.com에서 $79.99에 선주문 중이며 11월 중순 출하 예정. 국내 미출시이나 eufy 기존 카메라는 쿠팡에서 판매 중이다.",
+ "caption": "보안카메라 설치에서 공사가 사라졌다\n\n창문 안쪽에 붙이면 밖을 본다.\n64g, 스티커 부착, 1분 설치.\n2.5K + f/1.0 야간 컬러 촬영.\n반사 방지 설계 — 유리 너머도 선명.\nAI 사람·차·동물 구분, 구독료 없음.\n$79.99(약 11만원), 11월 출하.\n\n(출처: eufy 공식, Engadget IFA 2026)\n\n#보안카메라 #eufy #스마트홈 #아파트 #CCTV",
+ "factcheck": [
+   {"claim": "2.5K(2688x1520) 해상도, f/1.0 조리개, 125도 화각", "sources": ["https://www.eufy.com/products/t8404121"], "note": "eufy 공식 제품 페이지 스펙표. D125/H105/V57. f/1.0 MaxColor Night Vision"},
+   {"claim": "64.1g, 68.28x68.28x41.8mm", "sources": ["https://www.eufy.com/products/t8404121"], "note": "공식 스펙표 2.26oz = 64.1g"},
+   {"claim": "반사 방지 스티커와 제로갭 마운트", "sources": ["https://www.eufy.com/products/t8404121", "https://gizmodo.com/eufys-new-window-sticking-security-camera-is-a-peeping-tom-for-the-outside-world-2000806002"], "note": "eufy: Wraparound design and included anti-reflection stickers minimize reflections. Gizmodo: anti-reflection optics"},
+   {"claim": "$79.99, 11월 중순 출하 예정", "sources": ["https://www.eufy.com/products/t8404121"], "note": "공식 페이지: Pre-Order $79.99, Estimated to ship by mid-November 2026. Engadget은 $70으로 보도했으나 공식가 채택"},
+   {"claim": "microSD 최대 256GB 로컬 저장, 월 구독료 없음", "sources": ["https://www.eufy.com/products/t8404121"], "note": "공식: microSD Card Up to 256GB Not Included. No monthly fee for AI detection and recording"},
+   {"claim": "USB-C 유선 전원, 케이블 3m", "sources": ["https://www.eufy.com/products/t8404121"], "note": "공식: USB-C, Cable Length 10ft(3m). 배터리 아님 — 유선 전원 필수"},
+   {"claim": "AI 사람·차·동물 구분", "sources": ["https://www.eufy.com/products/t8404121"], "note": "공식: Identifies Human/Vehicle/Pet, on-device processing"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/eufy_e10_mounted.png",
+   "title": "보안카메라 설치에서\n공사가 사라졌다",
+   "title_hl": ["공사가 사라졌다"],
+   "body": "창문에 붙이면 밖을 본다 · 64g · 1분 설치",
+   "body_hl": ["창문에 붙이면", "64g"],
+   "credit": "eufy 공식"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/eufy_e10_window.png",
+   "title": "2.5K 야간 컬러 촬영\n반사 방지 — 유리 너머도 선명하다",
+   "title_hl": ["반사 방지"],
+   "body": "f/1.0 렌즈 · 사람·차·동물 AI 구분\n구독료 없음 · microSD 로컬 저장",
+   "body_hl": ["구독료 없음"],
+   "sub": "eufy E10 · $79.99(약 11만원) · 11월 출하 · 국내 미출시",
+   "credit": "eufy 공식"
+  }
+ ]
+}
