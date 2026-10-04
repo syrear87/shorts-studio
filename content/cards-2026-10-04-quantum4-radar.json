@@ -1,0 +1,37 @@
+{
+ "topic": "아이나비 QUANTUM4 — 블랙박스 주차 녹화가 바뀌었다, 부딪혀야 찍기 시작하던 방식에 레이다가 달렸다, 접근만 해도 깨어나고 26일을 버틴다, 549,000원 [공유형]",
+ "blog_teaser": "레이다 주차 모드와 기존 모션 감지의 전력 차이, 그리고 블랙박스 살 때 확인할 것은 블로그에 정리해뒀습니다",
+ "threads_text": "블랙박스, 부딪혀야 찍기 시작하던 시대가 끝났다\n\n1. 대부분 블랙박스는 G센서(충격감지)로 녹화를 시작한다\n2. 충격 순간부터만 찍힌다. 범인 차가 빠져나간 뒤\n3. 아이나비 QUANTUM4는 전후방에 60GHz 레이다를 달았다\n4. 10m 안에 뭐가 접근하면 카메라가 깨어난다\n5. 대기 전력이 모션 감지의 17분의 1. 보조배터리로 26일 버틴다\n\n(출처: 팅크웨어 공식, 디지털데일리, 뉴스핌)",
+ "description": "주차장에서 차가 긁히면 블랙박스를 확인하지만, 대부분의 블랙박스는 G센서(충격 감지)로 녹화를 시작하기 때문에 충격 순간부터만 찍혀 있다. 범인 차 번호판은 이미 화면 밖이다. 팅크웨어 아이나비 QUANTUM4는 전후방에 60GHz 빌트인 듀얼 레이다를 탑재해 이 구조를 바꿨다. 레이다가 차 주변 10m 이내 움직임을 감지하면 카메라를 깨우고, 감지 전 10초 + 후 10초를 녹화해 저장한다. 대기 전력은 레이다 모드 16.2mA로, 모션 감지(279.8mA)의 약 17분의 1이다. 10,200mAh 보조배터리 기준 레이다 모드 26.2일 vs 모션 감지 1.5일. 카메라는 전방 4K UHD(Sony STARVIS 2 IMX678), 후방 2K QHD(IMX675). 549,000원, 3년 무상AS. 2026년 5월 출시.",
+ "caption": "블랙박스, 부딪혀야 찍기 시작하던 시대가 끝났다\n\n주차장에서 긁힌 건 아는데 범인 차 번호판은 없다.\n대부분 블랙박스는 G센서(충격)로 녹화를 시작하기 때문이다.\n\n아이나비 QUANTUM4는 전후방에 60GHz 레이다를 달았다.\n10m 안에 접근하면 카메라가 깨어난다.\n대기 전력은 모션 감지의 17분의 1 — 보조배터리로 26일.\n\n549,000원 · 전방 4K + 후방 2K · Sony STARVIS 2 · 3년 무상AS\n\n(출처: 팅크웨어 공식, 디지털데일리, 뉴스핌, 오토뷰)\n\n#블랙박스 #대시캠 #아이나비 #주차감시 #레이다",
+ "factcheck": [
+   {"claim": "전후방 빌트인 듀얼 레이다 60GHz(61.997-62.325GHz)", "sources": ["https://www.inavi.com/blackbox/%EC%95%84%EC%9D%B4%EB%82%98%EB%B9%84-quantum4/", "https://thinkware.com/global/product/u3000-pro"], "note": "아이나비 공식 페이지: 국내유일 전후방 빌트인 듀얼레이다. Thinkware Global: 61.997-62.325GHz"},
+   {"claim": "레이다 모드 대기 전력 16.2mA, 모션 감지 279.8mA(17배 차이)", "sources": ["https://www.inavi.com/blackbox/%EC%95%84%EC%9D%B4%EB%82%98%EB%B9%84-quantum4/"], "note": "공식 제품 페이지 전력 비교표(2채널 기준). 279.8/16.2=17.3배"},
+   {"claim": "보조배터리(10,200mAh) 기준 레이다 모드 629.6시간(26.2일), 모션 감지 36.5시간(1.5일)", "sources": ["https://www.inavi.com/blackbox/%EC%95%84%EC%9D%B4%EB%82%98%EB%B9%84-quantum4/"], "note": "공식 페이지 전력 비교표 — 기준 10,200mAh 보조배터리(BAB-120Q)"},
+   {"claim": "전방 4K UHD Sony STARVIS 2 IMX678, 후방 2K QHD IMX675", "sources": ["https://www.inavi.com/blackbox/%EC%95%84%EC%9D%B4%EB%82%98%EB%B9%84-quantum4/", "https://www.newspim.com/news/view/20260512000190"], "note": "공식 페이지 + 뉴스핌 보도 교차확인"},
+   {"claim": "549,000원, 3년 무상AS", "sources": ["https://www.newspim.com/news/view/20260512000190", "https://www.ddaily.co.kr/page/view/2026051209375345932"], "note": "뉴스핌·디지털데일리 출시 보도(2026-05-12). 가격은 출시가 기준"},
+   {"claim": "2026년 5월 출시", "sources": ["https://www.newspim.com/news/view/20260512000190"], "note": "뉴스핌 2026-05-12자 보도"},
+   {"claim": "감지 전후 각 10초(총 20초) 녹화 보존", "sources": ["https://www.inavi.com/blackbox/%EC%95%84%EC%9D%B4%EB%82%98%EB%B9%84-quantum4/"], "note": "공식 페이지: 충돌 전 10초, 충돌 후 10초까지의 영상을 녹화하고 저장"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/quantum4_dashcam_pexels.jpg",
+   "title": "블랙박스, 부딪혀야 찍기 시작하던\n시대가 끝났다",
+   "title_hl": ["끝났다"],
+   "body": "긁힌 건 아는데 범인 차 번호판은 없다",
+   "body_hl": ["번호판은 없다"],
+   "credit": "Pexels / Katherine Mihailova"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/quantum4_parking_pexels.jpg",
+   "title": "레이다가 달렸다\n접근만 해도 카메라가 깨어난다",
+   "title_hl": ["레이다가 달렸다"],
+   "body": "대기 전력 17분의 1 · 보조배터리로 26일\n충격 전 10초부터 찍힌다",
+   "body_hl": ["17분의 1", "26일"],
+   "sub": "아이나비 QUANTUM4 · 549,000원 · 전방 4K + 후방 2K",
+   "credit": "Pexels / Dmitry Zvolskiy"
+  }
+ ]
+}
