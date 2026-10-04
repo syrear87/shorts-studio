@@ -1,0 +1,35 @@
+{
+ "topic": "UGREEN Magic E-Ink Case — 아이폰 케이스에 전자잉크가 달렸다, 배터리는 빠졌다, 3.7인치 6색 전자잉크 NFC 무전원 CNY 279(약 5.7만원) [소유욕형]",
+ "blog_teaser": "NFC 무전원 방식이 어떻게 작동하는지, 기존 전자잉크 케이스와 뭐가 다른지는 블로그에 정리했습니다",
+ "threads_text": "아이폰 케이스에 전자잉크가 달렸다, 배터리는 빠졌다\n\n1. UGREEN이 전자잉크 화면 달린 아이폰 케이스를 냈다\n2. 3.7인치 6색 E Ink — 사진이 컬러로 뜬다\n3. 배터리가 아예 없다 — NFC로 폰 에너지만 빌려서 바꾸고, 이후 전력 소모 0\n4. 바꿀 때 40초, 나머지는 종이처럼 그냥 있다\n5. 약 5.7만원, 중국 출시 — 글로벌 미정\n\n(출처: Notebookcheck, Good e-Reader, ePaper Industry Alliance)",
+ "description": "UGREEN Magic E-Ink Screen Case. 아이폰 18 Pro / Pro Max / 17 Pro용 전자잉크 케이스. 3.7인치 6색 E Ink Spectra 6 디스플레이가 케이스 뒷면에 내장돼 사진·일러스트를 컬러로 표시한다. 배터리 없이 Passive NFC 방식으로 아이폰에서 에너지를 빌려 화면을 갱신하고, 갱신 후에는 전력 소모 0. 갱신 소요 약 40초. 케이스 측면 NFC 버튼으로 Apple Pay 등 일반 NFC 기능과 분리 가능. 색상: 매트 블랙·포그 화이트·버건디. CNY 279(약 5.7만원), 현재 중국 출시. 글로벌 출시 일정 미공개. NFC 전자잉크 케이스 카테고리 자체는 Reinkstone이 2023년에 개척했으나, 6색 Spectra 6 패널 탑재는 이 제품이 처음. iPhone 18 Pro·Pro Max·17 Pro만 호환, 안드로이드 미지원.",
+ "caption": "아이폰 케이스에 전자잉크가 달렸다, 배터리는 빠졌다\n\nUGREEN Magic E-Ink Screen Case.\n3.7인치 6색 전자잉크 — NFC로 폰 에너지만 빌려 바꾸고, 전력 소모 0.\nCNY 279(약 5.7만원) · 중국 출시, 글로벌 미정.\n\n(출처: Notebookcheck, Good e-Reader, ePaper Industry Alliance)\n\n#전자잉크 #폰케이스 #UGREEN #EInk #테크",
+ "factcheck": [
+   {"claim": "3.7인치 6색 E Ink Spectra 6 디스플레이 탑재", "sources": ["https://www.notebookcheck.net/Ugreen-launches-affordable-e-ink-phone-case-with-3-7-inch-six-color-screen-and-passive-NFC.1414234.0.html", "https://epaperia.org/News/6822.html"], "note": "Notebookcheck + ePaper Industry Alliance 교차 확인. 6색: 검정·흰색·빨강·노랑·파랑·초록"},
+   {"claim": "Passive NFC 방식 — 배터리 없이 폰 에너지로 화면 갱신, 갱신 후 전력 소모 0", "sources": ["https://www.notebookcheck.net/Ugreen-launches-affordable-e-ink-phone-case-with-3-7-inch-six-color-screen-and-passive-NFC.1414234.0.html", "https://www.yankodesign.com/2026/09/17/ugreens-iphone-18-pro-case-packs-an-extra-screen-for-that-iphone-duo-effect/"], "note": "Notebookcheck + Yanko Design 교차 확인. 갱신 소요 약 40초"},
+   {"claim": "CNY 279, 중국 출시, 글로벌 출시 일정 미공개", "sources": ["https://www.notebookcheck.net/Ugreen-launches-affordable-e-ink-phone-case-with-3-7-inch-six-color-screen-and-passive-NFC.1414234.0.html", "https://www.gizmochina.com/2026/10/03/ugreen-magic-e-ink-screen-case-iphone-18-pro/"], "note": "Notebookcheck + Gizmochina 교차 확인"},
+   {"claim": "iPhone 18 Pro / Pro Max / 17 Pro 호환", "sources": ["https://www.notebookcheck.net/Ugreen-launches-affordable-e-ink-phone-case-with-3-7-inch-six-color-screen-and-passive-NFC.1414234.0.html", "https://www.gizmochina.com/2026/10/03/ugreen-magic-e-ink-screen-case-iphone-18-pro/"], "note": "두 매체 공통"},
+   {"claim": "NFC 전자잉크 케이스 카테고리는 Reinkstone이 2023년에 개척, UGREEN이 최초가 아님", "sources": ["https://www.ereaderpro.co.uk/en/blogs/news/e-ink-product-reinkstone-new-nfc-version-reink-case", "https://www.techradar.com/phones/iphone/this-new-ugreen-case-adds-an-e-ink-screen-to-the-back-of-your-iphone-18-pro-but-its-no-match-for-my-xteink-x4-pro"], "note": "Reinkstone 2023년 3색 → 2023년 11월 4색. UGREEN은 6색이 차별점"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/ugreen_eink_main.jpg",
+   "title": "아이폰 케이스에 전자잉크가 달렸다\n배터리는 빠졌다",
+   "title_hl": ["달렸다", "빠졌다"],
+   "body": "3.7인치 6색 전자잉크 — NFC로 바꾸고, 전력 소모 0",
+   "body_hl": ["전력 소모 0"],
+   "credit": "UGREEN / Notebookcheck"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/ugreen_eink_colors.jpg",
+   "title": "배터리 없는 두 번째 화면\nUGREEN Magic E-Ink Case",
+   "title_hl": ["배터리 없는"],
+   "body": "E Ink Spectra 6 · NFC 무전원 · 갱신 40초\n매트 블랙 · 포그 화이트 · 버건디",
+   "body_hl": ["NFC 무전원"],
+   "sub": "CNY 279(약 5.7만원) · 중국 출시, 글로벌 미정\niPhone 18 Pro / Pro Max / 17 Pro 호환",
+   "credit": "UGREEN / Notebookcheck"
+  }
+ ]
+}
