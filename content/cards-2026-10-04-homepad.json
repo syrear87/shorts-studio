@@ -1,0 +1,33 @@
+{
+ "topic": "Apple HomePad — HomePod에 화면이 달린다, 애플 최초 스마트홈 디스플레이 10월 13일 공개, 6인치 iMac G4 디자인 [공유형][루머]",
+ "blog_teaser": "아마존 에코쇼·구글 네스트 허브와 뭐가 다른지, 벽걸이형 구조까지 블로그에서 비교했습니다",
+ "threads_text": "스마트 스피커가 바뀐다 — 애플 최초 스마트홈 화면\n\n1. 10월 13일 '홈패드'를 공개한다는 보도가 나왔다\n2. 6인치 화면이 iMac G4처럼 둥근 베이스 위에 떠 있는 구조\n3. FaceTime 통화, 음악, 스마트홈 제어를 화면 하나에서\n4. 탁상형 + 벽걸이형 2종\n5. 아직 루머 단계, 가격 미정\n\n(출처: Bloomberg Mark Gurman, 9to5Mac)",
+ "description": "Apple HomePad. 블룸버그 Mark Gurman 보도 기준, 애플이 2026년 10월 13일 스마트홈 디스플레이 '홈패드'를 공개할 것으로 보도됐다. 코드네임 J490(탁상형), J491(벽걸이형). 6인치 정사각형 디스플레이, iMac G4 스타일 반구형 베이스 위에 금속 팔로 화면이 떠 있는 구조. 화면 두께는 아이폰 수준. 스피커 홀이 베이스에 배치. homeOS(iOS·watchOS·tvOS 결합)로 구동. FaceTime, 음악 재생, 스마트홈 제어, Siri AI 통합. 얼굴·음성 인식으로 가족 구성원별 개인화. 벽걸이형은 MagSafe 방식 자석 부착. USB-C 충전. 가격 미공개. 공식 확인 전 루머 단계.",
+ "caption": "스마트 스피커가 바뀐다 — 애플 최초 스마트홈 화면\n\n블룸버그 보도 — 애플이 10월 13일 스마트홈 디스플레이 '홈패드'를 공개한다.\n아이폰을 만든 지 19년, 처음 나오는 '집에만 있는' 화면이다.\n\n⚠️ 아직 공식 발표가 아닌 루머 단계 정보입니다\n(출처: Bloomberg Mark Gurman, 9to5Mac, The Shortcut)\n\n#애플홈패드 #HomePad #스마트홈 #애플 #테크",
+ "factcheck": [
+   {"claim": "애플이 10월 13일 스마트홈 디스플레이 '홈패드'를 공개한다는 보도", "sources": ["https://9to5mac.com/2026/09/30/apples-homepad-smart-home-hub-launching-on-oct-13-bloomberg/", "https://www.theshortcut.com/p/apple-homepad-launch-date-rumor"], "note": "Bloomberg Mark Gurman 보도 기반, 9to5Mac·The Shortcut 교차 확인. 공식 확인 전 루머"},
+   {"claim": "6인치 디스플레이, iMac G4 스타일 반구형 베이스 디자인, 탁상형+벽걸이형 2종", "sources": ["https://9to5mac.com/2026/09/30/apples-homepad-smart-home-hub-launching-on-oct-13-bloomberg/", "https://www.macobserver.com/news/new-apple-homepad-smart-hub-launches-october-13-with-retro-design/"], "note": "Bloomberg 보도 + MacObserver 교차 확인"},
+   {"claim": "homeOS(iOS+watchOS+tvOS 결합), FaceTime·음악·스마트홈 제어", "sources": ["https://www.theshortcut.com/p/apple-homepad-launch-date-rumor", "https://appleosophy.com/2026/09/22/apple-to-launch-homepad-with-entirely-new-operating-system-next-month/"], "note": "The Shortcut + Appleosophy 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/apple_homepad_concept.jpg",
+   "title": "스마트 스피커가\n바뀐다",
+   "title_hl": ["바뀐다"],
+   "body": "애플 최초 스마트홈 화면\n10월 13일",
+   "body_hl": ["최초", "10월 13일"],
+   "credit": "컨셉 이미지 / Appleosophy·9to5Mac"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/apple_homepad_concept2.jpg",
+   "title": "iMac G4의\n실루엣",
+   "title_hl": ["실루엣"],
+   "body": "6인치 · 둥근 베이스 위 떠 있는 화면\nFaceTime · 음악 · 스마트홈 제어\nhomeOS (iOS + watchOS + tvOS 결합)",
+   "body_hl": ["떠 있는 화면"],
+   "sub": "탁상형 + 벽걸이형 2종 · 가격 미정",
+   "credit": "컨셉 이미지 / The Apple Post"
+  }
+ ]
+}
