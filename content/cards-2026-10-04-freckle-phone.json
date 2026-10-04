@@ -1,0 +1,36 @@
+{
+ "topic": "Freckle Phone — 스마트폰에서 인터넷을 뺐다, 7~13세 전용 폰에 유튜브도 앱스토어도 없다, 대신 카메라로 벌레를 찍으면 이름이 뜬다, $199 12월 미국 출시 [공유형]",
+ "blog_teaser": "국내 키즈폰과 뭐가 다른지, Discovery Camera가 어떻게 작동하는지는 블로그에 정리했습니다",
+ "threads_text": "유튜브가 사라진 스마트폰이 나왔다 — 대신 벌레 도감이 들어갔다\n\n1. 미국 스타트업 Freckle이 7~13세 전용 폰을 냈다\n2. 유튜브 없다. 앱스토어 없다. 브라우저도 없다\n3. 대신 카메라로 벌레를 찍으면 이름이 뜨고, 새를 찍으면 도감에 들어간다\n4. 부모가 미션을 보내면 아이가 밖에서 수행한다 — 위치는 실시간 추적\n5. 워키토키로 친구랑 통신, 용돈 결제도 된다\n6. $199(약 28만원) + 월 $25 통신, 12월 미국 출시 — 국내 출시 계획 없음\n\n(출처: freckle.tech 공식, runtimewire, Business Bearings)",
+ "description": "Freckle Phone. 미국 스타트업 Freckle이 만든 7~13세 전용 스마트폰. 인터넷 브라우저·앱스토어·SNS·유튜브가 없다. 자체 운영체제 ClayOS 탑재. 대신 Discovery Camera(AI 기반 야생동물·식물 식별 + 도감 수집), 부모 지정 야외 탐험 Quest, 워키토키(Freckle 기기 간), 실시간 위치추적(safe zone 경보), Freckle Pay(용돈 한도 설정 결제)를 넣었다. 3.1인치 720×720 정사각 화면, 12MP+5MP 카메라, IP54 방진방수, 2600mAh. 본체 $199 + Freckle Wireless 월 $25(첫 달 포함). 프리오더 2026-09-30 오픈($25 보증금), 12월 미국 출하. 한국 출시 계획 없음 — Freckle Wireless가 미국 전용 이동통신이라 기기를 직구해도 국내 통신망에서 사용 불가. 국내 대안: 카카오리틀프렌즈폰·SKT ZEM폰 등 키즈폰이 있으나 인터넷 완전 차단+야외 탐험 컨셉 조합은 없음. Gemini 기반 Why Chat(제한적 질의응답) 탑재.",
+ "caption": "유튜브가 사라진 스마트폰이 나왔다 — 대신 벌레 도감이 들어갔다\n\nFreckle Phone · 7~13세 전용.\n유튜브 없고 앱스토어 없고 브라우저도 없다.\n카메라로 벌레 찍으면 이름이 뜨고, 새 찍으면 도감에 들어간다.\n$199 + 월 $25 · 12월 미국 출시.\n\n(출처: freckle.tech, runtimewire, Business Bearings)\n\n#키즈폰 #Freckle #스마트폰 #디지털디톡스 #테크",
+ "factcheck": [
+   {"claim": "7~13세 전용, $199 + 월 $25 통신 서비스", "sources": ["https://freckle.tech", "https://runtimewire.com/article/freckle-kids-phone-preorders-outdoor-exploration", "https://businessbearings.com/articles/freckle-launches-a-199-phone-built-to-keep-kids-off-screens-c2bf0457"], "note": "공식 사이트 + 2개 매체 교차 확인"},
+   {"claim": "인터넷 브라우저·앱스토어·SNS 없음, 자체 OS ClayOS", "sources": ["https://freckle.tech", "https://runtimewire.com/article/freckle-kids-phone-preorders-outdoor-exploration"], "note": "공식 + runtimewire 확인"},
+   {"claim": "Discovery Camera — AI 기반 야생동물·식물 식별 + 도감 수집", "sources": ["https://freckle.tech", "https://freeyork.org/technology/tech-free-discovery-freckle-phone-kids/"], "note": "공식 + FreeYork 교차 확인"},
+   {"claim": "3.1인치 720×720, 12MP+5MP, IP54, 2600mAh", "sources": ["https://freckle.tech", "https://www.techeblog.com/freckle-smartphone-phone-for-kids-specs-price-release/"], "note": "공식 + TechEBlog 교차 확인"},
+   {"claim": "프리오더 2026-09-30 오픈, 12월 미국 출하", "sources": ["https://runtimewire.com/article/freckle-kids-phone-preorders-outdoor-exploration", "https://businessbearings.com/articles/freckle-launches-a-199-phone-built-to-keep-kids-off-screens-c2bf0457"], "note": "runtimewire + Business Bearings 교차 확인"},
+   {"claim": "한국 출시 계획 없음, Freckle Wireless 미국 전용", "sources": ["https://freckle.tech", "https://runtimewire.com/article/freckle-kids-phone-preorders-outdoor-exploration"], "note": "전 매체 미국 출하만 언급, 국제 배송·한국 출시 관련 정보 없음"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/freckle_phone_outdoor.jpg",
+   "title": "유튜브가 사라진 스마트폰이 나왔다\n대신 벌레 도감이 들어갔다",
+   "title_hl": ["사라진", "들어갔다"],
+   "body": "인터넷·앱스토어·SNS 전부 없는 7~13세 전용 폰",
+   "body_hl": ["전부 없는"],
+   "credit": "Freckle / freckle.tech"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/freckle_phone_detail.jpg",
+   "title": "벌레를 찍으면 이름이 뜬다\nFreckle Phone",
+   "title_hl": ["이름이 뜬다"],
+   "body": "Discovery Camera · 야외 탐험 Quest\n워키토키 · 실시간 위치추적 · 용돈 결제",
+   "body_hl": ["Discovery Camera"],
+   "sub": "$199(약 28만원) + 월 $25 · 12월 미국 출시\n국내 출시 계획 없음 — 통신 미국 전용",
+   "credit": "Freckle / freckle.tech"
+  }
+ ]
+}
