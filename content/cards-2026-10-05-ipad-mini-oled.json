@@ -1,0 +1,37 @@
+{
+ "topic": "iPad mini OLED — 아이패드 미니 화면이 14년 만에 바뀐다는 소문, 2012년 1세대부터 7세대까지 전부 LCD에서 OLED로, 10월 말 출시 관측(Bloomberg Gurman), 삼성디스플레이 6월 양산 시작, iPad 최초 방수, 현행 99만9천원에서 약 20~40만원 인상 관측 [타이밍경고형][루머]",
+ "blog_teaser": "현행 7세대 LCD와 뭐가 다른지, 가격이 얼마나 오를지는 블로그에 정리했습니다",
+ "threads_text": "아이패드 미니 화면이 14년 만에 바뀐다 — 이달 말이라는 소문\n\n1. iPad mini는 2012년 1세대부터 7세대까지 전부 LCD였다\n2. 블룸버그 거먼이 10월 말 OLED 모델 출시를 보도했다\n3. 삼성디스플레이가 6월에 패널 양산을 시작한 상태\n4. iPad 최초 방수(IP67)와 A19 Pro도 같이 온다는 루머\n5. 현행 99만9천원에서 약 20~40만원 오른다는 관측 — 살 계획이면 기다릴 만하다\n\n(출처: Bloomberg Mark Gurman, MacRumors, 9to5Mac, ETNews)",
+ "description": "iPad mini OLED 루머. 2012년 1세대부터 2024년 7세대까지 전부 LCD였던 iPad mini에 OLED가 온다는 보도. Bloomberg Mark Gurman이 10월 말 출시를 보도, 삼성디스플레이 단층 LTPS OLED(60Hz) 6월 양산 시작(ETNews). 예상 변화: OLED 디스플레이(8.4인치, 현행 8.3에서 소폭 확대), iPad 최초 방수(IP67/68), A19 Pro 칩, 스피커 홀 없는 진동 스피커. 현행 iPad mini 7세대: 국내 999,000원(128GB Wi-Fi), A17 Pro, 8.3인치 LCD. 신형 예상가: $699~(현행 $499 대비 약 $200 인상), 국내 약 119~139만원 관측. iPad Pro는 2024년 5월 M4 모델부터 tandem OLED 탑재했으나, iPad mini는 이번이 OLED 최초. 아직 공식 발표 전 루머 단계.",
+ "caption": "아이패드 미니 화면이 14년 만에 바뀐다 — 이달 말이라는 소문\n\niPad mini는 2012년 1세대부터 7세대까지 전부 LCD.\nOLED가 이달 말에 온다는 보도 — 삼성디스플레이 6월 패널 양산 시작.\niPad 최초 방수 · A19 Pro · 스피커 홀 제거.\n현행 99만9천원에서 약 20~40만원 인상 관측.\n\n아직 공식 발표가 아닌 루머 단계 정보입니다.\n(출처: Bloomberg Mark Gurman, MacRumors, 9to5Mac, ETNews)\n\n#아이패드미니 #iPadmini #OLED #애플 #테크",
+ "factcheck": [
+   {"claim": "iPad mini 1세대(2012)부터 7세대(2024)까지 전부 LCD", "sources": ["https://www.macrumors.com/roundup/ipad-mini/", "https://www.phonearena.com/news/First-iPad-mini-with-OLED-display-will-come-with-a-larger-screen_id162109"], "note": "MacRumors 라운드업 + PhoneArena 모두 이전 모델 전부 LCD 명시"},
+   {"claim": "10월 말 OLED iPad mini 출시 예상 — Mark Gurman(Bloomberg) 보도", "sources": ["https://www.macrumors.com/2026/08/24/new-ipad-mini-by-end-of-october-report/", "https://9to5mac.com/2026/09/24/new-ipad-mini-coming-soon-with-these-major-changes/"], "note": "Gurman 보도 + 9to5Mac 독립 확인. Ross Young(DSCC)도 OLED 로드맵 동의(AppleInsider)"},
+   {"claim": "삼성디스플레이 6월 OLED 패널 양산 시작", "sources": ["https://www.macrumors.com/2026/06/25/ipad-mini-oled-panel-mass-production-starts/", "https://www.sammobile.com/news/samsung-starts-making-oled-panels-ipad-mini-2026/"], "note": "ETNews 원보도 + MacRumors·SamMobile 교차 확인. 단층 LTPS OLED 60Hz"},
+   {"claim": "iPad 최초 방수(IP67/68) 루머", "sources": ["https://www.macrumors.com/2026/07/25/first-water-resistant-ipad/", "https://www.macrumors.com/2026/09/30/ipad-mini-8-rumored-features/"], "note": "MacRumors 2건 교차 확인"},
+   {"claim": "A19 Pro 칩 탑재 루머", "sources": ["https://www.theapplepost.com/2026/09/21/72541/oled-ipad-mini-could-launch-in-october-with-a19-pro-or-a20-pro-chip/", "https://www.macrumors.com/2026/09/30/ipad-mini-8-rumored-features/"], "note": "Apple 코드에서 발견. A20 Pro 가능성도 있으나 A19 Pro가 유력"},
+   {"claim": "현행 iPad mini 7세대 국내 999,000원(128GB Wi-Fi)", "sources": ["https://www.apple.com/kr/shop/buy-ipad/ipad-mini"], "note": "Apple Korea 공식 스토어 2026-10-05 확인"},
+   {"claim": "신형 예상가 $699~(현행 $499 대비 약 $200 인상)", "sources": ["https://www.ithinkdiff.com/ipad-mini-8-oled-60hz-699-price-no-promotion/", "https://gagadget.com/en/723898-ipad-mini-oled-is-coming-in-october-and-itll-cost-you-more/"], "note": "iThinkDiff + GagaGet 교차. 국내가는 미발표라 $200 인상분을 환산 관측으로 표기"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/ipad_mini_design.jpg",
+   "title": "아이패드 미니 화면이\n14년 만에 바뀐다는 소문",
+   "title_hl": ["14년 만에"],
+   "body": "2012년 1세대부터 7세대까지 전부 LCD\n이달 말, OLED가 온다",
+   "body_hl": ["LCD", "OLED"],
+   "credit": "Apple / apple.com"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/ipad_mini_hero.jpg",
+   "title": "바뀌는 건 화면만이 아니다",
+   "title_hl": ["화면만이 아니다"],
+   "body": "iPad 최초 방수 · A19 Pro · 스피커 홀 제거\n삼성디스플레이가 6월에 패널 양산을 시작했다",
+   "body_hl": ["최초 방수", "6월에"],
+   "sub": "현행 99만9천원 → 약 20~40만원 인상 관측\n공식 발표 전 — 살 계획이 있다면 이달 말을 보세요",
+   "credit": "Apple / apple.com"
+  }
+ ]
+}
