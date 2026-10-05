@@ -1,0 +1,60 @@
+{
+  "title": "추위로 심장이 멈추는 건 추운 날이 아닙니다",
+  "description": "기온 10도 하강 시 심혈관 사망 위험 19% 증가 — 그런데 사망이 몰리는 건 추운 당일이 아니라 3~6일 뒤입니다. 228만 명 추적 연구 기반.",
+  "series": "재난기상",
+  "narrator": "male",
+  "real_query": ["cold weather cardiovascular mortality lag", "autumn frost morning Korea"],
+  "bg_query": ["cold autumn morning frost city street", "heart blood vessel artery medical", "thermometer cold winter ice", "calendar days passing time lapse", "cold breath fog morning sunrise"],
+  "hook_bg_reason": "가을 새벽 서리·냉기 실감 사진",
+  "bg_ids": [19638766, 6062828, 35211221, 1034069],
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": 19638766,
+      "voice": "오늘 낮 스물일곱 도, 내일 아침 열두 도. 위험한 날은 내일이 아닙니다.",
+      "sub": "일교차 15도 · 진짜 위험한 날",
+      "lines": [["오늘 낮 27도, 내일 아침 12도", []], ["위험한 날은 내일이 아닙니다", ["아닙니다"]]]
+    },
+    {
+      "kind": "fact",
+      "bg": 6062828,
+      "voice": "유럽 228만 명 연구에 따르면, 기온이 10도 떨어지면 심혈관 사망이 19퍼센트 높아집니다.",
+      "sub": "ESC 2022 · 228만 명 연구",
+      "lines": [["기온이 10도 떨어지면", []], ["심혈관 사망 19% 높아집니다", ["19%"]]]
+    },
+    {
+      "kind": "fact",
+      "bg": 35211221,
+      "voice": "찬 공기에 노출되면 혈관이 수축하고, 혈압이 급등합니다.",
+      "sub": "혈관 수축 · 혈압 급등",
+      "lines": [["혈관이 수축하고", []], ["혈압이 급등합니다", []]]
+    },
+    {
+      "kind": "fact",
+      "bg": 1034069,
+      "voice": "그런데 사망이 몰리는 건 추운 당일이 아닙니다. 연구에 따르면, 기온 급락 3일에서 6일 뒤에 정점을 찍습니다.",
+      "sub": "당일이 아니라 3~6일 뒤",
+      "lines": [["추운 당일이 아닙니다", []], ["3일에서 6일 뒤 정점", ["6일"]]]
+    },
+    {
+      "kind": "twist",
+      "bg": 19638766,
+      "voice": "오늘 따뜻해도, 그저께 추웠다면, 지금이 가장 위험합니다. 추위는 시차를 두고 심장을 공격합니다.",
+      "sub": "시차 공격 · 지금이 위험",
+      "lines": [["오늘 따뜻해도 그저께 추웠다면", ["그저께"]], ["지금이 가장 위험합니다", []], ["추위는 시차를 두고 공격합니다", []]]
+    },
+    {
+      "kind": "cta",
+      "bg": 6062828,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", []]]
+    }
+  ],
+  "sources": [
+    "https://www.sciencedaily.com/releases/2022/08/220826113353.htm",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC4025023/",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC10083291/"
+  ],
+  "hashtags": ["일교차", "심혈관", "심근경색", "기온급락", "추위시차"]
+}
