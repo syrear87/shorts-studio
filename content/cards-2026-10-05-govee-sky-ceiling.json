@@ -1,0 +1,36 @@
+{
+ "topic": "Govee Sky Ceiling Light — 천장 조명이 시간을 읽기 시작했다, AI가 기분과 날씨에 맞춰 색온도와 밝기를 바꾼다, 7000루멘 CRI 95 Matter 지원, $359.99(약 49만원) 해외 직구 [한계붕괴형]",
+ "blog_teaser": "DaySync가 정확히 어떻게 작동하는지, 국내 대안 조명과 비교한 내용은 블로그에 있습니다",
+ "threads_text": "LED 조명 색 바꾸려고 앱 열던 시대가 끝났다\n\n1. Govee가 천장 조명에 AI를 넣었다\n2. 아침엔 밝은 백색, 저녁엔 따뜻한 노란빛으로 알아서 바뀐다\n3. DaySync가 시간대와 날씨를 읽어 색온도를 자동 조절한다\n4. 478nm 스카이블루 파장이 실내에서도 하늘빛을 만든다\n5. $359.99, 국내 미출시라 아마존 직구만 가능\n\n(출처: Govee 공식, MacRumors, T3)",
+ "description": "Govee Sky Ceiling Light. AI Lighting Bot 2.0으로 기분과 활동에 맞춰 색온도·밝기 자동 조절. DaySync 기술로 시간대와 날씨에 따라 조명 자동 전환. 7,000루멘 CRI 95. RGBWWIC 기술. 1,000K~10,000K 색온도 범위. 478nm 스카이블루 스펙트럼. Matter 지원. 저발광·무플리커. $359.99(세일가, 정가 $399.99). 미국 아마존 직구 가능. 국내 미출시.",
+ "caption": "LED 조명 색 바꾸려고 앱 열던 시대가 끝났다\n\nGovee Sky Ceiling Light.\nAI가 아침엔 밝은 백색, 저녁엔 따뜻한 조명으로 바꾼다.\nDaySync — 시간대+날씨 데이터로 색온도 1,000K~10,000K 자동 조절.\n478nm 스카이블루 파장으로 실내에서도 하늘빛.\n7,000루멘 · CRI 95 · Matter.\n$359.99 · 국내 미출시, 아마존 직구 가능.\n\n(출처: Govee 공식, MacRumors, T3)\n\n#Govee #스마트조명 #천장조명 #AI조명 #DaySync",
+ "factcheck": [
+   {"claim": "7,000루멘, CRI 95", "sources": ["https://us.govee.com/products/govee-sky-ceiling-light", "https://www.macrumors.com/2026/09/03/govee-sky-ceiling-light/"], "note": "Govee 공식 제품 페이지 + MacRumors 보도 교차 확인"},
+   {"claim": "DaySync — 시간대와 날씨 데이터를 읽어 색온도 자동 조절, 1,000K~10,000K", "sources": ["https://us.govee.com/products/govee-sky-ceiling-light", "https://www.t3.com/home-living/smart-home/govees-new-smart-ceiling-light-adapts-to-your-mood-and-what-youre-doing"], "note": "Govee 공식 + T3 리뷰 교차 확인"},
+   {"claim": "478nm 스카이블루 스펙트럼", "sources": ["https://us.govee.com/products/govee-sky-ceiling-light", "https://www.iphoneincanada.ca/2026/09/03/govees-new-ai-ceiling-light/"], "note": "Govee 공식 + iPhoneinCanada 보도 교차 확인"},
+   {"claim": "$359.99(세일가, 정가 $399.99)", "sources": ["https://us.govee.com/products/govee-sky-ceiling-light", "https://www.macrumors.com/2026/09/03/govee-sky-ceiling-light/"], "note": "Govee 공식 스토어 + MacRumors 교차 확인. MacRumors는 $400으로 보도"},
+   {"claim": "Matter 지원", "sources": ["https://us.govee.com/products/govee-sky-ceiling-light", "https://www.ubergizmo.com/2026/09/govee-launches-matter-compatible-ai-lighting-range-at-ifa-2026/"], "note": "Govee 공식 + Ubergizmo IFA 보도 교차 확인"},
+   {"claim": "국내 미출시 — 아마존 직구만 가능", "sources": ["https://www.coupang.com", "https://search.shopping.naver.com"], "note": "쿠팡·네이버쇼핑 'Govee Sky Ceiling Light' 검색 결과 없음(2026-10-05 확인). Govee 공식 스토어는 미국 배송만 지원"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/govee_sky_ceiling_01.png",
+   "title": "LED 조명 색 바꾸려고 앱 열던 시대가 끝났다\nAI가 시간·날씨 읽어 알아서 바꾼다",
+   "title_hl": ["앱 열던 시대가 끝났다", "알아서 바꾼다"],
+   "body": "Govee Sky Ceiling Light · DaySync AI 조명",
+   "body_hl": ["DaySync"],
+   "credit": "Govee / govee.com"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/govee_sky_ceiling_02.png",
+   "title": "DaySync — 시간+날씨를 읽어 색온도 자동 전환\n1,000K~10,000K · 478nm 스카이블루",
+   "title_hl": ["DaySync", "자동 전환", "스카이블루"],
+   "body": "7,000루멘 · CRI 95 · Matter 지원\n$359.99 · 국내 미출시, 아마존 직구",
+   "body_hl": ["7,000루멘", "CRI 95"],
+   "sub": "국내 대안: 필립스 Hue 천장 조명(약 20만원대), 이케아 DIRIGERA+SOLHETTA",
+   "credit": "Govee / govee.com"
+  }
+ ]
+}
