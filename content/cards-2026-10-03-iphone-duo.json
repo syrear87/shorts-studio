@@ -1,0 +1,34 @@
+{
+ "topic": "iPhone Duo — 아이폰이 17년 만에 접힌다, 329만원 사전예약 10/16 오후 9시, 펼치면 7.6인치 접으면 5.4인치 A20 Pro 티타늄 254g [공유형]",
+ "blog_teaser": "갤럭시 Z 폴드와 스펙·가격 비교표는 블로그에 정리해뒀습니다",
+ "threads_text": "아이폰이 17년 만에 접힌다 — 329만원\n\n1. 사전예약 10/16(금) 오후 9시, 출시 10/23\n2. 펼치면 7.6인치, 접으면 5.4인치, 접었을 때 11.3mm\n3. 가격: 256GB 329만 / 512GB 359만 / 1TB 419만 / 2TB 509만\n4. Face ID가 빠지고 Touch ID(측면 버튼)가 돌아왔다\n5. 망원 카메라 없음 — 48MP 광각+초광각 듀얼\n\n(출처: Apple 공식, MacRumors, technotekorea)",
+ "description": "iPhone Duo. 애플 최초 폴더블 아이폰. 2026년 9월 9일 발표, 10월 16일 사전예약(한국 오후 9시), 10월 23일 출시(1차 출시국 70개국 이상, 한국 포함). 한국 가격: 256GB 329만원 / 512GB 359만원 / 1TB 419만원 / 2TB 509만원. 내부 7.6인치 + 외부 5.4인치 OLED 120Hz ProMotion, 최대 3,000nit. A20 Pro 칩(2nm), 12GB RAM. 그레이드5 티타늄 프레임, 3D 프린팅 힌지 커버. 254g(역대 가장 무거운 아이폰), 펼쳤을 때 5.2mm(역대 가장 얇은 아이폰). IP68. Touch ID(측면 버튼) — Face ID 없음. 후면 48MP 광각(f/1.6) + 48MP 초광각(f/2.2), 전면 12MP + 언더디스플레이 카메라. 배터리 일반 사용 24시간, 동영상 재생 44시간(외부 화면). eSIM 전용. iOS 27.1 탑재. 색상: 스타 화이트, 나이트 스카이.",
+ "caption": "아이폰이 17년 만에 접힌다 — 329만원\n\n애플 최초 폴더블, 아이폰 듀오.\n사전예약 10/16(금) 오후 9시 · 출시 10/23.\n256GB 329만원부터 · 2TB 509만원.\n\n(출처: Apple 공식, MacRumors)\n\n#아이폰듀오 #iPhoneDuo #폴더블아이폰 #애플 #테크",
+ "factcheck": [
+   {"claim": "아이폰 듀오 10/23 출시, 10/16 사전예약, 한국 1차 출시국 포함", "sources": ["https://www.apple.com/newsroom/2026/09/apple-unveils-iphone-duo/", "https://www.macrumors.com/roundup/iphone-duo/"], "note": "Apple 공식 뉴스룸 + MacRumors 교차 확인"},
+   {"claim": "한국 가격 256GB 329만원 / 512GB 359만원 / 1TB 419만원 / 2TB 509만원", "sources": ["https://andxo.com/iphone-fold-release-time-price-korea-2026", "https://www.make2t.kr/2026/09/iphone-duo-preorder-price-specs.html"], "note": "한국 매체 2곳 교차 확인, Apple 공식 미국가 $1,999~$3,199 기준 환산과 일치"},
+   {"claim": "펼치면 7.6인치, 접으면 5.4인치, A20 Pro, Touch ID(Face ID 없음), 48MP 듀얼(망원 없음)", "sources": ["https://www.apple.com/newsroom/2026/09/apple-unveils-iphone-duo/", "https://www.popsci.com/gear/apple-event-announcements-fall-2026-iphone-duo-apple-watch-12-iphone-18/"], "note": "Apple 공식 + PopSci 교차 확인"},
+   {"claim": "그레이드5 티타늄, 254g, 접었을 때 5.2mm, IP68, eSIM 전용", "sources": ["https://www.macrumors.com/roundup/iphone-duo/", "https://www.gadgetping.com/iphone-duo-foldable-price-release-date/"], "note": "MacRumors + GadgetPing 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/iphone_duo_colors.jpg",
+   "title": "아이폰이 17년 만에\n접힌다",
+   "title_hl": ["접힌다"],
+   "body": "사전예약 10/16(금) 오후 9시\n329만원부터",
+   "body_hl": ["329만원"],
+   "credit": "Apple / apple.com/newsroom"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/iphone_duo_display.jpg",
+   "title": "생긴 것, 빠진 것",
+   "title_hl": ["빠진 것"],
+   "body": "펼치면 7.6\" 접으면 5.4\" · A20 Pro · 티타늄 254g\nTouch ID 복귀 — Face ID 없음\n카메라 48MP 듀얼 — 망원 없음",
+   "body_hl": ["Face ID 없음", "망원 없음"],
+   "sub": "256GB 329만 / 512GB 359만 / 1TB 419만 / 2TB 509만",
+   "credit": "Apple / apple.com/newsroom"
+  }
+ ]
+}
