@@ -1,0 +1,35 @@
+{
+ "topic": "Sennheiser Momentum True Wireless 5 — 무선이어폰 배터리 죽으면 버리던 시대가 끝났다, 이어버드와 케이스 배터리를 직접 갈아 끼운다, 프리미엄 브랜드 최초 사용자 교체형 배터리, Bluetooth 6.0 aptX Lossless 총 40시간, 국내 429,000원 [한계붕괴형]",
+ "blog_teaser": "전작 MTW4가 iFixit '수리 불가 최악상'을 받은 경위와 교체 배터리 구매처는 블로그에 정리했습니다",
+ "threads_text": "무선이어폰, 배터리 죽으면 버리던 시대가 끝났다\n\n1. 2년 쓰면 슬슬 배터리 녹아내리잖아 — 30만 원짜리가 소모품이었다\n2. 전작 MTW4가 iFixit에서 '수리 최악상'을 받았다 — 배터리 3개인데 하나도 교체 불가\n3. 젠하이저가 뒤집었다 — 이어버드와 케이스 배터리를 직접 갈아 끼운다\n4. Bluetooth 6.0, aptX Lossless, 총 40시간\n5. 국내 429,000원 — 배터리 키트는 약 4만 원대\n\n(출처: Sennheiser 공식, Engadget, What Hi-Fi)",
+ "description": "Sennheiser Momentum True Wireless 5. 프리미엄 오디오 브랜드 최초 사용자 교체형 배터리 무선이어폰. 이어버드 양쪽 + 충전 케이스 배터리 모두 교체 가능. 전작 MTW4가 CES 2024에서 iFixit 'Worst in Show(수리 최악상)' 수상 — 이어버드당 배터리 3개였으나 전부 교체 불가 설계. MTW5는 그 비판에 대한 직접 응답. Qualcomm S5 Gen 3 칩, Bluetooth 6.0, aptX Lossless, 멀티포인트. ANC(적응형) 탑재. 배터리: 이어버드 단독 최대 8시간(ANC on), 케이스 포함 총 40시간. 5색(그래파이트·코퍼·크림·라벤더·블루). 국내 정가 429,000원, 2026년 9월 3일 출시. 참고: 최초 교체형 배터리 이어버드는 Fairphone Fairbuds(2024)이나 프리미엄 오디오 브랜드로는 최초.",
+ "caption": "무선이어폰, 배터리 죽으면 버리던 시대가 끝났다\n\n2년 쓰면 배터리가 녹는다 — 30만 원짜리가 소모품이었다.\n젠하이저가 뒤집었다. 이어버드와 케이스 배터리를 직접 갈아 끼운다.\nBluetooth 6.0 · aptX Lossless · 총 40시간.\n국내 429,000원.\n\n(출처: Sennheiser 공식, Engadget, What Hi-Fi)\n\n#젠하이저 #무선이어폰 #배터리교체 #MTW5 #테크",
+ "factcheck": [
+   {"claim": "프리미엄 오디오 브랜드 최초 사용자 교체형 배터리 무선이어폰", "sources": ["https://newsroom.sennheiser.com/introducing-sennheiser-momentum-true-wireless-5-the-flagship-momentum-experience-in-your-pocket", "https://www.engadget.com/2249856/sennheiser-momentum-true-wireless-5-review/"], "note": "Sennheiser 공식 + Engadget 리뷰 교차 확인. Fairphone Fairbuds(2024)가 최초이나 프리미엄 오디오 브랜드로는 최초"},
+   {"claim": "전작 MTW4가 iFixit CES 2024 Worst in Show 수상", "sources": ["https://www.headphonesty.com/2024/01/sennheiser-momentum-earns-worst-show-award-repairability/", "https://www.soundguys.com/sennheiser-momentum-true-wireless-5-replaceable-battery-earbuds-162104/"], "note": "Headphonesty + SoundGuys 교차 확인"},
+   {"claim": "Bluetooth 6.0, aptX Lossless, Qualcomm S5 Gen 3", "sources": ["https://www.whathifi.com/headphones/wireless-earbuds/sennheiser-momentum-true-wireless-5", "https://www.engadget.com/2249856/sennheiser-momentum-true-wireless-5-review/"], "note": "What Hi-Fi + Engadget 교차 확인"},
+   {"claim": "배터리 이어버드 단독 최대 8시간(ANC on), 케이스 포함 총 40시간", "sources": ["https://newsroom.sennheiser.com/introducing-sennheiser-momentum-true-wireless-5-the-flagship-momentum-experience-in-your-pocket", "https://www.popsci.com/gear/sennheiser-momentum-true-wireless-5-bluetooth-audiophile-earbuds-review/"], "note": "Sennheiser 공식 + PopSci 리뷰 교차 확인"},
+   {"claim": "국내 정가 429,000원, 2026년 9월 3일 출시", "sources": ["https://zdnet.co.kr/view/?no=20260526153955", "https://kr.acrofan.com/detail.php?number=448057"], "note": "ZDNet Korea + Acrofan Korea 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/sennheiser_mtw5_earbuds.jpg",
+   "title": "무선이어폰 배터리 죽으면\n30만 원을 버렸다",
+   "title_hl": ["30만 원을 버렸다"],
+   "body": "이제 직접 갈아 끼운다",
+   "body_hl": ["갈아 끼운다"],
+   "credit": "Sennheiser / newsroom.sennheiser.com"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/sennheiser_mtw5_case.jpg",
+   "title": "이어버드 + 케이스 배터리 전부 교체\nBluetooth 6.0 · aptX Lossless · 40시간",
+   "title_hl": ["전부 교체", "40시간"],
+   "body": "전작은 iFixit '수리 최악상' — 그 비판을 뒤집었다\n배터리 키트 약 4만 원대",
+   "body_hl": ["수리 최악상", "뒤집었다"],
+   "sub": "Sennheiser Momentum True Wireless 5 · 국내 429,000원",
+   "credit": "Sennheiser / newsroom.sennheiser.com"
+  }
+ ]
+}
