@@ -1,0 +1,34 @@
+{
+ "topic": "충전식 전동 에어건 — 캔 에어에서 캔이 사라졌다, USB-C 충전으로 키보드·PC 먼지를 매번 캔 사지 않고 해결한다, BLDC 모터 11만~18만 RPM에 노즐 교체, 3만원대부터 [구매가능][공유형]",
+ "blog_teaser": "캔 에어의 온실가스 문제와 전동 에어건 고를 때 확인할 스펙은 블로그에 정리했습니다",
+ "threads_text": "캔 에어에서 캔이 사라졌다 — USB-C 충전식 에어건, 3만원대\n\n1. 키보드 먼지 날릴 때 쓰는 그 압축공기 캔 있잖아\n2. 한 캔 5천원에 두세 번 쓰면 끝이라 매번 새로 산다\n3. 충전식 전동 에어건이 3만원대부터 있다 — USB-C 꽂으면 끝\n4. 11만 RPM, 캔보다 바람이 세고 노즐 교체도 된다\n5. 그 캔 속 냉매는 CO2의 1,430배 온난화 물질이다\n\n(출처: How-To Geek, Tom's Hardware, EPA)",
+ "description": "충전식 전동 에어 더스터. 압축공기 캔을 대체하는 USB-C 충전식 전동 에어건. BLDC 모터 11만~18만 RPM. 캔 에어보다 일정하고 강한 바람. USB-C 충전 2~3시간. 노즐 3~4종 교체(좁은 틈새용·넓은 면적용). 캔 에어 속 냉매 HFC-134a는 GWP 1,430(CO2의 1,430배 온난화 물질 — EPA 기준). 국내 판매가 3만원대~5만원대(입문형). 쿠팡·네이버쇼핑 '충전식 에어건' 검색. 용도: 키보드·PC 내부·카메라 센서·차량 내부 먼지 제거.",
+ "caption": "캔 에어에서 캔이 사라졌다 — USB-C 충전식 에어건, 3만원대\n\n키보드·PC·카메라 먼지, 이제 매번 캔 안 사도 된다.\nUSB-C 충전식 전동 에어건.\n11만~18만 RPM · 노즐 교체 · 충전 1회에 30분 이상.\n캔 속 냉매(HFC-134a)는 CO2의 1,430배 온난화 물질.\n쿠팡·네이버쇼핑 '충전식 에어건' 검색 · 3만원대부터.\n\n(출처: How-To Geek, Tom's Hardware, EPA)\n\n#에어더스터 #전동에어건 #키보드청소 #USBC #테크",
+ "factcheck": [
+   {"claim": "BLDC 모터 11만~18만 RPM", "sources": ["https://us.gooloo.com/products/gooloo-f3-cordless-electric-air-duster-blower-150-000-rpm-high-speed-dust-cleaner-for-keyboard-electronics-car-detailing-3-speed-turbo-fan-with-safety-protection-black", "https://www.howtogeek.com/compressed-air-cans-are-a-waste-of-moneyheres-why-i-got-an-electric-duster-instead/"], "note": "GOOLOO F3 공식 150,000 RPM + How-To Geek 리뷰 교차 확인. F5S 모델은 180,000 RPM"},
+   {"claim": "캔 에어 속 냉매 HFC-134a의 GWP = 1,430 (CO2 대비)", "sources": ["https://www.epa.gov/sites/default/files/documents/dusters.pdf", "https://wolfbox.com/blogs/air-duster/why-canned-air-is-an-environmental-and-economic-mistake"], "note": "EPA 공식 자료 + Wolfbox 블로그(EPA 인용) 교차 확인"},
+   {"claim": "USB-C 충전 2~3시간, 사용 10분(최대)~240분(저속)", "sources": ["https://www.howtogeek.com/compressed-air-cans-are-a-waste-of-moneyheres-why-i-got-an-electric-duster-instead/", "https://www.tomshardware.com/peripherals/keep-your-gaming-keyboard-and-pc-fans-clean-with-these-electric-air-blower-deals-starting-from-usd17-high-rpm-cordless-air-dusters-are-great-replacements-for-canned-air-to-blast-away-the-dust-and-dirt"], "note": "How-To Geek + Tom's Hardware 리뷰 교차 확인. 모델마다 차이 큼"},
+   {"claim": "국내 판매가 3만원대~5만원대(입문형)", "sources": ["https://sakamaka.kr/articles/wireless-air-duster-gun-car-camping-best-picks-2026"], "note": "한국 쇼핑 비교 사이트 기준. 입문형 29,000~50,000원"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/air_duster_product.jpg",
+   "title": "캔 에어에서 캔이 사라졌다\nUSB-C 충전하면 매번 안 사도 된다",
+   "title_hl": ["사라졌다", "매번 안 사도"],
+   "body": "키보드·PC·카메라 먼지, 3만원대면 끝",
+   "body_hl": ["3만원대"],
+   "credit": "GOOLOO / gooloo.com"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/air_duster_detail.jpg",
+   "title": "11만~18만 RPM · 노즐 교체 · USB-C\n캔보다 세고, 캔보다 싸다",
+   "title_hl": ["18만 RPM", "캔보다 싸다"],
+   "body": "충전 1회에 30분 이상 · 노즐 3~4종 교체\n캔 속 냉매(HFC-134a)는 CO2의 1,430배 온난화 물질",
+   "body_hl": ["1,430배"],
+   "sub": "쿠팡·네이버쇼핑 '충전식 에어건' 검색 · 3만원대부터",
+   "credit": "GOOLOO / gooloo.com"
+  }
+ ]
+}

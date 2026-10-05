@@ -748,3 +748,4 @@
 - 16시 카드: 블랙박스 SD카드 수명 — 6개월 지나면 빈 파일만 남는다 [구매가능][공유형] — threads.com/@daily_1_pick/post/Dda5N6-mUoT
 - 09/29 16시 카드: 발열 데스크 매트 — 스레드 https://www.threads.com/@daily_1_pick/post/Dd3OXCWGbRv
 - 10/05 09시 카드: Neurable One — 헤드폰이 처음으로 뇌파를 읽는다, EEG 센서 12개 [공유형] — https://www.threads.com/@daily_1_pick/post/DeF47XngdE-
+- 10/05 12시 카드: 충전식 전동 에어건 — 캔 에어에서 캔이 사라졌다, USB-C 충전 3만원대 [구매가능][공유형] — https://www.threads.com/@daily_1_pick/post/DeGPUr_GfV1
