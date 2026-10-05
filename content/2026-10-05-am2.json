@@ -1,0 +1,53 @@
+{
+  "title": "비만약의 시작은 도마뱀 독이었습니다 — 오늘 노벨상 발표",
+  "series": "공유성",
+  "narrator": "female",
+  "real_query": ["Nobel Prize Medicine ceremony", "Gila monster lizard"],
+  "bg_query": ["Nobel Prize ceremony podium Stockholm", "brain neuron synapse signal close up", "Gila monster desert reptile close up", "medicine pills pharmacy white background", "Nobel Prize gold medal ceremony"],
+  "hook_bg_reason": "노벨상 시상식 실물 사진(커먼즈 검색 우선)",
+  "bg_ids": ["commons:File:Gila-Krustenechse - Heloderma suspectum - 3488.jpg", 29184317, 7033924, 7005887],
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": "commons:File:Gila-Krustenechse - Heloderma suspectum - 3488.jpg",
+      "voice": "전 세계가 먹는 비만약, 시작은 사막 도마뱀의 독이었습니다. 오늘 한국 시간 저녁 6시 30분, 이 발견이 노벨상을 받을 수도 있습니다.",
+      "sub": "비만약의 시작 · 도마뱀 독",
+      "lines": [["비만약의 시작은 도마뱀 독이었습니다", ["도마뱀"]], ["오늘 이 발견이", []], ["노벨상을 받을 수도 있습니다", ["노벨상"]]]
+    },
+    {
+      "kind": "fact",
+      "bg": 29184317,
+      "voice": "이 약은 GLP-1이라는 호르몬을 흉내 냅니다. 장에서 분비돼 뇌에 배부르다는 신호를 보내는 물질입니다.",
+      "sub": "GLP-1 호르몬",
+      "lines": [["GLP-1 호르몬을 흉내 냅니다", ["GLP-1"]], ["장에서 분비돼 뇌에", []], ["배부르다는 신호를 보내는 물질", []]]
+    },
+    {
+      "kind": "fact",
+      "bg": "commons:File:Gila-Krustenechse - Heloderma suspectum - 3488.jpg",
+      "voice": "시작점은 도마뱀이었습니다. 1992년, 미국 사막의 히라독도마뱀 독에서 이 호르몬과 53% 같은 물질이 발견됐습니다.",
+      "sub": "히라독도마뱀 · 1992",
+      "lines": [["시작점은 도마뱀이었습니다", ["도마뱀"]], ["1992년 히라독도마뱀 독에서", []], ["호르몬과 53% 같은 물질 발견", ["53%"]]]
+    },
+    {
+      "kind": "fact",
+      "bg": 7033924,
+      "voice": "이걸 본떠 만든 약은 원래 당뇨약이었습니다. 그런데 환자들이 살이 빠지기 시작했고, 비만 치료제로 다시 태어났습니다.",
+      "sub": "당뇨약 → 비만약",
+      "lines": [["원래 당뇨약이었습니다", ["당뇨약"]], ["환자들이 살이 빠지기 시작했고", []], ["비만 치료제로 다시 태어났습니다", []]]
+    },
+    {
+      "kind": "twist",
+      "bg": 7005887,
+      "voice": "도마뱀 독에서 출발한 약이 노벨상까지 왔습니다. 결과는 오늘 저녁에 나옵니다.",
+      "sub": "도마뱀 독 → 노벨상",
+      "lines": [["도마뱀 독에서 출발한 약이", ["도마뱀 독"]], ["노벨상까지 왔습니다", []], ["결과는 오늘 저녁에", []]]
+    },
+    {
+      "kind": "cta",
+      "bg": 7005887,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ]
+}
