@@ -1,0 +1,36 @@
+{
+ "topic": "Neurable One — 헤드폰이 뇌파를 읽기 시작했다, 이어패드에 EEG 센서 12개가 짜 넣어져 있다, 집중력·피로·스트레스를 실시간 측정하고 Brain Battery로 뇌 잔량을 알려준다, $499 미국 프리오더 [공유형]",
+ "blog_teaser": "EEG 센서가 어떤 뇌파를 읽는지, Brain Battery가 뭘 뜻하는지는 블로그에 정리했습니다",
+ "threads_text": "헤드폰이 처음으로 뇌파를 읽는다 — 이어패드 안에 EEG 센서 12개\n\n1. Neurable One이라는 헤드폰인데, 이어패드에 뇌파 센서가 짜 넣어져 있다\n2. 쓰고 있으면 집중력·피로·스트레스를 실시간으로 측정한다\n3. Brain Battery라는 게 있어서 내 뇌가 몇 퍼센트 남았는지 알려준다\n4. 음악은 40mm 베릴륨 드라이버 + ANC — 일반 헤드폰으로도 된다\n5. $499(관세·배송 포함 약 83만원) 미국 프리오더 중, 국내 출시 미정\n\n(출처: Neurable 공식, AudioXpress, The Gadgeteer)",
+ "description": "Neurable One. 미국 뉴로테크 스타트업 Neurable이 만든 EEG 뇌파 측정 헤드폰. 이어패드에 12개 EEG 센서가 나일론 섬유에 짜 넣어져(woven) 있어, 젤이나 별도 장비 없이 착용만으로 뇌파를 읽는다. 측정 항목: 집중력(Focus), 인지 부하(Mental Load), 졸음(Sleepiness), 스트레스(Stress), Brain Battery(인지 잔량), Brain Age, Alpha Peak Frequency. 오디오: 40mm 베릴륨 돔 드라이버, ANC(앰비언트 모드 포함), 마이크 6개, BT 5.2(AAC·aptX), 멀티포인트. 배터리: 22시간(음악만) / 12시간(EEG 추적 켬). 15분 충전으로 2시간 사용. 345g. 의료기기가 아닌 소비자 웰니스 제품 분류. $499.99, 미국 프리오더 중(4~8주 배송). 국내 출시 미정, 국내에 EEG 소비자 헤드폰 대안 없음. 직구 시 관세·배송 포함 약 83만원.",
+ "caption": "헤드폰이 처음으로 뇌파를 읽는다 — 이어패드 안에 EEG 센서 12개\n\nNeurable One.\n쓰고 있으면 집중력·피로·스트레스를 실시간으로 측정한다.\nBrain Battery — 내 뇌가 몇 퍼센트 남았는지 알려준다.\n40mm 베릴륨 드라이버 · ANC · 22시간.\n$499 · 미국 프리오더 중 · 국내 출시 미정.\n\n(출처: Neurable 공식, AudioXpress, The Gadgeteer)\n\n#뇌파 #EEG #Neurable #헤드폰 #테크",
+ "factcheck": [
+   {"claim": "이어패드에 EEG 센서 12개(좌우 6개씩), 나일론에 직조", "sources": ["https://checkout.neurable.com/products/neurable-one", "https://audioxpress.com/news/neurable-one-integrates-eeg-sensors-and-cognitive-tracking-into-anc-headphones", "https://the-gadgeteer.com/2026/10/02/neurable-one-eeg-headphones-focus-tracking/"], "note": "공식 + AudioXpress + The Gadgeteer 3곳 교차 확인"},
+   {"claim": "측정 항목: Focus, Mental Load, Sleepiness, Stress, Brain Battery, Brain Age, Alpha Peak Frequency", "sources": ["https://audioxpress.com/news/neurable-one-integrates-eeg-sensors-and-cognitive-tracking-into-anc-headphones", "https://the-gadgeteer.com/2026/10/02/neurable-one-eeg-headphones-focus-tracking/"], "note": "AudioXpress + The Gadgeteer 교차 확인"},
+   {"claim": "40mm 베릴륨 돔 드라이버, ANC, BT 5.2, 마이크 6개", "sources": ["https://checkout.neurable.com/products/neurable-one", "https://audioxpress.com/news/neurable-one-integrates-eeg-sensors-and-cognitive-tracking-into-anc-headphones"], "note": "공식 + AudioXpress 교차 확인"},
+   {"claim": "배터리 22시간(오디오) / 12시간(EEG 추적), 15분 충전 2시간 사용", "sources": ["https://audioxpress.com/news/neurable-one-integrates-eeg-sensors-and-cognitive-tracking-into-anc-headphones", "https://the-gadgeteer.com/2026/10/02/neurable-one-eeg-headphones-focus-tracking/"], "note": "AudioXpress + The Gadgeteer 교차 확인"},
+   {"claim": "$499.99, 미국 프리오더 4~8주 배송", "sources": ["https://checkout.neurable.com/products/neurable-one", "https://the-gadgeteer.com/2026/10/02/neurable-one-eeg-headphones-focus-tracking/"], "note": "공식 스토어 + The Gadgeteer 교차 확인"},
+   {"claim": "소비자 웰니스 제품(의료기기 아님)", "sources": ["https://the-gadgeteer.com/2026/10/02/neurable-one-eeg-headphones-focus-tracking/", "https://audioxpress.com/news/neurable-one-integrates-eeg-sensors-and-cognitive-tracking-into-anc-headphones"], "note": "두 매체 모두 명시"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/neurable_one_hero.jpg",
+   "title": "헤드폰이 처음으로 뇌파를 읽는다\n이어패드 안에 EEG 센서 12개",
+   "title_hl": ["처음으로", "12개"],
+   "body": "쓰고 있으면 집중력·피로·스트레스가 숫자로 보인다",
+   "body_hl": ["숫자로 보인다"],
+   "credit": "Neurable / neurable.com"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/neurable_one_earpad.jpg",
+   "title": "내 뇌가 몇 퍼센트 남았는지 알려준다\nNeurable One",
+   "title_hl": ["몇 퍼센트"],
+   "body": "Brain Battery · Focus · Mental Load · Sleepiness\n40mm 베릴륨 드라이버 · ANC · 22시간",
+   "body_hl": ["Brain Battery"],
+   "sub": "$499(관세·배송 포함 약 83만원) · 미국 프리오더 중\n국내 출시 미정 — EEG 소비자 헤드폰 국내 대안 없음",
+   "credit": "Neurable / neurable.com"
+  }
+ ]
+}

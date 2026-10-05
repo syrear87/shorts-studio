@@ -747,3 +747,4 @@
 - 09시 카드: Tiny Vinyl Player — 레코드판이 손바닥 크기로 바뀌었다, BTS부터 리한나까지 100만 장 [소유욕형] — threads.com/@daily_1_pick/post/DdaI2J3D61T
 - 16시 카드: 블랙박스 SD카드 수명 — 6개월 지나면 빈 파일만 남는다 [구매가능][공유형] — threads.com/@daily_1_pick/post/Dda5N6-mUoT
 - 09/29 16시 카드: 발열 데스크 매트 — 스레드 https://www.threads.com/@daily_1_pick/post/Dd3OXCWGbRv
+- 10/05 09시 카드: Neurable One — 헤드폰이 처음으로 뇌파를 읽는다, EEG 센서 12개 [공유형] — https://www.threads.com/@daily_1_pick/post/DeF47XngdE-
