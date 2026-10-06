@@ -1,0 +1,33 @@
+{
+ "topic": "USB-C 내시경 카메라 — 배수구 막혔을 때 업자 부르기 전에 폰으로 속을 본다, USB-C OTG로 바로 연결, IP67 방수에 LED 6개, 만원대부터 [구매가능][공유형]",
+ "blog_teaser": "내시경 카메라로 실제 뭘 볼 수 있는지, IP67이 진짜 물속에서 되는지, 아이폰은 왜 안 되는지는 블로그에 정리했습니다",
+ "threads_text": "배수구 점검이 바뀌었다, 출장비 5만원이 만원짜리 카메라로 대체됐다\n\n1. USB-C 내시경 카메라 — 폰에 꽂으면 배관 속이 화면에 나온다\n2. IP67 방수라 물 고인 배수구도 된다, LED 6개로 어두운 곳도 밝힌다\n3. 해상도 720p~1080p, 케이블 1~10m, 렌즈 5~12mm\n4. 다나와 기준 13,000원부터\n5. 단 안드로이드 USB OTG 전용 — 아이폰은 안 됨\n\n(출처: Coms 공식, 다나와 가격비교 2026-10-06 확인)",
+ "description": "USB-C 내시경 카메라(보어스코프, endoscope camera) — 배수구가 막히거나 배관 상태를 확인해야 할 때, 보통은 배관 업자를 부른다. 출장비만 3~5만원이고 뜯어봐야 원인을 안다. 그런데 USB-C 내시경 카메라를 쓰면 폰에 꽂는 것만으로 배관 안쪽을 직접 볼 수 있다. 원리는 단순하다. 5~12mm 지름의 가는 카메라 모듈에 LED 조명 6개가 달려 있고, 1~10m 길이의 반경직 케이블 끝에 붙어 있다. USB-C(또는 5핀 겸용)로 안드로이드 폰에 연결하면 OTG 모드로 바로 인식되고, 전용 앱에서 실시간 영상을 볼 수 있다. 해상도는 제품에 따라 720p에서 1080p까지다. IP67 방수 등급이라 물이 고인 배수구에 넣어도 된다. LED 밝기를 조절할 수 있어 깜깜한 배관 안도 밝게 보인다. 가격은 다나와 기준 13,000원대부터 시작한다. 대표 제품으로 Coms BE592C(Type-C/5핀 겸용)가 쿠팡에서 27,000~31,000원이다. 만원대 제품은 해상도가 낮거나(480p~720p) 케이블이 짧은(1~2m) 경우가 많다. 3만원대면 1080p에 5m 케이블을 기대할 수 있다. 주의할 점이 있다. 첫째, 아이폰은 USB OTG를 지원하지 않아 이 방식의 내시경 카메라가 작동하지 않는다. 아이폰용은 Wi-Fi 무선 방식인데 가격이 3~5만원대로 올라간다. 둘째, 의료용 내시경과는 완전히 다르다. 체내 검사에 쓸 수 없고 인체에 사용하면 안 된다. 용도는 배수구·에어컨 배관·차량 엔진룸·벽 안쪽 배선 확인 등 가정·산업 점검용이다. 결론적으로, 배수구 한 번 확인하려고 업자를 부르기 전에 만원대 카메라로 먼저 속을 보면 불필요한 출장비를 아낄 수 있다.",
+ "caption": "배수구 막히면 업자 부르기 전에\n폰으로 속을 본다\n\nUSB-C 내시경 카메라 — 폰에 꽂으면 배관 속이 보인다.\nIP67 방수, LED 6개, 720p~1080p.\n다나와 13,000원부터.\n단 안드로이드 USB OTG 전용.\n\n(출처: Coms 공식, 다나와 가격비교)\n\n#내시경카메라 #배관점검 #가성비템 #생활꿀템 #테크",
+ "factcheck": [
+   {"claim": "다나와 기준 USB-C 내시경 카메라 13,000원부터", "sources": ["https://search.danawa.com/dsearch.php?query=USB+%EB%82%B4%EC%8B%9C%EA%B2%BD+%EC%B9%B4%EB%A9%94%EB%9D%BC", "https://www.coupang.com/np/search?q=USB+%EB%82%B4%EC%8B%9C%EA%B2%BD+%EC%B9%B4%EB%A9%94%EB%9D%BC"], "note": "다나와 + 쿠팡 교차 확인 2026-10-06. 최저가 13,000원대(다나와), 쿠팡 16,000원대부터"},
+   {"claim": "IP67 방수, LED 6개, 720p~1080p, 케이블 1~10m", "sources": ["https://comsmart.co.kr/product/detail.html?product_no=5921", "https://wordcreeper.com/usb-endoscope/"], "note": "Coms 공식 스펙 + 워드크리퍼 가이드 교차 확인"},
+   {"claim": "아이폰은 USB OTG를 지원하지 않아 유선 내시경 카메라가 작동하지 않음", "sources": ["https://wordcreeper.com/usb-endoscope/", "https://www.amazon.com/s?k=endoscope+camera+USB"], "note": "워드크리퍼 가이드 + Amazon 제품 설명(Android only 표기) 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/endoscope_drain_1.jpg",
+   "title": "배수구 점검이 바뀌었다\n출장비 5만원이 만원으로 내려왔다",
+   "title_hl": ["바뀌었다", "만원"],
+   "body": "USB-C 내시경 카메라 — 폰에 꽂으면 배관 속이 보인다",
+   "body_hl": ["폰에 꽂으면"],
+   "credit": "Pexels / Liliana Drew"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/endoscope_phone_2.jpg",
+   "title": "IP67 방수, LED 6개\n720p~1080p",
+   "title_hl": ["IP67", "1080p"],
+   "body": "다나와 13,000원부터 · 쿠팡 16,000원부터\n안드로이드 USB OTG 전용",
+   "body_hl": ["13,000원", "16,000원"],
+   "sub": "아이폰은 안 됨 — Wi-Fi 방식은 3만원대",
+   "credit": "Pexels / Biswamangal Jana"
+  }
+ ]
+}
