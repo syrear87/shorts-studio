@@ -1,0 +1,37 @@
+{
+ "topic": "10,000mAh 스마트폰 — 하루에 한 번 충전하던 폰이 3일을 버티기 시작했다, Realme P4 Power 실측 완충 1회 3일, 실리콘-카본 양극으로 기존 흑연 대비 밀도 10배, 9.1mm/219g, 갤럭시 S26 울트라의 2배, 한국 미출시 [공유형]",
+ "blog_teaser": "실리콘-카본 배터리가 뭔지, 갤럭시·아이폰에 언제 올지는 블로그에 정리했습니다",
+ "threads_text": "보조배터리가 필요 없어졌다 — 폰 배터리가 10,000mAh를 넘었다\n\n1. Realme P4 Power — 10,001mAh. 보조배터리급이 폰에 들어갔다\n2. 실측 완충 한 번에 3일. 대기만 13일\n3. 비결은 실리콘-카본 양극 — 같은 크기에 훨씬 더 담는다\n4. 갤럭시 S26 울트라 약 5,000mAh. 정확히 절반\n5. 한국 미출시 — Realme 한국 미진출\n\n(출처: Tom's Guide 실측, Realme 공식, 91mobiles)",
+ "description": "10,000mAh 스마트폰 시대가 열렸다. Realme P4 Power는 세계 최초 메인스트림 10,001mAh 스마트폰이다(2026년 1월 인도 출시). 기존 스마트폰은 4,500~5,000mAh가 상한이었다. 갤럭시 S26 울트라가 약 5,000mAh, 아이폰18 프로맥스가 약 4,685mAh인데, 이 폰은 그 두 배다. Tom's Guide 실측에서 완충 한 번에 3일 넘게 사용할 수 있었고, 대기 시간은 약 13일이었다. 두께 9.1mm에 무게 219g이라 보조배터리 같은 벽돌이 아니다. 6.78인치 OLED 144Hz 디스플레이, MediaTek Dimensity 7400 Ultra 칩셋, 12GB RAM, 256GB 저장공간. 80W 유선 충전으로 빠르게 채울 수 있고, 27W 역방향 충전으로 다른 기기를 충전해줄 수도 있다. 핵심 기술은 실리콘-카본(Si-C) 양극이다. 기존 리튬이온 배터리는 흑연 양극을 쓰는데 이론 밀도가 372mAh/g이다. 실리콘은 이론 밀도가 최대 4,200mAh/g로 흑연의 약 11배다. 같은 크기에 훨씬 많은 에너지를 담을 수 있어 폰이 두꺼워지지 않고도 배터리를 두 배로 키울 수 있었다. 2007년 스탠퍼드 대학 연구에서 시작된 기술이 20년 만에 상용화된 것이다. Realme에 이어 Vivo S2 FE(10,000mAh)도 2026년 10월 6일 인도에서 출시됐다. 10,000mAh 시대는 이미 시작됐다. 문제는 한국이다. Realme과 Vivo 모두 한국에 진출하지 않았다. 직구도 쉽지 않다 — 대용량 배터리는 항공 운송 규정에 걸릴 수 있다. 국내에서 이 기술을 만나려면 삼성이나 애플이 실리콘-카본 양극을 채택해야 한다. 삼성 SDI가 실리콘 양극 배터리를 개발 중이라는 보도가 있지만 갤럭시 적용 시기는 아직 알려지지 않았다. 당분간 보조배터리는 가방에서 빠지지 않을 전망이다.",
+ "caption": "보조배터리가 필요 없어졌다 — 폰 배터리가 10,000mAh를 넘었다\n\n10,001mAh가 폰 안에 들어갔다.\n실측 완충 한 번에 3일, 대기 13일.\n갤럭시 S26 울트라(약 5,000mAh)의 정확히 2배.\n비결은 실리콘-카본 양극 — 같은 크기에 훨씬 더 많이 담는다.\n한국 미출시 — Realme은 아직 한국에 없다.\n\n(출처: Tom's Guide 실측, Realme 공식, 91mobiles)\n\n#스마트폰배터리 #10000mAh #Realme #배터리혁명 #테크",
+ "factcheck": [
+   {"claim": "Realme P4 Power 10,001mAh — 세계 최초 메인스트림 10,000mAh급 스마트폰", "sources": ["https://www.tomsguide.com/phones/android-phones/i-tested-the-worlds-first-phone-with-a-10-000-mah-battery-heres-how-long-it-lasted", "https://www.realme.com/in/realme-p4-power-5g"], "note": "Tom's Guide + Realme 공식 사이트 교차 확인. 2026년 1월 29일 인도 출시."},
+   {"claim": "실측 완충 1회 3일 사용, 대기 약 13일", "sources": ["https://www.tomsguide.com/phones/android-phones/i-tested-the-worlds-first-phone-with-a-10-000-mah-battery-heres-how-long-it-lasted"], "note": "Tom's Guide 실사용 리뷰: 'lasted me over three days on a full charge and is on track to last around 13 days on standby'"},
+   {"claim": "80W 유선 충전, 27W 역방향 충전, 9.1mm, 219g", "sources": ["https://www.realme.com/in/realme-p4-power-5g", "https://www.91mobiles.com/realme-p4-power-price-in-india"], "note": "Realme 공식 스펙 + 91mobiles 교차 확인"},
+   {"claim": "실리콘-카본 양극: 흑연 372mAh/g 대비 실리콘 이론 밀도 최대 4,200mAh/g", "sources": ["https://www.gizmochina.com/2025/07/20/worlds-first-10000mah-smartphone-could-launch-in-2026-and-its-not-a-brick/", "https://eu.36kr.com/en/p/3548520023535495"], "note": "GizmoChina + 36kr 배터리 기술 해설 교차 확인"},
+   {"claim": "Vivo S2 FE 10,000mAh 오늘(10/6) 인도 출시", "sources": ["https://www.91mobiles.com/hub/vivo-s2-fe-key-specs-india-price-tipped/", "https://nokiamob.net/2026/09/24/vivo-s2-fe-specs-leaked-10000mah-battery-and-120hz-display-rumored/"], "note": "91mobiles + NokiaMob 교차 확인, 10/6 12:00 IST 출시"},
+   {"claim": "Galaxy S26 Ultra 약 5,000mAh", "sources": ["https://www.anker.com/blogs/wireless-chargers/does-samsung-s26-have-full-qi2-support", "https://spigen.co.kr/now-spigen/guide/galaxy-s26-qi2-25w-wireless-charger-guide.html"], "note": "Anker 가이드 + 스피겐 가이드 교차 확인"},
+   {"claim": "한국 미출시 — Realme·Vivo 한국 미진출", "sources": ["https://www.realme.com/global/realme-p4-power-5g"], "note": "Realme 글로벌 사이트에서 한국(Korea) 미지원 확인. Vivo 동일."}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/realme_p4_power_1.jpg",
+   "title": "보조배터리가 필요 없어졌다\n폰 배터리가 10,000mAh를 넘었다",
+   "title_hl": ["필요 없어졌다", "넘었다"],
+   "body": "실측 완충 한 번에 3일 — 보조배터리급이 폰에 들어갔다",
+   "body_hl": ["3일"],
+   "credit": "Realme / realme.com"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/realme_p4_power_2.jpg",
+   "title": "실측 3일 · 대기 13일 · 80W 충전\n9.1mm · 219g — 보조배터리만큼 얇다",
+   "title_hl": ["3일", "13일"],
+   "body": "갤럭시 S26 울트라(5,000mAh)의 정확히 2배\n실리콘-카본 양극이 같은 크기에 더 많이 담는다",
+   "body_hl": ["2배", "실리콘-카본"],
+   "sub": "Realme P4 Power · 국내 미출시 · Realme 한국 미진출",
+   "credit": "FoneArena / fonearena.com"
+  }
+ ]
+}
