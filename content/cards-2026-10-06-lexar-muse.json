@@ -1,0 +1,37 @@
+{
+ "topic": "Lexar Muse — SSD가 신용카드가 됐다, 3.8mm 메탈 바디에 아이폰 뒤에 자석으로 붙는다, ProRes 4K/120fps 직접 녹화, 512GB·1TB Q4 출시 예정, 국내 미출시 [소유욕형]",
+ "blog_teaser": "3.8mm가 어떻게 가능한지 — 초박형 PCB와 고밀도 NAND 적층 구조를 블로그에 정리했습니다",
+ "threads_text": "아이폰 뒤에 붙이는 SSD, 두께가 사라졌다\n\n1. Lexar Muse — 3.8mm, 끝은 1mm까지 얇아진다\n2. 금속 통째로 깎아 만든 바디, 26.5g\n3. 자석으로 붙이면 ProRes 4K/120fps 바로 녹화\n4. 512GB·1TB, 올해 안 출시 예정 — 가격 미발표\n\n(출처: Lexar 공식 IFA 발표, Camera Jabber, PetaPixel)",
+ "description": "Lexar Muse Ultra-Slim Portable SSD. 세계에서 가장 얇은 포터블 SSD. 80×48×3.8mm(끝부분 1mm), 26.5g. 금속 단일 블록 정밀 가공. 읽기 1,050MB/s, 쓰기 1,000MB/s(USB 3.2 Gen 2). 전용 PogoPin 자석 커넥터 + SnapLink 자석 케이블. N52 네오디뮴 자석으로 MagSafe 아이폰 뒤에 부착. iPhone 15 이상 USB-C 모델 호환. iPad·Mac도 지원. 512GB·1TB, Q4 2026 출시 예정. 가격 미발표(IFA 비공식: 512GB ~$230, 1TB ~$380). 국내 미출시 — Lexar 한국 유통은 있으나 이 모델 미등록.",
+ "caption": "아이폰 뒤에 붙이는 SSD, 두께가 사라졌다\n\n3.8mm — 끝은 1mm까지 얇아진다.\n금속 통째로 깎아 만든 바디, 26.5g.\n아이폰 뒤에 자석으로 붙이면 ProRes 4K/120fps 직접 녹화.\n512GB·1TB, 올해 안 출시 예정.\n\n(출처: Lexar 공식 IFA 발표, Camera Jabber, PetaPixel)\n\n#SSD #포터블SSD #Lexar #LexarMuse #테크",
+ "factcheck": [
+   {"claim": "두께 3.8mm, 끝부분 1mm까지 테이퍼", "sources": ["https://camerajabber.com/photography-news/lexars-muse-is-a-3-8mm-ssd-that-clips-to-the-back-of-your-iphone/", "https://www.tomshardware.com/pc-components/external-ssds/lexar-announces-worlds-thinnest-portable-ssd-in-celebration-of-the-brands-30th-anniversary-lexar-muse-drive-achieves-0-15-inch-thickness-with-proprietary-pogo-pin-cable-magnetic-sleeve-for-phone-mounting"], "note": "Camera Jabber + Tom's Hardware 교차 확인. Lexar 공식 블로그에도 동일 수치"},
+   {"claim": "읽기 1,050MB/s, 쓰기 1,000MB/s, USB 3.2 Gen 2", "sources": ["https://camerajabber.com/photography-news/lexars-muse-is-a-3-8mm-ssd-that-clips-to-the-back-of-your-iphone/", "https://www.prnewswire.com/news-releases/lexar-unveils-muse-the-worlds-thinnest-portable-ssd-at-ifa-2026-302866295.html"], "note": "Camera Jabber + Lexar PRNewswire 공식 보도자료 교차 확인"},
+   {"claim": "ProRes 4K 120fps 외부 녹화 지원, iPhone 15 이상 USB-C 호환", "sources": ["https://camerajabber.com/photography-news/lexars-muse-is-a-3-8mm-ssd-that-clips-to-the-back-of-your-iphone/", "https://www.howtogeek.com/lexar-muse-ssd-thinnest-ever-for-phone/"], "note": "Camera Jabber + How-To Geek 교차 확인"},
+   {"claim": "512GB·1TB, Q4 2026 출시 예정, 가격 미발표", "sources": ["https://camerajabber.com/photography-news/lexars-muse-is-a-3-8mm-ssd-that-clips-to-the-back-of-your-iphone/", "https://www.prnewswire.com/news-releases/lexar-unveils-muse-the-worlds-thinnest-portable-ssd-at-ifa-2026-302866295.html"], "note": "Camera Jabber + PRNewswire 교차 확인. IFA 담당자 비공식 가격($230/$380)은 본문에 미사용"},
+   {"claim": "금속 단일 블록 정밀 가공, 초박형 PCB, 고밀도 NAND 적층", "sources": ["https://camerajabber.com/photography-news/lexars-muse-is-a-3-8mm-ssd-that-clips-to-the-back-of-your-iphone/", "https://petapixel.com/2026/09/04/lexars-new-ssd-is-so-thin-it-doesnt-even-have-a-regular-usb-c-port/"], "note": "Camera Jabber + PetaPixel 교차 확인"},
+   {"claim": "26.5g, 80×48mm", "sources": ["https://www.gizmochina.com/2026/09/07/lexar-muse-portable-ssd-unveiled-specs-price/", "https://thinkcomputers.org/lexar-muse-targets-the-worlds-thinnest-portable-ssd-at-just-3-8mm"], "note": "Gizmochina + ThinkComputers 교차 확인"},
+   {"claim": "국내 미출시 — Lexar 한국 유통 있으나 Muse 미등록", "sources": ["https://www.coupang.com/np/search?q=lexar+muse"], "note": "쿠팡 직접 검색, 'Lexar Muse' 결과 없음(2026-10-06 확인). Lexar 다른 제품(NM790 등)은 판매 중"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/lexar_muse_1.jpg",
+   "title": "아이폰 뒤에 붙이는 SSD\n두께가 사라졌다",
+   "title_hl": ["아이폰", "사라졌다"],
+   "body": "3.8mm — 신용카드보다 얇다",
+   "body_hl": ["3.8mm", "얇다"],
+   "credit": "Lexar / thegadgetflow.com"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/lexar_muse_2.jpg",
+   "title": "아이폰 뒤에 자석으로 붙인다\nProRes 4K/120fps 직접 녹화",
+   "title_hl": ["자석으로 붙인다", "직접 녹화"],
+   "body": "금속 통째로 깎은 26.5g\n512GB·1TB · Q4 출시 예정",
+   "body_hl": ["26.5g", "Q4"],
+   "sub": "Lexar Muse · 국내 미출시 · 가격 미발표",
+   "credit": "Lexar / thegadgetflow.com"
+  }
+ ]
+}
