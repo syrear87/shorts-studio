@@ -1,0 +1,34 @@
+{
+ "topic": "모니터 스크린바 — 모니터 반사 없애는 조명이 만원대로 내려왔다, 비대칭 배광으로 화면은 어둡고 키보드만 밝힌다, CRI Ra90 이상 확인, 쿠팡 홈플래닛 16,060원부터 [구매가능][공유형]",
+ "blog_teaser": "비대칭 배광이 뭔지, 만원짜리와 15만원짜리가 실제로 뭐가 다른지는 블로그에 정리했습니다",
+ "threads_text": "모니터 앞 빛 반사가 사라졌다, 만원이면 된다\n\n1. 스탠드 조명은 빛이 사방으로 퍼져서 화면에 반사된다\n2. 스크린바는 빛이 아래로만 간다 — 비대칭 배광\n3. 15만원짜리 원리가 만원대에도 들어왔다\n4. 고를 때 볼 것 — CRI(연색지수) Ra90 이상, 색온도 조절 있는 것\n5. 쿠팡 기준 홈플래닛 16,060원부터\n\n(출처: BenQ 공식, 다나와 가격비교 2026-10-06 확인)",
+ "description": "모니터 스크린바(모니터 라이트바) — 모니터 상단에 거치하는 비대칭 배광 조명이다. 모니터 앞에서 일할 때 눈이 쉽게 피로해지는 이유 중 하나가 조명이다. 일반 스탠드 조명은 빛이 사방으로 퍼지는 대칭 배광 방식이라, 모니터 화면에 빛이 반사되고 눈에 직접 들어온다. 반사광과 주변 밝기 차이가 크면 눈이 끊임없이 조절해야 하므로 피로가 빨라진다. 스크린바는 이걸 해결한다. 모니터 위에 거치하면 반사판과 확산판 구조(BenQ가 ASYM-Light라고 부르는 기술)가 빛을 아래쪽 책상면으로만 보내고 위쪽(눈·화면 방향)은 차단한다. 결과적으로 화면 반사 없이 키보드와 문서만 밝아진다. 이 원리가 비대칭 배광(asymmetric light distribution)이다. 2018년 BenQ가 ScreenBar로 이 카테고리를 처음 만들었다. 현재 BenQ e리딩 스크린바가 149,000원, 최신 ScreenBar Halo 2는 279,000원(다나와·퓨처테리어 기준 2026-10-06 확인). BenQ Halo 2는 2026년 3월 출시된 최신 모델로 후면 백라이트 범위가 초대보다 423% 넓어졌고 무선 컨트롤러 퍽이 달렸다. 그런데 비대칭 배광이라는 핵심 원리 자체는 단순한 반사판 구조여서 가성비 제품도 같은 원리를 쓴다. 만원대부터 구매할 수 있다. 그렇다면 비싼 것과 싼 것의 차이는 무엇인가. 첫째, CRI(연색지수, Color Rendering Index)다. 빛이 물체의 색을 얼마나 자연스럽게 보여주는지 나타내는 수치로 Ra100이 자연광이다. Ra90 이상이면 색이 자연스럽고 눈이 편하다. 예산형 제품 중에는 Ra80 이하인 것이 있어 스펙을 반드시 확인해야 한다. 둘째, 색온도 조절이다. 2700K(따뜻한 빛)에서 6500K(차가운 빛)까지 단계 없이 조절되는 것이 좋다. 고정 색온도(보통 4000K) 제품은 야간 작업이나 분위기 전환이 안 된다. 셋째, 후면 백라이트다. BenQ Halo 시리즈처럼 모니터 뒤 벽을 은은하게 밝혀 화면과 벽의 밝기 차이를 줄이는 기능이다. 예산형에는 없다 — 이게 프리미엄의 핵심 차이다. 넷째, 자동 밝기 센서와 무선 컨트롤러는 편의 기능이다. 국내 쿠팡 로켓배송 기준 가격대: 홈플래닛 LED 터치식 스크린바 16,060원, 큐디스 LED 모니터 조명 20,900원, 베이스어스 i-Wok3 3세대 29,900원, 샤오미 미지아 스크린바 19,000원. 다나와 최저가 기준으로는 디월스 LED 이지바 15,880원이 가장 저렴하다. 결론적으로 만원대 제품이라도 비대칭 배광 원리 자체는 같으니 화면 반사를 없애는 본질적 기능은 한다. 다만 CRI Ra90 이상인지, 색온도 조절이 되는지 두 가지는 반드시 확인하고 사야 눈이 실제로 편해진다.",
+ "caption": "모니터 앞 빛 반사가 사라졌다, 만원이면 된다\n\n스탠드 조명은 빛이 사방으로 퍼져서 화면에 반사된다.\n스크린바는 빛이 아래로만 간다 — 비대칭 배광.\n15만원짜리 원리가 만원대에도 들어왔다.\n고를 때 볼 것 하나 — CRI(연색지수) Ra90 이상.\n쿠팡 기준 홈플래닛 16,060원부터.\n\n(출처: BenQ 공식, 다나와 가격비교)\n\n#모니터조명 #스크린바 #데스크셋업 #눈건강 #테크",
+ "factcheck": [
+   {"claim": "BenQ e리딩 스크린바 149,000원, ScreenBar Halo 2 279,000원", "sources": ["https://search.danawa.com/dsearch.php?query=%EB%B2%A4%ED%81%90%EC%8A%A4%ED%81%AC%EB%A6%B0%EB%B0%94", "https://futureterior.com/product/%EB%B2%A4%ED%81%90-%EC%8A%A4%ED%81%AC%EB%A6%B0%EB%B0%94-%ED%97%A4%EC%9D%BC%EB%A1%9C-2/"], "note": "다나와 + 퓨처테리어(국내 유일 AS) 가격 교차 확인 2026-10-06"},
+   {"claim": "홈플래닛 LED 터치식 스크린바 쿠팡 16,060원", "sources": ["https://www.coupang.com/np/search?q=%EB%AA%A8%EB%8B%88%ED%84%B0%EC%A1%B0%EB%AA%85"], "note": "쿠팡 검색 결과 확인 2026-10-06. 다나와 기준 23,810원(쿠팡이 더 저렴)"},
+   {"claim": "비대칭 배광(asymmetric light distribution)이 스크린바의 핵심 원리", "sources": ["https://www.benq.com/en-us/knowledge-center/knowledge/benefits-of-using-monitor-light-bars.html", "https://eurekaergonomic.com/blogs/eureka-ergonomic-blog/monitor-light-bar-vs-desk-lamp-lighting-guide"], "note": "BenQ 공식 ASYM-Light 기술 문서 + Eureka Ergonomic 교차 확인"},
+   {"claim": "CRI Ra90 이상이 눈 피로 감소의 기준", "sources": ["https://standdesklab.com/accessories/best-monitor-light-bar/", "https://digitaldesksolutions.com/led-monitor-light-bar-task/"], "note": "StandDesk Lab + Digital Desk Solutions 2026 가이드 교차 확인. 예산형은 Ra80 이하인 경우 많아 확인 필수"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/screenbar_setup_1.jpg",
+   "title": "모니터 앞 빛 반사가 사라졌다\n만원이면 된다",
+   "title_hl": ["사라졌다", "만원"],
+   "body": "스크린바 — 빛이 아래로만 간다",
+   "body_hl": ["아래로만"],
+   "credit": "BenQ ScreenBar Halo 2 / AppleInsider"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/screenbar_setup_2.jpg",
+   "title": "고를 때 볼 것 하나\nCRI(연색지수) Ra90 이상",
+   "title_hl": ["CRI", "Ra90"],
+   "body": "홈플래닛 16,060원 · 큐디스 20,900원\n베이스어스 29,900원 · 쿠팡 로켓배송",
+   "body_hl": ["16,060원", "20,900원"],
+   "sub": "15만원짜리와 원리는 같다 — 차이는 CRI와 백라이트",
+   "credit": "BenQ ScreenBar Halo 2 / AppleInsider"
+  }
+ ]
+}
