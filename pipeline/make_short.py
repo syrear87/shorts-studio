@@ -926,7 +926,15 @@ def main():
         _h0 = str(script["scenes"][0].get("bg"))
         # 2026-10-03: 게이트를 real_query 유무에 걸었더니 세션들이 real_query를 아예 안 쓰기
         # 시작했다(9/30~10/3 다섯 편 전부 생략 → 게이트 무력화). 조건 없이 훅을 본다.
-        if not _h0.startswith(("commons:", "nasa:", "file")) \
+        _real0 = _h0.startswith(("commons:", "nasa:", "file", "scene:"))
+        # 스포츠·경기 소재는 사유로 못 넘긴다 (2026-10-07 손흥민 59호골 편: 훅이 2023 시상식
+        # 사진, 본문 6장이 Pexels 축구장 — 디렉터 "실제 장면을 사용해달라고 몇 번을 얘기해야 함").
+        # 뉴스 사진은 fetch_scene.py로 항상 구할 수 있다.
+        if not _real0 and ("스포츠" in str(script.get("series") or "") or script.get("scene_query")):
+            sys.exit("기각: 경기·사건 소재인데 훅 첫 화면이 실제 장면이 아니다(bg=%s). "
+                     "pick_bg.py의 📸 장면 후보(s*.jpg) 또는 fetch_scene.py \"선수명 골 상대팀\"으로 "
+                     "그 경기 사진을 받아 \"bg\": \"scene:<기사 URL>\"로 넣어라. 사유로 넘길 수 없다." % _h0)
+        if not _real0 \
                 and len(str(script.get("hook_bg_reason") or "").strip()) < 10:
             sys.exit("기각: 훅 첫 화면이 실물이 아니다(bg=%s) — pick_bg.py의 🎯 실물 후보(c*.jpg)를 "
                      "훅에 써라. 실물이 정말 없으면 대본에 \"hook_bg_reason\": \"사유 10자 이상\"을 "
@@ -959,6 +967,15 @@ def main():
                     if p is None:
                         sys.exit("기각: 지정 사진 %s 다운로드 실패" % b)
                     cache[b] = {"kind": "photo", "path": p}
+                elif isinstance(b, str) and b.startswith("scene:"):
+                    # 2026-10-07: 뉴스 대표 사진(그 경기·그 장면) — 디렉터 "실제 장면을 써라" 재지시
+                    from fetch_scene import fetch as fetch_scene
+                    p = fetch_scene(b.split(":", 1)[1])
+                    if p is None:
+                        sys.exit("기각: 장면 사진 %s — 다운로드 실패 또는 해상도 부족" % b[:80])
+                    with Image.open(p) as _im:
+                        _w, _h = _im.size
+                    cache[b] = {"kind": "fit" if _w / _h > 0.8 else "photo", "path": p, "wh": (_w, _h)}
                 elif isinstance(b, str) and b.startswith("commons:"):
                     # 2026-09-28: 소재의 실물 사진(위키미디어 커먼즈, 자유 라이선스) → 켄 번즈
                     from fetch_commons import fetch as fetch_commons

@@ -388,15 +388,21 @@ def _add_commons_credits(meta, meta_p):
         return
     bgs = [str(x.get("bg") or x.get("bg_id") or "") for x in sc.get("scenes", [])] + \
           [str(x) for x in (sc.get("bg_ids") or [])]
-    titles = []
+    titles, scenes = [], []
     for b in bgs:
         if b.startswith("commons:") and b[8:] not in titles:
             titles.append(b[8:])
-    if not titles:
+        elif b.startswith("scene:") and b[6:] not in scenes:
+            scenes.append(b[6:])
+    if not titles and not scenes:
         return
     sys.path.insert(0, os.path.join(ROOT, "pipeline"))
     from fetch_commons import credit_line
+    from fetch_scene import credit_line as scene_credit
     lines = [l for l in (credit_line(t) for t in titles) if l and l not in meta["description"]]
+    for l in (scene_credit(u) for u in scenes):
+        if l and l not in meta["description"] and l not in lines:
+            lines.append(l)
     if lines:
         meta["description"] = meta["description"].rstrip() + "\n\n" + "\n".join(lines)
         print("[credits] 커먼즈 저작자 표기 %d줄 추가" % len(lines), flush=True)

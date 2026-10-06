@@ -158,6 +158,48 @@ def main():
     except Exception as _e:
         print("경고: 커먼즈 후보 조회 실패(무해):", str(_e)[:120], flush=True)
 
+    # 📸 실제 장면 후보 (2026-10-07 디렉터: "손흥민 골장면 스틸샷이나 경기 장면을 넣어야지").
+    #   커먼즈는 '그 선수'까지고 '어제 그 골'은 뉴스 사진에만 있다. scene_query(사건+날짜·경기명)가
+    #   정본, 없으면 제목으로 검색한다. 인물·경기·사건 소재의 훅은 이 후보에서 골라라.
+    scene_q = script.get("scene_query") or [str(script.get("title") or "")[:40]]
+    if isinstance(scene_q, str):
+        scene_q = [scene_q]
+    try:
+        from fetch_scene import news_search, og_image, naver_images, _get as _sget
+        print("📸 실제 장면 후보 (뉴스 사진 — 그 경기·그 장면이면 이걸 훅에 써라)", flush=True)
+        _k, _seen = 0, set()
+        for rq in scene_q[:3]:
+            cands = []
+            try:
+                for title, link, _ in news_search(rq, n=8):
+                    img, art = og_image(link)
+                    if img and img not in _seen:
+                        cands.append((img, art, title))
+            except Exception:
+                pass
+            if len(cands) < 3:
+                try:
+                    for img in naver_images(rq, n=6):
+                        if img not in _seen:
+                            cands.append((img, img, "(네이버 이미지 검색)"))
+                except Exception:
+                    pass
+            for img, ref, title in cands[:6]:
+                _seen.add(img)
+                name = "s%d.jpg" % _k
+                try:
+                    with _sget(img, timeout=30) as r_, open(os.path.join(OUT, name), "wb") as f_:
+                        f_.write(r_.read())
+                except Exception:
+                    continue
+                _k += 1
+                print('%s  | query=%s | %s  →  "bg": "scene:%s"' % (name, rq[:20], title[:40], ref))
+        if not _k:
+            print("  (장면 후보 없음 — scene_query에 경기명·사건명+날짜를 넣어 다시)")
+        print()
+    except Exception as _e:
+        print("경고: 장면 후보 조회 실패(무해):", str(_e)[:120], flush=True)
+
     for name, q, dur, ori, mark in rows:
         print("%s  | query=%s | %ds | %s%s" % (name, q, dur, ori, mark))
     print("후보 %d개 저장 → %s" % (len(rows), OUT))
