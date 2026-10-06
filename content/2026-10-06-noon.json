@@ -1,0 +1,74 @@
+{
+  "title": "내일 12시 23분, 한국 로켓에 60분이 주어집니다 — 위성 15기의 운명입니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "애국·정체성",
+  "real_query": ["누리호 KSLV-II", "Nuri rocket Korea launch"],
+  "bg_query": ["rocket launch pad preparation", "earth orbit satellite space", "cubesat small satellite hand", "mission control center screens", "rocket launch fire trail sky"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "내일 낮 12시 23분, 한국이 만든 로켓 누리호가 위성 15기를 싣고 올라갑니다. 주어진 시간은 딱 60분입니다.",
+      "lines": [
+        ["내일 낮 12시 23분", []],
+        ["위성 15기를 싣고 올라갑니다", ["15기"]],
+        ["딱 60분입니다", ["60분"]]
+      ],
+      "hook_bg_reason": "누리호 실물 커먼즈 — 세로 발사 사진",
+      "bg": "commons:File:KSLV II TLV 2018 11 28.jpg"
+    },
+    {
+      "kind": "fact",
+      "voice": "지구는 초속 465미터로 자전합니다. 위성이 궤도에 올라타려면 타이밍이 맞아야 합니다. 내일은 12시 23분부터 13시 23분, 60분뿐입니다.",
+      "lines": [
+        ["지구는 초속 465미터로 자전", ["465미터"]],
+        ["궤도에 올라타는 타이밍", []],
+        ["60분뿐입니다", []]
+      ],
+      "bg": 31084229
+    },
+    {
+      "kind": "fact",
+      "voice": "15기 중 10기는 국내 스타트업이 만든 큐브위성입니다. 해양 쓰레기 감시, 미세먼지 추적, 레이저 광통신. 처음 우주에 올리는 기업이 7곳입니다.",
+      "lines": [
+        ["10기는 스타트업 큐브위성", []],
+        ["해양쓰레기·미세먼지·광통신", []],
+        ["처음 올리는 기업 7곳", []]
+      ],
+      "bg": 3883511
+    },
+    {
+      "kind": "fact",
+      "voice": "통제센터 콘솔 22개 중 20개를 한화에어로스페이스가 운용합니다. 정부가 아니라 기업이 버튼을 누릅니다.",
+      "lines": [
+        ["콘솔 22개 중 20개", ["20개"]],
+        ["한화에어로스페이스 운용", []],
+        ["기업이 버튼을 누릅니다", []]
+      ],
+      "bg": 38779100
+    },
+    {
+      "kind": "twist",
+      "voice": "2021년 1차는 실패했습니다. 이후 4연속 성공. 내일 60분 안에 성공하면, 시험이 아니라 사업이 됩니다.",
+      "lines": [
+        ["1차는 실패, 이후 4연속 성공", ["실패"]],
+        ["내일 60분 안에 성공하면", []],
+        ["시험이 아니라 사업이 됩니다", ["사업"]]
+      ],
+      "bg": "commons:File:P R KSLV-2 211021 0113.jpg"
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]],
+      "bg": "commons:File:P R KSLV-2 211021 0113.jpg"
+    }
+  ],
+  "sources": [
+    "https://www.kari.re.kr/kor/contents/51",
+    "https://www.jnilbo.com/news/articleView.html?idxno=90000070782",
+    "https://dealsite.co.kr/articles/169923",
+    "https://www.inspace.co.kr/post/5%EC%B0%A8-%EB%B0%9C%EC%82%AC-%EB%88%84%EB%A6%AC%ED%98%B8"
+  ]
+}
