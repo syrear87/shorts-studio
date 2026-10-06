@@ -1,0 +1,36 @@
+{
+ "topic": "UGREEN ClipBuds Pro2 — 통역기가 처음으로 이어폰 안에 들어갔다, 오픈이어 클립형에 AI 실시간 번역 131개 언어 내장, 오프라인에서도 10개 언어 통역, 6g 블루투스 6.1 LDAC 배터리 46시간, $99 국내 미출시 [한계붕괴형]",
+ "blog_teaser": "국내에서 살 수 있는 통역 이어폰 비교와 직구 관세 계산은 블로그에 정리했습니다",
+ "threads_text": "통역기가 처음으로 이어폰 안에 들어갔다\n\n1. 귀에 걸기만 하면 상대방 말이 한국어로 들린다 — AI 실시간 통역\n2. 오프라인에서도 10개 언어 통역 — 해외에서 데이터 없어도 된다\n3. 6g 클립형이라 귀를 안 막고 하루종일 쓸 수 있다\n4. 배터리 46시간, 블루투스 6.1, LDAC\n5. $99 — 150달러 이하라 관세 없이 약 14만원\n\n(출처: UGREEN 공식, SoundGuys, The Gadgeteer)",
+ "description": "UGREEN ClipBuds Pro2. 오픈이어 클립형 무선이어폰에 AI 실시간 번역(131개 언어 온라인, 10개 언어 오프라인) 내장. UgreenAudio 앱 연동, GPT·Gemini 기반. 블루투스 6.1, LDAC Hi-Res, 11mm 듀얼마그넷 티타늄 드라이버. 6-마이크 + 골전도 VPU 통화 노이즈 캔슬링. 이어버드 10시간, 케이스 포함 총 46시간. 6g. IP56. 자이로스코프 자동 좌우 감지. $99.99(프로모 $79.99). 2026년 10월 1일 출시. 국내 미출시 — UGREEN 한국 공식스토어(쿠팡) 있으나 이 모델은 미등록. 국내 통역 이어폰 대안: Timekettle W4 Pro(82만원), WT2 Edge(34만원).",
+ "caption": "통역기가 처음으로 이어폰 안에 들어갔다\n\n상대방이 말하면 내 귀에 한국어로 들린다.\n오프라인에서도 10개 언어 — 해외에서 데이터 없어도 된다.\n6g 클립형, 배터리 46시간, 블루투스 6.1.\n$99 — 국내 미출시, 직구 관세 없이 약 14만원.\n\n(출처: UGREEN 공식, SoundGuys, The Gadgeteer)\n\n#통역이어폰 #오픈이어 #UGREEN #ClipBudsPro2 #테크",
+ "factcheck": [
+   {"claim": "131개 언어 온라인 실시간 번역, 10개 언어 오프라인", "sources": ["https://www.soundguys.com/ugreen-clipbuds-pro-2-launch-164036/", "https://the-gadgeteer.com/2026/09/29/ugreen-clipbuds-pro2-open-ear-earbuds-ai-translation/"], "note": "SoundGuys + The Gadgeteer 교차 확인"},
+   {"claim": "6g, IP56, 블루투스 6.1, LDAC, 11mm 듀얼마그넷 드라이버", "sources": ["https://www.soundguys.com/ugreen-clipbuds-pro-2-launch-164036/", "https://www.prnewswire.com/news-releases/ugreen-launches-clipbuds-pro-2-for-clear-calls-and-immersive-sound-302894153.html"], "note": "SoundGuys + UGREEN 공식 보도자료 교차 확인"},
+   {"claim": "배터리 이어버드 10시간, 케이스 포함 총 46시간", "sources": ["https://the-gadgeteer.com/2026/09/29/ugreen-clipbuds-pro2-open-ear-earbuds-ai-translation/", "https://www.prnewswire.com/news-releases/ugreen-launches-clipbuds-pro-2-for-clear-calls-and-immersive-sound-302894153.html"], "note": "The Gadgeteer + 공식 보도자료 교차 확인"},
+   {"claim": "$99.99(프로모 $79.99), 2026년 10월 1일 출시", "sources": ["https://www.prnewswire.com/news-releases/ugreen-launches-clipbuds-pro-2-for-clear-calls-and-immersive-sound-302894153.html", "https://www.soundguys.com/ugreen-clipbuds-pro-2-launch-164036/"], "note": "공식 보도자료 + SoundGuys 교차 확인"},
+   {"claim": "국내 미출시 — UGREEN 한국 쿠팡 스토어에 이 모델 미등록", "sources": ["https://shop.coupang.com/C01057087"], "note": "쿠팡 UGREEN 공식스토어 직접 검색, ClipBuds Pro2 미등록 확인(2026-10-06)"},
+   {"claim": "국내 통역 이어폰 대안: Timekettle W4 Pro 82만원, WT2 Edge 34만원", "sources": ["https://catalog.11st.co.kr/pc/462811445", "https://www.11st.co.kr/products/5220809787"], "note": "11번가 실판매가 확인(2026-10-06)"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/ugreen_clipbuds_pro2_main.jpg",
+   "title": "통역기가 처음으로\n이어폰 안에 들어갔다",
+   "title_hl": ["처음으로", "들어갔다"],
+   "body": "131개 언어, 오프라인에서도 — 통역기 없이",
+   "body_hl": ["131개 언어", "통역기 없이"],
+   "credit": "UGREEN / prnewswire.com"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/ugreen_clipbuds_pro2_detail.jpg",
+   "title": "6g 클립형 · 배터리 46시간 · 블루투스 6.1\n오프라인에서도 10개 언어 통역",
+   "title_hl": ["46시간", "10개 언어"],
+   "body": "국내 통역 이어폰은 34만~82만원\n이건 $99 — 150달러 이하 관세 없이 약 14만원",
+   "body_hl": ["$99", "14만원"],
+   "sub": "UGREEN ClipBuds Pro2 · 국내 미출시 · 아마존 직구",
+   "credit": "UGREEN / the-gadgeteer.com"
+  }
+ ]
+}
