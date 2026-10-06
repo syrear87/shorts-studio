@@ -1,0 +1,75 @@
+{
+  "title": "시간당 5개뿐인 유성우가, 한 번은 6,000개를 쏟아냈습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "공유성",
+  "real_query": ["Draconid meteor shower", "21P Giacobini-Zinner comet"],
+  "bg_query": ["meteor shooting star night sky dark", "draco constellation stars night", "meteor storm bright streaks sky", "comet tail dust trail space", "person silhouette looking up night sky stars"],
+  "sources": [
+    "EarthSky – Everything you need to know: Draconid meteor shower (earthsky.org)",
+    "IMO – 2026 Meteor Shower Calendar (imo.net)",
+    "Wikipedia – Draconids: 1933 storm ZHR 6,000+, 2011 ZHR ~300",
+    "기상청 중기예보 – 10/8~9 전국 맑음 (weather.go.kr)",
+    "TheSkyLive – 10/8 달 밝기 5.8%, 10/10 삭"
+  ],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "모레 밤 별똥별이 떨어집니다. 시간당 5개뿐입니다.",
+      "lines": [
+        ["모레 밤 별똥별이 떨어집니다", ["별똥별이"]],
+        ["시간당 5개뿐입니다", ["5개뿐"]]
+      ],
+      "hook_bg_reason": "1933년 Draconids 실물 천체사진 — F. Quenisset 촬영, Public domain",
+      "bg": "commons:File:Draconids 1933, F. Quenisset.jpg"
+    },
+    {
+      "kind": "fact",
+      "voice": "이름은 용자리 유성우입니다. 매년 10월 초에 찾아오는데, 평균 시간당 5개. 페르세우스 유성우의 20분의 1입니다.",
+      "lines": [
+        ["용자리 유성우", []],
+        ["평균 시간당 5개", []],
+        ["페르세우스의 20분의 1", []]
+      ],
+      "bg": 13818901
+    },
+    {
+      "kind": "fact",
+      "voice": "그런데 1933년 10월 9일, 시간당 6,000개가 쏟아졌습니다. 20세기 가장 강한 유성폭풍이었습니다. 2011년에도 시간당 300개가 다시 터졌습니다.",
+      "lines": [
+        ["1933년 10월 9일", ["1933년"]],
+        ["시간당 6,000개 유성폭풍", ["6,000개"]],
+        ["2011년에도 300개 다시 터졌습니다", ["300개"]]
+      ],
+      "hl_pair": true,
+      "bg": 27742162
+    },
+    {
+      "kind": "fact",
+      "voice": "자코비니 지너 혜성이 뿌린 먼지 띠를 지구가 통과하는데, 먼지가 얇으면 5개, 밀집 구간을 지나면 폭풍이 됩니다.",
+      "lines": [
+        ["혜성이 뿌린 먼지 띠를", []],
+        ["지구가 통과하는데", []],
+        ["얇으면 5개, 밀집이면 폭풍", []]
+      ],
+      "bg": 30085529
+    },
+    {
+      "kind": "twist",
+      "voice": "올해 어느 구간을 지나는지는 아무도 모릅니다. 10월 8일 저녁, 달빛 없고 전국 맑습니다. 어두운 곳에서 북쪽 하늘을 올려다보세요.",
+      "lines": [
+        ["올해 어느 구간인지 아무도 모릅니다", []],
+        ["10월 8일 저녁, 달빛 없고", ["10월 8일"]],
+        ["어두운 곳에서 북쪽 하늘을", ["북쪽 하늘"]]
+      ],
+      "bg": 9121395
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]],
+      "bg": "photo:27696088"
+    }
+  ]
+}
