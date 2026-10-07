@@ -1,0 +1,84 @@
+{
+  "title": "부산에 나타난 3m 상어, 위험한 건 상어가 아닙니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "재난기상체감·일반지식",
+  "real_query": ["dusky shark", "Carcharhinus obscurus"],
+  "scene_query": ["부캉이 흑상어 부산 북항", "부산 상어 친수공원"],
+  "bg_query": [
+    "shark underwater dark ocean",
+    "harbor port waterway urban",
+    "shark dorsal fin ocean surface",
+    "coastal ocean waves korea",
+    "ocean temperature warm water thermal",
+    "ocean waves sunset wide"
+  ],
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": "scene:https://v.daum.net/v/20261007102335337",
+      "voice": "부산 항구에 3m 상어가 오늘도 머물고 있습니다. 19일째입니다.",
+      "lines": [
+        ["3m 상어가 머물고 있습니다", []],
+        ["오늘로 19일째입니다", ["오늘로"]]
+      ]
+    },
+    {
+      "kind": "body",
+      "bg": "commons:File:Carcharhinus obscurus at Seaworld.jpg",
+      "voice": "9월 18일 북항 친수공원 수로에서 처음 발견됐고, 10월 6일 국립수산과학원이 정체를 확인했습니다.",
+      "lines": [
+        ["9월 18일 북항 수로에서 발견", []],
+        ["10월 6일 정체를 확인했습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "commons:File:Carcharhinus obscurus gold coast.jpg",
+      "voice": "첫째, 이 상어는 흑상어입니다. 전 세계 개체수가 최대 99% 줄어 IUCN 위기종입니다.",
+      "lines": [
+        ["흑상어 — IUCN 위기종", []],
+        ["개체수 최대 99% 줄었습니다", ["99%"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 34732424,
+      "voice": "둘째, 한국 바다에서는 극히 드문 종인데, 최근 전국 연안에서 출현이 늘고 있습니다.",
+      "lines": [
+        ["한국 바다에서 극히 드문 종", []],
+        ["최근 출현이 늘고 있습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 5194376,
+      "voice": "셋째, 원인은 수온입니다. 국립수산과학원에 따르면 한국 근해 수온이 57년간 1.6도 올랐습니다. 지구 평균의 2배입니다.",
+      "lines": [
+        ["근해 수온 57년간 1.6도 올랐습니다", ["1.6도"]],
+        ["지구 평균의 2배", ["2배"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": "commons:File:Carcharhinus obscurus in UShaka Sea World 0893a.jpg",
+      "voice": "무서운 건 상어가 아닙니다. 따뜻해진 바다가 이 상어를 데려왔고, 그 바다는 계속 따뜻해지고 있습니다.",
+      "lines": [
+        ["무서운 건 상어가 아닙니다", ["아닙니다"]],
+        ["따뜻해진 바다가 데려왔습니다", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": 5212448,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", []]]
+    }
+  ],
+  "sources": [
+    "https://www.seoul.co.kr/news/society/2026/10/06/20261006500237",
+    "https://www.newspim.com/news/view/20261006001233",
+    "https://m.news.nate.com/view/20260421n28976"
+  ]
+}
