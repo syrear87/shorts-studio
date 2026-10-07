@@ -1,0 +1,36 @@
+{
+ "bg_query": "marshall speaker stage lights dark room concert",
+ "topic": "Marshall Bromley 150 — 스피커에 무대 조명이 달렸다, 기타 앰프 회사가 만든 6.5kg 파티 스피커, 마이크 꽂으면 노래방, 40시간 배터리, 69만 9천원 10/13 국내 정식 판매 [소유욕형]",
+ "blog_teaser": "200W 앰프 구성이랑 캠핑용으로 쓸 때 체크할 점은 블로그에 정리했습니다",
+ "threads_text": "스피커에 무대 조명이 달렸다\n\n1. Marshall Bromley 150 — 기타 앰프 만들던 회사가 파티 스피커에 무대 조명을 넣었다\n2. 6.5kg, 한 손에 들린다. 배터리 40시간, 교체도 된다\n3. 마이크·악기 입력 2개 — 꽂으면 그 자리가 무대\n4. IP55 방수라 캠핑장에서도 쓸 수 있다\n5. 69만 9천원, 10/13부터 국내 정식 판매\n\n(출처: Marshall 공식·SoundGuys·씨넷코리아 2026-09-30)",
+ "description": "Marshall Bromley 150 — 기타 앰프로 유명한 마샬이 만든 포터블 파티 스피커다. 기존 Bromley 시리즈(300·600)가 있었지만 각각 14.6kg·28.9kg으로 '포터블'이라 부르기 어려웠다. 150은 6.5kg으로 줄여 한 손에 들 수 있게 만들었다.\n\n## 무대 조명 내장\n\n그릴 전면에 LED 스테이지 라이트가 박혀 있다. 음악 비트에 반응해 빛이 바뀐다. 어두운 방이나 캠핑장에서 켜면 미니 콘서트장이 된다. 조명은 끌 수도 있다.\n\n## 사양\n\n6.5인치 우퍼(40W) + 2.5인치 풀레인지 2개(각 6W) + 7.5인치 패시브 라디에이터. 총 합산 출력 200W Class D. 최대 음압 95dB. 360도 사운드를 내는 구조라 어디서 들어도 소리가 비슷하다.\n\n배터리는 40시간 이상, 20분 충전으로 5시간 재생이 가능하다. LFP 배터리라 교체도 된다 — 파티 중에 배터리만 바꾸면 끊김 없이 이어갈 수 있다.\n\nIP55 등급으로 먼지와 물튀김에 견딘다. 캠핑이나 야외 파티에서 비가 조금 와도 된다.\n\n## 마이크와 악기 입력\n\nXLR/6.3mm 콤보 입력이 2개 있다. 마이크를 꽂으면 노래방이 되고, 기타나 키보드를 연결하면 앰프가 된다. 마샬이 원래 기타 앰프 회사라 이 부분이 자연스럽다.\n\n## 연결\n\nBluetooth 5.3과 Auracast를 지원한다. Auracast는 여러 대의 Bromley를 동시에 연결해 같은 음악을 재생하는 기능이다. USB-C와 3.5mm AUX 유선 연결도 된다.\n\n## 부품 교체\n\n코너 캡, 전면 그릴, 노브, 배터리 덮개를 직접 교체할 수 있게 설계했다. 오래 쓰다 외관이 상하면 부품만 바꾸면 된다.\n\n## 가격과 구매\n\n국내 정식 판매가 699,000원. 10월 13일부터 마샬 공식 홈페이지에서 판매를 시작하고, 10월 15일부터 네이버 마샬 공식 브랜드 스토어와 소비코AV 인증 대리점에서 구매·청음할 수 있다. 오프라인은 일렉트로마트, 이마트, 롯데하이마트, 교보문고, 닥터사운드, 게이즈샵, 사운드온, 더콘란샵.\n\n블랙 앤 브래스(Black and Brass) 단일 색상이다.",
+ "caption": "스피커에 무대 조명이 달렸다\n\nMarshall Bromley 150 — 기타 앰프 만들던 회사가 파티 스피커에 조명을 넣었다.\n6.5kg, 배터리 40시간, 교체 가능.\n마이크·악기 입력 2개 — 꽂으면 그 자리가 무대.\nIP55 방수, 360도 사운드.\n69만 9천원, 10/13 국내 정식 판매.\n\n(출처: Marshall 공식, SoundGuys, 씨넷코리아)\n\n#마샬 #블루투스스피커 #파티스피커 #캠핑 #가젯",
+ "factcheck": [
+   {"claim": "국내 판매가 699,000원, 10/13 공식 홈페이지 판매 시작, 10/15 네이버·오프라인", "sources": ["https://www.cnet.co.kr/view/?no=20260930211828", "https://zdnet.co.kr/view/?no=20260930094252"], "note": "씨넷코리아 69만 9천원 + ZDNet Korea 교차 확인"},
+   {"claim": "배터리 40시간 이상, 20분 충전 = 5시간 재생, LFP 교체형", "sources": ["https://www.soundguys.com/marshall-bromley-150-speaker-launch-163890/", "https://www.trustedreviews.com/news/marshalls-bromley-150-is-its-smallest-portable-party-speaker-yet"], "note": "SoundGuys + Trusted Reviews 교차 확인"},
+   {"claim": "6.5kg, 290×290×208mm, IP55", "sources": ["https://www.soundguys.com/marshall-bromley-150-speaker-launch-163890/", "https://www.forbes.com/sites/marksparrow/2026/09/29/marshall-bromley-150-brings-360-degree-sound-in-a-party-speaker/"], "note": "SoundGuys + Forbes 교차 확인"},
+   {"claim": "6.5인치 우퍼 40W + 2.5인치 풀레인지 2개 6W + 7.5인치 패시브 라디에이터, 총 200W Class D, 최대 95dB", "sources": ["https://www.soundguys.com/marshall-bromley-150-speaker-launch-163890/", "https://hiconsumption.com/tech/marshall-bromley-150/"], "note": "SoundGuys 스펙 + HiConsumption 교차 확인"},
+   {"claim": "XLR/6.3mm 콤보 입력 2개, Bluetooth 5.3, Auracast", "sources": ["https://www.soundguys.com/marshall-bromley-150-speaker-launch-163890/", "https://androidguys.com/news/marshall-bromley-150-brings-40-hours-of-party-sound-to-portable-speaker/"], "note": "SoundGuys + AndroidGuys 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/marshall_bromley_150_1.jpg",
+   "title": "스피커에 무대 조명이 달렸다",
+   "title_hl": ["무대 조명"],
+   "body": "기타 앰프 회사가 만든 파티 스피커",
+   "body_hl": ["기타 앰프"],
+   "credit": "Marshall 공식"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/marshall_bromley_150_2.jpg",
+   "title": "Marshall Bromley 150",
+   "title_hl": ["Bromley 150"],
+   "body": "6.5kg · 배터리 40시간 · 교체 가능\n마이크·악기 입력 2개\nIP55 방수 · 360도 사운드",
+   "body_hl": ["40시간", "마이크·악기"],
+   "sub": "69만 9천원 · 10/13 국내 정식 판매\n일렉트로마트·이마트·롯데하이마트",
+   "credit": "Marshall 공식"
+  }
+ ]
+}
