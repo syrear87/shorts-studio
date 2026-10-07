@@ -584,6 +584,8 @@ if __name__ == "__main__":
         log_slot_metrics(_t0)
         generate_blog_drafts()
         publish_blog_slice()
+        # ?m=1 주소 사이트맵 갱신 (2026-10-08) — 새 글이 생기면 R2의 sitemap-m.xml에 반영
+        _venv_run("sitemap_m.py", timeout=120)
     except Exception as e:  # 러너 자체가 죽으면 경보자가 죽는 문제 방지 (2026-07-29 감사)
         tg("🔥 숏츠 데일리 러너 자체 오류: %s" % str(e)[:300])
         raise
