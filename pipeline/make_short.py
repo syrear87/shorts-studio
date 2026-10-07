@@ -930,7 +930,10 @@ def main():
         # 스포츠·경기 소재는 사유로 못 넘긴다 (2026-10-07 손흥민 59호골 편: 훅이 2023 시상식
         # 사진, 본문 6장이 Pexels 축구장 — 디렉터 "실제 장면을 사용해달라고 몇 번을 얘기해야 함").
         # 뉴스 사진은 fetch_scene.py로 항상 구할 수 있다.
-        if not _real0 and ("스포츠" in str(script.get("series") or "") or script.get("scene_query")):
+        # 2026-10-07 디렉터 지시로 확대: 실제 경기·사건·실물이 존재하는 계열은 전부 사유 불가.
+        _NO_REASON = ("스포츠", "애국", "정체성", "사건", "시사", "재난", "기상")
+        if not _real0 and (any(k in str(script.get("series") or "") for k in _NO_REASON)
+                           or script.get("scene_query")):
             sys.exit("기각: 경기·사건 소재인데 훅 첫 화면이 실제 장면이 아니다(bg=%s). "
                      "pick_bg.py의 📸 장면 후보(s*.jpg) 또는 fetch_scene.py \"선수명 골 상대팀\"으로 "
                      "그 경기 사진을 받아 \"bg\": \"scene:<기사 URL>\"로 넣어라. 사유로 넘길 수 없다." % _h0)
