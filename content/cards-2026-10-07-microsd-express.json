@@ -1,0 +1,36 @@
+{
+ "topic": "microSD Express — SD카드 속도가 드디어 SSD를 넘었다, 읽기 880MB/s로 기존 메모리카드의 8배·SATA SSD(550MB/s)보다 빠르다, PCIe+NVMe 프로토콜 채용, 기존 슬롯 하위 호환, SanDisk 256GB 국내 약 10만원 [한계붕괴형]",
+ "blog_teaser": "왜 메모리카드에 PCIe가 들어간 건지, 기존 카드와 핀 배열 차이는 블로그에 정리했습니다",
+ "threads_text": "SD카드 속도가 드디어 SSD를 넘었다\n\n1. microSD Express — 노트북 SSD에만 있던 NVMe 기술이 메모리카드 안에\n2. 읽기 880MB/s — 기존 메모리카드(104MB/s)의 8배\n3. SATA SSD(550MB/s)보다 빠르다\n4. 기존 슬롯에 꽂으면 UHS-I 속도로 작동한다\n5. 국내 256GB 약 10만원\n\n(출처: SD Association SD 7.1 규격, SanDisk 공식 사양, Tom's Hardware)",
+ "description": "microSD Express. SD Association이 2018년 6월 SD Express(SD 7.0)를 정의하고, 2019년 2월 SD 7.1 규격으로 microSD 폼팩터까지 확장한 차세대 메모리카드 인터페이스. 핵심은 노트북 SSD에 쓰이는 PCIe Gen 3.1 + NVMe 프로토콜을 손톱만 한 microSD 칩 안에 넣은 것이다. 공식 사양 기준 순차 읽기 880MB/s, 순차 쓰기 650MB/s. Tom's Hardware 실측 벤치마크에서는 읽기 894.4MB/s, 쓰기 674.1MB/s로 스펙 이상의 수치가 나왔다. 기존 microSD UHS-I(104MB/s) 대비 약 8배, UHS-II(312MB/s)와 비교해도 2.8배 빠르다. SATA III SSD의 이론 상한이 600MB/s(실측 약 550MB/s)이니 메모리카드가 SATA SSD를 추월한 셈이다. 핀 배열은 17핀이지만 기존 9핀 UHS-I 슬롯에 꽂으면 하위 호환으로 UHS-I 속도로 작동한다 — 카드를 바꿔도 기존 기기에서 못 쓰는 게 아니다. SanDisk·Lexar·Samsung 등 주요 제조사가 출시했고, 닌텐도 스위치2 출시와 맞물려 수요가 급증하는 추세다. SanDisk 256GB 국내 최저가 약 103,140원(다나와 2026-10-07 기준). 512GB는 해외 세일가 기준 $78~98(Tom's Hardware 2026-10-06 보도). PCIe 레인을 쓰기 때문에 호스트 기기에도 SD Express 대응 컨트롤러가 있어야 최고 속도를 낸다는 점은 아직 보급의 걸림돌이다.",
+ "caption": "SD카드 속도가 드디어 SSD를 넘었다\n\n손톱만 한 칩에 노트북 SSD의 기술(NVMe)이 들어갔다.\n읽기 880MB/s — 기존 메모리카드(104MB/s)의 8배.\nSATA SSD(550MB/s)보다 빠르다.\n기존 슬롯에 꽂으면 기존 속도로 작동 — 버리는 거 아니다.\n\n(출처: SD Association SD 7.1 규격, SanDisk 공식 사양, Tom's Hardware 벤치마크)\n\n#microSD #microSDExpress #메모리카드 #SSD #테크",
+ "factcheck": [
+   {"claim": "microSD Express 읽기 880MB/s, 쓰기 650MB/s", "sources": ["https://www.sandisk.com/products/memory-cards/microsd-cards/sandisk-microsd-express-memory-card?sku=SDSQXFN-512G-GN4NN", "https://www.tomshardware.com/pc-components/microsd-cards/slashed-in-price-by-37-percent-sandisks-512gb-microsd-express-card-for-the-nintendo-switch-2-is-only-usd78-while-stocks-last-and-that-wont-be-very-long"], "note": "SanDisk 공식 사양 + Tom's Hardware 벤치마크(실측 894.4/674.1MB/s) 교차 확인"},
+   {"claim": "SD Express(SD 7.0) 2018년 6월 정의, microSD Express(SD 7.1) 2019년 2월 정의, PCIe Gen 3.1 + NVMe 프로토콜", "sources": ["https://www.sdcard.org/press/thoughtleadership/five-years-of-sd-express-a-milestone-of-innovation/", "https://www.sdcard.org/wp-content/uploads/2020/11/SD_Express_microSD_Express_BestChoice_WhitePaper20200515-1.pdf"], "note": "SD Association 공식 발표 + 백서 교차 확인"},
+   {"claim": "기존 microSD UHS-I 104MB/s, UHS-II 312MB/s", "sources": ["https://www.sdcard.org/press/thoughtleadership/five-years-of-sd-express-a-milestone-of-innovation/", "https://www.integralmemory.com/faq1/what-is-the-difference-between-microsd-express-and-the-old-microsd-cards/"], "note": "SD Association + Integral Memory 교차 확인"},
+   {"claim": "SATA SSD 순차 읽기 약 550MB/s", "sources": ["https://www.tomshardware.com/reviews/ssd-buying-guide,5602.html"], "note": "SATA III 6Gbps 인터페이스 이론 상한 600MB/s, 실측 550MB/s 전후. 업계 통상치"},
+   {"claim": "기존 슬롯 하위 호환(17핀 중 9핀만 사용, UHS-I 속도 작동)", "sources": ["https://www.integralmemory.com/faq1/is-microsd-express-backward-compatible/", "https://www.sdcard.org/wp-content/uploads/2020/11/SD_Express_microSD_Express_BestChoice_WhitePaper20200515-1.pdf"], "note": "Integral Memory FAQ + SD Association 백서 교차 확인"},
+   {"claim": "SanDisk 256GB 국내 최저가 약 103,140원", "sources": ["https://m1.danawa.com/product/product.html?code=90574610"], "note": "다나와 가격비교 직접 조회(2026-10-07 기준)"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/microsd_express_1.jpg",
+   "title": "SD카드 속도가\n드디어 SSD를 넘었다",
+   "title_hl": ["SD카드", "넘었다"],
+   "body": "읽기 880MB/s — 기존의 8배",
+   "body_hl": ["880MB/s", "8배"],
+   "credit": "SanDisk"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/microsd_express_2.jpg",
+   "title": "노트북 SSD와 같은 기술이\n손톱만 한 칩에",
+   "title_hl": ["같은 기술", "손톱만 한"],
+   "body": "PCIe + NVMe 프로토콜 채용\n기존 슬롯에 꽂으면 기존 속도로 작동",
+   "body_hl": ["NVMe", "기존 속도"],
+   "sub": "microSD Express · SanDisk 256GB 국내 약 10만원",
+   "credit": "SanDisk"
+  }
+ ]
+}
