@@ -1,0 +1,40 @@
+{
+ "topic": "포토샵이 안드로이드 태블릿에 처음 올라갔다 — 갤럭시 탭 S12에 정식 Adobe Photoshop 탑재, Galaxy Store 6개월 독점, 아이패드 없이도 전문 편집 가능 [한계붕괴형]",
+ "blog_teaser": "아이패드 포토샵과 뭐가 같고 뭐가 다른지, 구독료 구조까지 블로그에 정리했습니다",
+ "threads_text": "포토샵이 7년 만에 아이패드 밖으로 나왔다\n\n1. 2019년부터 태블릿 포토샵은 아이패드 전용이었다\n2. 오늘 갤럭시 탭 S12에 정식 탑재 — 안드로이드 태블릿 최초\n3. Galaxy Store 6개월 독점이라 다른 안드로이드 태블릿은 아직 안 된다\n4. S펜으로 Generative Fill까지 쓸 수 있다\n5. 4개월 무료 포함, 이후 월 구독\n\n(출처: Samsung Newsroom, Adobe, 9to5Google)",
+ "description": "Adobe Photoshop이 안드로이드 태블릿에서 처음 열렸다. 2019년 아이패드용 Photoshop 출시 이후 7년간 태블릿에서 정식 Photoshop을 쓰려면 아이패드밖에 선택지가 없었다. 안드로이드에는 Photoshop Express(간편 편집 앱)만 있었고, 레이어·마스크·펜 도구 등 전문 기능이 빠져 있어 실무에는 쓸 수 없었다.\n\n2026년 10월 7일, 삼성 갤럭시 탭 S12 시리즈(S12+·S12 Ultra)에 정식 Adobe Photoshop이 사전 탑재되어 출시됐다. 안드로이드 태블릿에서 정식 Photoshop이 실행되는 것은 이번이 처음이다.\n\n## 무엇이 되나\n\n탑재된 Photoshop은 아이패드 버전과 동일한 전문 편집 기능을 갖추고 있다. 레이어, 마스크, 선택 도구, 브러시, 필터는 물론 Adobe Firefly 기반 AI 기능도 포함된다. Generative Fill(생성형 채우기)은 선택 영역에 텍스트 프롬프트를 입력하면 AI가 이미지를 생성해 채워 넣는 기능이다. Image to Video 변환도 지원한다.\n\nS펜에 최적화돼 필압 감지와 정밀 터치가 된다. 손가락 터치만으로도 사용할 수 있지만, S펜을 쓰면 마스크 작업이나 세밀한 보정에서 차이가 크다.\n\n## 조건과 제한\n\nGalaxy Store 독점으로, 최소 6개월간 다른 안드로이드 태블릿에서는 설치할 수 없다. 2027년 4월 이후 Google Play 등 다른 앱스토어 출시 여부는 아직 발표되지 않았다.\n\n갤럭시 탭 S12 구매 시 Photoshop 모바일 플랜 4개월 무료 이용권이 포함된다. 무료 기간 종료 후에는 Adobe의 월 구독 요금이 적용된다. Adobe Photoshop 모바일 플랜은 월 $9.99(약 13,500원)이다.\n\n## 가격\n\n갤럭시 탭 S12+ (12.6인치): 국내 출고가 1,549,900원부터\n갤럭시 탭 S12 Ultra (14.6인치): 국내 출고가 1,899,700원(12GB/256GB), 2,198,900원(12GB/512GB), 2,798,400원(16GB/1TB)\n\n전작(갤럭시 탭 S11) 대비 가격이 18.9~24.7% 인상됐다. S펜은 본체에 포함돼 별도 구매할 필요가 없다.\n\n## 누구에게 의미가 있나\n\n안드로이드 생태계에 머물고 싶은데 사진 편집 때문에 아이패드를 따로 산 사람에게 가장 크다. 갤럭시 폰을 쓰면 Quick Share로 사진을 바로 넘길 수 있고, 삼성 클라우드 동기화도 된다. 기존에 갤럭시 탭에서 Photoshop Express나 CLIP STUDIO PAINT를 쓰던 사람은 정식 Photoshop으로 올라갈 수 있다.\n\n다만 이미 아이패드 Pro에서 Photoshop을 쓰는 사람이 갤럭시 탭으로 넘어갈 이유는 크지 않다. Photoshop 자체의 기능 차이가 아니라 생태계(파일 연동·클라우드·다른 Adobe 앱)의 차이이기 때문이다. Illustrator, Premiere Rush 등은 아직 안드로이드 태블릿용이 없다.\n\n10월 7일부터 삼성 공식 스토어와 이동통신사 매장에서 구매할 수 있다.",
+ "caption": "포토샵이 7년 만에 아이패드 밖으로 나왔다\n\n2019년부터 태블릿 포토샵은 아이패드 전용이었다.\n오늘 갤럭시 탭 S12에 정식 Photoshop이 탑재됐다.\n안드로이드 태블릿 최초.\nGalaxy Store 6개월 독점.\n4개월 무료 포함, 이후 월 구독.\n\n(출처: Samsung Newsroom, 9to5Google)\n\n#포토샵 #갤럭시탭S12 #안드로이드 #어도비 #태블릿",
+ "factcheck": [
+   {"claim": "갤럭시 탭 S12가 안드로이드 태블릿 최초로 정식 Adobe Photoshop을 탑재했다", "sources": ["https://www.samsungmobilepress.com/articles/galaxy-tab-s12-series-ultimate-productivity-growth", "https://9to5google.com/2026/09/30/samsung-galaxy-tab-s12-official/", "https://www.martincid.com/technology-sv/galaxy-tab-s12-ultra-photoshop-android-tablet/"], "note": "Samsung Mobile Press 공식 발표 + 9to5Google + Martincid 교차 확인. 'a first for Android tablets' 표현 일치"},
+   {"claim": "Galaxy Store 6개월 독점", "sources": ["https://www.sammobile.com/news/galaxy-tab-s12-plus-ultra-professional-apps/", "https://www.creativebloq.com/tech/phones-tablets/samsung-aims-galaxy-tab-s12-series-at-creatives-with-photoshop-preinstalled"], "note": "SamMobile: 'exclusively in the Galaxy Store for a period of at least six months starting Oct 7, 2026'"},
+   {"claim": "4개월 무료 Photoshop 모바일 플랜 포함", "sources": ["https://news.samsung.com/global/samsung-introduces-galaxy-tab-s12-series-the-ultimate-productivity-powerhouse-built-for-growth", "https://9to5google.com/2026/09/30/samsung-galaxy-tab-s12-official/"], "note": "Samsung Newsroom Global + 9to5Google 교차 확인"},
+   {"claim": "국내 출고가: S12+ 1,549,900원~, S12 Ultra 1,899,700원~", "sources": ["https://www.mt.co.kr/tech/2026/10/01/2026100110264919929", "https://wikidocs.net/blog/@wondergrid/32245/"], "note": "머니투데이 + WonderGrid 교차 확인. 전작 대비 18.9~24.7% 인상"},
+   {"claim": "아이패드용 Photoshop은 2019년 출시", "sources": ["https://blog.adobe.com/en/publish/2019/11/04/the-real-photoshop-is-now-on-your-ipad", "https://techcrunch.com/2024/10/16/amazon-kindle-finally-gets-color"], "note": "Adobe 공식 블로그 2019년 11월 발표 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/tab_s12_photoshop_1.jpg",
+   "title": "포토샵이 7년 만에\n아이패드 밖으로 나왔다",
+   "title_hl": ["7년 만에", "밖으로"],
+   "body": "안드로이드 태블릿 최초 — 갤럭시 탭 S12",
+   "body_hl": ["최초"],
+   "credit": "Pexels / Kawê Rodrigues"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/tab_s12_photoshop_2.jpg",
+   "title": "Galaxy Store 6개월 독점",
+   "title_hl": ["6개월"],
+   "body": "S펜으로 Generative Fill까지 쓸 수 있다\n4개월 무료 포함, 이후 월 구독",
+   "body_hl": ["Generative Fill", "4개월 무료"],
+   "sub": "S12+ 154만원~ · S12 Ultra 189만원~",
+   "credit": "Pexels / Mikhail Nilov"
+  }
+ ],
+ "rebuttals": [
+  "아이패드에서 Photoshop 쓰던 사람이 갤럭시 탭으로 갈아탈 이유가 크지 않다 — Illustrator 등 다른 Adobe 앱은 아직 안드로이드 미지원",
+  "Galaxy Store 독점이라 삼성 태블릿이 아닌 다른 안드로이드 태블릿에서는 못 쓴다 — 6개월 뒤에도 확대될지 미정",
+  "탭 S12 가격이 154~279만원이라 포토샵 하나 쓰려고 사기엔 부담이 크다 — 이미 탭을 갖고 있거나 교체 시점인 사람에게 의미"
+ ]
+}
