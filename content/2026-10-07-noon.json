@@ -1,0 +1,82 @@
+{
+  "title": "일본 한국대사관, 정부가 지은 게 아닙니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "애국·정체성",
+  "real_query": ["재일본대한민국민단", "Mindan", "주일한국대사관"],
+  "scene_query": ["민단 80주년 기념식", "재일민단 창립"],
+  "bg_query": [
+    "korean embassy tokyo",
+    "korean community japan",
+    "south korea flag ceremony",
+    "diplomatic building asia"
+  ],
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": "commons:File:Embassy of the Republic of Korea in Tokyo.jpg",
+      "voice": "일본에 있는 한국 대사관. 이 건물, 정부가 지은 게 아닙니다.",
+      "lines": [
+        ["정부가 지은 게 아닙니다", ["아닙니다"]],
+        ["일본의 한국 대사관입니다", []]
+      ]
+    },
+    {
+      "kind": "body",
+      "bg": "commons:File:Mindan Central Headquarters.JPG",
+      "voice": "1946년, 대한민국이 세워지기도 전 일본에 남은 한국인들이 민단을 만들었습니다.",
+      "lines": [
+        ["1946년, 세워지기도 전", ["1946년"]],
+        ["한국인들이 민단을 만들었습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "commons:File:Embassy of the Republic of Korea in Tokyo.jpg",
+      "voice": "첫째, 도쿄 대사관 부지가 필요했지만 신생 정부에 돈이 없었습니다.",
+      "lines": [
+        ["도쿄 대사관 부지가 필요했지만", []],
+        ["신생 정부에 돈이 없었습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "commons:File:Embassy of the Republic of Korea in Tokyo.jpg",
+      "voice": "둘째, 동포 사업가 서갑호가 사재 4200만 엔으로 땅을 사서 정부에 기증했습니다.",
+      "lines": [
+        ["서갑호가 4200만 엔으로", ["4200만"]],
+        ["땅을 사서 정부에 기증했습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "commons:File:Consulate General of South Korea in Osaka 2024.jpg",
+      "voice": "셋째, 오사카도 나고야도 센다이도. 공관 열 곳 중 아홉 곳을 동포들이 자비로 지어 기증했습니다.",
+      "lines": [
+        ["오사카도 나고야도 센다이도", []],
+        ["공관 10곳 중 9곳을 동포가 기증", ["9곳"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": "commons:File:Koreans displaced during World War II return to Busan, Korea, from Japan.jpg",
+      "voice": "오늘이 바로 민단 창립 80주년입니다. 서울에서 기념식이 열립니다. 나라 밖에서 나라를 지은 사람들이 있었습니다.",
+      "lines": [
+        ["오늘, 민단 창립 80주년", ["80주년"]],
+        ["서울에서 기념식이 열립니다", []],
+        ["나라 밖에서 나라를 지은 사람들", ["나라를"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": "commons:File:Embassy of the Republic of Korea in Tokyo.jpg",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", []]]
+    }
+  ],
+  "sources": [
+    "https://www.joongang.co.kr/article/25297053",
+    "https://ko.wikipedia.org/wiki/%EC%9E%AC%EC%9D%BC%EB%B3%B8%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%EB%AF%BC%EB%8B%A8"
+  ]
+}
