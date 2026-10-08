@@ -1,0 +1,35 @@
+{
+ "bg_query": "origami folding mouse flat desk minimalist",
+ "topic": "OrigamiSwift — 마우스가 종이처럼 접힌다, 접으면 4.5mm 40g, 노트북 사이에 끼워서 다닌다 [소유욕형]",
+ "blog_teaser": "MS Arc Mouse랑 뭐가 다른지, 접이식 마우스 3종 스펙 비교는 블로그에 정리했습니다",
+ "threads_text": "마우스에서 부피가 사라졌다\n\n1. OrigamiSwift — 종이접기 구조로 접히는 블루투스 마우스. 접으면 4.5mm\n2. 펴는 데 0.5초, 무게 40g. 노트북 사이에 끼워서 다닌다\n3. 4000 CPI, 배터리 3개월, USB-C 충전\n4. 국내 미출시 — 해외 직구 $85(약 12만원, $150 이하 관세 면제)\n5. 비슷한 국산 대안: MS Arc Mouse 약 9만원, 로지텍 Mobi Fold 약 14만원\n\n(출처: Yanko Design, Design-Milk)",
+ "description": "OrigamiSwift Foldable Bluetooth Mouse — 종이접기 구조로 접히는 블루투스 마우스다. 디자이너 Horace Lam이 만들었고 Red Dot 2023 디자인 어워드를 받았다.\n\n## 핵심 구조\n\n마우스 본체가 종이접기(origami) 구조로 되어 있어 접으면 두께 4.5mm, 무게 40g이 된다. 노트북과 노트북 사이에 끼워서 들고 다닐 수 있다. 펴는 데 0.5초 미만이 걸린다.\n\n## 스펙\n\nBluetooth 5.2 연결, HD 적외선 센서 4000 CPI, 추적 속도 초당 30인치. USB-C 충전으로 한 번 충전하면 3개월을 쓴다. Mac, iPad, Windows, Android 호환. 정숙(soft-click) 버튼 채용.\n\n## 가격과 구매\n\n$85(약 115,600원). 국내 미출시 — Yanko Design 공식 숍(shop.yankodesign.com)에서 해외 직구. $150 이하라 관세 면제 대상이고 배송비 별도(무료 배송은 $250 이상). 총 약 12~13만원 예상.\n\n## 국내 대안\n\n접이식 마우스 카테고리에서 국내 구매 가능한 제품은 두 가지다.\n- Microsoft Arc Mouse: 접으면 납작해지는 구조, ₩89,000(다나와 기준). 단 OrigamiSwift보다 두껍다.\n- Logitech Mobi Fold: 접이식 블루투스, ₩139,000(컴퓨존 기준).\n- 저가 중국산 접이식 아크 마우스: ₩4,100~₩45,800.\n\nOrigamiSwift의 4.5mm는 이 중 가장 얇다.",
+ "caption": "마우스에서 부피가 사라졌다\n\nOrigamiSwift — 접으면 4.5mm, 40g.\n노트북 사이에 끼워서 들고 다닌다.\nBluetooth 5.2, 4000 CPI, 배터리 3개월.\n국내 미출시 — 해외 직구 $85(약 12만원).\n\n(출처: Yanko Design, Design-Milk)\n\n#접이식마우스 #블루투스마우스 #가젯 #테크 #OrigamiSwift",
+ "factcheck": [
+   {"claim": "OrigamiSwift 접힌 두께 4.5mm, 무게 40g", "sources": ["https://shop.yankodesign.com/products/origamiswift-folding-mouse", "https://design-milk.com/centuries-old-art-of-origami-inspired-this-bluetooth-mouse/"], "note": "Yanko Design 공식 숍 1차 + Design-Milk 교차 확인"},
+   {"claim": "Bluetooth 5.2, 4000 CPI, 배터리 3개월, USB-C 충전", "sources": ["https://shop.yankodesign.com/products/origamiswift-folding-mouse", "https://www.yankodesign.com/2024/12/26/discover-the-ultimate-edc-mouse-foldable-design-for-effortless-productivity/"], "note": "Yanko Design 숍 + 기사 교차 확인"},
+   {"claim": "가격 $85, Red Dot 2023 수상", "sources": ["https://shop.yankodesign.com/products/origamiswift-folding-mouse", "https://design-milk.com/centuries-old-art-of-origami-inspired-this-bluetooth-mouse/"], "note": "숍 페이지 가격 확인, Design-Milk에서 Red Dot 수상 확인"},
+   {"claim": "MS Arc Mouse 국내 약 89,000원", "sources": ["https://prod.danawa.com/info/?pcode=5703868"], "note": "다나와 가격 확인 2026-10-08"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/origamiswift_1.jpg",
+   "title": "마우스에서 부피가 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "접으면 4.5mm — 노트북 사이에 끼워서 다닌다",
+   "body_hl": ["4.5mm"],
+   "credit": "Yanko Design"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/origamiswift_2.jpg",
+   "title": "OrigamiSwift — $85(약 12만원)",
+   "title_hl": ["$85"],
+   "body": "40g · Bluetooth 5.2 · 4000 CPI\nUSB-C 충전 3개월 · 정숙 클릭\nRed Dot 2023 디자인 어워드",
+   "body_hl": ["40g"],
+   "sub": "국내 미출시 — Yanko Design 숍 직구\n$150 이하 관세 면제, 총 약 12~13만원",
+   "credit": "Yanko Design"
+  }
+ ]
+}
