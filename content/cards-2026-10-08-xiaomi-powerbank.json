@@ -1,0 +1,36 @@
+{
+ "bg_query": "ultra thin power bank magnetic phone charging",
+ "topic": "Xiaomi UltraThin Magnetic Power Bank 5000 — 보조배터리에서 두께가 사라졌다, 6mm 98g 실리콘카본 배터리, 스마트폰보다 얇다 [한계붕괴형]",
+ "blog_teaser": "실측 충전 속도 비교표랑 아이폰에서 7.5W인 이유는 블로그에 정리했습니다",
+ "threads_text": "보조배터리에서 두께가 사라졌다\n\n1. 샤오미가 6mm짜리 보조배터리를 냈다. 98g — 카드 한 장 크기\n2. 비결은 실리콘카본 배터리. 같은 용량인데 훨씬 얇게 만든다\n3. 5000mAh, 자석으로 폰 뒤에 붙는다\n4. 다만 무선 15W는 샤오미 17 전용. 아이폰은 7.5W\n5. 유선 USB-C로 꽂으면 22.5W — 이쪽이 빠르다\n6. 국내 공식 판매 중, 76,800원\n\n(출처: GSMArena 실측, Xiaomi Korea 공식)",
+ "description": "Xiaomi UltraThin Magnetic Power Bank 5000 15W — 두께 6mm, 무게 98g의 자석 부착형 보조배터리다.\n\n## 핵심 스펙\n\n실리콘카본(silicon-carbon) 배터리 기술로 6mm 두께를 달성했다. 실리콘 함량 16%의 고에너지밀도 셀이다. 크기 98.5×71.5mm, 무게 98g. 아이폰 에어 MagSafe Battery(7.7mm, 126g)보다 얇고 가볍다.\n\n5,000mAh(18.95Wh). GSMArena 실측 기준 실사용 가능 용량은 약 3,600mAh(5V 기준 정격 3,000mAh).\n\n## 충전 속도\n\n무선: 샤오미 17 시리즈에만 15W, 아이폰·기타 안드로이드는 최대 7.5W. 아이폰 15 Pro 기준 30분에 27%, 1시간에 46%.\n유선: USB-C 22.5W.\n동시 충전(유선+무선) 시 총 12.5W.\n\n## 가격과 구매\n\nXiaomi Korea 공식 온라인: 76,800원. 색상 3종(라디언트 오렌지, 글래시어 실버, 그래파이트 블랙).\n\n## 참고\n\nQi2 인증은 아님. MagSafe 인증도 아님. 자석으로 아이폰에 붙지만 공식 호환 인증은 없다.",
+ "caption": "보조배터리에서 두께가 사라졌다\n\n6mm, 98g — 스마트폰보다 얇다.\n실리콘카본 배터리로 같은 용량, 절반 두께.\n자석으로 폰 뒤에 붙고 5000mAh.\n주의: 무선 15W는 샤오미 17 전용, 아이폰은 7.5W.\n국내 공식 판매 76,800원.\n\n(출처: GSMArena 실측, Xiaomi Korea)\n\n#보조배터리 #샤오미 #실리콘카본 #슬림배터리 #테크",
+ "factcheck": [
+   {"claim": "두께 6mm, 무게 98g, 크기 98.5x71.5mm", "sources": ["https://www.gsmarena.com/xiaomi_ultrathin_magnetic_power_bank_5000_15w_review-news-74788.php", "https://www.mi.com/global/product/xiaomi-ultrathin-magnetic-power-bank-5000-15w/"], "note": "GSMArena 실측 + Xiaomi 공식 제품 페이지 교차 확인"},
+   {"claim": "5000mAh(18.95Wh), 실사용 약 3600mAh", "sources": ["https://www.gsmarena.com/xiaomi_ultrathin_magnetic_power_bank_5000_15w_review-news-74788.php", "https://m.gsmarena.com/testing_thexiaomi_ultrathin_magnetic_power_bank_5000_15w-news-71695.php"], "note": "GSMArena 리뷰 + GSMArena 실측 테스트 교차 확인"},
+   {"claim": "무선 15W는 샤오미 17 전용, 아이폰 등 기타 기기 7.5W", "sources": ["https://www.gsmarena.com/xiaomi_ultrathin_magnetic_power_bank_5000_15w_review-news-74788.php", "https://www.techlicious.com/blog/xiaomi-ultrathin-magnetic-power-bank-5000/"], "note": "GSMArena + Techlicious 교차 확인. 아이폰 15 Pro 30분 27% 데이터도 GSMArena 실측"},
+   {"claim": "국내 공식 판매 76,800원", "sources": ["https://www.mi.com/kr/product-list/chargings/power-bank/"], "note": "Xiaomi Korea 공식 온라인 스토어 2026-10-08 확인"},
+   {"claim": "실리콘카본 배터리 실리콘 함량 16%", "sources": ["https://www.gsmarena.com/xiaomi_ultrathin_magnetic_power_bank_5000_15w_review-news-74788.php", "https://www.techlicious.com/blog/xiaomi-ultrathin-magnetic-power-bank-5000/"], "note": "GSMArena + Techlicious 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/xiaomi_powerbank_1.jpg",
+   "title": "보조배터리에서 두께가 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "6mm — 스마트폰보다 얇다, 98g",
+   "body_hl": ["6mm"],
+   "credit": "GSMArena"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/xiaomi_powerbank_2.jpg",
+   "title": "Xiaomi UltraThin Power Bank — 76,800원",
+   "title_hl": ["76,800원"],
+   "body": "5000mAh · 자석으로 폰 뒤에 붙는다\n실리콘카본 배터리 — 같은 용량, 절반 두께\nUSB-C 유선 22.5W",
+   "body_hl": ["실리콘카본"],
+   "sub": "주의: 무선 15W는 샤오미 17 전용\n아이폰은 7.5W — 급할 땐 유선이 빠르다",
+   "credit": "Xiaomi"
+  }
+ ]
+}
