@@ -1,0 +1,35 @@
+{
+ "bg_query": "night vision binoculars dark forest",
+ "topic": "DVX Night Storm X3 — 야간투시경의 녹색이 사라지고 있다, AI 듀얼센서가 캄캄한 밤을 4K 풀컬러로 바꾼다, 킥스타터 $320만 모금 [한계붕괴형]",
+ "blog_teaser": "왜 60년간 녹색이었는지랑 기존 디지털 야간투시경과 뭐가 다른지는 블로그에 정리했습니다",
+ "threads_text": "야간투시경의 녹색이 사라지고 있다\n\n1. 영화에서 보던 녹색 화면 — 인광체 기술 때문이었다. 눈이 녹색에 가장 민감해서 그렇게 만들었다\n2. DVX Night Storm X3 — AI가 두 센서를 합쳐서 캄캄한 밤을 4K 풀컬러로 보여준다\n3. 0.0001 lux에서도 작동, 레이저 거리측정 1500m, IP65 방수\n4. 킥스타터에서 5,700명이 $320만(약 43억) 걸었다\n5. 국내 미출시 — 직구 $249~$429\n\n(출처: DVX 공식, RedShark News, Kickstarter)",
+ "description": "DVX Night Storm X3 — 영화에서 보던 야간투시경은 녹색이었다. 1960년대 이미지 증폭관(image intensifier tube) 기술 때문이다. 인광체(phosphor)가 광자를 증폭해 화면에 띄우는데, P43 인광체가 녹색광을 내고 인간의 눈이 녹색 파장(550nm)에 가장 민감하기 때문에 녹색이 표준이 됐다. 60년 동안 야간투시경 하면 녹색 화면이었다.\n\n## 디지털 야간투시경의 등장\n\n2018년 SiOnyx Aurora가 CMOS 센서 기반으로 풀컬러 야간 촬영을 처음 구현했다. 그러나 해상도는 720p 수준이었고 감도도 제한적이었다. 이후 여러 제조사가 디지털 야간투시경을 내놓았지만, 대부분 밝기가 충분할 때만 컬러가 유지됐다.\n\n## Night Storm X3의 차별점\n\nDVX Night Storm X3는 AI 듀얼센서 아키텍처를 쓴다. Luma-X 센서가 밝기를 잡고 Chroma-X 센서가 색을 잡는다. 20 TOPS AI 엔진이 두 데이터를 실시간으로 합쳐 0.0001 lux(별빛만 있는 수준)에서도 풀컬러 4K 영상을 만든다. 내장 레이저 거리측정기는 1500m까지 측정한다.\n\n렌즈는 F/1.4 42mm, 시야각 13도. 52MP 사진과 4K 영상 촬영이 가능하고, 온보드 디스플레이는 3인치 640x360이다. IP65 방수에 5100mAh 배터리로 IR 없이 24시간 사용한다.\n\n## 가격과 구매\n\n킥스타터에서 5,689명이 $320만(약 43억 원)을 모금했다. 캠페인 달성에 11분이 걸렸다. Lite(레이저거리계 미포함) $249부터, 표준 $429. 2026년 5월 배송 시작. 한국은 정식 출시국이 아니며 DVX 공식 사이트(dvx.red) 또는 아마존에서 직구할 수 있다. $249 기준 관세(20% 가정) 약 $50 + 배송 약 $20 = 총 약 $319(약 43만 원). $429 기준 총 약 $530(약 72만 원).\n\n## 국내 대안\n\n국내에서 판매 중인 디지털 야간투시경은 10~30만 원대(중국산 4K 표방 제품)부터 200만 원대(Pulsar Recon 870 등 전문 수입품)까지 있다. AI 듀얼센서 아키텍처를 쓰는 제품은 국내에 아직 없다.",
+ "caption": "야간투시경의 녹색이 사라지고 있다\n\nDVX Night Storm X3 — AI가 두 센서를 합쳐서\n캄캄한 밤을 4K 풀컬러로 바꾼다.\n0.0001 lux, 레이저 거리측정 1500m, IP65 방수.\n킥스타터 $320만 모금, $249부터.\n\n(출처: DVX 공식, RedShark News, Kickstarter)\n\n#야간투시경 #나이트비전 #4K #테크 #가젯",
+ "factcheck": [
+   {"claim": "인광체(P43 phosphor)가 녹색광을 내고 인간의 눈이 녹색(550nm)에 가장 민감", "sources": ["https://en.wikipedia.org/wiki/Image_intensifier", "https://www.nv-intl.com/wiki/index.php/Image_Intensifier"], "note": "Wikipedia + NV International 교차 확인"},
+   {"claim": "Night Storm X3 AI 듀얼센서(Luma-X + Chroma-X), 20 TOPS, 0.0001 lux, 4K", "sources": ["https://www.dvx.red/night-storm-x3.html", "https://www.redsharknews.com/dvx-night-storm-x3-night-vision-4k-ai"], "note": "DVX 공식 1차 + RedShark News 교차 확인"},
+   {"claim": "킥스타터 $320만(5,689명), 캠페인 달성 11분", "sources": ["https://www.kickstarter.com/projects/night-vision/night-storm-x3-native-4k-full-color-in-pitch-black-at-1500m", "https://www.kicktraq.com/projects/night-vision/night-storm-x3-native-4k-full-color-in-pitch-black-at-1500m/"], "note": "Kickstarter 1차 + Kicktraq 교차 확인"},
+   {"claim": "SiOnyx Aurora 2018년 최초 풀컬러 디지털 야간투시", "sources": ["https://www.dpreview.com/news/4092491550/sionyx-aurora-camera-shoots-color-even-by-moon-light"], "note": "DPReview 확인 — X3가 최초가 아님을 명시하기 위한 근거"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/night_storm_x3_sample.jpg",
+   "title": "야간투시경의 녹색이 사라지고 있다",
+   "title_hl": ["사라지고"],
+   "body": "AI가 캄캄한 밤을 4K 풀컬러로 바꾼다",
+   "body_hl": ["4K 풀컬러"],
+   "credit": "DVX"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/night_storm_x3_1.webp",
+   "title": "Night Storm X3 — $249~",
+   "title_hl": ["$249"],
+   "body": "AI 듀얼센서 · 0.0001 lux · 4K\n레이저 거리측정 1500m · IP65 방수\n배터리 24시간(IR 미사용 시)",
+   "body_hl": ["0.0001 lux"],
+   "sub": "킥스타터 $320만 모금\n국내 미출시 — 직구 약 43만원(Lite)~72만원",
+   "credit": "DVX"
+  }
+ ]
+}
