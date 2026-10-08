@@ -1,0 +1,34 @@
+{
+ "bg_query": "car tire pressure check autumn cold weather",
+ "topic": "전동 에어펌프 — 타이어 경고등, 펑크가 아니라 기온이었다. 3만원이면 끝난다 [구매가능]",
+ "blog_teaser": "기온별 공기압 변화표와 에어펌프 3종 비교는 블로그에 정리했습니다",
+ "threads_text": "USB 충전기 하나로 주유소가 필요 없어졌다\n\n1. 기온이 10°C 떨어지면 타이어 공기압이 1~2 PSI 빠진다\n2. TPMS 경고등은 권장 공기압의 25% 아래에서 점등된다\n3. 여름에 맞춰놓은 공기압이 가을 되면 경고 범위에 진입\n4. 주유소 안 가도 된다 — USB-C 전동 에어펌프가 3만원대\n5. 150PSI, 480g. 트렁크에 넣고 다니면 된다\n\n(출처: Continental Tires 공식, AAA 공식)",
+ "description": "가을 기온 하강기에 타이어 공기압 경고등(TPMS)이 켜지는 원인과 휴대용 전동 에어펌프 해결책.\n\n## 왜 가을에 경고등이 켜지나\n\n타이어 내부 공기는 열팽창 법칙을 따른다. 기온이 10°C 떨어지면 공기압이 약 1~2 PSI(0.07~0.14 bar) 감소한다(Continental Tires 공식 가이드). TPMS 경고등은 차량 권장 공기압 대비 25% 이상 부족할 때 점등된다(미국 NHTSA 기준). 여름 35°C에서 맞춘 32 PSI가 15°C가 되면 28 PSI까지 떨어져 경고 범위에 진입할 수 있다.\n\nAAA(미국자동차협회)도 계절 변화 시 월 1회 공기압 점검을 권고한다.\n\n## 해결: 휴대용 전동 에어펌프\n\n주유소 공기 주입기를 쓰지 않아도 된다. USB-C 충전식 전동 에어펌프가 3만원대에 나와 있다. 대표 제품 샤오미 미지아 2세대 기준 — 최대 150PSI, 무게 480g, USB-C 충전. 쿠팡·다나와 실거래가 32,000~36,000원.\n\n자전거·킥보드·공·튜브 등에도 쓸 수 있어 하나 사두면 다용도.",
+ "caption": "USB 충전기 하나로 주유소가 필요 없어졌다\n\n기온 10°C 하강 = 공기압 1~2 PSI 감소.\nTPMS는 25% 부족에서 경고.\nUSB-C 전동 에어펌프 3만원대, 트렁크에 하나.\n\n(출처: Continental Tires, AAA)\n\n#타이어 #공기압 #에어펌프 #가을운전 #테크",
+ "factcheck": [
+   {"claim": "기온 10°C 하강 시 타이어 공기압 약 1~2 PSI 감소", "sources": ["https://www.continental-tires.com/kr/b2c/tire-knowledge/tire-pressure.html", "https://www.aaa.com/autorepair/articles/how-does-cold-weather-affect-tire-pressure"], "note": "Continental Tires Korea 공식 + AAA 공식 가이드 교차 확인"},
+   {"claim": "TPMS 경고등은 권장 공기압의 25% 이하에서 점등", "sources": ["https://www.nhtsa.gov/equipment/tires/tire-pressure-monitoring-systems", "https://www.continental-tires.com/kr/b2c/tire-knowledge/tire-pressure.html"], "note": "미국 NHTSA 기준 + Continental 교차 확인"},
+   {"claim": "샤오미 미지아 전동 에어펌프 2세대 150PSI 480g 실거래가 32,000~36,000원", "sources": ["https://www.coupang.com/", "https://search.danawa.com/"], "note": "쿠팡·다나와 2026-10-08 실거래가 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/air_pump_1.jpg",
+   "title": "USB 충전기 하나로 주유소가 필요 없어졌다",
+   "title_hl": ["필요 없어졌다"],
+   "body": "가을 기온 하강 → 타이어 공기압 감소 → 경고등",
+   "body_hl": ["기온"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/air_pump_2.jpg",
+   "title": "USB-C 전동 에어펌프 — 3만원대",
+   "title_hl": ["3만원대"],
+   "body": "10°C 떨어지면 공기압 1~2 PSI 빠진다\nTPMS 경고는 25% 부족에서 점등\n트렁크에 하나 — 주유소 안 가도 된다",
+   "body_hl": ["1~2 PSI"],
+   "sub": "샤오미 미지아 2세대 — 150PSI, 480g\n자전거·킥보드·공에도 사용 가능",
+   "credit": "Pexels"
+  }
+ ]
+}
