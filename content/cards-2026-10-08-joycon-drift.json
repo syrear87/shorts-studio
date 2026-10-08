@@ -1,0 +1,36 @@
+{
+  "bg_query": "nintendo switch joystick controller",
+  "topic": "Joy-Con 드리프트 — 닌텐도가 500억 벌금 낸 결함, 스위치2에도 그대로다, 조이스틱 안 포텐셔미터 마모가 원인, 홀효과 센서는 접촉 없어 구조적으로 안 생긴다 [공유형]",
+  "blog_teaser": "포텐셔미터와 홀효과 센서의 구조 차이는 블로그에 정리했습니다",
+  "threads_text": "스위치 조이콘 7년째 안 고친 결함, 500억 벌금으로 돌아왔다\n\n1. 조이콘 스틱 안에 포텐셔미터라는 센서가 있다\n2. 금속 와이퍼가 탄소 트랙을 수천 번 긁으면 코팅이 벗겨진다\n3. 전압이 흔들리고 콘솔이 입력으로 읽는다 — 이게 드리프트\n4. 스위치2도 같은 구조다 — 닌텐도 부사장이 직접 인정\n5. 홀효과 센서는 자석과 센서 사이에 접촉이 없다. 마모가 안 생긴다\n\n(출처: iFixit 분해, Tom's Hardware, Nintendo Life)",
+  "description": "닌텐도 Joy-Con 드리프트의 원인과 구조적 해결책.\n\n## 드리프트란\n\n조이스틱을 놓아도 캐릭터가 혼자 움직이는 현상이다. 닌텐도 스위치 출시(2017) 이후 수백만 건 보고됐고, 2026년 6월 프랑스 DGCCRF가 닌텐도 유럽에 €3,500만(약 500억원) 벌금을 부과했다. 2018년부터 결함을 알면서 소비자에게 고지하지 않은 '오도적 상업 관행'이 인정됐다.\n\n## 원인: 포텐셔미터의 물리적 마모\n\n조이스틱 내부에는 포텐셔미터(가변저항기)가 있다. 금속 와이퍼 브러시가 탄소-흑연 저항 트랙 위를 미끄러지며 위치를 측정하는 구조다. 수천 번 조작하면 와이퍼가 트랙 코팅을 긁어 벗기고, 전압이 불균일해진다. 콘솔은 이 전압 변화를 '의도적 입력'으로 읽는다 — 이것이 드리프트다. 먼지와 이물질이 스틱 틈으로 유입돼 문제를 가속한다(iFixit 분해 분석).\n\n## 스위치2도 같은 구조\n\n2025년 출시된 Nintendo Switch 2의 Joy-Con 2도 홀효과(Hall Effect) 조이스틱을 채택하지 않았다. 닌텐도 부사장 Nate Bihldorff가 Nintendo Life 인터뷰에서 직접 인정했다. iFixit 분해에서도 포텐셔미터 계열 스틱이 확인됐다. 출시 직후부터 드리프트 사례가 보고되고 있다.\n\n## 구조적 해결: 홀효과(Hall Effect) 센서\n\n홀효과 조이스틱은 영구자석과 홀 센서 사이의 자기장 변화를 비접촉으로 측정한다. 와이퍼와 트랙이 없으므로 물리적 마모 자체가 발생하지 않는다. 이론상 마모에 의한 드리프트가 구조적으로 불가능하다. 서드파티 컨트롤러(8BitDo, GuliKit 등)에는 이미 탑재돼 있다.\n\n## 닌텐도의 대응\n\n- 미국·유럽·중남미: 보증 기간 외에도 Joy-Con 드리프트 무상수리 정책 시행 중(구매 증명 불필요)\n- 2024년 미국 집단소송(Diaz v. Nintendo)은 기각\n- 2026년 6월 프랑스 벌금 €3,500만 부과 — 닌텐도는 '유죄 인정이 아니다'라고 발표",
+  "caption": "스위치 조이콘 7년째 안 고친 결함, 500억 벌금으로 돌아왔다\n\n조이스틱 안 포텐셔미터 — 금속이 탄소를 긁는 구조.\n수천 번 쓰면 코팅이 벗겨지고 전압이 흔들린다.\n스위치2도 같은 구조 — 닌텐도 부사장 직접 인정.\n홀효과 센서는 접촉이 없어서 마모가 안 생긴다.\n\n(출처: iFixit, Tom's Hardware, Nintendo Life, Game Developer)\n\n#조이콘 #드리프트 #닌텐도 #스위치2 #테크",
+  "factcheck": [
+    {"claim": "프랑스 DGCCRF가 2026년 6월 닌텐도 유럽에 €3,500만 벌금 부과", "sources": ["https://www.gamedeveloper.com/business/nintendo-of-europe-to-pay-40m-fine-for-joy-con-drift-issues"], "note": "Game Developer 보도 + Nintendo Life 교차 확인. 닌텐도는 유죄 인정이 아니라고 발표"},
+    {"claim": "Switch 2 Joy-Con은 Hall Effect 미탑재, 포텐셔미터 계열 유지", "sources": ["https://www.tomshardware.com/video-games/nintendo/nintendo-vp-confirms-switch-2-joy-cons-wont-feature-hall-effect-sticks", "https://www.nintendolife.com/news/2025/04/its-official-switch-2-joy-con-will-not-feature-hall-effect-sticks"], "note": "닌텐도 부사장 Nate Bihldorff Nintendo Life 인터뷰에서 직접 부인 + Tom's Hardware 교차 확인"},
+    {"claim": "포텐셔미터 마모가 드리프트 원인", "sources": ["https://www.ifixit.com/News/110926/switch-2-teardown", "https://joycheck.io/blog/stick-drift-explained/"], "note": "iFixit 분해 분석 + joycheck.io 기술 해설 교차 확인"},
+    {"claim": "홀효과 조이스틱은 비접촉 측정으로 마모에 의한 드리프트가 구조적으로 불가", "sources": ["https://www.lenovo.com/us/en/knowledgebase/gaming-controller-with-hall-effect-joystick-a-comprehensive-guide/"], "note": "Lenovo 공식 가이드. 단 자석 약화·EMI 간섭 등 극히 드문 예외 가능성은 존재"},
+    {"claim": "닌텐도 미국·유럽 Joy-Con 드리프트 무상수리 정책 시행 중", "sources": ["https://www.digitaltrends.com/gaming/nintendo-switch-controller-joy-con-drift-free-repair/"], "note": "Digital Trends 확인. 구매 증명 불필요"}
+  ],
+  "cards": [
+    {
+      "kind": "hook",
+      "img": "assets/cards/joycon_drift_1.jpg",
+      "title": "스위치 조이콘 7년째 안 고친 결함, 500억 벌금으로 돌아왔다",
+      "title_hl": ["7년째", "돌아왔다"],
+      "body": "조이콘이 혼자 움직이는 이유 — 조이스틱 안에 있다",
+      "body_hl": ["혼자 움직이는"],
+      "credit": "GamesRadar"
+    },
+    {
+      "kind": "end",
+      "img": "assets/cards/joycon_drift_2.jpg",
+      "title": "포텐셔미터 — 금속이 탄소를 긁는 구조",
+      "title_hl": ["금속이 탄소를 긁는"],
+      "body": "수천 번 쓰면 코팅이 벗겨진다\n전압이 흔들리고 콘솔이 입력으로 읽는다\n홀효과 센서는 접촉이 없어서 마모가 안 생긴다",
+      "body_hl": ["접촉이 없어서"],
+      "sub": "2026년 6월 프랑스 벌금 약 500억원\n닌텐도 부사장: Hall Effect 미탑재 인정",
+      "credit": "iFixit"
+    }
+  ]
+}
