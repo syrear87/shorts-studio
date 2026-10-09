@@ -1,0 +1,78 @@
+{
+  "title": "한글날 100주년인데, 한국인 문해력이 OECD 평균 이하입니다",
+  "chip": "한글날 100주년 · 1일 1지식",
+  "narrator": "female",
+  "series": "공유성",
+  "real_query": ["한글날 광화문", "훈민정음 해례본"],
+  "bg_query": ["hangul korean calligraphy ink brush", "person reading book confused", "smartphone screen scrolling fast text", "korean students classroom studying", "old korean manuscript hunminjeongeum", "hangul museum exhibition display"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "한글날이 올해로 100주년입니다. 그런데 한국 성인의 글 읽기 능력이 OECD 평균보다 낮습니다.",
+      "bg": "commons:File:Korea HangulDay 07 (8329124888).jpg",
+      "lines": [
+        ["한글날 올해로 100주년", ["100주년"]],
+        ["한국 성인 글 읽기 능력", []],
+        ["OECD 평균보다 낮습니다", []]
+      ]
+    },
+    {
+      "kind": "body",
+      "voice": "OECD가 31개국 성인에게 글을 읽고 뜻을 파악하는 시험을 봤습니다.",
+      "bg": "scene:https://v.daum.net/v/20261008101917859",
+      "lines": [
+        ["OECD 31개국 성인 시험", []],
+        ["글을 읽고 뜻을 파악하는 시험", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "첫째, 한국은 249점. OECD 평균 260점보다 11점 낮았습니다.",
+      "bg": 7976423,
+      "lines": [
+        ["한국 249점", ["249점"]],
+        ["평균 260점보다 11점 낮았습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "둘째, 10년 전보다 20점 넘게 떨어졌습니다. 하락 폭은 31개국 중 가장 컸습니다.",
+      "bg": "photo:3943951",
+      "lines": [
+        ["10년 전보다 20점 넘게 하락", ["20점"]],
+        ["하락 폭 31개국 중 가장 컸습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "셋째, 문해력 책이 10년 새 12종에서 105종으로 늘었습니다. 이해가 안 되는 사람이 그만큼 많아졌다는 뜻입니다.",
+      "bg": 853794,
+      "lines": [
+        ["문해력 책 12종에서 105종", ["105종"]],
+        ["이해가 안 되는 사람이 많아졌다", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "580년 전 세종은 백성을 위해 한글을 만들었습니다. 100년이 지난 오늘, 글자는 읽지만 뜻을 이해하는 힘은 줄고 있습니다.",
+      "bg": 31622499,
+      "lines": [
+        ["580년 전 세종, 한글을 만들었다", ["580년"]],
+        ["100년 뒤, 글자는 읽지만", ["100년"]],
+        ["뜻을 이해하는 힘은 줄고 있습니다", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "bg": "commons:File:Korea HangulDay 07 (8329124888).jpg",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://www.fnnews.com/news/202610090901297541",
+    "https://www.newspim.com/news/view/20241210000589",
+    "https://www.oecd.org/en/publications/survey-of-adult-skills-piaac_23078731.html"
+  ]
+}
