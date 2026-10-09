@@ -1,0 +1,36 @@
+{
+  "bg_query": "ray-ban smart glasses audio",
+  "topic": "Ray-Ban Meta Audio — 스마트 안경에서 카메라가 사라졌다, 43g 12시간 배터리, 카메라 뺀 대신 가볍고 오래 간다, $349 10/13 한국 동시 출시 [공유형]",
+  "blog_teaser": "Gen 3과 Audio의 스펙 비교표는 블로그에 정리했습니다",
+  "threads_text": "스마트 안경에서 카메라가 사라졌다 — 빼니까 배터리가 12시간이 됐다\n\n1. 메타가 레이밴에서 카메라를 뺀 모델을 만들었다\n2. 43g — 이어버드 수준 무게인데 안경이다\n3. 배터리 12시간, 케이스 합치면 48시간 (카메라 모델은 9시간)\n4. AI 음성 비서, 한국어 실시간 번역은 그대로\n5. $349, 10/13 한국 동시 출시 — 이통3사 대리점에서 구매 가능\n\n(출처: Meta 공식 발표, about.fb.com)",
+  "description": "Ray-Ban Meta Audio — 카메라를 뺀 스마트 안경.\n\n## 왜 카메라를 뺐나\n\nMeta는 2021년 Ray-Ban Stories(1세대)부터 안경에 카메라를 넣어 왔다. 3세대(Gen 3)는 12MP 카메라에 3K 영상 촬영까지 된다. 그런데 2026년 9월 Meta Connect에서 카메라를 뺀 모델 'Ray-Ban Meta Audio'를 발표했다. 이유는 단순하다 — 카메라가 빠지니까 안경이 가벼워지고, 배터리가 오래 갔다.\n\n## 사양 비교\n\n| 항목 | Gen 3 (카메라 O) | Audio (카메라 X) |\n|---|---|---|\n| 무게 | 미공개(추정 50g+) | **43g** |\n| 배터리 | 9시간 | **12시간** |\n| 케이스 포함 | 미공개 | **48시간** |\n| 카메라 | 12MP, 3K 영상 | 없음 |\n| AI 비서 | Meta AI | Meta AI |\n| 실시간 번역 | 지원 | 지원 |\n| 가격 | $449 | **$349** |\n\n## 카메라 없이 뭘 하나\n\n음악·팟캐스트 재생, 통화, Meta AI 음성 비서, 한국어 포함 20개 언어 실시간 번역이 된다. 카메라가 하던 일(사진·영상)만 빠지고 나머지는 그대로다. 오히려 카메라가 없으니 사생활 논란에서 자유롭다 — 카메라 달린 스마트 안경을 쓰면 상대가 불편해하는 문제가 있었다.\n\n## 디자인\n\nClubmaster(레트로 브로라인)와 Burbank(클래식 사각) 두 스타일로 나온다. 23가지 색상·렌즈 조합이 있고 도수 렌즈도 들어간다.\n\n## 한국 출시\n\nRay-Ban Meta는 2026년 5월 25일 한국 정식 출시됐다. Gen 2 기준 69만원부터, 백화점·면세점·안경원·이통3사(SKT·KT·LGU+) 대리점에서 판매 중이다. Audio 모델은 10월 13일 한국 동시 출시 예정이다. 한국 원화 가격은 출시일에 확정된다.",
+  "caption": "스마트 안경에서 카메라가 사라졌다 — 빼니까 배터리가 12시간이 됐다\n\n카메라 없는 스마트 안경 — Ray-Ban Meta Audio.\n43g, 배터리 12시간, 케이스 포함 48시간.\nAI 음성 비서·한국어 실시간 번역은 그대로.\n$349, 카메라 모델보다 $100 저렴.\n10/13 한국 동시 출시.\n\n(출처: Meta 공식 발표)\n\n#레이밴 #스마트안경 #메타 #RayBanMeta #테크",
+  "factcheck": [
+    {"claim": "Ray-Ban Meta Audio 무게 43g, 배터리 12시간(케이스 48시간)", "sources": ["https://about.fb.com/news/2026/09/introducing-ray-ban-meta-audio-glasses-new-styles-plus-muse/"], "note": "Meta 공식 발표 페이지에서 직접 확인"},
+    {"claim": "가격 $349, 10/13 출시", "sources": ["https://about.fb.com/news/2026/09/introducing-ray-ban-meta-audio-glasses-new-styles-plus-muse/", "https://idevice.com/smart-glasses/meta-ray-ban/roadmap"], "note": "Meta 공식 + iDevice 교차 확인. $349는 기본형(Clubmaster/Burbank) 시작가"},
+    {"claim": "Gen 3는 배터리 9시간, $449, 12MP 카메라", "sources": ["https://www.headphonesty.com/2026/01/apple-airpods-5/", "https://www.geeky-gadgets.com/meta-connect-2026-announcements/"], "note": "Gen 3 배터리: Meta 공식 9시간. Gen 2는 8시간이었음"},
+    {"claim": "한국 동시 출시국 포함, Ray-Ban Meta 한국 정식 판매 중(69만원~)", "sources": ["https://about.fb.com/ko/news/2026/05/meta-wearables-launch-in-korea/", "https://about.fb.com/ko/news/2026/09/introducing-ray-ban-meta-audio-and-more-ai-glasses-styles/"], "note": "2026-05-25 한국 정식 출시. SKT·KT·LGU+ 대리점 판매. Audio 한국 출시는 한국어 공식 페이지에 명시"},
+    {"claim": "한국어 포함 20개 언어 실시간 번역 지원", "sources": ["https://about.fb.com/ko/news/2026/07/korean-live-translation-comes-to-ray-ban-meta-and-oakley-meta/"], "note": "2026-07 한국어 실시간 번역 기능 업데이트 공식 발표"}
+  ],
+  "cards": [
+    {
+      "kind": "hook",
+      "img": "assets/cards/rayban_meta_audio_2.jpg",
+      "title": "스마트 안경에서 카메라가 사라졌다",
+      "title_hl": ["카메라가 사라졌다"],
+      "body": "빼니까 배터리가 12시간이 됐다",
+      "body_hl": ["12시간"],
+      "credit": "Meta"
+    },
+    {
+      "kind": "end",
+      "img": "assets/cards/rayban_meta_audio_1.jpg",
+      "title": "Ray-Ban Meta Audio — 43g",
+      "title_hl": ["43g"],
+      "body": "카메라 모델: 9시간, $449\n카메라 없는 모델: 12시간, $349\nAI 음성 비서 · 한국어 실시간 번역",
+      "body_hl": ["12시간", "$349"],
+      "sub": "10/13 한국 동시 출시 — 이통 3사 대리점",
+      "credit": "MobileSyrup"
+    }
+  ]
+}
