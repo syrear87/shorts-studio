@@ -1,0 +1,35 @@
+{
+ "bg_query": "macbook pro laptop screen dark",
+ "topic": "맥북 터치스크린 — 맥북 화면을 처음으로 만질 수 있게 된다, 2006년부터 20년간 한 번도 없던 터치스크린이 OLED와 함께 달린다, 10/27 발표 예상 [루머][한계붕괴형]",
+ "blog_teaser": "잡스가 터치를 거부한 이유와 16년 만에 바뀐 배경은 블로그에 정리했습니다",
+ "threads_text": "맥북 화면, 처음으로 만질 수 있게 된다\n\n1. Bloomberg이 어제 보도 — 10/27에 터치스크린 맥북프로 나온다\n2. 2006년부터 20년간 맥에 터치스크린은 한 번도 없었다\n3. 화면이 Mini LED에서 OLED로 바뀌고 Dynamic Island도 달린다\n4. 본체가 눈에 띄게 가벼워진다는 얘기도 있다\n5. 아직 루머 — 공식 발표는 10/13 스마트홈 이벤트만 확인됨\n\n(출처: Bloomberg Mark Gurman, 9to5Mac)",
+ "description": "맥북프로 터치스크린 루머 정리.\n\n## 무엇이 바뀌나\n\n2026년 10월 27일경, 애플이 터치스크린을 탑재한 맥북프로를 발표할 것으로 보인다(Bloomberg Mark Gurman 보도, 2026-10-08). 14인치와 16인치 두 모델이 예상된다.\n\n맥북프로는 2006년 출시 이후 20년간 한 번도 터치스크린을 달지 않았다. 2016~2023년 Touch Bar가 있었지만 디스플레이 자체를 터치하는 것은 처음이다.\n\n## 왜 지금인가\n\n스티브 잡스는 2010년 'Back to the Mac' 행사에서 \"터치 표면은 수직이면 안 된다. 데모로는 좋지만 쓰다 보면 팔이 피곤해진다\"고 했다. 이후 팀 쿡, 크레이그 페더리기도 같은 입장을 반복했다. 16년간의 거부가 끝나는 것이다.\n\n배경으로는 iPad의 터치 생태계 성숙, macOS와 iPadOS의 앱 통합(유니버설 앱), 그리고 Windows 노트북 진영의 터치스크린 보편화가 꼽힌다.\n\n## 예상 사양\n\n- 디스플레이: OLED(현행 Mini LED에서 교체)\n- Dynamic Island: 노치를 대신하는 인터랙티브 섬\n- 칩: M5 Pro / M5 Max(M6 아님)\n- 무게: 현행 대비 눈에 띄게 가벼워질 것으로 보도\n- 같은 날 OLED 아이패드 미니, M6 아이맥, M6 엔트리 맥북프로도 함께 발표 예상\n\n## 주의\n\n이 정보는 Bloomberg 보도 기반의 루머이며 애플이 공식 확인한 것은 아니다. 애플이 공식 발표한 이벤트는 10월 13일 스마트홈 제품 행사뿐이다.",
+ "caption": "맥북 화면, 처음으로 만질 수 있게 된다\n\n2006년 첫 맥북부터 20년 — 한 번도 없던 터치스크린이 달린다.\nOLED + Dynamic Island + 더 가벼운 본체.\n칩은 M5 Pro / M5 Max.\n\n⚠️ 아직 공식 발표가 아닌 루머 단계 정보입니다\n출처: Bloomberg(Mark Gurman), 9to5Mac, AppleInsider\n\n#맥북프로 #터치스크린 #OLED #애플 #루머",
+ "factcheck": [
+   {"claim": "맥북프로는 2006년 출시 이후 20년간 터치스크린을 탑재한 적 없다", "sources": ["https://en.wikipedia.org/wiki/MacBook_Pro", "https://www.apple.com/macbook-pro/"], "note": "MacBook Pro 2006년 1월 출시. Touch Bar(2016-2023)는 디스플레이 터치가 아닌 별도 OLED 바. 디스플레이 자체의 터치스크린은 전무"},
+   {"claim": "Bloomberg이 10월 27일경 터치스크린 맥북프로 발표를 보도", "sources": ["https://9to5mac.com/2026/10/08/apple-to-launch-touchscreen-macbook-pro-and-more-on-october-27-report/", "https://appleinsider.com/articles/26/10/08/touchscreen-macbook-pro-oled-ipad-mini-coming-at-october-27-apple-event"], "note": "Bloomberg Mark Gurman 보도, 9to5Mac·AppleInsider·Macworld 등 다수 매체 인용. 애플 공식 확인은 아직 없음"},
+   {"claim": "OLED 디스플레이, Dynamic Island, 더 가벼운 본체, M5 Pro/Max 탑재 예상", "sources": ["https://9to5mac.com/2026/10/08/apple-to-launch-touchscreen-macbook-pro-and-more-on-october-27-report/", "https://www.macworld.com/article/2931833/touchscreen-macbook-pro-m6-design-processor-specs-release.html"], "note": "Bloomberg 보도 기반. 현행 MacBook Pro는 Mini LED 디스플레이에 노치 탑재"},
+   {"claim": "스티브 잡스가 2010년 '노트북에 터치는 맞지 않다'고 발언", "sources": ["https://www.macworld.com/article/2931833/touchscreen-macbook-pro-m6-design-processor-specs-release.html", "https://www.techpowerup.com/346724/apples-2026-macbook-pro-refresh-brings-dynamic-island-oled-screens-and-new-touch-gestures"], "note": "2010년 10월 20일 Back to the Mac 행사. 원문: 'Touch surfaces don't want to be vertical'"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/macbook_touch_1.jpg",
+   "title": "맥북 화면, 처음으로 만질 수 있게 된다",
+   "title_hl": ["처음으로"],
+   "body": "2006년 첫 맥북부터 20년 — 터치스크린은 한 번도 없었다",
+   "body_hl": ["20년", "한 번도"],
+   "credit": "Pexels / Moises Caro"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/macbook_touch_2.jpg",
+   "title": "바뀌는 건 터치만이 아니다",
+   "title_hl": ["터치만이 아니다"],
+   "body": "화면이 OLED로 바뀌고 Dynamic Island이 달린다\n본체도 눈에 띄게 가벼워진다",
+   "body_hl": ["OLED", "Dynamic Island"],
+   "sub": "칩은 M5 Pro / M5 Max · 10월 27일 발표 예상\n(Bloomberg Mark Gurman 보도 — 아직 루머 단계)",
+   "credit": "Pexels / ceesz"
+  }
+ ]
+}
