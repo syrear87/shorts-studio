@@ -1,0 +1,34 @@
+{
+ "bg_query": "mini label printer thermal sticker",
+ "topic": "미니 라벨 프린터 — 프린터에서 잉크가 사라졌다, 열로 찍는 라벨 프린터가 3만원이면 끝난다, 149g 블루투스 USB-C [구매가능][공유형]",
+ "blog_teaser": "라벨 프린터 고를 때 확인할 스펙 3가지와 라벨지 종류별 비교는 블로그에 정리했습니다",
+ "threads_text": "프린터에서 잉크가 사라졌다\n\n1. 열전사 방식이라 잉크·토너가 아예 없다\n2. 149g — 주머니에 넣고 다닐 수 있는 크기\n3. 폰에 앱 깔고 블루투스로 연결하면 끝\n4. 수납함·냉장고·케이블·충전기에 다 붙인다\n5. 라벨지만 갈면 되니까 유지비가 거의 없다\n6. 쿠팡 3만원대부터 — 라벨지 1롤 포함\n\n(출처: NIIMBOT 공식, Creative Bloq 리뷰)",
+ "description": "미니 라벨 프린터 구매 가이드.\n\n## 열전사 방식이란\n\n잉크나 토너가 필요 없다. 열을 가해 라벨지 위에 직접 인쇄하는 방식(다이렉트 써멀)이다. 영수증 프린터와 같은 원리다. 라벨지만 교체하면 되기 때문에 유지 비용이 거의 없다.\n\n## 대표 제품: NIIMBOT D110\n\n149g, 60.5 x 60.5 x 48mm. 블루투스로 스마트폰 앱(iOS/Android)과 연결해 디자인한 뒤 바로 출력한다. 해상도 203dpi, 인쇄 속도 40mm/s, 인쇄 폭 8~15mm. USB-C 충전, 1500mAh 배터리. 쿠팡 실거래가 32,000원~(2026-10-09 확인).\n\n## 어디에 쓰나\n\n수납함 정리, 냉장고 유통기한 관리, 케이블 식별 태그, 이사 박스 표시, 소규모 비즈니스 가격표. 방수 라벨지를 쓰면 욕실이나 주방 물 닿는 곳에도 가능하다.\n\n## 고를 때 볼 것\n\n1. 인쇄 폭(12mm vs 15mm): 넓을수록 글자가 크다\n2. 해상도(203dpi vs 300dpi): 300dpi는 로고·바코드에 유리\n3. 호환 라벨지: 전용 라벨지만 쓰는 모델이 많다 — 라벨지 단가를 확인하라",
+ "caption": "프린터에서 잉크가 사라졌다\n\n열전사 방식 — 잉크 없이 열로 찍는다.\n149g, 주머니에 들어가는 크기.\n쿠팡 3만원대부터, 라벨지만 갈면 된다.\n\n(출처: NIIMBOT, Creative Bloq)\n\n#라벨프린터 #정리정돈 #수납 #테크 #가젯",
+ "factcheck": [
+   {"claim": "열전사 방식은 잉크·토너 없이 열로 인쇄하는 방식", "sources": ["https://www.creativebloq.com/reviews-niimbot-d110", "https://niimbots.com/products/d110-portable-wireless-connect-rechargeable-mini-label-printer-with-tape"], "note": "Creative Bloq 리뷰 + NIIMBOT 공식 사양 교차 확인"},
+   {"claim": "NIIMBOT D110 사양: 149g, 203dpi, 40mm/s, 8-15mm 폭, USB-C, 1500mAh", "sources": ["https://niimbots.com/products/d110-portable-wireless-connect-rechargeable-mini-label-printer-with-tape", "https://pctechkits.com/niimbot-d110-mini-label-maker-review/"], "note": "NIIMBOT 공식 스토어 + PCTechKits 리뷰 교차 확인"},
+   {"claim": "쿠팡 실거래가 32,000원~", "sources": ["https://www.coupang.com/", "https://prod.danawa.com/info/?pcode=15781595"], "note": "쿠팡·다나와 2026-10-09 검색 확인. D110 기준 32,000원(할인가), B21 68,000원"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/label_printer_1.jpg",
+   "title": "프린터에서 잉크가 사라졌다",
+   "title_hl": ["잉크가 사라졌다"],
+   "body": "열로 찍는 라벨 프린터 — 149g, 3만원대",
+   "body_hl": ["3만원대"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/label_printer_2.jpg",
+   "title": "잉크 교체 없이 라벨지만 갈면 된다",
+   "title_hl": ["라벨지만"],
+   "body": "블루투스 연결 — 폰 앱에서 디자인해 바로 출력\n수납함·냉장고·케이블·충전기에 붙인다\nUSB-C 충전, 방수 라벨지도 지원",
+   "body_hl": ["폰 앱"],
+   "sub": "NIIMBOT D110 기준 — 쿠팡 32,000원~\n라벨지 1롤 포함, 추가 라벨지 3,000~5,000원",
+   "credit": "Pexels"
+  }
+ ]
+}
