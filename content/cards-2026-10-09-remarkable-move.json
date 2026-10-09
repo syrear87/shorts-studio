@@ -1,0 +1,35 @@
+{
+ "topic": "reMarkable Paper Pro Move — 이 태블릿은 2주에 한 번 충전한다, 7.3인치 컬러 E-ink 230g 종이 느낌 필기 전용 태블릿, 국내 공식가 679,900원 [공유형]",
+ "blog_teaser": "E-ink가 LCD와 뭐가 다른지, 다른 브랜드 비교표는 블로그에 정리했습니다",
+ "threads_text": "태블릿 매일 충전하던 게 끝났다\n\n1. 화면이 E-ink라 전력을 거의 안 먹는다\n2. 7.3인치 컬러 — 종이 위에 쓰는 느낌\n3. 230g, 코트 주머니에 들어간다\n4. 알림 없음, 앱 없음 — 오직 필기와 독서\n5. 국내 공식가 679,900원\n\n(출처: reMarkable 공식, Forbes 리뷰)",
+ "description": "reMarkable Paper Pro Move 구매 가이드.\n\n## E-ink란\n\nE-ink(전자잉크)는 LCD·OLED과 달리 스스로 빛을 내지 않는다. 종이처럼 외부 빛을 반사해 글자를 보여주기 때문에 눈의 피로가 적고, 화면이 바뀔 때만 전력을 쓴다. 킨들이 대표적이다.\n\n## reMarkable Paper Pro Move\n\n2026년 9월 출시. 7.3인치 Canvas Color 디스플레이(Gallery 3 E Ink, 1696x954, 264PPI). 230g, 195.6x107.8x6.5mm. 배터리 2주(혼합 사용 기준), USB-C 충전 45분이면 90%. 64GB 저장. 알루미늄 프레임. Marker(스타일러스) 포함.\n\n## 뭐가 다른가\n\n알림이 없다. 앱스토어가 없다. 인터넷 브라우저도 없다. 오직 필기와 PDF 읽기만 된다. 이것이 이 제품의 설계 의도다. 집중을 방해하는 모든 것을 뺐다.\n\n## 비교\n\n| 제품 | 화면 | 무게 | 컬러 | 가격 |\n|---|---|---|---|---|\n| reMarkable Paper Pro Move | 7.3인치 | 230g | O | 679,900원 |\n| reMarkable Paper Pro | 11.8인치 | 370g | O | 879,900원 |\n| Supernote Nomad | 7.8인치 | 255g | X | 약 49만원 |\n\n## 주의할 점\n\n앱 설치가 안 되므로 노트 앱(GoodNotes 등)은 쓸 수 없다. PDF 이외의 문서 형식 지원이 제한적이다. 컬러 E-ink는 LCD 대비 색 재현력이 낮다(20,000색). 필기 전용 도구로 이해해야 한다.",
+ "caption": "태블릿 매일 충전하던 게 끝났다\n\n7.3인치 컬러 E-ink, 230g.\n종이 위에 쓰는 느낌 — 알림도 앱도 없다.\n국내 공식가 679,900원.\n\n(출처: reMarkable 공식, Forbes)\n\n#전자노트 #이잉크 #리마커블 #태블릿 #가젯",
+ "factcheck": [
+   {"claim": "reMarkable Paper Pro Move 사양: 7.3인치, 230g, 264PPI, 64GB, USB-C", "sources": ["https://remarkable.com/products/remarkable-paper/pro-move", "https://www.forbes.com/sites/forbes-personal-shopper/article/remarkable-paper-pro-move/"], "note": "공식 사이트 사양 + Forbes 리뷰 교차 확인"},
+   {"claim": "배터리 최대 2주(혼합 사용), 45분에 0→90% 충전", "sources": ["https://remarkable.com/products/remarkable-paper/pro-move", "https://templacity.com/remarkable/remarkable-paper-pro-move/"], "note": "공식 사이트 + Templacity 리뷰 교차 확인"},
+   {"claim": "국내 공식가 679,900원, 쿠팡 740,500원~", "sources": ["https://remarkable.com/products/remarkable-paper/pro-move", "https://prod.danawa.com/info/?pcode=100003649"], "note": "공식 사이트 한국가 + 다나와 최저가 2026-10-09 확인"},
+   {"claim": "2026년 9월 3일 출시, Canvas Color (Gallery 3 E Ink) 디스플레이", "sources": ["https://ewritable.net/remarkable-launch-the-rmpp-move/", "https://www.insta360.com/blog/insta360-releases-go-ultra.html"], "note": "eWritable 출시 보도 + 공식 사양"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/remarkable_move_1.png",
+   "title": "태블릿 매일 충전하던 게 끝났다",
+   "title_hl": ["끝났다"],
+   "body": "E-ink라 2주에 한 번이면 된다 — 7.3인치 컬러",
+   "body_hl": ["2주에 한 번"],
+   "sub": "reMarkable Paper Pro Move",
+   "credit": "reMarkable"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/remarkable_move_2.png",
+   "title": "알림도 앱도 없다 — 오직 필기",
+   "title_hl": ["없다"],
+   "body": "230g, 코트 주머니에 들어가는 크기\n컬러 E-ink — 종이 위에 쓰는 느낌 그대로\nUSB-C 충전, 45분이면 90%",
+   "body_hl": ["230g", "종이 위에"],
+   "sub": "국내 공식가 679,900원 · 쿠팡 740,500원~",
+   "credit": "reMarkable"
+  }
+ ]
+}
