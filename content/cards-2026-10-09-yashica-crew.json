@@ -1,0 +1,34 @@
+{
+ "topic": "Yashica Crew — 주머니 카메라가 돌아왔다, 126g 6배 광학줌 플립 스크린 $168 디지캠 부활, 직구 전용 10월 말 출하 [소유욕형]",
+ "blog_teaser": "센서 크기 비교표랑 4K가 보간이라는 얘기는 블로그에 정리했습니다",
+ "threads_text": "주머니 카메라가 돌아왔다\n\n1. 야시카 Crew — 126g, 청바지 주머니에 들어간다\n2. 6배 광학줌 — 폰에선 사라진 진짜 줌이다\n3. 180도 플립 스크린, 셀카도 된다\n4. 7가지 컬러 필터 내장\n5. $168(관세·배송 포함 약 30만원), 직구 전용\n\n(출처: Yashica 공식, The Gadgeteer·RedShark News 2026-10-08)",
+ "description": "Yashica Crew 구매 가이드.\n\n## 디지캠이 왜 돌아오나\n\n2000년대 디지캠은 스마트폰에 밀려 사라졌다. 그런데 2024년부터 컴팩트 카메라 수요가 다시 늘고 있다. 스마트폰 카메라가 너무 잘 찍기 때문이다. 완벽하지 않은 사진, 찍는 행위 자체에 집중하는 경험을 원하는 사람들이 늘었다.\n\n## Yashica Crew 사양\n\n야시카는 1949년 일본에서 시작한 카메라 브랜드다. 필름 시대에 이름을 알렸고, 디지털 전환기에 사라졌다가 브랜드가 되살아났다. Crew는 2026년 10월 발표된 신제품이다.\n\n- 센서: 1/3.06인치, 13MP(36MP 보간 출력 지원)\n- 렌즈: 6배 광학줌 + 3배 디지털줌, F3.1-6.4\n- 동영상: 네이티브 2.7K/30fps (4K60은 보간)\n- 화면: 3인치 180도 플립 스크린\n- 배터리: 700mAh 리튬이온(탈착식), USB-C 충전\n- 무게: 126g(배터리 제외)\n- 크기: 100 x 26 x 60mm(렌즈 접힘 상태)\n- 필터: 7가지 컬러 필터 내장\n- 색상: 블랙, 실버\n\n## 알아둘 점\n\n4K 60fps 동영상은 네이티브가 아니라 보간(업스케일)이다. 네이티브 해상도는 2.7K/30fps다. 36MP 사진도 13MP에서 보간한 것이다. 센서 크기(1/3.06인치)가 최신 스마트폰(아이폰 18 Pro는 1/1.28인치)보다 작아 저조도 성능은 떨어진다. 플래시도 제논이 아니라 LED라 디지캠 특유의 플래시 감성은 약하다. 이 카메라는 화질이 아니라 촬영 경험과 디자인이 주인공이다.\n\n## 가격과 구매\n\n$168(약 23만원). yashica.com에서 사전주문 중이며 10월 26일 주부터 출하 예정이다. 한국은 정식 판매국이 아니라 직구로만 구매할 수 있다.\n\n- 직구 총액: 약 30만원 (본체 $168 + 관세 8% + 부가세 10% + 배송비 약 3만원 기준)\n- 국내 대안: 쿠팡에서 판매 중인 빈티지 디지털 카메라가 5~7만원대에 있으나 광학줌·플립 스크린은 없다. Canon PowerShot 계열(50만원~)은 다른 급이다.\n- 출시 전망: 국내 출시 미정. Yashica.com이 유일한 공식 판매 채널이다.",
+ "caption": "주머니 카메라가 돌아왔다\n\n야시카 Crew — 126g, 6배 광학줌.\n180도 플립 스크린, 7가지 컬러 필터.\n$168(관세·배송 포함 약 30만원), 직구 전용.\n\n(출처: Yashica 공식, The Gadgeteer, RedShark News)\n\n#디지캠 #야시카 #컴팩트카메라 #주머니카메라 #가젯",
+ "factcheck": [
+   {"claim": "Yashica Crew 가격 $168, 무게 126g, 6배 광학줌", "sources": ["https://www.yashica.com/product-page/yashica-crew-digital-camera-black", "https://the-gadgeteer.com/2026/10/08/yashica-crew-6x-optical-zoom-flip-screen/", "https://www.redsharknews.com/yashica-crew-6x-zoom-compact-camera"], "note": "Yashica 공식 + The Gadgeteer + RedShark News 3개 매체 교차 확인"},
+   {"claim": "센서 1/3.06인치 13MP, 4K60은 보간(네이티브 2.7K)", "sources": ["https://the-gadgeteer.com/2026/10/08/yashica-crew-6x-optical-zoom-flip-screen/", "https://www.redsharknews.com/yashica-crew-6x-zoom-compact-camera"], "note": "The Gadgeteer '4K (3840 x 2160) at 60 fps support / native 2.7K' + RedShark '4K capability is interpolated, not native' 교차 확인"},
+   {"claim": "10월 26일 주부터 출하, 사전주문 중", "sources": ["https://the-gadgeteer.com/2026/10/08/yashica-crew-6x-optical-zoom-flip-screen/", "https://www.redsharknews.com/yashica-crew-6x-zoom-compact-camera"], "note": "The Gadgeteer 'shipments starting the week of October 26' + RedShark 'late October 2026' 교차 확인"},
+   {"claim": "LED 플래시(제논 아님), 700mAh 탈착식 배터리, USB-C", "sources": ["https://www.redsharknews.com/yashica-crew-6x-zoom-compact-camera", "https://the-gadgeteer.com/2026/10/08/yashica-crew-6x-optical-zoom-flip-screen/"], "note": "RedShark 'LED flash rather than xenon' + The Gadgeteer 'removable 700mAh lithium-ion with USB-C' 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/yashica_crew_1.jpg",
+   "title": "주머니 카메라가 돌아왔다",
+   "title_hl": ["돌아왔다"],
+   "body": "126g — 청바지 주머니에 들어간다",
+   "body_hl": ["126g"],
+   "credit": "Yashica"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/yashica_crew_2.png",
+   "title": "Yashica Crew — $168",
+   "title_hl": ["$168"],
+   "body": "6배 광학줌 · 180° 플립 스크린\n13MP · 2.7K 동영상 · USB-C 충전\n7가지 컬러 필터",
+   "body_hl": ["6배 광학줌", "플립 스크린"],
+   "sub": "직구 전용 · 관세·배송 포함 약 30만원\n10월 말 출하 시작",
+   "credit": "Yashica"
+  }
+ ]
+}
