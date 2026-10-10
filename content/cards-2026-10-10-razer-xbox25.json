@@ -1,0 +1,34 @@
+{
+ "topic": "Razer Xbox 25주년 투명 그린 — Xbox의 그 초록, 25년 만에 키보드가 됐다, Razer BlackWidow·Basilisk·Hammerhead 투명 초록 한정판 10/20 발매 [소유욕형]",
+ "blog_teaser": "Xbox 25주년 한정판 전 라인업이랑 직구 방법은 블로그에 정리했습니다",
+ "threads_text": "Xbox의 그 초록, 25년 만에 키보드가 됐다\n\n1. 초대 Xbox 상징색 투명 그린 — Razer가 키보드·마우스·이어버드로 부활시켰다\n2. 쉘이 통째로 투명이라 기판이 보인다. 쓸모는 없는데 갖고 싶다\n3. BlackWidow V4 75% $209 · Basilisk V3 Pro $179 · Hammerhead $119\n4. 10/20 발매, 한국 공식 판매 미확인 — Razer 글로벌몰에서 직구 가능\n\n(출처: Xbox Wire 공식, Razer)",
+ "description": "Razer Xbox 25th Anniversary Translucent Green Collection — 2001년 초대 Xbox 출시 25주년을 기념해 Razer가 투명 그린 한정판 주변기기 3종을 내놓았다.\n\n## 제품 라인업\n\n- **Razer BlackWidow V4 75%** — 75% 레이아웃 기계식 키보드, 투명 그린 쉘. $209.99\n- **Razer Basilisk V3 Pro 35K** — 무선 게이밍 마우스, 35,000 CPI, 투명 그린 쉘. $179.99\n- **Razer Hammerhead V3 X HyperSpeed for Xbox** — 무선 이어버드, Xbox 무선 직연결. $119.99\n\n3종 모두 투명 초록 하우징에 내부 기판이 보이는 디자인이다. XBOX 25 로고가 각인돼 있다.\n\n## 왜 투명 그린인가\n\n초대 Xbox(2001년 11월 15일 북미 출시)의 브랜드 상징색 OG Green을 투명 쉘로 재해석했다. Xbox Series X25 한정판 콘솔($899.99, 11/13 발매)과 컨트롤러($79.99)도 같은 컬러를 쓰며, 컨트롤러 범퍼는 초대 'Duke' 컨트롤러의 흑백 버튼을 오마주했다.\n\n## 다른 협업 브랜드\n\n8BitDo(Ultimate Charging Dock X25), Backbone(Backbone Pro X25 Edition), GameSir, PowerA도 투명 그린 한정판을 출시한다.\n\n## 구매\n\n2026년 10월 20일 발매. 미국 Razer.com 및 미국 매장에서 구매 가능. 한국 공식 판매 여부는 확인되지 않았다(Razer 한국 공식몰 razer.com/kr-kr은 있으나 이번 컬렉션은 미국만 언급). Razer 글로벌몰에서 한국 직배송을 지원하므로 직구 가능 — $150 초과분 관세 대상.",
+ "caption": "Xbox의 그 초록, 25년 만에 키보드가 됐다\n\n2001년 초대 Xbox 상징색 투명 그린.\nRazer가 키보드·마우스·이어버드 3종으로 부활시켰다.\nBlackWidow V4 75% $209 · Basilisk V3 Pro $179 · Hammerhead $119.\n10/20 발매 — Razer 글로벌몰 직구 가능.\n\n(출처: Xbox Wire 공식, Razer)\n\n#Xbox25주년 #Razer #투명그린 #게이밍키보드 #한정판",
+ "factcheck": [
+   {"claim": "초대 Xbox 2001년 11월 15일 북미 출시", "sources": ["https://news.xbox.com/en-us/2026/06/07/xbox-25th-anniversary-console-controller-x25-xbox-games-showcase-2026/", "https://en.wikipedia.org/wiki/Xbox_(console)"], "note": "Xbox Wire 공식 + 위키피디아 교차 확인"},
+   {"claim": "BlackWidow V4 75% $209.99, Basilisk V3 Pro 35K $179.99, Hammerhead V3 X $119.99", "sources": ["https://www.razer.com/blog/25-years-of-play-one-iconic-collection", "https://www.techpowerup.com/351942/razer-unveils-xbox-25-anniversary-collection-peripherals"], "note": "Razer 공식 블로그 1차 + TechPowerUp 교차 확인"},
+   {"claim": "10월 20일 발매", "sources": ["https://www.razer.com/blog/25-years-of-play-one-iconic-collection", "https://www.kitguru.net/peripherals/joao-silva/razer-reveals-translucent-green-xbox-25th-anniversary-peripherals/"], "note": "Razer 공식 + KitGuru 교차 확인"},
+   {"claim": "Xbox Series X25 콘솔 $899.99, 11/13 발매", "sources": ["https://news.xbox.com/en-us/2026/06/07/xbox-25th-anniversary-console-controller-x25-xbox-games-showcase-2026/"], "note": "Xbox Wire 공식 발표"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/razer_xbox25_1.jpg",
+   "title": "Xbox의 그 초록, 25년 만에 키보드가 됐다",
+   "title_hl": ["25년 만에"],
+   "body": "2001년 상징색 투명 그린 — Razer가 부활시켰다",
+   "body_hl": ["투명 그린"],
+   "credit": "Xbox Wire"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/razer_xbox25_2.jpg",
+   "title": "Razer Xbox 25주년 한정판 3종",
+   "title_hl": ["3종"],
+   "body": "BlackWidow V4 75% 키보드 $209\nBasilisk V3 Pro 35K 마우스 $179\nHammerhead V3 X 이어버드 $119",
+   "body_hl": ["$209", "$179", "$119"],
+   "sub": "10/20 발매 · 한국 공식 판매 미확인\nRazer 글로벌몰 직구 가능 · $150 초과 관세 대상",
+   "credit": "Razer"
+  }
+ ]
+}
