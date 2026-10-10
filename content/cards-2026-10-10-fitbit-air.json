@@ -1,0 +1,44 @@
+{
+ "bg_query": "fitness tracker wristband minimal dark",
+ "topic": "Google Fitbit Air — 핏빗이 화면을 지웠다, 5.2g 본체에 심박·수면·혈중산소 6종 센서만 남겼다, AI가 대신 읽어준다, $99.99 [공유형]",
+ "blog_teaser": "Fitbit Air 센서 전체 목록이랑 Google Health 앱 구독료 차이는 블로그에 정리했습니다",
+ "threads_text": "구글 핏빗에서 화면이 사라졌다\n\n1. Google Fitbit Air — 본체 5.2g, 밴드 포함 12g, 화면이 없다\n2. 심박·HRV·혈중산소·피부온도·수면단계·심방세동 감지, 센서만 남겼다\n3. 화면 대신 AI가 읽어준다 — Gemini 기반 Google Health Coach가 폰에서 분석\n4. 배터리 7일, 5분 충전이면 하루를 쓴다\n5. 50m 방수(5ATM), 밴드 교체 가능\n6. $99.99(약 14만원), 한국 공식 미출시 — 아마존 직구 가능\n\n(출처: Android Central, TechAdvisor, The Pixel Case)",
+ "description": "Google Fitbit Air — 구글이 핏빗 브랜드로 내놓은 스크린리스 건강 트래커다. 화면을 완전히 없앴다.\n\n## 왜 화면을 없앴나\n\n스마트워치와 피트니스 밴드는 화면이 커지면서 배터리를 잡아먹고, 알림이 쏟아져 방해가 됐다. Fitbit Air는 화면을 통째로 빼고 센서만 남겼다. 데이터는 Gemini 기반 Google Health Coach 앱이 분석해서 폰으로 알려준다. 구글은 이것을 'distraction-free monitoring'이라 부른다.\n\n## 스펙\n\n- 무게: 본체(pebble) 5.2g, 밴드 포함 12g\n- 센서: 광학 심박, HRV, SpO2(적외선+적색), 피부온도, 호흡수, 수면단계(얕은·깊은·REM)\n- 추가: 심방세동(AFib) 감지, Active Zone Minutes, 일일 준비도 점수\n- 배터리: 최대 7일, 5분 급속충전 = 1일 사용\n- 방수: 50m(5ATM) — 수영 가능\n- 연결: 안드로이드 + iOS 모두 지원\n- 색상: Obsidian, Fog, Lavender, Berry\n\n## AI 건강 코칭\n\nGoogle Health Premium($9.99/월) 구독 시 Gemini 기반 맞춤 건강 조언을 받는다. 기본 추적(심박·수면·걸음)은 구독 없이 가능하다. 제품 구매 시 3개월 무료 체험이 포함된다.\n\n## 가격과 구매\n\n미국 $99.99(약 14만원). 2026년 5월 26일 글로벌 출시. 한국은 정식 출시국에 포함되지 않았다. Amazon.com에서 직구 가능하며 $150 이하이므로 관세 면제 대상이다.",
+ "caption": "구글 핏빗에서 화면이 사라졌다\n\nFitbit Air — 본체 5.2g, 밴드 포함 12g.\n심박·HRV·혈중산소·피부온도·수면단계·AFib 감지.\n화면 대신 AI(Gemini)가 폰에서 분석.\n배터리 7일 · 5분 충전 = 하루.\n50m 방수 · 밴드 교체 가능.\n\n(출처: Android Central, TechAdvisor)\n\n#FitbitAir #핏빗 #웨어러블 #스크린리스 #건강트래커",
+ "factcheck": [
+   {"claim": "Fitbit Air 본체 5.2g, 밴드 포함 12g", "sources": ["https://thepixelcase.com/blogs/news/google-fitbit-air-review-complete-guide-the-99-screenless-tracker-that-changes-everything-2026", "https://gadgetsandwearables.com/2026/05/06/google-fitbit-air-launch/"], "note": "The Pixel Case: 5.2g pod, 12g with band. Gadgets&Wearables 교차 확인"},
+   {"claim": "센서: 광학심박·HRV·SpO2·피부온도·수면단계·AFib 감지", "sources": ["https://thepixelcase.com/blogs/news/google-fitbit-air-review-complete-guide-the-99-screenless-tracker-that-changes-everything-2026", "https://www.techadvisor.com/article/3133758/google-fitbit-air-release-date-price-specs-features.html"], "note": "두 출처 모두 동일 센서 목록 확인"},
+   {"claim": "배터리 7일, 5분 급속충전으로 1일 사용", "sources": ["https://thepixelcase.com/blogs/news/google-fitbit-air-review-complete-guide-the-99-screenless-tracker-that-changes-everything-2026", "https://www.techadvisor.com/article/3133758/google-fitbit-air-release-date-price-specs-features.html"], "note": "두 출처 교차 확인: up to 7 days, 5-min fast charge = 1 full day"},
+   {"claim": "50m 방수(5ATM)", "sources": ["https://thepixelcase.com/blogs/news/google-fitbit-air-review-complete-guide-the-99-screenless-tracker-that-changes-everything-2026", "https://gadgetsandwearables.com/2026/05/06/google-fitbit-air-launch/"], "note": "50 metres water resistance (5ATM) 교차 확인"},
+   {"claim": "미국 가격 $99.99", "sources": ["https://www.techadvisor.com/article/3133758/google-fitbit-air-release-date-price-specs-features.html", "https://thepixelcase.com/blogs/news/google-fitbit-air-review-complete-guide-the-99-screenless-tracker-that-changes-everything-2026"], "note": "$99.99 / £84.99 교차 확인"}
+ ],
+ "rebuttals": [
+   "화면 없으면 불편하지 않나 — 시간도 못 보고 알림도 못 읽는다. 시간 확인이 중요하면 스마트워치가 맞다. Fitbit Air는 '안 보고 싶은 사람'을 위한 제품이다",
+   "Whoop이랑 뭐가 다른가 — Whoop은 월 $30 구독 필수(하드웨어 무료), Fitbit Air는 $99.99 일시불 + 기본 추적 무료. AI 코칭만 $9.99/월 선택",
+   "한국에서 쓸 수 있나 — 정식 출시국 아니지만 아마존 직구 가능. $150 이하 관세 면제. 앱(Google Health)은 한국 계정에서 사용 가능"
+ ],
+ "claims": [
+  {"text": "Fitbit Air 미국 가격", "value": "$99.99", "price_basis": "판매처", "price_checked": "2026-10-10", "source": "TechAdvisor + The Pixel Case"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/fitbit_air_1.jpg",
+   "title": "구글 핏빗에서\n화면이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "본체 5.2g — 센서만 남기고 화면을 통째로 뺐다",
+   "body_hl": ["5.2g"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/fitbit_air_2.jpg",
+   "title": "Google Fitbit Air",
+   "title_hl": ["Fitbit Air"],
+   "body": "심박·HRV·혈중산소·피부온도·수면단계·AFib\nAI(Gemini)가 폰에서 분석해 알려준다\n배터리 7일 · 5분 충전 = 하루 · 50m 방수",
+   "body_hl": ["7일", "5분"],
+   "sub": "$99.99(약 14만원) · 한국 미출시\n아마존 직구 가능 · $150 이하 관세 면제",
+   "credit": "Pexels"
+  }
+ ]
+}
