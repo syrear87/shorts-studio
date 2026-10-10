@@ -1,0 +1,35 @@
+{
+ "topic": "Stylophone Mini — 보위의 Space Oddity 속 악기가 57년 만에 열쇠고리가 됐다, 1968년 발명 400만 대 팔린 신디사이저가 42g 키체인으로 부활, $29.95 직구 가능 [소유욕형]",
+ "blog_teaser": "원조 Stylophone 역사랑 보위 이야기, 풀사이즈와 비교한 스펙표는 블로그에 있습니다",
+ "threads_text": "보위의 Space Oddity 속 악기가 57년 만에 열쇠고리가 됐다\n\n1. Stylophone Mini — 42g짜리 진짜 신디사이저다. 신용카드보다 작다\n2. 금속판을 펜으로 터치하면 소리가 난다. 1.75옥타브, 비브라토까지\n3. 원조는 1968년 영국에서 발명, 400만 대 팔렸다\n4. 단종됐다가 키체인으로 부활. $29.95 아마존 직구\n\n(출처: Stylophone 공식, Engadget)",
+ "description": "Stylophone Mini — 1968년 Brian Jarvis가 발명한 스타일러폰이 키체인 사이즈로 돌아왔다.\n\n## 스펙\n\n- 크기: 75×48×18mm (신용카드보다 작은 면적)\n- 무게: 42g\n- 건반: 니켈 도금 금속판 1.75옥타브\n- 음색: 클래식 스타일러폰 1종 + 비브라토 스위치\n- 부가: LED 손전등, 키체인 고리\n- 전원: LR44 버튼전지 2개 (포함)\n- 내장 스피커 (외부 출력 없음)\n- 3색: 오리지널(블랙), 화이트, 핑크\n\n## 역사\n\n1968년 런던 Dubreq Studios의 Brian Jarvis가 조카의 장난감 피아노를 고치다 발명했다. 금속판을 스타일러스(펜)로 터치하면 음이 바뀌는 구조다. 1969년 데이비드 보위가 'Space Oddity'에서 사용해 세계적으로 알려졌고, 1968~1975년 생산 기간 동안 약 400만 대가 팔렸다. 2007년 Brian의 아들 Ben Jarvis가 브랜드를 부활시켰고, 2026년 10월 8일 키체인 사이즈 Mini가 재출시됐다.\n\n## 구매\n\nUSD $29.95 / GBP £19.95 / EUR €24.95. 공식몰(stylophone.com)과 Amazon에서 구매 가능. 한국 직배송 시 $150 미만이라 관세 면제 대상이다. 한국 현지 판매처는 없다.",
+ "caption": "보위의 Space Oddity 속 악기가 57년 만에 열쇠고리가 됐다\n\nStylophone Mini — 42g 키체인 신디사이저.\n금속판을 펜으로 터치하면 소리가 난다.\n원조는 1968년 발명, 400만 대 팔리고 단종됐다가 부활.\n$29.95 공식몰·아마존 직구 가능.\n\n(출처: Stylophone 공식, Engadget)\n\n#스타일로폰 #Stylophone #키체인악기 #데이비드보위 #가젯",
+ "factcheck": [
+   {"claim": "1968년 Brian Jarvis가 발명", "sources": ["https://stylophone.com/history/", "https://en.wikipedia.org/wiki/Stylophone"], "note": "공식 사이트 + 위키피디아 교차 확인. 개발 1967, 생산 시작 1968."},
+   {"claim": "데이비드 보위가 1969년 Space Oddity에서 사용", "sources": ["https://en.wikipedia.org/wiki/Space_Oddity", "https://www.davidbowie.com/blog/2021/9/16/bowie-celebrated-with-limited-edition-stylophone"], "note": "위키피디아 + 보위 공식 사이트 교차 확인. 아폴로 11호 달 착륙에 맞춘 곡."},
+   {"claim": "누적 약 400만 대 판매 (1968~1975)", "sources": ["https://stylophone.com/history/", "https://en.wikipedia.org/wiki/Stylophone"], "note": "공식 사이트 '3-4 million' + 위키피디아 교차 확인"},
+   {"claim": "Mini 가격 $29.95, 2026년 10월 8일 출시", "sources": ["https://stylophone.com/introducing-the-stylophone-mini-keychain", "https://www.engadget.com/2279055/the-new-stylophone-mini-packs-in-iconic-sounds-and-comes-in-three-nifty-colors/"], "note": "공식 사이트 1차 + Engadget 교차 확인"},
+   {"claim": "크기 75×48×18mm, 무게 42g, 1.75옥타브", "sources": ["https://stylophone.com/introducing-the-stylophone-mini-keychain", "https://synthanatomy.com/2026/10/stylophone-mini-the-iconic-stylus-synthesizer-for-your-pocket.html"], "note": "공식 사이트 1차 + Synth Anatomy 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/stylophone_mini_2.webp",
+   "title": "보위의 Space Oddity 속 악기가\n57년 만에 열쇠고리가 됐다",
+   "title_hl": ["57년 만에"],
+   "body": "Stylophone Mini — 42g 키체인 신디사이저",
+   "body_hl": ["42g"],
+   "credit": "Stylophone"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/stylophone_mini_1.webp",
+   "title": "1968년에 태어나 400만 대 팔린 악기",
+   "title_hl": ["400만 대"],
+   "body": "보위의 Space Oddity 속 그 소리\n금속판을 펜으로 터치하면 음이 바뀐다\n1.75옥타브 · 비브라토 · LED 손전등",
+   "body_hl": ["Space Oddity"],
+   "sub": "$29.95 — 공식몰·아마존 직구\n관세 면제 구간 · 3색(블랙·화이트·핑크)",
+   "credit": "Stylophone"
+  }
+ ]
+}
