@@ -1,0 +1,72 @@
+{
+  "title": "10년 걸릴 성을 34개월에 쌓았습니다 — 28살이 만든 기계 하나로",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "애국·정체성",
+  "real_query": ["수원 화성", "Suwon Hwaseong Fortress", "거중기 Geojunggi crane"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": "commons:File:Hwaseong Fortress 01.jpg",
+      "voice": "10년 걸릴 성이 있었습니다. 230년 전 오늘, 34개월 만에 완공됐습니다.",
+      "lines": [
+        ["10년 걸릴 성이 있었습니다", ["10년"]],
+        ["230년 전 오늘,", []],
+        ["34개월 만에 완공됐습니다", ["34개월"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 32736484,
+      "voice": "1796년 10월 10일, 수원 화성입니다. 정조가 아버지 사도세자의 묘를 수원으로 옮기면서, 그 옆에 성곽 도시를 세우기로 했습니다.",
+      "lines": [
+        ["1796년 10월 10일, 수원 화성", []],
+        ["정조가 아버지의 묘를 옮기며", []],
+        ["성곽 도시를 세우기로 했습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "photo:15360460",
+      "voice": "문제는 수만 개의 돌이었습니다. 28살 정약용이 서양 기술서에서 도르래 원리를 가져와, 거중기를 직접 설계했습니다.",
+      "lines": [
+        ["문제는 수만 개의 돌", []],
+        ["28살 정약용이", ["28살"]],
+        ["거중기를 직접 설계했습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": "photo:38581309",
+      "voice": "15명이 줄을 당기면 7,200킬로그램짜리 돌이 올라갔습니다. 기계가 사람을 대신하자, 10년 예상이 34개월이 됐습니다.",
+      "lines": [
+        ["15명이 줄을 당기면", []],
+        ["7,200킬로그램이 올라갔습니다", ["7,200킬로그램"]],
+        ["10년 예상이 34개월이 됐습니다", ["34개월"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": "photo:11388027",
+      "voice": "이 공사에 참여한 인부 1,800명의 이름, 주소, 받은 임금이 전부 책에 남아 있습니다. 화성성역의궤, 이 기록이 1997년 유네스코를 설득했습니다.",
+      "lines": [
+        ["인부 1,800명의 이름과 임금", ["1,800명"]],
+        ["전부 기록으로 남아 있습니다", []],
+        ["이 기록이 유네스코를 설득했습니다", ["유네스코"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": "photo:38581309",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://ko.wikipedia.org/wiki/%EC%88%98%EC%9B%90_%ED%99%94%EC%84%B1",
+    "https://contents.history.go.kr/mobile/kc/view.do?levelId=kc_r300890",
+    "https://ko.wikipedia.org/wiki/%EA%B1%B0%EC%A4%91%EA%B8%B0"
+  ],
+  "bg_query": ["Suwon Hwaseong fortress aerial panorama", "Korean traditional fortress stone wall gate", "ancient crane pulley mechanism wood", "stone block lifting construction rope", "ancient Korean historical manuscript book", "Suwon Hwaseong night illumination"]
+}
