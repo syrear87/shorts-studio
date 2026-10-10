@@ -1,0 +1,34 @@
+{
+ "topic": "OPT NeoFilm 100 — 카메라가 일부러 흐리게 찍기 시작했다, 35mm 필름통 모양 25g 디지캠, 100만 화소를 의도적으로 쓴다, ¥5,940 일본 직구 [공유형]",
+ "blog_teaser": "필름 카메라 부활 트렌드와 100만 화소를 일부러 쓰는 이유는 블로그에 정리했습니다",
+ "threads_text": "카메라가 일부러 흐리게 찍기 시작했다\n\n1. 35mm 필름통처럼 생겼는데 진짜 카메라다. 25g\n2. 100만 화소 — 2026년에 100만 화소를 일부러 쓴다\n3. AI가 사진을 선명하게 고치는 시대에 역행 중이다\n4. 일본 Opt! 제 NeoFilm 100, ¥5,940(약 5.4만원). 아마존재팬 직구\n\n(출처: New Atlas, The Gadgeteer, Domus)",
+ "description": "OPT NeoFilm 100 — 일본 Opt!가 만든 필름통 모양 디지털 카메라.\n\n## 스펙\n\n- 크기: 47 × 25 × 25mm (실제 35mm 필름 캐니스터와 같은 크기)\n- 무게: 25g\n- 센서: 1MP CMOS, 3.2mm 고정 렌즈\n- 사진 해상도: 3,760 × 2,128 픽셀\n- 동영상: 0.3MP\n- 최소 초점 거리: 약 20cm\n- 셔터 속도: 1/100~1/300초\n- ISO: 1500 고정\n- 저장: microSD (최대 32GB)\n- 배터리: 320mAh, 약 1시간 연속 사용\n- 충전: USB-C, 약 2시간\n- 디스플레이: 컬러 LCD 내장\n- 3색: 블랙×옐로(코닥풍), 화이트×오렌지, 멀티컬러\n\n## 왜 100만 화소인가\n\n의도적이다. 2026년 스마트폰 카메라가 2억 화소를 넘기고 AI가 자동으로 사진을 선명하게 보정하는 시대에, 이 카메라는 거꾸로 간다. 1MP 센서는 입자감 있는 부드러운 사진을 만들고, 하이라이트가 날아가고, 색이 바랜다. 필름 사진의 질감을 필터가 아니라 하드웨어로 재현한 것이다.\n\n## 구매\n\n¥5,940 (약 5.4만원). Amazon Japan에서 구매 가능. 한국 직배송 시 $150 미만이라 관세 면제 대상. 국내 정식 판매처 없음. 비슷한 제품으로 Analog Capsule Camera ($55, Yanko Design 직구)와 Escura SnapRoll ($45)이 있다.",
+ "caption": "카메라가 일부러 흐리게 찍기 시작했다\n\nOPT NeoFilm 100 — 35mm 필름통 모양 디지캠.\n25g, 100만 화소. 의도적이다.\nAI가 사진을 선명하게 만드는 시대에 역행 중.\n¥5,940 아마존재팬 직구.\n\n(출처: New Atlas, The Gadgeteer, Domus)\n\n#필름카메라 #NeoFilm #토이카메라 #로파이 #필름통카메라",
+ "factcheck": [
+   {"claim": "OPT NeoFilm 100, 일본 Opt! 제작, ¥5,940", "sources": ["https://newatlas.com/photography/neofilm-100-opt-camera", "https://the-gadgeteer.com/2026/02/17/a-tiny-camera-disguised-as-a-film-canister-takes-photos/"], "note": "New Atlas + The Gadgeteer 교차 확인. 아마존 재팬 판매."},
+   {"claim": "25g, 47×25×25mm, 실제 35mm 필름 캐니스터와 동일 크기", "sources": ["https://www.domusweb.it/en/news/2026/02/19/opt100-neofilm-miniature-digital-camera.html", "https://the-gadgeteer.com/2026/02/17/a-tiny-camera-disguised-as-a-film-canister-takes-photos/"], "note": "Domus + The Gadgeteer 교차 확인"},
+   {"claim": "1MP CMOS 센서, 3,760×2,128 해상도, microSD 최대 32GB", "sources": ["https://the-gadgeteer.com/2026/02/17/a-tiny-camera-disguised-as-a-film-canister-takes-photos/", "https://www.domusweb.it/en/news/2026/02/19/opt100-neofilm-miniature-digital-camera.html"], "note": "The Gadgeteer + Domus 교차 확인"},
+   {"claim": "USB-C 충전, 320mAh 배터리, 약 1시간 사용", "sources": ["https://www.domusweb.it/en/news/2026/02/19/opt100-neofilm-miniature-digital-camera.html", "https://the-gadgeteer.com/2026/02/17/a-tiny-camera-disguised-as-a-film-canister-takes-photos/"], "note": "Domus + The Gadgeteer 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/analog_capsule_1.jpg",
+   "title": "카메라가 일부러 흐리게\n찍기 시작했다",
+   "title_hl": ["일부러 흐리게"],
+   "body": "OPT NeoFilm 100 — 25g 필름통 디지캠",
+   "body_hl": ["25g"],
+   "credit": "Opt! / New Atlas"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/analog_capsule_2.jpg",
+   "title": "35mm 필름통인데 안에 카메라가 있다",
+   "title_hl": ["카메라가 있다"],
+   "body": "100만 화소 — 2026년에 일부러 쓴다\n입자감·색 바램·하이라이트 날림이 목적\nAI 보정 시대에 역행하는 하드웨어",
+   "body_hl": ["일부러 쓴다"],
+   "sub": "¥5,940(약 5.4만원) — 아마존재팬 직구\n관세 면제 구간 · 3색 · USB-C · microSD",
+   "credit": "Opt! / New Atlas"
+  }
+ ]
+}
