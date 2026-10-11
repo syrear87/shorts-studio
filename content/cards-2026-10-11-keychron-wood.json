@@ -1,0 +1,34 @@
+{
+ "topic": "Keychron K8 HE All-Wood — 키보드에서 플라스틱이 사라졌다, 호두나무 원목 케이스에 자석축, 나뭇결이 하나하나 다르다, $199.99 직구 [소유욕형]",
+ "blog_teaser": "나무 키보드의 타건감과 자석축 구조는 블로그에 정리했습니다",
+ "threads_text": "키보드에서 플라스틱이 사라졌다\n\n1. 호두나무 원목이다. 나뭇결이 제품마다 다르다\n2. 1,009g — 묵직한 게 아니라 단단한 거다\n3. 자석축이라 누르는 깊이를 0.2mm부터 3.8mm까지 바꿀 수 있다\n4. 배터리 110시간. 블루투스·2.4GHz·유선 셋 다 된다\n5. $199.99 — 한국은 키크론코리아나 해외 직구\n\n(출처: Keychron 공식, Yanko Design, Tom's Hardware)",
+ "description": "Keychron K8 HE All-Wood Special Edition — 호두나무 원목 케이스의 무선 기계식 키보드.\n\n## 스펙\n\n- 케이스: 호두나무(Walnut) 원목 + CNC 알루미늄 사이드 패널\n- 레이아웃: TKL 80% (텐키리스), ANSI\n- 스위치: Gateron Double-Rail Magnetic Nebula (자석축, 핫스왑)\n- 가변 액추에이션: 0.2~3.8mm\n- 래피드 트리거: 지원\n- 폴링 레이트: 1,000Hz\n- 키캡: OSA 더블샷 PBT (다크 브라운, 비투과)\n- 연결: 블루투스 5.1 + 2.4GHz + USB-C 유선\n- 배터리: 4,000mAh, 최대 110시간\n- 무게: 1,009g\n- 백라이트: 노스페이싱 RGB LED\n- 호환: macOS / Windows / Linux\n- 가격: $199.99 (약 27만원)\n\n## 왜 나무인가\n\n플라스틱 대신 호두나무를 쓰면 타건 소리가 달라진다. 플라스틱의 딱딱한 반향 대신 밀도 높은 나무가 진동을 흡수해 더 깊고 따뜻한 타건음이 난다. 천연 나뭇결이라 같은 모델이어도 무늬가 하나하나 다르다.\n\n## 구매\n\n$199.99(약 27만원). Keychron 공식 사이트에서 직구 가능. 한국 공식 매장(shop.keychron.kr)에는 일반 K8 HE가 판매 중이나 올우드 에디션은 해외 직구가 기본. $150 초과라 관세 대상(약 8% 기준 2만원 내외 추가). 키크론코리아 입고 시 30만원대 예상.",
+ "caption": "키보드에서 플라스틱이 사라졌다\n\nKeychron K8 HE All-Wood — 호두나무 원목 키보드.\n자석축, 0.2~3.8mm 가변 액추에이션.\n나뭇결이 제품마다 다르다.\n$199.99 직구 · 국내 키크론코리아 입고 대기 중.\n\n(출처: Keychron 공식, Yanko Design, Tom's Hardware)\n\n#키크론 #Keychron #원목키보드 #기계식키보드 #호두나무",
+ "factcheck": [
+   {"claim": "Keychron K8 HE All-Wood Special Edition, $199.99", "sources": ["https://www.keychron.com/products/keychron-k8-he-wireless-magnetic-switch-custom-keyboard-all-wood-special-edition", "https://www.gizmochina.com/2026/09/30/keychron-k8-he-all-wood-special-edition-launches-with-a-walnut-case-at-199-99/"], "note": "Keychron 공식 + gizmochina 교차 확인"},
+   {"claim": "호두나무(Walnut) 원목 케이스 + CNC 알루미늄 사이드 패널, 1,009g", "sources": ["https://www.keychron.com/products/keychron-k8-he-wireless-magnetic-switch-custom-keyboard-all-wood-special-edition", "https://www.yankodesign.com/2026/10/01/keychron-finally-made-a-walnut-gaming-keyboard-youd-leave-out-all-day/"], "note": "Keychron 공식 스펙 + Yanko Design 교차 확인"},
+   {"claim": "Gateron Double-Rail Magnetic Nebula 스위치, 가변 액추에이션 0.2~3.8mm, 래피드 트리거", "sources": ["https://www.keychron.com/products/keychron-k8-he-wireless-magnetic-switch-custom-keyboard-all-wood-special-edition", "https://www.tomshardware.com/peripherals/keyboards/keychron-k8-he-special-edition-review"], "note": "Keychron 공식 + Tom's Hardware 교차 확인"},
+   {"claim": "4,000mAh 배터리, 최대 110시간, 블루투스+2.4GHz+유선 3중 연결", "sources": ["https://www.keychron.com/products/keychron-k8-he-wireless-magnetic-switch-custom-keyboard-all-wood-special-edition", "https://www.gizmochina.com/2026/09/30/keychron-k8-he-all-wood-special-edition-launches-with-a-walnut-case-at-199-99/"], "note": "Keychron 공식 + gizmochina 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/keychron_k8_wood_1.jpg",
+   "title": "키보드에서 플라스틱이\n사라졌다",
+   "title_hl": ["플라스틱이"],
+   "body": "Keychron K8 HE All-Wood — 호두나무 원목",
+   "body_hl": ["호두나무"],
+   "credit": "Keychron"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/keychron_k8_wood_2.jpg",
+   "title": "나뭇결이 하나하나 다르다",
+   "title_hl": ["하나하나 다르다"],
+   "body": "자석축 — 누르는 깊이 0.2~3.8mm 자유\n래피드 트리거 · 1,000Hz 폴링\n배터리 110시간 · BT+2.4GHz+유선",
+   "body_hl": ["0.2~3.8mm"],
+   "sub": "$199.99(약 27만원) — Keychron 직구\n$150 초과 관세 대상 · 국내 키크론코리아 입고 대기",
+   "credit": "Keychron"
+  }
+ ]
+}
