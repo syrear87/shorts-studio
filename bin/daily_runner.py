@@ -576,14 +576,57 @@ def publish_blog_slice():
     _venv_run("publish_blog_daily.py", timeout=420)
 
 
+def run_deep_blog():
+    """주 3회(월·수·금) 14시 카드 슬롯이 끝난 뒤 깊은 블로그 글 세션을 1회 돌린다 (2026-10-12).
+
+    별도 launchd 잡을 만들지 않은 이유: plist 변경은 unload/load가 필요한데 무인으로 못 한다.
+    14시 카드 뒤에 붙이면 16시 카드 전까지 1시간 반 여유가 있다(타임아웃 60분).
+    """
+    now = datetime.now()
+    if not CARD_MODE or now.weekday() not in (0, 2, 4) or now.hour != 14:
+        return
+    stamp = ROOT / "logs" / (".deep_blog_%s" % now.strftime("%Y%m%d"))
+    if stamp.exists():
+        return
+    stamp.write_text(str(os.getpid()))
+    blog_log = ROOT / "logs" / ("blog-%s.log" % now.strftime("%Y%m%d-%H%M"))
+    env = dict(os.environ)
+    env.pop("CLAUDECODE", None)
+    tok = _oauth_token()
+    if tok:
+        env["CLAUDE_CODE_OAUTH_TOKEN"] = tok
+    head = ROOT / "logs" / ".blog_head.txt"
+    head.write_text("너는 숏츠 스튜디오의 블로그 깊은 글 세션이다. 작업 디렉토리는 ~/Dev/shorts-studio.\n"
+                    "**지금 이 실행에서 깊은 블로그 글 1편을 조사·작성·검사·공개하고 마감 리포트를 남기는 것이 임무다.**\n"
+                    "아래는 따라야 할 절차다. 질문하거나 대기하지 말고 착수하라.\n\n---\n\n", encoding="utf-8")
+    try:
+        with open(blog_log, "w") as lf:
+            lf.write("=== deep blog ===\n")
+            lf.flush()
+            r = subprocess.run(
+                ["/bin/zsh", "-l", "-c",
+                 'p="$(cat logs/.blog_head.txt BLOG_PROMPT.md RULES.md)"; '
+                 'claude -p "$p" --model opus --permission-mode acceptEdits'],
+                stdout=lf, stderr=subprocess.STDOUT, timeout=60 * 60, cwd=str(ROOT), env=env)
+        text = blog_log.read_text(errors="ignore")
+        if "SLOT-DONE" not in text or r.returncode != 0:
+            tg("⚠️ 블로그 깊은 글 세션 미완주 (코드 %d) — %s 확인" % (r.returncode, blog_log.name))
+    except subprocess.TimeoutExpired:
+        tg("⚠️ 블로그 깊은 글 세션 60분 타임아웃 — %s 확인" % blog_log.name)
+    except Exception as e:
+        tg("⚠️ 블로그 깊은 글 세션 오류: %s" % str(e)[:200])
+
+
 if __name__ == "__main__":
     try:
         _t0 = time.time()
         refresh_tech_calendar()   # 소재 선정 전에 캘린더를 최신화한다
         main()
         log_slot_metrics(_t0)
-        generate_blog_drafts()
-        publish_blog_slice()
+        # 카드마다 블로그 초안 생성·하루 3편 발행은 멈췄다 (2026-10-12 디렉터: "주 2~3편만 깊은 글로").
+        # 애드센스 "가치가 별로 없는 콘텐츠" 반려 — 얇은 글을 더 쌓지 않는다. 기존 글은 그대로 둔다.
+        # generate_blog_drafts(); publish_blog_slice()
+        run_deep_blog()
         # ?m=1 주소 사이트맵 갱신 (2026-10-08) — 새 글이 생기면 R2의 sitemap-m.xml에 반영
         _venv_run("sitemap_m.py", timeout=120)
     except Exception as e:  # 러너 자체가 죽으면 경보자가 죽는 문제 방지 (2026-07-29 감사)

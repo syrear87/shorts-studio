@@ -99,6 +99,14 @@ def _live_posts():
     return out
 
 
+# 카드마다 새 블로그 글을 만들지 않는다 (2026-10-12 디렉터: "주 2~3편만 깊은 글로").
+# 애드센스가 "가치가 별로 없는 콘텐츠"로 반려했고, 서치콘솔도 ?m=1로 요청한 글을 크롤한 뒤
+# "크롤링됨 - 색인 안 됨"으로 거절했다 — 카드 원고를 1,500자로 늘린 같은 골격의 글이 하루
+# 5편씩 쌓인 게 원인이다. 이제 카드는 **이미 있는 글**(같은 소재, 깊은 글 포함)만 가리킨다.
+# 새 글은 pipeline/publish_deep_post.py(BLOG_PROMPT 세션)로만 나간다. 기존 글은 그대로 둔다.
+NEW_POST_PER_CARD = False
+
+
 def ensure_article(meta, card_name):
     """(url, 사유). url이 None이면 링크 없이 카드를 게시한다 — 슬롯을 죽이지 않는다."""
     mapped = _mapped_url(card_name)
@@ -119,6 +127,9 @@ def ensure_article(meta, card_name):
         if url:
             return url, "이미 있는 글을 가리킨다 (%s)" % ", ".join(words[:3])
         return None, "중복 판정이나 해당 글 주소를 못 찾음"
+
+    if not NEW_POST_PER_CARD:
+        return None, "같은 소재의 기존 글 없음 — 카드별 새 글은 만들지 않는다(2026-10-12)"
 
     from make_blog import build
     from upload_blogger import publish
@@ -155,31 +166,21 @@ BODY_BUDGET = 400       # 세션이 지켜야 할 본문 상한 — 100자를 �
 
 
 def append_link(threads_text, url, teaser=""):
-    """스레드 본문 **맨 마지막**에 한 줄 소개 + 링크를 붙인다 → (본문, 답글로 넘길 링크|None).
+    """링크는 **첫 답글**로 단다 → (본문, 답글 텍스트) (2026-10-12 개정).
 
-    소개 문구는 카드 JSON의 blog_teaser를 쓴다 — 소재마다 달라야 한다
-    (디렉터 2026-09-11: "각각 다르게 알맞게"). 같은 문구가 반복되면 링크 스팸으로 읽힌다.
-
-    2026-09-13 실사고: 스레드 상한 500자를 넘기면 upload_threads가 뒤를 자르는데, 링크가
-    맨 끝이라 **링크부터 잘려나갔다.** 9/11~13 카드 12장 중 10장이 링크 없이 나갔다.
-    그래서 예산을 센다 — 순서대로 시도한다:
-      ① 소개 + URL 이 들어가면 그대로
-      ② 안 들어가면 소개를 떼고 URL만 (본문 우선, 링크는 살린다)
-      ③ URL조차 안 들어가면 본문은 그대로 두고 링크를 **답글**로 넘긴다 (호출부가 단다)
-    본문을 자르지 않는 이유: 세션이 쓴 문장을 기계가 중간에서 끊으면 글이 상한다.
-    본문이 애초에 400자를 넘지 않게 하는 게 정답이고, 그건 make_cards 렌더 게이트가 막는다.
+    왜: 9/13부터 블로그 링크를 본문 끝에 붙였는데(거의 100%), 9/21 주부터 스레드 24시간
+    조회 중앙값이 300 → 100~170으로 떨어졌다. 9/21 이후 본문에 링크 있는 글 중앙 130(n=88),
+    링크 없는 글 중앙 703(n=6). 메타는 외부 링크가 든 글을 덜 퍼뜨린다. 본문엔 짧은 안내만
+    남기고 링크는 답글로 보낸다 — 본문 도달을 살리고, 관심 있는 사람만 답글에서 누른다.
+    소개 문구(blog_teaser)는 답글 첫 줄이 된다. 소재마다 달라야 한다는 규칙은 그대로다.
     """
     body = (threads_text or "").rstrip()
     t = (teaser or "").strip() or "자세한 정보는 블로그에 정리해뒀습니다"
-    full = body + "\n\n" + t + "\n" + url
-    if len(full) <= MAX_TEXT:
-        return full, None
-    bare = body + "\n\n" + url
-    if len(bare) <= MAX_TEXT:
-        print("[blog_link] 본문이 길어 소개 문구를 떼고 URL만 붙인다 (%d자)" % len(body), flush=True)
-        return bare, None
-    print("[blog_link] 본문 %d자 — 링크가 안 들어가 답글로 넘긴다" % len(body), flush=True)
+    pointer = "\n\n👇 자세한 정리는 댓글에"
+    if len(body + pointer) <= MAX_TEXT:
+        body = body + pointer
     return body, t + "\n" + url
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

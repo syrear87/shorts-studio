@@ -87,7 +87,7 @@ def main():
     if rows:
         avg = sum(r["views"] for r in rows) / len(rows)
         n750 = sum(1 for r in rows if r["views"] >= 750)
-        print("- 최근 %d개 평균 %.0f회 · 750회+ %d개 (보너스 기준 참고)" % (len(rows), avg, n750))
+        print("- 최근 %d개 평균 %.0f회 · 750회+ %d개" % (len(rows), avg, n750))   # 스레드 보너스는 2025년 종료 — 기준 아님(2026-10-12)
         print("- 상위 3:")
         for r in sorted(rows, key=lambda r: -r["views"])[:3]:
             print("   %s %s회(반응%d) %s" % (r["ts"][5:10], r["views"], r["eng"], r["head"]))
