@@ -1,0 +1,33 @@
+{
+ "topic": "IKEA BLOMPRAKT — 이케아 스피커에서 소노스가 빠졌다, 8년간 함께한 심포니스크 단종 후 이케아 첫 자체 스피커, 조명+블루투스 스피커 일체형 69,900원, BT 5.3 10W Spotify Tap [공유형]",
+ "blog_teaser": "심포니스크와 뭐가 달라졌는지, 블루투스로 바뀐 이유는 블로그에 정리했습니다",
+ "threads_text": "이케아 스피커에서 소노스가 빠졌다\n\n1. 이케아가 소노스랑 8년 동안 같이 만든 심포니스크 스피커, 작년에 단종\n2. 대신 이케아가 혼자 만든 첫 스피커가 나왔는데 조명이다\n3. 블롬프락트 — 머리가 스피커고 아래가 조명\n4. 69,900원이면 침실에 조명과 스피커가 동시에 놓인다\n5. 스포티파이 탭 — 버튼 한 번이면 끊겼던 음악 바로 재생\n\n(출처: IKEA 공식, The Gadgeteer, Digital Music News)",
+ "description": "IKEA BLOMPRAKT 블롬프락트 — 이케아 스피커에서 소노스가 빠졌다.\n\n## 배경\n\n이케아는 2017년부터 소노스와 협업해 SYMFONISK(심포니스크) 스피커 라인을 만들었다. 테이블 램프 스피커, 북셀프 스피커, 액자 스피커 등이 나왔고 와이파이·AirPlay 2·소노스 앱을 지원했다. 2025년 5월 두 회사의 협업이 종료됐고, 심포니스크 라인은 단종됐다.\n\n## 블롬프락트 — 이케아 첫 자체 스피커\n\n소노스 없이 이케아가 독자적으로 만든 첫 스피커다. 조명과 블루투스 스피커를 하나에 합쳤다.\n\n### 주요 스펙\n\n- 드라이버: 2.8인치 풀레인지 1개\n- 출력: 10W\n- 주파수: 78Hz~18kHz\n- 최대 음압: 76.1dB\n- 연결: 블루투스 5.3 (기기 2대 동시 페어링)\n- 조명: 2,700K 따뜻한 색온도 LED, 밝기 조절 가능\n- 크기: 23×20×23cm\n- 등급: IP20 (실내 전용)\n- 색상(한국): 블랙, 베이지\n\n### Spotify Tap\n\n버튼 한 번 누르면 마지막으로 듣던 Spotify 음악이 바로 재생된다. 연속 누르면 추천 곡을 탐색한다.\n\n### 멀티 스피커\n\n이케아 블루투스 스피커끼리 연결해 여러 방에 같은 음악을 재생할 수 있다.\n\n## 심포니스크와 다른 점\n\n- 심포니스크: 와이파이, AirPlay 2, 소노스 앱 지원 — 약 10만~20만원\n- 블롬프락트: 블루투스만 — 69,900원\n- 와이파이 멀티룸이 필요하면 심포니스크 중고를 찾아야 한다. 블루투스로 충분하면 블롬프락트가 절반 값이다.\n\n## 가격·구매\n\n- 한국: 69,900원 (IKEA 공식 온라인·매장)\n- 미국: $59.99\n- 색상: 블랙, 베이지 (미국은 블루·화이트·레드브라운 추가)",
+ "caption": "이케아 스피커에서 소노스가 빠졌다\n\nIKEA BLOMPRAKT — 8년간 함께한 소노스와 헤어지고 이케아가 혼자 만든 첫 스피커.\n조명 아래에 블루투스 스피커가 숨어 있다.\nBT 5.3 · 10W · 2,700K 조광 LED.\nSpotify Tap — 버튼 한 번이면 끊겼던 음악 재생.\n한국 정식 판매 69,900원.\n\n(출처: IKEA 공식, The Gadgeteer, Cult of Mac)\n\n#이케아 #IKEA #블롬프락트 #BLOMPRAKT #블루투스스피커",
+ "factcheck": [
+   {"claim": "이케아-소노스 협업 2025년 5월 종료, 심포니스크 단종", "sources": ["https://www.cultofmac.com/news/sonos-ikea-partnership-ends", "https://www.digitalmusicnews.com/2025/05/06/sonos-ikea-quietly-end-their-partnership/"], "note": "Cult of Mac + Digital Music News 교차 확인. 2017년 시작, 2025년 5월 종료, 8년"},
+   {"claim": "BLOMPRAKT BT 5.3, 10W, 2.8인치 드라이버, 78Hz-18kHz, Spotify Tap", "sources": ["https://www.ikea.com/kr/ko/p/blomprakt-bluetooth-speaker-lamp-black-70604964/", "https://the-gadgeteer.com/2026/10/08/ikea-blomprakt-bluetooth-speaker-lamp/"], "note": "IKEA 공식 제품 페이지(1차 자료) + The Gadgeteer 리뷰 교차 확인"},
+   {"claim": "한국 판매가 69,900원", "sources": ["https://www.ikea.com/kr/ko/p/blomprakt-bluetooth-speaker-lamp-black-70604964/", "https://www.ikea.com/kr/ko/p/blomprakt-bluetooth-speaker-lamp-beige-60604945/"], "note": "IKEA Korea 공식 — 블랙(70604964), 베이지(60604945) 두 색상 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/ikea_blomprakt_1.jpg",
+   "title": "이케아 스피커에서\n소노스가 빠졌다",
+   "title_hl": ["소노스가 빠졌다"],
+   "body": "8년간 함께한 심포니스크 단종 — 대신 온 건 7만원짜리 조명이다",
+   "body_hl": ["7만원"],
+   "credit": "The Gadgeteer / IKEA"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/ikea_blomprakt_2.jpg",
+   "title": "조명인 줄 알았는데\n스피커였다",
+   "title_hl": ["스피커였다"],
+   "body": "블루투스 5.3 · 10W\n2,700K 따뜻한 LED · 밝기 조절\nSpotify Tap — 버튼 하나로 음악 재생",
+   "body_hl": ["Spotify Tap"],
+   "sub": "IKEA BLOMPRAKT\n한국 정식 판매 69,900원",
+   "credit": "The Gadgeteer / IKEA"
+  }
+ ]
+}

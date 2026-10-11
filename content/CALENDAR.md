@@ -763,3 +763,4 @@
 - 10/05 12시 카드: 충전식 전동 에어건 — 캔 에어에서 캔이 사라졌다, USB-C 충전 3만원대 [구매가능][공유형] — https://www.threads.com/@daily_1_pick/post/DeGPUr_GfV1
 - 10-07 16시 카드 — 포토샵이 7년 만에 아이패드 밖으로 나왔다 (한계붕괴형) https://www.threads.com/@daily_1_pick/post/DeLYiIamdMi
 - 10-08 12시 카드 — OrigamiSwift 접이식 마우스, 접으면 4.5mm (소유욕형) https://www.threads.com/@daily_1_pick/post/DeN8VbbGbo_
+- 10-11 16시 카드 — IKEA BLOMPRAKT, 소노스 빠진 이케아 첫 자체 스피커 69,900원 (공유형) https://www.threads.com/@daily_1_pick/post/DeWG7tUGcqG
