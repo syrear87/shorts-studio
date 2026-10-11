@@ -1,0 +1,34 @@
+{
+ "topic": "DJI Neo 3 — 드론 카메라의 가로 전용이 끝난다, 1/1.1인치 스퀘어 센서로 세로·가로 원본 화질 동시 촬영, 무손실 2배 줌, RC Mini 컨트롤러 포함, 예상 $269~ [한계붕괴형][루머]",
+ "blog_teaser": "정사각형 센서가 드론 영상에서 뭘 바꾸는지는 블로그에서 비교했습니다",
+ "threads_text": "드론 카메라의 가로 전용이 끝난다\n\n1. DJI Neo 3 유출 — 1/1.1인치 정사각형 센서\n2. 기존 드론은 가로로 찍고 세로는 잘라서 썼다\n3. 정사각형이라 세로·가로 원본 화질로 동시에\n4. 전작 1/2인치 대비 센서 면적 2배 이상\n5. 무손실 2배 줌 + RC Mini 컨트롤러(폰 불필요)\n6. 예상 $269~, 전작 한국 25만원\n\n⚠️ 공식 발표 전 유출 정보입니다\n(출처: DroneXL·Notebookcheck·DroneRanker)",
+ "description": "DJI Neo 3 — 드론 카메라가 정사각형이 됐다.\n\n## 유출 스펙 (공식 미발표)\n\n- 센서: 1/1.1인치 정사각형 (전작 Neo: 1/2인치 직사각형)\n- 효과: 1:1로 촬영 → 9:16(세로)·16:9(가로) 크롭 시 화질 손실 없음\n- 줌: 2배 무손실 (센서 크롭 방식, 보간 없음)\n- 무게: 192.7g (중국 민용드론 등록 정보 기준)\n- 프로펠러 가드: 허브앤스포크 구조 (전작 밀폐형 → 통풍 개선)\n- 컨트롤러: DJI RC Mini (화면 내장, 폰 연결 불필요)\n- 등록일: 2026-09-21 (중국 민용드론 등록원, 모델 DEN326)\n\n## 전작(DJI Neo) 비교\n\n- 센서: 1/2인치, 12MP, 4K/30fps\n- 무게: 135g\n- 한국 출시: 2024년 9월, 249,000원(드론만) / 445,900원(콤보)\n\n## 왜 정사각형 센서인가\n\n기존 드론 카메라는 16:9 직사각형 센서라 세로(9:16) 영상을 찍으려면 가로 프레임을 잘라야 했다. 4K로 찍어도 세로로 자르면 해상도가 절반 이하로 떨어진다. 정사각형 센서는 1:1로 풀 해상도를 기록하고, 편집 때 원하는 비율로 잘라도 화질이 유지된다. 숏폼·릴스 촬영에 드론을 쓰는 사람이 늘면서 DJI가 센서 형태 자체를 바꾼 것이다.\n\n## 예상 가격·출시\n\n- 예상가: $269~299(약 36~40만원, 드론만) / $449~499(콤보)\n- 출시: 2026년 10~11월 전망 (미확정)\n- 전작 기준으로 한국 출시 가능성 높으나 시기 미정",
+ "caption": "드론 카메라의 가로 전용이 끝난다\n\nDJI Neo 3 유출 — 1/1.1인치 정사각형 센서.\n가로·세로를 원본 화질로 동시에 찍는다.\n전작 대비 센서 면적 2배 이상, 무손실 2배 줌.\nRC Mini 컨트롤러 포함(폰 불필요).\n예상 $269~, 전작 한국 25만원.\n\n⚠️ 아직 공식 발표가 아닌 유출 단계 정보입니다\n(출처: DroneXL 유출 스펙시트, Notebookcheck, DroneRanker 중국 등록 정보)\n\n#DJI #DJINeo3 #드론 #세로영상 #숏폼",
+ "factcheck": [
+   {"claim": "DJI Neo 3, 1/1.1인치 정사각형 센서 탑재", "sources": ["https://dronexl.co/2026/10/03/dji-neo-3-spec-sheet-leak-square-sensor/", "https://www.notebookcheck.net/DJI-Neo-3-rears-its-head-with-major-camera-upgrade-revealed.1414232.0.html"], "note": "DroneXL 유출 스펙시트 + Notebookcheck 교차 확인. 공식 발표 전 유출 정보"},
+   {"claim": "중국 민용드론 등록원에 2026-09-21 등록, 모델 DEN326, 이륙중량 192.7g", "sources": ["https://www.droneranker.com/dji-neo-3-leak-rc-mini-specs/", "https://dronexl.co/2026/10/08/dji-neo-3-everything-we-know-leaks-roundup/"], "note": "DroneRanker + DroneXL 교차 확인"},
+   {"claim": "전작 DJI Neo: 1/2인치 센서, 12MP, 한국 출시 249,000원(2024년 9월)", "sources": ["https://www.dji.com/neo/specs", "https://zdnet.co.kr/view/?no=20240906105141"], "note": "DJI 공식 스펙 + ZDNet Korea 출시 기사"},
+   {"claim": "2배 무손실 줌, RC Mini 컨트롤러 포함", "sources": ["https://www.droneranker.com/dji-neo-3-sensor-specs-leak/", "https://www.geeky-gadgets.com/dji-neo-3-leaks-rumors-oct-2026/"], "note": "DroneRanker + Geeky Gadgets 교차 확인. 유출 정보"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/dji_neo3_1.jpg",
+   "title": "드론 카메라의\n가로 전용이 끝난다",
+   "title_hl": ["끝난다"],
+   "body": "DJI Neo 3 유출 — 정사각형 센서가 세로도 원본으로",
+   "body_hl": ["1/1.1인치"],
+   "credit": "DroneXL"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/dji_neo3_2.jpg",
+   "title": "세로 영상이 크롭이\n아니게 됐다",
+   "title_hl": ["크롭이 아니게"],
+   "body": "정사각형 → 가로·세로 원본 화질 동시\n전작 1/2인치 → 센서 면적 2배 이상\n무손실 2배 줌 · RC Mini 컨트롤러",
+   "body_hl": ["원본 화질"],
+   "sub": "예상 $269~(약 36만원) · 전작 한국 25만원\n⚠️ 공식 발표 전 유출 정보",
+   "credit": "DroneXL"
+  }
+ ]
+}
