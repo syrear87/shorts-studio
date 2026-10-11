@@ -1,0 +1,110 @@
+{
+  "title": "오늘 밤 달이 사라집니다, 달력은 이미 알고 있었습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "공유성",
+  "real_query": ["new moon astronomy", "full moon harvest", "lunar phases earth"],
+  "hook_bg_reason": "합삭은 달이 보이지 않는 현상이라 실물 사진이 존재하지 않음",
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": 16544208,
+      "voice": "오늘 밤 하늘에 달이 없습니다. 고장 난 게 아닙니다.",
+      "lines": [
+        [
+          "오늘 밤 달이 없습니다",
+          []
+        ],
+        [
+          "고장 난 게 아닙니다",
+          []
+        ]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 31945299,
+      "voice": "지금 달은 태양과 지구 사이에 끼어 있습니다. 이걸 합삭이라 하고, 29.5일에 한 번 달빛이 완전히 사라집니다.",
+      "lines": [
+        [
+          "태양과 지구 사이에 끼어",
+          []
+        ],
+        [
+          "합삭 — 29.5일에 한 번",
+          ["29.5일"]
+        ]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 11121863,
+      "voice": "이 날이 음력 1일입니다. 달력의 첫날은 달이 뜨는 날이 아니라, 달이 사라지는 날입니다.",
+      "lines": [
+        [
+          "이 날이 음력 1일",
+          ["1일"]
+        ],
+        [
+          "달이 사라지는 날이 첫날이다",
+          []
+        ]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 4342868,
+      "voice": "여기서 15일을 세면 달이 가장 둥글어집니다. 보름달은 항상 음력 15일, 이건 우연이 아닙니다.",
+      "lines": [
+        [
+          "15일 뒤 달이 가장 둥글다",
+          ["15일"]
+        ],
+        [
+          "보름달은 항상 음력 15일",
+          []
+        ]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 4762182,
+      "voice": "추석이 음력 8월 15일인 이유. 달이 사라지는 날부터 센 달력이, 가장 큰 달이 뜨는 날에 명절을 놓은 겁니다. 달이 죽는 밤이 달력의 첫 페이지였습니다.",
+      "lines": [
+        [
+          "추석이 음력 8월 15일인 이유",
+          ["추석"]
+        ],
+        [
+          "가장 큰 달이 뜨는 날에 명절을 놓은 것",
+          []
+        ],
+        [
+          "달이 죽는 밤이 첫 페이지였다",
+          ["죽는"]
+        ]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": 30056318,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        [
+          "오늘도 1일 1지식",
+          ["1일", "1지식"]
+        ],
+        [
+          "구독으로 받아보세요",
+          ["구독으로"]
+        ]
+      ]
+    }
+  ],
+  "sources": [
+    "https://astro.kasi.re.kr/life/pageView/7",
+    "https://www.timeanddate.com/moon/phases/south-korea/seoul"
+  ],
+  "bg_query": ["starry night sky no moon dark", "sun earth moon alignment space", "lunar calendar traditional numbers", "full moon close up night", "harvest moon autumn night sky", "dark night sky stars"]
+}
