@@ -576,6 +576,27 @@ def publish_blog_slice():
     _venv_run("publish_blog_daily.py", timeout=420)
 
 
+def commit_leftovers():
+    """세션이 커밋에서 빠뜨린 슬롯 산출물(카드 이미지·대본 JSON·리포트)을 모아 커밋한다 (2026-10-12).
+
+    세션은 대본과 리포트는 커밋하지만 assets/cards/*.jpg를 자주 빠뜨려 매번 10~50개가
+    미커밋으로 쌓였다(점검 때마다 수동 정리). 산출물 경로만 담는다 — 코드·설정은 건드리지 않는다.
+    푸시는 하지 않는다(디렉터 승인 사항).
+    """
+    try:
+        paths = ["assets/cards", "content", "reports"]
+        st = subprocess.run(["git", "status", "--porcelain", "--"] + paths, cwd=str(ROOT),
+                            capture_output=True, text=True, timeout=30).stdout.strip()
+        if not st:
+            return
+        subprocess.run(["git", "add", "--"] + paths, cwd=str(ROOT), timeout=30)
+        subprocess.run(["git", "commit", "-q", "-m",
+                        "슬롯 산출물 자동 커밋 (%d개)" % len(st.splitlines())],
+                       cwd=str(ROOT), timeout=30)
+    except Exception as e:
+        print("[runner] 산출물 자동 커밋 실패(무해): %s" % str(e)[:100], flush=True)
+
+
 def run_deep_blog():
     """주 3회(월·수·금) 14시 카드 슬롯이 끝난 뒤 깊은 블로그 글 세션을 1회 돌린다 (2026-10-12).
 
@@ -629,6 +650,7 @@ if __name__ == "__main__":
         run_deep_blog()
         # ?m=1 주소 사이트맵 갱신 (2026-10-08) — 새 글이 생기면 R2의 sitemap-m.xml에 반영
         _venv_run("sitemap_m.py", timeout=120)
+        commit_leftovers()
     except Exception as e:  # 러너 자체가 죽으면 경보자가 죽는 문제 방지 (2026-07-29 감사)
         tg("🔥 숏츠 데일리 러너 자체 오류: %s" % str(e)[:300])
         raise
