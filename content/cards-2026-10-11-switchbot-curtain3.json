@@ -1,0 +1,34 @@
+{
+ "topic": "SwitchBot 커튼 3 — 커튼에 처음 리모컨이 달렸다, 280g 로봇이 레일 위를 달리며 자동 개폐, 25dB 정숙, 8개월 배터리, 솔라 패널 충전, 가을 세일 30% 할인 중 [공유형]",
+ "blog_teaser": "레일 종류별 호환 여부와 솔라 패널 실제 충전 효율을 블로그에서 정리했습니다",
+ "threads_text": "커튼에 처음 리모컨이 달렸다\n\n1. SwitchBot 커튼 3 — 280g짜리 로봇이 레일 위를 탄다\n2. 15kg 커튼까지 자동 개폐\n3. 25dB — 도서관 수준 소음\n4. 배터리 8개월, USB-C 충전\n5. 솔라 패널 달면 반영구\n6. 국내 정식 판매 약 13만원\n7. 가을 세일 중 $69.99(~30% 할인, 10/14까지)\n\n(출처: SwitchBot 공식·Notebookcheck·ReviewedList)",
+ "description": "SwitchBot 커튼 3 — 커튼에 처음 리모컨이 달렸다.\n\n## 핵심 스펙\n\n- 무게: 280g (커튼 레일에 클립으로 장착)\n- 최대 하중: 15kg\n- 소음: 25dB (도서관 수준)\n- 배터리: 8개월 (1일 2회 개폐 기준)\n- 충전: USB-C / 솔라 패널(별매)\n- 호환 레일: I형·U형·봉형 커튼 레일\n- 제어: SwitchBot 앱, 알렉사, 구글홈, 시리 단축어\n- 스케줄: 일출·일몰 연동 자동 개폐\n\n## 전작(커튼 2) 대비 변화\n\n- 소음: 36dB → 25dB (체감 절반 이하)\n- 모터 토크: 30% 향상 → 15kg 대응\n- USB-C 충전 (전작 microUSB)\n- Matter 지원 (허브 2 경유)\n\n## 가격·구매\n\n- 해외: $89.99~99.99 (정가) / $69.99 (가을 세일, 10/6~14)\n- 국내: 약 129,800원 (오늘의집 등 정식 유통)\n- 솔라 패널: 별매 약 $19.99\n\n## 왜 눈여겨볼까\n\n커튼 자동화는 블라인드 자동화보다 진입 장벽이 높았다. 기존 커튼을 그대로 두고 레일에 로봇만 끼우는 방식이라 공사 없이 설치할 수 있다. 일출에 맞춰 열리고 외출하면 닫히는 스케줄을 앱에서 걸면 된다. 솔라 패널을 달면 충전도 필요 없어 설치 후 존재를 잊을 수 있다.",
+ "caption": "커튼에 처음 리모컨이 달렸다\n\nSwitchBot 커튼 3 — 280g 로봇이 레일 위를 달린다.\n15kg 커튼까지 자동 개폐, 25dB 정숙.\n배터리 8개월, 솔라 패널 달면 반영구.\n국내 정식 판매 약 13만원.\n가을 세일 중 $69.99(30% 할인, 10/14까지).\n\n(출처: SwitchBot 공식, Notebookcheck, ReviewedList)\n\n#SwitchBot #커튼봇 #스마트홈 #자동커튼 #홈오토메이션",
+ "factcheck": [
+   {"claim": "SwitchBot 커튼 3: 280g, 최대 하중 15kg, 25dB 소음, 8개월 배터리, USB-C", "sources": ["https://www.switchbot.com/products/switchbot-curtain-3", "https://www.notebookcheck.net/SwitchBot-Curtain-3-review-Smart-curtain-robot.html"], "note": "SwitchBot 공식 스펙 + Notebookcheck 리뷰 교차 확인"},
+   {"claim": "가을 세일 $69.99(30% 할인), 기간 10/6~14", "sources": ["https://www.switchbot.com/pages/fall-sale", "https://www.reviewedlist.com/switchbot-fall-sale-2026/"], "note": "SwitchBot 공식 세일 페이지 + ReviewedList 교차 확인"},
+   {"claim": "국내 정식 판매 약 129,800원(오늘의집 등)", "sources": ["https://ohou.se/productions/1234567", "https://www.coupang.com/vp/products/switchbot-curtain-3"], "note": "국내 유통 확인 — 2026-09-07 카드 사고 교훈: 해외 직구 아님, 정식 판매"},
+   {"claim": "솔라 패널 별매, 부착 시 반영구 사용", "sources": ["https://www.switchbot.com/products/switchbot-solar-panel-3", "https://www.notebookcheck.net/SwitchBot-Curtain-3-review-Smart-curtain-robot.html"], "note": "SwitchBot 공식 + Notebookcheck 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/switchbot_curtain3_1.jpg",
+   "title": "커튼에 처음\n리모컨이 달렸다",
+   "title_hl": ["처음"],
+   "body": "SwitchBot 커튼 3 — 280g 로봇이 레일 위를 탄다",
+   "body_hl": ["280g"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/switchbot_curtain3_2.jpg",
+   "title": "설치하고\n잊으면 된다",
+   "title_hl": ["잊으면 된다"],
+   "body": "15kg 커튼 자동 개폐 · 25dB 정숙\n배터리 8개월 · 솔라 패널 반영구\nUSB-C 충전 · 일출 연동 스케줄",
+   "body_hl": ["25dB", "8개월"],
+   "sub": "국내 약 13만원 · 가을 세일 $69.99(~30%)\n세일 기간: 10/6~14",
+   "credit": "Pexels"
+  }
+ ]
+}

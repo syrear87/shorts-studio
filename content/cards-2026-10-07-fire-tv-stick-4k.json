@@ -1,0 +1,43 @@
+{
+ "bg_query": "tv remote streaming dark living room",
+ "topic": "Amazon Fire TV Stick 4K — TV 스틱에서 전원 케이블이 사라졌다, TV USB 포트가 전원이 되는 Direct Power, $60 [공유형]",
+ "blog_teaser": "Direct Power 작동 조건이랑 이전 모델과 달라진 점은 블로그에 정리했습니다",
+ "threads_text": "TV 스틱에서 전원 케이블이 사라졌다\n\n1. Fire TV Stick 4K — TV USB 포트에 꽂으면 그게 전원이다, 어댑터가 필요 없다\n2. 앱 실행 35% 빨라짐, 콘텐츠 재생 20% 빨라짐\n3. 리모컨도 바뀜 — 어두운 방에서 버튼이 손끝으로 구분된다\n4. Wi-Fi 6, 4K HDR10+, $60(약 8만원)\n\n(출처: Amazon·HowToGeek 2026-09-30)",
+ "description": "Amazon Fire TV Stick 4K (2026) — TV에 스트리밍 스틱을 꽂으면 전원 어댑터와 케이블을 따로 연결해야 했다. 콘센트가 멀거나 멀티탭이 꽉 찬 경우, 호텔 TV 뒤에서 콘센트를 찾아야 하는 경우 불편했다. 2026년형 Fire TV Stick 4K는 Direct Power 기능으로 TV의 USB 포트에서 직접 전원을 공급받는다. 별도의 전원 어댑터와 케이블이 필요 없다.\n\n## Direct Power 작동 조건\n\nTV의 USB 포트 출력이 충분해야 한다. USB 2.0 포트(5V/0.5A)는 부족할 수 있고, USB 3.0 이상(5V/0.9A)이면 안정적이다. 최근 5년 이내 TV 대부분은 USB 포트 출력이 충분하다. TV를 끄면 USB 전원도 꺼지는 모델이 있는데, 이 경우 스틱 부팅이 TV 켤 때마다 새로 일어난다. TV 설정에서 'USB 상시 전원' 옵션이 있으면 켜두면 대기 상태를 유지한다.\n\n## 성능 향상\n\n이전 모델 대비 앱 실행 속도 35% 향상, 콘텐츠 재생 시작 속도 20% 향상. Amazon Vega OS 기반으로 작동한다. Wi-Fi 6과 Bluetooth 5.3을 지원하고, 저장 용량은 8GB다. 4K 출력에 HDR10, HDR10+, HLG를 지원하지만 Dolby Vision은 지원하지 않는다. Dolby Vision이 필요하면 상위 모델인 Fire TV Stick 4K Max를 선택해야 한다.\n\n## 리모컨 재설계\n\n리모컨 형태가 바뀌었다. 하단이 둥글어져서 손에 감기는 형태가 됐고, 버튼 간격과 크기가 커져 어두운 방에서 촉감만으로 구분할 수 있다. 프리미엄 모델 전용이었던 커스텀 버튼이 기본 리모컨에도 들어갔다. 백라이트와 Find My Remote 기능이 있는 Fire TV Remote Plus는 2027년 초 별도 출시 예정이다.\n\n## 가격과 구매\n\n미국 가격 $59.99(약 8만원). 2026년 9월 30일부터 미국·캐나다·일본·영국·독일 등 12개국에서 판매 중이다. 한국은 정식 출시국에 포함되지 않았지만 아마존 직구 또는 쿠팡 글로벌 셀러를 통해 구매할 수 있다.",
+ "caption": "TV 스틱에서 전원 케이블이 사라졌다\n\nFire TV Stick 4K — TV USB 포트에 꽂으면 그게 전원이다.\n전원 어댑터와 케이블이 필요 없다.\n앱 실행 35% 빨라짐, 콘텐츠 재생 20% 빨라짐.\nWi-Fi 6, 4K HDR10+, $60(약 8만원).\n리모컨도 바뀜 — 어두운 방에서 촉감으로 구분.\n\n(출처: Amazon, HowToGeek)\n\n#파이어TV #스트리밍 #아마존 #TV스틱 #가젯",
+ "factcheck": [
+   {"claim": "Fire TV Stick 4K 가격 $59.99", "sources": ["https://www.howtogeek.com/amazon-fire-tv-stick-4k-2026-price-release-date/", "https://www.androidcentral.com/streaming-tv/amazon-fire-tv/amazon-new-fire-tv-stick-4k-2026-launched"], "note": "HowToGeek + AndroidCentral 교차 확인"},
+   {"claim": "Direct Power — TV USB 포트에서 전원 공급, 별도 어댑터 불필요", "sources": ["https://www.howtogeek.com/amazon-fire-tv-stick-4k-2026-price-release-date/", "https://www.broadbandtvnews.com/2026/10/01/amazon-launches-faster-fire-tv-stick-4k-and-expands-alexa-features/"], "note": "HowToGeek 'can draw power from your TV USB port' + BroadbandTVNews 교차 확인"},
+   {"claim": "앱 실행 35% 향상, 콘텐츠 재생 20% 향상", "sources": ["https://www.howtogeek.com/amazon-fire-tv-stick-4k-2026-price-release-date/", "https://variety.com/2026/digital/news/amazon-fire-tv-4k-stick-remote-alexa-plus-hub-1236878493/"], "note": "Amazon 공식 수치, HowToGeek + Variety 교차 확인"},
+   {"claim": "Wi-Fi 6, HDR10/HDR10+/HLG 지원, Dolby Vision 미지원", "sources": ["https://www.howtogeek.com/amazon-fire-tv-stick-4k-2026-price-release-date/", "https://www.ecoustics.com/products/amazon-fire-tv-stick-4k-2026/"], "note": "HowToGeek + ecoustics 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/fire_tv_remote_1.jpg",
+   "title": "TV 스틱에서 전원 케이블이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "TV USB에 꽂으면 그게 전원이다",
+   "body_hl": ["USB"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/fire_tv_remote_2.jpg",
+   "title": "Fire TV Stick 4K — $60",
+   "title_hl": ["$60"],
+   "body": "앱 실행 35%↑ · 콘텐츠 재생 20%↑\nWi-Fi 6 · 4K HDR10+\n리모컨 — 어두운 방에서 촉감으로 구분",
+   "body_hl": ["35%↑", "20%↑"],
+   "sub": "TV USB 전원 = 어댑터·케이블 불필요\n미국 $59.99 · 한국 직구 가능",
+   "credit": "Pexels"
+  }
+ ],
+ "claims": [
+  {"text": "Fire TV Stick 4K 미국 가격", "value": "$59.99", "price_basis": "판매처", "price_checked": "2026-10-07", "source": "Amazon 공식 + HowToGeek"}
+ ],
+ "rebuttals": [
+  "TV USB 포트 출력이 약하면(USB 2.0 등) Direct Power가 안정적으로 작동하지 않을 수 있다",
+  "Dolby Vision은 미지원 — 필요하면 Fire TV Stick 4K Max를 선택해야 한다",
+  "한국 정식 출시국이 아니라 직구 시 배송비·관세가 추가된다"
+ ]
+}
