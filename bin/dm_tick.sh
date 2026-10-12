@@ -1,5 +1,6 @@
 #!/bin/bash
-# 10분 틱: 댓글DM 백업 폴링 + 제휴 링크(텔레그램) 폴링 (2026-08-21 — launchd com.shorts-studio.dm)
+# 10분 틱: 성과 장부·스레드 답글 감시·프롬프트 정합성·디스크 정리·스레드 스냅샷 (launchd com.shorts-studio.dm)
+# (댓글DM은 2026-09-05, 제휴 링크 봇은 2026-10-12에 껐다 — 잡 이름의 'dm'은 이력일 뿐)
 # 판단이 필요 없는 기계 작업만 여기 묶는다. 실패 알림은 각 스크립트가 텔레그램으로 직접 보낸다.
 # launchd PATH는 시스템 기본(/usr/bin:/bin:...)뿐이라 /opt/homebrew/bin의 ffmpeg·ffprobe가 안 잡힌다
 # — 로그인 셸 사고 이력과 동일 클래스 (2026-08-23 리뷰. ${PATH:+...}는 PATH 미설정 시 트레일링 콜론=cwd 검색 방지)
@@ -34,7 +35,9 @@ _run_capped() {  # _run_capped <초> <명령...>
 # 인스타에 안 나가면서(CARD_TO_IG=False) 유입 경로 자체가 사라졌다. 누적 발송 0건.
 # 10분마다 도는 빈 폴링이라 껐다. 카드를 인스타로 되돌리면 이 줄을 살린다.
 # _run_capped 300 .venv/bin/python3 pipeline/comment_dm.py
-_run_capped 300 .venv/bin/python3 pipeline/affiliate_bot.py --once
+# 2026-10-12 디렉터: "디엠봇은 필요없잖아.. 쿠파스 안하고 있는데 꺼버려 / 없애버려".
+# 제휴 링크(텔레그램 회신) 폴링도 껐다 — 8/26 이후 링크 0건. 쿠팡을 재개하면 이 줄을 살린다.
+# _run_capped 300 .venv/bin/python3 pipeline/affiliate_bot.py --once
 
 # 연령 고정 성과 장부 — 게시물이 24h/72h/168h를 처음 지나는 틱에만 1회 기록 (2026-09-05).
 # 왜: "오늘 조회수"로 비교하면 게시 직후 편과 사흘 지난 편이 섞여 같은 날 같은 지표가
