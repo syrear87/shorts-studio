@@ -764,3 +764,5 @@
 - 10-07 16시 카드 — 포토샵이 7년 만에 아이패드 밖으로 나왔다 (한계붕괴형) https://www.threads.com/@daily_1_pick/post/DeLYiIamdMi
 - 10-08 12시 카드 — OrigamiSwift 접이식 마우스, 접으면 4.5mm (소유욕형) https://www.threads.com/@daily_1_pick/post/DeN8VbbGbo_
 - 10-11 16시 카드 — IKEA BLOMPRAKT, 소노스 빠진 이케아 첫 자체 스피커 69,900원 (공유형) https://www.threads.com/@daily_1_pick/post/DeWG7tUGcqG
+
+- 10-12 16시 카드 - Pebble Round 2, 10년 전 사라진 스마트워치 부활 199달러 (소유욕형) https://www.threads.com/@daily_1_pick/post/DeYrjFcGegk

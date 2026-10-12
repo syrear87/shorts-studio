@@ -1,0 +1,36 @@
+{
+ "topic": "Pebble Round 2 — 스마트워치를 처음 만든 회사가 10년 만에 돌아왔다, 2012년 킥스타터 역대 최고 기록을 세우고 2016년 사라진 페블이 부활, 1.3인치 컬러 전자잉크 8일 배터리, $199 직구 전용 [소유욕형]",
+ "blog_teaser": "페블이 왜 사라졌고 어떻게 돌아왔는지, 배터리 실측과 스펙 비교는 블로그에 정리했습니다",
+ "threads_text": "10년 전 사라진 시계가 배터리 8일을 들고 돌아왔다\n\n1. 2012년 킥스타터에서 역대 최고 기록을 세운 시계가 있었다 — 페블\n2. 애플워치보다 3년 먼저 나왔다\n3. 2016년 피트빗에 인수됐고 그대로 사라졌다\n4. 올해 원래 창립자가 되살렸다 — Pebble Round 2\n5. 1.3인치 컬러 전자잉크, 배터리 8일, 8.1mm, $199\n6. 심박수 센서도 GPS도 없다 — 대신 충전기를 잊고 산다\n\n(출처: Core Devices 공식, GSMArena, Gadgets & Wearables)",
+ "description": "Pebble Round 2 — 스마트워치의 원조가 10년 만에 돌아왔다.\n\n## 무엇인가\n\nPebble Round 2는 스마트워치의 원조 페블을 되살린 시계다. 2012년 킥스타터에서 당시 역대 최고 펀딩(1,026만 달러)을 기록하며 스마트워치 시대를 열었지만, 2016년 피트빗에 인수된 뒤 브랜드가 사라졌다. 원래 창립자 에릭 미기코프스키가 Core Devices를 세워 2026년 CES에서 발표하고 10월 1일 첫 출하를 시작했다.\n\n## 핵심 스펙\n\n- 디스플레이: 1.3인치 컬러 메모리 LCD (260x260, 283ppi), 터치스크린\n- 배터리: 공칭 10~14일, 실사용 평균 8일\n- 두께: 8.1mm\n- 방수: 30m\n- 센서: 가속도계, 자이로, 자력계, 마이크 2개\n- 없는 것: 심박수 센서, GPS, 스피커\n- OS: 오픈소스 Pebble OS\n- 색상: 무광 블랙, 실버, 로즈골드\n\n## 가격·구매\n\n- $199 (약 27만원)\n- 직구 전용 (repebble.com)\n- 관세·배송 포함 약 34~35만원\n- 국내 정식 출시 미정\n\n## 국내 대안\n\n- 장기 배터리 스마트워치: Amazfit T-Rex 3 (약 25만원, AMOLED, GPS, 심박, 2주 배터리)\n- E-ink 스마트워치: 국내 정식 유통 제품 없음",
+ "caption": "10년 전 사라진 시계가 배터리 8일을 들고 돌아왔다\n\n2012년 킥스타터 역대 최고 기록.\n애플워치보다 3년 먼저.\n2016년 사라졌다가 10년 만에 부활.\n\n배터리 8일. 심박수 센서도 GPS도 없다.\n대신 충전기를 잊고 산다.\n\n$199 직구 전용 (repebble.com)\n관세·배송 포함 약 34~35만원\n\n(출처: Core Devices, GSMArena, Gadgets & Wearables)\n\n#Pebble #페블 #스마트워치 #PebbleRound2 #가젯",
+ "factcheck": [
+   {"claim": "2012년 킥스타터 역대 최고 펀딩 기록(1,026만 달러)", "sources": ["https://www.kickstarter.com/projects/getpebble/pebble-e-paper-watch-for-iphone-and-android", "https://en.wikipedia.org/wiki/Pebble_(watch)"], "note": "킥스타터 원본 캠페인 페이지 + 위키피디아 교차. 68,929명 후원, $10,266,845. 당시 역대 최고(이후 경신됨)"},
+   {"claim": "2016년 피트빗 인수 후 브랜드 소멸", "sources": ["https://www.theverge.com/2016/12/7/13867158/fitbit-pebble-acquisition-smartwatch", "https://en.wikipedia.org/wiki/Pebble_(watch)"], "note": "The Verge 인수 보도 + 위키피디아 교차"},
+   {"claim": "Pebble Round 2: 1.3인치 260x260 컬러 메모리LCD, 8.1mm, $199", "sources": ["https://www.gsmarena.com/pebble_round_2_is_official_with_epaper_touchscreen_twoweek_battery_life-news-70940.php", "https://liliputing.com/pebble-round-2-smartwatch-ships-in-may-available-for-pre-order-now-for-199/"], "note": "GSMArena 공식 발표 기사 + Liliputing 교차"},
+   {"claim": "실사용 배터리 평균 8일(공칭 10~14일)", "sources": ["https://gadgetsandwearables.com/2026/10/01/pebble-round-2-starts-shipping/", "https://liliputing.com/pebble-round-2-smartwatch-ships-in-may-available-for-pre-order-now-for-199/"], "note": "공칭은 Liliputing(10~14일), 실측은 G&W(8일 평균)"},
+   {"claim": "2026년 10월 1일 첫 출하, 현재 200대 배송", "sources": ["https://gadgetsandwearables.com/2026/10/01/pebble-round-2-starts-shipping/"], "note": "G&W 출하 보도. 다음 배치 1,000대 10월 말 예정"},
+   {"claim": "원래 창립자 에릭 미기코프스키가 Core Devices로 부활", "sources": ["https://armdevices.net/2026/01/05/pebble-core-devices-ceo-eric-migicovsky-at-ces-2026-pebble-round-2-pebble-time-2-pebble-2-duo/", "https://www.notebookcheck.net/Core-Devices-launches-the-Pebble-Round-2-with-a-color-ePaper-display-and-two-weeks-of-battery-life.1195218.0.html"], "note": "ARM Devices CES 인터뷰 + Notebookcheck 교차"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/pebble_round2_1.jpg",
+   "title": "10년 전 사라진 시계가\n배터리 8일을 들고 돌아왔다",
+   "title_hl": ["돌아왔다"],
+   "body": "2012 킥스타터 역대 1위 — 페블, $199로 부활",
+   "body_hl": ["페블"],
+   "credit": "GSMArena"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/pebble_round2_2.jpg",
+   "title": "배터리 8일\n심박수도 GPS도 없다",
+   "title_hl": ["8일"],
+   "body": "Pebble Round 2 — $199 (약 34만원, 직구)\n1.3인치 컬러 전자잉크, 8.1mm, 30m 방수\n대신 충전기를 잊고 산다",
+   "body_hl": ["충전기를 잊고 산다"],
+   "sub": "Pebble Round 2 (Core Devices)\nrepebble.com · 2026.10 첫 출하",
+   "credit": "GSMArena"
+  }
+ ]
+}
