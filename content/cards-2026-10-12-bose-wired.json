@@ -1,0 +1,36 @@
+{
+ "topic": "Bose Noise Cancelling Wired Earbuds — 이어폰에서 배터리가 사라졌다, 보스가 11년 만에 유선 이어버드를 다시 꺼냈다, USB-C 연결 24bit 무손실 노이즈캔슬링 $99, 10/15 출하 시작 [한계붕괴형]",
+ "blog_teaser": "유선 이어폰 시장이 다시 커지는 이유랑 QC20 이후 보스가 뭘 바꿨는지는 블로그에 정리했습니다",
+ "threads_text": "이어폰에서 배터리가 사라졌다\n\n1. 보스가 2015년 QC20 이후 11년 만에 유선 이어버드를 다시 냈다\n2. USB-C 꽂으면 폰에서 전원을 가져와서 배터리가 없다 — 충전도 수명도 없다\n3. 노이즈캔슬링 4마이크 탑재, 24bit 무손실 지원\n4. 미국 유선 이어폰 매출이 2025년부터 반등 중이다 — Circana 실측 3% 성장\n5. $99, 10/15 출하. 국내 미출시 — 직구 시 약 14만원\n\n(출처: Bose 공식 보도자료, Circana 시장 보고서)",
+ "description": "Bose Noise Cancelling Wired Earbuds — 이어폰에서 배터리가 사라졌다.\n\n## 무엇인가\n\n보스가 2015년 QC20 단종 이후 11년 만에 내놓은 유선 이어버드다. USB-C로 폰에 꽂으면 폰에서 전원을 끌어와 배터리가 없다. 충전할 필요도, 배터리 수명 걱정도 없다.\n\n## 핵심 사양\n\n- 연결: USB-C (USB Audio Class 2)\n- 오디오: 24-bit/48kHz 무손실\n- ANC: QuietControl — 마이크 4개(이어버드당 2개), Quiet/Aware/Off 3모드\n- 케이블: 1.28m (4.2ft)\n- 방수: IPX4\n- 인라인 리모컨: 볼륨·재생·ANC 전환\n- 색상: 블랙·화이트 스모크·듀드롭 민트(한정)\n\n## 왜 지금 유선인가\n\n미국 유선 이어폰 시장이 반등 중이다. Circana 실측: 2024년 $42M 감소 후 2025년 3% 성장, 2026년 초 매출 20% 증가. 배터리 걱정 없는 유선이 Z세대 중심으로 다시 주목받고 있다.\n\n## 가격·구매\n\n- 미국: $99 / EU: €99.95\n- 출하: 10/15 시작\n- 국내: 미출시 — bose.co.kr 미등록, 쿠팡·네이버쇼핑 검색 결과 없음(2026-10-12 확인)\n- 직구: $99 + 배송 약 $10~15 = 약 14~15만원 (관세 면제 구간: $150 미만)\n- 국내 대안: USB-C ANC 유선 이어버드는 주요 브랜드 출시 없음\n- 출시 전망: 미정 — 보스 한국이 별도 발표하지 않음",
+ "caption": "이어폰에서 배터리가 사라졌다\n\n보스가 11년 만에 유선 이어버드를 다시 꺼냈다.\nUSB-C에 꽂으면 폰이 전원 — 충전도 수명도 없다.\n24bit 무손실 · 노이즈캔슬링 · IPX4.\n$99, 10/15 출하.\n\n(출처: Bose 공식 보도자료, Circana)\n\n#보스 #유선이어폰 #Bose #노이즈캔슬링 #USBC",
+ "factcheck": [
+   {"claim": "보스가 2015년 QC20 이후 11년 만에 유선 이어버드 출시", "sources": ["https://www.bose.com/pressroom/bose-unveils-new-noise-cancelling-wired-earbuds", "https://www.ecoustics.com/products/bose-noise-cancelling-wired-earbuds-2026/"], "note": "QC20은 2013년 발표, 2015년 업데이트, 2022년 단종. 11년은 마지막 신규 설계(2015) 기준. Bose 보도자료 + ecoustics 교차 확인"},
+   {"claim": "USB-C, 24-bit/48kHz 무손실, 배터리 없음, 폰에서 전원 공급", "sources": ["https://www.bose.com/pressroom/bose-unveils-new-noise-cancelling-wired-earbuds", "https://audioxpress.com/news/bose-unveils-usb-c-powered-noise-cancelling-wired-earbuds"], "note": "Bose 보도자료 1차 확인 + AudioXpress 교차"},
+   {"claim": "ANC 4마이크(이어버드당 2개), IPX4, 케이블 1.28m", "sources": ["https://www.bose.com/pressroom/bose-unveils-new-noise-cancelling-wired-earbuds", "https://www.whathifi.com/headphones/wired-earbuds/boses-new-noise-cancelling-wired-earbuds-aim-to-set-a-new-standard-for-what-wired-earbuds-can-be"], "note": "Bose 보도자료 + What Hi-Fi 교차"},
+   {"claim": "$99, 10/15 출하 시작", "sources": ["https://www.bose.com/pressroom/bose-unveils-new-noise-cancelling-wired-earbuds", "https://tech.yahoo.com/audio/articles/bose-launches-wired-earbuds-usb-060344295.html"], "note": "Bose 보도자료 + CNET(Yahoo Tech) 교차"},
+   {"claim": "미국 유선 이어폰 2025년 3% 매출 성장(Circana)", "sources": ["https://www.circana.com/post/wired-headphones-growth-is-a-throwback-to-2016", "https://trendandticker.com/technology/wired-earbuds-comeback-sales-gen-z-bose-circana"], "note": "Circana 공식 보고서(1차 자료) + Trend and Ticker 교차"},
+   {"claim": "국내 미출시 — bose.co.kr·쿠팡·네이버쇼핑 확인", "sources": ["https://www.bose.co.kr/"], "note": "2026-10-12 직접 확인: 보스 한국 공식몰에 해당 제품 미등록"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/bose_wired_1.jpg",
+   "title": "이어폰에서\n배터리가 사라졌다",
+   "title_hl": ["배터리가 사라졌다"],
+   "body": "보스가 11년 만에 유선을 다시 꺼냈다",
+   "body_hl": ["11년 만에"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/bose_wired_2.jpg",
+   "title": "USB-C에 꽂으면\n폰이 전원이다",
+   "title_hl": ["폰이 전원이다"],
+   "body": "24bit 무손실 · 노이즈캔슬링 4마이크\nIPX4 방수 · 인라인 리모컨\n충전도 수명도 없다",
+   "body_hl": ["충전도 수명도 없다"],
+   "sub": "Bose Noise Cancelling Wired Earbuds\n$99 (약 14만원) · 10/15 출하",
+   "credit": "Pexels"
+  }
+ ]
+}
