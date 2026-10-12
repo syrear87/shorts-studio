@@ -1,0 +1,36 @@
+{
+ "topic": "Qi2 무선충전 표준 — 무선충전 자석이 아이폰 전용이 아니게 됐다, 애플이 MagSafe를 개방해 Qi2 표준이 됐다, 갤럭시·픽셀도 자석 무선충전이 된다, 충전기 하나로 다 된다 [공유형]",
+ "blog_teaser": "Qi2가 어떻게 탄생했는지, MagSafe와 뭐가 다른지, 어떤 충전기를 사야 하는지는 블로그에 정리했습니다",
+ "threads_text": "무선충전 자석, 아이폰 전용이 끝났다\n\n1. 2020년 아이폰 12에 자석 무선충전(MagSafe)이 처음 나왔다\n2. 올려놓기만 하면 정확히 붙어서 충전 효율이 10~20%p 높았다\n3. 근데 4년간 아이폰만 됐다 — 갤럭시는 자석이 없었다\n4. 2023년 애플이 이 기술을 개방했다 — Qi2 표준이 됐다\n5. 지금 갤럭시는 자석 케이스 끼우면 되고, 픽셀 10은 자석이 내장이다\n6. Qi2 충전기 하나면 아이폰도 갤럭시도 같이 쓴다 — 국내 2만원대부터\n\n(출처: WPC 공식, Anker, Android Central)",
+ "description": "Qi2 무선충전 표준 — 무선충전 자석이 아이폰 전용이 아니게 됐다.\n\n## 무엇인가\n\nQi2는 WPC(Wireless Power Consortium)가 2023년 CES에서 발표한 차세대 무선충전 표준이다. 핵심은 자석 정렬(Magnetic Power Profile) — 아이폰 MagSafe처럼 충전기와 폰이 자석으로 딱 붙어서 충전 효율이 올라간다. 애플이 MagSafe 기술을 WPC에 기여해 개방형 표준이 됐다.\n\n## 왜 중요한가\n\n- MagSafe 자석 충전은 2020년부터 4년간 아이폰 전용이었다\n- Qi2로 개방되면서 안드로이드도 자석 무선충전이 가능해졌다\n- Qi2 = 15W, Qi2.2(2025년 발표) = 최대 25W\n- 충전기 하나로 아이폰·갤럭시·픽셀 모두 충전 가능\n\n## 기기별 현황\n\n- 아이폰 12 이상: MagSafe = Qi2 호환, 그대로 된다\n- 픽셀 10/10 Pro: 자석 내장(Pixelsnap), 네이티브 Qi2 지원\n- 갤럭시 S25/Z Fold7: Qi2 Ready — 자석 케이스 장착 시 사용 가능\n\n## 국내 구매\n\n- Qi2 충전기: 쿠팡·다나와 기준 2~9만원대\n- 대표 제품: Anker MagGo(3~5만원), Belkin Qi2(5~8만원)\n- 갤럭시용 Qi2 자석 케이스: 2~4만원대",
+ "caption": "무선충전 자석, 아이폰 전용이 끝났다\n\n애플이 MagSafe를 개방해서 Qi2 표준이 됐다.\n갤럭시도 픽셀도 자석 무선충전이 된다.\n충전기 하나로 다 된다 — 국내 2만원대부터.\n\n(출처: WPC, Anker, Android Central)\n\n#Qi2 #무선충전 #MagSafe #갤럭시 #아이폰",
+ "factcheck": [
+   {"claim": "2020년 아이폰 12에 MagSafe 자석 무선충전 최초 탑재", "sources": ["https://support.apple.com/en-us/111781", "https://www.theverge.com/2020/10/13/21515073/apple-iphone-12-magsafe-magnetic-charger-cases-accessories"], "note": "Apple 공식 지원 문서 + The Verge 발표 기사 교차 확인"},
+   {"claim": "2023년 CES에서 WPC가 Qi2 발표, 애플이 MagSafe 기술 기여", "sources": ["https://www.wirelesspowerconsortium.com/qi2/", "https://arstechnica.com/gadgets/2023/01/qi2-wireless-charging-standard-brings-apples-magsafe-magnets-to-android/"], "note": "WPC 공식 페이지(1차) + Ars Technica 교차"},
+   {"claim": "Qi2 = 15W, Qi2.2 = 최대 25W", "sources": ["https://www.wirelesspowerconsortium.com/qi2/", "https://www.androidcentral.com/accessories/chargers/qi2-2-what-you-need-to-know"], "note": "WPC 공식 + Android Central 교차"},
+   {"claim": "픽셀 10 자석 내장(Pixelsnap), 네이티브 Qi2", "sources": ["https://store.google.com/us/product/pixel_10", "https://www.theverge.com/news/666908/google-pixel-10-review"], "note": "Google Store 공식 스펙 + The Verge 리뷰 교차"},
+   {"claim": "갤럭시 S25/Z Fold7은 Qi2 Ready — 자석 케이스 필요", "sources": ["https://news.samsung.com/global/galaxy-s25", "https://www.androidcentral.com/phones/samsung-galaxy-s25-qi2-support"], "note": "삼성 뉴스룸 + Android Central 교차"},
+   {"claim": "국내 Qi2 충전기 2~9만원대(쿠팡·다나와)", "sources": ["https://www.coupang.com/", "https://www.danawa.com/"], "note": "2026-10-12 직접 검색 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/qi2_wireless_1.jpg",
+   "title": "무선충전 '자석'\n아이폰 전용이 끝났다",
+   "title_hl": ["아이폰 전용이 끝났다"],
+   "body": "애플이 4년간 독점하던 기술을 개방했다",
+   "body_hl": ["4년간 독점"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/qi2_wireless_2.jpg",
+   "title": "충전기 하나로\n아이폰도 갤럭시도 된다",
+   "title_hl": ["아이폰도 갤럭시도"],
+   "body": "Qi2 표준 — 15W 자석 무선충전\n픽셀 10은 자석 내장, 갤럭시는 자석 케이스\n국내 2만원대부터",
+   "body_hl": ["2만원대부터"],
+   "sub": "Qi2 무선충전 표준\nWPC 공식 · 2023 CES 발표",
+   "credit": "Pexels"
+  }
+ ]
+}
