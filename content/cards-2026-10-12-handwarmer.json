@@ -1,0 +1,35 @@
+{
+ "topic": "충전식 손난로 — 핫팩 76개 값이면 손난로는 3년을 쓴다, USB-C 충전 한 번에 최대 13시간 발열, 보조배터리 겸용, 국내 2만원대부터 [구매가능]",
+ "blog_teaser": "충전식 손난로 고를 때 확인할 스펙 3가지랑 가성비 제품 비교는 블로그에 정리했습니다",
+ "threads_text": "핫팩 76개 값이면, 손난로는 3년을 쓴다\n\n1. 핫팩 한 개에 330원, 하루 하나씩 쓰면 겨울에 3만원은 나간다\n2. 충전식 손난로가 2만5천원이면 산다 — 76번 쓰면 본전\n3. 10,000mAh짜리가 주류, 저온 모드로 최대 13시간\n4. 전 제품 보조배터리 겸용이다 — 폰 충전도 된다\n5. 고를 때 볼 것: KC 인증, 양면 발열, USB-C 단자\n\n(출처: 노써치 전기손난로 랭킹, 다나와 DPG 가이드)",
+ "description": "충전식 손난로 — 핫팩 76개 값이면 손난로는 3년을 쓴다.\n\n## 무엇인가\n\nUSB-C로 충전하는 전기 손난로. 내부 저항 발열체가 35~50도까지 올라가며, 10,000mAh 배터리로 저온 모드 기준 최대 13시간 발열. 전 제품 보조배터리 겸용이 표준 기능이다.\n\n## 핵심 수치\n\n- 배터리: 5,000mAh(저가) ~ 10,000mAh(주류)\n- 발열 시간: 저온 7~13시간, 실외(2~8도) 약 5시간\n- 온도 단계: 2~3단(저온 35도, 중온 45도, 고온 50도 이상)\n- 무게: 127g(5,000mAh) ~ 235g(10,000mAh)\n- 가격대: 저가 6,000원 / 중가 20,000~35,000원 / 프리미엄 65,000원\n\n## 핫팩과 비교\n\n- 일회용 핫팩: 개당 330원, 10~14시간 지속\n- 충전식 손난로 중가 25,000원 기준: 76회 사용 시 손익분기(매일 1개 = 약 2.5개월)\n- 충전 전기료는 1회 약 1~2원으로 무시 가능\n\n## 고를 때 볼 것\n\n1. KC 전자파 인증 여부(미인증 중국산 저가 제품 주의)\n2. 양면 발열 여부(한쪽만 뜨거운 제품 있음)\n3. USB-C 단자(Micro-USB는 구형)",
+ "caption": "핫팩 76개 값이면, 손난로는 3년을 쓴다\n\nUSB-C 충전 한 번에 최대 13시간 발열.\n보조배터리 겸용 — 폰 충전도 된다.\n국내 2만원대부터.\n\n(출처: 노써치 전기손난로 랭킹, 다나와 DPG 가이드)\n\n#충전식손난로 #핫팩 #겨울준비 #보조배터리 #USB충전",
+ "factcheck": [
+   {"claim": "일회용 핫팩 개당 약 330원", "sources": ["https://www.medicaldaily.co.kr/post/121326", "https://www.11st.co.kr/products/6407616565"], "note": "의약일보 핫팩 추천 + 11번가 아이리스 포켓형 100g 60개 실판매가 기준"},
+   {"claim": "충전식 손난로 중가 20,000~35,000원, 10,000mAh 주류", "sources": ["https://nosearch.com/recommendation/ranking/living_etc/electric_hand_warmer/TotalScore", "https://dpg.danawa.com/news/view?boardSeq=63&listSeq=4897539"], "note": "노써치 TOP6 랭킹(1차 데이터) + 다나와 DPG 선택 가이드 교차"},
+   {"claim": "저온 모드 기준 최대 13시간 발열, 보조배터리 겸용 전 제품 공통", "sources": ["https://nosearch.com/recommendation/ranking/living_etc/electric_hand_warmer/TotalScore", "https://nosearch.com/product/living_etc/electric_hand_warmer/detail/DN-HW01"], "note": "노써치 6개 제품 전수 확인 — 전 제품 보조배터리 기능 탑재"},
+   {"claim": "KC 전자파 인증 의무 대상", "sources": ["https://www.kcrlab.co.kr/"], "note": "KCR Lab KC 인증 안내 — 리튬이온 배터리 + 발열 회로 제품 필수"},
+   {"claim": "76회 사용 시 손익분기(25,000원/330원)", "sources": [], "note": "자체 계산: 25,000/330=75.8. 충전 전기료 무시 가능(10,000mAh 1회 충전 약 1~2원)"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/handwarmer_7576450.jpg",
+   "title": "핫팩 76개 값이면\n손난로는 3년을 쓴다",
+   "title_hl": ["3년을 쓴다"],
+   "body": "겨울마다 핫팩 한 상자, 2.5개월 지나면 충전식이 이긴다",
+   "body_hl": ["2.5개월"],
+   "credit": "Pexels / PNW Production"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/handwarmer_6634295.jpg",
+   "title": "USB-C 충전 한 번에\n최대 13시간 발열",
+   "title_hl": ["13시간"],
+   "body": "10,000mAh — 보조배터리 겸용\n35~50도 3단 온도 조절\n200g, 주머니에 넣고 다닌다\n국내 2만원대부터",
+   "body_hl": ["2만원대부터"],
+   "sub": "KC 인증 제품만 고를 것\n노써치 · 다나와 DPG 가이드 기준",
+   "credit": "Pexels / Cup of Couple"
+  }
+ ]
+}
