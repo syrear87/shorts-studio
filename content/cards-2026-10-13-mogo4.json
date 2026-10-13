@@ -1,0 +1,35 @@
+{
+ "topic": "XGIMI MoGo 4 배터리 내장 미니 프로젝터 — 프로젝터에서 콘센트가 사라졌다, 1.3kg 본체에 배터리 내장 2.5시간 영상 재생, FHD 450 ISO lm Harman Kardon 스피커, Google TV 넷플릭스 유튜브 내장, 국내 699,000원 [공유형]",
+ "blog_teaser": "MoGo 4와 Nebula Capsule 3 비교, 배터리 내장 프로젝터 고를 때 확인할 것은 블로그에 정리했습니다",
+ "threads_text": "프로젝터에서 콘센트가 사라졌다\n\n1. XGIMI가 MoGo 4를 냈다 — 본체 안에 배터리가 들어있다\n2. 영상 2.5시간, 음악만 틀면 6시간. 캠핑장에서 콘센트 없이 영화 한 편은 된다\n3. 1.3kg에 208mm 높이 — 500ml 보온병이랑 비슷하다\n4. Google TV 내장이라 넷플릭스·유튜브 켜면 바로 나온다. 리모컨 하나로 끝\n5. 국내 699,000원. 100인치 TV 살 돈이면 이걸 7대 산다\n\n(출처: XGIMI 공식, ProjectorCentral 리뷰)",
+ "description": "XGIMI MoGo 4 배터리 내장 미니 프로젝터.\n\n## 무엇인가\n\nXGIMI MoGo 4는 본체에 배터리를 내장한 FHD 미니 프로젝터다. 이전 세대(MoGo 2 Pro·MoGo 3 Pro)에서 제거했던 내장 배터리를 다시 넣었다.\n\n## 핵심 사양\n\n- 해상도: 1920x1080 (네이티브 FHD)\n- 밝기: 450 ISO Lumens\n- 배터리: 내장 — 영상 2.5시간(에코 모드) / 음악 6시간\n- 크기: 208 x 97 x 97mm\n- 무게: 1.32kg\n- OS: Google TV (넷플릭스·유튜브 네이티브)\n- 스피커: Harman Kardon 6W x 2\n- 키스톤 보정: 자동\n\n## 가격·구매\n\n- 미국 공식가: $499\n- 국내 공식가: 699,000원 (정가 899,000원)\n- 쿠팡: 664,000~699,000원 (2026-10-13 확인)\n- 경쟁 제품: Nebula Capsule 3 $529 / Nebula Mars 3 Air $599",
+ "caption": "프로젝터에서 콘센트가 사라졌다\n\nXGIMI MoGo 4.\n1.3kg 본체 안에 배터리가 들어있다.\n영상 2.5시간 — 캠핑장에서 영화 한 편은 된다.\nFHD · Harman Kardon 스피커 · Google TV 내장.\n국내 699,000원.\n\n(출처: XGIMI 공식, ProjectorCentral)\n\n#프로젝터 #미니프로젝터 #XGIMI #MoGo4 #캠핑",
+ "factcheck": [
+   {"claim": "MoGo 4는 배터리 내장, 영상 2.5시간(에코 모드), 음악 6시간", "sources": ["https://us.xgimi.com/products/mogo-4", "https://www.projectorcentral.com/xgimi-mogo-4-1080p-smart-portable-projector-review.htm"], "note": "XGIMI 공식 + ProjectorCentral 리뷰 교차 확인"},
+   {"claim": "해상도 1920x1080, 밝기 450 ISO Lumens, 무게 1.32kg, 크기 208x97x97mm", "sources": ["https://us.xgimi.com/products/mogo-4", "https://www.projectorcentral.com/xgimi-mogo-4-1080p-smart-portable-projector-review.htm"], "note": "XGIMI 공식 스펙 + ProjectorCentral 실측(404 ISO lm, 공식은 450 표기)"},
+   {"claim": "Google TV 내장 넷플릭스·유튜브 네이티브 지원, Harman Kardon 6Wx2", "sources": ["https://us.xgimi.com/products/mogo-4", "https://uk.xgimi.com/blogs/buying-guide/mogo-4-vs-mogo-3-pro-vs-mogo-2-pro"], "note": "XGIMI 공식 + 세대 비교 가이드 교차"},
+   {"claim": "국내 공식가 699,000원, 미국 $499", "sources": ["https://kr.xgimi.com/products/mogo-4", "https://us.xgimi.com/products/mogo-4"], "note": "XGIMI 한국·미국 공식 스토어 직접 확인 2026-10-13"},
+   {"claim": "MoGo 2 Pro·3 Pro에는 배터리 미내장 — MoGo 4에서 재도입", "sources": ["https://uk.xgimi.com/blogs/buying-guide/mogo-4-vs-mogo-3-pro-vs-mogo-2-pro", "https://www.androidpolice.com/xgimi-mogo-3-pro-review/"], "note": "XGIMI 공식 비교 가이드 + AndroidPolice 리뷰(3 Pro 배터리 없음 확인)"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/xgimi_mogo4_1.webp",
+   "title": "프로젝터에서\n콘센트가 사라졌다",
+   "title_hl": ["콘센트가 사라졌다"],
+   "body": "1.3kg 안에 배터리가 들어있다",
+   "body_hl": ["배터리가 들어있다"],
+   "credit": "XGIMI"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/xgimi_mogo4_camping.jpg",
+   "title": "캠핑장에서 영화 한 편,\n콘센트 없이",
+   "title_hl": ["콘센트 없이"],
+   "body": "FHD · 450 ISO lm · Harman Kardon\n배터리 2.5시간(영상) · Google TV 넷플릭스·유튜브\n자동 키스톤 · 1.32kg · 208mm 높이",
+   "body_hl": ["배터리 2.5시간", "Google TV"],
+   "sub": "XGIMI MoGo 4\n국내 699,000원 · 쿠팡 판매 중",
+   "credit": "XGIMI"
+  }
+ ]
+}
