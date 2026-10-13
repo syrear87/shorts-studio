@@ -1,0 +1,35 @@
+{
+ "topic": "Apple TV 4K (4세대) — 애플 TV가 4년째 같은 칩이었다, 오늘 A19로 4세대를 건너뛰었다, 메모리 4GB→8GB, Apple Intelligence, Wi-Fi 7, $199 [공유형]",
+ "blog_teaser": "A15에서 A19까지 무엇이 바뀌었는지, 기존 모델에서 갈아탈 이유가 있는지는 블로그에 정리했습니다",
+ "threads_text": "애플 TV가 4년 만에 바뀌었다 — 달라진 건 전부 안쪽이다\n\n1. 2022년부터 A15 칩 그대로였다. 오늘 A19로 바뀌었다\n2. 메모리 4GB에서 8GB로. Apple Intelligence가 올라간다\n3. Wi-Fi 7, 블루투스 6.0도 들어갔다\n4. 겉은 그대로다. 바뀐 건 전부 안쪽\n5. $199(약 27만원), 사전주문 오늘, 출하 10/30 예정\n\n(출처: MacRumors, 9to5Mac, AppleInsider)",
+ "description": "Apple TV 4K (4세대) — 애플 TV가 4년째 같은 칩이었다, 오늘 A19로 4세대를 건너뛰었다.\n\n## 무엇인가\n\n2022년 11월 이후 한 번도 업데이트되지 않았던 Apple TV 4K가 약 4년 만에 세대 교체됐다. 칩이 A15 Bionic에서 A19로 4세대를 건너뛰었고, 메모리는 4GB에서 8GB로 두 배가 됐다. Apple Intelligence가 탑재돼 시리가 대화형으로 동작하고, Wi-Fi 7을 지원한다. 외형은 2022년 모델과 동일하다.\n\n## 핵심 사양\n\n- 칩: A19 (기존 A15 Bionic → 4세대 업그레이드)\n- 메모리: 8GB (기존 4GB → 2배)\n- Apple Intelligence: 대화형 시리, 스마트 답장, 콘텐츠 추천\n- Wi-Fi: Wi-Fi 7 (기존 Wi-Fi 6)\n- 블루투스: 6.0 (기존 5.0)\n- 디자인: 기존과 동일\n- 시리 리모컨: 소폭 개선 (나의 찾기 기능 가능성)\n\n## 기존 모델과 달라진 점\n\n넣은 것: A19 칩 · Apple Intelligence · Wi-Fi 7 · 블루투스 6.0 · 메모리 2배\n그대로인 것: 외형 디자인 · HDMI 2.1 · USB-C 충전 리모컨\n\n## 가격·구매\n\n- 미국: $199 (예상, 기존과 동일)\n- 한국: 미정 — 기존 모델 Wi-Fi ₩359,000\n- 사전주문: 10월 13일\n- 출하: 10월 30일 예정",
+ "caption": "애플 TV가 4년 만에 바뀌었다 — 달라진 건 전부 안쪽이다\n\nApple TV 4K (4세대).\n2022년 A15 Bionic에서 A19로.\n메모리 4GB에서 8GB, Apple Intelligence 탑재.\nWi-Fi 7 · 블루투스 6.0.\n겉은 그대로, 바뀐 건 전부 안쪽.\n$199(약 27만원), 사전주문 10/13, 출하 10/30 예정.\n\n(출처: MacRumors, 9to5Mac, AppleInsider)\n\n#애플TV #AppleTV4K #애플인텔리전스 #스트리밍",
+ "factcheck": [
+   {"claim": "이전 모델은 2022년 11월 출시, A15 Bionic 칩, 4GB RAM", "sources": ["https://www.macrumors.com/2026/10/10/new-apple-tv-4k-is-coming-tuesday/", "https://everymac.com/systems/apple/apple-tv/specs/apple-tv-4k-3rd-gen-a15-2022-a2843-wifi-ethernet-thread-specs.html"], "note": "MacRumors + EveryMac 스펙 시트 교차 확인"},
+   {"claim": "신형 칩은 A19, 메모리 8GB", "sources": ["https://www.macrumors.com/2026/10/11/apple-tv-4k-a19-chip-easier-to-find-remote/", "https://9to5mac.com/2026/10/12/new-apple-tv-4k-launching-this-week-with-five-big-upgrades/"], "note": "MacRumors + 9to5Mac 교차. 12GB 상위 모델 가능성도 보도됨"},
+   {"claim": "Apple Intelligence 탑재, tvOS 26 코드에서 시리 AI 확인", "sources": ["https://appleinsider.com/articles/26/10/05/siri-ai-smart-replies-coming-to-the-apple-tv-tvos-272-code-suggests", "https://www.macrumors.com/guide/2025-apple-tv/"], "note": "AppleInsider + MacRumors 교차. tvOS 26 베타 코드에서 Siri AI, Smart Replies 참조 확인"},
+   {"claim": "Wi-Fi 7 지원, 블루투스 6.0", "sources": ["https://9to5mac.com/2026/10/05/new-apple-tv-4k-launches-next-week-with-two-major-upgrades/", "https://www.geeky-gadgets.com/new-apple-tv-4k-specs-leak/"], "note": "9to5Mac + Geeky Gadgets 교차. N1 무선 칩 탑재"},
+   {"claim": "미국 가격 $199 예상, 사전주문 10/13, 출하 10/30", "sources": ["https://9to5mac.com/2026/08/13/new-apple-tv-4k-2026-release-date-features-price/", "https://www.t3.com/tech/tvs/new-apple-tv-4k-pre-orders-open-13-october"], "note": "9to5Mac + T3 교차. 공식 확인 전 예상가"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/appletv4k_hero.jpg",
+   "title": "애플 TV가\n4년 만에 바뀌었다",
+   "title_hl": ["4년 만에 바뀌었다"],
+   "body": "A15에서 A19로 — 달라진 건 전부 안쪽이다",
+   "body_hl": ["A15에서 A19로"],
+   "credit": "Apple"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/appletv4k_top.jpg",
+   "title": "달라진 건\n전부 안쪽이다",
+   "title_hl": ["안쪽이다"],
+   "body": "A15 → A19 · 메모리 4GB → 8GB\nApple Intelligence · Wi-Fi 7\n디자인은 2022년과 동일",
+   "body_hl": ["A15 → A19", "Apple Intelligence"],
+   "sub": "Apple TV 4K (4세대)\n$199(약 27만원) · 사전주문 오늘 · 출하 10/30",
+   "credit": "Apple"
+  }
+ ]
+}
