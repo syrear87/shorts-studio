@@ -1,0 +1,34 @@
+{
+ "topic": "Ring Smart Lock — 도어락 배터리가 죽어도 손잡이 서너 번 돌리면 열린다, 아마존 Ring 첫 스마트 도어락에 소형 발전기 내장, 지문·키패드·앱·Alexa 4중 해잠, $249 2027 Q1 미국 출시 [한계붕괴형]",
+ "blog_teaser": "한국 도어락의 9V 비상 단자와 Ring 파워다이얼 비교는 블로그에 정리했습니다",
+ "threads_text": "도어락에 발전기가 처음 들어갔다\n\n1. 아마존 Ring이 첫 스마트 도어락을 냈다 — 열쇠 구멍이 없다\n2. 대신 아래쪽 다이얼을 서너 번 돌리면 소형 모터가 전기를 만든다\n3. 슈퍼커패시터에 약 3V가 쌓이고, 30초 동안 잠금이 풀린다\n4. 한국 도어락은 9V 건전지를 밖에서 갖다 대야 하는데, 이건 손만 있으면 된다\n5. $249(약 33만원), 2027년 초 미국 출시 예정\n\n(출처: TechCrunch, HowToGeek, Ring 공식 발표)",
+ "description": "Ring Smart Lock — 도어락 배터리가 죽어도 손잡이 서너 번 돌리면 열린다.\n\n## 무엇인가\n\n아마존 Ring이 첫 스마트 도어락을 발표했다. 열쇠 구멍을 없앤 대신, 아래쪽에 달린 다이얼(Power Dial)을 서너 번 돌리면 소형 모터가 전기를 만들어 잠금을 해제한다. 배터리가 완전히 방전돼도 손만 있으면 집에 들어갈 수 있다.\n\n## 핵심 사양\n\n- 비상 전원: Power Dial — 서너 번 회전 → 소형 모터+슈퍼커패시터로 약 3V 생성 → 약 30초 작동\n- 해잠 방식: 지문 인식 · 터치 키패드 · Ring 앱 · Alexa 음성\n- 배터리: 충전식, 약 1년 지속\n- 연결: Amazon Sidewalk (저전력 메시 네트워크)\n- 기능: 시간 제한 출입코드 부여, 원격 잠금 상태 확인\n- 설치: 표준 싱글실린더 데드볼트 교체형, 추가 배선 불필요\n- 색상: 블랙 · 실버 · 브라스\n- 가격: $249 (약 33만원)\n\n## 한국과의 비교\n\n한국 스마트 도어락 배터리 방전 시 대처법:\n- 9V 건전지를 외부 비상전원 단자에 대기 → 가지고 있어야 한다\n- 기계식 비상키 → 가지고 다녀야 한다\n- USB-C 비상전원 모델(일부) → 보조배터리 필요\n\nRing은 아무것도 필요 없다. 문 앞에서 다이얼만 돌리면 된다.\n자가발전 기능이 내장된 스마트 도어락은 시장에서 처음이다.\n\n## 가격·구매\n\n- $249 (약 33만원)\n- 2027년 Q1 미국 출시 예정, FCC 승인 대기 중\n- 국내: 미출시 — Ring(아마존)은 한국 시장 직접 진출 이력 없음. 국내 출시 미정.\n- 국내 대안: 자가발전 기능 도어락 없음. 삼성 SHP 시리즈·게이트맨 등은 9V 비상 단자 방식.",
+ "caption": "도어락에 발전기가 처음 들어갔다\n\nRing Smart Lock — 아마존 Ring의 첫 스마트 도어락.\n열쇠 구멍 없음. 지문·키패드·앱·Alexa로 연다.\n배터리가 죽으면? 아래 다이얼을 돌린다.\n소형 발전기가 전기를 만들어 30초 안에 열린다.\n$249(약 33만원), 2027년 초 미국 출시.\n\n(출처: TechCrunch, HowToGeek, Ring 공식 발표)\n\n#도어락 #스마트도어락 #Ring #스마트홈 #아마존",
+ "factcheck": [
+   {"claim": "Ring 첫 스마트 도어락, $249, 지문·키패드·앱·Alexa 4중 해잠", "sources": ["https://techcrunch.com/2026/10/07/rings-first-smart-lock-can-be-hand-cranked-when-its-battery-dies/", "https://www.howtogeek.com/ring-smart-lock-with-hand-crank/", "https://finance.biggo.com/news/02ba307a-3c94-49a4-88d1-b7af452fc00b"], "note": "TechCrunch + HowToGeek + BigGo Finance 3개 매체 교차 확인"},
+   {"claim": "Power Dial 서너 번 회전으로 약 3V 생성, 약 30초 작동, 소형 모터+슈퍼커패시터 구조", "sources": ["https://finance.biggo.com/news/02ba307a-3c94-49a4-88d1-b7af452fc00b", "https://www.itechpost.com/articles/237527/20261009/ring-smart-lock-adds-hand-crank-battery-backup-smart-features-prevent-lockouts.htm"], "note": "BigGo 'roughly three volts via small motor and supercapacitor, about 30 seconds' + iTechPost 교차"},
+   {"claim": "배터리 약 1년, Amazon Sidewalk 연결, 2027 Q1 미국 출시 FCC 승인 대기", "sources": ["https://techcrunch.com/2026/10/07/rings-first-smart-lock-can-be-hand-cranked-when-its-battery-dies/", "https://news.ssbcrack.com/ring-smart-lock-249-keyless-power-dial-sidewalk-early-2027/"], "note": "TechCrunch + SSBCrack 교차"},
+   {"claim": "한국 스마트 도어락은 9V 비상 단자가 표준, 자가발전 기능 내장 도어락은 없음", "sources": ["https://barbatos.kr/%ED%98%84%EA%B4%80%EB%AC%B8-%EB%8F%84%EC%96%B4%EB%9D%BD-%EB%B0%B0%ED%84%B0%EB%A6%AC-%EB%B0%A9%EC%A0%84%EB%90%90%EC%9D%84-%EB%95%8C-%EC%97%AC%EB%8A%94-%EB%B0%A9%EB%B2%95-%EC%9D%91%EA%B8%89-%EB%8C%80/", "https://bentories.com/%EB%8F%84%EC%96%B4%EB%9D%BD-%EA%B1%B4%EC%A0%84%EC%A7%80-%EB%B0%A9%EC%A0%84-%EB%AC%B8%EC%A0%9C%EC%9D%98-%ED%95%B4%EA%B2%B0%EC%B1%85%EA%B3%BC-%EB%B9%84%EC%83%81-%EC%A0%84%EC%9B%90-%EA%B3%B5%EA%B8%89-%EB%B0%A9%EB%B2%95/"], "note": "지비 블로그 + bentory 교차 — 한국 도어락 비상전원은 9V 외부 단자·기계식 비상키·USB-C(일부), 자가발전 사례 없음"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/ring_smart_lock_hero.jpg",
+   "title": "도어락에 발전기가\n처음 들어갔다",
+   "title_hl": ["처음 들어갔다"],
+   "body": "배터리가 죽어도 손잡이 서너 번이면 열린다",
+   "body_hl": ["서너 번이면 열린다"],
+   "credit": "Ring / Amazon"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/ring_smart_lock_colors.jpg",
+   "title": "9V 건전지도, 열쇠도 필요 없다",
+   "title_hl": ["필요 없다"],
+   "body": "Power Dial 서너 번 회전 → 30초 작동\n지문·키패드·앱·Alexa 4중 해잠\n배터리 1년 · Amazon Sidewalk",
+   "body_hl": ["Power Dial", "30초 작동"],
+   "sub": "Ring Smart Lock · $249(약 33만원)\n2027년 초 미국 출시 · 국내 출시 미정",
+   "credit": "Ring / Amazon"
+  }
+ ]
+}
