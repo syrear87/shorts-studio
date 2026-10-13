@@ -1,0 +1,35 @@
+{
+ "topic": "Casio G-Shock MUDMAN GDG-B100 — G-Shock 머드맨 화면이 30년 만에 바뀌었다, MIP 디스플레이로 가민처럼 선명해졌다, 배터리 2년, 10월 일본 출시 ¥38,500 [소유욕형]",
+ "blog_teaser": "머드맨 역대 모델 비교와 MIP 디스플레이가 뭔지는 블로그에 정리했습니다",
+ "threads_text": "G-Shock이 30년 만에 화면을 바꿨다\n\n1. 카시오가 머드맨 GDG-B100을 냈다 — MIP 디스플레이가 처음 들어갔다\n2. MIP는 가민이 쓰는 그 화면이다. 햇빛에서도 선명하고 전력을 거의 안 먹는다\n3. 밤에는 빨간 백라이트가 켜진다 — 야간 시력 보존용이다\n4. 배터리가 CR2032 코인셀이라 약 2년 간다\n5. 걸음 수·거리·페이스까지 센다. 블루투스 알림도 온다\n6. ¥38,500(약 35만원), 10월 일본 출시\n\n(출처: Casio 공식, G-Central, Gizmochina)",
+ "description": "Casio G-Shock MUDMAN GDG-B100 — G-Shock 머드맨 화면이 30년 만에 바뀌었다.\n\n## 무엇인가\n\n카시오가 G-Shock MUDMAN 라인에 처음으로 MIP(Memory-In-Pixel) 디스플레이를 넣었다. 가민 스마트워치에 쓰이는 것과 같은 기술이다. 햇빛 아래서도 선명하고, 보는 각도가 달라져도 읽힌다.\n\n## 핵심 사양\n\n- 디스플레이: MIP LCD (고대비, 가민과 동일 기술)\n- 백라이트: 레드 LED (야간 시력 보존용, 1.5초/3초 선택)\n- 센서: 가속도계 (걸음 수·거리·페이스·칼로리)\n- 연결: 블루투스 (스마트폰 알림·시간 동기화)\n- 진동: 알람·알림용 바이브레이션\n- 배터리: CR2032 (약 2년)\n- 방수: 200m\n- 내구성: 머드·더스트 레지스턴트, 카본파이버 강화 수지 케이스, 범퍼가드 구조\n- 크기: 63.6 x 49.6 x 16.2mm\n- 무게: 66g\n- 컬러: 블랙(1) · 올리브+오렌지(1A3) · 샌드+블랙(1A5)\n\n## 이전 머드맨과 달라진 점\n\n넣은 것: MIP 디스플레이 · 피트니스 트래킹 · 블루투스 · 진동 알림 · 레드 백라이트\n뺀 것: 터프솔라(태양광 충전) · 고도·기압·온도 센서\n\n## 가격·구매\n\n- 일본: ¥38,500 (약 35만원)\n- 영국: £200\n- 미국: ~$265 (예상)\n- 국내: 미출시 확인 — 쿠팡·네이버쇼핑 GDG-B100 검색 결과 없음(2026-10-13 확인). Casio Korea 사이트에도 미등록.",
+ "caption": "G-Shock이 30년 만에 화면을 바꿨다\n\nCasio G-Shock MUDMAN GDG-B100.\n가민이 쓰는 MIP 디스플레이가 처음 들어갔다.\n햇빛에서 선명하고 배터리는 2년.\n걸음 수·페이스·블루투스 알림까지.\n¥38,500(약 35만원), 10월 일본 출시.\n\n(출처: Casio 공식, G-Central, Gizmochina)\n\n#지샥 #GSHOCK #머드맨 #MUDMAN #카시오",
+ "factcheck": [
+   {"claim": "GDG-B100은 최초의 MIP 디스플레이 탑재 머드맨이다", "sources": ["https://www.g-central.com/specs/g-shock-gdg-b100/", "https://www.gizmochina.com/2026/10/04/casio-mudman-gdg-b100-watches-launched-specs-price/"], "note": "G-Central(G-Shock 전문 팬사이트) + Gizmochina 교차 — 'first Mudman with MIP display' 명시"},
+   {"claim": "MIP LCD는 가민 스마트워치와 동일 기술이다", "sources": ["https://www.techradar.com/health-fitness/exercise-equipment/casio-redesigns-an-iconic-g-shock-model-with-garmin-style-screen-tech", "https://www.t3.com/active/fitness-trackers/casio-g-shock-gdg-b100-mudman-launch-1026"], "note": "TechRadar 'Garmin-style screen tech' + T3 교차"},
+   {"claim": "배터리 CR2032 약 2년, 무게 66g, 200m 방수, 63.6x49.6x16.2mm", "sources": ["https://www.g-central.com/specs/g-shock-gdg-b100/", "https://www.gizmochina.com/2026/10/04/casio-mudman-gdg-b100-watches-launched-specs-price/"], "note": "G-Central 스펙 페이지(1차급 자료) + Gizmochina 교차"},
+   {"claim": "일본 가격 ¥38,500, 영국 £200, 10월 출시", "sources": ["https://www.g-central.com/specs/g-shock-gdg-b100/", "https://www.notebookcheck.net/Casio-s-new-MIP-display-red-backlit-GDG-B100-Mudman-watches-arrive-in-more-markets.1414155.0.html"], "note": "G-Central + Notebookcheck 교차"},
+   {"claim": "국내 미출시 — 쿠팡·네이버쇼핑 미검색", "sources": ["https://www.coupang.com/"], "note": "2026-10-13 직접 확인: 쿠팡·네이버쇼핑에 GDG-B100 미등록"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/gdg_b100_mudman_1.webp",
+   "title": "G-Shock이\n30년 만에 화면을 바꿨다",
+   "title_hl": ["30년 만에 화면을 바꿨다"],
+   "body": "가민이 쓰는 그 디스플레이가 들어갔다",
+   "body_hl": ["가민이 쓰는"],
+   "credit": "Casio / G-Central"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/gdg_b100_mudman_angle.webp",
+   "title": "배터리 2년,\n밤에는 빨간 불이 켜진다",
+   "title_hl": ["배터리 2년"],
+   "body": "MIP 디스플레이 · 레드 백라이트(야간 시력 보존)\n걸음 수·거리·페이스·블루투스 알림\n머드 레지스턴트 · 200m 방수 · 66g",
+   "body_hl": ["MIP 디스플레이", "레드 백라이트"],
+   "sub": "Casio G-Shock MUDMAN GDG-B100\n¥38,500(약 35만원) · 10월 일본 출시 · 국내 미출시",
+   "credit": "Casio / G-Central"
+  }
+ ]
+}

@@ -766,3 +766,4 @@
 - 10-11 16시 카드 — IKEA BLOMPRAKT, 소노스 빠진 이케아 첫 자체 스피커 69,900원 (공유형) https://www.threads.com/@daily_1_pick/post/DeWG7tUGcqG
 
 - 10-12 16시 카드 - Pebble Round 2, 10년 전 사라진 스마트워치 부활 199달러 (소유욕형) https://www.threads.com/@daily_1_pick/post/DeYrjFcGegk
+- 10-13 카드 — G-Shock 머드맨 GDG-B100, 30년 만에 MIP 디스플레이 탑재 (소유욕형) https://www.threads.com/@daily_1_pick/post/Dea0tS1GThe
