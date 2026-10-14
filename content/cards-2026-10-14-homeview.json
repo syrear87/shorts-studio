@@ -1,0 +1,34 @@
+{
+ "topic": "Apple HomeView — 애플이 처음 만든 '집 전용' 화면, 서 있는 사람을 알아본다 $299 [한계붕괴형][공유형]",
+ "blog_teaser": "에코쇼·네스트 허브와 뭐가 다른지, 한국 출시 전망까지 블로그에 정리했습니다",
+ "threads_text": "애플이 처음 만든 '집 전용' 화면 — 서 있는 사람을 알아본다\n\n1. 어제 공개된 HomeView, 루머 때 이름은 HomePad였다\n2. 7인치 화면이 앞에 누가 서 있는지 안다 — 가족 6명까지 구분\n3. 아빠가 서면 아빠 일정, 아이가 서면 음악 재생 화면\n4. FaceTime 영상통화에 요리 타이머까지 — 이건 스피커가 아니라 화면이다\n5. $299(약 40만원), 11월 13일 출시 — 한국은 아직 미정\n\n(출처: Apple 공식 발표, 9to5Mac, MacRumors)",
+ "description": "Apple HomeView. 2026년 10월 13일 공식 발표. 애플 최초의 스마트홈 디스플레이. 7인치 Liquid Retina 정사각형 화면, 500니트 밝기, True Tone. 스테인리스 스틸 힌지로 돔형 스피커 베이스에 연결. 풀레인지 드라이버 2개 + 다운파이어링 우퍼 + 패시브 라디에이터 2개. 얼굴 인식으로 가족 최대 6명 구분, 사용자별 개인화 화면. FaceTime(Center Stage), Apple Music, 스마트홈 제어, Siri AI(Apple Intelligence). 탁상형(실버·스타라이트·로즈핑크·스페이스그레이) + 벽걸이형(실버·스페이스그레이). $299, 사전주문 10/13, 출시 11/13. 한국 출시 미정(1차 출시국: 미국·영국·호주·캐나다·인도·뉴질랜드, 싱가포르 10/15). EU는 Siri AI 미지원으로 미출시.",
+ "caption": "애플이 처음 만든 '집 전용' 화면 — 서 있는 사람을 알아본다\n\n어제 공개된 HomeView, 루머 때 이름은 HomePad였다.\n7인치 화면이 가족 6명을 구분한다 — 서면 내 화면, 비키면 공용 화면.\n$299(약 40만원), 11월 13일 출시. 한국 출시 미정.\n\n(출처: Apple 공식 발표, 9to5Mac, MacRumors)\n\n#애플HomeView #HomeView #스마트홈 #애플 #테크",
+ "factcheck": [
+   {"claim": "HomeView 10월 13일 공식 발표, $299, 11월 13일 출시", "sources": ["https://www.apple.com/newsroom/2026/10/meet-apple-homeview-a-new-way-to-enjoy-entertainment-and-manage-the-home/", "https://9to5mac.com/2026/10/13/apple-homeview-announced-features-price-release-date/"], "note": "Apple 공식 뉴스룸 + 9to5Mac 교차 확인"},
+   {"claim": "7인치 Liquid Retina 디스플레이, True Tone, 500니트, 0.3니트 디밍", "sources": ["https://www.apple.com/newsroom/2026/10/meet-apple-homeview-a-new-way-to-enjoy-entertainment-and-manage-the-home/", "https://www.macrumors.com/2026/10/13/apple-announces-homeview-smart-home-hub/"], "note": "Apple 뉴스룸 + MacRumors 교차 확인"},
+   {"claim": "얼굴 인식으로 최대 6명 구분, 사용자별 개인화", "sources": ["https://9to5mac.com/2026/10/13/apple-homeview-announced-features-price-release-date/", "https://www.macrumors.com/2026/10/13/apple-announces-homeview-smart-home-hub/"], "note": "9to5Mac + MacRumors 교차 확인"},
+   {"claim": "1차 출시국에 한국 미포함 (미국·영국·호주·캐나다·인도·뉴질랜드, 싱가포르 10/15)", "sources": ["https://9to5mac.com/2026/10/13/apple-homeview-announced-features-price-release-date/", "https://www.macrumors.com/2026/10/13/apple-announces-homeview-smart-home-hub/"], "note": "두 매체 모두 한국 미언급. EU도 Siri AI 미지원으로 미출시"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/apple_homeview_kitchen.jpg",
+   "title": "서 있는 사람을\n알아본다",
+   "title_hl": ["알아본다"],
+   "body": "애플 최초 스마트 디스플레이\nHomeView · $299",
+   "body_hl": ["최초", "$299"],
+   "credit": "Apple 공식 프레스킷"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/apple_homeview_recognition.jpg",
+   "title": "내가 서면\n내 화면",
+   "title_hl": ["내 화면"],
+   "body": "가족 6명 얼굴 구분 · 사용자별 앱·일정·음악\nFaceTime 영상통화 · 요리 타이머\n7인치 Liquid Retina · 500니트",
+   "body_hl": ["6명"],
+   "sub": "11월 13일 출시 · 한국 미정",
+   "credit": "Apple 공식 프레스킷"
+  }
+ ]
+}
