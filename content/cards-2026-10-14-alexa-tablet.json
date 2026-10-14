@@ -1,0 +1,35 @@
+{
+ "topic": "Amazon Alexa Tablet — 아마존이 15년 만에 Fire OS를 버렸다, 구글 플레이 스토어가 달린 안드로이드 태블릿 $230부터 [한계붕괴형]",
+ "blog_teaser": "Fire 태블릿과 뭐가 달라졌는지, 모델별 스펙 비교와 한국 직구 시 주의사항은 블로그에 정리했습니다",
+ "threads_text": "아마존 태블릿에서 구글 플레이가 안 됐다 — 15년 만에 바뀌었다\n\n1. Fire 태블릿은 Fire OS(안드로이드 포크) — 아마존 앱스토어만 쓸 수 있었다\n2. 오늘 출시된 Alexa Tablet, 안드로이드 16 탑재 — 구글 플레이 스토어가 달렸다\n3. 3종: 8인치 $230 · 11인치 $330 · 12 Pro $500\n4. 12 Pro — 120Hz, 4nm 8코어, 최대 16GB RAM, 쿼드 돌비 애트모스\n5. 올 알루미늄 6.5mm, Fire 대비 처리 3배·그래픽 9배\n\n(출처: Engadget, 9to5Toys, TechCrunch)",
+ "description": "Amazon Alexa Tablet. 2026년 10월 14일 미국·멕시코·캐나다 출시, 19일 유럽. 2011년 Kindle Fire 이후 15년간 유지해온 Fire OS(안드로이드 포크, 자체 앱스토어만 허용)를 폐지하고 안드로이드 16 기반으로 전환, 구글 플레이 스토어 직접 접근 가능. 3종 라인업: Alexa Tablet 8(8.7인치, 4GB RAM, $230), Alexa Tablet 11(11인치 2.5K 90Hz, 8GB RAM, 5세대 MDLA NPU, $330), Alexa Tablet 12 Pro(12인치 280PPI 120Hz, 3:2 비율, 4nm 8코어, 7코어 GPU, 8세대 MDLA NPU, 최대 16GB RAM, 128GB, 쿼드 돌비 애트모스, Wi-Fi 6E, $500, 나노매트 $550). 12 Pro는 6.5mm 두께, 올 알루미늄 유니바디. 기존 Fire 태블릿 대비 처리속도 3배, 그래픽 9배. 배터리: 8은 14시간, 11은 15시간, 12 Pro는 16시간(영상)/20시간(킨들). Pro Pen $90, Pro 키보드 $150. 키즈 버전(8, 11)도 출시.",
+ "caption": "아마존 태블릿에서 구글 플레이가 안 됐다 — 15년 만에 바뀌었다\n\n2011년 Kindle Fire 이후 — Fire OS.\n아마존 앱스토어만 쓸 수 있었다.\n\n오늘 출시된 Alexa Tablet.\n안드로이드 16을 얹고 구글 플레이 스토어를 열었다.\n\n12 Pro: 12인치 120Hz · 4nm 8코어 · 쿼드 돌비 애트모스\n올 알루미늄 6.5mm · $500부터.\n\n15년 된 벽이 — 사라졌다.\n\n(출처: Engadget, 9to5Toys, TechCrunch)\n\n#아마존 #AlexaTablet #안드로이드태블릿 #구글플레이 #테크",
+ "factcheck": [
+   {"claim": "2011년 Kindle Fire 이후 Fire OS를 사용, 구글 플레이 스토어 미지원", "sources": ["https://en.wikipedia.org/wiki/Amazon_Fire", "https://www.geekwire.com/2026/amazon-unveils-alexa-tablets-running-android-with-google-play-including-a-pro-model-aimed-at-work/"], "note": "Kindle Fire 2011년 11월 출시. Fire OS는 안드로이드 포크로 Google Play 대신 Amazon Appstore만 허용"},
+   {"claim": "Alexa Tablet이 Android 16 기반으로 전환, Google Play Store 탑재", "sources": ["https://www.engadget.com/2281378/everything-amazon-announced-october-2026-alexa-tablet-kindle-fire-tv-ring-lock/", "https://9to5toys.com/2026/10/08/amazon-debuts-all-new-android-alexa-tablets-today/"], "note": "Engadget: 'transition from Fire OS to Android 16 with a custom layer, enabling direct Google Play Store access'"},
+   {"claim": "12 Pro: 12인치 280PPI 120Hz, 4nm 8코어, 최대 16GB RAM, $500", "sources": ["https://www.engadget.com/2281378/everything-amazon-announced-october-2026-alexa-tablet-kindle-fire-tv-ring-lock/", "https://www.gsmarena.com/amazon_alexa_tablet_12_pro_(2026)-15001.php"], "note": "Engadget + GSMArena 교차 확인. 나노매트 버전 $550"},
+   {"claim": "기존 Fire 태블릿 대비 처리속도 3배, 그래픽 9배", "sources": ["https://www.engadget.com/2281378/everything-amazon-announced-october-2026-alexa-tablet-kindle-fire-tv-ring-lock/", "https://techcrunch.com/2026/10/08/amazon-unveils-new-alexa-tablets-with-alexa-and-google-play-store-access/"], "note": "Amazon 공식 주장을 Engadget·TechCrunch 동시 보도"},
+   {"claim": "미국 출시 10/14, 유럽 10/19", "sources": ["https://www.engadget.com/2281378/everything-amazon-announced-october-2026-alexa-tablet-kindle-fire-tv-ring-lock/", "https://9to5toys.com/2026/10/08/amazon-debuts-all-new-android-alexa-tablets-today/"], "note": "두 매체 모두 동일 날짜 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/alexa_tablet_hero.jpg",
+   "title": "구글 플레이가\n안 됐다 — 끝났다",
+   "title_hl": ["끝났다"],
+   "body": "아마존 태블릿 15년 만의 전환\nFire OS 폐지 → 안드로이드 16",
+   "body_hl": ["15년", "안드로이드 16"],
+   "credit": "GSMArena"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/alexa_tablet_detail.jpg",
+   "title": "안드로이드 16\n$230부터",
+   "title_hl": ["$230"],
+   "body": "12 Pro: 12인치 120Hz · 4nm 8코어 · 최대 16GB RAM\n쿼드 돌비 애트모스 · Wi-Fi 6E\n올 알루미늄 6.5mm · $500",
+   "body_hl": ["9배"],
+   "sub": "오늘 미국 출시 · 유럽 10/19",
+   "credit": "GSMArena"
+  }
+ ]
+}
