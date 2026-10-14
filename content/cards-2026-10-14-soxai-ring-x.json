@@ -1,0 +1,35 @@
+{
+ "topic": "SOXAI Ring X — 스마트 반지의 폭이 5mm로 내려왔다, 일본 SOXAI가 만든 5.19mm 티타늄 스마트링, 심박·혈중산소·수면 6종 센서에 배터리 최대 10일, 구독료 없음, 킥스타터 ¥43,300(약 39만원) [소유욕형]",
+ "blog_teaser": "갤럭시 링·오우라 링과 두께·배터리·구독료 비교표는 블로그에 정리했습니다",
+ "threads_text": "스마트 반지에서 두께가 사라지고 있다\n\n1. SOXAI Ring X, 폭 5.19mm — 갤럭시 링(7mm)보다 2mm 가까이 얇다\n2. 심박·혈중산소·수면단계·스트레스 전부 들어가는데 일반 반지처럼 생겼다\n3. 배터리 최대 10일, 구독료 없음 — 오우라는 월 $5.99 내야 전체 기능 열린다\n4. 킥스타터 ¥43,300(약 39만원), 배송 2027년 5~7월\n\n(출처: SOXAI 공식, PR Newswire, Gadgets&Wearables)",
+ "description": "SOXAI Ring X. 일본 사이타마 소재 SOXAI Inc.가 만든 스마트 반지. 폭 5.19mm로 현존 스마트링 중 가장 얇다고 주장(Ring 2는 6.7mm). 두께 2.6mm(계획, 프로토타입 2.8mm). 티타늄 합금, 100m 방수(이전 모델 기준). 센서: 심박·HRV·SpO2·수면단계·스트레스·걸음수·수면무호흡 경향·크로노타입. 배터리 최대 10일(미국 사이즈 10~13 기준). 앱 구독료 없음. 킥스타터 2026-10-02~10 진행, 72시간 만에 $635,200 · 2,868명 후원. 얼리버드 ¥43,300, 일반 ¥49,600. 사이징킷 2026년 12월, 본체 2027년 5~7월 배송. 색상: 브러시드 실버·매트 블랙·골드. 국내 미출시. 국내 대안: 삼성 갤럭시 링 39~46만원(다나와 기준, 7.0mm·7일).",
+ "caption": "스마트 반지에서 두께가 사라지고 있다\n\nSOXAI Ring X, 5.19mm 티타늄 스마트링.\n갤럭시 링 7mm · 오우라 링 6mm보다 확 얇다.\n심박·혈중산소·수면 6종 센서 · 배터리 최대 10일 · 구독료 없음.\n킥스타터 ¥43,300(약 39만원), 2027년 5~7월 배송.\n\n(출처: SOXAI 공식, PR Newswire, Gadgets&Wearables)\n\n#스마트링 #SOXAI #웨어러블 #갤럭시링 #테크",
+ "factcheck": [
+   {"claim": "SOXAI Ring X 폭 5.19mm", "sources": ["https://soxai.co.jp/en-intl/pages/soxai-ring-x-prelaunch-en", "https://www.prnewswire.com/news-releases/soxai-ring-x-tops-us635-200-in-kickstarter-pledges-attracts-2-868-backers-in-first-72-hours-302898406.html"], "note": "SOXAI 공식 사이트 + PR Newswire 보도자료 교차 확인"},
+   {"claim": "배터리 최대 10일(미국 사이즈 10~13 기준)", "sources": ["https://soxai.co.jp/en-intl/pages/soxai-ring-x-prelaunch-en", "https://gadgetsandwearables.com/2026/10/08/soxai-ring-x-kickstarter-global-launch/"], "note": "SOXAI 공식 + Gadgets&Wearables 교차 확인. 사이즈·사용에 따라 달라진다는 조건 명시"},
+   {"claim": "킥스타터 72시간 $635,200 · 2,868명, 얼리버드 ¥43,300", "sources": ["https://www.prnewswire.com/news-releases/soxai-ring-x-tops-us635-200-in-kickstarter-pledges-attracts-2-868-backers-in-first-72-hours-302898406.html", "https://note.com/huge_oxalis5100/n/n79a35a54f8cd?hl=en"], "note": "PR Newswire 보도자료 + note.com 비교 기사에서 가격 확인"},
+   {"claim": "앱 구독료 없음", "sources": ["https://soxai.co.jp/en-intl/pages/soxai-ring-x-prelaunch-en", "https://gadgetsandwearables.com/2026/10/08/soxai-ring-x-kickstarter-global-launch/"], "note": "SOXAI 공식 'no subscription' 표기 + Gadgets&Wearables 확인"},
+   {"claim": "갤럭시 링 국내 39~46만원대(다나와 기준)", "sources": ["https://prod.danawa.com/info/?pcode=59932391"], "note": "다나와 가격비교 2026-10-14 검색 시점"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/soxai_ring_x_1.png",
+   "title": "스마트 반지에서\n두께가 사라지고 있다",
+   "title_hl": ["사라지고"],
+   "body": "SOXAI Ring X · 5.19mm\n티타늄 · 심박·혈중산소·수면 6종 센서",
+   "body_hl": ["5.19mm"],
+   "credit": "SOXAI 공식"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/soxai_ring_x_pr5.jpg",
+   "title": "구독료 없이\n10일을 간다",
+   "title_hl": ["구독료 없이", "10일"],
+   "body": "갤럭시 링 7mm · 7일\n오우라 링 6mm · 8일 (구독 월 $5.99)\nSOXAI Ring X 5.19mm · 10일 · 구독 없음",
+   "body_hl": ["5.19mm", "10일", "구독 없음"],
+   "sub": "킥스타터 ¥43,300(약 39만원) · 2027년 배송\n국내 대안: 갤럭시 링 39~46만원(다나와)",
+   "credit": "SOXAI 공식 / PR Newswire"
+  }
+ ]
+}
