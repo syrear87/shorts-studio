@@ -1,0 +1,35 @@
+{
+ "topic": "Sony WH-1000XM4C — 단종된 소니 헤드폰이 배터리를 바꿔 끼고 돌아왔다, EU 배터리 규정(2027.2 시행) 때문에 교체형 배터리 의무 → XM4 단종 → XM4C로 재출시 $299.99 [한계붕괴형][공유형]",
+ "blog_teaser": "XM4C vs XM5 스펙·가격 비교표와 EU 배터리 규정 상세는 블로그에 정리했습니다",
+ "threads_text": "단종된 소니 헤드폰이 배터리를 바꿔 끼고 돌아왔다\n\n1. WH-1000XM4, 2020년에 나와서 역대급으로 팔렸는데 2025년에 단종됐다\n2. 이유가 EU 배터리 규정이다 — 2027년 2월부터 배터리를 사용자가 직접 교체할 수 있어야 한다\n3. 소니가 교체형 배터리 넣어서 XM4C로 다시 냈다, $299(약 41만원)\n4. 블루투스 5.0→6.0, EQ 5밴드→10밴드도 바뀌었다\n5. XM5는 안 접히는데 이건 접힌다 — 가방에 넣을 수 있다\n\n(출처: Sony 공식 보도자료, SoundGuys, What Hi-Fi)",
+ "description": "Sony WH-1000XM4C (M4 2nd Gen). 2026년 9월 7일 발표, 9월 30일 출하. 2020년 출시된 WH-1000XM4를 EU 배터리 규정(2023/1542, 2027년 2월 시행 — 휴대용 기기 사용자 교체형 배터리 의무)에 맞춰 재출시한 리프레시 모델. 핵심 변경: 교체형 배터리, Bluetooth 5.0→6.0, 5밴드→10밴드 EQ. QN1 ANC 칩·40mm 드라이버·4마이크·폴더블 디자인은 XM4와 동일. 배터리 ANC ON 27h, 253g, LDAC 지원. $299.99(기존 XM4 출시가 $349.99 대비 $50 인하). 색상: 블랙·플래티넘 실버·라벤더. 한국 공식 출시 미확인(2026-10-14 기준 소니코리아·쿠팡·다나와 미등록). 국내 대안: WH-1000XM5 국내 32~38만원(다나와 기준).",
+ "caption": "단종된 소니 헤드폰이 배터리를 바꿔 끼고 돌아왔다\n\nWH-1000XM4, 역대급으로 팔리다 2025년 단종.\n이유는 EU 배터리 규정 — 2027년부터 교체형 배터리 의무.\n소니가 배터리 교체 가능하게 고쳐 XM4C로 재출시. $299(약 41만원).\n\n(출처: Sony 공식 보도자료, SoundGuys, What Hi-Fi)\n\n#소니 #WH1000XM4C #헤드폰 #노이즈캔슬링 #테크",
+ "factcheck": [
+   {"claim": "WH-1000XM4C 2026년 9월 7일 발표, $299.99", "sources": ["https://www.prnewswire.com/news-releases/sony-electronics-introduces-wh-1000xm4c-m4-2nd-gen-wireless-noise-cancelling-headphones-and-updates-popular-mid--and-entry-level-wireless-headphones-with-wh-ch730n-and-wh-ch530-302871097.html", "https://9to5google.com/2026/09/07/sony-wh-1000xm4c-launch-for-299-alongside-two-more-affordable-headphones/"], "note": "Sony 공식 보도자료 + 9to5Google 교차 확인"},
+   {"claim": "교체형 배터리 탑재, EU 배터리 규정 2023/1542 대응(2027년 2월 시행)", "sources": ["https://www.heise.de/en/news/WH-1000XM4-Sony-re-releases-classic-with-replaceable-battery-11444097.html", "https://hiconsumption.com/tech/sony-wh-1000xm4c-wireless-headphones/"], "note": "Heise + hiconsumption 교차 확인. EU 규정 원문: Regulation (EU) 2023/1542 Article 11"},
+   {"claim": "BT 5.0→6.0 업그레이드, 5→10밴드 EQ, QN1 칩·40mm 드라이버 동일", "sources": ["https://www.soundguys.com/sony-wh-1000xm4c-launch-162596/", "https://www.soundguys.com/product/sony-wh-1000xm4c/"], "note": "SoundGuys 출시 기사 + 스펙 DB 교차 확인"},
+   {"claim": "원본 XM4 2025년 단종 (EU 배터리 규정 미충족)", "sources": ["https://hiconsumption.com/tech/sony-wh-1000xm4c-wireless-headphones/", "https://www.whathifi.com/headphones/wireless-headphones/sony-has-resurrected-a-classic-pair-of-wireless-headphones-by-launching-the-wh-1000xm4c"], "note": "hiconsumption + What Hi-Fi 교차 확인"},
+   {"claim": "XM5 국내 판매가 32~38만원대(다나와 기준)", "sources": ["https://prod.danawa.com/info/?pcode=17229284", "https://price.enuri.com/search?keyword=소니+WH+1000XM5"], "note": "다나와 + 에누리 가격비교 교차 확인. 2026-10-14 검색 시점"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/sony_xm4c_1.jpg",
+   "title": "이 헤드폰은\n법 때문에 단종됐다",
+   "title_hl": ["법", "단종"],
+   "body": "Sony WH-1000XM4\n2020 출시 · 2025 단종 · 2026 부활",
+   "body_hl": ["단종", "부활"],
+   "credit": "Sony 공식 프레스킷"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/sony_xm4c_2.jpg",
+   "title": "배터리를 바꿔 끼고\n돌아왔다",
+   "title_hl": ["바꿔 끼고"],
+   "body": "EU 규정: 2027년부터 교체형 배터리 의무\n소니가 XM4C로 재출시 · $299(약 41만원)\nBT 6.0 · 10밴드 EQ · 폴더블 · 253g",
+   "body_hl": ["교체형 배터리 의무", "$299"],
+   "sub": "한국 미출시 · 국내 대안 XM5 32~38만원",
+   "credit": "Sony 공식 프레스킷"
+  }
+ ]
+}
