@@ -1,0 +1,71 @@
+{
+ "topic": "고기 굽기 × 블루투스 프로브 — 이제 고기에도 블루투스를 꽂는다, 안테나가 세라믹인 이유(금속은 전파 차단), MEATER Pro $99 6센서 BT5.2, 쿠팡 INKBIRD IBT-2X 3.5만원 [구매가능][공유형]",
+ "blog_teaser": "MEATER vs INKBIRD 스펙·가격 비교와 무선 온도계 원리 상세는 블로그에 정리했습니다",
+ "threads_text": "이제 고기에도 블루투스를 꽂는다\n\n1. 무선 고기 온도계라는 게 있다 — 프로브를 꽂아두면 블루투스로 폰에 온도가 실시간으로 뜬다\n2. 핵심 기술이 세라믹이다 — 금속은 전파를 막으니까 안테나 밴드를 세라믹으로 만든다\n3. MEATER Pro가 센서 6개, 800m 도달, $99(약 14만원)\n4. 쿠팡 공식스토어에 INKBIRD IBT-2X가 3.5만원대에 있다\n5. 캠핑 시즌인데 이거 하나면 생고기 걱정 끝이다\n\n(출처: MEATER 공식, INKBIRD 쿠팡 공식스토어)",
+ "description": "무선 고기 온도계(wireless meat thermometer). 프로브를 고기에 삽입하면 블루투스로 스마트폰에 실시간 내부 온도를 전송하고, 목표 온도 도달 시 알림. 핵심 기술: 세라믹 밴드가 블루투스 안테나 역할(금속은 전파 차단). MEATER Pro: Apption Labs, $99.99, Bluetooth 5.2, 센서 6개(내부 2+외부 4), 도달거리 800m(리피터 경유), AAA 배터리, Time Best Inventions 2025 선정. MEATER Pro Duo: 2025년 3월 출시, 프로브 2개 동시. 국내: 쿠팡 INKBIRD 공식스토어 IBT-2X 약 35,590원(2026-10-14 기준), 프로브 2개, BT5.1. MEATER는 국내 공식 유통 없음, 쿠팡 병행수입 67,000~545,100원대.",
+ "caption": "이제 고기에도 블루투스를 꽂는다\n\n무선 온도계 프로브를 꽂아두면 블루투스로 실시간 온도 전송.\n비결은 세라믹 — 금속은 전파를 막으니까 안테나를 세라믹으로.\nMEATER Pro $99(약 14만원) · 쿠팡 INKBIRD 3.5만원대.\n\n(출처: MEATER 공식, INKBIRD 쿠팡 공식스토어)\n\n#무선온도계 #고기온도계 #캠핑 #바비큐 #테크",
+ "factcheck": [
+  {
+   "claim": "MEATER Pro $99.99, Bluetooth 5.2, 센서 6개, 도달거리 800m",
+   "sources": [
+    "https://meater.com/products/meater-pro",
+    "https://www.tomsguide.com/reviews/meater-pro"
+   ],
+   "note": "MEATER 공식 + Tom's Guide 교차 확인"
+  },
+  {
+   "claim": "세라믹 밴드가 블루투스 안테나 역할 (금속은 전파 차단)",
+   "sources": [
+    "https://meater.com/blogs/meater-blog/meater-2-plus-the-future-of-wireless-meat-thermometers",
+    "https://www.wired.com/review/meater-2-plus/"
+   ],
+   "note": "MEATER 공식 블로그 + Wired 교차 확인"
+  },
+  {
+   "claim": "쿠팡 INKBIRD 공식스토어 IBT-2X 약 35,590원",
+   "sources": [
+    "https://www.coupang.com/vp/products/8360498624",
+    "https://www.inkbird.com/products/ibt-2x"
+   ],
+   "note": "쿠팡 공식스토어 실측가 + INKBIRD 공식 교차 확인"
+  },
+  {
+   "claim": "MEATER Pro Duo 2025년 3월 출시, Time Best Inventions 2025",
+   "sources": [
+    "https://time.com/collection/best-inventions-2025/",
+    "https://meater.com/products/meater-pro-duo"
+   ],
+   "note": "TIME 선정 목록 + MEATER 공식 교차 확인"
+  }
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/meat_thermo_1.jpg",
+   "title": "이제 고기에도\n블루투스를 꽂는다",
+   "title_hl": [
+    "이제",
+    "블루투스"
+   ],
+   "body": "무선 프로브가 블루투스로 실시간 온도 전송\n비결은 세라믹 밴드 — 금속은 전파를 막는다",
+   "body_hl": [
+    "세라믹 밴드"
+   ],
+   "credit": "Pexels · Sadia Asrar"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/meat_thermo_2.jpg",
+   "title": "캠핑 시즌,\n생고기 걱정 끝",
+   "title_hl": [
+    "걱정 끝"
+   ],
+   "body": "MEATER Pro · $99(약 14만원) · 센서 6개 · 800m\n쿠팡 INKBIRD IBT-2X · 3.5만원대 · 프로브 2개",
+   "body_hl": [
+    "3.5만원대"
+   ],
+   "sub": "쿠팡 INKBIRD 공식스토어 · 캠핑·홈쿡에 쓴다",
+   "credit": "Pexels · Nascimento Jr."
+  }
+ ]
+}
