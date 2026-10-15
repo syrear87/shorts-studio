@@ -1,0 +1,75 @@
+{
+  "title": "30번째 태풍이 태어났는데, 이름이 꽃입니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "공유성",
+  "real_query": ["typhoon satellite", "태풍 위성사진"],
+  "hook_bg_reason": "커먼즈에 오늘 발생한 태풍 참피 위성사진 없음, 일반 해양 항공사진으로 대체",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "오늘 태풍이 하나 더 태어났습니다. 올해 벌써 30개째, 평년보다 많습니다. 그리고 이 태풍의 이름은 꽃입니다.",
+      "lines": [
+        ["오늘 태풍이 하나 더 태어났습니다", ["오늘"]],
+        ["이 태풍의 이름은 꽃입니다", ["꽃"]]
+      ],
+      "bg_query": "typhoon satellite view ocean",
+      "bg_id": "photo:11463988"
+    },
+    {
+      "kind": "fact",
+      "voice": "태풍 이름은 즉석에서 짓는 게 아닙니다. 동아시아 14개국이 10개씩, 총 140개를 미리 정해 놓고 번호순으로 씁니다.",
+      "lines": [
+        ["14개국이 10개씩", []],
+        ["총 140개를 미리 정해 놓고", ["140개"]]
+      ],
+      "bg_query": "world map asia pacific flags",
+      "bg_id": 8828867
+    },
+    {
+      "kind": "fact",
+      "voice": "140개를 다 쓰면 처음부터 다시 씁니다. 5년에서 6년이면 한 바퀴가 도는 겁니다.",
+      "lines": [
+        ["다 쓰면 처음부터 다시", []],
+        ["5~6년에 한 바퀴", []]
+      ],
+      "bg_query": "rotating cycle loop abstract",
+      "bg_id": 35154656
+    },
+    {
+      "kind": "fact",
+      "voice": "한국이 제안한 이름도 있습니다. 개미, 나리, 장미, 너구리, 독수리, 전부 한국어 이름입니다.",
+      "lines": [
+        ["한국이 제안한 이름도 있습니다", []],
+        ["개미 나리 장미 너구리 독수리", []]
+      ],
+      "hl_pair": true,
+      "bg_query": "korean nature wildflower animal",
+      "bg_id": 9547120
+    },
+    {
+      "kind": "twist",
+      "voice": "그런데 큰 피해를 준 태풍은 이름이 영구 퇴출됩니다. 루사, 매미, 힌남노, 전부 퇴출됐습니다. 빈자리에는 새 이름이 들어갑니다. 루사는 누리로, 매미는 무지개로 바뀌었습니다.",
+      "lines": [
+        ["큰 피해를 준 태풍은 퇴출됩니다", ["퇴출"]],
+        ["루사 · 매미 · 힌남노", []],
+        ["빈자리에 새 이름이 들어간다", ["새 이름"]]
+      ],
+      "hl_pair": true,
+      "bg_query": "storm damage destruction aftermath",
+      "bg_id": 4196206
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]],
+      "bg_id": 4196206
+    }
+  ],
+  "sources": [
+    "https://www.weather.go.kr/w/hazard/typhoon/basic/info2.do",
+    "https://www.khan.co.kr/article/202307071454001"
+  ],
+  "bg_query": ["typhoon satellite view ocean", "world map asia pacific flags", "rotating cycle arrows", "korean nature wildflower", "storm damage aftermath rain"]
+}
