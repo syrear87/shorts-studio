@@ -1,0 +1,35 @@
+{
+ "topic": "Anker Nano Docking Station 13-in-1 — USB-C 독이 반으로 쪼개진다, 위쪽 36g을 떼면 6-in-1 출장용 허브가 된다, 100W PD 트리플 디스플레이, 국내 11번가 255,400원 / 해외 $119.99 [공유형]",
+ "blog_teaser": "독과 허브를 따로 살 때 비용 비교와 포트별 실측 속도는 블로그에 정리했습니다",
+ "threads_text": "USB-C 독에서 절반이 없어졌다\n\n1. 앤커 나노 도킹스테이션 — 위쪽을 떼면 36g짜리 6-in-1 허브가 된다\n2. 집에선 독으로 13포트 전부 쓰고, 출장 가면 허브만 떼서 간다\n3. 허브만 따로 쓸 때도 4K 60Hz HDMI + 100W 충전 + SD카드\n4. 해외 아마존 $119.99, 국내 11번가 255,400원\n5. 독 따로 허브 따로 사면 20만원은 넘는다 — 합친 게 더 싸다\n\n(출처: PCWorld, Anker 공식, Fstoppers)",
+ "description": "Anker Nano Docking Station 13-in-1 (A83C3). 2025년 12월 발표, CES 2026 정식 공개. 세로형 독 위쪽에 6-in-1 USB-C 허브가 자석으로 결합돼 있고, 떼면 36g 카드 크기 독립 허브로 쓸 수 있다. 독 상태에서는 HDMI 2개 + DP 1개(트리플 디스플레이 1080p@60Hz, 듀얼 4K@60Hz USB4 필요), USB-A 3개, USB-C 2개(10Gbps), 1Gbps 이더넷, 3.5mm, SD+microSD, 100W PD 패스스루. 분리한 허브: HDMI 4K@60Hz, USB-C 10Gbps+100W PD, USB-A 5Gbps, SD+microSD, 무게 36g. 140W GaN 어댑터 포함. 해외 아마존 $119.99(세일 시 $106~112), 국내 11번가 255,400원(한국 앤커 공식 유통은 있지만 이 모델 국내 재고 제한적). PCWorld 4/5 — USB-A 충전 속도 느림, 경쟁 제품 대비 프리미엄 가격, 트리플 디스플레이 1080p 제한 지적.",
+ "caption": "USB-C 독에서 절반이 없어졌다\n\n위쪽 36g을 떼면 출장용 6-in-1 허브가 된다.\n집에선 13포트 독 — 밖에선 허브 하나.\n\nHDMI 4K + 100W PD + SD카드\n독과 허브를 따로 사는 것보다 싸다.\n\n해외 아마존 $119.99\n국내 11번가 255,400원\n\n(출처: PCWorld, Anker 공식, Fstoppers)\n\n#USB허브 #도킹스테이션 #앤커 #재택근무 #출장템",
+ "factcheck": [
+   {"claim": "Anker Nano Docking Station 13-in-1, 위쪽이 분리되는 6-in-1 허브 36g", "sources": ["https://www.anker.com/products/a83c3-13-in-1-docking-station-with-built-in-hub", "https://www.pcworld.com/article/3057954/anker-nano-13-in-1-review.html"], "note": "Anker 공식 제품 페이지: 'Built-In Removable Hub', PCWorld 리뷰: '1.27oz(36g)', 6-in-1 구성 확인"},
+   {"claim": "해외 아마존 $119.99", "sources": ["https://www.amazon.com/dp/B0FCLC1RMM", "https://9to5toys.com/2026/02/23/anker-13-in-1-nano-docking-station-lowest-price-at-110/"], "note": "Amazon 판매가 $119.99, 세일 시 $106~112까지 기록. MSRP $149.99"},
+   {"claim": "국내 11번가 255,400원", "sources": ["https://www.11st.co.kr/products/pa/3724930300"], "note": "11번가 검색 결과 확인. 쿠팡에서는 이 모델 확인 안 됨"},
+   {"claim": "100W PD 패스스루, 트리플 디스플레이 지원", "sources": ["https://www.anker.com/products/a83c3-13-in-1-docking-station-with-built-in-hub", "https://www.pcworld.com/article/3057954/anker-nano-13-in-1-review.html"], "note": "Anker 공식: '100W PD', PCWorld: 실측 ~85W. 트리플 디스플레이는 1080p@60Hz, 듀얼 4K는 USB4/TB4 필요"},
+   {"claim": "PCWorld 리뷰 4/5, USB-A 충전 속도 느림 지적", "sources": ["https://www.pcworld.com/article/3057954/anker-nano-13-in-1-review.html"], "note": "PCWorld: USB-A 포트 4.5W/7.5W — 최신 폰 20~45W 대비 느림"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/anker_nano_dock_hero.png",
+   "title": "USB-C 독에서\n절반이 없어졌다",
+   "title_hl": ["없어졌다"],
+   "body": "떼어낸 36g이\n출장용 6-in-1 허브가 된다",
+   "body_hl": ["36g"],
+   "credit": "Anker"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/anker_nano_dock_detach.jpg",
+   "title": "집에선 독\n밖에선 허브",
+   "title_hl": ["독", "허브"],
+   "body": "HDMI 4K + 100W PD + SD카드\n독과 허브 따로 사는 것보다 싸다",
+   "body_hl": ["따로 사는 것보다 싸다"],
+   "sub": "해외 아마존 $119.99\n국내 11번가 255,400원",
+   "credit": "Anker"
+  }
+ ]
+}
