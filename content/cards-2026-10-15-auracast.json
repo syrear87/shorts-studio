@@ -1,0 +1,36 @@
+{
+ "topic": "Auracast 블루투스 오디오 공유 — 이어폰 한쪽씩 나눠 끼던 시대가 끝나고 있다, 폰 하나에서 이어폰 수십 대가 동시에 같은 음악을 듣는다, 페어링 없이 라디오처럼, 갤럭시 버즈3·소니 XM5·픽셀 버즈 프로 2 이미 지원, 아이폰만 아직 안 된다 [공유형]",
+ "blog_teaser": "Auracast가 뭔지, 내 이어폰이 되는지, 어떻게 쓰는지는 블로그에 정리했습니다",
+ "threads_text": "이어폰 나눠 끼기가 끝났다, 페어링도 필요 없어졌다\n\n1. 블루투스에 Auracast라는 게 들어갔다 — 2022년 표준 확정\n2. 폰 하나에서 이어폰 수십 대가 동시에 같은 음악을 듣는다\n3. 페어링 필요 없다 — 라디오처럼 주파수 잡으면 끝\n4. 갤럭시 버즈3, 소니 XM5, 픽셀 버즈 프로 2가 이미 된다\n5. 삼성 S23 이후 폰이면 지금 바로 쓸 수 있다\n6. 아이폰? 하드웨어는 되는데 소프트웨어를 아직 안 열었다\n\n(출처: Bluetooth SIG 공식, aurahear.com, 9to5Google)",
+ "description": "Auracast 블루투스 오디오 공유 — 이어폰 한쪽씩 나눠 끼던 시대가 끝나고 있다.\n\n## 무엇인가\n\nAuracast는 Bluetooth SIG가 2022년 6월에 발표한 LE Audio 브로드캐스트 기능의 소비자 브랜드명이다. 핵심은 1:1 페어링 없이 하나의 송신기에서 무제한 수신기로 오디오를 동시에 보내는 것이다. FM 라디오처럼 작동한다.\n\n## 왜 중요한가\n\n- 지금까지 블루투스 오디오는 1:1이었다 — 이어폰 하나에 폰 하나\n- Auracast로 폰 하나에서 이어폰 수십~수백 대가 같은 음악을 동시에 듣는다\n- 페어링 없이 라디오처럼 주파수를 잡으면 끝\n- 카페·공항·체육관에서도 안내 방송이 이어폰으로 온다\n- 실외 약 100m, 실내 20~30m\n\n## 지원 기기 현황 (2026년 10월)\n\n- 이어폰: 갤럭시 버즈3/4, 픽셀 버즈 프로 2, 소니 WF-1000XM5(펌웨어 업데이트)/XM6, JBL Tour Pro 3\n- 폰(송신): 삼성 갤럭시 S23 이후 전 모델, 픽셀 8 이후\n- 아이폰: 블루투스 5.3 하드웨어는 되지만 iOS에서 소프트웨어를 열지 않았다\n\n## 국내 사용\n\n삼성 갤럭시 S23 이후 폰 + 갤럭시 버즈3/4 조합이면 지금 바로 쓸 수 있다.",
+ "caption": "이어폰 나눠 끼기가 끝났다, 페어링도 필요 없어졌다\n\n블루투스에 Auracast가 들어갔다.\n폰 하나에서 이어폰 수십 대가 동시에 같은 음악.\n페어링 없이, 라디오처럼.\n갤럭시 버즈3, 소니 XM5, 픽셀 버즈 프로 2 이미 지원.\n아이폰만 아직 안 열었다.\n\n(출처: Bluetooth SIG 공식, aurahear.com)\n\n#Auracast #블루투스 #LEAudio #갤럭시버즈 #무선이어폰",
+ "factcheck": [
+   {"claim": "Bluetooth SIG가 2022년 6월 8일 Auracast 브랜드명 발표, LE Audio 표준 2022년 7월 완성", "sources": ["https://www.businesswire.com/news/home/20220608005323/en/Bluetooth-SIG-Announces-Auracast-Broadcast-Audio", "https://novelbits.io/bluetooth-le-audio-auracast-profiles/"], "note": "Bluetooth SIG 공식 보도자료(1차) + NoveBits 기술 해설 교차"},
+   {"claim": "송신기 하나에서 수신기 무제한 동시 수신 가능(브로드캐스트 모델)", "sources": ["https://www.bluetooth.com/auracast/how-it-works/", "https://www.bluetooth.com/auracast/faq/"], "note": "Bluetooth SIG 공식 How It Works 페이지 직접 확인"},
+   {"claim": "갤럭시 버즈3/4, 픽셀 버즈 프로 2, 소니 XM5/XM6 Auracast 지원", "sources": ["https://aurahear.com/2025/05/which-samsung-devices-have-auracast/", "https://9to5google.com/2024/10/02/google-pixel-buds-pro-2-auracast-support/", "https://audioxpress.com/news/samsung-unveils-galaxy-buds4-series-with-le-audio-and-auracast"], "note": "Samsung 기기 목록(aurahear) + Google 공식(9to5Google) + Galaxy Buds4 출시 보도 교차"},
+   {"claim": "삼성 갤럭시 S23 이후 폰에서 Auracast 송신 지원", "sources": ["https://aurahear.com/2025/05/which-samsung-devices-have-auracast/"], "note": "기기별 Auracast 지원 목록 확인"},
+   {"claim": "아이폰은 2026년 10월 기준 Auracast 미지원(하드웨어는 BT 5.3 이상)", "sources": ["https://aurahear.com/2026/09/iphone-18-launch-still-no-auracast-apple", "https://aurahear.com/2026/06/apple-disappoints-on-auracast-support-at-wwdc26-keynote-event/"], "note": "iPhone 18 출시 후에도 미지원 확인, WWDC26 미발표 확인"},
+   {"claim": "실외 약 100m, 실내 20~30m 범위", "sources": ["https://www.bluetooth.com/wp-content/uploads/2024/01/2312_CES_Handout-Images_FINAL-range.pdf", "https://www.hearingtracker.com/auracast"], "note": "Bluetooth SIG CES 2024 공식 자료 + Hearing Tracker 교차"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/auracast_hook.jpg",
+   "title": "이어폰 나눠 끼기가 끝났다\n페어링도 필요 없어졌다",
+   "title_hl": ["끝났다", "필요 없어졌다"],
+   "body": "각자 이어폰으로 같은 음악을 듣는다",
+   "body_hl": ["각자 이어폰"],
+   "credit": "Pexels / Miriam Alonso"
+  },
+  {
+   "kind": "fact",
+   "img": "assets/cards/auracast_end.jpg",
+   "title": "폰 하나 — 이어폰 무제한\n페어링 없이, 라디오처럼",
+   "title_hl": ["무제한", "페어링 없이"],
+   "body": "Auracast — 블루투스가 라디오가 됐다\n갤럭시 버즈3, 소니 XM5, 픽셀 버즈 프로 2\n삼성 S23 이후 폰이면 지금 바로",
+   "body_hl": ["지금 바로"],
+   "sub": "아이폰? 하드웨어는 되는데\n아직 소프트웨어를 안 열었다",
+   "credit": "Pexels / ready made"
+  }
+ ]
+}
