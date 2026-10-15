@@ -23,4 +23,4 @@
 | D+29 | 11/13 | Razer Xbox 25th Anniversary Translucent Green: 초대 Xb | 공개 |
 | D+35 | 11/19 | Technics EAH-A1000: 헤드폰 드라이버에 액체가 들어간 이유 | 공개 |
 
-_자동 생성: 2026-10-15 20:00_
+_자동 생성: 2026-10-15 21:00_
