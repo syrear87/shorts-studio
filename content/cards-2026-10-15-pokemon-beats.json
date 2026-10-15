@@ -1,0 +1,35 @@
+{
+ "topic": "Pokémon × Beats Pill 한정판 — 피카츄가 스피커 그릴에 새겨졌다, Beats 최초 수집용 참(포켓볼·번개) 도입, IP67 24시간 $149.99, 미국·영국·중국만 판매 — 한국 미출시 [소유욕형]",
+ "blog_teaser": "직구 시 관세 계산과 일반 Beats Pill과의 차이 비교는 블로그에 정리했습니다",
+ "threads_text": "피카츄가 스피커에 새겨졌다\n\n1. Beats Pill 포켓몬 에디션 — 그릴에 피카츄와 따라큐가 새겨져 있다\n2. Beats가 처음으로 수집용 참을 만들었다 — 포켓볼·번개·Beats 로고\n3. 스펙은 일반 필과 같다 — IP67, 24시간, USB-C 무손실\n4. $149.99인데 미국·영국·중국만 — 한국 미출시\n5. 일반 Beats Pill은 Apple Store KR에서 219,000원\n\n(출처: MacRumors, Pokemon.com 공식)",
+ "description": "Pokémon × Beats Pill 한정판. 2026년 10월 15일 미국 8:00 AM PDT 출시(한국 시간 10/16 자정). 포켓몬 컴퍼니와 Beats 첫 콜라보. 그릴에 피카츄(노랑)와 따라큐(그레이스케일) 일러스트가 새겨져 있고, Beats 사상 처음으로 수집용 참(charm)을 도입 — 포켓볼·Beats 'b' 로고·번개 3종. 그레이 바디, 컬러 매칭 랜야드 포함. 스펙은 일반 Beats Pill과 동일: IP67 방수방진, 24시간 배터리, USB-C 무손실 오디오, 무선 페어링(앰플리파이/스테레오 모드), USB-C 충전 공유. $149.99(일반 모델과 동일가). 판매처: apple.com(미국·영국·중국), Target(미국), Argos(영국), Douyin(중국). 한국 미출시 — 일반 Beats Pill은 Apple Store KR에서 219,000원. 예약 없이 선착순.",
+ "caption": "피카츄가 스피커에 새겨졌다\n\nBeats Pill × 포켓몬 한정판.\n그릴에 피카츄와 따라큐가 새겨져 있고\nBeats 최초 수집용 참이 달렸다 — 포켓볼.\n\nIP67 · 24시간 · USB-C 무손실\n$149.99 — 일반 Pill과 같은 값.\n\n미국·영국·중국만 판매. 한국 미출시.\n일반 Beats Pill — Apple Store KR 219,000원.\n\n(출처: MacRumors, Pokemon.com, Engadget)\n\n#비츠필 #포켓몬 #피카츄 #블루투스스피커 #테크",
+ "factcheck": [
+   {"claim": "Beats Pill 포켓몬 에디션 $149.99, 일반 모델과 동일가", "sources": ["https://www.macrumors.com/2026/10/13/pokemon-special-edition-beats-pill/", "https://www.apple.com/shop/product/mkfn4ll/a/beats-pill-pok%C3%A9mon-special-edition"], "note": "MacRumors: 'priced at $149.99, same as other Beats Pill variants'. Apple 공식 제품 페이지에서도 확인"},
+   {"claim": "IP67 방수방진, 24시간 배터리, USB-C 무손실 오디오", "sources": ["https://www.pokemon.com/us/news/pokemon-beats-pill-wireless-bluetooth-speaker-coming-soon", "https://www.macrumors.com/2026/10/13/pokemon-special-edition-beats-pill/"], "note": "Pokemon.com 공식: 'dust- and water-resistant', '24 hours of battery'. MacRumors: 'IP67', 'Lossless audio via USB-C'"},
+   {"claim": "Beats 최초 수집용 참(charm) 도입 — 포켓볼·번개·Beats 로고", "sources": ["https://www.macrumors.com/2026/10/13/pokemon-special-edition-beats-pill/"], "note": "MacRumors: 'For the first time, Beats is introducing collectable charms to the Pill, with bespoke accessories including a Poké Ball, the Beats b logo and lightning bolts'"},
+   {"claim": "미국·영국·중국 3개국만 판매, 한국 미출시", "sources": ["https://www.macrumors.com/2026/10/13/pokemon-special-edition-beats-pill/"], "note": "MacRumors: 'Limited to United States, United Kingdom, and China only'. 판매처: Apple 웹사이트, Target(미국), Argos(영국), Douyin(중국)"},
+   {"claim": "일반 Beats Pill 한국 Apple Store 219,000원", "sources": ["https://www.apple.com/kr/shop/product/mw463zp/a/beats-pill"], "note": "Apple Korea 공식 스토어에서 직접 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/pokemon_beats_pill_hero.jpg",
+   "title": "피카츄가\n스피커에 새겨졌다",
+   "title_hl": ["새겨졌다"],
+   "body": "Beats Pill × 포켓몬 한정판\nBeats 최초 수집용 포켓볼 참 포함",
+   "body_hl": ["최초"],
+   "credit": "Beats (via 9to5Toys)"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/pokemon_beats_pill_charms.jpg",
+   "title": "포켓볼이\n매달렸다",
+   "title_hl": ["포켓볼"],
+   "body": "IP67 · 24시간 · USB-C 무손실\n$149.99 — 일반 Pill과 같은 값",
+   "body_hl": ["$149.99"],
+   "sub": "미국·영국·중국만 판매 · 한국 미출시\n일반 Pill — Apple KR 219,000원",
+   "credit": "Beats (via 9to5Toys)"
+  }
+ ]
+}
