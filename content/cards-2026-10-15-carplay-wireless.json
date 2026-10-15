@@ -1,0 +1,33 @@
+{
+ "topic": "무선 CarPlay 어댑터 — CarPlay에서 케이블이 사라졌다, USB 동글 하나면 유선 CarPlay가 무선으로 바뀐다, 카링킷 CP01 3만원대 [구매가능][공유형]",
+ "blog_teaser": "유선 CarPlay 차종 확인법이랑 어댑터 고를 때 주의할 점은 블로그에 정리했습니다",
+ "threads_text": "CarPlay에서 케이블이 사라졌다\n\n1. 차 탈 때마다 폰에 케이블 꽂는 사람 아직 많은데, USB 동글 하나면 끝남\n2. 차 USB 포트에 꽂아두면 시동 걸 때 자동으로 연결된다\n3. 카링킷 CP01 3만원대(아이폰), 5.0은 5만원대(안드로이드도)\n4. 내 차가 유선 CarPlay인지는 차 설정 → 일반에서 확인\n\n(출처: CarPlayLife 2026 비교, CarAudioNow 실측)",
+ "description": "무선 CarPlay 어댑터. 유선 CarPlay만 지원하는 차량의 USB 포트에 꽂으면, 블루투스+Wi-Fi 브릿지로 아이폰과 무선 연결해 유선 CarPlay를 무선으로 전환하는 소형 동글. 최초 1회 블루투스 페어링 후 시동 걸면 자동 재연결. CarlinKit CP01(아이폰 전용) 넥스트유샵 29,900원, 쿠팡 카링킷 3.0 49,000원, 5.0(CarPlay+Android Auto) 75,000원. CarPlayLife·CarAudioNow·CyberNews 2026 비교 리뷰에서 카링킷 5.0이 가성비 1순위. 2022~2023년 이후 출시 차량(현대·기아·제네시스 ccNC 이상 인포테인먼트)은 대부분 무선 CarPlay 내장이라 어댑터 불필요. 그 이전 차량(유선 전용)이 대상.",
+ "caption": "CarPlay에서 케이블이 사라졌다\n\n차에 탈 때마다 꽂던 그 케이블.\nUSB 동글 하나 꽂아두면 시동 걸 때 자동 연결.\n\n카링킷 CP01 3만원대(아이폰 전용)\n5.0은 5만원대(아이폰+안드로이드)\n\n내 차가 유선 CarPlay인지는\n차 설정 → 일반에서 확인.\n\n(출처: CarPlayLife, CarAudioNow 2026 비교)\n\n#CarPlay #무선카플레이 #카링킷 #차량액세서리 #운전템",
+ "factcheck": [
+   {"claim": "유선 CarPlay를 무선으로 전환하는 USB 동글이 존재한다", "sources": ["https://www.carplaylife.com/feature/top-5-best-wireless-carplay-android-auto-adapters-2026-which-wireless-carplay-android-auto-dongle-should-you-buy/", "https://www.caraudionow.com/best-apple-carplay-android-auto-wireless-adapters/"], "note": "CarPlayLife 2026 Top 5, CarAudioNow 2026 Tested & Ranked — 두 매체 모두 카링킷 5.0을 가성비 1순위로 선정"},
+   {"claim": "카링킷 CP01 29,900원(넥스트유샵)", "sources": ["https://nextu.kr/product/%EC%B9%B4%EB%A7%81%ED%82%B7-ios-%EB%AC%B4%EC%84%A0-%EC%B9%B4%ED%94%8C%EB%A0%88%EC%9D%B4-%EC%96%B4%EB%8C%91%ED%84%B0-carlinkit-cp01/23/"], "note": "넥스트유샵 29,900원 무료배송. 쿠팡에서는 카링킷 3.0이 49,000원, 5.0이 75,000원. 카드에는 '3만원대'로 어림값 표기"},
+   {"claim": "블루투스+Wi-Fi 브릿지로 작동, 시동 걸면 자동 연결", "sources": ["https://addcarwidgets.com/blog/wireless-carplay-adapter", "https://lamtto.com/blogs/news/what-is-carplay-wireless-adapter"], "note": "AddCarWidgets: 'adapter sets up a Wi-Fi network', 'auto reconnect when you turn the car on'. Lamtto: 'Bluetooth for initial handshake, Wi-Fi for data transfer'"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/carplay_dongle_hook.jpg",
+   "title": "CarPlay에서\n케이블이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "3만원짜리 동글 하나\n유선이 무선으로 바뀐다",
+   "body_hl": ["3만원짜리"],
+   "credit": "Pexels / Caleb Oquendo"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/carplay_dongle_end.jpg",
+   "title": "USB에 꽂으면\n끝이다",
+   "title_hl": ["끝이다"],
+   "body": "시동 걸면 자동 연결\n유선 CarPlay 차 전부 호환",
+   "body_hl": ["자동 연결"],
+   "sub": "카링킷 CP01 3만원대 / 5.0 5만원대",
+   "credit": "Pexels / Abdulvahap Demir"
+  }
+ ]
+}
