@@ -1,0 +1,35 @@
+{
+ "topic": "Sony ECM-W5 무선마이크 — 무선마이크에서 소리가 안 깨진다, 32비트 플로트 녹음으로 음량을 잘못 잡아도 소리가 절대 찢어지지 않는다, 500m 범위 64GB 백업 27g, $399.99(약 55만원) 11월 출시 [한계붕괴형]",
+ "blog_teaser": "32비트 플로트가 뭔지, 기존 마이크랑 뭐가 다른지는 블로그에 비교해뒀습니다",
+ "threads_text": "영상 소리가 찢어지는 시대가 끝났다\n\n1. 소니 ECM-W5 — 32비트 플로트 녹음이 들어갔다\n2. 음량 잘못 잡아도 소리가 절대 안 깨진다\n3. 500m 밖에서도 끊기지 않고, 끊겨도 90시간 녹음이 마이크 안에 남아 있다\n4. 송신기 27g — AA 건전지보다 가볍다\n5. $399.99(약 55만원), 11월 출시\n\n(출처: Sony Electronics 공식, PetaPixel, Newsshooter)",
+ "description": "Sony ECM-W5 2인용 무선마이크 시스템. 2026년 10월 14일 발표. 송신기 2대 + 수신기 1대 + 충전 케이스 구성. 핵심 기술: 32비트 플로트 녹음(48kHz) — 오디오 클리핑(소리 찢어짐)이 구조적으로 불가능. 기존 24비트 대비 다이나믹 레인지가 사실상 무한대. 무선 범위 500m(가시거리). 송신기 내장 저장 64GB(32비트/48kHz 기준 90시간 백업). 배터리 7시간(단독), 충전 케이스 포함 11시간. 송신기 27.1g, 수신기 35g. USB-C, 3.5mm, 소니 MI Shoe. 노이즈 플로어 21dB SPL. 최대 SPL 124dB. 해외가 $399.99(풀 키트), 송신기 단품 $119.99, 수신기 단품 $189.99. 11월 출시. 국내 출시 미정 — 소니코리아 확인 필요.",
+ "caption": "영상 소리가 찢어지는 시대가 끝났다\n\n32비트 플로트 — 음량을 잘못 잡아도\n소리가 절대 찢어지지 않는다.\n\n500m 밖에서도 끊기지 않고\n끊겨도 90시간 녹음이 마이크 안에 남아 있다.\n송신기 27g — AA 건전지보다 가볍다.\n\n$399.99(약 55만원) · 11월 출시\n국내 출시 미정\n\n(출처: Sony Electronics 공식, PetaPixel, Newsshooter)\n\n#소니 #무선마이크 #ECM_W5 #32비트플로트 #영상촬영",
+ "factcheck": [
+   {"claim": "32비트 플로트 녹음(48kHz) 지원, 오디오 클리핑 방지", "sources": ["https://www.prnewswire.com/news-releases/sony-electronics-introduces-the-ecm-w5-wireless-microphone-with-high-resolution-audio-recording-and-stable-connectivity-302908374.html", "https://www.newsshooter.com/2026/10/14/sony-ecm-w5-wireless-microphone-system-with-audio-recording/"], "note": "Sony 공식 PR: '32-Bit Float Audio in Camera Video Files', Newsshooter: '96 kHz / 24-Bit Audio Capture, 32-Bit Float Audio'"},
+   {"claim": "무선 범위 500m(가시거리)", "sources": ["https://www.prnewswire.com/news-releases/sony-electronics-introduces-the-ecm-w5-wireless-microphone-with-high-resolution-audio-recording-and-stable-connectivity-302908374.html", "https://www.imaging-resource.com/news/sony-ecm-w5-wireless-mic-system-adds-32-bit-float-audio-and-500m-range/"], "note": "Sony PR + Imaging Resource 양쪽에서 '500m / 1,640 feet line-of-sight' 확인"},
+   {"claim": "64GB 내장 저장, 32비트/48kHz 기준 90시간 백업", "sources": ["https://www.prnewswire.com/news-releases/sony-electronics-introduces-the-ecm-w5-wireless-microphone-with-high-resolution-audio-recording-and-stable-connectivity-302908374.html", "https://www.bhphotovideo.com/c/product/2007396-REG/sony_ecm_w5_2_person_wireless_microphone.html"], "note": "Sony PR: '64GB Onboard Storage per Transmitter', B&H: 'up to 90 hours at 32-bit float/48 kHz'"},
+   {"claim": "송신기 27.1g, 수신기 35g", "sources": ["https://www.newsshooter.com/2026/10/14/sony-ecm-w5-wireless-microphone-system-with-audio-recording/", "https://www.bhphotovideo.com/c/product/2007396-REG/sony_ecm_w5_2_person_wireless_microphone.html"], "note": "Newsshooter: 'Transmitter: 27.1 g (1.0 oz)', B&H: 'Receiver: 35 g (1.3 oz)'"},
+   {"claim": "$399.99(풀 키트), 11월 출시", "sources": ["https://www.streetinsider.com/Corporate+News/Sony+Electronics+launches+ECM-W5+wireless+microphone+at+%24399.99/27185370.html", "https://www.prnewswire.com/news-releases/sony-electronics-introduces-the-ecm-w5-wireless-microphone-with-high-resolution-audio-recording-and-stable-connectivity-302908374.html"], "note": "StreetInsider + Sony PR: '$399.99', 'available in November 2026'"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/sony_ecm_w5_hero.jpg",
+   "title": "마이크가 소리를\n깨뜨리지 않는 시대",
+   "title_hl": ["깨뜨리지 않는"],
+   "body": "32비트 플로트 녹음\n음량을 잘못 잡아도 소리가 절대 찢어지지 않는다",
+   "body_hl": ["절대 찢어지지 않는다"],
+   "credit": "Sony Electronics"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/sony_ecm_w5_detail.jpg",
+   "title": "500m, 90시간\n27g",
+   "title_hl": ["500m"],
+   "body": "끊겨도 90시간 녹음이 마이크 안에 남아 있다\n송신기 하나 27g — AA 건전지보다 가볍다",
+   "body_hl": ["90시간", "27g"],
+   "sub": "$399.99(약 55만원) · 11월 출시 · 국내 미정",
+   "credit": "Sony Electronics"
+  }
+ ]
+}
