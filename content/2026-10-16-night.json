@@ -1,0 +1,127 @@
+{
+  "title": "일요일 전국 비바람, 토요일까지만이다",
+  "description": "토요일까지 맑은 하늘, 일요일 새벽부터 전국에 30~80mm 비와 시속 70km 돌풍이 옵니다. 주말 나들이 계획이 있다면 토요일로 앞당기세요.\n\n출처: 기상청 중기예보(10/16), 기상청 특보 현황\nPexels 제공 영상 사용\n\n#기상 #주말날씨 #비예보 #돌풍 #일요일",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "series": "재난기상체감",
+  "narrator": "male",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "주말 나들이 계획 있으시죠? 토요일까지만 가능합니다.",
+      "lines": [
+        [
+          "주말 나들이 계획?",
+          []
+        ],
+        [
+          "토요일까지만이다",
+          ["토요일까지만"]
+        ]
+      ],
+      "bg_query": "sunny autumn park weekend",
+      "bg": "scene:https://v.daum.net/v/20261016172632529"
+    },
+    {
+      "kind": "body",
+      "voice": "기상청 중기예보 기준, 일요일 새벽 저기압이 올라오면서 전국에 비가 시작됩니다.",
+      "lines": [
+        [
+          "일요일 새벽부터",
+          []
+        ],
+        [
+          "전국에 비 시작",
+          []
+        ]
+      ],
+      "bg_query": "dark rain clouds approaching timelapse",
+      "bg": "photo:19155017"
+    },
+    {
+      "kind": "fact",
+      "voice": "중부지방 북쪽부터 새벽에 시작해, 오후엔 남부까지 전국으로 확대됩니다.",
+      "lines": [
+        [
+          "중부지방 새벽부터 시작",
+          []
+        ],
+        [
+          "오후엔 전국 확대",
+          []
+        ]
+      ],
+      "bg_query": "heavy rain city street korea",
+      "bg": 6167245
+    },
+    {
+      "kind": "fact",
+      "voice": "예상 강수량은 지역에 따라 30에서 최대 80밀리미터, 시간당 30밀리를 넘는 곳도 있습니다.",
+      "lines": [
+        [
+          "강수량 30~80mm",
+          ["30~80mm"]
+        ],
+        [
+          "시간당 30mm 넘는 곳도",
+          []
+        ]
+      ],
+      "bg_query": "heavy rain pouring on road",
+      "bg": 7681518
+    },
+    {
+      "kind": "fact",
+      "voice": "비뿐만이 아닙니다. 순간 풍속 시속 70킬로미터, 우산이 뒤집어지는 돌풍도 함께 옵니다.",
+      "lines": [
+        [
+          "우산이 뒤집어지는 돌풍",
+          []
+        ],
+        [
+          "시속 70킬로미터",
+          ["70킬로미터"]
+        ]
+      ],
+      "bg_query": "strong wind storm trees bending",
+      "bg": "photo:10717478"
+    },
+    {
+      "kind": "twist",
+      "voice": "반면 토요일은 대체로 맑습니다. 야외 일정이 있다면, 하루만 앞당기세요.",
+      "lines": [
+        [
+          "토요일은 대체로 맑습니다",
+          ["맑습니다"]
+        ],
+        [
+          "하루만 앞당기세요",
+          []
+        ]
+      ],
+      "bg_query": "clear blue autumn sky",
+      "bg": 30303342
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        [
+          "오늘도 1일 1지식,",
+          ["1일", "1지식,"]
+        ],
+        [
+          "구독으로 받아보세요",
+          ["구독으로"]
+        ]
+      ],
+      "bg": 29188858
+    }
+  ],
+  "sources": [
+    "https://www.weather.go.kr/w/weather/forecast/short-term.do",
+    "https://www.weather.go.kr/w/weather/forecast/mid-term.do"
+  ],
+  "bg_query": "rain storm autumn",
+  "bg_ids": [7681518, 6167245]
+}
