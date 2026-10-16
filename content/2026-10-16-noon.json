@@ -1,0 +1,106 @@
+{
+  "title": "한국이 독일의 40년 단골에게 잠수함을 팔겠다고 했습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "series": "애국·정체성",
+  "narrator": "male",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "잠수함을 만든 적 없던 나라가 있습니다. 1987년, 독일에 기술자 150명을 보냈습니다.",
+      "lines": [
+        [
+          "잠수함을 만든 적 없던 나라가 있습니다",
+          []
+        ],
+        [
+          "1987년, 독일에 150명을 보냈습니다",
+          []
+        ]
+      ],
+      "bg": "commons:File:ROKS Jangbogo SS-61.jpg"
+    },
+    {
+      "kind": "fact",
+      "voice": "6년 뒤 첫 잠수함이 취역했습니다. 독일 설계에 한국 용접 기술을 입힌 1,200톤급 장보고였습니다.",
+      "lines": [
+        [
+          "6년 뒤 첫 잠수함 취역",
+          []
+        ],
+        [
+          "1,200톤급 장보고",
+          ["장보고"]
+        ]
+      ],
+      "bg": "commons:File:ROKS Lee Sunsin (SS 068) arrives at Naval Station Pearl Harbor.jpg"
+    },
+    {
+      "kind": "fact",
+      "voice": "40년 가까이 지난 지금, 한국은 수중 4,000톤급 잠수함을 독자 설계합니다. 2021년에는 핵잠 없이 수중 탄도미사일을 쏜 세계 최초의 나라가 됐습니다.",
+      "lines": [
+        [
+          "수중 4,000톤급 독자 설계",
+          ["4,000톤급"]
+        ],
+        [
+          "핵잠 없이 수중 탄도미사일 — 세계 최초",
+          ["최초"]
+        ]
+      ],
+      "bg": "photo:9689357"
+    },
+    {
+      "kind": "fact",
+      "voice": "그리스 해군이 잠수함 4척 교체를 추진합니다. 40년간 독일이 독점 납품한 시장입니다.",
+      "lines": [
+        [
+          "그리스 해군 잠수함 4척 교체",
+          []
+        ],
+        [
+          "40년간 독일 독점 납품 시장",
+          []
+        ]
+      ],
+      "bg": 39288305
+    },
+    {
+      "kind": "twist",
+      "voice": "그 입찰에 한국이 제안서를 냈습니다. 1987년 기술을 배운 나라가, 오늘 스승의 단골에게 우리 걸 사라는 겁니다.",
+      "lines": [
+        [
+          "한국이 제안서를 냈습니다",
+          ["한국이"]
+        ],
+        [
+          "스승의 단골에게, 우리 걸 사라는 겁니다",
+          ["단골에게"]
+        ]
+      ],
+      "bg": "photo:13316851"
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        [
+          "오늘도 1일 1지식,",
+          ["1일", "1지식,"]
+        ],
+        [
+          "구독으로 받아보세요",
+          ["구독으로"]
+        ]
+      ],
+      "bg": "commons:File:ROKS Jangbogo SS-61.jpg"
+    }
+  ],
+  "sources": [
+    "방위사업청 KSS-III 사업 소개 (수중 4,000톤급, 독자 설계)",
+    "국방부 2021-09-15 SLBM 수중발사시험 성공 공식 발표",
+    "Naval News 2026-10 Greece submarine replacement program RFI"
+  ],
+  "real_query": ["KSS-III submarine", "장보고 잠수함", "ROKS Dosan Ahn Changho submarine", "Hellenic Navy submarine"],
+  "bg_query": ["submarine underwater navy", "submarine construction shipyard", "naval submarine surfacing ocean", "military submarine dock"]
+}
