@@ -1,0 +1,42 @@
+{
+ "topic": "UGREEN 240W 디스플레이 충전 케이블 — 충전 케이블에 화면이 달렸다, 커넥터에 내장된 디스플레이가 지금 몇 와트로 충전되는지 실시간으로 보여준다, PD 3.1 240W E-Marker, 쿠팡 16,900원 로켓배송 [구매가능]",
+ "blog_teaser": "240W PD 3.1 규격이 뭔지, E-Marker 칩이 왜 필요한지는 블로그에 정리했습니다",
+ "threads_text": "충전 케이블에 처음으로 화면이 생겼다\n\n1. USB-C 커넥터에 디스플레이가 내장돼 있다\n2. 꽂는 순간 지금 몇 와트로 충전되는지 실시간으로 뜬다\n3. 그동안 이걸 보려면 USB 전력계를 따로 사야 했다\n4. PD 3.1 240W라 폰부터 노트북까지 다 된다\n5. 다만 데이터 전송은 USB 2.0이라 충전 전용이다\n\n쿠팡 16,900원, 로켓배송\n\n(출처: UGREEN 공식, The Gadgeteer 리뷰)",
+ "description": "UGREEN 240W USB-C to USB-C 충전 케이블(L530). 커넥터에 TFT/LED 디스플레이 내장, 충전 중 실시간 와트(W)·전압(V)·전류(A) 표시. PD 3.1 규격 48V/5A 최대 240W, E-Marker 칩 내장. 데이터 전송 USB 2.0(480Mbps) — 영상 출력 불가, 충전 전용. 나일론 브레이드 + 알루미늄 하우징. 0.5m/1m/2m/3m. 쿠팡 유그린 공식 스토어 16,900원(0.5m, 로켓배송). 미국가 $17~29(길이별). 이전에는 충전 와트를 확인하려면 USB 전력 측정기(USB power meter)를 별도 구매해야 했다($15~25).",
+ "caption": "충전 케이블에 처음으로 화면이 생겼다\n\nUSB-C 커넥터 속 디스플레이가\n지금 몇 와트인지 실시간으로 보여준다\n\nPD 3.1 240W — 폰부터 맥북까지\n단 데이터 전송은 USB 2.0, 충전 전용\n\n쿠팡 16,900원 로켓배송\n\n(출처: UGREEN 공식, The Gadgeteer)\n\n#충전케이블 #USBC #UGREEN #유그린 #테크",
+ "claims": [
+   {"text": "UGREEN 240W 디스플레이 충전 케이블 가격", "value": "16,900원", "price_basis": "판매처", "price_checked": "2026-10-16", "source": "쿠팡 유그린 공식스토어 — PD 240W LED 디스플레이 0.5m 모델"}
+ ],
+ "rebuttals": [
+   "USB 2.0이면 데이터 전송 안 되는데 충전 전용 케이블을 왜 따로 사냐, 기본 번들 케이블로도 충전 된다",
+   "와트 수 확인할 일이 얼마나 있다고 디스플레이가 달린 케이블을 사냐, 폰 자체 배터리 앱에서도 보인다",
+   "0.5m는 너무 짧다, 침대에서 쓰려면 1m 이상인데 그건 더 비싸다"
+ ],
+ "factcheck": [
+   {"claim": "커넥터에 디스플레이 내장, W/V/A 실시간 표시", "sources": ["https://us.ugreen.com/products/usb-c-cable-240w-digital-display-480mbps", "https://the-gadgeteer.com/2026/09/25/ugreen-nexode-240w-usb-c-cable-smart-display/"], "note": "UGREEN 공식 제품 페이지 및 The Gadgeteer 리뷰에서 TFT Smart Display 기능 확인"},
+   {"claim": "PD 3.1 240W(48V/5A), E-Marker 칩 내장", "sources": ["https://us.ugreen.com/products/usb-c-cable-240w-digital-display-480mbps", "https://smartgadgetkit.com/ugreen-240w-usb-c-cable-review/"], "note": "UGREEN 공식 스펙 및 SmartGadgetKit 리뷰에서 E-Marker 확인"},
+   {"claim": "데이터 전송 USB 2.0(480Mbps), 영상 출력 불가", "sources": ["https://the-gadgeteer.com/2026/09/25/ugreen-nexode-240w-usb-c-cable-smart-display/", "https://us.ugreen.com/products/usb-c-cable-240w-digital-display-480mbps"], "note": "The Gadgeteer: substantial bottleneck for data. UGREEN 공식 스펙 480Mbps 명시"},
+   {"claim": "쿠팡 16,900원(0.5m)", "sources": ["https://shop.coupang.com/A01115363"], "note": "쿠팡 유그린 공식스토어 검색 결과 — LED 디스플레이 240W 0.5m 모델 16,900원(정가 19,800원 14% 할인), 로켓배송. 2026-10-16 검색 기준. 정확한 상품 페이지 URL 미확보(쿠팡 동적 페이지)"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/ugreen_240w_display_1.jpg",
+   "title": "충전 케이블에\n처음으로 화면이 생겼다",
+   "title_hl": ["처음으로"],
+   "body": "몇 와트로 충전되는지\n이제 눈으로 본다",
+   "body_hl": ["눈으로 본다"],
+   "credit": "The Gadgeteer"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/ugreen_240w_display_2.jpg",
+   "title": "전력계가\n케이블 안에 들어갔다",
+   "title_hl": ["케이블 안에"],
+   "body": "PD 3.1 240W — 폰부터 맥북까지\nUSB 2.0이라 충전 전용",
+   "body_hl": ["240W"],
+   "sub": "쿠팡 16,900원 로켓배송",
+   "credit": "The Gadgeteer"
+  }
+ ]
+}
