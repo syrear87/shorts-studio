@@ -1,0 +1,75 @@
+{
+ "topic": "NVIDIA RTX Spark — 그래픽카드만 만들던 엔비디아가 노트북을 통째로 만들었다, Grace ARM 20코어 CPU + Blackwell GPU 6,144 CUDA 코어를 한 칩에 합쳤다, 통합 메모리 최대 128GB, 오늘(10/16) 8개 제조사 동시 출시, $2,599~ [한계붕괴형]",
+ "blog_teaser": "CPU와 GPU를 왜 하나로 합쳤는지, 통합 메모리가 뭐가 다른지는 블로그에 정리했습니다",
+ "threads_text": "노트북에서 CPU와 GPU의 경계가 사라졌다\n\n1. 엔비디아 RTX Spark — CPU랑 GPU가 한 칩이다\n2. 메모리 128GB까지 CPU·GPU가 같이 쓴다\n3. 애플 M 시리즈랑 구조가 같은데 GPU가 데이터센터급이다\n4. 오늘(10/16) 에이수스·델·HP·레노버 등 8곳 동시 출시\n5. 한국은 ASUS 사전예약 시작, 475만원부터\n\n(출처: NVIDIA 공식, Microsoft Surface Laptop Ultra 공식)",
+ "description": "NVIDIA RTX Spark Superchip. 엔비디아 최초의 소비자용 노트북 칩. Grace ARM CPU 20코어(Cortex-X925+A725) + Blackwell GPU 48SM 6,144 CUDA 코어를 단일 패키지에 통합. LPDDR5X 통합 메모리 최대 128GB — CPU와 GPU가 같은 메모리 풀을 공유(애플 M 시리즈 통합 메모리와 같은 구조, 차이는 GPU가 모바일 축소판이 아닌 데이터센터급 블랙웰 아키텍처). AI 연산 최대 1 PFLOPS, 120B 파라미터 모델 온디바이스 구동. OEM 8사 동시 출시: Acer·ASUS·Dell·Gigabyte·HP·Lenovo·Microsoft·MSI. 미국 기준가 $2,599(Surface Laptop Ultra 24GB/512GB) ~ $6,999(ASUS ProArt P16 128GB/2TB). 한국은 ASUS·MSI 사전예약 진행 중, 475만원+부터. Computex 2026 발표, 2026-10-16 출하 시작.",
+ "caption": "노트북에서 CPU와 GPU의 경계가 사라졌다\n\n그래픽카드만 만들던 엔비디아가\n처음으로 노트북 칩을 만들었다\n\n오늘(10/16) 8개 제조사 동시 출시\n$2,599~ · 한국 ASUS 475만원~\n\n(출처: NVIDIA 공식, Microsoft)\n\n#NVIDIA #RTXSpark #엔비디아 #노트북 #테크",
+ "factcheck": [
+  {
+   "claim": "엔비디아 최초 소비자용 노트북 칩, Grace ARM CPU 20코어 + Blackwell GPU 6,144 CUDA 코어 단일 패키지",
+   "sources": [
+    "https://wccftech.com/nvidia-enters-pc-space-with-rtx-spark/",
+    "https://buttondown.com/TheObservationPost/archive/nvidia-rtx-spark-when-the-gpu-company-decides-to/"
+   ],
+   "note": "wccftech: 'NVIDIA Enters The PC Space With RTX Spark'. TheObservationPost: 'NVIDIA's first complete laptop processor'. Computex 2026 발표"
+  },
+  {
+   "claim": "LPDDR5X 통합 메모리 최대 128GB, CPU·GPU 공유",
+   "sources": [
+    "https://tech-insider.org/nvidia-rtx-spark-laptops-launch-2599-128gb-2026/",
+    "https://www.gadgetsalvation.com/blog/welcome-to-the-superchip-era-a-deep-dive-into-nvidia-rtx-spark-laptops"
+   ],
+   "note": "tech-insider: 'up to 128GB LPDDR5x unified memory'. gadgetsalvation 딥다이브에서 통합 메모리 구조 상세 확인"
+  },
+  {
+   "claim": "OEM 8사(Acer·ASUS·Dell·Gigabyte·HP·Lenovo·Microsoft·MSI) 동시 출시, 2026-10-16 출하",
+   "sources": [
+    "https://tech-insider.org/nvidia-rtx-spark-laptops-launch-2599-128gb-2026/",
+    "https://tech-insider.org/rtx-spark-pre-orders-six-oems-4199-2026/"
+   ],
+   "note": "tech-insider: 'RTX Spark laptops began shipping from eight PC manufacturers on October 16, 2026'"
+  },
+  {
+   "claim": "미국 시작가 $2,599(Surface Laptop Ultra), 한국 ASUS 사전예약 475만원+",
+   "sources": [
+    "https://www.pinpointnews.co.kr/news/articleView.html?idxno=493823",
+    "https://hi.deios.kr/nvidia-rtx-spark-price-specs-launch-ed372fd49dbf/"
+   ],
+   "note": "핀포인트뉴스: 'MS, 엔비디아 RTX 스파크 탑재 노트북 공개…가격은 최대 6000달러'. deios.kr: ASUS·MSI 사전예약 475만원+ 완판 확인"
+  }
+ ],
+ "rebuttals": [
+  "애플 M 시리즈가 2020년부터 같은 구조인데 뭐가 새로운 건가, 통합 메모리 자체는 엔비디아가 먼저가 아니다",
+  "350만원짜리 노트북을 일반인이 살 이유가 있느냐, 맥북 프로 M4 Max도 500만원대인데 그건 전문가용이다",
+  "그래픽카드 회사가 CPU를 만든다고 인텔·AMD보다 잘할 수 있느냐, 서버 칩이랑 노트북 칩은 요구사항이 다르다"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/rtx_spark_laptop_1.jpg",
+   "title": "노트북에서 CPU와 GPU의\n경계가 사라졌다",
+   "title_hl": [
+    "사라졌다"
+   ],
+   "body": "그래픽카드만 만들던 엔비디아가\n처음으로 노트북 칩을 만들었다",
+   "body_hl": [
+    "처음으로"
+   ],
+   "credit": "Microsoft"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/rtx_spark_laptop_2.jpg",
+   "title": "메모리 128GB를\nCPU와 GPU가 함께 쓴다",
+   "title_hl": [
+    "128GB"
+   ],
+   "body": "오늘(10/16) 8개 제조사 동시 출시\n$2,599~ · 한국 ASUS 475만원~",
+   "body_hl": [
+    "8개 제조사"
+   ],
+   "sub": "애플 M과 같은 구조, GPU는 데이터센터급",
+   "credit": "Microsoft"
+  }
+ ]
+}
