@@ -1,0 +1,35 @@
+{
+ "topic": "Amazon Bee Frontier & Eclipse — 하루 대화를 전부 기억하는 기계가 나왔다, $75 손목밴드(Frontier)와 $100 폰 뒷면 자석 부착형(Eclipse), 듀얼 마이크로 대화를 실시간 녹음·전사·요약·할일 생성, 7일 배터리 IP67, 40개 언어, 국내 미출시 직구 전용 [한계붕괴형]",
+ "blog_teaser": "AI 녹음 웨어러블 비교와 프라이버시 논란 정리는 블로그에 있습니다",
+ "threads_text": "녹음기가 바뀌었다 — 이젠 들은 걸 요약한다\n\n1. 아마존 Bee — 손목에 차거나 폰 뒤에 자석으로 붙이는 AI 녹음기\n2. 듀얼 마이크가 대화를 듣고, AI가 전사·요약·할 일까지 뽑아낸다\n3. 손목형 $75(7일 배터리) · 부착형 $100(21일 배터리)\n4. 녹음 중 LED가 켜지긴 하는데, 주변 사람이 거부할 방법은 없다\n\n(출처: 9to5Google, TechRadar, bee.computer 공식)",
+ "description": "Amazon Bee Frontier: $74.99, 2026-10-15 출시. 손목밴드 또는 클립온 웨어러블. 듀얼 마이크, IP67 방수, 7일 배터리, USB-C 충전. 색상: 블랙/라벤더/모스. Bee Eclipse: $99.99, 출시일 미정('coming soon'). 신용카드 크기, MagSafe/Qi2 자석으로 폰 뒷면 부착. 배터리 21일 이상. 색상: 블랙/핑크/옐로/실버. 공통: 대화를 실시간 녹음·전사, AI가 요약·할 일·리캡 자동 생성. 음성은 실시간 처리 후 삭제, 암호화된 전사본만 보관(아마존 발표). 무료 티어: 14일 메모리, 기본 요약. Bee Pro: 월 $11.99, 확장 요약·Alexa+·데스크톱 앱. 40개 언어 지원. Gmail·구글캘린더·아웃룩 연동. 녹음 중 LED 표시등 점등 — 단 주변인 옵트아웃 방법 없음(프라이버시 논란). 국내 미출시, Amazon.com 직구 전용. Frontier $74.99 + 배송 $15~25 = 약 12~14만원, $150 미만 FTA 관세 면제. 국내 대안: 네이버 클로바노트(앱, 무료/유료), 다글로(앱) 등 AI 녹음 앱은 있으나 전용 하드웨어는 없음. 아마존 하드웨어 한국 정식 출시 전례 없어 출시 전망 없음.",
+ "caption": "녹음기가 바뀌었다 — 이젠 들은 걸 요약한다\n\n아마존 Bee — 손목에 차거나 폰 뒤에 자석으로 붙이면\n듀얼 마이크가 대화를 듣고 AI가 요약·할일까지 뽑아낸다\n\n손목형(Frontier) $74.99, 7일 배터리, IP67\n부착형(Eclipse) $99.99, 배터리 21일\n\n직구 전용 — Amazon.com 'Bee Frontier' 검색\n$150 미만 관세 면제, 배송 포함 약 12~14만원\n\n(출처: 9to5Google, TechRadar, bee.computer 공식)\n\n#AI웨어러블 #BeeAI #회의녹음 #AI기기 #가젯",
+ "factcheck": [
+   {"claim": "Bee Frontier 가격 $74.99, 2026-10-15 출시", "sources": ["https://bee.computer/products/frontier", "https://9to5google.com/2026/10/15/amazon-launches-bee-ai-wearables/"], "note": "bee.computer 공식 제품 페이지 확인, 9to5Google 기사에서 동일 가격·날짜 확인"},
+   {"claim": "Bee Eclipse 가격 $99.99, 배터리 21일 이상", "sources": ["https://bee.computer/products/eclipse", "https://zentor.ai/blog/amazon-bee-frontier-eclipse"], "note": "공식 페이지에서 $99.99 확인, zentor 기사에서 '21일 이상' 배터리 수명 확인"},
+   {"claim": "Frontier 7일 배터리, IP67 방수, 듀얼 마이크", "sources": ["https://bee.computer/products/frontier", "https://tech-insider.org/amazon-bee-ai-devices-frontier-eclipse-2026/"], "note": "공식 스펙: 7-day battery, IP67, dual mics with noise filtering"},
+   {"claim": "무료 14일 메모리, Bee Pro 월 $11.99", "sources": ["https://tech-insider.org/amazon-bee-ai-devices-frontier-eclipse-2026/", "https://zentor.ai/blog/amazon-bee-frontier-eclipse"], "note": "두 매체에서 동일 구독 모델 확인"},
+   {"claim": "$150 미만 미국발 직구 관세 면제", "sources": ["https://www.customs.go.kr/"], "note": "관세청 해외직구 면세 기준: 미국발 FTA 적용 $200 이하 면세"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/bee_eclipse_on_phone.jpg",
+   "title": "녹음기가 바뀌었다\n이젠 들은 걸 요약한다",
+   "title_hl": ["바뀌었다"],
+   "body": "아마존 Bee — 듀얼 마이크가 듣고\nAI가 요약·할 일까지 뽑아낸다",
+   "body_hl": ["요약·할 일"],
+   "credit": "Amazon / Android Central"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/bee_frontier_eclipse_hero.jpg",
+   "title": "손목에 차면 7일\n폰에 붙이면 21일",
+   "title_hl": ["7일", "21일"],
+   "body": "Frontier $75 손목형 · Eclipse $100 자석 부착형\n7일~21일 배터리, IP67, 40개 언어",
+   "body_hl": ["$75", "$100"],
+   "sub": "직구 전용 — Amazon.com 'Bee Frontier' 검색\n$150 미만 관세 면제, 배송 포함 약 12~14만원",
+   "credit": "Amazon / Android Central"
+  }
+ ]
+}
