@@ -1,0 +1,35 @@
+{
+ "topic": "Fosi Audio DISC Nano — CD 플레이어가 폰 뒤에서 부활했다, 102mm 정사각 210g 포터블 CD 플레이어에 MagSafe 자석 탑재, Cirrus Logic CS43198 DAC + 4.4mm 밸런스드 출력, $99.99 직구 전용(관세 면제 구간) [소유욕형]",
+ "blog_teaser": "CD 플레이어 부활 흐름과 DAC 칩 비교는 블로그에 정리했습니다",
+ "threads_text": "CD 플레이어가 폰 뒤에서 부활했다\n\n1. Fosi Audio DISC Nano — 102mm 정사각형, 210g\n2. 뒷면에 N52 자석이 들어 있어서 폰에 딱 붙는다\n3. Cirrus Logic CS43198 DAC에 4.4mm 밸런스드 출력까지 있다\n4. 블루투스 송출도 돼서 무선 이어폰으로도 듣는다\n5. $99.99 — $150 미만이라 관세 없고, 배송비 포함 약 15만원선\n\n(출처: Fosi Audio 공식, Gear Patrol, The Gadgeteer)",
+ "description": "Fosi Audio DISC Nano. IFA 2026(9월) 공식 데뷔, 현재 fosiaudio.com에서 판매 중. 102×102×29mm, 210g. DAC: Cirrus Logic CS43198. 출력: 3.5mm 싱글엔드 + 4.4mm 밸런스드 + 3.5mm 광출력(트랜스포트). 블루투스 송출 지원. MagSafe 호환 N52 자석 링 탑재(무선 충전 아님, 마그네틱 거치 전용). 배터리 800mAh, USB-C 충전. 색상: 블랙/화이트. $99.99. 한국 공식 유통 없음, 직구 전용. $150 미만 개인 수입 면세 구간이라 관세 없음, 배송비 포함 약 14~16만원 예상. 국내 대안: MagSafe 탑재 포터블 CD 플레이어는 없음. 일반 포터블 CD 플레이어(HOTT 등)는 1~3만원대이나 DAC 품질·밸런스드 출력·자석 마운트 없음. Fosi Audio 한국 출시 계획 없음.",
+ "caption": "CD 플레이어가 폰 뒤에서 부활했다\n\n102mm 정사각형, 210g.\n뒷면 자석으로 폰에 딱 붙는다.\n\nCirrus Logic DAC + 4.4mm 밸런스드 출력\n블루투스 송출까지 된다.\n\n$99.99 — 관세 없는 $150 미만\nfosiaudio.com 직구 전용\n\n(출처: Fosi Audio 공식, Gear Patrol, The Gadgeteer)\n\n#CD플레이어 #디스크맨 #FosiAudio #포터블오디오 #가젯",
+ "factcheck": [
+   {"claim": "Fosi Audio DISC Nano 크기 102×102×29mm, 무게 210g", "sources": ["https://fosiaudio.com/products/disc-nano-cd-player", "https://the-gadgeteer.com/2026/10/12/fosi-audio-disc-nano-bluetooth-cd-player/"], "note": "Fosi Audio 공식 제품 페이지 스펙 확인, The Gadgeteer 리뷰에서 동일 수치 확인"},
+   {"claim": "Cirrus Logic CS43198 DAC, 4.4mm 밸런스드 + 3.5mm + 광출력", "sources": ["https://fosiaudio.com/products/disc-nano-cd-player", "https://www.gearpatrol.com/audio/fosi-audio-disc-nano-portable-cd-player/"], "note": "공식 스펙시트 확인. Gear Patrol 리뷰에서 CS43198 언급 확인"},
+   {"claim": "$99.99 판매가", "sources": ["https://fosiaudio.com/products/disc-nano-cd-player"], "note": "공식 스토어 판매가 $99.99 확인 (2026-10-16)"},
+   {"claim": "MagSafe 호환 N52 자석 링 탑재", "sources": ["https://fosiaudio.com/products/disc-nano-cd-player", "https://the-gadgeteer.com/2026/10/12/fosi-audio-disc-nano-bluetooth-cd-player/"], "note": "공식: N52 magnet ring. 무선 충전 아님, 마그네틱 거치 전용"},
+   {"claim": "$150 미만 관세 면제", "sources": ["https://www.customs.go.kr/"], "note": "관세청 해외직구 면세 기준: 미국발 $200 이하 면세 (FTA 적용). $99.99는 면세 구간"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/fosi_disc_nano_hero.png",
+   "title": "CD 플레이어가\n폰 뒤에서 부활했다",
+   "title_hl": ["부활했다"],
+   "body": "102mm 정사각, 210g\nMagSafe 자석으로 폰에 딱",
+   "body_hl": ["210g"],
+   "credit": "Fosi Audio"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/fosi_disc_nano_black.png",
+   "title": "CD인데\n하이파이가 된다",
+   "title_hl": ["하이파이"],
+   "body": "Cirrus Logic DAC\n4.4mm 밸런스드 + 블루투스 송출",
+   "body_hl": ["4.4mm 밸런스드"],
+   "sub": "$99.99 — 관세 없는 직구 구간\nfosiaudio.com",
+   "credit": "Fosi Audio"
+  }
+ ]
+}

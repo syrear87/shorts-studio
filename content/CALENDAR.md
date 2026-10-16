@@ -772,3 +772,4 @@
 - 10-13 20시 카드 — Ring Smart Lock, 도어락에 발전기가 처음 들어갔다 (한계붕괴형) https://www.threads.com/@daily_1_pick/post/DebrPoqma1G
 - 10-15 09시 카드 — Pokémon × Beats Pill 한정판, 피카츄가 스피커에 새겨졌다 (소유욕형) https://www.threads.com/@daily_1_pick/post/Defpamoj0KA
 - 10-15 20시 카드 — Auracast 블루투스 오디오 공유, 이어폰 나눠 끼기가 끝났다 (공유형) https://www.threads.com/@daily_1_pick/post/Deg1lBbGT0g
+- 10-16 09시 카드 — Fosi Audio DISC Nano, CD 플레이어가 폰 뒤에서 부활했다 (소유욕형) https://www.threads.com/@daily_1_pick/post/DeiNohDD7-0
