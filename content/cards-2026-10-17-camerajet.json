@@ -1,0 +1,35 @@
+{
+ "topic": "Dyson CameraJet — 칫솔이 이빨 사이를 보기 시작했다, 10만 화소 매크로 카메라가 초당 28장씩 잇몸 틈새를 찍고 AI가 0.1초 만에 물줄기를 쏜다, 74.9만원 다이슨 코리아 공식 [한계붕괴형]",
+ "blog_teaser": "칫솔에 카메라를 넣기까지 6년, 661명이 매달린 개발 과정은 블로그에 있습니다",
+ "threads_text": "전동칫솔에 카메라가 들어갔다\n\n1. 다이슨이 칫솔 안에 10만 화소 카메라를 넣었다\n2. 초당 28장씩 이빨 사이를 찍는다\n3. AI가 틈새를 잡으면 0.1초 만에 물줄기가 쏴진다\n4. 47만 장 치과 사진으로 훈련시킨 AI가 이 안에 들어있다\n5. 한국 공식 74.9만원 — 칫솔인데 75만원\n\n(출처: Dyson 공식 보도자료, TechRadar)",
+ "description": "Dyson CameraJet 전동칫솔. 2026-09-01 파리에서 공개, 같은 달 출시. 100k 화소 매크로 렌즈 카메라 내장, 초당 28 프레임 분석, 잇몸 틈새 감지 시 100ms 이내 원추형 워터젯 발사. 47만 장 치과 이미지로 학습한 ML 모델 탑재, 코드 1,600만 줄. 개발 6년, 엔지니어 661명. 색상: Ceramic Ultra Blue / Ceramic Pink. MyDyson 앱 블루투스 연동, 실시간 구강 내시경 뷰. 교체 브러시 헤드 $29.99/2개. 한국 공식: dyson.co.kr, 749,000원. 쿠팡·네이버쇼핑 미등록(다이슨 직판 전용). '최초 카메라 칫솔' 표현 주의 — 2016년 ONVI가 카메라 칫솔을 먼저 만든 바 있음. 다이슨 공식 표현은 'first toothbrush with a camera and a jet'.",
+ "caption": "전동칫솔에 카메라가 들어갔다\n\n10만 화소 카메라가 잇몸 틈새를 찍고\nAI가 0.1초 만에 물줄기를 쏜다\n\n47만 장 치과 사진으로 훈련된 AI\n칫솔 안에 들어있다\n\n한국 공식 74.9만원\ndyson.co.kr\n\n(출처: Dyson 공식 보도자료, TechRadar)\n\n#다이슨 #전동칫솔 #CameraJet #치아관리 #가젯",
+ "factcheck": [
+   {"claim": "10만 화소 매크로 렌즈 카메라 내장, 초당 28프레임 분석", "sources": ["https://www.prnewswire.com/news-releases/dyson-camerajet-the-first-toothbrush-with-a-camera-and-a-jet-to-target-the-gaps-and-remove-plaque-between-your-teeth-302865389.html", "https://www.techradar.com/health-fitness/oral-health/dyson-camerajet-review"], "note": "Dyson 공식 보도자료: 100k pixel macro lens, 28 images per second. TechRadar 리뷰에서 동일 수치 확인"},
+   {"claim": "틈새 감지 시 100ms 이내 워터젯 발사", "sources": ["https://www.prnewswire.com/news-releases/dyson-camerajet-the-first-toothbrush-with-a-camera-and-a-jet-to-target-the-gaps-and-remove-plaque-between-your-teeth-302865389.html", "https://www.foxbusiness.com/technology/dyson-launches-499-toothbrush-built-in-camera-ai-technology"], "note": "공식 보도자료 + Fox Business 기사에서 100 milliseconds 확인"},
+   {"claim": "47만 장 치과 이미지로 학습한 ML, 코드 1,600만 줄", "sources": ["https://www.prnewswire.com/news-releases/dyson-camerajet-the-first-toothbrush-with-a-camera-and-a-jet-to-target-the-gaps-and-remove-plaque-between-your-teeth-302865389.html"], "note": "Dyson 공식: 470,000 dental images, 16 million lines of code"},
+   {"claim": "한국 공식 판매가 749,000원", "sources": ["https://www.dyson.co.kr/camerajet-ceramic-pink"], "note": "다이슨 코리아 공식 사이트 확인 (2026-10-17). 쿠팡·네이버쇼핑 미등록, 다이슨 직판 전용"},
+   {"claim": "미국 판매가 $499.99", "sources": ["https://www.dyson.com/oral-care/electric-toothbrush/camerajet", "https://www.foxbusiness.com/technology/dyson-launches-499-toothbrush-built-in-camera-ai-technology"], "note": "다이슨 미국 공식 + Fox Business 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/dyson_camerajet_hero.jpg",
+   "title": "전동칫솔에\n카메라가 들어갔다",
+   "title_hl": ["카메라가 들어갔다"],
+   "body": "이빨 사이를 찍고\n0.1초 만에 물줄기를 쏜다",
+   "body_hl": ["0.1초"],
+   "credit": "Dyson"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/dyson_camerajet_detail.jpg",
+   "title": "틈새를 잡으면\n0.1초 만에 쏜다",
+   "title_hl": ["0.1초"],
+   "body": "10만 화소 카메라 · 초당 28장 분석\n47만 장 치과 사진으로 학습한 AI",
+   "body_hl": ["47만 장"],
+   "sub": "한국 공식 74.9만원 · dyson.co.kr",
+   "credit": "Dyson"
+  }
+ ]
+}
