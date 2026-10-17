@@ -775,3 +775,4 @@
 - 10-16 09시 카드 — Fosi Audio DISC Nano, CD 플레이어가 폰 뒤에서 부활했다 (소유욕형) https://www.threads.com/@daily_1_pick/post/DeiNohDD7-0
 - 10-16 14시 카드 — UGREEN 240W 디스플레이 충전 케이블, 충전 케이블에 처음으로 화면이 생겼다 (구매가능) https://www.threads.com/@daily_1_pick/post/DeiwxZrGfWR
 - 10-16 20시 카드 — Amazon Bee Frontier & Eclipse, 녹음기가 바뀌었다 — 이젠 들은 걸 요약한다 (한계붕괴형) https://www.threads.com/@daily_1_pick/post/DejZs2zGRi0
+- 10-17 20시 카드 — Haier Vision 15, 세탁기에 드디어 카메라가 들어갔다 (공유형) https://www.threads.com/@daily_1_pick/post/Del_qpRGTrX

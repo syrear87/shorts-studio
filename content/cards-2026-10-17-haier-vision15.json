@@ -1,0 +1,35 @@
+{
+ "topic": "Haier Vision 15 — 세탁기가 빨래를 보기 시작했다, 문 유리 사이에 카메라를 넣어 색상 섞임·양말 끼임·거품 양을 AI가 감지한다, 13kg 약 200만원 유럽 2027 Q1 출시 예정 한국 미정 [공유형]",
+ "blog_teaser": "삼성·LG 스마트 세탁기와 뭐가 다른지, 카메라가 실제로 뭘 보는지는 블로그에 정리했습니다",
+ "threads_text": "세탁기에 드디어 눈이 달렸다\n\n1. 하이얼이 세탁기 문 유리 사이에 카메라를 넣었다\n2. 빨래 색상 섞임, 양말 끼임, 거품 양을 눈으로 본다\n3. 삼성·LG는 센서로 감지하는데 카메라는 이게 최초\n4. 13kg, 세제 3종 자동 투입까지 된다\n5. 약 200만원 — 유럽 내년 출시, 한국은 미정\n\n(출처: Haier 공식 보도자료, Galaxus 핸즈온, Digital Trends)",
+ "description": "Haier Vision 15 세탁기. IFA 2026(베를린, 2026년 9월) 공개. 세탁기 문 이중 유리 사이에 AI Vision Sense 카메라 탑재 — 드럼 내부를 촬영해 빨래 양·색상 혼합 위험·거품 수준·잔류 의류(양말 등)를 감지한다. 9개 센서 어레이 + AI Direct Motion 모터로 물량·세제량·코스를 자동 조절. 세제 3종(액체 세제 2 + 섬유유연제 1) 자동 투입. 용량 13kg. 카메라 해상도 비공개. 삼성 Bespoke AI(가속도 센서)·LG ThinQ(패브릭 센서)에는 카메라가 없어 이 제품이 세계 최초 카메라 탑재 상용 세탁기로 보인다. 가격 약 €1,400(스위스 Galaxus 기준, 약 200만원). 유럽 2027 Q1 판매 예정. 한국 출시 미확정(하이얼코리아 판교 R&D 법인 있음). iF Design Award 2026 수상. 직구 비현실적(80kg 이상, 설치·전압·AS 문제). 국내 카메라 탑재 세탁기 대안 없음.",
+ "caption": "세탁기에 드디어 눈이 달렸다\n\n세탁기 문 유리 사이에 카메라가 들어갔다\n빨래 색상 섞임·양말 끼임·거품 양을 AI가 본다\n\n삼성·LG 스마트 세탁기는 센서로 감지하는데\n카메라를 넣은 건 이게 최초\n\nHaier Vision 15\n13kg · 약 200만원 · 유럽 2027년 출시 예정\n\n(출처: Haier 공식 보도자료, Galaxus, Digital Trends)\n\n#세탁기 #스마트가전 #하이얼 #IFA2026 #가젯",
+ "factcheck": [
+   {"claim": "세탁기 문 이중 유리 사이에 카메라 탑재, AI로 빨래 양·색상 혼합·거품·잔류 의류 감지", "sources": ["https://www.galaxus.at/en/page/forgot-a-sock-this-washing-machine-warns-you-43770", "https://www.digitaltrends.com/home/haier-ifa-2026-hands-on-ai-appliances/"], "note": "Galaxus 핸즈온 + Digital Trends IFA 2026 핸즈온에서 AI Vision Sense 카메라 기능 확인. 카메라는 문 유리 사이(between the glass panes)에 위치"},
+   {"claim": "삼성·LG 스마트 세탁기에는 카메라가 없다 (세계 최초)", "sources": ["https://news.samsung.com/uk/samsung-redefines-laundry-with-new-13kg-and-a-70-bespoke-ai-washers-at-ifa-2026", "https://www.digitaltrends.com/home/haier-ifa-2026-hands-on-ai-appliances/"], "note": "삼성 Bespoke AI는 가속도계+모터 전류 센서, LG ThinQ는 패브릭 센서 사용 — 두 제품 모두 카메라 없음 확인"},
+   {"claim": "용량 13kg, 세제 3종 자동 투입", "sources": ["https://corporate.haier-europe.com/press-release/ifa-2026-haier-intelligent-home-understands-you-before-you-ask/", "https://www.galaxus.at/en/page/forgot-a-sock-this-washing-machine-warns-you-43770"], "note": "Haier 공식 보도자료에서 13kg 확인, Galaxus에서 3종 자동 투입(liquid detergent ×2 + softener ×1) 확인"},
+   {"claim": "가격 약 €1,400 (약 200만원)", "sources": ["https://www.galaxus.at/en/page/forgot-a-sock-this-washing-machine-warns-you-43770"], "note": "스위스 Galaxus 기준 약 CHF/€1,400. Haier 공식 RRP 페이지는 미확인. 국가별 가격 차이 가능"},
+   {"claim": "IFA 2026 공개, 유럽 2027 Q1 출시 예정", "sources": ["https://corporate.haier-europe.com/press-release/ifa-2026-haier-intelligent-home-understands-you-before-you-ask/", "https://www.prnewswire.com/news-releases/haier-showcases-ai-powered-smart-home-ecosystem-at-ifa-2026-302870663.html"], "note": "Haier 공식 + PR Newswire에서 IFA 2026 공개 확인. Galaxus가 Q1 2027 입고 언급"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/haier_vision15_detail.jpg",
+   "title": "세탁기에 드디어\n눈이 달렸다",
+   "title_hl": ["드디어"],
+   "body": "문 유리 사이에 카메라가 들어갔다\n양말 한 짝도 찾아낸다",
+   "body_hl": ["카메라"],
+   "credit": "Haier / Galaxus"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/haier_vision15_hero.jpg",
+   "title": "삼성·LG에는 없다\n카메라는 이게 최초",
+   "title_hl": ["이게 최초"],
+   "body": "색상 섞임·거품 양·잔류 양말까지 AI가 본다\n13kg · 세제 3종 자동 투입",
+   "body_hl": ["AI가 본다"],
+   "sub": "Haier Vision 15 · 약 200만원 · 유럽 2027 출시",
+   "credit": "Haier / Galaxus"
+  }
+ ]
+}
