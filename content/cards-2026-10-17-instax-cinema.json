@@ -1,0 +1,36 @@
+{
+ "topic": "Fujifilm Instax Mini Evo Cinema — AI 시대 올해의 발명품, 즉석카메라였다, TIME 2026 Best Inventions 선정 Super 8 디자인 하이브리드 카메라 59만원 국내 정발 [소유욕형]",
+ "blog_teaser": "Gen Dial 10가지 시대 효과 비교와 전작 에보와 달라진 점은 블로그에 정리했습니다",
+ "threads_text": "AI 시대 올해의 발명품, 즉석카메라였다\n\n1. TIME이 2026 올해의 발명품을 발표했는데 소비자 가전 부문에 즉석카메라가 올라갔다\n2. 후지필름 인스탁스 미니 에보 시네마 — Super 8 필름 카메라처럼 생긴 285g짜리\n3. 다이얼을 돌리면 시대별 필름 질감이 입혀진다 — 10가지 시대 × 10단계\n4. 즉석 인화도 되고 15초 영상도 찍힌다\n5. 국내 정발 완료, 다나와 최저가 50만원대\n\n(출처: TIME Best Inventions 2026, Fujifilm 공식 보도자료)",
+ "description": "Fujifilm Instax Mini Evo Cinema. 2026년 1월 CES 공개, 2월 4일 국내 출시. TIME 2026 Best Inventions 소비자 가전 부문 선정(10/15 발표). Super 8 필름 카메라 디자인 하이브리드 즉석카메라. 5MP CMOS 센서, f/2 28mm 환산 렌즈. Gen Dial: 10가지 시대별 효과(decade) × 10단계 = 100가지 조합. 정지사진(1920×2560) + 15초 영상(1080×1440). 인스탁스 미니 필름 즉석 인화(318dpi). 1.54인치 TFT LCD. 285g, 87×122.9×36mm. 미국 $409.95, 국내 출시가 590,000원, 다나와 최저가 약 500,000~537,000원(2026-10-17 확인). 쿠팡·네이버쇼핑 등 온라인몰 판매 중. 2년 연속 TIME 선정(2025: Instax Wide Evo). '가장 이상한 카메라'(Digital Camera World 리뷰어 평). 후지필름 VP Ashley Reeder Morgan: 디지털 산만함에서 벗어나 촉감적 경험을 돌려준다.",
+ "caption": "AI 시대 올해의 발명품, 즉석카메라였다\n\nTIME 2026 Best Inventions 소비자 가전 부문\n후지필름 인스탁스 미니 에보 시네마\n\nSuper 8 필름 카메라처럼 생긴 285g\n다이얼을 돌리면 시대별 필름 질감이 입혀진다\n사진 · 15초 영상 · 즉석 인화까지\n\n국내 정발 완료 · 다나와 최저가 50만원대\n\n(출처: TIME, Fujifilm 공식 보도자료)\n\n#인스탁스 #즉석카메라 #TIME올해의발명품 #에보시네마 #후지필름",
+ "factcheck": [
+   {"claim": "TIME 2026 Best Inventions 소비자 가전 부문 선정", "sources": ["https://time.com/collection/best-inventions/2026/fujifilm-instax-mini-evo-cinema/", "https://www.financialcontent.com/article/bizwire-2026-10-15-fujifilms-instax-mini-evo-cinema-named-one-of-times-best-inventions-of-2026"], "note": "TIME 공식 페이지 + Fujifilm 공식 보도자료(10/15) 교차 확인"},
+   {"claim": "5MP CMOS, f/2 28mm 환산 렌즈, 285g, 87×122.9×36mm", "sources": ["https://www.fujifilm.com/us/en/consumer/instax/cameras/minievocinema/specifications", "https://www.instax.com/mini_evo_cinema/en/spec/"], "note": "Fujifilm 공식 사양 페이지 2곳 교차 확인"},
+   {"claim": "Gen Dial 10가지 시대 효과 × 10단계 = 100가지 조합", "sources": ["https://www.fujifilm.com/us/en/consumer/instax/cameras/minievocinema/specifications", "https://www.instaxus.com/cameras/mini-evo-cinema/"], "note": "공식 사양 '10 Gen Dial effects with degree control functions' + instax US 사이트 'express yourself in 100 different ways'"},
+   {"claim": "15초 영상 촬영 (1080×1440 고화질)", "sources": ["https://www.fujifilm.com/us/en/consumer/instax/cameras/minievocinema/specifications"], "note": "공식 사양: Video Standard 600×800, HQ 1080×1440, max 15 sec"},
+   {"claim": "국내 출시가 590,000원, 다나와 최저가 50만원대", "sources": ["https://m.danawa.com/product/product.html?code=105385175", "https://www.etnews.com/20260130000267"], "note": "다나와 가격비교(2026-10-17 조회) 최저 499,000~536,760원 + 전자신문 출시 기사 59만원 확인"},
+   {"claim": "2년 연속 TIME Best Inventions 선정(2025 Instax Wide Evo)", "sources": ["https://www.financialcontent.com/article/bizwire-2026-10-15-fujifilms-instax-mini-evo-cinema-named-one-of-times-best-inventions-of-2026"], "note": "Fujifilm 공식 보도자료에 'second consecutive year' 명시"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/instax_evo_cinema_hero.jpg",
+   "title": "AI 시대 올해의 발명품\n즉석카메라였다",
+   "title_hl": ["즉석카메라였다"],
+   "body": "TIME 2026 Best Inventions\n소비자 가전 부문",
+   "body_hl": ["TIME 2026"],
+   "credit": "Fujifilm"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/instax_evo_cinema_dial.jpg",
+   "title": "다이얼을 돌리면\n시대가 바뀐다",
+   "title_hl": ["시대가 바뀐다"],
+   "body": "Gen Dial 10가지 시대 × 10단계\n사진 · 15초 영상 · 즉석 인화",
+   "body_hl": ["100가지"],
+   "sub": "국내 정발 · 다나와 최저가 50만원대",
+   "credit": "Fujifilm"
+  }
+ ]
+}
