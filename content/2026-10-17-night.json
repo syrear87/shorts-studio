@@ -1,0 +1,77 @@
+{
+  "title": "평소 70킬로 넘는 선수가, 오늘 UFC 저울에서 61.5킬로를 찍었습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "재난기상체감·일반지식",
+  "real_query": ["유수영 UFC", "Sooyoung Yoo UFC weigh-in"],
+  "scene_query": ["유수영 UFC 계체량 에드먼턴", "유수영 코반첵 페이스오프"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": "scene:https://v.daum.net/v/20261017191917944",
+      "voice": "61.7킬로그램을 넘으면 경기가 취소되는데, 이 선수의 평소 체중은 70킬로가 넘습니다.",
+      "lines": [
+        ["61.7킬로를 넘으면 경기가 취소됩니다", ["61.7킬로"]],
+        ["평소 체중은 70킬로가 넘습니다", []]
+      ]
+    },
+    {
+      "kind": "body",
+      "bg": 35030841,
+      "voice": "오늘 캐나다 에드먼턴, UFC 계체량에서 유수영이 저울에 올랐습니다. 61.5킬로, 통과.",
+      "lines": [
+        ["캐나다 에드먼턴 UFC 계체량", []],
+        ["유수영 61.5킬로 — 통과", ["61.5킬로"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 34324805,
+      "voice": "UFC 밴텀급 제한은 61.2킬로그램, 0.45킬로까지만 봐줍니다. 61.7을 넘으면 경기 자체가 취소됩니다.",
+      "lines": [
+        ["밴텀급 제한 61.2킬로그램", []],
+        ["0.45킬로까지만 봐줍니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 8478185,
+      "voice": "선수들은 경기 며칠 전부터 물을 줄이고, 마지막 24시간은 거의 끊습니다.",
+      "lines": [
+        ["며칠 전부터 물을 줄이고", []],
+        ["마지막 24시간은 거의 끊습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 35030832,
+      "voice": "계체가 끝나면 24시간 안에 5킬로 이상을 다시 채웁니다. 내일 옥타곤에서는 평소 몸무게에 가까운 몸으로 싸웁니다.",
+      "lines": [
+        ["24시간 안에 5킬로 이상을 다시 채웁니다", []],
+        ["평소 몸무게에 가까운 몸으로 싸웁니다", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": 35030813,
+      "voice": "유수영은 9킬로를 버리고 저울에 올랐고, 내일은 그걸 다시 채워 싸웁니다. 7개월 만의 복귀전, 내일 새벽 6시입니다.",
+      "lines": [
+        ["9킬로를 버리고 저울에 올랐다", ["9킬로"]],
+        ["7개월 만의 복귀전, 내일 새벽 6시", ["새벽 6시"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": 35030836,
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://www.sportsworldi.com/newsView/20261017506024",
+    "https://www.mt.co.kr/sports/2026/10/17/2026101710472128370",
+    "https://www.ufc.com/news/official-weigh-in-results-buckley-malott-fight-night-edmonton"
+  ],
+  "bg_query": ["UFC weigh-in scale fighter bantamweight", "UFC ceremony arena edmonton stage", "digital scale close-up precision weight", "athlete dehydration sweat training", "MMA octagon cage UFC arena fight", "UFC fighters face off staredown intense"]
+}
