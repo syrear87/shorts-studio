@@ -1,0 +1,35 @@
+{
+ "topic": "로봇청소기 보안 위협 — 집 지도를 만드는 로봇청소기가 미국 '보안 위협 목록'에 올랐다, FCC 7월 Covered List 등재, 도킹 포함 2kg 초과+센서+네트워크 기준 로보록·에코백스·드리미·샤오미 전부 해당, LiDAR 평면도·카메라·마이크 데이터 수집, 2월 API 취약점으로 24개국 7천 대 카메라·지도 노출 사례, 기존 모델은 유지되나 신규 수입 차단 [공유형]",
+ "blog_teaser": "수집 데이터 목록과 앱 권한 점검법은 블로그에 정리했습니다",
+ "threads_text": "로봇청소기, 이제 수입이 안 된다\n\n1. 미국 FCC가 로봇청소기를 '보안 위협 기기'로 분류했다\n2. 기준이 도킹 포함 2kg 초과 — 거의 모든 제품이 걸린다\n3. 로보록·에코백스·드리미·샤오미·삼성·다이슨 전부 해당\n4. 로봇청소기는 LiDAR로 집 구조를 cm 단위로 기록하고 클라우드에 올린다\n5. 올해 2월엔 API 하나 뚫려서 24개국 7천 대 카메라·지도가 노출됐다\n\n(출처: FCC Covered List, Tom's Hardware, NBC News)",
+ "description": "미국 FCC가 2026년 7월 28일 외국산 첨단 로봇을 Covered List(보안 위협 목록)에 추가. 로봇청소기도 포함됐다. 기준: 도킹 스테이션 포함 4.4파운드(약 2kg) 초과 + 환경 감지 센서 + 200kbps 이상 네트워크 연결. 대부분의 프리미엄 로봇청소기가 해당한다. 영향 브랜드: Roborock, Ecovacs, Dreame, Narwal, Xiaomi, Samsung, Dyson. 수집 데이터: LiDAR/구조광 내비게이션 데이터(cm 단위 평면도), 장애물 회피용 카메라 영상, 음성 명령용 마이크, WiFi/Bluetooth 연결 정보, 클라우드 동기화 지도. FCC 발표문: 이 기기들이 '미국인 감시, 외국 정보기관 역량 강화, 원격 탈취에 악용될 수 있다.' 2026년 2월 보안 연구자가 Roborock API 취약점을 발견, 24개국 7,000대 이상의 카메라 피드와 지도 데이터 노출. 기존 모델은 계속 사용 가능(2029.1.1까지 보안 업데이트 보장), 신규 모델만 미국 내 인증·수입 차단. 한국에는 직접 영향 없으나, 같은 제품이 같은 데이터를 수집하고 있다.",
+ "caption": "로봇청소기, 이제 수입이 안 된다\n\n집 구조를 cm 단위로 기록하고\n클라우드에 올리는 기기\n\n미국은 이걸 '안보 위협'으로 봤다\n\n(출처: FCC Covered List, Tom's Hardware, NBC News)\n\n#로봇청소기 #보안 #FCC #스마트홈 #프라이버시",
+ "factcheck": [
+   {"claim": "FCC가 2026년 7월 28일 외국산 첨단 로봇을 Covered List에 추가", "sources": ["https://v.daum.net/v/20260729170900099", "https://www.aitimes.com/news/articleView.html?idxno=213414", "https://tech-insider.org/fcc-robot-vacuum-import-ban-2026/"], "note": "한국 뉴스 7/29 보도 + AI타임스 8/1 보도 + Tom's Hardware 보도로 교차 확인"},
+   {"claim": "기준: 도킹 포함 4.4파운드(2kg) 초과 + 환경 센서 + 200kbps 이상 네트워크", "sources": ["https://www.tomshardware.com/tech-industry/fcc-robot-ban-covers-any-ground-robot-over-4-4-pounds-with-a-200-kbps-connection", "https://www.nbcnews.com/select/shopping/robot-vacuum-ban-rcna591927"], "note": "Tom's Hardware + NBC News에서 동일 기준 확인"},
+   {"claim": "영향 브랜드: Roborock, Ecovacs, Dreame, Narwal, Xiaomi, Samsung, Dyson", "sources": ["https://tech-insider.org/fcc-robot-vacuum-import-ban-2026/"], "note": "tech-insider 보도에서 브랜드 목록 확인"},
+   {"claim": "2026년 2월 Roborock API 취약점으로 24개국 7,000대 카메라·지도 노출", "sources": ["https://www.kunalganglani.com/blog/robot-vacuum-hack-roborock-smart-home-security-risk", "https://www.gadgetreview.com/roomba-privacy-scandal-leaked-images-and-lidar-data-raise-new-surveillance-fears"], "note": "보안 연구자 실증 보고 + Gadget Review 보도"},
+   {"claim": "기존 모델은 2029.1.1까지 보안 업데이트 보장, 신규 모델만 인증 차단", "sources": ["https://www.nbcnews.com/select/shopping/robot-vacuum-ban-rcna591927", "https://tech-insider.org/fcc-robot-vacuum-import-ban-2026/"], "note": "NBC News + tech-insider에서 기존 모델 영향 없음 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/robot_vacuum_overhead.jpg",
+   "title": "로봇청소기,\n이제 수입이 안 된다",
+   "title_hl": ["이제 수입이 안 된다"],
+   "body": "집 구조를 cm 단위로 기록하고\n외국 서버에 올리는 기기",
+   "body_hl": ["cm 단위"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/robot_vacuum_floor.jpg",
+   "title": "미국이 수입을\n금지한 이유",
+   "title_hl": ["금지"],
+   "body": "LiDAR 평면도 · 카메라 · 마이크\n전부 클라우드로 간다",
+   "body_hl": ["클라우드"],
+   "sub": "로보록·에코백스·드리미·샤오미·삼성·다이슨 해당",
+   "credit": "Pexels"
+  }
+ ]
+}
