@@ -1,0 +1,78 @@
+{
+  "title": "삼성전자 주가가 43% 빠졌는데, 직원들은 더 떨어지길 바랍니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "재난기상체감·일반지식",
+  "real_query": ["삼성전자 서초사옥", "Samsung Electronics headquarters"],
+  "bg_query": ["samsung semiconductor factory", "stock market screen decline", "office workers smartphone screen", "semiconductor chip wafer closeup", "retirement pension elderly korea", "stock chart contrast up down"],
+  "scenes": [
+    {
+      "kind": "hook",
+      "bg": "commons:File:Samsung Electronics Suwon.JPG",
+      "voice": "삼성전자 주가가 4개월 만에 43% 빠졌습니다. 그런데 직원들은 더 떨어지라고 합니다.",
+      "lines": [
+        ["삼성전자 주가가 43% 빠졌습니다", ["43%"]],
+        ["직원들은 더 떨어지라고 합니다", []]
+      ]
+    },
+    {
+      "kind": "body",
+      "bg": 38698437,
+      "voice": "6월 37만 4천원에서 10월 21만원까지, 4개월 만입니다.",
+      "lines": [
+        ["6월 37만 4천원에서", []],
+        ["10월 21만원까지, 4개월 만입니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 8902401,
+      "voice": "첫째, 블라인드에 삼성 인증 직원들이 올립니다. 8만원까지 떨어져라, 주식 더 많이 받겠다.",
+      "lines": [
+        ["블라인드 인증 직원들이 올립니다", []],
+        ["8만원까지 떨어져라", ["8만원"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 6755158,
+      "voice": "둘째, 삼성 반도체 성과급은 전액 자사주로 나옵니다. 같은 금액이면 주가가 낮을수록 주식을 더 많이 받습니다.",
+      "lines": [
+        ["성과급은 전액 자사주입니다", ["전액 자사주"]],
+        ["주가 낮을수록 더 많이 받습니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "bg": 6975689,
+      "voice": "셋째, 국민연금은 삼성전자를 7.84% 보유하고 있습니다. 4개월 만에 182조원이 증발했습니다.",
+      "lines": [
+        ["국민연금 삼성전자 7.84% 보유", []],
+        ["4개월 만에 182조 증발", ["182조"]]
+      ]
+    },
+    {
+      "kind": "twist",
+      "bg": "photo:6203470",
+      "voice": "직원에겐 저가 매수의 기회입니다. 하지만 같은 주가가 내 연금에선 손실입니다. 내일 아침, 같은 숫자를 보고 누군가는 웃고 누군가는 울겁니다.",
+      "lines": [
+        ["직원에겐 기회입니다", ["기회"]],
+        ["내 연금에선 손실입니다", ["손실"]],
+        ["같은 숫자, 누군가는 웃고 울겁니다", []]
+      ]
+    },
+    {
+      "kind": "cta",
+      "bg": "photo:6771631",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "https://www.fnnews.com/news/202610180731088955",
+    "https://www.investchosun.com/site/data/html_dir/2026/10/15/2026101580087.html",
+    "https://www.seoul.co.kr/news/economy/2026/10/19/20261019031002",
+    "https://www.google.com/finance/quote/005930:KRX"
+  ]
+}
