@@ -1,0 +1,36 @@
+{
+ "topic": "Garmin Varia RearVue 820 — 자전거 후미등에 레이더가 달렸다, 뒤에서 오는 차를 175m 전에 잡아 위협 수준을 분류한다, 브레이크등 자동 전환, 배터리 최대 30시간, USB-C, 국내가 449,000원 [한계붕괴형]",
+ "blog_teaser": "레이더 후미등 원리와 10만원대 대안 비교는 블로그에 정리해뒀습니다",
+ "threads_text": "자전거가 드디어 뒤를 본다\n\n1. 가민 바리아 리어뷰 820이라는 후미등인데, 뒤에서 오는 차를 175m 전에 잡는다\n2. 차량 크기랑 좌우 움직임까지 읽어서 위협 수준을 분류함\n3. 속도 줄이면 브레이크등처럼 밝아져서 뒤차한테 알려줌\n4. 배터리 최대 30시간, USB-C 충전\n5. 국내가 449,000원 — 10만원대 대안도 있음 (iGPSPORT SR mini)\n\n(출처: Garmin 공식, BikeRadar, ZDNet Korea)",
+ "description": "Garmin Varia RearVue 820 레이더 자전거 후미등. 2026년 2월 출시. 국내가 449,000원(Garmin Korea 공식). 미국가 $299.99. 레이더로 후방 최대 175m 차량 감지. 차량 크기(소형/중형/대형)와 좌우 움직임으로 위협 수준 분류. 감속 시 자동 브레이크등 전환. 배터리: Solid 10시간, Day Flash 24시간, Radar-only 30시간. USB-C 충전. 최대 밝기 100루멘(820은 모델번호, 루멘 아님). 무게 72g. 호환: Garmin Edge 사이클 컴퓨터, Garmin Connect 앱(스마트폰). 국내 유통: Garmin Korea 공식(2월 11일~), 전국 브랜드숍(2월 25일~). 쿠팡 직접 판매는 확인 안 됨. 대안: iGPSPORT SR mini $79.90(약 11만원, 감지 160m), CYCPLUS L7 $69~(약 10만원).",
+ "caption": "자전거가 드디어 뒤를 본다\n\n뒤에서 오는 차를 175m 전에 잡는다\n차량 크기·좌우 움직임으로 위협 수준 분류\n속도 줄이면 자동으로 브레이크등\n\n배터리 최대 30시간 · USB-C\n국내 449,000원 (Garmin Korea)\n\n10만원대 대안도 있다\n— iGPSPORT SR mini (감지 160m)\n\n(출처: Garmin 공식, BikeRadar, DCRainmaker)\n\n#자전거후미등 #레이더 #가민바리아 #자전거안전 #라이딩",
+ "factcheck": [
+   {"claim": "후방 차량 감지 거리 최대 175m", "sources": ["https://www.garmin.com/en-US/newsroom/press-release/sports-fitness/garmin-unveils-varia-rearvue-820-its-brightest-and-most-powerful-radar-tail-light-for-cyclists/", "https://zdnet.co.kr/view/?no=20260211141315"], "note": "Garmin 공식 보도자료 + ZDNet Korea 동일 수치 확인"},
+   {"claim": "차량 크기·좌우 움직임으로 위협 수준 분류", "sources": ["https://www.garmin.com/en-US/newsroom/press-release/sports-fitness/garmin-unveils-varia-rearvue-820-its-brightest-and-most-powerful-radar-tail-light-for-cyclists/", "https://www.bikeradar.com/news/garmin-varia-rearvue-820"], "note": "소형/중형/대형 분류 + lateral movement 감지 확인"},
+   {"claim": "감속 시 자동 브레이크등 전환", "sources": ["https://www.cyclingweekly.com/reviews/lights-reflectives/garmin-varia-rearvue-820-review-a-genuinely-next-gen-bike-radar", "https://www8.garmin.com/manuals/webhelp/GUID-50AF77F9-6AD5-45A2-B352-C882BE5DE2B7/EN-US/Varia_RearVue_820_WW_OM_EN-US.pdf"], "note": "사용자 매뉴얼 + CyclingWeekly 리뷰 확인"},
+   {"claim": "배터리 Solid 10h / Day Flash 24h / Radar-only 30h", "sources": ["https://www8.garmin.com/manuals/webhelp/GUID-50AF77F9-6AD5-45A2-B352-C882BE5DE2B7/EN-US/GUID-05197114-9FBE-4869-992C-841808E57C62.html"], "note": "공식 매뉴얼 스펙 시트 확인"},
+   {"claim": "국내가 449,000원", "sources": ["https://www.newswire.co.kr/newsRead.php?no=1028558", "https://zdnet.co.kr/view/?no=20260211141315"], "note": "뉴스와이어 + ZDNet Korea 동일 가격 확인. 쿠팡 직접 판매는 미확인 — Garmin Korea 공식·브랜드숍 유통"},
+   {"claim": "iGPSPORT SR mini $79.90, 감지 160m", "sources": ["https://us.igpsport.com/collections/smart-radar-taillight", "https://www.cyclingweekly.com/reviews/lights-reflectives/igpsport-sr-mini-radar-review-the-tiny-radar-thats-light-on-weight-light-on-price"], "note": "iGPSPORT 공식 스토어 $79.90 확인. CyclingWeekly 리뷰에서 160m 감지 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/varia820_seatpost.jpg",
+   "title": "자전거가 드디어\n뒤를 본다",
+   "title_hl": ["드디어"],
+   "body": "뒤에서 오는 차를\n175m 전에 잡는다",
+   "body_hl": ["175m"],
+   "credit": "DCRainmaker"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/varia820_closeup.jpg",
+   "title": "차가 가까이 올수록\n경고가 세진다",
+   "title_hl": ["경고가 세진다"],
+   "body": "크기·움직임으로 위협 분류\n감속하면 브레이크등 자동 전환",
+   "body_hl": ["위협 분류"],
+   "sub": "배터리 30h · USB-C · 국내 449,000원",
+   "credit": "DCRainmaker"
+  }
+ ]
+}
