@@ -1,0 +1,35 @@
+{
+ "topic": "Cambridge Audio Spira — LP를 틀려면 기기 4대가 필요했다, 프리앰프·블루투스 내장으로 BT 스피커 하나면 끝, $499 5색 벨트드라이브, AT 카트리지 장착 완료 [한계붕괴형]",
+ "blog_teaser": "LP 입문 비용 비교랑 Spira vs Alva TT v2 스펙 정리는 블로그에 올려뒀습니다",
+ "threads_text": "LP 틀려면 기기 4대가 필요했는데 이제 BT 스피커 하나면 끝난다\n\n1. 턴테이블 + 포노앰프 + 프리앰프 + 스피커 — 이게 LP 입문 세트였다\n2. Cambridge Audio Spira가 포노앰프·프리앰프·블루투스를 다 내장했다\n3. BT 스피커 하나 연결하면 LP가 바로 나온다\n4. 카트리지도 장착 완료 — 박스 열고 판 올리면 끝\n5. $499에 5색, 2022년 LP 매출이 35년 만에 CD를 넘었다\n\n(출처: Cambridge Audio 공식, The Gadgeteer, RIAA via Rolling Stone)",
+ "description": "Cambridge Audio Spira 턴테이블. 2026년 10월 14일 공개, $499 USD(약 66만원). 벨트 드라이브 방식, 33⅓·45 RPM 지원. 내장 포노 스테이지 + 블루투스 송신기 — 외부 포노앰프·프리앰프 불필요, BT 스피커만으로 재생 가능. Audio-Technica AT3600L 카트리지 프리핏. 5색 마감: Black, White, Blue, Green, Orange. 크기 418×343×122mm, 무게 5.95kg. 스피커 출력 없음 — 유선(RCA) 또는 블루투스로 외부 스피커 연결. 더스트 커버 포함. 경쟁 제품: Cambridge Audio Alva TT v2($1,699, MC 카트리지+BT aptX HD), Audio-Technica AT-LP120X($349, 포노앰프 내장이나 BT 없음), Sony PS-LX310BT($248, BT 있으나 빌드 품질 차이). LP 시장: 2022년 RIAA 기준 LP 매출 $1.2B — 1987년 이후 35년 만에 CD 매출 첫 추월. 국내 구매: 정식 출시 미확인, 아마존 직구 가능($499 + 배송비, 150달러 초과로 관·부가세 부과 예상). 국내 대안: 오디오테크니카 AT-LP60XBT(약 25만원, BT 내장 입문기). 출시 전망: Cambridge Audio 한국 공식 유통 채널 없음, 병행수입 루트.",
+ "caption": "LP를 틀려면 기기가 4대 필요했다\n\nCambridge Audio Spira\n포노앰프·프리앰프·블루투스 내장 턴테이블\n\nBT 스피커 하나면 LP가 나온다\nAT 카트리지 장착 완료 — 박스 열고 판 올리면 끝\n\n$499 · 5색 · cambridgeaudio.com\n\n(출처: Cambridge Audio, The Gadgeteer)\n\n#턴테이블 #LP #캠브리지오디오 #바이닐 #오디오",
+ "factcheck": [
+   {"claim": "$499, 2026년 10월 14일 공개, 5색", "sources": ["https://the-gadgeteer.com/2026/10/14/cambridge-audio-spira-bluetooth-turntable/", "https://www.forbes.com/sites/marksparrow/2026/10/14/cambridge-audio-spira-turntable/"], "note": "The Gadgeteer + Forbes 동일 수치. Black, White, Blue, Green, Orange"},
+   {"claim": "내장 포노 스테이지 + 블루투스 송신기, AT3600L 카트리지 프리핏", "sources": ["https://the-gadgeteer.com/2026/10/14/cambridge-audio-spira-bluetooth-turntable/", "https://www.hifipig.com/cambridge-audio-spira-turntable/"], "note": "built-in phono stage, Bluetooth transmitter, pre-fitted Audio-Technica AT3600L"},
+   {"claim": "기존 LP 재생에 턴테이블+포노앰프+프리앰프+스피커 4대 필요", "sources": ["https://www.whathifi.com/advice/how-to-set-up-a-turntable", "https://www.audioadvice.com/videos-tutorials/how-to-set-up-a-turntable"], "note": "turntable → phono preamp → preamp/integrated amp → speakers가 전통적 체인. Spira는 phono+preamp+BT를 내장해 스피커만 있으면 됨"},
+   {"claim": "2022년 LP 매출이 35년 만에 CD 추월 (RIAA)", "sources": ["https://www.rollingstone.com/music/music-news/vinyl-outsold-cds-2022-riaa-1234700800/", "https://www.riaa.com/u-s-sales-database/"], "note": "RIAA 2022 연간: vinyl $1.2B > CD $483M. 1987년 이후 최초"},
+   {"claim": "5.95kg, 418×343×122mm", "sources": ["https://the-gadgeteer.com/2026/10/14/cambridge-audio-spira-bluetooth-turntable/"], "note": "The Gadgeteer 스펙시트 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/spira_single.jpg",
+   "title": "LP를 틀려면\n기기가 4대 필요했다",
+   "title_hl": ["4대 필요했다"],
+   "body": "턴테이블 + 포노앰프 + 프리앰프 + 스피커\n이 세트가 LP 입문의 진입장벽이었다",
+   "body_hl": ["진입장벽"],
+   "credit": "Cambridge Audio"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/spira_group.jpg",
+   "title": "BT 스피커 하나면\nLP가 나온다",
+   "title_hl": ["LP가 나온다"],
+   "body": "Cambridge Audio Spira\n포노앰프·블루투스 내장 — 박스 열고 판 올리면 끝",
+   "body_hl": ["판 올리면 끝"],
+   "sub": "$499 · 5색 · cambridgeaudio.com",
+   "credit": "Cambridge Audio"
+  }
+ ]
+}
