@@ -1,0 +1,82 @@
+{
+  "title": "70년 전 이 나라엔 나무가 없었습니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "애국·정체성",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "오늘은 산의 날입니다. 이유는 한자 두 글자 안에 있습니다.",
+      "lines": [
+        ["오늘은 산의 날입니다", []],
+        ["이유는 한자 안에 있습니다", []]
+      ],
+      "bg": "commons:File:Seoraksan National Park, Korea - panoramio - gary4now.jpg"
+    },
+    {
+      "kind": "body",
+      "voice": "十과 八을 합치면 木. 산림청은 이 조합을 이유로 10월 18일을 산의 날로 지정했습니다.",
+      "lines": [
+        ["十과 八을 합치면 木", ["木"]],
+        ["산림청이 10월 18일을", []],
+        ["산의 날로 지정했습니다", []]
+      ],
+      "bg": 40156126
+    },
+    {
+      "kind": "fact",
+      "voice": "한국 국토의 63퍼센트가 산입니다. 그런데 70년 전, 이 땅에 나무가 거의 없었습니다.",
+      "lines": [
+        ["국토의 63%가 산입니다", ["63%가"]],
+        ["70년 전, 나무가 거의 없었습니다", []]
+      ],
+      "bg": "photo:18959380"
+    },
+    {
+      "kind": "fact",
+      "voice": "전쟁 뒤 땔감 벌목으로 전국이 민둥산이 됐습니다. 비가 오면 산사태가 일상이었습니다.",
+      "lines": [
+        ["전쟁 후 땔감 벌목으로", []],
+        ["전국이 민둥산이 됐습니다", ["민둥산이"]],
+        ["비가 오면 산사태가 일상이었습니다", []]
+      ],
+      "bg": "photo:18959380"
+    },
+    {
+      "kind": "fact",
+      "voice": "그 뒤 50년 동안 100억 그루를 심었습니다. 황폐했던 산이 다시 울창해진 겁니다.",
+      "lines": [
+        ["50년간 100억 그루를 심었습니다", ["100억"]],
+        ["황폐했던 산이 다시 울창해진 겁니다", []]
+      ],
+      "bg": 19196128
+    },
+    {
+      "kind": "twist",
+      "voice": "유엔은 이것을 세계에서 유일한 산림 녹화 성공 사례로 기록했습니다. 오늘 산의 날에 올려다본 그 나무는, 누군가 심은 겁니다.",
+      "lines": [
+        ["세계 유일한 녹화 성공 사례입니다", ["유일한"]],
+        ["올려다본 그 나무는 누군가 심은 겁니다", []]
+      ],
+      "bg": 19196128
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "sub": "1일 1지식 · 구독",
+      "lines": [
+        ["오늘도 1일 1지식", ["1일", "1지식"]],
+        ["구독으로 받아보세요", []]
+      ],
+      "bg": "commons:File:Daejeon Bomunsan Korea Lydon.jpg"
+    }
+  ],
+  "sources": [
+    "https://www.forest.go.kr/kfsweb/kfi/kfs/cms/cmsView.do?mn=NKFS_02_01",
+    "https://ko.wikipedia.org/wiki/%EC%82%B0%EC%9D%98_%EB%82%A0",
+    "https://www.fao.org/forestry/country/57478/en/kor/",
+    "https://www.forest.go.kr/kfsweb/kfi/kfs/frst/selectFrstStus.do"
+  ],
+  "real_query": ["한국 산림녹화", "Korea reforestation 1970s"],
+  "bg_query": ["korean autumn mountain", "green forest aerial"]
+}
