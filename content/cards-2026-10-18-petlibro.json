@@ -1,0 +1,35 @@
+{
+ "topic": "Petlibro Granary 2 X — 급식기가 고양이 얼굴을 구별하기 시작했다, 카메라로 최대 10마리 개별 인식 후 맞춤 급여, 마이크로칩·목걸이 없이 1g 단위 계량, $279.99 국내 미출시 직구 전용 [한계붕괴형]",
+ "blog_teaser": "얼굴 인식 정확도 실측이랑 기존 마이크로칩 방식과 비교한 내용은 블로그에 정리해뒀습니다",
+ "threads_text": "급식기에서 마이크로칩이 사라졌다\n\n1. 다묘가정 자동 급식기의 고질병 — 한 마리가 독식\n2. 기존 방법은 마이크로칩이나 목걸이 태그\n3. Petlibro Granary 2 X는 카메라로 얼굴을 구별한다\n4. 최대 10마리 개별 인식, 1g 단위 맞춤 급여\n5. $279.99 국내 미출시 — petlibro.com 직구\n\n(출처: Petlibro 공식, TechCrunch)",
+ "description": "Petlibro Granary 2 X (PL-AF305). 2026년 6월 18일 발표, 10월 현재 미국 선발매(품절 상태). $279.99 USD(약 38만원). 1080p HD 카메라 145도 광각 + 적외선 야간 촬영, AI 얼굴 인식으로 최대 10마리 고양이를 개별 식별(마이크로칩·목걸이 불필요). 앱에서 고양이별 사진 등록 후 카메라가 식사 시 자동 매칭, 개별 급여량 설정. 보울 내장 저울(1g 단위), 5L 사료통, 2.4/5GHz 듀얼밴드 WiFi. 이상 식사 패턴 감지 시 알림. 카메라 기반 얼굴 인식 급식기는 소비자 시장 최초. 경쟁 제품(SureFeed)은 마이크로칩·목걸이 태그 방식. 국내 미출시 — 쿠팡·네이버쇼핑에 구형 Petlibro만 판매. 직구: petlibro.com 공식몰 또는 Amazon US(forwarding). 직구 총액: $279.99(약 38만원) + 관세 8% + 부가세 10% + 배송 약 3~5만원 = 총 약 50만원. 국내 대안: 마이크로칩 방식 급식기(SureFeed 등)는 있으나 카메라 얼굴 인식 제품은 국내에 없음. 출시 전망: 국내 정식 출시 계획 알려진 바 없음.",
+ "caption": "급식기에서 마이크로칩이 사라졌다\n\nPetlibro Granary 2 X\n카메라가 고양이 얼굴을 기억한다\n\n칩도 목걸이도 없이\n최대 10마리 개별 인식\n1g 단위 맞춤 급여\n\n한 마리가 독식하는 시대가 끝나고 있다\n\n$279.99 · 국내 미출시 · petlibro.com 직구\n(150달러 초과 관세 대상 — 총 약 50만원)\n\n(출처: Petlibro 공식, TechCrunch 2026.10.6)\n\n#자동급식기 #펫테크 #고양이 #다묘가정 #가젯",
+ "factcheck": [
+   {"claim": "AI 카메라로 최대 10마리 고양이 얼굴 인식, 마이크로칩·목걸이 불필요", "sources": ["https://www.prnewswire.com/news-releases/petlibro-launches-granary-2-its-most-advanced-pet-feeder-series-yet-built-on-years-of-smart-feeding-research-and-innovation-302803489.html", "https://techcrunch.com/2026/10/06/petlibros-new-ai-powered-feeder-is-a-game-changer-for-multi-cat-homes/"], "note": "PR Newswire 공식 보도자료 + TechCrunch 리뷰 교차 확인"},
+   {"claim": "가격 $279.99", "sources": ["https://petlibro.com/products/granary-2-series", "https://www.prnewswire.com/news-releases/petlibro-launches-granary-2-its-most-advanced-pet-feeder-series-yet-built-on-years-of-smart-feeding-research-and-innovation-302803489.html"], "note": "출시가 $249.99, 현재 공식몰 $279.99(품절). 카드에 현재가 $279.99 사용"},
+   {"claim": "1080p HD 카메라 145도 광각, 1g 단위 보울 저울, 5L 사료통", "sources": ["https://www.prnewswire.com/news-releases/petlibro-launches-granary-2-its-most-advanced-pet-feeder-series-yet-built-on-years-of-smart-feeding-research-and-innovation-302803489.html", "https://mezha.net/eng/news/3468a988_petlibro_granary_2/"], "note": "PR Newswire + Mezha.net 교차 확인"},
+   {"claim": "카메라 기반 얼굴 인식 급식기 소비자 시장 최초", "sources": ["https://techcrunch.com/2026/10/06/petlibros-new-ai-powered-feeder-is-a-game-changer-for-multi-cat-homes/", "https://www.aichatdaily.com/ai-tools/petlibro-s-granary-2-uses-ai-cameras-feed"], "note": "기존 경쟁 제품(SureFeed)은 마이크로칩/태그 방식. 카메라 얼굴인식은 이 제품이 처음"},
+   {"claim": "국내 미출시 — 쿠팡·네이버쇼핑 검색 결과 구형만 판매", "sources": ["https://www.coupang.com/np/search?q=petlibro"], "note": "2026-10-18 확인. Granary 2 X 없음, 구형 Petlibro 기본 급식기만 판매"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/petlibro_granary2x_detail.png",
+   "title": "급식기에서\n마이크로칩이 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "카메라가 고양이 얼굴을 구별한다\n칩도 목걸이도 필요 없다",
+   "body_hl": ["고양이 얼굴을 구별한다"],
+   "credit": "Petlibro"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/petlibro_granary2x_hero2.png",
+   "title": "한 마리가 독식하던\n밥그릇이 끝나고 있다",
+   "title_hl": ["끝나고 있다"],
+   "body": "최대 10마리 개별 인식\n1g 단위 맞춤 급여",
+   "body_hl": ["10마리", "1g"],
+   "sub": "$279.99 · 국내 미출시 · petlibro.com 직구",
+   "credit": "Petlibro"
+  }
+ ]
+}
