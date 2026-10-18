@@ -1,0 +1,35 @@
+{
+ "topic": "My Play Watch × Street Fighter II — 35년 전 오락실이 손목시계가 됐다, 캡콤 공식 라이선스 14K 골드 피니시, 터치 격투 + 만보기 + 심박, $79.99 12월 배송 직구 전용 [소유욕형]",
+ "blog_teaser": "시리즈별 캐릭터 스킬 차이랑 기존 라인업(테트리스·스페이스 인베이더·록맨) 비교는 블로그에 정리해뒀습니다",
+ "threads_text": "스트리트 파이터가 35년 만에 시계 안에 들어갔다\n\n1. 오락실에서 100원 넣고 하던 그 스트리트 파이터 II다\n2. 류·켄·춘리·가일 8명 전부 들어있고 터치로 대전한다\n3. 14K 골드 피니시에 교체 밴드 2개\n4. 만보기 달성하면 캐릭터 승리 포즈가 뜨고, 알람은 KO 장면이다\n5. $79.99인데 블루투스도 와이파이도 없는 독립형 — 연결 안 되는 게 오히려 레트로\n\n(출처: My Play Watch 공식, Notebookcheck, GamesPress)",
+ "description": "My Play Watch × Capcom Street Fighter II 35th Anniversary Watch. 2026년 10월 16일 공개, 12월 글로벌 배송. $79.99 USD(약 10.5만원). 14-karat gold finish 케이스에 교체형 밴드 2개 포함. 터치스크린 격투 — 8캐릭터(Ryu, Ken, Chun-Li, Guile, Blanka, E. Honda, Dhalsim, Zangief) 선택, 3개 터치존(하단 공격·상단 타격·대공). CPU 난이도 점진적 상승. 피트니스: 만보기·심박·활동 칼로리. 만보 목표 달성 시 캐릭터 승리 애니메이션, 알람은 KO 리커버리 시퀀스, 시작음 하도켄. 블루투스·와이파이·스마트폰 페어링 없음 — 완전 독립형. 마그네틱 충전. 기존 라인업: Space Invaders, Tetris, Mega Man 2, Atari 2600. 국내 미출시 — myplaywatch.com 직구, $79.99는 150달러 미만이므로 관세 면제, 배송비 별도. 국내 대안: 카시오 G-Shock MUDMAN 등 게임 기능 내장 시계는 있으나 아케이드 격투 게임 탑재 제품은 없음. 출시 전망: 한국 정식 출시 계획 없음(북미·유럽·영국 유통).",
+ "caption": "스트리트 파이터가 35년 만에 시계 안에 들어갔다\n\n스트리트 파이터 II 35주년\n캡콤 공식 라이선스 워치\n\n류·켄·춘리·가일 8명 대전\n터치스크린으로 하도켄을 쏜다\n\n만보기 달성하면 승리 포즈\n알람은 KO 장면\n\n$79.99 · 12월 배송 · myplaywatch.com\n\n(출처: My Play Watch 공식, GamesPress)\n\n#스트리트파이터 #게임시계 #레트로 #캡콤 #가젯",
+ "factcheck": [
+   {"claim": "스트리트 파이터 II 35주년 (1991→2026)", "sources": ["https://en.wikipedia.org/wiki/Street_Fighter_II", "https://www.gamespress.com/en-US/Here-Comes-a-New-Challenger-Celebrate-35-Years-of-The-World-Warrior-wi"], "note": "SF2 월드 워리어 1991년 아케이드 출시. 2026-1991=35주년 맞음"},
+   {"claim": "$79.99, 12월 배송, 14K 골드 피니시", "sources": ["https://doccydarko.com/street-fighter-ii-on-your-wrist-my-play-watch-unveils-14-karat-wearable-arcade/", "https://www.techgamingreport.com/street-fighter-ii-35th-anniversary-watch-announced-by-my-play-watch-and-capcom-preorders-now-open/"], "note": "Doccy Darko + TechGamingReport 동일 수치. 14-karat gold finished(도금, 순금 아님)"},
+   {"claim": "8캐릭터, 터치스크린 3존 대전, 만보기·심박·칼로리", "sources": ["https://doccydarko.com/street-fighter-ii-on-your-wrist-my-play-watch-unveils-14-karat-wearable-arcade/", "https://www.gamesfreezer.co.uk/2026/10/street-fighter-ii-lands-on-your-wrist.html"], "note": "Ryu, Ken, Chun-Li, Guile, Blanka, E. Honda, Dhalsim, Zangief 전원 확인. 3 touch zones: low attacks, overhead strikes, anti-air counters"},
+   {"claim": "블루투스·와이파이·스마트폰 페어링 없음 독립형", "sources": ["https://doccydarko.com/street-fighter-ii-on-your-wrist-my-play-watch-unveils-14-karat-wearable-arcade/"], "note": "standalone wearable, no Bluetooth, Wi-Fi or smartphone pairing"},
+   {"claim": "기존 라인업 Space Invaders, Tetris, Mega Man 2, Atari 2600", "sources": ["https://doccydarko.com/street-fighter-ii-on-your-wrist-my-play-watch-unveils-14-karat-wearable-arcade/"], "note": "currently available across North America, UK, and Europe"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/sf2_watch_hero.png",
+   "title": "스트리트 파이터가\n시계 안에 들어갔다",
+   "title_hl": ["시계 안에 들어갔다"],
+   "body": "1991년 오락실의 그 게임\n35년 만에 손목 위로",
+   "body_hl": ["35년 만에"],
+   "credit": "My Play Watch"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/sf2_watch_spread.png",
+   "title": "시계를 켜면\n하도켄이 울린다",
+   "title_hl": ["하도켄이 울린다"],
+   "body": "류·켄·춘리 8명 터치 대전\n만보 달성 = 승리 포즈 · 알람 = KO",
+   "body_hl": ["8명"],
+   "sub": "$79.99 · 12월 배송 · myplaywatch.com",
+   "credit": "My Play Watch"
+  }
+ ]
+}
