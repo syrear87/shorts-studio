@@ -1,0 +1,32 @@
+{
+ "topic": "CO2 모니터 — 공기청정기를 24시간 틀어도 졸리다면, HEPA 필터는 CO2를 거르지 못한다, 밀폐된 방은 1~3시간이면 1000ppm 돌파, 5만원대부터 [공유형]",
+ "blog_teaser": "CO2 농도별 증상 표와 환기 타이밍 계산법은 블로그에 정리해뒀습니다",
+ "threads_text": "공기청정기로는 안 된다 — CO2가 안 잡히는 이유\n\n1. HEPA 필터는 미세먼지를 잡지만 CO2는 못 거른다 — 분자가 너무 작다\n2. 밀폐된 방에 1~2명이면 1~3시간 만에 1,000ppm 돌파\n3. 1,000ppm 넘으면 인지력 저하 시작 — 미국 LBNL 2012 실측\n4. 한국 실내공기질 기준도 1,000ppm\n5. CO2 모니터 5만원대부터 — 숫자 보고 환기하면 끝\n\n(출처: LBNL 2012, 환경부 실내공기질관리법)",
+ "description": "CO2 모니터. HEPA 필터는 0.3μm 이상 입자를 잡지만 CO2 분자(0.00033μm)는 통과한다. 밀폐된 방(25㎡)에 성인 1~2명이면 1~3시간 만에 CO2 1,000ppm 돌파. 미국 로렌스버클리국립연구소(LBNL) 2012년 연구(Dr. William Fisk): 1,000ppm에서 의사결정 능력 11~23% 저하, 2,500ppm에서 최대 94% 저하. 한국 실내공기질관리법 시행규칙: 다중이용시설 CO2 기준 1,000ppm. 제품: Aranet4 Home ~$189(약 27만원), 힘펠 에어모니터미니 55,000원, COMS ON404 64,590원, SwitchBot CO2 모니터 79,800원. NDIR 센서 탑재 제품 권장.",
+ "caption": "공기청정기로는 안 된다 — CO2가 안 잡히는 이유\n\nHEPA 필터는 CO2를 거르지 못한다\n분자가 너무 작아서 그냥 통과\n\n밀폐된 방 1~2명 → 1~3시간이면 1,000ppm\n1,000ppm 넘으면 인지력 저하 시작\n\nCO2 모니터 5만원대부터\n숫자 보고 창문 열면 끝\n\n(출처: LBNL 2012, 환경부 실내공기질관리법)\n\n#CO2 #이산화탄소 #공기질 #공기청정기 #실내환기",
+ "factcheck": [
+   {"claim": "HEPA 필터는 0.3μm 이상 입자를 잡지만 CO2 분자(0.00033μm)는 통과한다", "sources": ["https://www.epa.gov/indoor-air-quality-iaq/what-hepa-filter", "https://en.wikipedia.org/wiki/HEPA"], "note": "EPA 공식 HEPA 설명 + Wikipedia 교차 확인. HEPA는 0.3μm 이상 99.97% 포집, CO2는 기체 분자라 필터링 불가"},
+   {"claim": "1,000ppm에서 의사결정 능력 11~23% 저하 (LBNL 2012)", "sources": ["https://ehp.niehs.nih.gov/doi/10.1289/ehp.1104789", "https://newscenter.lbl.gov/2012/10/17/elevated-indoor-carbon-dioxide-impairs-decision-making-performance/"], "note": "Environmental Health Perspectives 원논문 + LBNL 뉴스룸 교차 확인"},
+   {"claim": "한국 실내공기질 기준 CO2 1,000ppm", "sources": ["https://www.law.go.kr/법령/실내공기질관리법시행규칙", "https://www.me.go.kr/home/web/policy_data/read.do?menuId=10259&seq=6812"], "note": "법제처 국가법령정보센터 + 환경부 교차 확인"},
+   {"claim": "CO2 모니터 5만원대부터 (힘펠 에어모니터미니 55,000원)", "sources": ["https://www.himpel.co.kr", "https://search.danawa.com/dsearch.php?query=CO2+모니터"], "note": "힘펠 공식몰 + 다나와 가격비교 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "title": "공기청정기로는\n안 된다",
+   "title_hl": ["안 된다"],
+   "body": "HEPA 필터는 CO2를 거르지 못한다\n분자가 너무 작아서 그냥 통과한다",
+   "body_hl": ["거르지 못한다"],
+   "credit": "LBNL 2012"
+  },
+  {
+   "kind": "end",
+   "title": "숫자 보고\n창문 열면 끝",
+   "title_hl": ["창문 열면 끝"],
+   "body": "밀폐된 방 1~2명 → 1~3시간이면 1,000ppm\n1,000ppm 넘으면 인지력 저하 시작\nCO2 모니터 5만원대부터",
+   "body_hl": ["1,000ppm", "인지력 저하", "5만원대"],
+   "sub": "출처: LBNL 2012 · 환경부 실내공기질관리법",
+   "credit": "환경부 · LBNL"
+  }
+ ]
+}
