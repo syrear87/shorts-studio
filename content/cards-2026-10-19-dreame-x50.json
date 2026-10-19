@@ -1,0 +1,34 @@
+{
+ "topic": "Dreame X50 Ultra — 로봇청소기가 벽 모서리까지 팔을 뻗기 시작했다, 사이드 브러시와 걸레가 밖으로 확장해 사각지대를 닦는다, 20000Pa 흡입+80도 온수세척+문턱 2.36cm 극복, 국내 139만원대 [한계붕괴형]",
+ "blog_teaser": "모서리 청소 실측 영상이랑 전작 X40과 달라진 점은 블로그에 정리해뒀습니다",
+ "threads_text": "로봇청소기의 사각지대가 사라졌다\n\n1. 원형 로봇의 숙명 — 벽 모서리에 닿지 않는 구간이 늘 남았음\n2. 드리미 X50 울트라, 사이드 브러시와 걸레가 밖으로 뻗어 모서리까지 닦는다\n3. 문턱 2.36cm도 넘긴다 — 다리가 올라가는 구조\n4. 80도 온수로 걸레 자동 세척\n5. 국내 139만원대, 쿠팡 170만원대\n\n(출처: Dreame 공식, TechRadar, VacuumWars)",
+ "description": "Dreame X50 Ultra. 2025년 1월 CES 발표, 2025년 1월 20일 국내 출시. 국내가 1,390,000원(드리미 공식), 쿠팡 1,698,000원. 6세대 TurboForce 모터 20,000Pa 흡입력. Mop Extend — 걸레 패드가 밖으로 뻗어 벽 모서리 청소. Dual Flex 사이드 브러시 — 모서리 감지 시 자동 확장, 10mm 리프트. VersaLift — 라이다 센서 접어 높이 89mm로 가구 밑 진입. 문턱 2.36cm(60mm) 극복하는 리트랙터블 다리. 80도 온수 세척. 6,400mAh 배터리. 3.2L 먼지봉투, 4.5L 청수/4.0L 오수 탱크. 350x350x89mm, 본체 4.53kg. 경쟁: 로보락도 유사 로봇팔 기술 채택(서울경제 5/10). 리뷰: TechRadar 4.5/5, VacuumWars 긍정적. 일부 리뷰(Gizmodo)는 모서리 성능 아쉬움 지적 — 충돌 회피 모드 끄면 개선.",
+ "caption": "로봇청소기의 사각지대가 사라졌다\n\nDreame X50 Ultra\n사이드 브러시와 걸레가 밖으로 뻗는다\n\n벽 모서리 사각지대\n원형 로봇의 숙명이었는데\n이제 브러시가 감지하고 뻗어서 닦는다\n\n20,000Pa 흡입 · 80도 온수세척\n문턱 2.36cm 극복 · 가구 밑 자동 진입\n\n국내 139만원대 · 쿠팡 170만원대\n\n(출처: Dreame 공식, TechRadar 2026.2, VacuumWars 2026.3)\n\n#로봇청소기 #드리미 #모서리청소 #스마트홈 #가젯",
+ "factcheck": [
+   {"claim": "사이드 브러시와 걸레가 밖으로 뻗어 벽 모서리를 청소한다 (Mop Extend + Dual Flex)", "sources": ["https://www.dreametech.com/products/x50-ultra-robot-vacuum", "https://www.techradar.com/home/robot-vacuums/dreame-x50-ultra-complete-review"], "note": "Dreame 공식 제품 페이지 + TechRadar 리뷰 교차 확인. Mop Extend는 걸레 패드 확장, Dual Flex는 사이드 브러시 확장"},
+   {"claim": "20,000Pa 흡입력, 80도 온수세척, 문턱 2.36cm(60mm) 극복", "sources": ["https://www.dreametech.com/products/x50-ultra-robot-vacuum", "https://vacuumwars.com/dreame-x50-ultra-review-is-it-the-best-yet/"], "note": "Dreame 공식 스펙시트 + VacuumWars 리뷰 교차 확인"},
+   {"claim": "국내가 1,390,000원(드리미 공식), 쿠팡 1,698,000원", "sources": ["https://store.kr.dreametech.com/products/x50-ultra", "https://www.fnnews.com/news/202501100948064281"], "note": "드리미 한국 공식몰 + 파이낸셜뉴스 국내 출시 보도 교차 확인. 쿠팡가는 다나와 비교가 기준"},
+   {"claim": "로보락도 유사 로봇팔 기술 채택", "sources": ["https://m.sedaily.com/amparticle/20042099", "https://www.hellot.net/news/article.html?no=111362"], "note": "서울경제 + HelloT 리뷰 교차 확인. 모서리 물청소 27% 향상, 압력 1.75배 강화 언급"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/dreame_x50_ultra_arm.jpg",
+   "title": "로봇청소기의\n사각지대가 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "벽 모서리에 닿지 않던\n원형 로봇의 숙명이 끝났다",
+   "body_hl": ["끝났다"],
+   "credit": "Dreame"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/dreame_x50_ultra_hero.jpg",
+   "title": "브러시가 감지하고\n뻗어서 닦는다",
+   "title_hl": ["뻗어서 닦는다"],
+   "body": "사이드 브러시 자동 확장 + 걸레 확장\n20,000Pa 흡입 · 80도 온수세척\n문턱 2.36cm 극복 · 가구 밑 자동 진입",
+   "body_hl": ["자동 확장", "80도", "2.36cm"],
+   "sub": "국내 139만원대 · 쿠팡 170만원대",
+   "credit": "Dreame"
+  }
+ ]
+}
