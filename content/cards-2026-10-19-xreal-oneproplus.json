@@ -1,0 +1,34 @@
+{
+ "topic": "XREAL One Pro+ AR 안경 — 선글라스에 화면이 뜬다 이번엔 밖에서도 보인다, 1200니트로 야외 시인성 71% 올린 Sony Micro-OLED AR 안경 $599 한국 1차 출시 [신제품]",
+ "blog_teaser": "XREAL One Pro+ 상세 스펙이랑 전작 비교는 블로그에 정리해뒀습니다",
+ "threads_text": "TV가 선글라스 안에 들어왔다 — 이제 밖에서도 보인다\n\n1. AR 안경 = 선글라스처럼 쓰고 눈앞에 화면이 뜨는 웨어러블\n2. 최대 약점: 밖에서 쓰면 밝기가 부족해 화면이 안 보였다\n3. XREAL One Pro+ — 1,200니트로 전작 대비 71% 밝아졌다\n4. Sony Micro-OLED 패널, AI HDR 엔진 탑재\n5. 2D 영상 → 3D 실시간 변환(60fps)\n6. 한국 1차 출시국, $599(약 85만원)\n\n(출처: Engadget, Android Central)",
+ "description": "XREAL One Pro+ AR(증강현실) 안경. 2026년 10월 15일 출시. Sony Micro-OLED 패널 탑재, 밝기 1,200니트(전작 One Pro 700니트 대비 71% 향상). FOV 50도. AI HDR 엔진으로 장면별 밝기·색감 자동 조절. 2D→3D 실시간 변환(60fps). Snapdragon AR1 Gen 2 프로세서. 무게 약 80g. 가격 $599(약 85만원). 한국은 1차 출시국에 포함. 전작 XREAL One Pro는 쿠팡 기준 848,000원. AR 안경의 고질적 약점이었던 야외 시인성을 대폭 개선한 것이 핵심 업그레이드.",
+ "caption": "AR 안경의 최대 약점이 풀리기 시작했다\n\n1,200니트 — 밖에서도 보인다\n\nXREAL One Pro+\nSony Micro-OLED 패널\nAI HDR 엔진\n2D→3D 실시간 변환\n\n한국 1차 출시국\n$599 약 85만원\n\n(출처: Engadget, Android Central)\n\n#AR안경 #XREAL #증강현실 #웨어러블 #신제품",
+ "factcheck": [
+   {"claim": "XREAL One Pro+ 밝기 1,200니트, 전작 700니트 대비 71% 향상", "sources": ["https://www.engadget.com/ar-vr/xreals-new-flagship-one-pro-ar-glasses-offer-better-brightness-and-increased-comfort-040058powerful.html", "https://www.androidcentral.com/wearables/xreal-launches-1-pro-plus"], "note": "Engadget: 1,200 nits (up from 700 on the One Pro). Android Central 동일 수치 확인. (1200-700)/700=71.4%"},
+   {"claim": "Sony Micro-OLED 패널 탑재", "sources": ["https://www.engadget.com/ar-vr/xreals-new-flagship-one-pro-ar-glasses-offer-better-brightness-and-increased-comfort-040058powerful.html", "https://www.androidauthority.com/xreal-one-pro-plus-3545012/"], "note": "Sony 제조 Micro-OLED 디스플레이, 양쪽 기사에서 확인"},
+   {"claim": "가격 $599, 한국 1차 출시국", "sources": ["https://www.androidcentral.com/wearables/xreal-launches-1-pro-plus", "https://www.xreal.com/one-pro-plus"], "note": "Android Central: $599 price point. 한국은 XREAL 공식 1차 출시국 목록에 포함"},
+   {"claim": "2D→3D 실시간 변환 60fps", "sources": ["https://www.engadget.com/ar-vr/xreals-new-flagship-one-pro-ar-glasses-offer-better-brightness-and-increased-comfort-040058powerful.html", "https://www.androidcentral.com/wearables/xreal-launches-1-pro-plus"], "note": "AI 기반 2D-to-3D conversion at 60fps, Engadget·Android Central 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/xreal_oneproplus_hook.jpg",
+   "title": "TV가 선글라스 안에\n들어왔다",
+   "title_hl": ["TV", "선글라스"],
+   "body": "AR 안경 최대 약점 야외 시인성\n이제 1,200니트로 밖에서도 보인다",
+   "body_hl": ["이제", "1,200니트"],
+   "credit": "Pexels / Tara Winstead"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/xreal_oneproplus_end.jpg",
+   "title": "XREAL One Pro+\n1,200니트 AR 안경",
+   "title_hl": ["1,200니트"],
+   "body": "Sony Micro-OLED 패널\nAI HDR — 장면마다 밝기 자동 조절\n2D 영상 → 3D 실시간 변환(60fps)",
+   "body_hl": ["Sony Micro-OLED", "3D 실시간 변환"],
+   "sub": "한국 1차 출시국 · $599(약 85만원)\n전작 One Pro 대비 밝기 71% ↑",
+   "credit": "Pexels / Mikhail Nilov"
+  }
+ ]
+}
