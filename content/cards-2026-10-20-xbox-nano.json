@@ -1,0 +1,34 @@
+{
+ "topic": "Xbox Nano Controller — Xbox 컨트롤러가 주머니에 들어간다, 5인치 100g Xbox 역대 최소 공식 게임패드, 18버튼 풀기능, 블루투스+Xbox 무선, 내장 충전배터리, 국내 78,000원 11/4 출시 [공유형]",
+ "blog_teaser": "표준 컨트롤러와 크기·무게 비교, 그리고 다른 소형 게임패드와 뭐가 다른지는 블로그에 정리해뒀습니다",
+ "threads_text": "게임 컨트롤러에서 크기가 사라졌다\n\n1. 5인치, 100g — Xbox 공식 컨트롤러 중 역대 가장 작다\n2. 버튼 18개 그대로, 줄어든 건 크기뿐\n3. 블루투스 지원이라 폰·태블릿에서도 된다\n4. 내장 배터리, AA 건전지가 필요 없다\n5. 국내 78,000원, 11월 4일 출시\n\n(출처: Xbox Wire 공식 발표, Gamemeca)",
+ "description": "Microsoft가 2026년 10월 14일 Xbox Nano Controller를 발표했다. Xbox 역대 가장 작은 공식 컨트롤러로, 길이 약 5인치(약 13cm), 무게 100g(3.5oz). 표준 Xbox 컨트롤러(약 287g)의 약 1/3 무게다. 18개 표준 게임플레이 입력을 모두 갖추고 프로그래밍 가능한 Action Button이 추가됐다. Xbox 무선 + 블루투스로 Xbox 콘솔·Windows PC·스마트폰·태블릿·호환 스마트TV에서 사용 가능. 내장 충전식 배터리(USB-C). 미국 $49.99, 한국 정가 78,000원(네이버 예약가 75,000원). 11월 4일 한국 포함 35개국 이상 동시 출시. Samsung TV 번들(Game Pass Ultimate 2개월 포함)과 Meta Quest 번들도 미국 홀리데이 시즌에 제공.",
+ "caption": "게임 컨트롤러에서 크기가 사라졌다\n\n5인치, 100g — Xbox 역대 가장 작은 공식 컨트롤러\n버튼 18개 그대로, 줄어든 건 크기뿐\n블루투스로 폰·태블릿에서도 됨\n국내 78,000원 · 11월 4일 출시\n\n(출처: Xbox Wire 공식 발표 2026.10.14)\n\n#Xbox #NanoController #게임패드 #게이밍 #컨트롤러",
+ "factcheck": [
+   {"claim": "Xbox Nano Controller 5인치, 100g(3.5oz), Xbox 역대 가장 작은 공식 컨트롤러", "sources": ["https://news.xbox.com/en-us/2026/10/14/xbox-nano-controller/", "https://www.purexbox.com/news/2026/10/xbox-unveils-new-nano-controller-perfect-for-smaller-hands"], "note": "Xbox Wire 공식 발표 + Pure Xbox 교차 확인. '3.5 ounces'(약 99g, 100g으로 표기)"},
+   {"claim": "18개 표준 게임플레이 입력 전부 포함", "sources": ["https://news.xbox.com/en-us/2026/10/14/xbox-nano-controller/", "https://www.trustedreviews.com/news/xbox-nano-controller-brings-full-controls-to-a-pocket-sized-gamepad"], "note": "Xbox Wire: 'all 18 standard gameplay inputs'. Trusted Reviews 교차 확인"},
+   {"claim": "한국 정가 78,000원, 예약가 75,000원, 11/4 출시", "sources": ["https://www.gamemeca.com/en/view.php?gid=1781999", "https://bbs.ruliweb.com/news/board/1001/read/2364629"], "note": "Gamemeca 한국 가격 보도 + 루리웹 국내 발매 정보. 미국가 $49.99보다 약 20% 높다"},
+   {"claim": "한국 포함 35개국 이상 동시 출시", "sources": ["https://news.xbox.com/en-us/2026/10/14/xbox-nano-controller/", "https://www.gamemeca.com/en/view.php?gid=1781999"], "note": "Xbox Wire에 한국이 출시국 목록에 명시됨"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/xbox_nano_hero.jpg",
+   "title": "게임 컨트롤러에서\n크기가 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "100g — Xbox 역대 가장 작은 공식 컨트롤러",
+   "body_hl": ["100g", "역대 가장 작은"],
+   "credit": "Xbox Wire"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/xbox_nano_hand.jpg",
+   "title": "줄어든 건 크기뿐",
+   "title_hl": ["크기뿐"],
+   "body": "버튼 18개 그대로\n블루투스로 폰·태블릿도 됨\n내장 배터리, 건전지 필요 없음",
+   "body_hl": ["18개 그대로", "블루투스"],
+   "sub": "국내 78,000원 · 11월 4일 출시",
+   "credit": "Windows Central"
+  }
+ ]
+}
