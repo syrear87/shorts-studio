@@ -89,6 +89,78 @@ RETRY_DELAYS = (180, 420)     # 3분 → 7분 (최대 2회 재시도)
 SAFE_RETRY_MAX_LEN = 800      # 이보다 로그가 길면 세션이 실제 작업을 했을 수 있으므로 재시도 금지(중복 게시 방지)
 
 
+TRANSCRIPTS = Path.home() / ".claude" / "projects" / "-Users-kimminsoo-Dev-shorts-studio"
+IDLE_SEC = 12 * 60     # 이만큼 아무 진행이 없으면 멈춘 것으로 본다
+
+
+def _progress_mtime(start_ts):
+    """세션이 살아서 일하고 있다는 흔적의 최신 시각.
+
+    ①이 실행 뒤에 생긴 세션 기록(jsonl) — 도구를 부를 때마다 갱신된다
+    ②렌더 작업 폴더(out/work_*/frames) — 긴 렌더 중엔 세션 기록이 멈춰 있어도 프레임은 쌓인다
+    ③out·content 폴더 — 산출물이 생기면 갱신된다."""
+    best = start_ts
+    try:
+        for f in TRANSCRIPTS.glob("*.jsonl"):
+            st = f.stat()
+            if getattr(st, "st_birthtime", st.st_mtime) >= start_ts - 5:
+                best = max(best, st.st_mtime)
+    except Exception:
+        pass
+    for d in [ROOT / "out", ROOT / "content"] + list((ROOT / "out").glob("work_*")) + \
+            list((ROOT / "out").glob("work_*/frames")):
+        try:
+            best = max(best, d.stat().st_mtime)
+        except Exception:
+            pass
+    return best
+
+
+def run_watched(cmd, lf, timeout, env, idle_sec=IDLE_SEC):
+    """subprocess.run 대신 쓴다 — 전체 타임아웃에 더해 **무진행 감시**를 한다 (2026-10-20).
+
+    왜: 9/26 20시·10/19 09시 카드가 웹 조회 하나가 응답 없이 걸려 45분 타임아웃까지 멈춰
+    있다가 슬롯째 날아갔다. 세션 기록이 12분간 한 줄도 안 늘고 렌더 프레임도 없으면 멈춘
+    것으로 보고 프로세스 그룹째 끊는다. 반환값에 stalled=True를 달아 호출부가 재시도한다.
+    전체 타임아웃은 종전대로 TimeoutExpired를 던진다."""
+    t0 = time.time()
+    proc = subprocess.Popen(cmd, stdout=lf, stderr=subprocess.STDOUT, cwd=str(ROOT), env=env,
+                            start_new_session=True)
+    stalled = False
+    while True:
+        try:
+            rc = proc.wait(timeout=30)
+            break
+        except subprocess.TimeoutExpired:
+            pass
+        now = time.time()
+        if now - t0 > timeout:
+            _killpg(proc)
+            raise subprocess.TimeoutExpired(cmd, timeout)
+        if now - _progress_mtime(t0) > idle_sec:
+            lf.write("\n[runner] %d분간 진행 없음 — 세션이 멈춘 것으로 보고 강제 종료\n" % (idle_sec // 60))
+            lf.flush()
+            _killpg(proc)
+            stalled = True
+            rc = -9
+            break
+    r = subprocess.CompletedProcess(cmd, rc)
+    r.stalled = stalled
+    return r
+
+
+def _killpg(proc):
+    import signal
+    try:
+        os.killpg(proc.pid, signal.SIGTERM)
+        proc.wait(timeout=20)
+    except Exception:
+        try:
+            os.killpg(proc.pid, signal.SIGKILL)
+        except Exception:
+            pass
+
+
 def _oauth_token():
     """keys.env의 CLAUDE_CODE_OAUTH_TOKEN (없으면 None — 종전대로 로그인 세션을 쓴다)."""
     try:
@@ -302,12 +374,12 @@ def main():
                 _tok = _oauth_token()
                 if _tok:
                     _env["CLAUDE_CODE_OAUTH_TOKEN"] = _tok
-                r = subprocess.run(
+                r = run_watched(
                     ["/bin/zsh", "-l", "-c",
                      'p="$(cat %s)"; print -r -- "[runner] prompt ${#p}자"; '
                      'claude -p "$p" --model opus --permission-mode acceptEdits'
                      % " ".join([write_head()] + PROMPT_FILES)],
-                    stdout=lf, stderr=subprocess.STDOUT, timeout=TIMEOUT, cwd=str(ROOT), env=_env)
+                    lf, TIMEOUT, _env)
             # 판정은 마지막 attempt 구간만 읽는다 — 이전 시도의 마커·본문과 섞임 방지 (2026-08-02 리뷰)
             text = LOG.read_text(errors="ignore").split("=== attempt ")[-1]
             # 2026-08-02 리뷰(OPS-2): 이번 슬롯에서 새 mp4가 이미 나왔으면 렌더+발송을 마쳤을 수 있으므로
@@ -329,11 +401,15 @@ def main():
                 _dead = log_looks_dead(text)
                 if _dead and _dead[0] in (DEAD_SHORT, DEAD_AUTH) and "SLOT-NOOP" not in text:
                     transient = True
+            # 멈춤(무진행 강제 종료)은 게시 흔적이 없을 때 첫 시도에 한해 재시도한다 (2026-10-20).
+            if getattr(r, "stalled", False) and attempt == 0 and not new_mp4_made and not evidence:
+                transient = True
             if not transient or attempt >= len(RETRY_DELAYS):
                 break
             delay = RETRY_DELAYS[attempt]
             # 원인을 문안에 실어 인증 만료(사용자 조치 필요)와 API 장애(대기하면 회복)를 가른다.
-            _why = ("인증 토큰 갱신 실패" if any(m in text.lower() for m in AUTH_MARKERS)
+            _why = ("세션 멈춤(%d분 무진행)" % (IDLE_SEC // 60) if getattr(r, "stalled", False)
+                    else "인증 토큰 갱신 실패" if any(m in text.lower() for m in AUTH_MARKERS)
                     else "일시적 API 장애")
             tg("🔁 %s: %s로 즉사 — %d분 후 재시도 (%d/%d)"
                % ("지식 카드" if CARD_MODE else "숏츠 데일리", _why,
@@ -624,11 +700,11 @@ def run_deep_blog():
         with open(blog_log, "w") as lf:
             lf.write("=== deep blog ===\n")
             lf.flush()
-            r = subprocess.run(
+            r = run_watched(
                 ["/bin/zsh", "-l", "-c",
                  'p="$(cat logs/.blog_head.txt BLOG_PROMPT.md RULES.md)"; '
                  'claude -p "$p" --model opus --permission-mode acceptEdits'],
-                stdout=lf, stderr=subprocess.STDOUT, timeout=60 * 60, cwd=str(ROOT), env=env)
+                lf, 60 * 60, env)
         text = blog_log.read_text(errors="ignore")
         if "SLOT-DONE" not in text or r.returncode != 0:
             tg("⚠️ 블로그 깊은 글 세션 미완주 (코드 %d) — %s 확인" % (r.returncode, blog_log.name))
