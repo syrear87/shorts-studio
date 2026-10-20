@@ -1,0 +1,34 @@
+{
+ "topic": "Outin Nano 포터블 에스프레소 머신 — 에스프레소 머신에서 콘센트가 사라졌다, 670g에 20bar 펌프·7500mAh 배터리로 캠핑장에서도 9bar 추출, 미국 $149·국내 코스트코 아르테 플러스 53900원 [한계붕괴형][구매가능]",
+ "blog_teaser": "포터블 에스프레소 머신 비교와 실사용 후기는 블로그에 정리해뒀습니다",
+ "threads_text": "에스프레소 머신에서 콘센트가 사라졌다\n\n1. 에스프레소 추출에 필요한 압력은 9bar — 원래 대형 머신만 가능했음\n2. Outin Nano, 670g짜리 텀블러 크기에 20bar 펌프를 넣었다\n3. 7500mAh 배터리로 한 번 충전에 5잔 추출\n4. 네스프레소 캡슐도 원두 가루도 둘 다 된다\n5. 미국 $149, 국내는 코스트코 '아르테 플러스' 53,900원\n\n(출처: Outin 공식, Home Coffee Expert, 코스트코코리아)",
+ "description": "Outin Nano Portable Espresso Machine. 670g, 텀블러 크기(80×80×178mm). 20bar 전동 펌프(추출 압력 9bar). 7500mAh 리튬 배터리, Type-C 충전, 한 번 충전에 5잔(50ml 기준). 예열 200초. 네스프레소 오리지널 캡슐 + 원두 가루 겸용. 미국 공식가 $149.99. 국내: 코스트코 '아르테 플러스 포터블 에스프레소 머신' 53,900원(동일 OEM 추정, 20bar·7500mAh 동일 스펙). Red Dot·iF 디자인 어워드·World Coffee Innovation Awards 수상. 경쟁: Wacaco Nanopresso(수동 레버, $69), Staresso(수동), HiBrewH4A(전동, 15bar). 한계: 카페급 크레마는 아님, 분쇄도 조절 불가. 캠핑·여행·사무실 용도.",
+ "caption": "에스프레소 머신에서 콘센트가 사라졌다\n\nOutin Nano · 670g 포터블 에스프레소\n\n에스프레소 추출에 필요한 압력 9bar\n대형 머신의 전유물이었는데\n670g 텀블러 안에 20bar 펌프가 들어갔다\n\n7500mAh 배터리 · 한 번 충전에 5잔\n예열 200초 · 캡슐+원두 가루 겸용\n\n미국 $149 · 국내 코스트코 53,900원\n\n(출처: Outin 공식, Home Coffee Expert 2025, 코스트코코리아)\n\n#포터블에스프레소 #아웃인나노 #캠핑커피 #에스프레소 #가젯",
+ "factcheck": [
+   {"claim": "에스프레소 추출 압력 9bar, Outin Nano는 20bar 펌프 탑재", "sources": ["https://outin.com/products/nano-portable-espresso-machine-space-grey", "https://homecoffeeexpert.com/outin-nano-review/"], "note": "20bar는 펌프 최대 압력, 실제 추출은 9bar(에스프레소 표준). Outin 공식 + Home Coffee Expert 리뷰 교차 확인"},
+   {"claim": "670g, 7500mAh, 한 번 충전에 5잔, 예열 200초", "sources": ["https://outin.com/products/nano-portable-espresso-machine-space-grey", "https://homecoffeeexpert.com/outin-nano-review/"], "note": "Outin 공식 스펙 + 리뷰어 실측 교차 확인. 5잔은 50ml 기준 공식 수치"},
+   {"claim": "미국 $149.99", "sources": ["https://outin.com/products/nano-portable-espresso-machine-space-grey", "https://www.amazon.com/dp/B0CG2HJK7G"], "note": "Outin 공식몰 + Amazon 가격 교차 확인"},
+   {"claim": "국내 코스트코 아르테 플러스 53,900원 (동일 스펙 OEM)", "sources": ["https://www.costco.co.kr/"], "note": "코스트코코리아 온라인몰 확인. 20bar·7500mAh 동일 스펙으로 OEM 추정"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/outin_nano_hero.jpg",
+   "title": "에스프레소 머신에서\n콘센트가 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "670g 텀블러 안에\n20bar 펌프가 들어갔다",
+   "body_hl": ["20bar"],
+   "credit": "Outin"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/outin_nano_product.jpg",
+   "title": "텀블러 크기에서\n9bar 추출",
+   "title_hl": ["9bar 추출"],
+   "body": "7500mAh · 한 번 충전에 5잔\n예열 200초 · 캡슐+원두 가루 겸용",
+   "body_hl": ["5잔", "겸용"],
+   "sub": "미국 $149 · 국내 코스트코 53,900원",
+   "credit": "Outin"
+  }
+ ]
+}
