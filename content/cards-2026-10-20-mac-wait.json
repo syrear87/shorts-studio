@@ -1,0 +1,34 @@
+{
+ "topic": "맥 구매 타이밍 — 맥북·아이맥 지금 사면 8일 뒤 후회한다, 10/28 Pro and Tell 이벤트 확정, M6 맥북프로·아이맥·OLED 터치스크린 맥북프로·아이패드미니 OLED 발표 예정, 현행 맥북프로 329만원·아이맥 249만원부터 [타이밍경고형][공유형]",
+ "blog_teaser": "어떤 모델이 나오는지, 현행 모델과 뭐가 달라지는지 비교표는 블로그에 정리해뒀습니다",
+ "threads_text": "맥북·아이맥이 한꺼번에 바뀐다 — 지금 사면 8일 뒤 후회\n\n1. 어제 애플이 10/28 이벤트 초청장을 보냈다\n2. 맥북 프로가 OLED + 터치스크린으로 바뀐다, 20년 만이다\n3. 아이맥은 M4에서 M6로 세대를 건너뛴다\n4. 아이패드 미니도 LCD에서 OLED로 간다\n5. MacRumors 구매 가이드가 아이맥에 \"Don't Buy\"를 걸었다\n\n(출처: Apple 공식 초청장, 9to5Mac, MacRumors Buyer's Guide)",
+ "description": "Apple이 2026년 10월 19일 'Pro and Tell' 이벤트 초청장을 발송했다. 이벤트는 10월 28일(화) 오전 10시(PT, 한국 시간 10/29 새벽 2시). Greg Joswiak SVP가 X에 공식 게시. 예상 제품: ①MacBook Pro 14인치 M6(엔트리급 신형) ②MacBook Pro 14/16인치 M5 Pro·M5 Max(OLED 터치스크린, 다이나믹 아일랜드, 경량화 재설계) ③iMac M6(디스플레이는 OLED 미확인, M4→M6 세대 건너뛰기) ④iPad mini 8 OLED(가로 전면 카메라, 스피커 재배치). 한국 현행가: MacBook Pro 3,290,000원~, iMac 2,490,000원~. MacRumors Buyer's Guide: iMac 'Don't Buy — Updates Soon', MacBook Pro 'Caution — Approaching End of Cycle'. 모든 예상 제품은 Bloomberg Mark Gurman 보도에 근거하며, 초청장 자체에는 제품명이 없다. ⚠️ 루머: 발표 전까지 라인업은 확정이 아니다.",
+ "caption": "맥북·아이맥이 한꺼번에 바뀐다 — 지금 사면 8일 뒤 후회\n\n10/28 Apple \"Pro and Tell\" 이벤트 확정\n\n맥북 프로 — 20년 만의 터치스크린 + OLED\n아이맥 — M4에서 M6로 세대 건너뛰기\n아이패드 미니 — LCD에서 OLED로\n\n⚠️ 공식 발표 전이라 라인업은 변동 가능\n\n(출처: Apple 공식 초청장, 9to5Mac, MacRumors, Bloomberg)\n\n#맥북프로 #아이맥 #Apple #ProAndTell #구매타이밍",
+ "factcheck": [
+   {"claim": "10/28 Pro and Tell 이벤트 확정, 10:00 AM PT", "sources": ["https://9to5mac.com/2026/10/19/apple-announces-special-event-for-october-28/", "https://apple.gadgethacks.com/news/apple-october-28-pro-and-tell-event-whats-confirmed/"], "note": "Greg Joswiak SVP가 X에 공식 게시. 공식 초청장 발송 10/19 확인. 복수 매체(9to5Mac, MacRumors, Engadget, Bloomberg) 동시 보도"},
+   {"claim": "MacBook Pro OLED 터치스크린·M5 Pro/Max 및 엔트리 M6 예상", "sources": ["https://9to5mac.com/2026/10/15/touchscreen-macbook-pro-and-more-launching-at-apple-event-on-oct-28/", "https://www.digitaltrends.com/computing/apple-macbook-pro-launch-event-announced/"], "note": "Bloomberg Mark Gurman 보도 기반. 엔트리는 M6, 플래그십은 M5 Pro·Max. 공식 발표 전이므로 '예상'으로 표기"},
+   {"claim": "한국 현행가 MacBook Pro 329만원~, iMac 249만원~", "sources": ["https://www.apple.com/kr/shop/buy-mac/macbook-pro", "https://www.apple.com/kr/shop/buy-mac/imac"], "note": "apple.com/kr 공식 스토어 가격. 2026-10-20 기준"},
+   {"claim": "MacRumors Buyer's Guide: iMac Don't Buy, MacBook Pro Caution", "sources": ["https://buyersguide.macrumors.com/"], "note": "MacRumors Buyer's Guide 2026-10-20 시점 확인. iMac은 'Don't Buy — Updates Soon', MacBook Pro는 'Caution — Approaching End of Cycle'"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/apple_pro_tell_event.jpg",
+   "title": "맥북·아이맥이 한꺼번에 바뀐다\n지금 사면 8일 뒤 후회한다",
+   "title_hl": ["한꺼번에 바뀐다"],
+   "body": "10/28 새 모델 발표가 확정됐다",
+   "body_hl": ["확정"],
+   "credit": "Apple"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/macbook_desk_pexels.jpg",
+   "title": "뭐가 바뀌나",
+   "title_hl": [],
+   "body": "맥북 프로 — 20년 만의 터치스크린 + OLED\n아이맥 — M4에서 M6로 세대 건너뛰기\n아이패드 미니 — LCD에서 OLED",
+   "body_hl": ["터치스크린", "M6", "OLED"],
+   "sub": "⚠️ 공식 발표 전 — 라인업 변동 가능",
+   "credit": "Pexels"
+  }
+ ]
+}
