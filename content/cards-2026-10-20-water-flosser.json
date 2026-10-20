@@ -1,0 +1,42 @@
+{
+ "topic": "구강세정기 — 칫솔은 치아 5면 중 3면만 닦는다, 나머지 2면은 물이 해야 한다. Barnes 2005 RCT 잇몸 출혈 93% 더 감소, ADA 최초 전동 치간세정기 인증(2017). Bitvae C2 쿠팡 34,900원 [공유형][구매가능]",
+ "blog_teaser": "구강세정기 비교와 실사용 후기는 블로그에 정리해뒀습니다",
+ "threads_text": "칫솔은 치아 5면 중 3면만 닦는다\n\n1. 치아 한 개에 면이 5개 — 칫솔모가 닿는 건 바깥·안·씹는면 3개뿐\n2. 치간+잇몸선 2면은 칫솔이 물리적으로 못 들어간다\n3. Barnes 2005 RCT: 구강세정기가 치실보다 잇몸 출혈 93% 더 줄였다\n4. ADA, 2017년 전동 치간세정기에 최초 인증 부여\n5. Bitvae C2 기준 쿠팡 34,900원\n\n(출처: Barnes et al. 2005 J Clin Periodontol, ADA)",
+ "description": "구강세정기(Water Flosser). 치아 한 개에 5면(협면·설면·교합면·근심면·원심면) — 칫솔은 협면·설면·교합면 3면만 닦고, 근심면·원심면(치간)은 닿지 않는다. Barnes et al. 2005 RCT(Journal of Clinical Periodontology): 구강세정기 vs 치실, 잇몸 출혈 93% 더 감소·치은염 52% 더 감소. Goyal et al. 2013: 플라크 제거율 82% vs 63%. ADA 2017년 Waterpik에 전동 치간세정기 최초 Seal of Acceptance 부여. 추천 제품: Bitvae C2(140ml 물탱크, 6단 수압, IPX7 방수, Type-C 충전), 쿠팡 34,900원대. 경쟁: Waterpik(프리미엄), 필립스 소니케어(브랜드), 샤오미(가성비).",
+ "caption": "칫솔은 치아 5면 중 3면만 닦는다\n\n매일 닦아도 이 사이 40%는 손도 안 닿는다\n\n치아 한 개에 면이 5개\n칫솔모가 닿는 건 3면뿐\n치간과 잇몸선은 물리적으로 못 들어간다\n\nBarnes 2005 RCT\n구강세정기가 치실보다 잇몸 출혈 93% 더 줄였다\n\nADA 2017 최초 전동 치간세정기 인증\nBitvae C2 기준 쿠팡 34,900원\n\n(출처: Barnes et al. 2005, ADA)\n\n#구강세정기 #워터플로서 #치아관리 #구강건강 #가젯",
+ "factcheck": [
+   {"claim": "치아 한 개에 5면, 칫솔은 3면만 닦는다", "sources": ["https://www.ada.org/resources/research/science-and-research-institute/oral-health-topics/floss", "https://pubmed.ncbi.nlm.nih.gov/16305281/"], "note": "치과 해부학 기본: 협면·설면·교합면·근심면·원심면. ADA 공식 '칫솔이 닿지 않는 부위' 언급 + Barnes 2005 배경"},
+   {"claim": "Barnes 2005 RCT: 구강세정기가 치실보다 잇몸 출혈 93% 더 감소", "sources": ["https://pubmed.ncbi.nlm.nih.gov/16305281/", "https://www.waterpik.com/oral-health/pro/clinical-research/"], "note": "Barnes CM et al. J Clin Periodontol 2005;32(12):1352-7. 4주 RCT, n=105. Waterpik 임상 연구 페이지 교차 확인"},
+   {"claim": "ADA 2017 전동 치간세정기 최초 Seal of Acceptance", "sources": ["https://www.ada.org/resources/research/science-and-research-institute/ada-seal-of-acceptance/ada-seal-shopping-list", "https://www.waterpik.com/oral-health/"], "note": "ADA Seal 공식 리스트 + Waterpik 공식 발표 교차 확인"},
+   {"claim": "Bitvae C2 쿠팡 34,900원", "sources": ["https://www.coupang.com/"], "note": "쿠팡 검색 실측 가격. 시점에 따라 변동 가능"}
+ ],
+ "claims": [
+   {"item": "Bitvae C2 구강세정기", "price": "34,900원", "price_basis": "판매처", "price_checked": "2026-10-20", "source": "https://www.coupang.com/"}
+ ],
+ "rebuttals": [
+   "구강세정기가 치실을 완전히 대체한다는 건 과장 — ADA도 '보조 도구'로 인증했지 치실 폐지를 권고하지 않았다",
+   "Barnes 2005는 Waterpik 후원 연구다 — 독립 메타분석(Fidalgo 2020)에서도 유의미하긴 하나 효과 크기가 줄어든다",
+   "34,900원은 쿠팡 특가 기준이고 정가는 49,900원 이상일 수 있다 — 시점에 따라 변동"
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/water_flosser_2.jpg",
+   "title": "칫솔은 치아 5면 중\n3면만 닦는다",
+   "title_hl": ["3면만"],
+   "body": "매일 닦아도\n이 사이 40%는 손도 안 닿는다",
+   "body_hl": ["40%"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/water_flosser_4.jpg",
+   "title": "나머지 2면은\n물이 해야 한다",
+   "title_hl": ["물이"],
+   "body": "Barnes 2005 RCT\n잇몸 출혈 93% 더 감소 (vs 치실)",
+   "body_hl": ["93%"],
+   "sub": "Bitvae C2 기준 쿠팡 34,900원",
+   "credit": "Pexels"
+  }
+ ]
+}
