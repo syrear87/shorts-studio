@@ -550,6 +550,22 @@ def main():
                  "각도를 바꿔도 금지다, 소재를 교체하라" % ", ".join(hits))
 
     # 0) 자막 구조 하드게이트 (2026-07-29 실사고: CTA 3줄이 구독 문구와 겹침)
+    # 0-0y) 경기 결과·출처 게이트 (2026-10-21 KIA 준PO 편 실사고 — 21:25 게시 시점에 경기가
+    #   진행 중이었는데 중간 점수 10-1을 최종처럼 썼다(실제 13-1). 출처는 나무위키였다. 디렉터 지시로 삭제.)
+    #   ① 스포츠 계열은 대본에 "final_source": "<경기 종료 후 나온 결과 기사 URL>"을 적어야 렌더된다.
+    #   ② 메타 설명의 출처에 나무위키·위키백과는 쓸 수 없다(누구나 고치는 문서 — 1차 출처가 아니다).
+    _meta_p = args.script_json.replace(".json", ".meta.json")
+    if "스포츠" in str(script.get("series") or "") and \
+            not str(script.get("final_source") or "").startswith("http"):
+        sys.exit("기각: 스포츠 편인데 final_source(경기 종료 후 결과 기사 URL)가 없다. "
+                 "경기가 끝났는지 먼저 확인하라 — 진행 중이면 이 소재는 버리고 다른 소재로 가라.")
+    try:
+        _desc = json.load(open(_meta_p, encoding="utf-8")).get("description") or ""
+        if re.search(r"나무위키|namu\.wiki|위키백과", _desc):
+            sys.exit("기각: 설명란 출처에 나무위키·위키백과가 있다 — 공식 발표·기록·언론 기사로 바꿔라")
+    except FileNotFoundError:
+        pass
+
     # 0-0z) 생활정보·실용 소재 기계 게이트 (2026-09-28 — 4주 80편 실측, topic_gate.py 주석)
     from topic_gate import judge as _topic_judge
     _tok, _twhy = _topic_judge(script.get("title"), script.get("topic_gate_override"))
