@@ -1,0 +1,34 @@
+{
+ "topic": "Await Camera (Rolling Square) — 찍은 사진은 하루 뒤에야 볼 수 있다, 일회용 카메라가 디지털로 돌아왔다, 24장 한 롤 8MP Sony IMX179 투명 바디 자석 교체 패널 5색, 킥스타터 89유로(약 13만원) [소유욕형]",
+ "blog_teaser": "Await 카메라 스펙 비교와 기존 레트로 디지캠과의 차이점은 블로그에 정리해뒀습니다",
+ "threads_text": "찍은 사진은 하루 뒤에야 볼 수 있다, 일회용 카메라가 디지털로 돌아왔다\n\n1. 스위스 Rolling Square의 Await 카메라, 93g에 신용카드보다 약간 큰 크기\n2. 한 롤에 24장 — 셔터 누르면 잠기고 24시간 뒤에야 열린다\n3. 투명 바디에 회로 기판이 보인다, 앞판은 자석이라 5색 교체\n4. 돈 내면 4×6 인화본이 우편으로 집에 온다\n5. 킥스타터 89유로(약 13만원), 12월 배송 예정\n\n(출처: PetaPixel, Yanko Design)",
+ "description": "Await Camera by Rolling Square (Switzerland). 디지털 일회용 카메라 컨셉. 8MP Sony IMX179 센서(1/3.2인치), 고정 f/2.0 렌즈(26mm 환산), 제논 플래시. 98×68×15mm, 93g. 1000mAh USB-C 충전. BT 5.2 + Wi-Fi. 한 롤 24장, 최대 3롤(72장) 저장. 셔터 누르면 사진 잠김 → 24시간 뒤 앱에서 공개(디지털 피로감 대응 설계). OLED에 남은 장수·배터리·플래시 표시. 투명 프로스트 바디에 회로 기판 노출. 앞판은 자석 교체식 5색(블루·핑크·틸·그린·옐로). 인화 서비스: 자동모드 $8.99/롤+배송, 수동모드 $9.99/롤+배송, 4×6인치 인화본 우편 배송. 원본 파일은 USB-C로 추출 가능. 가격: 킥스타터 얼리버드 89유로(~13만원), 정가 129유로(~19만원). 킥스타터 $85,000+ 모금. 2026년 12월 배송 예정. 국내 정식 유통 없음(직구 전용).",
+ "caption": "찍은 사진은 하루 뒤에야 볼 수 있다\n\nAwait Camera · Rolling Square (Switzerland)\n\n일회용 카메라를 디지털로 되살렸다\n셔터를 누르면 사진이 잠기고\n24시간이 지나야 열린다\n\n93g · 투명 바디에 기판이 다 보인다\n앞판은 자석이라 5색 교체\n돈 내면 4×6 인화본이 집으로 온다\n\n킥스타터 89유로(약 13만원) · 12월 배송\n국내 미출시 — 킥스타터 직구만 가능\n\n(출처: PetaPixel, Yanko Design, Rolling Square 공식)\n\n#AwaitCamera #레트로카메라 #디지털일회용 #필름감성 #가젯",
+ "factcheck": [
+   {"claim": "8MP Sony IMX179 센서, f/2.0 26mm 환산 렌즈", "sources": ["https://www.yankodesign.com/2026/10/09/the-146-await-camera-brings-back-the-disposable-with-24-photos-per-roll-so-every-shot-counts/", "https://petapixel.com/2026/09/29/this-film-photography-inspired-await-digital-camera-is-for-people-experiencing-digital-fatigue/"], "note": "Yanko Design 상세 리뷰 + PetaPixel 기사 교차 확인. 공식 프리오더 페이지에도 동일 스펙"},
+   {"claim": "93g, 98×68×15mm, 투명 바디, 자석 교체 패널 5색", "sources": ["https://www.yankodesign.com/2026/10/09/the-146-await-camera-brings-back-the-disposable-with-24-photos-per-roll-so-every-shot-counts/", "https://await-preorder.rollingsquare.com/"], "note": "Yanko 92.7g→93g 반올림. 공식 프리오더 페이지 anatomy 이미지로 5색 패널 확인"},
+   {"claim": "24장 한 롤, 24시간 뒤 공개, 인화 서비스 $8.99/롤", "sources": ["https://petapixel.com/2026/09/29/this-film-photography-inspired-await-digital-camera-is-for-people-experiencing-digital-fatigue/", "https://www.digitalcameraworld.com/cameras/compact-cameras/nearly-as-small-as-a-credit-card-this-retro-digital-compact-camera-does-one-thing-that-other-film-like-cameras-dont-it-prints-every-roll"], "note": "PetaPixel + Digital Camera World 교차 확인. 자동모드 $8.99, 수동모드 $9.99"},
+   {"claim": "킥스타터 89유로(얼리버드), 정가 129유로, $85,000+ 모금, 12월 배송", "sources": ["https://www.backerkit.com/projects/rollingsquare/await-digital-retro-camera-film-app-automatic-printing", "https://petapixel.com/2026/09/29/this-film-photography-inspired-await-digital-camera-is-for-people-experiencing-digital-fatigue/"], "note": "BackerKit 캠페인 페이지 + PetaPixel 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/await_camera_hero.jpg",
+   "title": "찍은 사진은\n하루 뒤에야 볼 수 있다",
+   "title_hl": ["하루 뒤에야"],
+   "body": "일회용 카메라가\n디지털로 돌아왔다",
+   "body_hl": ["디지털"],
+   "credit": "Rolling Square"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/await_camera_anatomy.jpg",
+   "title": "24장을 다 찍으면\n인화본이 집으로 온다",
+   "title_hl": ["인화본이 집으로"],
+   "body": "93g · 투명 바디 · 자석 패널 5색 교체\n킥스타터 89유로(약 13만원)",
+   "body_hl": ["5색 교체"],
+   "sub": "Sony IMX179 8MP · f/2.0 · 제논 플래시",
+   "credit": "Rolling Square"
+  }
+ ]
+}
