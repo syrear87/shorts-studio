@@ -1,0 +1,77 @@
+{
+  "title": "보름달은 매일 50분씩 늦게 뜨는데, 일요일은 다릅니다",
+  "chip": "오늘의 지식 · 1일 1지식",
+  "narrator": "male",
+  "series": "공유성",
+  "real_query": ["Hunter's Moon", "full moon October"],
+  "hook_bg_reason": "천문 소재 — 실물은 보름달 자체이며 커먼즈 실사 + Pexels로 대체",
+  "scenes": [
+    {
+      "kind": "hook",
+      "voice": "이번 일요일에 달이 뜹니다. 뜨자마자 나가보세요.",
+      "bg": "commons:File:Hunter's moon over the Forsythe preserve (70117).jpg",
+      "bg_query": "full moon rising over horizon orange",
+      "lines": [
+        ["이번 일요일에 달이 뜹니다", ["일요일"]],
+        ["뜨자마자 나가보세요", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "10월 보름달에는 이름이 있습니다. 사냥꾼의 달, 헌터스문입니다.",
+      "bg_id": 12987908,
+      "bg_query": "full moon autumn night sky",
+      "lines": [
+        ["10월 보름달에는", []],
+        ["이름이 있습니다", []],
+        ["사냥꾼의 달, 헌터스문", ["헌터스문"]]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "보통 보름달은 매일 50분씩 늦게 뜹니다. 그런데 이 달은 30분만 늦습니다. 며칠 연속, 해지자마자 달이 따라옵니다.",
+      "bg_id": 12496958,
+      "bg_query": "moonrise timelapse night",
+      "hl_pair": true,
+      "lines": [
+        ["보통 보름달은 매일 50분씩", ["50분씩"]],
+        ["이 달은 30분만 늦습니다", ["30분만"]],
+        ["해지자마자 달이 따라옵니다", []]
+      ]
+    },
+    {
+      "kind": "fact",
+      "voice": "올해는 이 보름달 옆에 토성이 떠 있습니다. 맨눈으로 보입니다.",
+      "bg_id": 30416317,
+      "bg_query": "saturn planet space",
+      "lines": [
+        ["올해 보름달 옆에", []],
+        ["토성이 떠 있습니다", ["토성이"]],
+        ["맨눈으로 보입니다", []]
+      ]
+    },
+    {
+      "kind": "twist",
+      "voice": "추수가 끝나 빈 들판에 사슴이 드러났습니다. 옛 사냥꾼들은 이 달빛 아래 겨울 양식을 잡았습니다. 10월 25일 서울 월출 16시 51분, 해가 지면 바로 뜹니다.",
+      "bg_id": 39544684,
+      "bg_query": "deer autumn field twilight",
+      "lines": [
+        ["빈 들판, 사슴이 드러났다", []],
+        ["이 달빛 아래 겨울 사냥", ["겨울"]],
+        ["10월 25일 월출 16:51", ["16:51"]]
+      ]
+    },
+    {
+      "kind": "cta",
+      "voice": "오늘도 1일 1지식, 구독으로 받아보세요.",
+      "bg_id": 10895330,
+      "sub": "1일 1지식 · 구독",
+      "lines": [["오늘도 1일 1지식", ["1일", "1지식"]], ["구독으로 받아보세요", ["구독으로"]]]
+    }
+  ],
+  "sources": [
+    "KASI 해달출몰시각 https://astro.kasi.re.kr/life/pageView/7",
+    "https://earthsky.org/astronomy-essentials/everything-you-need-to-know-hunters-moon/"
+  ],
+  "bg_query": ["full moon rising over horizon orange", "full moon autumn night sky", "moonrise timelapse night", "saturn planet space", "deer autumn field twilight", "full moon night sky stars"]
+}
