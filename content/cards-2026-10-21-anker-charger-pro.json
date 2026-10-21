@@ -1,0 +1,34 @@
+{
+ "topic": "Anker Laptop Charger Pro — 충전기가 노트북 배터리를 돌보기 시작했다, Care Mode로 80~100% 충전 제한·배터리 바이패스·월간 건강 리포트, 100W GaN 193g 스마트 디스플레이 $59.99 10/22 출시 [한계붕괴형]",
+ "blog_teaser": "배터리 80% 충전이 수명을 늘리는 원리랑 Care Mode 작동 방식은 블로그에 정리해뒀습니다",
+ "threads_text": "노트북 충전기에서 100%가 사라졌다\n\n1. 노트북 100%까지 꽂아두면 배터리가 빨리 늙는다\n2. Anker가 Care Mode 충전기를 냈다 — 80~100% 사이에서 자동으로 멈춤\n3. 한계 넘으면 배터리를 건너뛰고 전원 직접 공급\n4. 화면에 와트·온도·충전 상태가 실시간으로 뜬다\n5. $59.99, 10/22 출시, 아마존 직구 가능(관세 면제)\n\n(출처: Anker 공식, MakeUseOf, gagadget)",
+ "description": "Anker Laptop Charger Pro(A120F). 100W USB-C GaN 충전기, PD 3.1·PPS 지원. 193g, 62x34x55mm, 90도 접이식 플러그 — 기존 96W 모델 대비 38% 작고 33% 가벼움. 핵심 기능: Care Mode — 노트북별 최적 충전 곡선 자동 적용, 80~100% 사이 충전 제한 설정 가능, 한계 도달 시 배터리를 건너뛰고 노트북에 직접 전원 공급. 스마트 디스플레이: 실시간 와트·온도·충전 상태·연결 기기 표시, 커스텀 배경화면 지원. OTA 펌웨어 업데이트. Anker Charging Manager 앱(Windows)으로 설정. MacBook Pro/Air M2~M5, iPhone 15~17, iPad 호환. 충전 온도 14% 감소(Anker 내부 테스트). $59.99(약 82,000원), 2026-10-22 미국 출시. 국내 미출시 — 아마존 직구 가능, $150 미만 관세 면제. Anker Korea 공식 유통 있어 추후 국내 출시 가능성 있음.",
+ "caption": "노트북 충전기에서 100%가 사라졌다\n\nAnker Laptop Charger Pro\n100W GaN · 193g · Care Mode\n\n80~100% 자동 충전 제한\n한계 도달하면 배터리 건너뛰고 직접 전원\n디스플레이에 와트·온도 실시간 표시\n\n$59.99(약 82,000원) · 10/22 출시\n아마존 직구 가능(관세 면제)\n\n(출처: Anker 공식, MakeUseOf, gagadget)\n\n#충전기 #배터리관리 #Anker #GaN충전기 #노트북충전",
+ "factcheck": [
+   {"claim": "100W USB-C GaN, 193g, 62x34x55mm, 90도 접이식 플러그", "sources": ["https://www.anker.com/ca/products/a120f-100w-usb-c-gan-charger-battery-care", "https://www.makeuseof.com/anker-laptop-charger-pro-increase-battery-lifespan/"], "note": "Anker 공식 스펙과 MakeUseOf 리뷰 동일 확인"},
+   {"claim": "Care Mode: 80~100% 충전 제한, 한계 도달 시 배터리 바이패스", "sources": ["https://www.anker.com/ca/products/a120f-100w-usb-c-gan-charger-battery-care", "https://www.makeuseof.com/anker-laptop-charger-pro-increase-battery-lifespan/"], "note": "Anker 공식: 'Once the battery reaches the selected limit, the charger will power the laptop directly and bypasses the battery'. MakeUseOf 동일 확인"},
+   {"claim": "기존 96W 모델 대비 38% 작고 33% 가벼움", "sources": ["https://www.anker.com/ca/products/a120f-100w-usb-c-gan-charger-battery-care", "https://gagadget.com/en/730603-ankers-new-charger-extends-laptop-battery-life-by-40-with-smart-charging-tech/"], "note": "Anker 공식 스펙 페이지 표기, gagadget 확인"},
+   {"claim": "$59.99, 2026-10-22 출시", "sources": ["https://www.makeuseof.com/anker-laptop-charger-pro-increase-battery-lifespan/", "https://gagadget.com/en/730603-ankers-new-charger-extends-laptop-battery-life-by-40-with-smart-charging-tech/"], "note": "두 매체 모두 $59.99, Oct 22 출시 확인. Valorant Edition 동일 가격 Amazon에서 판매 중"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/anker_charger_pro_hero.jpg",
+   "title": "노트북 충전기에서\n100%가 사라졌다",
+   "title_hl": ["사라졌다"],
+   "body": "100% 채우면 배터리가 빨리 늙는다\n이제 충전기가 알아서 멈춘다",
+   "body_hl": ["빨리 늙는다", "알아서 멈춘다"],
+   "credit": "Anker"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/anker_charger_pro_care.jpg",
+   "title": "Anker Laptop Charger Pro\n193g에 100W",
+   "title_hl": ["193g", "100W"],
+   "body": "Care Mode: 80~100% 충전 제한\n한계 넘으면 배터리 건너뛰고 직접 전원\n화면에 와트·온도·충전 상태 실시간",
+   "body_hl": ["Care Mode", "직접 전원"],
+   "sub": "$59.99(약 82,000원) · 10/22 출시 · 아마존 직구",
+   "credit": "Anker"
+  }
+ ]
+}
