@@ -1,0 +1,35 @@
+{
+ "topic": "Ressence Type 10 DN — 시계 속에 기름을 부으면 유리가 사라진다, 실리콘 오일 2.95ml로 다이얼과 크리스탈 사이 공간 제거, 82g 티타늄 538개 부품 100대 한정 CHF 45,000 [소유욕형]",
+ "blog_teaser": "ROCS 회전 디스크 원리랑 오일이 시계 유리에 미치는 광학 효과는 블로그에 정리해뒀습니다",
+ "threads_text": "시계 속에 기름을 부으면, 유리가 사라진다\n\n1. 벨기에 Ressence가 시계 다이얼 위에 실리콘 오일 3ml를 넣는다\n2. 오일이 유리와 다이얼 사이 공간을 채워서 굴절이 없어진다\n3. 바늘 대신 회전 디스크가 기름 속에서 돌면서 시간을 보여준다\n4. 82g 티타늄, 부품 538개, 60시간 파워리저브\n5. 세계 100대 한정, 약 7,300만원\n\n(출처: Monochrome Watches, WatchesbySJX, Ressence 공식)",
+ "description": "Ressence Type 10 DN (Dark Night). 2026년 10월 16일 Watch Time New York에서 공개, 11월 배송 예정. CHF 45,000 (약 7,300만원, 세전). 세계 100대 한정. 41.5mm Grade 5 티타늄 케이스, 82g, DLC 코팅. 자체 무브먼트 RW-04 (252부품, 60시간 파워리저브, 듀얼 배럴). 상부 챔버에 실리콘 오일 2.95ml 충전. 오일이 사파이어 크리스탈과 다이얼 사이 공간을 채워 빛 굴절을 제거, ROCS 회전 디스크가 하나의 표면처럼 보인다. 바늘 없이 시·분·세컨드 타임존·120초 러너 표시. 오일 충전 모델에 자체 무브먼트를 넣은 건 Ressence 역사상 처음 (Type 11이 먼저 자체 무브먼트 RW-01을 썼으나 오일 비충전 모델). Super-LumiNova 야광. 5ATM 방수. 국내 미출시. ressencewatches.com 직구. 국내 대안: 오일 충전 다이얼은 Ressence 고유 기술로 대체 제품 없음.",
+ "caption": "시계 속에 기름을 부으면, 유리가 사라진다\n\nRessence Type 10 DN\n82g 티타늄 · 기름 3ml · 바늘 없음\n\n다이얼 위에 실리콘 오일을 채우면\n유리와의 경계가 사라진다\n회전 디스크가 기름 속에서 시간을 보여준다\n\n세계 100대 한정 · CHF 45,000 (약 7,300만원)\n11월 배송 · ressencewatches.com\n\n(출처: Ressence 공식, Monochrome Watches, WatchesbySJX)\n\n#시계 #Ressence #오일시계 #기계식시계 #가젯",
+ "factcheck": [
+   {"claim": "실리콘 오일 2.95ml 충전, 오일이 다이얼과 크리스탈 사이 공간을 채운다", "sources": ["https://monochrome-watches.com/meet-the-type-10-dn-ressences-first-oil-filled-watch-with-the-proprietary-movement/", "https://watchesbysjx.com/2026/10/ressence-type-10.html", "https://www.hautetime.com/ressence-type-10-dn-dark-night/"], "note": "3개 매체 동일 수치: 2.95ml silicone-based oil in upper chamber. expansion membrane for temperature changes"},
+   {"claim": "82g Grade 5 티타늄, 41.5mm, 538개 부품", "sources": ["https://manofmany.com/watches/ressences-type-10-dn", "https://hiconsumption.com/watches/ressence-type-10-dn/"], "note": "538 = 전체 부품(무브먼트 252개 + ROCS 등). Man of Many, Hi Consumption 모두 확인"},
+   {"claim": "자체 무브먼트 RW-04, 60시간 파워리저브", "sources": ["https://www.fratellowatches.com/the-new-ressence-type-10-dark-night-debuts-the-brands-second-proprietary-movement/", "https://deployant.com/ressence-type-10-dn-first-in-house-calibre-oil-filled-case/"], "note": "RW-04는 Ressence 두 번째 자체 무브먼트. 첫 번째 RW-01은 Type 11(2026.4)에 탑재. 오일 충전 모델에 자체 무브먼트를 넣은 건 Type 10 DN이 처음"},
+   {"claim": "세계 100대 한정, CHF 45,000", "sources": ["https://ressencewatches.com/products/type-10-dn", "https://manofmany.com/watches/ressences-type-10-dn", "https://acquiremag.com/watches/ressence-launches-its-most-important-watch-yet-the-type-10-dn/"], "note": "공식 사이트 + 매체 3곳 동일. CHF 45,000 excluding taxes. 환율 1 CHF = 약 1,617 KRW 기준 약 7,277만원"},
+   {"claim": "ROCS 시스템: 바늘 대신 회전 디스크로 시간 표시", "sources": ["https://ressencewatches.com/pages/rocs", "https://monochrome-watches.com/meet-the-type-10-dn-ressences-first-oil-filled-watch-with-the-proprietary-movement/"], "note": "ROCS = Ressence Orbital Convex System. 위성형 서브다이얼이 중심축 둘레를 공전하며 시·분·타임존·러너 표시. 기계식, 전자 부품 없음"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/ressence_type10dn_hero.jpg",
+   "title": "시계 속에 기름을 부으면\n유리가 사라진다",
+   "title_hl": ["유리가 사라진다"],
+   "body": "실리콘 오일 3ml\n다이얼과 유리 사이 빈 공간이 없어진다",
+   "body_hl": ["3ml"],
+   "credit": "Ressence"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/ressence_type10dn_detail.jpg",
+   "title": "바늘 대신\n기름 속 회전 디스크",
+   "title_hl": ["기름 속 회전 디스크"],
+   "body": "82g 티타늄 · 부품 538개\n60시간 파워리저브 · 5ATM 방수",
+   "body_hl": ["82g", "538개"],
+   "sub": "세계 100대 한정 · CHF 45,000 (약 7,300만원)",
+   "credit": "Ressence"
+  }
+ ]
+}
