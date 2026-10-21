@@ -777,3 +777,4 @@
 - 10-16 20시 카드 — Amazon Bee Frontier & Eclipse, 녹음기가 바뀌었다 — 이젠 들은 걸 요약한다 (한계붕괴형) https://www.threads.com/@daily_1_pick/post/DejZs2zGRi0
 - 10-17 20시 카드 — Haier Vision 15, 세탁기에 드디어 카메라가 들어갔다 (공유형) https://www.threads.com/@daily_1_pick/post/Del_qpRGTrX
 - 10-18 16시 카드 — Petlibro Granary 2 X, 급식기에서 마이크로칩이 사라졌다 (한계붕괴형) https://www.threads.com/@daily_1_pick/post/DeoILFpGSZ_
+- 10-21 14시 카드 — Framework Laptop, 노트북에서 수리 불가가 사라지기 시작했다 (한계붕괴형) https://www.threads.com/@daily_1_pick/post/Devos9-mVvr

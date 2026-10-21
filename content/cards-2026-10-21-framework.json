@@ -1,0 +1,36 @@
+{
+ "topic": "Framework Laptop — 노트북에서 수리 불가가 사라지기 시작했다, 드라이버 하나면 배터리·화면·포트까지 전부 교체, iFixit 10/10 vs 맥북 4~6/10, EU 수리권법 7월 시행 후 모든 제조사에 파급, $549부터 [한계붕괴형]",
+ "blog_teaser": "EU 수리권법 상세 내용이랑 Framework 부품 가격표 전체는 블로그에 정리해뒀습니다",
+ "threads_text": "노트북에서 수리 불가가 사라지기 시작했다\n\n1. Framework라는 회사가 부품을 전부 따로 파는 노트북을 만든다\n2. 드라이버 하나(T5)면 배터리·화면·포트 교체 끝\n3. 배터리 $69, 디스플레이 $179, 팬 $39에 직접 산다\n4. iFixit 수리용이성 10점 만점 — 맥북프로는 4점\n5. EU가 7월에 수리권법을 시행해서 다른 제조사도 따라가는 중\n\n(출처: Framework 공식, iFixit, EU Directive 2024/1799)",
+ "description": "Framework Laptop. 2020년 설립된 미국 스타트업(창업자 Nirav Patel, 전 Apple·Oculus). 모든 부품을 사용자가 직접 교체할 수 있는 모듈형 노트북. Torx T5 드라이버 하나로 배터리($69)·디스플레이($179)·팬($39)·터치패드($39)·웹캠($29)·스피커($19) 교체 가능. 확장 카드 슬롯 4개(USB-C/USB-A/HDMI/SD/저장장치 등)는 도구 없이 핫스왑. iFixit 수리용이성 10/10점(MacBook Pro 4/10, MacBook Air 5/10). Framework Laptop 12: $549 DIY부터, Intel Core Series 3, DDR5-6400, Thunderbolt 4, Wi-Fi 7. Framework Laptop 13 Pro: $1,199 DIY부터, CNC 알루미늄, 20시간+ 배터리, LPCAMM2, PCIe 5.0. EU Right to Repair Directive(2024/1799) 2026년 7월 31일 시행 — 노트북 포함 수리 의무화. 국내 미출시, 직배송 불가. 가장 가까운 공식 판매국: 대만·호주. 국내 대안 없음(모듈형 노트북은 Framework가 유일). 32개국 출시.",
+ "caption": "노트북에서 수리 불가가 사라지기 시작했다\n\nFramework Laptop\n드라이버 하나면 전부 바꾼다\n\n배터리 $69 · 화면 $179 · 팬 $39\niFixit 수리 점수 10/10\n맥북프로 4/10 · 맥북에어 5/10\n\n$549부터 · 국내 미출시(대만·호주 직배송)\nEU 수리권법 시행으로 다른 회사도 따라가는 중\n\n(출처: Framework 공식, iFixit, EU Directive 2024/1799)\n\n#Framework #노트북수리 #모듈형노트북 #iFixit #RightToRepair",
+ "factcheck": [
+   {"claim": "iFixit 수리용이성 Framework 10/10, MacBook Pro 4/10, MacBook Air 5/10", "sources": ["https://www.pcgamer.com/hardware/gaming-laptops/ifixit-awards-the-framework-12-laptop-a-10-10-for-repairability-respects-your-time-your-budget-and-your-ability-to-make-repairs/", "https://www.ifixit.com/News/108697/m4-macbook-air-teardown-apple-when-will-macbooks-finally-get-repair-upgrades"], "note": "Framework 12: 10/10(PCGamer 확인), MacBook Pro M5: 4/10, MacBook Air M4: 5/10(iFixit teardown 원본)"},
+   {"claim": "배터리 $69, 디스플레이 $179, 팬 $39, 터치패드 $39, 웹캠 $29, 스피커 $19", "sources": ["https://frame.work/products/battery", "https://liliputing.com/framework-marketplace-lets-you-buy-replacement-parts-expansion-cards-for-the-modular-framework-laptop/"], "note": "Framework Marketplace 공식 가격. 배터리 61Wh=$69(13인치 기준)"},
+   {"claim": "Framework Laptop 12 $549 DIY부터, 10월 출하 시작", "sources": ["https://videocardz.com/newz/framework-laptop-12-gets-intel-wildcat-lake-option-starts-at-549", "https://www.notebookcheck.net/Framework-Laptop-12-starts-at-549-and-is-available-to-pre-order-now.996637.0.html"], "note": "$549 DIY Edition(Core 3 304), 프리빌트 $699부터. 4월 예약·10월 첫 배치 출하"},
+   {"claim": "EU Right to Repair Directive 2024/1799, 2026년 7월 31일 시행, 노트북 포함", "sources": ["https://regulatorydecoded.com/eu-right-to-repair-manufacturers-directive-2024-1799/", "https://fixfirst.io/blog/state-of-eu-right-to-repair"], "note": "Directive (EU) 2024/1799, 7/31 발효. 노트북·스마트폰·태블릿·가전 포함. 수리 의무·독립 수리 허용·소프트웨어 잠금 금지"},
+   {"claim": "Torx T5 드라이버 하나로 내부 부품 교체, 확장 카드는 도구 없이 핫스왑", "sources": ["https://knowledgebase.frame.work/expansion-card-functionality-on-framework-laptop-12-13th-gen-intel-core-S1UDIAsWel", "https://liliputing.com/framework-marketplace-lets-you-buy-replacement-parts-expansion-cards-for-the-modular-framework-laptop/"], "note": "T5 토르크스 하나로 배터리·화면·키보드·팬·터치패드·웹캠·스피커 교체. 확장 카드 4슬롯은 도구 불필요, 핫스왑(재시작 없이 교체)"},
+   {"claim": "국내 미출시, 가장 가까운 공식 판매국 대만·호주", "sources": ["https://community.frame.work/t/shipping-asia-taiwan-singapore-orders/15552", "https://www.comgateway.com/blogs/framework-laptop-13-diy-vs-taiwan-retail-a-2026-critical-cost-analysis/"], "note": "한국 직배송 불가, 32개국 출시. 아시아는 대만(리테일)·호주(직배송)만 공식"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/framework_screwdriver_repair.jpg",
+   "title": "노트북에서\n수리 불가가\n사라지기 시작했다",
+   "title_hl": ["수리 불가가", "사라지기 시작했다"],
+   "body": "드라이버 하나면\n배터리·화면·포트 전부 교체",
+   "body_hl": ["드라이버 하나", "전부 교체"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/framework_modular_concept.jpg",
+   "title": "고장 나면\n부품만 산다",
+   "title_hl": ["부품만 산다"],
+   "body": "배터리 $69 · 화면 $179 · 팬 $39\niFixit 10/10 (맥북프로 4/10)\nEU 수리권법 7월 시행 → 전 제조사 파급",
+   "body_hl": ["10/10", "4/10", "EU 수리권법"],
+   "sub": "$549부터 · 국내 미출시 (대만·호주 직구)",
+   "credit": "Pexels"
+  }
+ ]
+}
