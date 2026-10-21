@@ -1,0 +1,35 @@
+{
+ "topic": "HP 프린터 잉크 DRM — 펌웨어 업데이트로 호환 잉크를 차단하기 시작했다, 잉크 1mL당 $9(물의 9000배), EPEAT 2.0 환경인증은 호환 카트리지 지원 의무화, 2026년 집단소송 기각 [한계붕괴형]",
+ "blog_teaser": "HP Dynamic Security 펌웨어 영향받는 프린터 11개 모델 목록이랑 자동 업데이트 끄는 방법은 블로그에 정리해뒀습니다",
+ "threads_text": "HP가 이제 프린터 잉크를 골라 먹는다\n\n1. HP가 펌웨어 업데이트로 비공식 잉크 카트리지를 차단한다\n2. HP 67XL 검정 잉크 1mL에 $9 — 리터로 환산하면 물의 9000배\n3. 2026년 1월 펌웨어 2602A/B로 프린터 11개 모델에 적용\n4. 환경인증 EPEAT 2.0은 호환 카트리지 지원을 의무화 — 정면 충돌\n5. 대안: HP+ 거부 + 자동 펌웨어 업데이트 끄기\n\n(출처: TechSpot, CastleInk, Int'l ITC)",
+ "description": "HP Dynamic Security. HP가 2026년 1월 29일 펌웨어 2602A/B를 배포하며 비공식 잉크 카트리지 차단을 11개 프린터 모델로 확대. HP 67XL Black 잉크 가격 약 $9/mL(리터 환산 약 $9,000, 물 1L $1 대비 9,000배). HP Instant Ink 구독 시 월 $5.99~$24.99(페이지 기준 과금). EPEAT 2.0(2025년 12월 발효) Section 4.7: 인증 프린터는 재생 카트리지 호환 의무. HP는 EPEAT 인증 보유 — 충돌. 2026년 집단소송(N.D. Illinois, Judge Martha Pacold) 9월 1일 기각. 이전 2020년 합의에서 HP는 고객에게 펌웨어 업데이트 거부 옵션을 제공하기로 동의. 대안: ①설정 시 HP+ 거부 ②자동 펌웨어 업데이트 비활성화 ③잉크탱크 프린터(Epson EcoTank, Canon MegaTank) 전환 — 잉크 비용 80~90% 절감.",
+ "caption": "HP가 이제 프린터 잉크를 골라 먹는다\n\nHP 잉크 DRM\n비공식 카트리지를 펌웨어로 차단\n\nHP 67XL 검정 1mL = $9\n리터 환산 시 물의 9,000배\n\n2026.1월 펌웨어 2602A/B → 11개 모델 적용\nEPEAT 2.0 환경인증과 정면 충돌 중\n\n대안: HP+ 거부 + 자동 업데이트 끄기\n\n(출처: TechSpot, CastleInk, Int'l ITC)\n\n#프린터 #HP잉크 #DRM #EPEAT #잉크가격",
+ "factcheck": [
+   {"claim": "HP 2026년 1월 29일 펌웨어 2602A/B 배포, 11개 모델에 Dynamic Security 적용", "sources": ["https://www.techspot.com/news/111672-hp-ink-blocking-firmware-clashes-new-global-sustainability.html", "https://castleink.com/blogs/printer-help/hp-printer-firmware-lawsuit-2026-what-owners-need-to-know-about-third-party-ink-blocking"], "note": "TechSpot·CastleInk 모두 2026년 1월 펌웨어로 11개 모델 차단 확대 확인"},
+   {"claim": "HP 67XL Black 잉크 약 $9/mL", "sources": ["https://finance.yahoo.com/news/hp-ink-blocking-firmware-may-163527568.html", "https://castleink.com/blogs/printer-help/hp-printer-firmware-lawsuit-2026-what-owners-need-to-know-about-third-party-ink-blocking"], "note": "Yahoo Finance·CastleInk 가격 비교 데이터. 67XL Black 약 200페이지/$36, 약 3mL 용량 기준"},
+   {"claim": "EPEAT 2.0 2025년 12월 발효, 재생 카트리지 호환 의무", "sources": ["https://www.techspot.com/news/111672-hp-ink-blocking-firmware-clashes-new-global-sustainability.html", "https://www.technology.org/2026/03/13/hp-keeps-blocking-third-party-ink-but-a-new-green-standard-could-force-its-hand/"], "note": "EPEAT 2.0 Section 4.7, Int'l ITC가 HP의 EPEAT 인증과 Dynamic Security의 충돌 지적"},
+   {"claim": "2026년 집단소송 N.D. Illinois 9월 기각", "sources": ["https://castleink.com/blogs/printer-help/hp-printer-firmware-lawsuit-2026-what-owners-need-to-know-about-third-party-ink-blocking", "https://finance.yahoo.com/news/hp-ink-blocking-firmware-may-163527568.html"], "note": "Judge Martha Pacold, 2026-09-01 기각. 2020년 이전 합의로 HP는 펌웨어 업데이트 거부 옵션 제공 동의"},
+   {"claim": "대안: HP+ 거부 + 자동 업데이트 끄기로 호환 잉크 사용 가능", "sources": ["https://castleink.com/blogs/printer-help/hp-printer-firmware-lawsuit-2026-what-owners-need-to-know-about-third-party-ink-blocking", "https://www.solvemix.com/computer/printer/hp-firmware-update-blocks-third-party-ink-cartridges-what-to-do.html"], "note": "HP+ 미가입 + 자동 펌웨어 업데이트 비활성화 시 호환 카트리지 계속 사용 가능"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/hp_ink_cartridge_hook.jpg",
+   "title": "HP가 프린터 잉크를\n이제 골라 먹는다",
+   "title_hl": ["이제", "골라 먹는다"],
+   "body": "펌웨어 업데이트로\n비공식 잉크를 막고 있다",
+   "body_hl": ["펌웨어", "막고"],
+   "credit": "Pexels"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/hp_ink_printer_end.jpg",
+   "title": "잉크 1mL에 $9\n물의 9,000배",
+   "title_hl": ["$9", "9,000배"],
+   "body": "2026.1월 펌웨어 2602A/B → 11개 모델\nEPEAT 2.0 환경인증과 정면 충돌\n대안: HP+ 거부 + 자동 업데이트 끄기",
+   "body_hl": ["EPEAT 2.0", "정면 충돌", "HP+ 거부"],
+   "sub": "(출처: TechSpot, CastleInk, Int'l ITC)",
+   "credit": "Pexels"
+  }
+ ]
+}
