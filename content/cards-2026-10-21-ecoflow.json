@@ -1,0 +1,35 @@
+{
+ "topic": "EcoFlow River 3 Plus — 콘센트가 가방 안에 들어갔다, 4.2kg에 600W 콘센트 통째로 넣은 파워스테이션 286Wh LiFePO4 3000회 충방전 국내 39만원대 [공유형]",
+ "blog_teaser": "UPS 전환 원리랑 LiFePO4 배터리 수명 계산은 블로그에 정리해뒀습니다",
+ "threads_text": "콘센트가 가방 안에 들어갔다\n\n1. EcoFlow River 3 Plus는 정전 시 10ms 안에 배터리로 전환된다\n2. 286Wh LiFePO4 배터리, 3000회 충방전에도 80% 용량 유지\n3. 600W 출력인데 X-Boost로 1200W 가전도 돌린다\n4. 4.2kg에 IP54 방수, 1시간 완충\n5. 국내 다나와 최저가 39만원대\n\n(출처: EcoFlow 공식, StorageReview, The Gadgeteer)",
+ "description": "EcoFlow River 3 Plus 파워스테이션. 286Wh LiFePO4 배터리, 600W AC 출력(X-Boost 1200W). UPS 기능: 정전 시 10ms 미만 전환으로 공유기·NAS 등 무중단 전원 공급. 3000회 충방전 사이클(매일 충전해도 약 10년). 4.2kg, 234×231×146mm. AC 콘센트 1개, USB-C 100W 1개, USB-A 18W 2개, DC 12V 1개. 360W AC 충전(0→100% 1시간), 태양광 220W 입력. IP54 방수방진, 3ft 낙하 내구성. 확장 배터리로 858Wh까지 증설 가능. 30dB 미만 저소음. 앱 제어(EcoFlow앱). 미국 소비자가 $269. 국내: 다나와 최저가 390,140원, 쿠팡 431,110원. EcoFlow Korea 공식 판매 중.",
+ "caption": "콘센트가 가방 안에 들어갔다\n\nEcoFlow River 3 Plus\n286Wh · 600W · 4.2kg\n\n정전 → 10ms 안에 배터리 전환\n공유기, NAS, 모뎀 무중단\nLiFePO4 3000회 충방전 · 10년\n\n국내 다나와 최저가 39만원대\n\n(출처: EcoFlow 공식, StorageReview, The Gadgeteer)\n\n#파워스테이션 #정전대비 #EcoFlow #UPS #캠핑",
+ "factcheck": [
+   {"claim": "286Wh LiFePO4 배터리, 3000회 충방전 사이클", "sources": ["https://www.storagereview.com/review/ecoflow-river-3-plus-review-compact-power-station-with-600w-output-ups-support", "https://the-gadgeteer.com/2025/02/03/ecoflow-river-3-plus-power-station-review/"], "note": "두 리뷰 모두 286Wh LFP, 3000 cycles 확인. EcoFlow 공식 스펙과 일치"},
+   {"claim": "600W AC 출력, X-Boost로 1200W 가전 지원", "sources": ["https://www.storagereview.com/review/ecoflow-river-3-plus-review-compact-power-station-with-600w-output-ups-support", "https://www.makeuseof.com/ecoflow-river-3-plus-review/"], "note": "600W continuous, 1200W X-Boost는 전압을 낮춰 고와트 가전 구동. StorageReview·MakeUseOf 동일"},
+   {"claim": "UPS 기능 10ms 미만 전환", "sources": ["https://www.storagereview.com/review/ecoflow-river-3-plus-review-compact-power-station-with-600w-output-ups-support", "https://the-gadgeteer.com/2025/02/03/ecoflow-river-3-plus-power-station-review/"], "note": "sub-10ms UPS switchover. 일반 UPS 표준(10ms 이내)과 동등"},
+   {"claim": "4.2kg, IP54, 1시간 완충", "sources": ["https://the-gadgeteer.com/2025/02/03/ecoflow-river-3-plus-power-station-review/", "https://www.makeuseof.com/ecoflow-river-3-plus-review/"], "note": "4.2kg(10.4lbs), IP54, 360W AC charging 0-100% in ~1hr 확인"},
+   {"claim": "국내 다나와 최저가 39만원대", "sources": ["https://search.danawa.com/", "https://www.coupang.com/"], "note": "다나와 390,140원, 쿠팡 431,110원 실측(2026-10-21 기준)"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img": "assets/cards/ecoflow_river3plus_hero.jpg",
+   "title": "콘센트가\n가방 안에 들어갔다",
+   "title_hl": ["가방 안에 들어갔다"],
+   "body": "정전 → 10ms 만에 배터리 전환\n4.2kg에 600W 콘센트가 통째로",
+   "body_hl": ["10ms", "600W"],
+   "credit": "EcoFlow"
+  },
+  {
+   "kind": "end",
+   "img": "assets/cards/ecoflow_river3plus_detail.jpg",
+   "title": "콘센트를 들고 다닌다\n4.2kg",
+   "title_hl": ["4.2kg"],
+   "body": "286Wh LiFePO4 · 600W 출력\n3000회 충방전 · 10년 수명",
+   "body_hl": ["3000회", "10년"],
+   "sub": "국내 다나와 최저가 39만원대",
+   "credit": "EcoFlow"
+  }
+ ]
+}
