@@ -1,0 +1,43 @@
+{
+ "topic": "Nothing Headphone (1) Pro — 헤드폰 안에 스피커 3개가 들어갔다, xMEMS 고체 트위터+40mm 우퍼+13mm 미드 트리플 드라이버, 68시간 배터리, 46dB ANC 10마이크, 티타늄+유리 헤드밴드 327g $399 [한계붕괴형]",
+ "blog_teaser": "xMEMS 고체 진동판이 기존 플라스틱보다 95배 단단한 원리와 트리플 드라이버 구성은 블로그에 정리해뒀습니다",
+ "threads_text": "헤드폰 스피커가 반도체로 바뀌었다\n\n1. 보통 헤드폰은 드라이버 1개 — Nothing이 3개를 넣었다\n2. xMEMS 트위터: 실리콘 진동판이 플라스틱보다 95배 단단해서 고음이 더 빠르게 반응\n3. 68시간 배터리(ANC 끄면), 5분 충전으로 4시간 재생\n4. 46dB 노이즈캔슬링, 마이크 10개\n5. 티타늄+유리 헤드밴드, 327g, $399(약 55만원)\n\n(출처: Nothing 공식, Notebookcheck, TechRadar)",
+ "description": "Nothing Headphone (1) Pro. 트리플 드라이버 오버이어 헤드폰: 40mm 다이내믹(저음) + 13×8mm 프리시전 다이내믹(중음) + xMEMS 고체 트위터(고음, 3.2×6.0×1.15mm). xMEMS 실리콘 진동판은 플라스틱 대비 95배 강성 — 트랜지언트 응답 속도 우위. 배터리: ANC 꺼짐 68시간(AAC)/53시간(LDAC), ANC 켜짐 30시간(AAC)/28시간(LDAC). 5분 충전 4시간 재생. ANC 46dB, 10마이크. Bluetooth 6.1, AAC·SBC·LDAC·LC3. USB-C 유선 24bit/192kHz, 3.5mm 24bit/96kHz. IP52. 327g. 티타늄 합금+유리 헤드밴드, 투명 디자인. 흰색·검정. $399(약 55만원)/£349. 2026-09-29 글로벌 출시. 국내 Nothing 공식 스토어 판매 중.",
+ "caption": "헤드폰 스피커가 반도체로 바뀌었다\n\nNothing Headphone (1) Pro\n트리플 드라이버 · 327g · 68시간\n\n40mm 우퍼 + 13mm 미드 + xMEMS 트위터\n실리콘 진동판이 플라스틱보다 95배 단단\n46dB ANC · 마이크 10개 · BT 6.1\n\n$399(약 55만원) · 흰색·검정\n\n(출처: Nothing 공식, Notebookcheck, TechRadar)\n\n#Nothing #헤드폰 #xMEMS #노이즈캔슬링 #오디오",
+ "factcheck": [
+   {"claim": "트리플 드라이버: 40mm + 13×8mm + xMEMS 트위터(3.2×6.0×1.15mm)", "sources": ["https://nothing.tech/products/headphone-1-pro", "https://www.notebookcheck.net/Nothing-Headphone-1-Pro-launches-with-three-drivers-per-ear-and-68-hour-battery-life.1411098.0.html"], "note": "Nothing 공식 스펙과 Notebookcheck 동일 확인"},
+   {"claim": "xMEMS 실리콘 진동판 플라스틱 대비 95배 강성", "sources": ["https://nothing.tech/products/headphone-1-pro", "https://www.gizmochina.com/2026/09/29/nothing-headphone-1-pro-launched-price-specs-features/"], "note": "Nothing 공식: '95 times stiffer than plastic'. Gizmochina 동일 확인"},
+   {"claim": "68시간 배터리(ANC OFF/AAC), 30시간(ANC ON), 5분 충전 4시간", "sources": ["https://nothing.tech/products/headphone-1-pro", "https://www.techradar.com/audio/wireless-headphones/nothing-headphone-1-pro-review"], "note": "Nothing 공식 스펙, TechRadar 리뷰 동일 확인"},
+   {"claim": "$399, 327g, 46dB ANC 10마이크, BT 6.1", "sources": ["https://nothing.tech/products/headphone-1-pro", "https://www.notebookcheck.net/Nothing-Headphone-1-Pro-launches-with-three-drivers-per-ear-and-68-hour-battery-life.1411098.0.html"], "note": "가격·무게·ANC·블루투스 버전 모두 교차 확인"}
+ ],
+ "cards": [
+  {
+   "kind": "hook",
+   "img_query": "Nothing headphone transparent design overhead",
+   "title": "헤드폰 스피커가\n반도체로 바뀌었다",
+   "title_hl": ["반도체로 바뀌었다"],
+   "body": "플라스틱 진동판 대신 실리콘 칩이\n고음을 재생하기 시작했다",
+   "body_hl": ["실리콘 칩", "재생하기 시작했다"],
+   "credit": "Nothing"
+  },
+  {
+   "kind": "info",
+   "img_query": "xMEMS solid state speaker driver silicon micro",
+   "title": "xMEMS 고체 트위터\n실리콘이 고음을 맡는다",
+   "title_hl": ["xMEMS", "실리콘"],
+   "body": "진동판이 플라스틱보다 95배 단단\n고음 반응 속도가 훨씬 빠르다\n40mm 우퍼 + 13mm 미드와 역할 분담",
+   "body_hl": ["95배", "역할 분담"],
+   "credit": "Nothing / xMEMS"
+  },
+  {
+   "kind": "end",
+   "img_query": "Nothing Headphone Pro titanium headband glass premium",
+   "title": "68시간 배터리\n티타늄+유리 헤드밴드",
+   "title_hl": ["68시간", "티타늄+유리"],
+   "body": "ANC 46dB · 마이크 10개 · BT 6.1\n5분 충전으로 4시간 재생\n327g · $399(약 55만원)",
+   "body_hl": ["5분 충전", "$399"],
+   "sub": "Nothing 공식 스토어 · 흰색·검정",
+   "credit": "Nothing"
+  }
+ ]
+}
