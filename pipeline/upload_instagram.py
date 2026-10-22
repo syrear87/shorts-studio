@@ -440,6 +440,22 @@ def _wait_and_publish(kv, s3, r2key, cid, user_id, token, meta, publish, video, 
     return media_id
 
 
+def _th_recent_match(_th, body):
+    """최근 3개 스레드 글 중 본문 앞 30자가 같은 글의 permalink (시간 초과 뒤 중복 게시 방지)."""
+    try:
+        tok = _th.token()
+        me = _th._get("%s/me?fields=id&access_token=%s" % (_th.API, tok))["id"]
+        d = _th._get("%s/%s/threads?fields=text,permalink,timestamp&limit=3&access_token=%s"
+                     % (_th.API, me, tok)).get("data", [])
+        head = (body or "").strip()[:30]
+        for x in d:
+            if head and (x.get("text") or "").strip().startswith(head):
+                return x.get("permalink") or "posted"
+    except Exception:
+        pass
+    return None
+
+
 def _publish_threads_card(kv, keys, caption, threads_text, card_name, ig=True, extra_replies=()):
     """카드 이미지를 스레드에 게시한다 (IG 게시 여부와 무관하게 같은 경로를 쓴다).
     R2 정리(finally) 전에 호출해야 한다 — 스레드 컨테이너가 이미지 URL을 읽어야 하기 때문.
@@ -453,7 +469,30 @@ def _publish_threads_card(kv, keys, caption, threads_text, card_name, ig=True, e
             {"caption": caption})
         # 본문에 안 들어간 블로그 링크는 답글로 (2026-09-13, blog_link.append_link ③ 경로)
         _rep = list(_rep) + [r for r in (extra_replies or ()) if r]
-        th_link = _th.publish_images([base + "/" + k for k in keys], _body, replies=_rep)
+        # 네트워크 일시 장애는 안에서 두 번 더 친다 (2026-10-22: 09시 카드가 "Operation timed out"으로
+        # 실패 경보를 띄웠는데 세션이 다시 돌려 09:25 정상 게시됐다 — 경보만 헛으로 나갔다).
+        # 시간 초과는 '보냈는데 응답만 늦은' 경우가 있어, 재시도 전에 방금 글이 올라갔는지 먼저 본다.
+        th_link, _last = None, None
+        for _try in range(3):
+            try:
+                th_link = _th.publish_images([base + "/" + k for k in keys], _body, replies=_rep)
+                break
+            except Exception as _ne:
+                _last = _ne
+                _msg = str(_ne).lower()
+                if not any(w in _msg for w in ("timed out", "timeout", "connection", "temporarily",
+                                               "urlopen error", "reset", "502", "503", "504")):
+                    raise
+                import time as _t
+                _t.sleep(20 if _try == 0 else 60)
+                _posted = _th_recent_match(_th, _body)
+                if _posted:
+                    print("스레드: 시간 초과였지만 이미 게시됨 — 재시도 생략", flush=True)
+                    th_link = _posted
+                    break
+                print("스레드 게시 재시도 %d/2 (%s)" % (_try + 1, str(_ne)[:60]), flush=True)
+        if th_link is None and _last is not None:
+            raise _last
         print("스레드 게시 완료:", th_link, flush=True)
         if not ig:
             # 스레드 전용 슬롯의 멱등 가드용 기록 (IGCARD가 안 남으므로)
@@ -465,7 +504,7 @@ def _publish_threads_card(kv, keys, caption, threads_text, card_name, ig=True, e
         return th_link
     except Exception as _e:
         print("스레드 게시 실패:", str(_e)[:150], flush=True)
-        tg("⚠️ 카드 스레드 게시 실패%s — 제휴 링크 답글이 안 붙을 수 있음\n%s"
+        tg("⚠️ 카드 스레드 게시 실패%s (3회 시도)\n%s"
            % ("" if ig else " (이 슬롯은 스레드 전용이라 아무 데도 안 나갔다)", str(_e)[:150]))
         return None
 
